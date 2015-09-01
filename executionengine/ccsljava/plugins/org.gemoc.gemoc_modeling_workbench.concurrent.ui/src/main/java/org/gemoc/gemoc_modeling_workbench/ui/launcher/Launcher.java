@@ -24,6 +24,7 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PlatformUI;
+import org.gemoc.execution.engine.commons.EngineContextException;
 import org.gemoc.execution.engine.commons.ModelExecutionContext;
 import org.gemoc.execution.engine.commons.RunConfiguration;
 import org.gemoc.execution.engine.core.AbstractExecutionEngine;
@@ -84,12 +85,14 @@ public class Launcher extends fr.obeo.dsl.debug.ide.sirius.ui.launch.AbstractDSL
 			// execution context
 			// Then we see if we have a solver in the language def by trying to
 			// create a concurrent context
-			final ConcurrentModelExecutionContext concurrentexecutionContext = new ConcurrentModelExecutionContext(
-					runConfiguration, executionMode);
+
 			ISolver solver = null;
+			ConcurrentModelExecutionContext concurrentexecutionContext = null;
 			try {
+				concurrentexecutionContext = new ConcurrentModelExecutionContext(runConfiguration, executionMode);
 				solver = concurrentexecutionContext.getConcurrentLanguageDefinitionExtension().instanciateSolver();
 			} catch (CoreException e) {
+			} catch (EngineContextException e) {
 			}
 
 			// This allows us to decide which kind of engine to create
