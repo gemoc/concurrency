@@ -1,4 +1,4 @@
-package org.gemoc.gemoc_modeling_workbench.ui.commands;
+package org.gemoc.concurrent_addons.eventscheduling.timeline.ui.commands;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -30,10 +30,16 @@ import org.eclipse.ui.handlers.HandlerUtil;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.LogicalStep;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
 
-import fr.obeo.dsl.debug.ide.DSLBreakpoint;
+
+
+
 import fr.obeo.dsl.debug.ide.sirius.ui.DebugSiriusIdeUiPlugin;
 import fr.obeo.dsl.debug.ide.sirius.ui.SiriusEditorUtils;
 import fr.obeo.dsl.debug.ide.ui.EMFEditorUtils;
+//import fr.obeo.dsl.debug.ide.DSLBreakpoint;
+//import fr.obeo.dsl.debug.ide.sirius.ui.DebugSiriusIdeUiPlugin;
+//import fr.obeo.dsl.debug.ide.sirius.ui.SiriusEditorUtils;
+//import fr.obeo.dsl.debug.ide.ui.EMFEditorUtils;
 import fr.obeo.timeline.editpart.PossibleStepEditPart;
 import fr.obeo.timeline.model.PossibleStep;
 

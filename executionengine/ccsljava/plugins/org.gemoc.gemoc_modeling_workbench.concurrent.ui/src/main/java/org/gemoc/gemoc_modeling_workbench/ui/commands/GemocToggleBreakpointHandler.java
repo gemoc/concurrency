@@ -28,7 +28,7 @@ public class GemocToggleBreakpointHandler extends AbstractHandler {
 	 * The {@link DSLToggleBreakpointsUtils}.
 	 */
 	protected final DSLToggleBreakpointsUtils breakpointUtils;
-
+	 org.eclipse.ui.ide.IGotoMarker f;
 	/**
 	 * Constructor.
 	 */

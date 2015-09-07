@@ -69,5 +69,43 @@
 
 
 
+	<extension
+            point="org.eclipse.ui.commands">
+         <command
+               defaultHandler="org.gemoc.concurrent_addons.eventscheduling.timeline.ui.commands.ShowCallerHandler"
+               id="org.gemoc.concurrent_addons.eventscheduling.timeline.ui.commands.ShowCallerCommand"
+               name="Show Caller">
+         </command>
+      </extension>
+      <extension
+            point="org.eclipse.ui.menus">
+         <menuContribution
+               allPopups="false"
+               locationURI="popup:org.gemoc.concurrent_addons.eventscheduling.timeline.views.timeline.EventSchedulingTimeLineView">
+            <command
+                  commandId="org.gemoc.concurrent_addons.eventscheduling.timeline.ui.commands.ShowCallerCommand"
+                  icon="icons/showCaller.png"
+                  label="Show Caller"
+                  style="toggle">
+               <visibleWhen
+                     checkEnabled="true">
+                  <with
+                        variable="selection">
+                     <and>
+                        <count
+                              value="1">
+                        </count>
+                        <iterate>
+                           <instanceof
+                                 value="fr.obeo.timeline.editpart.PossibleStepEditPart">
+                           </instanceof>
+                        </iterate>
+                     </and>
+                  </with>
+               </visibleWhen>
+            </command>
+         </menuContribution>
+      </extension>
+
 
 </plugin>
