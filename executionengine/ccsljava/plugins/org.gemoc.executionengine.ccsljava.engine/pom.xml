@@ -11,4 +11,5 @@
 
   <artifactId>org.gemoc.executionengine.ccsljava.engine</artifactId>
   <packaging>eclipse-plugin</packaging>
+  <version>1.0.0-SNAPSHOT</version>
 </project>
