@@ -12,7 +12,7 @@ import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
 import org.gemoc.executionengine.ccsljava.engine.dse.NonDeterministicExecutionEngine;
 import org.gemoc.gemoc_language_workbench.api.core.EngineStatus.RunStatus;
 import org.gemoc.gemoc_language_workbench.api.core.IDeterministicExecutionEngine;
-import org.gemoc.gemoc_language_workbench.api.core.IExecutionEngine;
+import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
 import org.gemoc.gemoc_language_workbench.api.engine_addon.IEngineAddon;
 import org.gemoc.gemoc_modeling_workbench.ui.breakpoint.GemocBreakpoint;
 
@@ -71,13 +71,13 @@ public class PlainK3ModelDebugger extends AbstractGemocDebugger implements IEngi
 		super.steppingOver(threadName);
 
 		// We add a future break as soon as the step is over
-		addPredicateBreak(new BiPredicate<IExecutionEngine, MSEOccurrence>() {
+		addPredicateBreak(new BiPredicate<IBasicExecutionEngine, MSEOccurrence>() {
 
 			// The operation we want to step over
 			private MSEOccurrence steppedOver = engine.getCurrentMSEOccurrence();
 
 			@Override
-			public boolean test(IExecutionEngine t, MSEOccurrence u) {
+			public boolean test(IBasicExecutionEngine t, MSEOccurrence u) {
 				// We finished stepping over once the mseoccurrence is not there
 				// anymore
 				return !engine.getCurrentStack().contains(steppedOver);
@@ -91,9 +91,9 @@ public class PlainK3ModelDebugger extends AbstractGemocDebugger implements IEngi
 		super.steppingInto(threadName);
 
 		// We add a future break asap
-		addPredicateBreak(new BiPredicate<IExecutionEngine, MSEOccurrence>() {
+		addPredicateBreak(new BiPredicate<IBasicExecutionEngine, MSEOccurrence>() {
 			@Override
-			public boolean test(IExecutionEngine t, MSEOccurrence u) {
+			public boolean test(IBasicExecutionEngine t, MSEOccurrence u) {
 				// We finished stepping as soon as we encounter a new step
 				return true;
 			}
@@ -182,27 +182,27 @@ public class PlainK3ModelDebugger extends AbstractGemocDebugger implements IEngi
 	}
 
 	@Override
-	public void engineStarted(IExecutionEngine executionEngine) {
+	public void engineStarted(IBasicExecutionEngine executionEngine) {
 		spawnRunningThread(Thread.currentThread().getName(), engine.getExecutionContext().getResourceModel()
 				.getContents().get(0));
 	}
 
 	@Override
-	public void engineStopped(IExecutionEngine engine) {
+	public void engineStopped(IBasicExecutionEngine engine) {
 		if (!isTerminated(Thread.currentThread().getName())) {
 			terminated(Thread.currentThread().getName());
 		}
 	}
 
 	@Override
-	public void aboutToExecuteLogicalStep(IExecutionEngine executionEngine, LogicalStep logicalStepToApply) {
+	public void aboutToExecuteLogicalStep(IBasicExecutionEngine executionEngine, LogicalStep logicalStepToApply) {
 		if (!control(Thread.currentThread().getName(), logicalStepToApply)) {
 			throw new RuntimeException("Debug thread has stopped.");
 		}
 	}
 
 	@Override
-	public void aboutToExecuteMSEOccurrence(IExecutionEngine executionEngine, MSEOccurrence mseOccurrence) {
+	public void aboutToExecuteMSEOccurrence(IBasicExecutionEngine executionEngine, MSEOccurrence mseOccurrence) {
 		ToPushPop aaa = new ToPushPop(mseOccurrence, true);
 		toPushPop.add(aaa);
 		if (!control(Thread.currentThread().getName(), mseOccurrence)) {
@@ -211,7 +211,7 @@ public class PlainK3ModelDebugger extends AbstractGemocDebugger implements IEngi
 	}
 	
 	@Override
-	public void mseOccurrenceExecuted(IExecutionEngine engine, MSEOccurrence mseOccurrence) {
+	public void mseOccurrenceExecuted(IBasicExecutionEngine engine, MSEOccurrence mseOccurrence) {
 		ToPushPop aaa = new ToPushPop(mseOccurrence, false);
 		toPushPop.add(aaa);
 	}
@@ -256,35 +256,35 @@ public class PlainK3ModelDebugger extends AbstractGemocDebugger implements IEngi
 	/* --------------------------------------------------------- */
 
 	@Override
-	public void engineAboutToStart(IExecutionEngine engine) {
+	public void engineAboutToStart(IBasicExecutionEngine engine) {
 	}
 
 	@Override
-	public void proposedLogicalStepsChanged(IExecutionEngine engine, Collection<LogicalStep> logicalSteps) {
+	public void proposedLogicalStepsChanged(IBasicExecutionEngine engine, Collection<LogicalStep> logicalSteps) {
 	}
 
 	@Override
-	public void engineAboutToDispose(IExecutionEngine engine) {
+	public void engineAboutToDispose(IBasicExecutionEngine engine) {
 	}
 
 	@Override
-	public void aboutToSelectLogicalStep(IExecutionEngine engine, Collection<LogicalStep> logicalSteps) {
+	public void aboutToSelectLogicalStep(IBasicExecutionEngine engine, Collection<LogicalStep> logicalSteps) {
 	}
 
 	@Override
-	public void logicalStepSelected(IExecutionEngine engine, LogicalStep selectedLogicalStep) {
+	public void logicalStepSelected(IBasicExecutionEngine engine, LogicalStep selectedLogicalStep) {
 	}
 
 	@Override
-	public void engineStatusChanged(IExecutionEngine engineRunnable, RunStatus newStatus) {
+	public void engineStatusChanged(IBasicExecutionEngine engineRunnable, RunStatus newStatus) {
 	}
 
 	@Override
-	public void engineAboutToStop(IExecutionEngine engine) {
+	public void engineAboutToStop(IBasicExecutionEngine engine) {
 	}
 
 	@Override
-	public void logicalStepExecuted(IExecutionEngine engine, LogicalStep logicalStepExecuted) {
+	public void logicalStepExecuted(IBasicExecutionEngine engine, LogicalStep logicalStepExecuted) {
 	}
 
 }

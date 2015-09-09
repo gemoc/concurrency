@@ -4,7 +4,7 @@ import org.gemoc.executionengine.ccsljava.api.core.ILogicalStepDecider;
 import org.gemoc.executionengine.ccsljava.api.core.INonDeterministicExecutionEngine;
 import org.gemoc.executionframework.ui.views.engine.actions.AbstractEngineAction;
 import org.gemoc.gemoc_language_workbench.api.core.EngineStatus.RunStatus;
-import org.gemoc.gemoc_language_workbench.api.core.IExecutionEngine;
+import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
 import org.gemoc.gemoc_modeling_workbench.concurrent.ui.SharedIcons;
 import org.gemoc.gemoc_modeling_workbench.concurrent.ui.deciders.AbstractUserDecider;
 
@@ -88,7 +88,7 @@ public class PauseResumeEngineDeciderAction extends AbstractEngineAction
 	}
 
 	@Override
-	public void engineSelectionChanged(IExecutionEngine engine) {
+	public void engineSelectionChanged(IBasicExecutionEngine engine) {
 		super.engineSelectionChanged(engine);
 		if(engine != null){
 			if (engine instanceof INonDeterministicExecutionEngine)

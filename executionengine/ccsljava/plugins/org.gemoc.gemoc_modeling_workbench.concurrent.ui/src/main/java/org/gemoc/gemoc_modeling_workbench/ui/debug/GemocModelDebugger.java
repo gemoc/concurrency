@@ -9,7 +9,7 @@ import org.gemoc.execution.engine.trace.gemoc_execution_trace.LogicalStep;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
 import org.gemoc.executionengine.ccsljava.engine.dse.NonDeterministicExecutionEngine;
 import org.gemoc.gemoc_language_workbench.api.core.EngineStatus.RunStatus;
-import org.gemoc.gemoc_language_workbench.api.core.IExecutionEngine;
+import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
 import org.gemoc.gemoc_language_workbench.api.engine_addon.IEngineAddon;
 import org.gemoc.gemoc_modeling_workbench.ui.breakpoint.GemocBreakpoint;
 
@@ -25,7 +25,7 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 	/**
 	 * The {@link NonDeterministicExecutionEngine} to debug.
 	 */
-	private final IExecutionEngine engine;
+	private final IBasicExecutionEngine engine;
 
 	/**
 	 * Tells if the logical step level stack frame is created.
@@ -42,7 +42,7 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 	 */
 	private boolean breakNextLogicalStep;
 	
-	public GemocModelDebugger(IDSLDebugEventProcessor target, IExecutionEngine engine) {
+	public GemocModelDebugger(IDSLDebugEventProcessor target, IBasicExecutionEngine engine) {
 		super(target);
 		this.engine = engine;
 	}
@@ -173,29 +173,29 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 	}
 
 	@Override
-	public void engineAboutToStart(IExecutionEngine engine) 
+	public void engineAboutToStart(IBasicExecutionEngine engine) 
 	{
 	}
 	
 	@Override
-	public void engineStarted(IExecutionEngine executionEngine) 
+	public void engineStarted(IBasicExecutionEngine executionEngine) 
 	{
 		spawnRunningThread(Thread.currentThread().getName(), engine.getExecutionContext().getResourceModel().getContents().get(0));
 	}
 
 
 	@Override
-	public void aboutToSelectLogicalStep(IExecutionEngine engine, Collection<LogicalStep> logicalSteps) 
+	public void aboutToSelectLogicalStep(IBasicExecutionEngine engine, Collection<LogicalStep> logicalSteps) 
 	{
 	}
 
 	@Override
-	public void logicalStepSelected(IExecutionEngine engine, LogicalStep selectedLogicalStep) 
+	public void logicalStepSelected(IBasicExecutionEngine engine, LogicalStep selectedLogicalStep) 
 	{
 	}
 
 	@Override
-	public void engineStopped(IExecutionEngine engine) 
+	public void engineStopped(IBasicExecutionEngine engine) 
 	{
 		if (!isTerminated(Thread.currentThread().getName())) 
 		{
@@ -204,7 +204,7 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 	}
 
 	@Override
-	public void aboutToExecuteLogicalStep(IExecutionEngine executionEngine, LogicalStep logicalStepToApply) 
+	public void aboutToExecuteLogicalStep(IBasicExecutionEngine executionEngine, LogicalStep logicalStepToApply) 
 	{
 		if (!control(Thread.currentThread().getName(), logicalStepToApply))
 		{
@@ -213,7 +213,7 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 	}
 
 	@Override
-	public void aboutToExecuteMSEOccurrence(IExecutionEngine executionEngine, MSEOccurrence mseOccurrence) 
+	public void aboutToExecuteMSEOccurrence(IBasicExecutionEngine executionEngine, MSEOccurrence mseOccurrence) 
 	{
 		if (!control(Thread.currentThread().getName(), mseOccurrence))
 		{
@@ -229,27 +229,27 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 	}
 
 	@Override
-	public void engineStatusChanged(IExecutionEngine engineRunnable, RunStatus newStatus) 
+	public void engineStatusChanged(IBasicExecutionEngine engineRunnable, RunStatus newStatus) 
 	{
 	}
 
 	@Override
-	public void engineAboutToStop(IExecutionEngine engine) 
+	public void engineAboutToStop(IBasicExecutionEngine engine) 
 	{
 	}
 
 	@Override
-	public void logicalStepExecuted(IExecutionEngine engine, LogicalStep logicalStepExecuted) 
+	public void logicalStepExecuted(IBasicExecutionEngine engine, LogicalStep logicalStepExecuted) 
 	{
 	}
 
 	@Override
-	public void mseOccurrenceExecuted(IExecutionEngine engine, MSEOccurrence mseOccurrence) 
+	public void mseOccurrenceExecuted(IBasicExecutionEngine engine, MSEOccurrence mseOccurrence) 
 	{
 	}
 
 	@Override
-	public void proposedLogicalStepsChanged(IExecutionEngine engine,
+	public void proposedLogicalStepsChanged(IBasicExecutionEngine engine,
 			Collection<LogicalStep> logicalSteps) {
 		// TODO Auto-generated method stub
 		
@@ -276,7 +276,7 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 	}
 
 	@Override
-	public void engineAboutToDispose(IExecutionEngine engine) {
+	public void engineAboutToDispose(IBasicExecutionEngine engine) {
 		// TODO Auto-generated method stub
 		
 	}

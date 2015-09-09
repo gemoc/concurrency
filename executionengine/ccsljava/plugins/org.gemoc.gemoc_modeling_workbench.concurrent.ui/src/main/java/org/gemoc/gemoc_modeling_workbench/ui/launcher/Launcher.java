@@ -36,7 +36,7 @@ import org.gemoc.executionengine.ccsljava.engine.dse.NonDeterministicExecutionEn
 import org.gemoc.gemoc_language_workbench.api.core.EngineStatus.RunStatus;
 import org.gemoc.gemoc_language_workbench.api.core.ExecutionMode;
 import org.gemoc.gemoc_language_workbench.api.core.IDeterministicExecutionEngine;
-import org.gemoc.gemoc_language_workbench.api.core.IExecutionEngine;
+import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
 import org.gemoc.gemoc_language_workbench.api.engine_addon.IEngineAddon;
 import org.gemoc.gemoc_language_workbench.extensions.k3.PlainK3ExecutionEngine;
 import org.gemoc.gemoc_language_workbench.extensions.sirius.services.AbstractGemocAnimatorServices;
@@ -57,7 +57,7 @@ public class Launcher extends fr.obeo.dsl.debug.ide.sirius.ui.launch.AbstractDSL
 
 	public final static String MODEL_ID = "org.gemoc.gemoc_modeling_workbench.ui.debugModel";
 
-	private IExecutionEngine _executionEngine;
+	private IBasicExecutionEngine _executionEngine;
 
 	@Override
 	public void launch(final ILaunchConfiguration configuration, final String mode, final ILaunch launch,
@@ -154,9 +154,9 @@ public class Launcher extends fr.obeo.dsl.debug.ide.sirius.ui.launch.AbstractDSL
 
 	private boolean isEngineAlreadyRunning(URI launchedModelURI) throws CoreException {
 		// make sure there is no other running engine on this model
-		Collection<IExecutionEngine> engines = org.gemoc.execution.engine.Activator.getDefault().gemocRunningEngineRegistry
+		Collection<IBasicExecutionEngine> engines = org.gemoc.execution.engine.Activator.getDefault().gemocRunningEngineRegistry
 				.getRunningEngines().values();
-		for (IExecutionEngine engine : engines) {
+		for (IBasicExecutionEngine engine : engines) {
 			AbstractExecutionEngine observable = (AbstractExecutionEngine) engine;
 			if (observable.getRunningStatus() != RunStatus.Stopped
 					&& observable.getExecutionContext().getResourceModel().getURI().equals(launchedModelURI)) {
@@ -238,9 +238,9 @@ public class Launcher extends fr.obeo.dsl.debug.ide.sirius.ui.launch.AbstractDSL
 		// we add this dummy break
 		try {
 			if (configuration.getAttribute(RunConfiguration.LAUNCH_BREAK_START, false)) {
-				res.addPredicateBreak(new BiPredicate<IExecutionEngine, MSEOccurrence>() {
+				res.addPredicateBreak(new BiPredicate<IBasicExecutionEngine, MSEOccurrence>() {
 					@Override
-					public boolean test(IExecutionEngine t, MSEOccurrence u) {
+					public boolean test(IBasicExecutionEngine t, MSEOccurrence u) {
 						return true;
 					}
 				});

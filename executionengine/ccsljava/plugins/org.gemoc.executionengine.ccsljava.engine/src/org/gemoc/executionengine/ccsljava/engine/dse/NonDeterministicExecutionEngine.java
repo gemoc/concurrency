@@ -17,7 +17,7 @@ import org.gemoc.executionengine.ccsljava.api.moc.ISolver;
 import org.gemoc.gemoc_language_workbench.api.core.EngineStatus;
 import org.gemoc.gemoc_language_workbench.api.core.IDisposable;
 import org.gemoc.gemoc_language_workbench.api.core.IExecutionContext;
-import org.gemoc.gemoc_language_workbench.api.core.IExecutionEngine;
+import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
 import org.gemoc.gemoc_language_workbench.api.core.IFutureAction;
 import org.gemoc.gemoc_language_workbench.api.engine_addon.IEngineAddon;
 
@@ -62,7 +62,7 @@ import fr.inria.aoste.timesquare.ecl.feedback.feedback.When;
  * actually executed.</li>
  * </ul>
  * 
- * @see IExecutionEngine
+ * @see IBasicExecutionEngine
  * 
  * @author flatombe
  * @author didier.vojtisek@inria.fr

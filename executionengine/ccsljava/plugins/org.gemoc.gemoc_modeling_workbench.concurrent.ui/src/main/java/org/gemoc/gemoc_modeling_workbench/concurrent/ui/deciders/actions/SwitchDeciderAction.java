@@ -10,7 +10,7 @@ import org.gemoc.commons.eclipse.ui.ViewHelper;
 import org.gemoc.executionengine.ccsljava.api.core.INonDeterministicExecutionEngine;
 import org.gemoc.executionframework.ui.views.engine.EnginesStatusView;
 import org.gemoc.executionframework.ui.views.engine.actions.AbstractEngineAction;
-import org.gemoc.gemoc_language_workbench.api.core.IExecutionEngine;
+import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
 
 public class SwitchDeciderAction extends AbstractEngineAction
 {
@@ -80,7 +80,7 @@ public class SwitchDeciderAction extends AbstractEngineAction
 
 	
 	@Override
-	public void engineSelectionChanged(IExecutionEngine engine) 
+	public void engineSelectionChanged(IBasicExecutionEngine engine) 
 	{
 		super.engineSelectionChanged(engine);
 		if (engine instanceof INonDeterministicExecutionEngine) {

@@ -40,7 +40,7 @@ import org.gemoc.executionengine.ccsljava.api.dsa.executors.CodeExecutionExcepti
 import org.gemoc.executionengine.ccsljava.api.dsa.executors.ICodeExecutor;
 import org.gemoc.executionengine.ccsljava.api.moc.ISolver;
 import org.gemoc.gemoc_language_workbench.api.core.IExecutionContext;
-import org.gemoc.gemoc_language_workbench.api.core.IExecutionEngine;
+import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
 import org.gemoc.gemoc_language_workbench.api.engine_addon.DefaultEngineAddon;
 
 /**
@@ -55,7 +55,7 @@ import org.gemoc.gemoc_language_workbench.api.engine_addon.DefaultEngineAddon;
 public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddon {
 
 	private IConcurrentExecutionContext _executionContext;
-	private IExecutionEngine _executionEngine;
+	private IBasicExecutionEngine _executionEngine;
 	private ExecutionTraceModel _executionTraceModel;
 	private Choice _lastChoice;
 	private Branch _currentBranch;
@@ -283,7 +283,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 		return _currentBranch;
 	}
 
-	private void setUp(IExecutionEngine engine) {
+	private void setUp(IBasicExecutionEngine engine) {
 		if (_executionContext == null) {
 			
 			if(!(engine.getExecutionContext() instanceof IConcurrentExecutionContext)){
@@ -381,13 +381,13 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 	}
 
 	@Override
-	public void aboutToSelectLogicalStep(IExecutionEngine engine, Collection<LogicalStep> logicalSteps) {
+	public void aboutToSelectLogicalStep(IBasicExecutionEngine engine, Collection<LogicalStep> logicalSteps) {
 		setUp(engine);
 		updateTraceModelBeforeDeciding(logicalSteps);
 	}
 
 	@Override
-	public void logicalStepExecuted(IExecutionEngine engine, LogicalStep logicalStepExecuted) {
+	public void logicalStepExecuted(IBasicExecutionEngine engine, LogicalStep logicalStepExecuted) {
 		setUp(engine);
 		updateTraceModelAfterExecution(logicalStepExecuted);
 	}
@@ -416,7 +416,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 	}
 
 	@Override
-	public void proposedLogicalStepsChanged(IExecutionEngine engine, final Collection<LogicalStep> logicalSteps) {
+	public void proposedLogicalStepsChanged(IBasicExecutionEngine engine, final Collection<LogicalStep> logicalSteps) {
 		RecordingCommand command = new RecordingCommand(getEditingDomain(), "update trace model") {
 
 			@Override
@@ -432,7 +432,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 	}
 
 	@Override
-	public void mseOccurrenceExecuted(IExecutionEngine engine, MSEOccurrence mseOccurrence) {
+	public void mseOccurrenceExecuted(IBasicExecutionEngine engine, MSEOccurrence mseOccurrence) {
 
 		if (stateChanged || currentState == null) {
 
@@ -453,7 +453,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 	}
 
 	@Override
-	public void engineStopped(IExecutionEngine engine) {
+	public void engineStopped(IBasicExecutionEngine engine) {
 		modifyTrace(new Runnable() {
 
 			@Override
@@ -469,7 +469,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 	}
 
 	@Override
-	public void engineAboutToStart(IExecutionEngine engine) {
+	public void engineAboutToStart(IBasicExecutionEngine engine) {
 		setUp(engine);
 	}
 }

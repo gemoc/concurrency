@@ -12,17 +12,17 @@ import org.gemoc.executionengine.ccsljava.engine.eventscheduling.trace.EventSche
 import org.gemoc.executionframework.ui.utils.ViewUtils;
 import org.gemoc.gemoc_language_workbench.api.core.EngineStatus.RunStatus;
 import org.gemoc.gemoc_language_workbench.api.core.IDisposable;
-import org.gemoc.gemoc_language_workbench.api.core.IExecutionEngine;
+import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
 import org.gemoc.gemoc_language_workbench.api.engine_addon.IEngineAddon;
 
 import fr.obeo.timeline.view.AbstractTimelineProvider;
 
 public class EventSchedulingTimelineProvider extends AbstractTimelineProvider implements IEngineAddon, IDisposable {
 
-	private IExecutionEngine _engine;
+	private IBasicExecutionEngine _engine;
 	private EventSchedulingModelExecutionTracingAddon _tracingAddon;
 	
-	public EventSchedulingTimelineProvider(IExecutionEngine engine) {
+	public EventSchedulingTimelineProvider(IBasicExecutionEngine engine) {
 		_engine = engine;
 		_engine.getExecutionContext().getExecutionPlatform().addEngineAddon(this);
 	}
@@ -225,7 +225,7 @@ public class EventSchedulingTimelineProvider extends AbstractTimelineProvider im
 	private int _numberOfChoices = 0;
 	private int _numberOfSteps = 0;
 	
-	private void update(IExecutionEngine engine) 
+	private void update(IBasicExecutionEngine engine) 
 	{
 		if (engine == _engine
 			&& getExecutionTrace() != null
@@ -298,74 +298,74 @@ public class EventSchedulingTimelineProvider extends AbstractTimelineProvider im
 	}
 
 	@Override
-	public void engineAboutToStart(IExecutionEngine engine) 
+	public void engineAboutToStart(IBasicExecutionEngine engine) 
 	{
 	}
 
 	@Override
-	public void engineStarted(IExecutionEngine executionEngine) 
+	public void engineStarted(IBasicExecutionEngine executionEngine) 
 	{
 	}
 
 
 	@Override
-	public void aboutToExecuteLogicalStep(IExecutionEngine executionEngine, LogicalStep logicalStepToApply) 
+	public void aboutToExecuteLogicalStep(IBasicExecutionEngine executionEngine, LogicalStep logicalStepToApply) 
 	{
 	}
 
 	@Override
-	public void aboutToExecuteMSEOccurrence(IExecutionEngine executionEngine, MSEOccurrence mseOccurrence) 
+	public void aboutToExecuteMSEOccurrence(IBasicExecutionEngine executionEngine, MSEOccurrence mseOccurrence) 
 	{
 	}
 
 	@Override
-	public void engineAboutToStop(IExecutionEngine engine) {
+	public void engineAboutToStop(IBasicExecutionEngine engine) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void engineStopped(IExecutionEngine engine) {
+	public void engineStopped(IBasicExecutionEngine engine) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void aboutToSelectLogicalStep(IExecutionEngine engine, Collection<LogicalStep> logicalSteps) 
+	public void aboutToSelectLogicalStep(IBasicExecutionEngine engine, Collection<LogicalStep> logicalSteps) 
 	{
 		update(engine);
 	}
 
 	@Override
-	public void logicalStepSelected(IExecutionEngine engine, LogicalStep selectedLogicalStep) 
+	public void logicalStepSelected(IBasicExecutionEngine engine, LogicalStep selectedLogicalStep) 
 	{
 		update(engine);
 	}
 
 	@Override
-	public void logicalStepExecuted(IExecutionEngine engine,
+	public void logicalStepExecuted(IBasicExecutionEngine engine,
 			LogicalStep logicalStepExecuted) {
 	}
 
 	@Override
-	public void mseOccurrenceExecuted(IExecutionEngine engine, MSEOccurrence mseOccurrence) {
+	public void mseOccurrenceExecuted(IBasicExecutionEngine engine, MSEOccurrence mseOccurrence) {
 	}
 
 	@Override
-	public void engineStatusChanged(IExecutionEngine engine, RunStatus newStatus) {
+	public void engineStatusChanged(IBasicExecutionEngine engine, RunStatus newStatus) {
 	}
 
 	protected void setSelectedLogicalStep(LogicalStep ls) {
 	}
 
 	@Override
-	public void proposedLogicalStepsChanged(IExecutionEngine engine,
+	public void proposedLogicalStepsChanged(IBasicExecutionEngine engine,
 			Collection<LogicalStep> logicalSteps) {
 		update(engine);
 	}
 
 	@Override
-	public void engineAboutToDispose(IExecutionEngine engine) {
+	public void engineAboutToDispose(IBasicExecutionEngine engine) {
 	}
 
 

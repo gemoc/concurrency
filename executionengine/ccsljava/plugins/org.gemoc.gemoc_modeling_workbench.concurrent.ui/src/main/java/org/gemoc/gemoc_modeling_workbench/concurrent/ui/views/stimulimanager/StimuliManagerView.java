@@ -53,7 +53,7 @@ import org.gemoc.executionframework.ui.IMSEPresenter;
 import org.gemoc.executionframework.ui.views.engine.EngineSelectionDependentViewPart;
 import org.gemoc.gemoc_language_workbench.api.core.EngineStatus.RunStatus;
 import org.gemoc.gemoc_language_workbench.api.core.ExecutionMode;
-import org.gemoc.gemoc_language_workbench.api.core.IExecutionEngine;
+import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
 import org.gemoc.gemoc_language_workbench.api.engine_addon.IEngineAddon;
 import org.gemoc.gemoc_modeling_workbench.concurrent.ui.SharedIcons;
 import org.gemoc.gemoc_modeling_workbench.concurrent.ui.views.step.LogicalStepsView;
@@ -620,7 +620,7 @@ public class StimuliManagerView extends EngineSelectionDependentViewPart impleme
 	/**
 	 * Listen the engine change of state.
 	 */
-	private void update(IExecutionEngine engine) 
+	private void update(IBasicExecutionEngine engine) 
 	{
 		if (engine == _currentSelectedEngine)
 		{
@@ -648,7 +648,7 @@ public class StimuliManagerView extends EngineSelectionDependentViewPart impleme
 	 * Listen the engine selection in the enginesStatusView
 	 */
 	@Override
-	public void engineSelectionChanged(IExecutionEngine engine) {
+	public void engineSelectionChanged(IBasicExecutionEngine engine) {
 		if (engine != null
 			&& engine instanceof INonDeterministicExecutionEngine) 
 		{
@@ -732,7 +732,7 @@ public class StimuliManagerView extends EngineSelectionDependentViewPart impleme
 		_viewer.getTable().setFocus();
 	}
 
-	public IExecutionEngine getEngine() 
+	public IBasicExecutionEngine getEngine() 
 	{
 		return _currentSelectedEngine;
 	}
@@ -877,83 +877,83 @@ public class StimuliManagerView extends EngineSelectionDependentViewPart impleme
 	}
 
 	@Override
-	public void engineAboutToStart(IExecutionEngine engine) {
+	public void engineAboutToStart(IBasicExecutionEngine engine) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void engineStarted(IExecutionEngine executionEngine) {
+	public void engineStarted(IBasicExecutionEngine executionEngine) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void engineAboutToStop(IExecutionEngine engine) {
+	public void engineAboutToStop(IBasicExecutionEngine engine) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void engineStopped(IExecutionEngine engine) {
+	public void engineStopped(IBasicExecutionEngine engine) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void aboutToSelectLogicalStep(IExecutionEngine engine, Collection<LogicalStep> logicalSteps) 
+	public void aboutToSelectLogicalStep(IBasicExecutionEngine engine, Collection<LogicalStep> logicalSteps) 
 	{
 		update(engine);
 	}
 
 	@Override
-	public void logicalStepSelected(IExecutionEngine engine, LogicalStep selectedLogicalStep) {
+	public void logicalStepSelected(IBasicExecutionEngine engine, LogicalStep selectedLogicalStep) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void aboutToExecuteLogicalStep(IExecutionEngine engine,
+	public void aboutToExecuteLogicalStep(IBasicExecutionEngine engine,
 			LogicalStep logicalStepToExecute) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void logicalStepExecuted(IExecutionEngine engine,
+	public void logicalStepExecuted(IBasicExecutionEngine engine,
 			LogicalStep logicalStepExecuted) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void aboutToExecuteMSEOccurrence(IExecutionEngine engine,
+	public void aboutToExecuteMSEOccurrence(IBasicExecutionEngine engine,
 			MSEOccurrence mseOccurrence) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void mseOccurrenceExecuted(IExecutionEngine engine, MSEOccurrence mseOccurrence) {
+	public void mseOccurrenceExecuted(IBasicExecutionEngine engine, MSEOccurrence mseOccurrence) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void engineStatusChanged(IExecutionEngine engine, RunStatus newStatus) {
+	public void engineStatusChanged(IBasicExecutionEngine engine, RunStatus newStatus) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void proposedLogicalStepsChanged(IExecutionEngine engine,
+	public void proposedLogicalStepsChanged(IBasicExecutionEngine engine,
 			Collection<LogicalStep> logicalSteps) {
 		update(engine);
 		
 	}
 
 	@Override
-	public void engineAboutToDispose(IExecutionEngine engine) {
+	public void engineAboutToDispose(IBasicExecutionEngine engine) {
 	}
 
 
