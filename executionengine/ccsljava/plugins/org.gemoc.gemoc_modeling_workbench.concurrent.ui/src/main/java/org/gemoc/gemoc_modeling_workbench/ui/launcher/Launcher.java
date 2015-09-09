@@ -27,7 +27,6 @@ import org.eclipse.ui.PlatformUI;
 import org.gemoc.execution.engine.commons.EngineContextException;
 import org.gemoc.execution.engine.commons.ModelExecutionContext;
 import org.gemoc.execution.engine.commons.RunConfiguration;
-import org.gemoc.execution.engine.core.AbstractExecutionEngine;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
 import org.gemoc.executionengine.ccsljava.api.core.INonDeterministicExecutionEngine;
 import org.gemoc.executionengine.ccsljava.api.moc.ISolver;
@@ -37,6 +36,7 @@ import org.gemoc.gemoc_language_workbench.api.core.EngineStatus.RunStatus;
 import org.gemoc.gemoc_language_workbench.api.core.ExecutionMode;
 import org.gemoc.gemoc_language_workbench.api.core.IDeterministicExecutionEngine;
 import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
+import org.gemoc.gemoc_language_workbench.api.core.IExecutionEngine;
 import org.gemoc.gemoc_language_workbench.api.engine_addon.IEngineAddon;
 import org.gemoc.gemoc_language_workbench.extensions.k3.PlainK3ExecutionEngine;
 import org.gemoc.gemoc_language_workbench.extensions.sirius.services.AbstractGemocAnimatorServices;
@@ -157,7 +157,7 @@ public class Launcher extends fr.obeo.dsl.debug.ide.sirius.ui.launch.AbstractDSL
 		Collection<IBasicExecutionEngine> engines = org.gemoc.execution.engine.Activator.getDefault().gemocRunningEngineRegistry
 				.getRunningEngines().values();
 		for (IBasicExecutionEngine engine : engines) {
-			AbstractExecutionEngine observable = (AbstractExecutionEngine) engine;
+			IExecutionEngine observable = (IExecutionEngine) engine;
 			if (observable.getRunningStatus() != RunStatus.Stopped
 					&& observable.getExecutionContext().getResourceModel().getURI().equals(launchedModelURI)) {
 				String message = "An engine is already running on this model, please stop it first";
