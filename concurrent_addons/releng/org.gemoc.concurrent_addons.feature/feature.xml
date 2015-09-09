@@ -18,13 +18,6 @@
    </license>
 
    <plugin
-         id="fr.obeo.timeline"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="fr.inria.aoste.timesquare.backend.vcdgenerator.gemocAdaptation"
          download-size="0"
          install-size="0"
