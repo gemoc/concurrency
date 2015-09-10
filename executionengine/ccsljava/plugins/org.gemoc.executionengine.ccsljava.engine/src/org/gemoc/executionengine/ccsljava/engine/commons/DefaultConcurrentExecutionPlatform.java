@@ -9,6 +9,8 @@ import org.gemoc.executionengine.ccsljava.api.dsa.executors.ICodeExecutor;
 import org.gemoc.executionengine.ccsljava.api.dse.IMSEStateController;
 import org.gemoc.executionengine.ccsljava.api.extensions.languages.ConcurrentLanguageDefinitionExtension;
 import org.gemoc.gemoc_language_workbench.api.core.IRunConfiguration;
+import org.gemoc.gemoc_language_workbench.api.engine_addon.IEngineAddon;
+import org.gemoc.gemoc_language_workbench.api.extensions.engine_addon.EngineAddonSpecificationExtension;
 
 public class DefaultConcurrentExecutionPlatform extends DefaultExecutionPlatform implements IConcurrentExecutionPlatform  {
 	
@@ -18,9 +20,18 @@ public class DefaultConcurrentExecutionPlatform extends DefaultExecutionPlatform
 	
 	public DefaultConcurrentExecutionPlatform(ConcurrentLanguageDefinitionExtension _languageDefinition, IRunConfiguration runConfiguration) throws CoreException 
 	{
-		super(_languageDefinition, runConfiguration);		
+		super(_languageDefinition, runConfiguration);	
+//		for (EngineAddonSpecificationExtension extension : runConfiguration.getEngineAddonExtensions())
+//		{
+//			addEngineAddon(extension.instanciateComponent());
+//		}
+//		for (IEngineAddon addon : _languageDefinition.instanciateEngineAddons())
+//		{
+//			addEngineAddon(addon);			
+//		}
 		_codeExecutor = _languageDefinition.instanciateCodeExecutor();
 		_clockControllers = _languageDefinition.instanciateMSEStateControllers();
+		
 	}
 
 
