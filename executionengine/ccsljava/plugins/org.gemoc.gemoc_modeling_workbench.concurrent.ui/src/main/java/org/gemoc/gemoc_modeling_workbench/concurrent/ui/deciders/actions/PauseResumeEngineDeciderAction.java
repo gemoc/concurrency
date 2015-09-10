@@ -1,10 +1,10 @@
 package org.gemoc.gemoc_modeling_workbench.concurrent.ui.deciders.actions;
 
+import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
 import org.gemoc.executionengine.ccsljava.api.core.ILogicalStepDecider;
-import org.gemoc.executionengine.ccsljava.api.core.INonDeterministicExecutionEngine;
 import org.gemoc.executionframework.ui.views.engine.actions.AbstractEngineAction;
 import org.gemoc.gemoc_language_workbench.api.core.EngineStatus.RunStatus;
-import org.gemoc.gemoc_language_workbench.api.core.IExecutionEngine;
+import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
 import org.gemoc.gemoc_modeling_workbench.concurrent.ui.SharedIcons;
 import org.gemoc.gemoc_modeling_workbench.concurrent.ui.deciders.AbstractUserDecider;
 
@@ -44,8 +44,8 @@ public class PauseResumeEngineDeciderAction extends AbstractEngineAction
 				setEnabled(	true);
 				
 				// find the decider opposed to the one currently used by the engine
-				if (getCurrentSelectedEngine() instanceof INonDeterministicExecutionEngine) {
-					INonDeterministicExecutionEngine engine_cast = (INonDeterministicExecutionEngine) getCurrentSelectedEngine();
+				if (getCurrentSelectedEngine() instanceof IConcurrentExecutionEngine) {
+					IConcurrentExecutionEngine engine_cast = (IConcurrentExecutionEngine) getCurrentSelectedEngine();
 				_currentAction = DeciderManager.getSwitchDeciderAction(engine_cast.getLogicalStepDecider());
 				if(_currentAction.equals(_stepByStepDeciderAction)){
 					setToolTipText("Suspend associated engine using "+ _currentAction.getText());
@@ -65,9 +65,9 @@ public class PauseResumeEngineDeciderAction extends AbstractEngineAction
 	public void run()
 	{
 		if (getCurrentSelectedEngine() != null
-			&& _currentAction != null && getCurrentSelectedEngine() instanceof INonDeterministicExecutionEngine)
+			&& _currentAction != null && getCurrentSelectedEngine() instanceof IConcurrentExecutionEngine)
 		{
-			INonDeterministicExecutionEngine engine_cast = (INonDeterministicExecutionEngine) getCurrentSelectedEngine();
+			IConcurrentExecutionEngine engine_cast = (IConcurrentExecutionEngine) getCurrentSelectedEngine();
 			ILogicalStepDecider savedDecider = engine_cast.getLogicalStepDecider();
 			// apply the decider change
 			_currentAction.run();			
@@ -88,11 +88,11 @@ public class PauseResumeEngineDeciderAction extends AbstractEngineAction
 	}
 
 	@Override
-	public void engineSelectionChanged(IExecutionEngine engine) {
+	public void engineSelectionChanged(IBasicExecutionEngine engine) {
 		super.engineSelectionChanged(engine);
 		if(engine != null){
-			if (engine instanceof INonDeterministicExecutionEngine)
-				_currentAction.setEngine((INonDeterministicExecutionEngine)engine);
+			if (engine instanceof IConcurrentExecutionEngine)
+				_currentAction.setEngine((IConcurrentExecutionEngine)engine);
 			updateButton();
 		}
 	}

@@ -39,14 +39,14 @@ import org.gemoc.execution.engine.core.GemocRunningEnginesRegistry;
 import org.gemoc.execution.engine.trace.LogicalStepHelper;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.LogicalStep;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
-import org.gemoc.executionengine.ccsljava.api.core.INonDeterministicExecutionEngine;
+import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
 import org.gemoc.executionframework.ui.IMSEPresenter;
 import org.gemoc.executionframework.ui.utils.ViewUtils;
 import org.gemoc.executionframework.ui.views.engine.EngineSelectionDependentViewPart;
 import org.gemoc.executionframework.ui.views.engine.actions.StopEngineAction;
 import org.gemoc.gemoc_language_workbench.api.core.EngineStatus.RunStatus;
 import org.gemoc.gemoc_language_workbench.api.core.ExecutionMode;
-import org.gemoc.gemoc_language_workbench.api.core.IExecutionEngine;
+import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
 import org.gemoc.gemoc_modeling_workbench.concurrent.ui.Activator;
 import org.gemoc.gemoc_modeling_workbench.concurrent.ui.SharedIcons;
 import org.gemoc.gemoc_modeling_workbench.concurrent.ui.deciders.actions.PauseResumeEngineDeciderAction;
@@ -263,14 +263,14 @@ public class LogicalStepsView extends EngineSelectionDependentViewPart implement
 		_viewer.getControl().setFocus();
 	}
 
-	private INonDeterministicExecutionEngine _currentEngine;
+	private IConcurrentExecutionEngine _currentEngine;
 
 	@Override
-	public void engineSelectionChanged(IExecutionEngine engine)
+	public void engineSelectionChanged(IBasicExecutionEngine engine)
 	{
-		if (engine != null && engine instanceof INonDeterministicExecutionEngine && engine.getExecutionContext().getExecutionMode().equals(ExecutionMode.Animation))
+		if (engine != null && engine instanceof IConcurrentExecutionEngine && engine.getExecutionContext().getExecutionMode().equals(ExecutionMode.Animation))
 		{
-			_currentEngine = (INonDeterministicExecutionEngine)engine;
+			_currentEngine = (IConcurrentExecutionEngine)engine;
 			_viewer.setInput(_currentEngine);
 			if (_currentEngine != null && !_currentEngine.getRunningStatus().equals(RunStatus.Stopped))
 			{
@@ -283,7 +283,7 @@ public class LogicalStepsView extends EngineSelectionDependentViewPart implement
 			
 			// display engine full name in tooltip
 			GemocRunningEnginesRegistry registry = org.gemoc.execution.engine.Activator.getDefault().gemocRunningEngineRegistry;
-			for (Entry<String, IExecutionEngine> e : registry.getRunningEngines().entrySet())
+			for (Entry<String, IBasicExecutionEngine> e : registry.getRunningEngines().entrySet())
 			{
 				if (e.getValue() == engine)
 				{

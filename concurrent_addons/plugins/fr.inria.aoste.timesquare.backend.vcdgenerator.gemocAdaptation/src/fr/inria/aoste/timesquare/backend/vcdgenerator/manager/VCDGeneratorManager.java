@@ -14,9 +14,9 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Display;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.LogicalStep;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
-import org.gemoc.executionengine.ccsljava.api.core.INonDeterministicExecutionEngine;
+import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
 import org.gemoc.executionengine.ccsljava.api.moc.ISolver;
-import org.gemoc.gemoc_language_workbench.api.core.IExecutionEngine;
+import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
 import org.gemoc.gemoc_language_workbench.api.engine_addon.DefaultEngineAddon;
 
 import fr.inria.aoste.timesquare.backend.manager.visible.ClockEntity;
@@ -139,9 +139,9 @@ public class VCDGeneratorManager extends DefaultEngineAddon{
 	private ISolver _solver = null;
 	
 	@Override
-	public void engineAboutToStart(IExecutionEngine engine) {
-		if(engine instanceof INonDeterministicExecutionEngine){
-			_solver = ((INonDeterministicExecutionEngine)engine).getSolver();	
+	public void engineAboutToStart(IBasicExecutionEngine engine) {
+		if(engine instanceof IConcurrentExecutionEngine){
+			_solver = ((IConcurrentExecutionEngine)engine).getSolver();	
 		}
 		_behaviorList = null;
 		_behaviorList = new Vector<AbstractVCDClockBehavior>();
@@ -309,7 +309,7 @@ public class VCDGeneratorManager extends DefaultEngineAddon{
 	 * @since 1.0.0
 	 */
 	@Override
-	public void engineStarted(IExecutionEngine executionEngine) {
+	public void engineStarted(IBasicExecutionEngine executionEngine) {
 		
 		IPath fin = executionEngine.getExecutionContext().getWorkspace().getExecutionPath();
 		IFolder folder = ResourcesPlugin.getWorkspace().getRoot().getFolder(fin);
@@ -385,7 +385,7 @@ public class VCDGeneratorManager extends DefaultEngineAddon{
 	 * @since 1.0.0
 	 */
 	@Override
-	public void engineAboutToStop(IExecutionEngine engine) {
+	public void engineAboutToStop(IBasicExecutionEngine engine) {
 		_currentStep++;
 		if (_scoreBoard != null)
 		{
@@ -432,7 +432,7 @@ public class VCDGeneratorManager extends DefaultEngineAddon{
 	 * @since 1.0.0
 	 */
 	@Override
-	public void logicalStepExecuted(IExecutionEngine engine, LogicalStep logicalStepExecuted){
+	public void logicalStepExecuted(IBasicExecutionEngine engine, LogicalStep logicalStepExecuted){
 		if (_scoreBoard == null || logicalStepExecuted == null)
 			return;
 		
@@ -586,7 +586,7 @@ public class VCDGeneratorManager extends DefaultEngineAddon{
 	 * @since 1.0.0
 	 */
 	@Override
-	public void engineStopped(IExecutionEngine engine) {
+	public void engineStopped(IBasicExecutionEngine engine) {
 		// System.out.println("Finalize VCDGeneratorManager");
 		engineAboutToStop(engine);
 		if (_scoreBoard != null)
@@ -597,7 +597,7 @@ public class VCDGeneratorManager extends DefaultEngineAddon{
 	
 	
 	@Override
-	public void engineAboutToDispose(IExecutionEngine engine) {
+	public void engineAboutToDispose(IBasicExecutionEngine engine) {
 		super.engineAboutToDispose(engine);
 		if (_vcdEditor != null){
 			_vcdEditor.getEditorSite().getPage().closeEditor(_vcdEditor, true);		

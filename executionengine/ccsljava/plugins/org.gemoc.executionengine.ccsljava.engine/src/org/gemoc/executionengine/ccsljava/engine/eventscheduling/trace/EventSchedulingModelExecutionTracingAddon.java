@@ -35,12 +35,12 @@ import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.ModelState;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.SolverState;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionContext;
-import org.gemoc.executionengine.ccsljava.api.core.INonDeterministicExecutionEngine;
+import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
 import org.gemoc.executionengine.ccsljava.api.dsa.executors.CodeExecutionException;
 import org.gemoc.executionengine.ccsljava.api.dsa.executors.ICodeExecutor;
 import org.gemoc.executionengine.ccsljava.api.moc.ISolver;
 import org.gemoc.gemoc_language_workbench.api.core.IExecutionContext;
-import org.gemoc.gemoc_language_workbench.api.core.IExecutionEngine;
+import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
 import org.gemoc.gemoc_language_workbench.api.engine_addon.DefaultEngineAddon;
 
 /**
@@ -55,7 +55,7 @@ import org.gemoc.gemoc_language_workbench.api.engine_addon.DefaultEngineAddon;
 public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddon {
 
 	private IConcurrentExecutionContext _executionContext;
-	private IExecutionEngine _executionEngine;
+	private IBasicExecutionEngine _executionEngine;
 	private ExecutionTraceModel _executionTraceModel;
 	private Choice _lastChoice;
 	private Branch _currentBranch;
@@ -90,8 +90,8 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 	public void branch(Choice choice) throws ModelExecutionTracingException {
 		internalBranch(choice);
 		_backToPastHappened = true;
-		if (_executionEngine instanceof INonDeterministicExecutionEngine) {
-			((INonDeterministicExecutionEngine) _executionEngine).getLogicalStepDecider().preempt();
+		if (_executionEngine instanceof IConcurrentExecutionEngine) {
+			((IConcurrentExecutionEngine) _executionEngine).getLogicalStepDecider().preempt();
 		}
 	}
 
@@ -198,8 +198,8 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 
 	private void restoreSolverState(Choice choice) {
 
-		if (_executionEngine instanceof INonDeterministicExecutionEngine) {
-			INonDeterministicExecutionEngine engine_cast = (INonDeterministicExecutionEngine) _executionEngine;
+		if (_executionEngine instanceof IConcurrentExecutionEngine) {
+			IConcurrentExecutionEngine engine_cast = (IConcurrentExecutionEngine) _executionEngine;
 			ISolver solver = engine_cast.getSolver();
 			Activator.getDefault().debug(
 					"restoring solver state: " + choice.getContextState().getSolverState().getSerializableModel());
@@ -257,8 +257,8 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 				ModelState modelState = currentState;
 				contextState.setModelState(modelState);
 
-				if (_executionEngine instanceof INonDeterministicExecutionEngine) {
-					INonDeterministicExecutionEngine engine_cast = (INonDeterministicExecutionEngine) _executionEngine;
+				if (_executionEngine instanceof IConcurrentExecutionEngine) {
+					IConcurrentExecutionEngine engine_cast = (IConcurrentExecutionEngine) _executionEngine;
 					SolverState solverState = Gemoc_execution_traceFactory.eINSTANCE.createSolverState();
 					solverState.setSerializableModel(engine_cast.getSolver().getState());
 					contextState.setSolverState(solverState);
@@ -283,7 +283,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 		return _currentBranch;
 	}
 
-	private void setUp(IExecutionEngine engine) {
+	private void setUp(IBasicExecutionEngine engine) {
 		if (_executionContext == null) {
 			
 			if(!(engine.getExecutionContext() instanceof IConcurrentExecutionContext)){
@@ -381,13 +381,13 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 	}
 
 	@Override
-	public void aboutToSelectLogicalStep(IExecutionEngine engine, Collection<LogicalStep> logicalSteps) {
+	public void aboutToSelectLogicalStep(IBasicExecutionEngine engine, Collection<LogicalStep> logicalSteps) {
 		setUp(engine);
 		updateTraceModelBeforeDeciding(logicalSteps);
 	}
 
 	@Override
-	public void logicalStepExecuted(IExecutionEngine engine, LogicalStep logicalStepExecuted) {
+	public void logicalStepExecuted(IBasicExecutionEngine engine, LogicalStep logicalStepExecuted) {
 		setUp(engine);
 		updateTraceModelAfterExecution(logicalStepExecuted);
 	}
@@ -404,8 +404,8 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 				try {
 					restoreModelState(choice);
 					restoreSolverState(choice);
-					if (_executionEngine instanceof INonDeterministicExecutionEngine) {
-						((INonDeterministicExecutionEngine) _executionEngine).getLogicalStepDecider().preempt();
+					if (_executionEngine instanceof IConcurrentExecutionEngine) {
+						((IConcurrentExecutionEngine) _executionEngine).getLogicalStepDecider().preempt();
 					}
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -416,7 +416,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 	}
 
 	@Override
-	public void proposedLogicalStepsChanged(IExecutionEngine engine, final Collection<LogicalStep> logicalSteps) {
+	public void proposedLogicalStepsChanged(IBasicExecutionEngine engine, final Collection<LogicalStep> logicalSteps) {
 		RecordingCommand command = new RecordingCommand(getEditingDomain(), "update trace model") {
 
 			@Override
@@ -432,7 +432,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 	}
 
 	@Override
-	public void mseOccurrenceExecuted(IExecutionEngine engine, MSEOccurrence mseOccurrence) {
+	public void mseOccurrenceExecuted(IBasicExecutionEngine engine, MSEOccurrence mseOccurrence) {
 
 		if (stateChanged || currentState == null) {
 
@@ -453,7 +453,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 	}
 
 	@Override
-	public void engineStopped(IExecutionEngine engine) {
+	public void engineStopped(IBasicExecutionEngine engine) {
 		modifyTrace(new Runnable() {
 
 			@Override
@@ -469,7 +469,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 	}
 
 	@Override
-	public void engineAboutToStart(IExecutionEngine engine) {
+	public void engineAboutToStart(IBasicExecutionEngine engine) {
 		setUp(engine);
 	}
 }

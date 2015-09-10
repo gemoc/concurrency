@@ -29,7 +29,7 @@ import org.gemoc.execution.engine.core.CommandExecution;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.LogicalStep;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
 import org.gemoc.gemoc_language_workbench.api.core.EngineStatus.RunStatus;
-import org.gemoc.gemoc_language_workbench.api.core.IExecutionEngine;
+import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
 
 public abstract class AbstractGemocAnimatorServices {
 
@@ -292,69 +292,69 @@ public abstract class AbstractGemocAnimatorServices {
 		}
 
 		@Override
-		public void engineAboutToStart(IExecutionEngine engine) {
+		public void engineAboutToStart(IBasicExecutionEngine engine) {
 			// TODO Auto-generated method stub
 
 		}
 
 		@Override
-		public void engineStarted(IExecutionEngine executionEngine) {
+		public void engineStarted(IBasicExecutionEngine executionEngine) {
 			// TODO Auto-generated method stub
 
 		}
 
 		@Override
-		public void aboutToExecuteLogicalStep(IExecutionEngine executionEngine,
+		public void aboutToExecuteLogicalStep(IBasicExecutionEngine executionEngine,
 				LogicalStep logicalStepToApply) {
 			activate(executionEngine, logicalStepToApply);
 		}
 
 		@Override
-		public void aboutToExecuteMSEOccurrence(IExecutionEngine executionEngine,
+		public void aboutToExecuteMSEOccurrence(IBasicExecutionEngine executionEngine,
 				MSEOccurrence mseOccurrence) {
 			// TODO Auto-generated method stub
 
 		}
 
 		@Override
-		public void engineAboutToStop(IExecutionEngine engine) {
+		public void engineAboutToStop(IBasicExecutionEngine engine) {
 
 		}
 
 		@Override
-		public void engineStopped(IExecutionEngine engine) {
+		public void engineStopped(IBasicExecutionEngine engine) {
 			clear(engine);
 		}
 
 		@Override
-		public void aboutToSelectLogicalStep(IExecutionEngine engine, Collection<LogicalStep> logicalSteps) 
+		public void aboutToSelectLogicalStep(IBasicExecutionEngine engine, Collection<LogicalStep> logicalSteps) 
 		{
 			// TODO Auto-generated method stub
 
 		}
 
 		@Override
-		public void logicalStepSelected(IExecutionEngine engine,
+		public void logicalStepSelected(IBasicExecutionEngine engine,
 				LogicalStep selectedLogicalStep) {
 			// TODO Auto-generated method stub
 
 		}
 
 		@Override
-		public void logicalStepExecuted(IExecutionEngine engine,
+		public void logicalStepExecuted(IBasicExecutionEngine engine,
 				LogicalStep logicalStepExecuted) {
 			// TODO Auto-generated method stub
 
 		}
 
 		@Override
-		public void mseOccurrenceExecuted(IExecutionEngine engine, MSEOccurrence mseOccurrence) {
+		public void mseOccurrenceExecuted(IBasicExecutionEngine engine, MSEOccurrence mseOccurrence) {
 			// TODO Auto-generated method stub
 
 		}
 
 		@Override
-		public void engineStatusChanged(IExecutionEngine engine,
+		public void engineStatusChanged(IBasicExecutionEngine engine,
 				RunStatus newStatus) {
 			// TODO Auto-generated method stub
 
@@ -385,14 +385,14 @@ public abstract class AbstractGemocAnimatorServices {
 		}
 
 		@Override
-		public void proposedLogicalStepsChanged(IExecutionEngine engine,
+		public void proposedLogicalStepsChanged(IBasicExecutionEngine engine,
 				Collection<LogicalStep> logicalSteps) {
 			// TODO Auto-generated method stub
 			
 		}
 
 		@Override
-		public void engineAboutToDispose(IExecutionEngine engine) {
+		public void engineAboutToDispose(IBasicExecutionEngine engine) {
 			if (engine.getExecutionContext().getRunConfiguration()
 					.getAnimatorURI() != null) {
 				Session session = SessionManager.INSTANCE.getSession(engine

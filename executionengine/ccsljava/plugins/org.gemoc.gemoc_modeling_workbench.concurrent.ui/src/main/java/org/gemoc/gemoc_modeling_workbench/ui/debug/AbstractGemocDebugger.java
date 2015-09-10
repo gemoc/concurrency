@@ -5,7 +5,7 @@ import java.util.Set;
 import java.util.function.BiPredicate;
 
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
-import org.gemoc.gemoc_language_workbench.api.core.IExecutionEngine;
+import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
 import org.gemoc.gemoc_language_workbench.api.engine_addon.IEngineAddon;
 
 import fr.obeo.dsl.debug.ide.AbstractDSLDebugger;
@@ -17,28 +17,28 @@ public abstract class AbstractGemocDebugger extends AbstractDSLDebugger implemen
 		super(target);
 	}
 
-	private Set<BiPredicate<IExecutionEngine, MSEOccurrence>> predicateBreakPoints = new HashSet<BiPredicate<IExecutionEngine, MSEOccurrence>>();
-	private Set<BiPredicate<IExecutionEngine, MSEOccurrence>> predicateBreaks = new HashSet<BiPredicate<IExecutionEngine, MSEOccurrence>>();
+	private Set<BiPredicate<IBasicExecutionEngine, MSEOccurrence>> predicateBreakPoints = new HashSet<BiPredicate<IBasicExecutionEngine, MSEOccurrence>>();
+	private Set<BiPredicate<IBasicExecutionEngine, MSEOccurrence>> predicateBreaks = new HashSet<BiPredicate<IBasicExecutionEngine, MSEOccurrence>>();
 
 	
 	@Override
-	public void addPredicateBreakpoint(BiPredicate<IExecutionEngine, MSEOccurrence> predicate) {
+	public void addPredicateBreakpoint(BiPredicate<IBasicExecutionEngine, MSEOccurrence> predicate) {
 		predicateBreakPoints.add(predicate);
 	}
 
 	@Override
-	public void addPredicateBreak(BiPredicate<IExecutionEngine, MSEOccurrence> predicate) {
+	public void addPredicateBreak(BiPredicate<IBasicExecutionEngine, MSEOccurrence> predicate) {
 		predicateBreaks.add(predicate);
 	}
 	
 
 
-	protected boolean shouldBreakPredicates(IExecutionEngine engine, MSEOccurrence mseOccurrence) {
+	protected boolean shouldBreakPredicates(IBasicExecutionEngine engine, MSEOccurrence mseOccurrence) {
 
 		// We look at predicate breaks to remove the ones that are true
 		boolean shouldBreak2 = false;
-		Set<BiPredicate<IExecutionEngine, MSEOccurrence>> toRemove = new HashSet<BiPredicate<IExecutionEngine, MSEOccurrence>>();
-		for (BiPredicate<IExecutionEngine, MSEOccurrence> pred : predicateBreaks) {
+		Set<BiPredicate<IBasicExecutionEngine, MSEOccurrence>> toRemove = new HashSet<BiPredicate<IBasicExecutionEngine, MSEOccurrence>>();
+		for (BiPredicate<IBasicExecutionEngine, MSEOccurrence> pred : predicateBreaks) {
 			if (pred.test(engine, mseOccurrence)) {
 				shouldBreak2 = true;
 				toRemove.add(pred);
@@ -49,7 +49,7 @@ public abstract class AbstractGemocDebugger extends AbstractDSLDebugger implemen
 			return true;
 
 		// If no break yet, we look at predicate breakpoints
-		for (BiPredicate<IExecutionEngine, MSEOccurrence> pred : predicateBreakPoints) {
+		for (BiPredicate<IBasicExecutionEngine, MSEOccurrence> pred : predicateBreakPoints) {
 			if (pred.test(engine, mseOccurrence)) {
 				return true;
 			}

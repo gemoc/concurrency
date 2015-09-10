@@ -20,14 +20,14 @@ import org.gemoc.commons.eclipse.ui.Activator;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.Branch;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.Choice;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.LogicalStep;
-import org.gemoc.executionengine.ccsljava.api.core.INonDeterministicExecutionEngine;
+import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
 import org.gemoc.executionengine.ccsljava.engine.eventscheduling.trace.EventSchedulingModelExecutionTracingAddon;
 import org.gemoc.executionengine.ccsljava.engine.eventscheduling.trace.ModelExecutionTracingException;
 import org.gemoc.executionframework.ui.views.engine.IEngineSelectionListener;
 import org.gemoc.gemoc_language_workbench.api.core.EngineStatus.RunStatus;
 import org.gemoc.gemoc_language_workbench.api.core.ExecutionMode;
+import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
 import org.gemoc.gemoc_language_workbench.api.core.IDisposable;
-import org.gemoc.gemoc_language_workbench.api.core.IExecutionEngine;
 import org.gemoc.gemoc_modeling_workbench.concurrent.ui.deciders.AbstractUserDecider;
 
 import fr.obeo.timeline.editpart.PossibleStepEditPart;
@@ -50,9 +50,9 @@ public class EventSchedulingTimeLineView extends AbstractTimelineView implements
 	private IContentProvider _contentProvider;
 	private ILabelProvider _labelProvider;
 
-	private IExecutionEngine _currentEngine;
+	private IBasicExecutionEngine _currentEngine;
 
-	private WeakHashMap<IExecutionEngine, Integer> _positions = new WeakHashMap<IExecutionEngine, Integer>();
+	private WeakHashMap<IBasicExecutionEngine, Integer> _positions = new WeakHashMap<IBasicExecutionEngine, Integer>();
 
 	public EventSchedulingTimeLineView() {
 		_contentProvider = new AdapterFactoryContentProvider(adapterFactory);
@@ -113,7 +113,7 @@ public class EventSchedulingTimeLineView extends AbstractTimelineView implements
 	private ITimelineProvider _timelineProvider;
 	private MouseListener _mouseListener = null;
 
-	public void configure(IExecutionEngine engine) {
+	public void configure(IBasicExecutionEngine engine) {
 		if(engine == null) {
 			// TODO clear the view or leave it content set to the last engine ?
 		}
@@ -135,7 +135,7 @@ public class EventSchedulingTimeLineView extends AbstractTimelineView implements
 		}
 	}
 
-	private int getStartIndex(IExecutionEngine engine) {
+	private int getStartIndex(IBasicExecutionEngine engine) {
 		int start = 0;
 		if (_positions.containsKey(engine)) {
 			start = _positions.get(engine);
@@ -164,11 +164,11 @@ public class EventSchedulingTimeLineView extends AbstractTimelineView implements
 	}
 
 	@Override
-	public void engineSelectionChanged(IExecutionEngine engine) {
+	public void engineSelectionChanged(IBasicExecutionEngine engine) {
 		update(engine);
 	}
 
-	private boolean canDisplayTimeline(IExecutionEngine engine) {
+	private boolean canDisplayTimeline(IBasicExecutionEngine engine) {
 		if (engine.getExecutionContext().getExecutionMode().equals(ExecutionMode.Run)
 				&& engine.getRunningStatus().equals(RunStatus.Stopped)) {
 			return true;
@@ -226,8 +226,8 @@ public class EventSchedulingTimeLineView extends AbstractTimelineView implements
 	}
 
 	private void performExecutionStep(LogicalStep logicalStep) {
-		if (_currentEngine instanceof INonDeterministicExecutionEngine) {
-			INonDeterministicExecutionEngine engine_cast = (INonDeterministicExecutionEngine) _currentEngine;
+		if (_currentEngine instanceof IConcurrentExecutionEngine) {
+			IConcurrentExecutionEngine engine_cast = (IConcurrentExecutionEngine) _currentEngine;
 		if (engine_cast.getLogicalStepDecider() instanceof AbstractUserDecider) {
 			AbstractUserDecider decider = (AbstractUserDecider) engine_cast
 					.getLogicalStepDecider();
@@ -260,7 +260,7 @@ public class EventSchedulingTimeLineView extends AbstractTimelineView implements
 		return new TimelineEditPartFactory(false);
 	}
 
-	public void update(IExecutionEngine engine) {
+	public void update(IBasicExecutionEngine engine) {
 		if (engine != null) {
 			if (canDisplayTimeline(engine)) {
 				configure(engine);

@@ -27,16 +27,16 @@ import org.eclipse.ui.PlatformUI;
 import org.gemoc.execution.engine.commons.EngineContextException;
 import org.gemoc.execution.engine.commons.ModelExecutionContext;
 import org.gemoc.execution.engine.commons.RunConfiguration;
-import org.gemoc.execution.engine.core.AbstractExecutionEngine;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
-import org.gemoc.executionengine.ccsljava.api.core.INonDeterministicExecutionEngine;
+import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
 import org.gemoc.executionengine.ccsljava.api.moc.ISolver;
 import org.gemoc.executionengine.ccsljava.engine.commons.ConcurrentModelExecutionContext;
-import org.gemoc.executionengine.ccsljava.engine.dse.NonDeterministicExecutionEngine;
+import org.gemoc.executionengine.ccsljava.engine.dse.ConcurrentExecutionEngine;
 import org.gemoc.gemoc_language_workbench.api.core.EngineStatus.RunStatus;
 import org.gemoc.gemoc_language_workbench.api.core.ExecutionMode;
-import org.gemoc.gemoc_language_workbench.api.core.IDeterministicExecutionEngine;
+import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
 import org.gemoc.gemoc_language_workbench.api.core.IExecutionEngine;
+import org.gemoc.gemoc_language_workbench.api.core.ISequentialExecutionEngine;
 import org.gemoc.gemoc_language_workbench.api.engine_addon.IEngineAddon;
 import org.gemoc.gemoc_language_workbench.extensions.k3.PlainK3ExecutionEngine;
 import org.gemoc.gemoc_language_workbench.extensions.sirius.services.AbstractGemocAnimatorServices;
@@ -57,7 +57,7 @@ public class Launcher extends fr.obeo.dsl.debug.ide.sirius.ui.launch.AbstractDSL
 
 	public final static String MODEL_ID = "org.gemoc.gemoc_modeling_workbench.ui.debugModel";
 
-	private IExecutionEngine _executionEngine;
+	private IBasicExecutionEngine _executionEngine;
 
 	@Override
 	public void launch(final ILaunchConfiguration configuration, final String mode, final ILaunch launch,
@@ -100,7 +100,7 @@ public class Launcher extends fr.obeo.dsl.debug.ide.sirius.ui.launch.AbstractDSL
 			// in the xDSML file? not clear
 			// Or we would automatically find the appropriate engine...
 			if (solver != null) {
-				_executionEngine = new NonDeterministicExecutionEngine();
+				_executionEngine = new ConcurrentExecutionEngine();
 				// In any case we initialize the engine
 				_executionEngine.initialize(concurrentexecutionContext);
 			} else {
@@ -154,10 +154,10 @@ public class Launcher extends fr.obeo.dsl.debug.ide.sirius.ui.launch.AbstractDSL
 
 	private boolean isEngineAlreadyRunning(URI launchedModelURI) throws CoreException {
 		// make sure there is no other running engine on this model
-		Collection<IExecutionEngine> engines = org.gemoc.execution.engine.Activator.getDefault().gemocRunningEngineRegistry
+		Collection<IBasicExecutionEngine> engines = org.gemoc.execution.engine.Activator.getDefault().gemocRunningEngineRegistry
 				.getRunningEngines().values();
-		for (IExecutionEngine engine : engines) {
-			AbstractExecutionEngine observable = (AbstractExecutionEngine) engine;
+		for (IBasicExecutionEngine engine : engines) {
+			IExecutionEngine observable = (IExecutionEngine) engine;
 			if (observable.getRunningStatus() != RunStatus.Stopped
 					&& observable.getExecutionContext().getResourceModel().getURI().equals(launchedModelURI)) {
 				String message = "An engine is already running on this model, please stop it first";
@@ -226,21 +226,21 @@ public class Launcher extends fr.obeo.dsl.debug.ide.sirius.ui.launch.AbstractDSL
 
 		AbstractGemocDebugger res = null;
 
-		if (_executionEngine instanceof INonDeterministicExecutionEngine) {
+		if (_executionEngine instanceof IConcurrentExecutionEngine) {
 
 			res = new GemocModelDebugger(dispatcher, _executionEngine);
 
-		} else if (_executionEngine instanceof IDeterministicExecutionEngine) {
-			res = new PlainK3ModelDebugger(dispatcher, (IDeterministicExecutionEngine) _executionEngine);
+		} else if (_executionEngine instanceof ISequentialExecutionEngine) {
+			res = new PlainK3ModelDebugger(dispatcher, (ISequentialExecutionEngine) _executionEngine);
 		}
 
 		// If in the launch configuration it is asked to pause at the start,
 		// we add this dummy break
 		try {
 			if (configuration.getAttribute(RunConfiguration.LAUNCH_BREAK_START, false)) {
-				res.addPredicateBreak(new BiPredicate<IExecutionEngine, MSEOccurrence>() {
+				res.addPredicateBreak(new BiPredicate<IBasicExecutionEngine, MSEOccurrence>() {
 					@Override
-					public boolean test(IExecutionEngine t, MSEOccurrence u) {
+					public boolean test(IBasicExecutionEngine t, MSEOccurrence u) {
 						return true;
 					}
 				});

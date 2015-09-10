@@ -5,7 +5,7 @@ import java.util.Random;
 
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.LogicalStep;
 import org.gemoc.executionengine.ccsljava.api.core.ILogicalStepDecider;
-import org.gemoc.executionengine.ccsljava.api.core.INonDeterministicExecutionEngine;
+import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
 
 /**
  * Decider that will choose randomly
@@ -20,7 +20,7 @@ public class RandomDecider implements ILogicalStepDecider {
 	}
 
 	@Override
-	public LogicalStep decide(INonDeterministicExecutionEngine engine, List<LogicalStep> possibleLogicalSteps) {
+	public LogicalStep decide(IConcurrentExecutionEngine engine, List<LogicalStep> possibleLogicalSteps) {
 		int index = -1;
 		if (possibleLogicalSteps.size() < 2)
 		{
