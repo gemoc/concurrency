@@ -7,7 +7,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.gemoc.commons.eclipse.ui.ViewHelper;
-import org.gemoc.executionengine.ccsljava.api.core.INonDeterministicExecutionEngine;
+import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
 import org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.EventState;
 import org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.ExecutionStep;
 import org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.Future;
@@ -100,7 +100,7 @@ public class ScenarioPlayer extends ScenarioTool
 		resetPlayProgressIndex();
 		_fragment = null;
 		_mseContext.freeAllClocks();
-		((INonDeterministicExecutionEngine)_mseContext.getEngine()).recomputePossibleLogicalSteps();
+		((IConcurrentExecutionEngine)_mseContext.getEngine()).recomputePossibleLogicalSteps();
 	}
 	
 	

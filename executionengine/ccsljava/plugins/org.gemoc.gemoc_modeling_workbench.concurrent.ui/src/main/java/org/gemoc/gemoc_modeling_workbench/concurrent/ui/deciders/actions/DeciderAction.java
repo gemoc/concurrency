@@ -3,8 +3,8 @@ package org.gemoc.gemoc_modeling_workbench.concurrent.ui.deciders.actions;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.resource.ImageDescriptor;
+import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
 import org.gemoc.executionengine.ccsljava.api.core.ILogicalStepDecider;
-import org.gemoc.executionengine.ccsljava.api.core.INonDeterministicExecutionEngine;
 import org.gemoc.executionengine.ccsljava.api.extensions.deciders.DeciderSpecificationExtension;
 import org.gemoc.gemoc_modeling_workbench.concurrent.ui.Activator;
 
@@ -36,8 +36,8 @@ public class DeciderAction extends Action
 		}
 	}
 
-	protected INonDeterministicExecutionEngine _engine;
-	public void setEngine(INonDeterministicExecutionEngine engine) {
+	protected IConcurrentExecutionEngine _engine;
+	public void setEngine(IConcurrentExecutionEngine engine) {
 		_engine = engine;
 	}
 	

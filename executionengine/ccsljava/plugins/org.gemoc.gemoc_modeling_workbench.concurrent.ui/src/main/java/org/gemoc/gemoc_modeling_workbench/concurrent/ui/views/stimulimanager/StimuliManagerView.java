@@ -48,7 +48,7 @@ import org.eclipse.ui.IWorkbenchActionConstants;
 import org.gemoc.commons.eclipse.ui.ViewHelper;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.LogicalStep;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
-import org.gemoc.executionengine.ccsljava.api.core.INonDeterministicExecutionEngine;
+import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
 import org.gemoc.executionframework.ui.IMSEPresenter;
 import org.gemoc.executionframework.ui.views.engine.EngineSelectionDependentViewPart;
 import org.gemoc.gemoc_language_workbench.api.core.EngineStatus.RunStatus;
@@ -147,8 +147,8 @@ public class StimuliManagerView extends EngineSelectionDependentViewPart impleme
 	private Color representedEventColor;
 	private TableViewer _viewer;
 	private ViewContentProvider _contentProvider;
-	private INonDeterministicExecutionEngine _currentSelectedEngine;
-	private Map<INonDeterministicExecutionEngine, ModelSpecificEventContext> _mseContextMap = new HashMap<INonDeterministicExecutionEngine, ModelSpecificEventContext>();
+	private IConcurrentExecutionEngine _currentSelectedEngine;
+	private Map<IConcurrentExecutionEngine, ModelSpecificEventContext> _mseContextMap = new HashMap<IConcurrentExecutionEngine, ModelSpecificEventContext>();
 	private Filter _strategyFilterSelected;
 	private ISelectionChangedListener _decisionViewListener;
 	private SelectionListener _menuAndButtonListener;
@@ -650,9 +650,9 @@ public class StimuliManagerView extends EngineSelectionDependentViewPart impleme
 	@Override
 	public void engineSelectionChanged(IBasicExecutionEngine engine) {
 		if (engine != null
-			&& engine instanceof INonDeterministicExecutionEngine) 
+			&& engine instanceof IConcurrentExecutionEngine) 
 		{
-			_currentSelectedEngine = (INonDeterministicExecutionEngine) engine;
+			_currentSelectedEngine = (IConcurrentExecutionEngine) engine;
 			// if the selected engine is stopped we clean its cache and disable all commands
 			if (isEngineStopped())
 			{
