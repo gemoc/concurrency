@@ -2,10 +2,10 @@
 <feature
       id="org.gemoc.mocc.clocksystem.features.updatesite"
       label="Features for Exhaustive Exploration with ClockSystem"
-      version="0.1.1.qualifier"
+      version="0.0.1.qualifier"
       provider-name="ENSTA Bretagne">
 
-      <description>
+   <description>
       ClockSystem update site
    </description>
 
@@ -19,7 +19,7 @@
 are made available under the terms of the Eclipse Public License v1.0
 which accompanies this distribution, and is available at http://www.eclipse.org/legal/epl-v10.html
    </license>
-   
+
    <includes
          id="org.gemoc.mocc.clocksystem.common.feature"
          version="0.0.0"/>

@@ -2,11 +2,11 @@
 <feature
       id="org.gemoc.mocc.clocksystem.linonly.feature"
       label="ClockSystem Exhaustive Exploration Features (Linux ONLY)"
-      version="0.1.1.qualifier"
+      version="0.0.0.qualifier"
       provider-name="ENSTA Bretagne"
       os="linux">
 
-  <description>
+   <description>
       This feature provides the required core functionalities to perform Exhaustive Exploration from a ClockSystem File.
       NB: The feature first extracts the ClockSystem Virtual Machine (VM) to the Temp repository of your system. Only to use on Linux Machines.
    </description>

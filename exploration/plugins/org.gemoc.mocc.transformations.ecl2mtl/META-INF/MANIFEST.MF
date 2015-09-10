@@ -36,5 +36,5 @@ Export-Package: org.gemoc.mocc.transformations.ecl2mtl,
  org.gemoc.mocc.transformations.ecl2mtl.main,
  org.gemoc.mocc.transformations.ecl2mtl.services,
  org.gemoc.mocc.transformations.instance2clocksystem
-Bundle-Version: 0.0.0
+Bundle-Version: 0.0.1
 

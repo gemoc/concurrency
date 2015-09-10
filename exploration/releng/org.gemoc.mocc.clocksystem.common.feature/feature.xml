@@ -2,7 +2,7 @@
 <feature
       id="org.gemoc.mocc.clocksystem.common.feature"
       label="Common Features for ClockSystem"
-      version="0.1.1.qualifier"
+      version="0.0.0.qualifier"
       provider-name="ENSTA Bretagne">
 
    <description>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.gemoc.mocc.clocksystem.common.feature_0.1.1.qualifier.jar" id="org.gemoc.mocc.clocksystem.common.feature" version="0.1.1.qualifier">
+   <feature url="features/org.gemoc.mocc.clocksystem.common.feature_0.0.1.qualifier.jar" id="org.gemoc.mocc.clocksystem.common.feature" version="0.0.1.qualifier">
       <category name="Common"/>
    </feature>
-   <feature url="features/org.gemoc.mocc.clocksystem.winonly.feature_0.1.1.qualifier.jar" id="org.gemoc.mocc.clocksystem.winonly.feature" version="0.1.1.qualifier" os="win32">
+   <feature url="features/org.gemoc.mocc.clocksystem.winonly.feature_0.0.1.qualifier.jar" id="org.gemoc.mocc.clocksystem.winonly.feature" version="0.0.1.qualifier" os="win32">
       <category name="ClkSysWin"/>
    </feature>
-   <feature url="features/org.gemoc.mocc.clocksystem.linonly.feature_0.1.1.qualifier.jar" id="org.gemoc.mocc.clocksystem.linonly.feature" version="0.1.1.qualifier" os="linux">
+   <feature url="features/org.gemoc.mocc.clocksystem.linonly.feature_0.0.1.qualifier.jar" id="org.gemoc.mocc.clocksystem.linonly.feature" version="0.0.1.qualifier" os="linux">
       <category name="ClkSysLinux"/>
    </feature>
    <category-def name="Common" label="CommonID">
