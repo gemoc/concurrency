@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Generate: MTL rules - ClockSystem and Fiacre  UI
 Bundle-SymbolicName: org.gemoc.mocc.transformations.ecl2mtl.ui;singleton:=true
-Bundle-Version: 0.1.1.qualifier
+Bundle-Version: 0.0.1.qualifier
 Bundle-Activator: org.gemoc.mocc.transformations.ecl2mtl.ui.Activator
 Bundle-Vendor: ENSTA Bretagne
 Require-Bundle: org.eclipse.ui,
