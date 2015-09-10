@@ -33,10 +33,10 @@ Require-Bundle: org.eclipse.core.runtime,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Eclipse-LazyStart: true
+Import-Package: org.eclipse.ui.plugin
 Export-Package: org.gemoc.mocc.transformations.ecl2mtl,
  org.gemoc.mocc.transformations.ecl2mtl.libLoader,
  org.gemoc.mocc.transformations.ecl2mtl.main,
  org.gemoc.mocc.transformations.ecl2mtl.services,
  org.gemoc.mocc.transformations.instance2clocksystem
-Import-Package: org.eclipse.ui.plugin
 
