@@ -129,7 +129,7 @@ public class CompileAndGenerationClockSystemAction extends ActionDelegate implem
 								System.out.println("=====================================================================");
 								System.out.println("listURI: "+ listURI);
 								System.out.println("modelURI: "+modelURI);
-								System.out.println("mtlFile¨Path: "+mtlFilePath);
+								System.out.println("mtlFilePath: "+mtlFilePath);
 								System.out.println("GenRepo: "+genrepo);
 								System.out.println("=====================================================================");
 								
