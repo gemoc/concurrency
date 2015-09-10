@@ -7,13 +7,11 @@ Bundle-Activator: org.gemoc.mocc.transformations.ecl2mtl.Activator
 Bundle-Vendor: ENSTA Bretagne
 Require-Bundle: org.eclipse.core.runtime,
  fr.inria.aoste.timesquare.ecl,
- org.eclipse.emf.ecore,
  org.eclipse.ocl.examples.xtext.completeocl,
  org.eclipse.ocl.examples.pivot,
  org.eclipse.ocl.examples.xtext.base,
  org.eclipse.ocl.examples.xtext.essentialocl,
  org.gemoc.mocc.ccslmocc.model,
- org.eclipse.emf.ecore,
  org.eclipse.emf.ecore.xmi,
  org.eclipse.ocl,
  org.eclipse.ocl.ecore,
