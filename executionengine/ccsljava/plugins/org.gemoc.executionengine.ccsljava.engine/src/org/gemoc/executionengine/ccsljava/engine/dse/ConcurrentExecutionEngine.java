@@ -10,7 +10,7 @@ import org.gemoc.execution.engine.trace.gemoc_execution_trace.LogicalStep;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionContext;
 import org.gemoc.executionengine.ccsljava.api.core.ILogicalStepDecider;
-import org.gemoc.executionengine.ccsljava.api.core.INonDeterministicExecutionEngine;
+import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
 import org.gemoc.executionengine.ccsljava.api.dsa.executors.ICodeExecutor;
 import org.gemoc.executionengine.ccsljava.api.dse.IMSEStateController;
 import org.gemoc.executionengine.ccsljava.api.moc.ISolver;
@@ -62,19 +62,19 @@ import fr.inria.aoste.timesquare.ecl.feedback.feedback.When;
  * actually executed.</li>
  * </ul>
  * 
- * @see IBasicExecutionEngine
+ * @see IExecutionEngine
  * 
  * @author flatombe
  * @author didier.vojtisek@inria.fr
+ * @author julien.deantoni@polytech.unice.fr
  * @param <T>
  * 
  */
-public class NonDeterministicExecutionEngine extends AbstractExecutionEngine implements IDisposable,INonDeterministicExecutionEngine {
+public class ConcurrentExecutionEngine extends AbstractExecutionEngine implements IDisposable,IConcurrentExecutionEngine {
 
 	private IMSEStateController _mseStateController; 
-	
-	
-	public NonDeterministicExecutionEngine() 
+		
+	public ConcurrentExecutionEngine() 
 	{
 		super();
 	}
@@ -88,9 +88,7 @@ public class NonDeterministicExecutionEngine extends AbstractExecutionEngine imp
 		}
 	}
 	
-
 	private ILogicalStepDecider _logicalStepDecider;
-
 	
 	@Override
 	public ILogicalStepDecider getLogicalStepDecider()
@@ -104,14 +102,12 @@ public class NonDeterministicExecutionEngine extends AbstractExecutionEngine imp
 		_logicalStepDecider = newDecider;
 	}
 	
-	
-	private void computePossibleLogicalSteps() 
+	public void computePossibleLogicalSteps() 
 	{
 		_possibleLogicalSteps = getSolver().computeAndGetPossibleLogicalSteps();
 	}
-	
 
-	private void updatePossibleLogicalSteps()
+	public void updatePossibleLogicalSteps()
 	{
 		for(IMSEStateController c : getConcurrentExecutionContext().getConcurrentExecutionPlatform().getMSEStateControllers())
 		{
@@ -130,10 +126,8 @@ public class NonDeterministicExecutionEngine extends AbstractExecutionEngine imp
 		updatePossibleLogicalSteps();	
 		notifyProposedLogicalStepsChanged();
 	}
-	
 
 	protected List<LogicalStep> _possibleLogicalSteps = new ArrayList<>();
-	
 	
 	@Override
 	public List<LogicalStep> getPossibleLogicalSteps() 
@@ -160,7 +154,7 @@ public class NonDeterministicExecutionEngine extends AbstractExecutionEngine imp
 		}
 	}
 	
-	protected void notifyLogicalStepSelected() {
+	public void notifyLogicalStepSelected() {
 		for (IEngineAddon addon : getExecutionContext().getExecutionPlatform().getEngineAddons()) 
 		{
 			try {
@@ -171,7 +165,7 @@ public class NonDeterministicExecutionEngine extends AbstractExecutionEngine imp
 		}
 	}
 	
-	protected void notifyAboutToSelectLogicalStep() {
+	public void notifyAboutToSelectLogicalStep() {
 		for (IEngineAddon addon : getExecutionContext().getExecutionPlatform().getEngineAddons()) 
 		{
 			try {
@@ -194,13 +188,13 @@ public class NonDeterministicExecutionEngine extends AbstractExecutionEngine imp
 		}
 	}
 	
-	protected void setSelectedLogicalStep(LogicalStep ls)
-	{
-		synchronized (this) {
-			_selectedLogicalStep = ls;
-		}
-	}
-	
+//	public void setSelectedLogicalStep(LogicalStep ls)
+//	{
+//		synchronized (this) {
+//			_selectedLogicalStep = ls;
+//		}
+//	}
+//	
 	/**
 	 * 
 	 * @return the IConcurrenExecutionContext or null if no such context is available
@@ -224,7 +218,7 @@ public class NonDeterministicExecutionEngine extends AbstractExecutionEngine imp
 	}
 
 	
-	protected void notifyProposedLogicalStepsChanged(){
+	public void notifyProposedLogicalStepsChanged(){
 		for (IEngineAddon addon : getExecutionContext().getExecutionPlatform().getEngineAddons()) 
 		{
 			try {
@@ -240,7 +234,7 @@ public class NonDeterministicExecutionEngine extends AbstractExecutionEngine imp
 		return this.getClass().getName() + "@[Executor=" + getCodeExecutor() + " ; Solver=" + getSolver() + " ; ModelResource=" + _executionContext.getResourceModel()+ "]";
 	}
 	
-	protected void performExecutionStep() throws InterruptedException {
+	public void performExecutionStep() throws InterruptedException {
 		switchDeciderIfNecessary();
 						
 		computePossibleLogicalSteps();
@@ -310,7 +304,7 @@ public class NonDeterministicExecutionEngine extends AbstractExecutionEngine imp
 	 * 
 	 * @param logicalStepToApply
 	 */
-	protected void executeSelectedLogicalStep() {
+	public void executeSelectedLogicalStep() {
 		// = step in debug mode, goes to next logical step
 		// -> run all event occurrences of the logical step
 		// step into / open internal thread and pause them
@@ -435,6 +429,11 @@ public class NonDeterministicExecutionEngine extends AbstractExecutionEngine imp
 	@Override
 	public String engineKindName() {
 		return "GEMOC Concurrent Engine";
+	}
+
+	@Override
+	public void setSelectedLogicalStep(LogicalStep selectedLogicalStep) {
+		_selectedLogicalStep = selectedLogicalStep;	
 	}
 	
 }

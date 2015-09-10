@@ -35,7 +35,7 @@ import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.ModelState;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.SolverState;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionContext;
-import org.gemoc.executionengine.ccsljava.api.core.INonDeterministicExecutionEngine;
+import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
 import org.gemoc.executionengine.ccsljava.api.dsa.executors.CodeExecutionException;
 import org.gemoc.executionengine.ccsljava.api.dsa.executors.ICodeExecutor;
 import org.gemoc.executionengine.ccsljava.api.moc.ISolver;
@@ -90,8 +90,8 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 	public void branch(Choice choice) throws ModelExecutionTracingException {
 		internalBranch(choice);
 		_backToPastHappened = true;
-		if (_executionEngine instanceof INonDeterministicExecutionEngine) {
-			((INonDeterministicExecutionEngine) _executionEngine).getLogicalStepDecider().preempt();
+		if (_executionEngine instanceof IConcurrentExecutionEngine) {
+			((IConcurrentExecutionEngine) _executionEngine).getLogicalStepDecider().preempt();
 		}
 	}
 
@@ -198,8 +198,8 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 
 	private void restoreSolverState(Choice choice) {
 
-		if (_executionEngine instanceof INonDeterministicExecutionEngine) {
-			INonDeterministicExecutionEngine engine_cast = (INonDeterministicExecutionEngine) _executionEngine;
+		if (_executionEngine instanceof IConcurrentExecutionEngine) {
+			IConcurrentExecutionEngine engine_cast = (IConcurrentExecutionEngine) _executionEngine;
 			ISolver solver = engine_cast.getSolver();
 			Activator.getDefault().debug(
 					"restoring solver state: " + choice.getContextState().getSolverState().getSerializableModel());
@@ -257,8 +257,8 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 				ModelState modelState = currentState;
 				contextState.setModelState(modelState);
 
-				if (_executionEngine instanceof INonDeterministicExecutionEngine) {
-					INonDeterministicExecutionEngine engine_cast = (INonDeterministicExecutionEngine) _executionEngine;
+				if (_executionEngine instanceof IConcurrentExecutionEngine) {
+					IConcurrentExecutionEngine engine_cast = (IConcurrentExecutionEngine) _executionEngine;
 					SolverState solverState = Gemoc_execution_traceFactory.eINSTANCE.createSolverState();
 					solverState.setSerializableModel(engine_cast.getSolver().getState());
 					contextState.setSolverState(solverState);
@@ -404,8 +404,8 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 				try {
 					restoreModelState(choice);
 					restoreSolverState(choice);
-					if (_executionEngine instanceof INonDeterministicExecutionEngine) {
-						((INonDeterministicExecutionEngine) _executionEngine).getLogicalStepDecider().preempt();
+					if (_executionEngine instanceof IConcurrentExecutionEngine) {
+						((IConcurrentExecutionEngine) _executionEngine).getLogicalStepDecider().preempt();
 					}
 				} catch (Exception e) {
 					e.printStackTrace();

@@ -3,7 +3,7 @@ package org.gemoc.gemoc_modeling_workbench.concurrent.ui.views.stimulimanager;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import org.gemoc.executionengine.ccsljava.api.core.INonDeterministicExecutionEngine;
+import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
 import org.gemoc.executionengine.ccsljava.engine.dse.DefaultMSEStateController;
 import org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.Future;
 import org.gemoc.gemoc_modeling_workbench.concurrent.ui.views.stimulimanager.scenario.ScenarioManager;
@@ -11,7 +11,7 @@ import org.gemoc.gemoc_modeling_workbench.concurrent.ui.views.stimulimanager.sce
 public class ModelSpecificEventContext 
 {
 
-	private INonDeterministicExecutionEngine _engine;
+	private IConcurrentExecutionEngine _engine;
 	
 	private ModelSpecificEventSet _mseSet;
 	
@@ -20,7 +20,7 @@ public class ModelSpecificEventContext
 	private ScenarioManager _scenarioManager;
 
 	
-	public ModelSpecificEventContext(INonDeterministicExecutionEngine engine)
+	public ModelSpecificEventContext(IConcurrentExecutionEngine engine)
 	{
 		_engine = engine;
 		_executionStep = (int) engine.getEngineStatus().getNbLogicalStepRun();
@@ -128,7 +128,7 @@ public class ModelSpecificEventContext
 		return _mseSet.getMSEs();
 	}
 	
-	public INonDeterministicExecutionEngine getEngine()
+	public IConcurrentExecutionEngine getEngine()
 	{
 		return _engine;
 	}

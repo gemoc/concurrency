@@ -5,12 +5,16 @@ import java.util.List;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.LogicalStep;
 import org.gemoc.executionengine.ccsljava.api.dsa.executors.ICodeExecutor;
 import org.gemoc.executionengine.ccsljava.api.moc.ISolver;
-import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
+import org.gemoc.gemoc_language_workbench.api.core.IExecutionEngine;
 import org.gemoc.gemoc_language_workbench.api.core.IFutureAction;
 
-public interface INonDeterministicExecutionEngine extends IBasicExecutionEngine{
+public interface IConcurrentExecutionEngine extends IExecutionEngine{
 
 	IConcurrentExecutionContext getConcurrentExecutionContext();
+	
+	void computePossibleLogicalSteps();
+	
+	void updatePossibleLogicalSteps();
 	
 	void recomputePossibleLogicalSteps();
 
@@ -29,5 +33,16 @@ public interface INonDeterministicExecutionEngine extends IBasicExecutionEngine{
 	void setSolver(ISolver solver);
 
 	ICodeExecutor getCodeExecutor();
+	
+	void executeSelectedLogicalStep();
+	
+	void notifyLogicalStepSelected();
 
+	void notifyAboutToSelectLogicalStep();
+
+	void setSelectedLogicalStep(LogicalStep selectedLogicalStep);
+	
+	void notifyProposedLogicalStepsChanged();
+	
+	void performExecutionStep() throws InterruptedException;
 }

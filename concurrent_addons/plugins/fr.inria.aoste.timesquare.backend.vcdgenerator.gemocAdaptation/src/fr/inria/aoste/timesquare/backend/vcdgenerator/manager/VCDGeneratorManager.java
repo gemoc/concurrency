@@ -14,7 +14,7 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Display;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.LogicalStep;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
-import org.gemoc.executionengine.ccsljava.api.core.INonDeterministicExecutionEngine;
+import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
 import org.gemoc.executionengine.ccsljava.api.moc.ISolver;
 import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
 import org.gemoc.gemoc_language_workbench.api.engine_addon.DefaultEngineAddon;
@@ -140,8 +140,8 @@ public class VCDGeneratorManager extends DefaultEngineAddon{
 	
 	@Override
 	public void engineAboutToStart(IBasicExecutionEngine engine) {
-		if(engine instanceof INonDeterministicExecutionEngine){
-			_solver = ((INonDeterministicExecutionEngine)engine).getSolver();	
+		if(engine instanceof IConcurrentExecutionEngine){
+			_solver = ((IConcurrentExecutionEngine)engine).getSolver();	
 		}
 		_behaviorList = null;
 		_behaviorList = new Vector<AbstractVCDClockBehavior>();

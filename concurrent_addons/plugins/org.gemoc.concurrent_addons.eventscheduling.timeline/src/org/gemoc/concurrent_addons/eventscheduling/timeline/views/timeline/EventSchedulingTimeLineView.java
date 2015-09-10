@@ -20,14 +20,14 @@ import org.gemoc.commons.eclipse.ui.Activator;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.Branch;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.Choice;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.LogicalStep;
-import org.gemoc.executionengine.ccsljava.api.core.INonDeterministicExecutionEngine;
+import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
 import org.gemoc.executionengine.ccsljava.engine.eventscheduling.trace.EventSchedulingModelExecutionTracingAddon;
 import org.gemoc.executionengine.ccsljava.engine.eventscheduling.trace.ModelExecutionTracingException;
 import org.gemoc.executionframework.ui.views.engine.IEngineSelectionListener;
 import org.gemoc.gemoc_language_workbench.api.core.EngineStatus.RunStatus;
 import org.gemoc.gemoc_language_workbench.api.core.ExecutionMode;
-import org.gemoc.gemoc_language_workbench.api.core.IDisposable;
 import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
+import org.gemoc.gemoc_language_workbench.api.core.IDisposable;
 import org.gemoc.gemoc_modeling_workbench.concurrent.ui.deciders.AbstractUserDecider;
 
 import fr.obeo.timeline.editpart.PossibleStepEditPart;
@@ -226,8 +226,8 @@ public class EventSchedulingTimeLineView extends AbstractTimelineView implements
 	}
 
 	private void performExecutionStep(LogicalStep logicalStep) {
-		if (_currentEngine instanceof INonDeterministicExecutionEngine) {
-			INonDeterministicExecutionEngine engine_cast = (INonDeterministicExecutionEngine) _currentEngine;
+		if (_currentEngine instanceof IConcurrentExecutionEngine) {
+			IConcurrentExecutionEngine engine_cast = (IConcurrentExecutionEngine) _currentEngine;
 		if (engine_cast.getLogicalStepDecider() instanceof AbstractUserDecider) {
 			AbstractUserDecider decider = (AbstractUserDecider) engine_cast
 					.getLogicalStepDecider();

@@ -9,10 +9,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.LogicalStep;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
-import org.gemoc.executionengine.ccsljava.engine.dse.NonDeterministicExecutionEngine;
 import org.gemoc.gemoc_language_workbench.api.core.EngineStatus.RunStatus;
-import org.gemoc.gemoc_language_workbench.api.core.IDeterministicExecutionEngine;
 import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
+import org.gemoc.gemoc_language_workbench.api.core.ISequentialExecutionEngine;
 import org.gemoc.gemoc_language_workbench.api.engine_addon.IEngineAddon;
 import org.gemoc.gemoc_modeling_workbench.ui.breakpoint.GemocBreakpoint;
 
@@ -29,9 +28,9 @@ public class PlainK3ModelDebugger extends AbstractGemocDebugger implements IEngi
 	/**
 	 * The {@link NonDeterministicExecutionEngine} to debug.
 	 */
-	private final IDeterministicExecutionEngine engine;
+	private final ISequentialExecutionEngine engine;
 
-	public PlainK3ModelDebugger(IDSLDebugEventProcessor target, IDeterministicExecutionEngine engine) {
+	public PlainK3ModelDebugger(IDSLDebugEventProcessor target, ISequentialExecutionEngine engine) {
 		super(target);
 		this.engine = engine;
 	}

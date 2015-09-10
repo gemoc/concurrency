@@ -2,17 +2,17 @@ package org.gemoc.executionengine.ccsljava.engine.dse;
 
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionContext;
-import org.gemoc.executionengine.ccsljava.api.core.INonDeterministicExecutionEngine;
+import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
 import org.gemoc.gemoc_language_workbench.api.core.IExecutionContext;
 
 public abstract class OperationExecution 
 {
 
 	private MSEOccurrence _mseOccurrence;
-	private INonDeterministicExecutionEngine _engine;
+	private IConcurrentExecutionEngine _engine;
 	private Object _result;
 	
-	protected OperationExecution(MSEOccurrence mseOccurrence, INonDeterministicExecutionEngine engine)
+	protected OperationExecution(MSEOccurrence mseOccurrence, IConcurrentExecutionEngine engine)
 	{
 		_mseOccurrence = mseOccurrence;
 		_engine = engine;
@@ -25,7 +25,7 @@ public abstract class OperationExecution
 		return _engine.getConcurrentExecutionContext();
 	}
 	
-	protected INonDeterministicExecutionEngine getEngine()
+	protected IConcurrentExecutionEngine getEngine()
 	{
 		return _engine;
 	}

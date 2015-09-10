@@ -3,7 +3,7 @@ package org.gemoc.gemoc_modeling_workbench.concurrent.ui.views.step;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.LogicalStep;
-import org.gemoc.executionengine.ccsljava.api.core.INonDeterministicExecutionEngine;
+import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
 import org.gemoc.gemoc_language_workbench.api.core.EngineStatus.RunStatus;
 
 public class LogicalStepsViewContentProvider implements ITreeContentProvider {
@@ -20,9 +20,9 @@ public class LogicalStepsViewContentProvider implements ITreeContentProvider {
 
 	@Override
 	public Object[] getElements(Object inputElement) {
-		if (inputElement instanceof INonDeterministicExecutionEngine)
+		if (inputElement instanceof IConcurrentExecutionEngine)
 		{
-			INonDeterministicExecutionEngine engine = (INonDeterministicExecutionEngine)inputElement;
+			IConcurrentExecutionEngine engine = (IConcurrentExecutionEngine)inputElement;
 			if (engine.getRunningStatus().equals(RunStatus.Stopped))
 			{
 				String message = "Engine is not running";
@@ -52,9 +52,9 @@ public class LogicalStepsViewContentProvider implements ITreeContentProvider {
 
 	@Override
 	public Object[] getChildren(Object parentElement) {
-		if (parentElement instanceof INonDeterministicExecutionEngine)
+		if (parentElement instanceof IConcurrentExecutionEngine)
 		{
-			INonDeterministicExecutionEngine engine = (INonDeterministicExecutionEngine)parentElement;
+			IConcurrentExecutionEngine engine = (IConcurrentExecutionEngine)parentElement;
 			return engine.getPossibleLogicalSteps().toArray();
 		}
 		else if (parentElement instanceof LogicalStep)
@@ -74,9 +74,9 @@ public class LogicalStepsViewContentProvider implements ITreeContentProvider {
 	@Override
 	public boolean hasChildren(Object element) 
 	{
-		if (element instanceof INonDeterministicExecutionEngine)
+		if (element instanceof IConcurrentExecutionEngine)
 		{
-			INonDeterministicExecutionEngine engine = (INonDeterministicExecutionEngine)element;
+			IConcurrentExecutionEngine engine = (IConcurrentExecutionEngine)element;
 			return engine.getPossibleLogicalSteps().size() > 0;
 		}
 		else if (element instanceof LogicalStep)
