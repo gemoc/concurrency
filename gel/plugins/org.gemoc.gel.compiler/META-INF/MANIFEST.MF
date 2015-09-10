@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Compiler
 Bundle-SymbolicName: org.gemoc.gel.compiler
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.1.0.qualifier
 Require-Bundle: org.gemoc.gel;bundle-version="0.1.0",
  org.gemoc.gel.microgel;bundle-version="0.1.0",
  org.eclipse.emf.transaction,
