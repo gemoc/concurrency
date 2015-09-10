@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Integration of ClockSystem Core
+Bundle-SymbolicName: org.gemoc.mocc.clocksystem.win.core
+Bundle-Version: 0.1.1.qualifier
+Bundle-Activator: org.gemoc.mocc.clocksystem.core.Activator
+Bundle-Vendor: ENSTA Bretagne
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.platform;bundle-version="4.4.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Export-Package: org.gemoc.mocc.clocksystem.core.actions
