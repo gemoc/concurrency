@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.gemoc.mocc.clocksystem.winonly.feature"
+      label="ClockSystem Exhaustive Exploration Features (Windows ONLY)"
+      version="0.1.1.qualifier"
+      provider-name="ENSTA Bretagne"
+      os="win32">
+
+   <description>
+      This feature provides the required core functionalities to perform Exhaustive Exploration from a ClockSystem File.
+      NB: The feature first extracts the ClockSystem Virtual Machine (VM) to the Temp repository of your system. Only to use on Windows Machines.
+   </description>
+
+   <copyright>
+      Copyright (c) 2012-2016 GEMOC consortium.
+ http://www.gemoc.org
+   </copyright>
+
+   <license url="http://www.eclipse.org/legal/epl-v10.html">
+      All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at http://www.eclipse.org/legal/epl-v10.html
+   </license>
+
+   <plugin
+         id="org.gemoc.mocc.clocksystem.win.core"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.gemoc.mocc.clocksystem.win.core.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
