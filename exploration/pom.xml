@@ -13,6 +13,12 @@
   <modules>
   	<module>plugins/org.gemoc.mocc.transformations.ecl2mtl</module>
   	<module>plugins/org.gemoc.mocc.transformations.ecl2mtl.ui</module>
+  	<module>releng/org.gemoc.mocc.clocksystem.common.feature</module>
+  	<module>
+  		releng/org.gemoc.mocc.clocksystem.features.updatesite
+  	</module>
+  	<module>releng/org.gemoc.mocc.clocksystem.linonly.feature</module>
+  	<module>releng/org.gemoc.mocc.clocksystem.winonly.feature</module>
   </modules>
   <profiles>
     <!-- Profiles are used for switching the repositories used for the build so they either use the CI update sites or local repositories -->
