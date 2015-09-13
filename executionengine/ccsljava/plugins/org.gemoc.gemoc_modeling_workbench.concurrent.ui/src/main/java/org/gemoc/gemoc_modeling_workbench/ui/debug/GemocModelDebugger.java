@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EcorePackage;
+import org.gemoc.execution.engine.core.AbstractExecutionEngine;
 import org.gemoc.execution.engine.trace.LogicalStepHelper;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.LogicalStep;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
@@ -205,7 +206,7 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 	@Override
 	public void aboutToExecuteLogicalStep(IBasicExecutionEngine executionEngine, LogicalStep logicalStepToApply) 
 	{
-		if (!control(Thread.currentThread().getName(), logicalStepToApply))
+		if (!control(((AbstractExecutionEngine)executionEngine).thread.getName(), logicalStepToApply))
 		{
 			throw new RuntimeException("Debug thread has stopped.");
 		}
@@ -214,7 +215,7 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 	@Override
 	public void aboutToExecuteMSEOccurrence(IBasicExecutionEngine executionEngine, MSEOccurrence mseOccurrence) 
 	{
-		if (!control(Thread.currentThread().getName(), mseOccurrence))
+		if (!control(((AbstractExecutionEngine)executionEngine).thread.getName(), mseOccurrence))
 		{
 			throw new RuntimeException("Debug thread has stopped.");			
 		}

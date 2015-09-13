@@ -88,7 +88,7 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine implement
 		}
 	}
 	
-	private ILogicalStepDecider _logicalStepDecider;
+	protected ILogicalStepDecider _logicalStepDecider;
 	
 	@Override
 	public ILogicalStepDecider getLogicalStepDecider()
@@ -402,7 +402,7 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine implement
 	public void initialize(IExecutionContext executionContext){
 		
 		if (!(executionContext instanceof IConcurrentExecutionContext))
-			throw new IllegalArgumentException("executionContext must be an IConcurrentExecutionContext when used in NonDeterministicExecutionEngine");
+			throw new IllegalArgumentException("executionContext must be an IConcurrentExecutionContext when used in ConcurrentExecutionEngine");
 		super.initialize(executionContext);
 		
 		IConcurrentExecutionContext concurrentExecutionContext = getConcurrentExecutionContext();
