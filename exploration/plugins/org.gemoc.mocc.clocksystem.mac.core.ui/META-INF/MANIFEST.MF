@@ -2,12 +2,12 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ClockSystem Menu UI
 Bundle-SymbolicName: org.gemoc.mocc.clocksystem.mac.core.ui;singleton:=true
-Bundle-Version: 0.1.1.qualifier
+Bundle-Version: 0.0.1.qualifier
 Bundle-Activator: org.gemoc.mocc.clocksystem.core.ui.Activator
 Bundle-Vendor: ENSTA Bretagne
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.gemoc.mocc.clocksystem.mac.core;bundle-version="0.1.1",
+ org.gemoc.mocc.clocksystem.mac.core;bundle-version="0.0.1",
  org.eclipse.jdt.core;bundle-version="3.9.2",
  org.eclipse.core.resources;bundle-version="3.8.101",
  org.eclipse.core.expressions;bundle-version="3.4.501"

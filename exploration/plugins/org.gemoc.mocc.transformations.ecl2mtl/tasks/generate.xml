@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="generate" name="org.gemoc.mocc.transformations.ecl2mtl">
-    <property name="ECLIPSE_HOME" value="../../../../../../../../../../Users/Vincent/Downloads/gemoc_studio-win32.win32.x86_64"/>
-    <property name="ECLIPSE_WORKSPACE" value="../../../../../../../../../../Users/Vincent/Downloads/gemoc_studio-win32.win32.x86_64/workspace"/>
+    
+	<!--<property name="ECLIPSE_HOME" value="../../../../../../../../../../Users/Vincent/Downloads/gemoc_studio-win32.win32.x86_64"/>
+    <property name="ECLIPSE_WORKSPACE" value="../../../../../../../../../../Users/Vincent/Downloads/gemoc_studio-win32.win32.x86_64/workspace"/>-->
+	
+	<property name="ECLIPSE_HOME" value="C://g//gemoc_studio_last_build"/>
+	<property name="ECLIPSE_WORKSPACE" value="C://g//GemocDevWorkspace"/>
 
+	
     <!-- The classpath with only the dependencies used by the project -->
     <path id="org.gemoc.mocc.transformations.ecl2mtl.libraryclasspath">
         <pathelement location="${ECLIPSE_WORKSPACE}/org.gemoc.mocc.transformations.ecl2mtl/bin"/>

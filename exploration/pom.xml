@@ -1,7 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.gemoc.concurency</groupId>
-  <artifactId>org.gemoc.concurency.exploration.root</artifactId>
+  <artifactId>org.gemoc.concurrent.exploration.root</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <parent>
@@ -13,13 +12,21 @@
   <modules>
   	<module>plugins/org.gemoc.mocc.transformations.ecl2mtl</module>
   	<module>plugins/org.gemoc.mocc.transformations.ecl2mtl.ui</module>
+  	<module>plugins/org.gemoc.mocc.clocksystem.linux.core</module>
+  	<module>plugins/org.gemoc.mocc.clocksystem.linux.core.ui</module>
+  	<module>plugins/org.gemoc.mocc.clocksystem.win.core</module>
+  	<module>plugins/org.gemoc.mocc.clocksystem.win.core.ui</module>
+  	<module>plugins/org.gemoc.mocc.clocksystem.mac.core</module>
+  	<module>plugins/org.gemoc.mocc.clocksystem.mac.core.ui</module>
+  	
   	<module>releng/org.gemoc.mocc.clocksystem.common.feature</module>
-  	<module>
-  		releng/org.gemoc.mocc.clocksystem.features.updatesite
-  	</module>
+  	<module>releng/org.gemoc.mocc.clocksystem.features.updatesite</module>
   	<module>releng/org.gemoc.mocc.clocksystem.linonly.feature</module>
   	<module>releng/org.gemoc.mocc.clocksystem.winonly.feature</module>
   </modules>
+ <properties>
+		<xtend.version>2.8.2</xtend.version>
+	</properties>
   <profiles>
     <!-- Profiles are used for switching the repositories used for the build so they either use the CI update sites or local repositories -->
     	<profile>
@@ -71,4 +78,5 @@
 	    </profile>
     	
     </profiles>
+  <groupId>org.gemoc.concurrent.exploration</groupId>
 </project>

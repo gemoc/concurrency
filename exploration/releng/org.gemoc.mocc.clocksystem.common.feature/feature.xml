@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.gemoc.mocc.clocksystem.common.feature"
+      id="org.gemoc.concurrent.exploration.common.feature"
       label="Common Features for ClockSystem"
-      version="0.0.0.qualifier"
+      version="0.0.1.qualifier"
       provider-name="ENSTA Bretagne">
 
    <description>
@@ -26,14 +26,14 @@ which accompanies this distribution, and is available at http://www.eclipse.org/
          id="org.gemoc.mocc.transformations.ecl2mtl"
          download-size="0"
          install-size="0"
-         version="0.0.1.qualifier"
+         version="0.0.0"
          unpack="false"/>
 
    <plugin
          id="org.gemoc.mocc.transformations.ecl2mtl.ui"
          download-size="0"
          install-size="0"
-         version="0.0.1.qualifier"
+         version="0.0.0"
          unpack="false"/>
 
 </feature>

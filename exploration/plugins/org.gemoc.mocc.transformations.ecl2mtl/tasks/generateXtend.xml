@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="generateXtend" name="org.gemoc.mocc.transformations.ecl2mtl">
-    <property name="ECLIPSE_HOME" value="../../../../../../gstudio"/>
-    <property name="ECLIPSE_WORKSPACE" value="../../../../../../Workspaces/plugin_v4"/>
+    <!--<property name="ECLIPSE_HOME" value="../../../../../../gstudio"/>
+    <property name="ECLIPSE_WORKSPACE" value="../../../../../../Workspaces/plugin_v4"/>-->
+	
+	<property name="ECLIPSE_HOME" value="C://g//gemoc_studio_last_build"/>
+	<property name="ECLIPSE_WORKSPACE" value="C://g//GemocDevWorkspace"/>
 
     <!-- The classpath with only the dependencies used by the project -->
     <path id="org.gemoc.mocc.transformations.ecl2mtl.libraryclasspath">

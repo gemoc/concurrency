@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Integration of ClockSystem Core
 Bundle-SymbolicName: org.gemoc.mocc.clocksystem.linux.core
-Bundle-Version: 0.1.1.qualifier
+Bundle-Version: 0.0.1.qualifier
 Bundle-Activator: org.gemoc.mocc.clocksystem.core.Activator
 Bundle-Vendor: ENSTA Bretagne
 Require-Bundle: org.eclipse.ui,
