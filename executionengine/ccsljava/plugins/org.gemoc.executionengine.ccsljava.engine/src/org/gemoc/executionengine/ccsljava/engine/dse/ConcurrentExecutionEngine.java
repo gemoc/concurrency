@@ -9,15 +9,15 @@ import org.gemoc.execution.engine.core.AbstractExecutionEngine;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.LogicalStep;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionContext;
-import org.gemoc.executionengine.ccsljava.api.core.ILogicalStepDecider;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
+import org.gemoc.executionengine.ccsljava.api.core.ILogicalStepDecider;
 import org.gemoc.executionengine.ccsljava.api.dsa.executors.ICodeExecutor;
 import org.gemoc.executionengine.ccsljava.api.dse.IMSEStateController;
 import org.gemoc.executionengine.ccsljava.api.moc.ISolver;
 import org.gemoc.gemoc_language_workbench.api.core.EngineStatus;
 import org.gemoc.gemoc_language_workbench.api.core.IDisposable;
 import org.gemoc.gemoc_language_workbench.api.core.IExecutionContext;
-import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
+import org.gemoc.gemoc_language_workbench.api.core.IExecutionEngine;
 import org.gemoc.gemoc_language_workbench.api.core.IFutureAction;
 import org.gemoc.gemoc_language_workbench.api.engine_addon.IEngineAddon;
 
@@ -88,7 +88,7 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine implement
 		}
 	}
 	
-	private ILogicalStepDecider _logicalStepDecider;
+	protected ILogicalStepDecider _logicalStepDecider;
 	
 	@Override
 	public ILogicalStepDecider getLogicalStepDecider()
@@ -402,7 +402,7 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine implement
 	public void initialize(IExecutionContext executionContext){
 		
 		if (!(executionContext instanceof IConcurrentExecutionContext))
-			throw new IllegalArgumentException("executionContext must be an IConcurrentExecutionContext when used in NonDeterministicExecutionEngine");
+			throw new IllegalArgumentException("executionContext must be an IConcurrentExecutionContext when used in ConcurrentExecutionEngine");
 		super.initialize(executionContext);
 		
 		IConcurrentExecutionContext concurrentExecutionContext = getConcurrentExecutionContext();
