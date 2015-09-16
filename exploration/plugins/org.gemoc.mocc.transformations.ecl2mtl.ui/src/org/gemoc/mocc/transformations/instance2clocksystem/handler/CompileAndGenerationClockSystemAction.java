@@ -84,10 +84,18 @@ public class CompileAndGenerationClockSystemAction extends ActionDelegate implem
 							URI modelURI = URI.createPlatformResourceURI(model.getFullPath().toString(), true);
 							try {
 								
+								System.out.println("ModelURI: "+ modelURI);
+								
 								IContainer clksysTransfoLoc = model.getProject().getFolder(MTL_FOLDER);
+								
+								System.out.println("clksysTransfoLoc: "+ clksysTransfoLoc);
 								
 								// Get the toClockSystem.mtl file in the mtl-gen repository
 								File mtldir = new File(clksysTransfoLoc.getLocation().toString());
+								
+								System.out.println("mtldir: "+ mtldir.exists());
+								System.out.println("mtldir: "+ mtldir.listFiles());
+								
 								File[] matches = mtldir.listFiles(new FilenameFilter()
 								{
 								  public boolean accept(File dir, String name)
