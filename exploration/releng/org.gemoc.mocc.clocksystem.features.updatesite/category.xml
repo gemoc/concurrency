@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.gemoc.concurrent.exploration.common.feature_0.0.1.qualifier.jar" id="org.gemoc.concurrent.exploration.common.feature" version="0.0.1.qualifier">
+      <category name="Common"/>
+   </feature>
+  <!--   <feature url="features/org.gemoc.concurrent.exploration.linonly.feature_0.0.1.qualifier.jar" id="org.gemoc.concurrent.exploration.linonly.feature" version="0.0.1.qualifier" os="linux">
+      <category name="Linux"/>
+   </feature>
+   <feature url="features/org.gemoc.concurrent.exploration.winonly.feature_0.0.1.qualifier.jar" id="org.gemoc.concurrent.exploration.winonly.feature" version="0.0.1.qualifier" os="win32">
+      <category name="Win"/>
+   </feature>-->
+   <category-def name="Common" label="CommonID">
+      <description>
+         This Category contains the plugins generating the ClockSystem models. All Transformation rules and Action Calls leading to the generation of such files is implemented in the given plugins.
+      </description>
+   </category-def>
+   <category-def name="Linux" label="Linux"/>
+   <category-def name="Win" label="Win"/>
+</site>
