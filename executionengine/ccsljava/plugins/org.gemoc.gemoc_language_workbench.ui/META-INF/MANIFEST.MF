@@ -24,6 +24,7 @@ Require-Bundle: org.eclipse.ui,
  fr.inria.diverse.k3.ui;bundle-version="1.0.0",
  org.gemoc.commons.eclipse,
  org.eclipse.equinox.registry,
+ org.gemoc.executionframework.ui,
  fr.inria.aoste.timesquare.ccslkernel.model;bundle-version="1.0.0",
  org.gemoc.commons.eclipse.pde,
  org.gemoc.commons.eclipse.jdt,
@@ -35,8 +36,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.ecore.editor,
  org.eclipse.sirius.editor,
  org.eclipse.ui.navigator,
- org.gemoc.executionengine.ccsljava.api,
- org.gemoc.executionframework.ui
+ org.gemoc.executionengine.ccsljava.api
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.core.filesystem

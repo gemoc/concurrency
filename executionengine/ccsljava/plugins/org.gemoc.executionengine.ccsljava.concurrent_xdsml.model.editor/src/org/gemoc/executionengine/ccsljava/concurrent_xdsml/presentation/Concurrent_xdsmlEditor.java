@@ -92,6 +92,7 @@ import org.eclipse.swt.events.ControlEvent;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
+import org.eclipse.swt.widgets.Tree;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
@@ -985,6 +986,41 @@ public class Concurrent_xdsmlEditor
 		//
 		if (!getEditingDomain().getResourceSet().getResources().isEmpty()) {
 			
+			// Create a page for the selection tree view.
+						//
+						{
+							ViewerPane viewerPane =
+								new ViewerPane(getSite().getPage(), Concurrent_xdsmlEditor.this) {
+									@Override
+									public Viewer createViewer(Composite composite) {
+										Tree tree = new Tree(composite, SWT.MULTI);
+										TreeViewer newTreeViewer = new TreeViewer(tree);
+										return newTreeViewer;
+									}
+									@Override
+									public void requestActivation() {
+										super.requestActivation();
+										setCurrentViewerPane(this);
+									}
+								};
+							viewerPane.createControl(getContainer());
+
+							selectionViewer = (TreeViewer)viewerPane.getViewer();
+							selectionViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
+
+							selectionViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
+							selectionViewer.setInput(editingDomain.getResourceSet());
+							selectionViewer.setSelection(new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
+							viewerPane.setTitle(editingDomain.getResourceSet());
+
+							new AdapterFactoryTreeEditor(selectionViewer.getTree(), adapterFactory);
+
+							createContextMenuFor(selectionViewer);
+							int pageIndex = addPage(viewerPane.getControl());
+							setPageText(pageIndex, getString("_UI_SelectionPage_label"));
+						}
+			
+			
 			// This is the page for the Gemoc Form viewer.
 			//
 			{
@@ -1077,6 +1113,7 @@ public class Concurrent_xdsmlEditor
 			}
 
 
+			
 			
 			
 			getSite().getShell().getDisplay().asyncExec
