@@ -15,7 +15,7 @@ import org.gemoc.commons.eclipse.emf.EMFResource;
 import org.gemoc.executionengine.ccsljava.api.extensions.languages.ConcurrentLanguageDefinitionExtension;
 import org.gemoc.executionengine.ccsljava.api.extensions.languages.ConcurrentLanguageDefinitionExtensionPoint;
 import org.gemoc.gemoc_language_workbench.api.extensions.languages.LanguageDefinitionExtension;
-import org.gemoc.gemoc_language_workbench.conf.LanguageDefinition;
+import org.gemoc.gemoc_language_workbench.conf.ConcurrentLanguageDefinition;
 
 public class GenerateExtendedCCSLFile extends GenerateExtendedCCSLFileAction {
 
@@ -42,8 +42,8 @@ public class GenerateExtendedCCSLFile extends GenerateExtendedCCSLFileAction {
 				if (!xdsmluri.startsWith("platform:/plugin"))
 					xdsmluri = "platform:/plugin" + xdsmluri;
 				Object o = EMFResource.getFirstContent(xdsmluri);
-				if(o != null && o instanceof LanguageDefinition){
-					LanguageDefinition ld = (LanguageDefinition)o;
+				if(o != null && o instanceof ConcurrentLanguageDefinition){
+					ConcurrentLanguageDefinition ld = (ConcurrentLanguageDefinition)o;
 					if(ld.getFileExtensions().contains(fileExtension)){
 						applicableLanguageDefinitions.add(lde);
 					}

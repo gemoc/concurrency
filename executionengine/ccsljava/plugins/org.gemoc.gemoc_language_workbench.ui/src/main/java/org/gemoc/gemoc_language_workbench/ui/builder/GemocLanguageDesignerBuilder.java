@@ -25,15 +25,15 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.gemoc.commons.eclipse.core.resources.FileFinderVisitor;
 import org.gemoc.commons.eclipse.core.resources.GFile;
 import org.gemoc.executionengine.ccsljava.api.extensions.languages.ConcurrentLanguageDefinitionExtensionPoint;
+import org.gemoc.executionframework.xdsml_base.DomainModelProject;
+import org.gemoc.executionframework.xdsml_base.SiriusAnimatorProject;
+import org.gemoc.executionframework.xdsml_base.SiriusEditorProject;
+import org.gemoc.executionframework.xdsml_base.XTextEditorProject;
 import org.gemoc.gemoc_language_workbench.api.extensions.languages.LanguageDefinitionExtensionPoint;
 import org.gemoc.gemoc_language_workbench.conf.DSAProject;
 import org.gemoc.gemoc_language_workbench.conf.DSEProject;
-import org.gemoc.gemoc_language_workbench.conf.DomainModelProject;
-import org.gemoc.gemoc_language_workbench.conf.LanguageDefinition;
+import org.gemoc.gemoc_language_workbench.conf.ConcurrentLanguageDefinition;
 import org.gemoc.gemoc_language_workbench.conf.MoCCProject;
-import org.gemoc.gemoc_language_workbench.conf.SiriusAnimatorProject;
-import org.gemoc.gemoc_language_workbench.conf.SiriusEditorProject;
-import org.gemoc.gemoc_language_workbench.conf.XTextEditorProject;
 import org.gemoc.gemoc_language_workbench.ui.Activator;
 import org.gemoc.gemoc_language_workbench.ui.builder.pde.PluginXMLHelper;
 import org.jdom2.Element;
@@ -139,7 +139,7 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 
 				// Create the resource
 				Resource modelresource = resSet.getResource(URI.createURI(file.getLocationURI().toString()), true);
-				LanguageDefinition languageDef =  (LanguageDefinition) modelresource.getContents().get(0);
+				ConcurrentLanguageDefinition languageDef =  (ConcurrentLanguageDefinition) modelresource.getContents().get(0);
 				// get build option first
 //				GemocLanguageWorkbenchConfiguration gemocLanguageWorkbenchConfiguration = (GemocLanguageWorkbenchConfiguration) modelresource.getContents().get(0);
 //			    BuildOptions buildOptions = gemocLanguageWorkbenchConfiguration.getBuildOptions();
@@ -175,8 +175,8 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 			ManifestChanger manifestChanger, EObject eObject)
 			throws BundleException, IOException, CoreException {
 		
-		if (eObject instanceof LanguageDefinition) {
-			LanguageDefinition languageDefinition =  (LanguageDefinition) eObject;
+		if (eObject instanceof ConcurrentLanguageDefinition) {
+			ConcurrentLanguageDefinition languageDefinition =  (ConcurrentLanguageDefinition) eObject;
 			if(languageDefinition.isNeedMelangeSynchronization()){
 				MelangeGenerator melangeGenerator = new MelangeGenerator(project, languageDefinition);
 				melangeGenerator.updateGeneratedMelange(manifestChanger);
@@ -195,7 +195,7 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 		if (eObject instanceof DSAProject) {
 			DSAProject dsaProject = (DSAProject) eObject;
 			updateDependenciesWithDSAProject(manifestChanger, dsaProject);
-			updateCodeExecutorClass(project, (LanguageDefinition) eObject.eContainer(), manifestChanger);
+			updateCodeExecutorClass(project, (ConcurrentLanguageDefinition) eObject.eContainer(), manifestChanger);
 		}
 
 		if (eObject instanceof XTextEditorProject) {
@@ -237,7 +237,7 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 	 * @throws IOException 
 	 * @throws BundleException 
 	 */
-	protected void updateCodeExecutorClass(IProject project, LanguageDefinition ld, ManifestChanger manifestChanger) throws BundleException, IOException, CoreException {
+	protected void updateCodeExecutorClass(IProject project, ConcurrentLanguageDefinition ld, ManifestChanger manifestChanger) throws BundleException, IOException, CoreException {
 		// if codeExecutor null or empty, generate an executor class and updtae plugin.xml 
 		if(ld.getDsaProject() != null ){
 			if ( ld.getDsaProject().getCodeExecutorClass() == null || ld.getDsaProject().getCodeExecutorClass().isEmpty()){ 

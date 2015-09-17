@@ -28,7 +28,7 @@ import org.eclipse.jdt.core.search.SearchPattern;
 import org.eclipse.jdt.core.search.SearchRequestor;
 import org.gemoc.execution.engine.core.AbstractDeterministicExecutionEngine;
 import org.gemoc.gemoc_language_workbench.api.core.IExecutionContext;
-import org.gemoc.gemoc_language_workbench.conf.LanguageDefinition;
+import org.gemoc.gemoc_language_workbench.conf.ConcurrentLanguageDefinition;
 import org.kermeta.utils.provisionner4eclipse.Provisionner;
 import org.osgi.framework.Bundle;
 
@@ -222,7 +222,7 @@ public class PlainK3ExecutionEngine extends AbstractDeterministicExecutionEngine
 			return null;
 	}
 	
-	protected LanguageDefinition getLanguageDefinition(String xDSMLFilePath) {
+	protected ConcurrentLanguageDefinition getLanguageDefinition(String xDSMLFilePath) {
 	
 
 		// Loading languagedef model
@@ -241,8 +241,8 @@ public class PlainK3ExecutionEngine extends AbstractDeterministicExecutionEngine
 			EObject first = res.getContents().get(0);
 
 			// Follow-up in other operation...
-			if (first instanceof LanguageDefinition) {
-				return (LanguageDefinition) first;
+			if (first instanceof ConcurrentLanguageDefinition) {
+				return (ConcurrentLanguageDefinition) first;
 			}
 		}
 		return null;

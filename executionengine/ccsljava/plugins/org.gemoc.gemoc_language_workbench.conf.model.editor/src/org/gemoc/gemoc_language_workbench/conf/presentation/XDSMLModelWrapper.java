@@ -1,12 +1,11 @@
 package org.gemoc.gemoc_language_workbench.conf.presentation;
 
-import org.gemoc.gemoc_language_workbench.conf.AnimatorProject;
-import org.gemoc.gemoc_language_workbench.conf.DomainModelProject;
-import org.gemoc.gemoc_language_workbench.conf.EditorProject;
-import org.gemoc.gemoc_language_workbench.conf.LanguageDefinition;
-import org.gemoc.gemoc_language_workbench.conf.LanguageKind;
-import org.gemoc.gemoc_language_workbench.conf.SiriusEditorProject;
-import org.gemoc.gemoc_language_workbench.conf.XTextEditorProject;
+import org.gemoc.executionframework.xdsml_base.AnimatorProject;
+import org.gemoc.executionframework.xdsml_base.DomainModelProject;
+import org.gemoc.executionframework.xdsml_base.EditorProject;
+import org.gemoc.executionframework.xdsml_base.SiriusEditorProject;
+import org.gemoc.executionframework.xdsml_base.XTextEditorProject;
+import org.gemoc.gemoc_language_workbench.conf.ConcurrentLanguageDefinition;
 import org.gemoc.gemoc_language_workbench.conf.util.XDSMLModelHelper;
 
 /**
@@ -16,7 +15,7 @@ import org.gemoc.gemoc_language_workbench.conf.util.XDSMLModelHelper;
  */
 public class XDSMLModelWrapper extends ViewModelWrapper {
 
-	public LanguageDefinition languageDefinition;
+	public ConcurrentLanguageDefinition languageDefinition;
 
 	public XDSMLModelWrapper() {
 
@@ -239,20 +238,5 @@ public class XDSMLModelWrapper extends ViewModelWrapper {
 		XDSMLModelHelper.getOrCreateMoCCProject(languageDefinition).setProjectName(projectName);
 	}
 
-	public LanguageKind getLanguageKind() {
-		if (languageDefinition != null && languageDefinition.getLanguageKind() != null) {
-			return languageDefinition.getLanguageKind();
-		} else
-			return null;
-	}
-
-	public void setLanguageKind(LanguageKind languageKind) {
-		if (languageKind != null) {
-			LanguageKind old = getLanguageKind();
-			firePropertyChange("languageKindChanged", old, languageKind);
-			languageDefinition.setLanguageKind(languageKind);
-		}
-	}
-	
 
 }

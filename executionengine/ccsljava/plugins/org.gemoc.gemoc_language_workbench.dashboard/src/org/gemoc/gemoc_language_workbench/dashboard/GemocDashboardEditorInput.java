@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IPersistableElement;
-import org.gemoc.gemoc_language_workbench.conf.LanguageDefinition;
+import org.gemoc.executionframework.xdsml_base.LanguageDefinition;
 
 public class GemocDashboardEditorInput implements IEditorInput {
 

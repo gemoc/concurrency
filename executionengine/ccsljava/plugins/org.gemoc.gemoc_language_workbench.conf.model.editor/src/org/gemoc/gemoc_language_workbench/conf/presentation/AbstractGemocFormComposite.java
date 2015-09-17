@@ -5,12 +5,12 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.swt.widgets.Composite;
-import org.gemoc.gemoc_language_workbench.conf.LanguageDefinition;
+import org.gemoc.gemoc_language_workbench.conf.ConcurrentLanguageDefinition;
 
 public abstract class AbstractGemocFormComposite extends Composite {
 
 
-	protected LanguageDefinition rootModelElement;
+	protected ConcurrentLanguageDefinition rootModelElement;
 	protected AdapterFactoryEditingDomain editingDomain;
 
 	

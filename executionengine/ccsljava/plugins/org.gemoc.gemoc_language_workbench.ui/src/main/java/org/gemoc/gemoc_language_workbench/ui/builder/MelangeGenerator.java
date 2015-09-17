@@ -15,7 +15,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.codegen.ecore.genmodel.GenModel;
 import org.eclipse.emf.codegen.ecore.genmodel.GenPackage;
 import org.gemoc.commons.eclipse.core.resources.FileFinderVisitor;
-import org.gemoc.gemoc_language_workbench.conf.LanguageDefinition;
+import org.gemoc.gemoc_language_workbench.conf.ConcurrentLanguageDefinition;
 import org.gemoc.gemoc_language_workbench.ui.Activator;
 import org.osgi.framework.BundleException;
 
@@ -29,9 +29,9 @@ public class MelangeGenerator {
 	public static final String MELANGE_GEN_FOLDER = "gemoc-gen";
 	
 	protected IProject project;
-	protected LanguageDefinition languageDefinition;
+	protected ConcurrentLanguageDefinition languageDefinition;
 	
-	public MelangeGenerator(IProject project, LanguageDefinition ld){
+	public MelangeGenerator(IProject project, ConcurrentLanguageDefinition ld){
 		this.project = project;
 		this.languageDefinition = ld;
 	}

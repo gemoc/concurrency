@@ -4,6 +4,7 @@ package org.gemoc.gemoc_language_workbench.conf.provider;
 
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.gemoc.executionframework.xdsml_base.provider.Xdsml_baseEditPlugin;
 
 /**
  * This is the central singleton for the gemoc_language_workbench_conf edit plugin.
@@ -37,6 +38,7 @@ public final class gemoc_language_workbench_confEditPlugin extends EMFPlugin {
 	public gemoc_language_workbench_confEditPlugin() {
 		super
 		  (new ResourceLocator [] {
+		     Xdsml_baseEditPlugin.INSTANCE,
 		   });
 	}
 

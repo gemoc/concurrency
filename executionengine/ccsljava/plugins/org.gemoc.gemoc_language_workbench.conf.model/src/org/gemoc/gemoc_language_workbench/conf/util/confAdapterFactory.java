@@ -9,6 +9,9 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
+import org.gemoc.executionframework.xdsml_base.EditorProject;
+import org.gemoc.executionframework.xdsml_base.LanguageDefinition;
+import org.gemoc.executionframework.xdsml_base.ProjectResource;
 import org.gemoc.gemoc_language_workbench.conf.*;
 
 /**
@@ -68,6 +71,22 @@ public class confAdapterFactory extends AdapterFactoryImpl {
 	protected confSwitch<Adapter> modelSwitch =
 		new confSwitch<Adapter>() {
 			@Override
+			public Adapter caseConcurrentLanguageDefinition(ConcurrentLanguageDefinition object) {
+				return createConcurrentLanguageDefinitionAdapter();
+			}
+			@Override
+			public Adapter caseDSAProject(DSAProject object) {
+				return createDSAProjectAdapter();
+			}			
+			@Override
+			public Adapter caseMoCCProject(MoCCProject object) {
+				return createMoCCProjectAdapter();
+			}
+			@Override
+			public Adapter caseDSEProject(DSEProject object) {
+				return createDSEProjectAdapter();
+			}
+			@Override
 			public Adapter caseLanguageDefinition(LanguageDefinition object) {
 				return createLanguageDefinitionAdapter();
 			}
@@ -76,44 +95,8 @@ public class confAdapterFactory extends AdapterFactoryImpl {
 				return createProjectResourceAdapter();
 			}
 			@Override
-			public Adapter caseDSAProject(DSAProject object) {
-				return createDSAProjectAdapter();
-			}
-			@Override
 			public Adapter caseEditorProject(EditorProject object) {
 				return createEditorProjectAdapter();
-			}
-			@Override
-			public Adapter caseDomainModelProject(DomainModelProject object) {
-				return createDomainModelProjectAdapter();
-			}
-			@Override
-			public Adapter caseMoCCProject(MoCCProject object) {
-				return createMoCCProjectAdapter();
-			}
-			@Override
-			public Adapter caseAnimatorProject(AnimatorProject object) {
-				return createAnimatorProjectAdapter();
-			}
-			@Override
-			public Adapter caseDSEProject(DSEProject object) {
-				return createDSEProjectAdapter();
-			}
-			@Override
-			public Adapter caseSiriusEditorProject(SiriusEditorProject object) {
-				return createSiriusEditorProjectAdapter();
-			}
-			@Override
-			public Adapter caseSiriusAnimatorProject(SiriusAnimatorProject object) {
-				return createSiriusAnimatorProjectAdapter();
-			}
-			@Override
-			public Adapter caseXTextEditorProject(XTextEditorProject object) {
-				return createXTextEditorProjectAdapter();
-			}
-			@Override
-			public Adapter caseTreeEditorProject(TreeEditorProject object) {
-				return createTreeEditorProjectAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -136,13 +119,27 @@ public class confAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.gemoc.gemoc_language_workbench.conf.ProjectResource <em>Project Resource</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.gemoc.gemoc_language_workbench.conf.ConcurrentLanguageDefinition <em>Concurrent Language Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.gemoc.gemoc_language_workbench.conf.ProjectResource
+	 * @see org.gemoc.gemoc_language_workbench.conf.ConcurrentLanguageDefinition
+	 * @generated
+	 */
+	public Adapter createConcurrentLanguageDefinitionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.gemoc.executionframework.xdsml_base.ProjectResource <em>Project Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.gemoc.executionframework.xdsml_base.ProjectResource
 	 * @generated
 	 */
 	public Adapter createProjectResourceAdapter() {
@@ -164,13 +161,13 @@ public class confAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.gemoc.gemoc_language_workbench.conf.LanguageDefinition <em>Language Definition</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.gemoc.executionframework.xdsml_base.LanguageDefinition <em>Language Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.gemoc.gemoc_language_workbench.conf.LanguageDefinition
+	 * @see org.gemoc.executionframework.xdsml_base.LanguageDefinition
 	 * @generated
 	 */
 	public Adapter createLanguageDefinitionAdapter() {
@@ -178,13 +175,13 @@ public class confAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.gemoc.gemoc_language_workbench.conf.EditorProject <em>Editor Project</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.gemoc.executionframework.xdsml_base.EditorProject <em>Editor Project</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.gemoc.gemoc_language_workbench.conf.EditorProject
+	 * @see org.gemoc.executionframework.xdsml_base.EditorProject
 	 * @generated
 	 */
 	public Adapter createEditorProjectAdapter() {

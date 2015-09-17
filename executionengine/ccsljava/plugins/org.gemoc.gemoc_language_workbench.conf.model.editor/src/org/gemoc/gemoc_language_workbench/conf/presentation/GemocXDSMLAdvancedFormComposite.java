@@ -51,7 +51,7 @@ import org.eclipse.ui.forms.widgets.ColumnLayout;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.gemoc.commons.eclipse.ui.OpenEditor;
 import org.gemoc.commons.eclipse.ui.dialogs.SelectAnyIFileDialog;
-import org.gemoc.gemoc_language_workbench.conf.LanguageDefinition;
+import org.gemoc.gemoc_language_workbench.conf.ConcurrentLanguageDefinition;
 
 /*
  * IMPORTANT : this file has been edited using Windows builder.
@@ -210,8 +210,8 @@ public class GemocXDSMLAdvancedFormComposite extends AbstractGemocFormComposite 
 						.getContents().size() > 0) {
 					EObject eObject = editingDomain.getResourceSet()
 							.getResources().get(0).getContents().get(0);
-					if (eObject instanceof LanguageDefinition) {
-						rootModelElement = (LanguageDefinition) eObject;
+					if (eObject instanceof ConcurrentLanguageDefinition) {
+						rootModelElement = (ConcurrentLanguageDefinition) eObject;
 						// txtLanguageName.setText(confModelElement.getLanguageDefinition().getName());
 						XDSMLModelWrapperHelper.init(xdsmlWrappedObject,
 								rootModelElement);

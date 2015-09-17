@@ -2,6 +2,8 @@
  */
 package org.gemoc.gemoc_language_workbench.conf;
 
+import org.gemoc.executionframework.xdsml_base.ProjectResource;
+
 
 /**
  * <!-- begin-user-doc -->

@@ -1,6 +1,6 @@
 package org.gemoc.gemoc_language_workbench.conf.presentation;
 
-import org.gemoc.gemoc_language_workbench.conf.LanguageDefinition;
+import org.gemoc.gemoc_language_workbench.conf.ConcurrentLanguageDefinition;
 
 
 /**
@@ -10,7 +10,7 @@ import org.gemoc.gemoc_language_workbench.conf.LanguageDefinition;
  *
  */
 class XDSMLModelWrapperHelper{
-	public static void init(XDSMLModelWrapper wrapper, LanguageDefinition languageDefinition) {
+	public static void init(XDSMLModelWrapper wrapper, ConcurrentLanguageDefinition languageDefinition) {
 		wrapper.languageDefinition=languageDefinition;
 		languageDefinition.eAdapters().add(new EMFEContent(wrapper));
 	}

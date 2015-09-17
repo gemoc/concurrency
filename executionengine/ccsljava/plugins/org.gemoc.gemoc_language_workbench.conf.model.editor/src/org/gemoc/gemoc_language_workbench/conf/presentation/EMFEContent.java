@@ -1,14 +1,16 @@
 package org.gemoc.gemoc_language_workbench.conf.presentation;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.gemoc.executionframework.xdsml_base.AnimatorProject;
+import org.gemoc.executionframework.xdsml_base.DomainModelProject;
+import org.gemoc.executionframework.xdsml_base.EditorProject;
+import org.gemoc.executionframework.xdsml_base.SiriusAnimatorProject;
+import org.gemoc.executionframework.xdsml_base.SiriusEditorProject;
+import org.gemoc.executionframework.xdsml_base.XTextEditorProject;
+import org.gemoc.gemoc_language_workbench.conf.ConcurrentLanguageDefinition;
 import org.gemoc.gemoc_language_workbench.conf.DSAProject;
 import org.gemoc.gemoc_language_workbench.conf.DSEProject;
-import org.gemoc.gemoc_language_workbench.conf.DomainModelProject;
-import org.gemoc.gemoc_language_workbench.conf.LanguageDefinition;
 import org.gemoc.gemoc_language_workbench.conf.MoCCProject;
-import org.gemoc.gemoc_language_workbench.conf.SiriusAnimatorProject;
-import org.gemoc.gemoc_language_workbench.conf.SiriusEditorProject;
-import org.gemoc.gemoc_language_workbench.conf.XTextEditorProject;
 
 /**
    * receive EMF notifications and call the appropriate firePropertyChange for the corresponding property
@@ -34,7 +36,7 @@ import org.gemoc.gemoc_language_workbench.conf.XTextEditorProject;
 	        
 	        // find out the type of the notifier which could be either 'LanguageDefinition' or 'Library'
 	        Object notifier = n.getNotifier();
-	        if (notifier instanceof LanguageDefinition) {
+	        if (notifier instanceof ConcurrentLanguageDefinition) {
 	            handleLanguageDefinitionNotification(n);
 	        } else if (notifier instanceof DomainModelProject) {
 	            handleDomainModelProjectNotification(n);
@@ -56,15 +58,15 @@ import org.gemoc.gemoc_language_workbench.conf.XTextEditorProject;
 	    }
 
 		private void handleLanguageDefinitionNotification(Notification n) {
-			int featureID = n.getFeatureID(org.gemoc.gemoc_language_workbench.conf.LanguageDefinition.class);
-	        if (featureID == org.gemoc.gemoc_language_workbench.conf.confPackage.LANGUAGE_DEFINITION__NAME){
+			int featureID = n.getFeatureID(org.gemoc.gemoc_language_workbench.conf.ConcurrentLanguageDefinition.class);
+	        if (featureID == org.gemoc.gemoc_language_workbench.conf.confPackage.CONCURRENT_LANGUAGE_DEFINITION__NAME){
 	        		String oldLanguageName = n.getOldStringValue();
 	        		String newLanguageName = n.getNewStringValue();
 	                this.xdsmlModelWrapper.firePropertyChange("languageName", oldLanguageName, newLanguageName);
 	        }
 		}
 		private void handleDomainModelProjectNotification(Notification n) {
-			int featureID = n.getFeatureID(org.gemoc.gemoc_language_workbench.conf.DomainModelProject.class);
+			int featureID = n.getFeatureID(DomainModelProject.class);
 	        if (featureID == org.gemoc.gemoc_language_workbench.conf.confPackage.DOMAIN_MODEL_PROJECT__PROJECT_NAME){
 	        		String oldValue = n.getOldStringValue();
 	        		String newValue = n.getNewStringValue();
@@ -90,7 +92,7 @@ import org.gemoc.gemoc_language_workbench.conf.XTextEditorProject;
 		
 
 		private void handleXTextProjectNotification(Notification n) {
-			int featureID = n.getFeatureID(org.gemoc.gemoc_language_workbench.conf.XTextEditorProject.class);
+			int featureID = n.getFeatureID(XTextEditorProject.class);
 	        if (featureID == org.gemoc.gemoc_language_workbench.conf.confPackage.XTEXT_EDITOR_PROJECT__PROJECT_NAME){
 	        		String oldValue = n.getOldStringValue();
 	        		String newValue = n.getNewStringValue();
@@ -98,7 +100,7 @@ import org.gemoc.gemoc_language_workbench.conf.XTextEditorProject;
 	        }
 		}
 		private void handleSiriusEditorProjectNotification(Notification n) {
-			int featureID = n.getFeatureID(org.gemoc.gemoc_language_workbench.conf.EditorProject.class);
+			int featureID = n.getFeatureID(EditorProject.class);
 	        if (featureID == org.gemoc.gemoc_language_workbench.conf.confPackage.SIRIUS_EDITOR_PROJECT__PROJECT_NAME){
 	        		String oldValue = n.getOldStringValue();
 	        		String newValue = n.getNewStringValue();
@@ -106,7 +108,7 @@ import org.gemoc.gemoc_language_workbench.conf.XTextEditorProject;
 	        }
 		}
 		private void handleSiriusAnimatorProjectNotification(Notification n) {
-			int featureID = n.getFeatureID(org.gemoc.gemoc_language_workbench.conf.AnimatorProject.class);
+			int featureID = n.getFeatureID(AnimatorProject.class);
 	        if (featureID == org.gemoc.gemoc_language_workbench.conf.confPackage.SIRIUS_ANIMATOR_PROJECT__PROJECT_NAME){
 	        		String oldValue = n.getOldStringValue();
 	        		String newValue = n.getNewStringValue();

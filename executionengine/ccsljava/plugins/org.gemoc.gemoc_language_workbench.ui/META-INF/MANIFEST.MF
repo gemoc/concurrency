@@ -35,7 +35,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.ecore.editor,
  org.eclipse.sirius.editor,
  org.eclipse.ui.navigator,
- org.gemoc.executionengine.ccsljava.api
+ org.gemoc.executionengine.ccsljava.api,
+ org.gemoc.executionframework.ui
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.core.filesystem
@@ -44,7 +45,6 @@ Bundle-ClassPath: lib/jaxen-1.1.6.jar,
  lib/xercesImpl.jar,
  .
 Export-Package: org.gemoc.gemoc_language_workbench.ui,
- org.gemoc.gemoc_language_workbench.ui.activeFile,
  org.gemoc.gemoc_language_workbench.ui.builder,
  org.gemoc.gemoc_language_workbench.ui.builder.pde,
  org.gemoc.gemoc_language_workbench.ui.commands,

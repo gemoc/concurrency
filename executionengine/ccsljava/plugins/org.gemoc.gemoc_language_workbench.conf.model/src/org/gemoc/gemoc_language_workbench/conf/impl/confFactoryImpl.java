@@ -57,15 +57,10 @@ public class confFactoryImpl extends EFactoryImpl implements confFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case confPackage.LANGUAGE_DEFINITION: return createLanguageDefinition();
+			case confPackage.CONCURRENT_LANGUAGE_DEFINITION: return createConcurrentLanguageDefinition();
 			case confPackage.DSA_PROJECT: return createDSAProject();
-			case confPackage.DOMAIN_MODEL_PROJECT: return createDomainModelProject();
 			case confPackage.MO_CC_PROJECT: return createMoCCProject();
 			case confPackage.DSE_PROJECT: return createDSEProject();
-			case confPackage.SIRIUS_EDITOR_PROJECT: return createSiriusEditorProject();
-			case confPackage.SIRIUS_ANIMATOR_PROJECT: return createSiriusAnimatorProject();
-			case confPackage.XTEXT_EDITOR_PROJECT: return createXTextEditorProject();
-			case confPackage.TREE_EDITOR_PROJECT: return createTreeEditorProject();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -76,43 +71,9 @@ public class confFactoryImpl extends EFactoryImpl implements confFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Object createFromString(EDataType eDataType, String initialValue) {
-		switch (eDataType.getClassifierID()) {
-			case confPackage.PROJECT_KIND:
-				return createProjectKindFromString(eDataType, initialValue);
-			case confPackage.LANGUAGE_KIND:
-				return createLanguageKindFromString(eDataType, initialValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String convertToString(EDataType eDataType, Object instanceValue) {
-		switch (eDataType.getClassifierID()) {
-			case confPackage.PROJECT_KIND:
-				return convertProjectKindToString(eDataType, instanceValue);
-			case confPackage.LANGUAGE_KIND:
-				return convertLanguageKindToString(eDataType, instanceValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public LanguageDefinition createLanguageDefinition() {
-		LanguageDefinitionImpl languageDefinition = new LanguageDefinitionImpl();
-		return languageDefinition;
+	public ConcurrentLanguageDefinition createConcurrentLanguageDefinition() {
+		ConcurrentLanguageDefinitionImpl concurrentLanguageDefinition = new ConcurrentLanguageDefinitionImpl();
+		return concurrentLanguageDefinition;
 	}
 
 	/**
@@ -125,15 +86,6 @@ public class confFactoryImpl extends EFactoryImpl implements confFactory {
 		return dsaProject;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DomainModelProject createDomainModelProject() {
-		DomainModelProjectImpl domainModelProject = new DomainModelProjectImpl();
-		return domainModelProject;
-	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -153,86 +105,6 @@ public class confFactoryImpl extends EFactoryImpl implements confFactory {
 	public DSEProject createDSEProject() {
 		DSEProjectImpl dseProject = new DSEProjectImpl();
 		return dseProject;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SiriusEditorProject createSiriusEditorProject() {
-		SiriusEditorProjectImpl siriusEditorProject = new SiriusEditorProjectImpl();
-		return siriusEditorProject;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SiriusAnimatorProject createSiriusAnimatorProject() {
-		SiriusAnimatorProjectImpl siriusAnimatorProject = new SiriusAnimatorProjectImpl();
-		return siriusAnimatorProject;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public XTextEditorProject createXTextEditorProject() {
-		XTextEditorProjectImpl xTextEditorProject = new XTextEditorProjectImpl();
-		return xTextEditorProject;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TreeEditorProject createTreeEditorProject() {
-		TreeEditorProjectImpl treeEditorProject = new TreeEditorProjectImpl();
-		return treeEditorProject;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ProjectKind createProjectKindFromString(EDataType eDataType, String initialValue) {
-		ProjectKind result = ProjectKind.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertProjectKindToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public LanguageKind createLanguageKindFromString(EDataType eDataType, String initialValue) {
-		LanguageKind result = LanguageKind.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertLanguageKindToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

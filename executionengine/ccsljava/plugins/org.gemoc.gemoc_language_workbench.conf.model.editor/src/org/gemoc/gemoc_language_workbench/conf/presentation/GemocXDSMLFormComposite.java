@@ -55,36 +55,32 @@ import org.eclipse.ui.forms.widgets.ColumnLayout;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.gemoc.commons.eclipse.ui.OpenEditor;
 import org.gemoc.commons.eclipse.ui.dialogs.SelectAnyIFileDialog;
-import org.gemoc.gemoc_language_workbench.conf.EditorProject;
-import org.gemoc.gemoc_language_workbench.conf.LanguageDefinition;
-import org.gemoc.gemoc_language_workbench.conf.XTextEditorProject;
-import org.gemoc.gemoc_language_workbench.ui.commands.ENamedElementQualifiedNameLabelProvider;
-import org.gemoc.gemoc_language_workbench.ui.dialogs.SelectAnyConcreteEClassDialog;
-import org.gemoc.gemoc_language_workbench.ui.dialogs.SelectAnyEObjectDialog;
+import org.gemoc.commons.eclipse.ui.dialogs.SelectPluginIProjectDialog;
+import org.gemoc.executionframework.ui.dialogs.SelectAnyConcreteEClassDialog;
+import org.gemoc.executionframework.ui.dialogs.SelectAnyEObjectDialog;
+import org.gemoc.executionframework.ui.dialogs.SelectEMFIProjectDialog;
+import org.gemoc.executionframework.ui.dialogs.SelectODesignIProjectDialog;
+import org.gemoc.executionframework.ui.dialogs.SelectXtextIProjectDialog;
+import org.gemoc.executionframework.ui.utils.ENamedElementQualifiedNameLabelProvider;
+import org.gemoc.executionframework.ui.xdsml.wizards.CreateAnimatorProjectWizardContextAction;
+import org.gemoc.executionframework.ui.xdsml.wizards.CreateAnimatorProjectWizardContextAction.CreateAnimatorProjectAction;
+import org.gemoc.executionframework.ui.xdsml.wizards.CreateDomainModelWizardContextAction;
+import org.gemoc.executionframework.ui.xdsml.wizards.CreateDomainModelWizardContextAction.CreateDomainModelAction;
+import org.gemoc.executionframework.ui.xdsml.wizards.CreateEditorProjectWizardContextAction;
+import org.gemoc.executionframework.ui.xdsml.wizards.CreateEditorProjectWizardContextAction.CreateEditorProjectAction;
+import org.gemoc.executionframework.xdsml_base.EditorProject;
+import org.gemoc.executionframework.xdsml_base.XTextEditorProject;
+import org.gemoc.gemoc_language_workbench.conf.ConcurrentLanguageDefinition;
 import org.gemoc.gemoc_language_workbench.ui.dialogs.SelectDSAIProjectDialog;
 import org.gemoc.gemoc_language_workbench.ui.dialogs.SelectDSEIProjectDialog;
-import org.gemoc.gemoc_language_workbench.ui.dialogs.SelectEMFIProjectDialog;
 import org.gemoc.gemoc_language_workbench.ui.dialogs.SelectMoCCIProjectDialog;
-import org.gemoc.gemoc_language_workbench.ui.dialogs.SelectODesignIProjectDialog;
-import org.gemoc.gemoc_language_workbench.ui.dialogs.SelectPluginIProjectDialog;
-import org.gemoc.gemoc_language_workbench.ui.dialogs.SelectXtextIProjectDialog;
-import org.gemoc.gemoc_language_workbench.ui.wizards.CreateAnimatorProjectWizardContextAction;
-import org.gemoc.gemoc_language_workbench.ui.wizards.CreateAnimatorProjectWizardContextAction.CreateAnimatorProjectAction;
 import org.gemoc.gemoc_language_workbench.ui.wizards.CreateDSEWizardContextAction;
 import org.gemoc.gemoc_language_workbench.ui.wizards.CreateDSEWizardContextAction.CreateDSEAction;
-import org.gemoc.gemoc_language_workbench.ui.wizards.CreateDomainModelWizardContextAction;
-import org.gemoc.gemoc_language_workbench.ui.wizards.CreateDomainModelWizardContextAction.CreateDomainModelAction;
-import org.gemoc.gemoc_language_workbench.ui.wizards.CreateEditorProjectWizardContextAction;
-import org.gemoc.gemoc_language_workbench.ui.wizards.CreateEditorProjectWizardContextAction.CreateEditorProjectAction;
 import org.gemoc.gemoc_language_workbench.ui.wizards.CreateMOCCWizardContextAction;
 import org.gemoc.gemoc_language_workbench.ui.wizards.CreateMOCCWizardContextAction.CreateMOCCAction;
 import org.gemoc.gemoc_language_workbench.ui.wizards.contextDSA.CreateDSAWizardContextActionDSAK3;
 import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.core.databinding.UpdateValueStrategy;
-import org.gemoc.gemoc_language_workbench.conf.presentation.LanguageKindConverters.BoolToDeterministicConverter;
-import org.gemoc.gemoc_language_workbench.conf.presentation.LanguageKindConverters.DeterministicToBoolConverter;
-import org.gemoc.gemoc_language_workbench.conf.presentation.LanguageKindConverters.BoolToNonDeterministicConverter;
-import org.gemoc.gemoc_language_workbench.conf.presentation.LanguageKindConverters.NonDeterministicToBoolConverter;
 
 /*
  * IMPORTANT : this file has been edited using Windows builder.
@@ -469,8 +465,8 @@ public class GemocXDSMLFormComposite extends AbstractGemocFormComposite {
 			if (editingDomain.getResourceSet().getResources().size() > 0) {
 				if (editingDomain.getResourceSet().getResources().get(0).getContents().size() > 0) {
 					EObject eObject = editingDomain.getResourceSet().getResources().get(0).getContents().get(0);
-					if (eObject instanceof LanguageDefinition) {
-						rootModelElement = (LanguageDefinition) eObject;
+					if (eObject instanceof ConcurrentLanguageDefinition) {
+						rootModelElement = (ConcurrentLanguageDefinition) eObject;
 						// txtLanguageName.setText(confModelElement.getLanguageDefinition().getName());
 						XDSMLModelWrapperHelper.init(xdsmlWrappedObject, rootModelElement);
 
@@ -1062,47 +1058,7 @@ public class GemocXDSMLFormComposite extends AbstractGemocFormComposite {
 		IObservableValue observeTextLblSupportedFileExtensionsObserveWidget = WidgetProperties.text().observe(lblSupportedFileExtensions);
 		IObservableValue supportedFileExtensionXdsmlWrappedObjectObserveValue = BeanProperties.value("supportedFileExtension").observe(xdsmlWrappedObject);
 		bindingContext.bindValue(observeTextLblSupportedFileExtensionsObserveWidget, supportedFileExtensionXdsmlWrappedObjectObserveValue, null, null);
-		//
-		IObservableValue observeSelectionBtnDeterministicObserveWidget = WidgetProperties.selection().observe(btnDeterministic);
-		IObservableValue languageKindXdsmlWrappedObjectObserveValue = BeanProperties.value("languageKind").observe(xdsmlWrappedObject);
-		UpdateValueStrategy strategy = new UpdateValueStrategy();
-		strategy.setConverter(new BoolToDeterministicConverter());
-		UpdateValueStrategy strategy_1 = new UpdateValueStrategy();
-		strategy_1.setConverter(new DeterministicToBoolConverter());
-		bindingContext.bindValue(observeSelectionBtnDeterministicObserveWidget, languageKindXdsmlWrappedObjectObserveValue, strategy, strategy_1);
-		//
-		IObservableValue observeSelectionBtnNondeterministicObserveWidget = WidgetProperties.selection().observe(btnNondeterministic);
-		UpdateValueStrategy strategy_2 = new UpdateValueStrategy();
-		strategy_2.setConverter(new BoolToNonDeterministicConverter());
-		UpdateValueStrategy strategy_3 = new UpdateValueStrategy();
-		strategy_3.setConverter(new NonDeterministicToBoolConverter());
-		bindingContext.bindValue(observeSelectionBtnNondeterministicObserveWidget, languageKindXdsmlWrappedObjectObserveValue, strategy_2, strategy_3);
-		//
-		IObservableValue observeVisibleGrpMocDefinitionLibraryObserveWidget = WidgetProperties.visible().observe(grpMocDefinitionLibrary);
-		UpdateValueStrategy strategy_4 = new UpdateValueStrategy();
-		strategy_4.setConverter(new NonDeterministicToBoolConverter());
-		bindingContext.bindValue(observeVisibleGrpMocDefinitionLibraryObserveWidget, languageKindXdsmlWrappedObjectObserveValue, new UpdateValueStrategy(UpdateValueStrategy.POLICY_NEVER), strategy_4);
-		//
-		IObservableValue observeVisibleGrpDSEDefinitionObserveWidget = WidgetProperties.visible().observe(grpDSEDefinition);
-		UpdateValueStrategy strategy_5 = new UpdateValueStrategy();
-		strategy_5.setConverter(new NonDeterministicToBoolConverter());
-		bindingContext.bindValue(observeVisibleGrpDSEDefinitionObserveWidget, languageKindXdsmlWrappedObjectObserveValue, new UpdateValueStrategy(UpdateValueStrategy.POLICY_NEVER), strategy_5);
-		//
-		IObservableValue observeVisibleLblEntryPointObserveWidget = WidgetProperties.visible().observe(lblEntryPoint);
-		UpdateValueStrategy strategy_6 = new UpdateValueStrategy();
-		strategy_6.setConverter(new DeterministicToBoolConverter());
-		bindingContext.bindValue(observeVisibleLblEntryPointObserveWidget, languageKindXdsmlWrappedObjectObserveValue, new UpdateValueStrategy(UpdateValueStrategy.POLICY_NEVER), strategy_6);
-		//
-		IObservableValue observeVisibleTxtEntryPointObserveWidget = WidgetProperties.visible().observe(txtEntryPoint);
-		UpdateValueStrategy strategy_7 = new UpdateValueStrategy();
-		strategy_7.setConverter(new DeterministicToBoolConverter());
-		bindingContext.bindValue(observeVisibleTxtEntryPointObserveWidget, languageKindXdsmlWrappedObjectObserveValue, new UpdateValueStrategy(UpdateValueStrategy.POLICY_NEVER), strategy_7);
-		//
-		IObservableValue observeVisibleBtnBrowseEntryPointObserveWidget = WidgetProperties.visible().observe(btnBrowseEntryPoint);
-		UpdateValueStrategy strategy_8 = new UpdateValueStrategy();
-		strategy_8.setConverter(new DeterministicToBoolConverter());
-		bindingContext.bindValue(observeVisibleBtnBrowseEntryPointObserveWidget, languageKindXdsmlWrappedObjectObserveValue, new UpdateValueStrategy(UpdateValueStrategy.POLICY_NEVER), strategy_8);
-		//
+		//		
 		return bindingContext;
 	}
 }

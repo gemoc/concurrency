@@ -19,6 +19,7 @@ Require-Bundle: org.eclipse.ui.workbench,
  org.gemoc.commons.eclipse.ui,
  org.gemoc.gemoc_language_workbench.conf.model,
  org.gemoc.gemoc_language_workbench.conf.model.edit,
- org.gemoc.gemoc_language_workbench.ui
+ org.gemoc.gemoc_language_workbench.ui,
+ org.gemoc.executionframework.ui
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy

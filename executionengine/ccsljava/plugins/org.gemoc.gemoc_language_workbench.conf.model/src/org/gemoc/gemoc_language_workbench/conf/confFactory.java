@@ -22,13 +22,13 @@ public interface confFactory extends EFactory {
 	confFactory eINSTANCE = org.gemoc.gemoc_language_workbench.conf.impl.confFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Language Definition</em>'.
+	 * Returns a new object of class '<em>Concurrent Language Definition</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Language Definition</em>'.
+	 * @return a new object of class '<em>Concurrent Language Definition</em>'.
 	 * @generated
 	 */
-	LanguageDefinition createLanguageDefinition();
+	ConcurrentLanguageDefinition createConcurrentLanguageDefinition();
 
 	/**
 	 * Returns a new object of class '<em>DSA Project</em>'.
@@ -38,15 +38,6 @@ public interface confFactory extends EFactory {
 	 * @generated
 	 */
 	DSAProject createDSAProject();
-
-	/**
-	 * Returns a new object of class '<em>Domain Model Project</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Domain Model Project</em>'.
-	 * @generated
-	 */
-	DomainModelProject createDomainModelProject();
 
 	/**
 	 * Returns a new object of class '<em>Mo CC Project</em>'.
@@ -65,42 +56,6 @@ public interface confFactory extends EFactory {
 	 * @generated
 	 */
 	DSEProject createDSEProject();
-
-	/**
-	 * Returns a new object of class '<em>Sirius Editor Project</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Sirius Editor Project</em>'.
-	 * @generated
-	 */
-	SiriusEditorProject createSiriusEditorProject();
-
-	/**
-	 * Returns a new object of class '<em>Sirius Animator Project</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Sirius Animator Project</em>'.
-	 * @generated
-	 */
-	SiriusAnimatorProject createSiriusAnimatorProject();
-
-	/**
-	 * Returns a new object of class '<em>XText Editor Project</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>XText Editor Project</em>'.
-	 * @generated
-	 */
-	XTextEditorProject createXTextEditorProject();
-
-	/**
-	 * Returns a new object of class '<em>Tree Editor Project</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Tree Editor Project</em>'.
-	 * @generated
-	 */
-	TreeEditorProject createTreeEditorProject();
 
 	/**
 	 * Returns the package supported by this factory.

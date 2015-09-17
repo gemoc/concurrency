@@ -3,6 +3,7 @@
 package org.gemoc.gemoc_language_workbench.conf.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.gemoc.executionframework.xdsml_base.impl.ProjectResourceImpl;
 import org.gemoc.gemoc_language_workbench.conf.MoCCProject;
 import org.gemoc.gemoc_language_workbench.conf.confPackage;
 

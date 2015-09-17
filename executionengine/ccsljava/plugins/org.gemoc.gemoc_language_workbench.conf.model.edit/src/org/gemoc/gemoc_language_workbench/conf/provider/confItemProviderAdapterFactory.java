@@ -70,26 +70,26 @@ public class confItemProviderAdapterFactory extends confAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.gemoc.gemoc_language_workbench.conf.LanguageDefinition} instances.
+	 * This keeps track of the one adapter used for all {@link org.gemoc.gemoc_language_workbench.conf.ConcurrentLanguageDefinition} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected LanguageDefinitionItemProvider languageDefinitionItemProvider;
+	protected ConcurrentLanguageDefinitionItemProvider concurrentLanguageDefinitionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.gemoc.gemoc_language_workbench.conf.LanguageDefinition}.
+	 * This creates an adapter for a {@link org.gemoc.gemoc_language_workbench.conf.ConcurrentLanguageDefinition}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createLanguageDefinitionAdapter() {
-		if (languageDefinitionItemProvider == null) {
-			languageDefinitionItemProvider = new LanguageDefinitionItemProvider(this);
+	public Adapter createConcurrentLanguageDefinitionAdapter() {
+		if (concurrentLanguageDefinitionItemProvider == null) {
+			concurrentLanguageDefinitionItemProvider = new ConcurrentLanguageDefinitionItemProvider(this);
 		}
 
-		return languageDefinitionItemProvider;
+		return concurrentLanguageDefinitionItemProvider;
 	}
 
 	/**
@@ -113,29 +113,6 @@ public class confItemProviderAdapterFactory extends confAdapterFactory implement
 		}
 
 		return dsaProjectItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.gemoc.gemoc_language_workbench.conf.DomainModelProject} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DomainModelProjectItemProvider domainModelProjectItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.gemoc.gemoc_language_workbench.conf.DomainModelProject}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDomainModelProjectAdapter() {
-		if (domainModelProjectItemProvider == null) {
-			domainModelProjectItemProvider = new DomainModelProjectItemProvider(this);
-		}
-
-		return domainModelProjectItemProvider;
 	}
 
 	/**
@@ -182,98 +159,6 @@ public class confItemProviderAdapterFactory extends confAdapterFactory implement
 		}
 
 		return dseProjectItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.gemoc.gemoc_language_workbench.conf.SiriusEditorProject} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SiriusEditorProjectItemProvider siriusEditorProjectItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.gemoc.gemoc_language_workbench.conf.SiriusEditorProject}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSiriusEditorProjectAdapter() {
-		if (siriusEditorProjectItemProvider == null) {
-			siriusEditorProjectItemProvider = new SiriusEditorProjectItemProvider(this);
-		}
-
-		return siriusEditorProjectItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.gemoc.gemoc_language_workbench.conf.SiriusAnimatorProject} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SiriusAnimatorProjectItemProvider siriusAnimatorProjectItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.gemoc.gemoc_language_workbench.conf.SiriusAnimatorProject}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSiriusAnimatorProjectAdapter() {
-		if (siriusAnimatorProjectItemProvider == null) {
-			siriusAnimatorProjectItemProvider = new SiriusAnimatorProjectItemProvider(this);
-		}
-
-		return siriusAnimatorProjectItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.gemoc.gemoc_language_workbench.conf.XTextEditorProject} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected XTextEditorProjectItemProvider xTextEditorProjectItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.gemoc.gemoc_language_workbench.conf.XTextEditorProject}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createXTextEditorProjectAdapter() {
-		if (xTextEditorProjectItemProvider == null) {
-			xTextEditorProjectItemProvider = new XTextEditorProjectItemProvider(this);
-		}
-
-		return xTextEditorProjectItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.gemoc.gemoc_language_workbench.conf.TreeEditorProject} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TreeEditorProjectItemProvider treeEditorProjectItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.gemoc.gemoc_language_workbench.conf.TreeEditorProject}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createTreeEditorProjectAdapter() {
-		if (treeEditorProjectItemProvider == null) {
-			treeEditorProjectItemProvider = new TreeEditorProjectItemProvider(this);
-		}
-
-		return treeEditorProjectItemProvider;
 	}
 
 	/**
@@ -375,15 +260,10 @@ public class confItemProviderAdapterFactory extends confAdapterFactory implement
 	 * @generated
 	 */
 	public void dispose() {
-		if (languageDefinitionItemProvider != null) languageDefinitionItemProvider.dispose();
+		if (concurrentLanguageDefinitionItemProvider != null) concurrentLanguageDefinitionItemProvider.dispose();
 		if (dsaProjectItemProvider != null) dsaProjectItemProvider.dispose();
-		if (domainModelProjectItemProvider != null) domainModelProjectItemProvider.dispose();
 		if (moCCProjectItemProvider != null) moCCProjectItemProvider.dispose();
 		if (dseProjectItemProvider != null) dseProjectItemProvider.dispose();
-		if (siriusEditorProjectItemProvider != null) siriusEditorProjectItemProvider.dispose();
-		if (siriusAnimatorProjectItemProvider != null) siriusAnimatorProjectItemProvider.dispose();
-		if (xTextEditorProjectItemProvider != null) xTextEditorProjectItemProvider.dispose();
-		if (treeEditorProjectItemProvider != null) treeEditorProjectItemProvider.dispose();
 	}
 
 }

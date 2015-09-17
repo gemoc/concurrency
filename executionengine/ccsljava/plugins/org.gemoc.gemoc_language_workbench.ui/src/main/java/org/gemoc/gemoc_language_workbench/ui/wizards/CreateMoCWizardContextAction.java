@@ -22,8 +22,10 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.wizards.IWizardDescriptor;
 import org.gemoc.commons.eclipse.core.resources.NewProjectWorkspaceListener;
 import org.gemoc.commons.eclipse.ui.WizardFinder;
+import org.gemoc.executionframework.ui.xdsml.wizards.XDSMLProjectHelper;
+import org.gemoc.executionframework.xdsml_base.LanguageDefinition;
 import org.gemoc.gemoc_language_workbench.conf.MoCCProject;
-import org.gemoc.gemoc_language_workbench.conf.LanguageDefinition;
+import org.gemoc.gemoc_language_workbench.conf.ConcurrentLanguageDefinition;
 import org.gemoc.gemoc_language_workbench.conf.impl.confFactoryImpl;
 import org.gemoc.gemoc_language_workbench.ui.Activator;
 import org.gemoc.gemoc_language_workbench.ui.dialogs.SelectMoCIFileDialog;
@@ -39,12 +41,12 @@ public class CreateMoCWizardContextAction {
 	// one of these must be set, depending on it it will work on the file or
 	// directly in the model
 	protected IProject gemocLanguageIProject = null;
-	protected LanguageDefinition gemocLanguageModel = null; 
+	protected ConcurrentLanguageDefinition gemocLanguageModel = null; 
 
 	public CreateMoCWizardContextAction(IProject updatedGemocLanguageProject) {
 		gemocLanguageIProject = updatedGemocLanguageProject;
 	}
-	public CreateMoCWizardContextAction(IProject updatedGemocLanguageProject, LanguageDefinition rootModelElement) {
+	public CreateMoCWizardContextAction(IProject updatedGemocLanguageProject, ConcurrentLanguageDefinition rootModelElement) {
 		gemocLanguageIProject = updatedGemocLanguageProject;
 		gemocLanguageModel = rootModelElement;
 	}
@@ -148,7 +150,7 @@ public class CreateMoCWizardContextAction {
 		Resource resource = resSet
 				.getResource(URI.createURI(configFile.getLocationURI()
 						.toString()), true);
-		LanguageDefinition gemocLanguageWorkbenchConfiguration = (LanguageDefinition) resource
+		ConcurrentLanguageDefinition gemocLanguageWorkbenchConfiguration = (ConcurrentLanguageDefinition) resource
 				.getContents().get(0);
 		
 		addMoCFileToConf(projectName, mocFileURI, gemocLanguageWorkbenchConfiguration);
@@ -168,7 +170,7 @@ public class CreateMoCWizardContextAction {
 		}
 	}
 	
-	protected void addMoCFileToConf(String projectName, String mocFileURI, LanguageDefinition languageDefinition) {
+	protected void addMoCFileToConf(String projectName, String mocFileURI, ConcurrentLanguageDefinition languageDefinition) {
 		MoCCProject mocProject = confFactoryImpl.eINSTANCE
 				.createMoCCProject();
 		mocProject.setProjectName(projectName);
@@ -178,10 +180,13 @@ public class CreateMoCWizardContextAction {
 		
 	}
 
-	protected LanguageDefinition getLanguageDefinition(){
+	protected ConcurrentLanguageDefinition getLanguageDefinition(){
 		if(this.gemocLanguageModel != null){
 			return this.gemocLanguageModel;
 		}
-		return XDSMLProjectHelper.getLanguageDefinition(gemocLanguageIProject);
+		LanguageDefinition ld = XDSMLProjectHelper.getLanguageDefinition(gemocLanguageIProject);
+		if(ld instanceof ConcurrentLanguageDefinition)
+			return (ConcurrentLanguageDefinition) ld;
+		else return null;
 	}
 }

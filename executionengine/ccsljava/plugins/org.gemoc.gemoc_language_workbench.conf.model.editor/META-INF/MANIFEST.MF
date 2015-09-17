@@ -16,6 +16,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.emf.edit.ui;visibility:=reexport,
  org.eclipse.ui.ide;visibility:=reexport,
+ org.gemoc.executionframework.xdsml_base.model.edit;visibility:=reexport,
  org.eclipse.ui.forms,
  org.gemoc.gemoc_language_workbench.ui;visibility:=reexport,
  org.eclipse.emf.transaction,
@@ -29,5 +30,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.gemoc.commons.eclipse.ui,
  org.eclipse.pde.ui,
  org.eclipse.jdt.ui,
- org.eclipse.jdt.core
+ org.eclipse.jdt.core,
+ org.gemoc.executionframework.ui
 Bundle-ActivationPolicy: lazy
