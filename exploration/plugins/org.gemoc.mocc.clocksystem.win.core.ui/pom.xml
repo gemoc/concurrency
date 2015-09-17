@@ -3,7 +3,7 @@
   <artifactId>org.gemoc.mocc.clocksystem.win.core.ui</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>eclipse-plugin</packaging>
-  <groupId>org.gemoc.concurrent.exploration</groupId>
+  <groupId>org.gemoc.concurrency.exploration</groupId>
   <!--  <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
@@ -18,8 +18,8 @@
     </plugins>
   </build>-->
   <parent>
-  	<groupId>org.gemoc.concurrent.exploration</groupId>
-  	<artifactId>org.gemoc.concurrent.exploration.root</artifactId>
+  	<groupId>org.gemoc.concurrency.exploration</groupId>
+  	<artifactId>org.gemoc.concurrency.exploration.root</artifactId>
   	<version>0.0.1-SNAPSHOT</version>
   	<relativePath>../../</relativePath>
   </parent>

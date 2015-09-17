@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>org.gemoc.concurrent.exploration.root</artifactId>
+  <artifactId>org.gemoc.concurrency.exploration.root</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <parent>
@@ -20,9 +20,10 @@
   	<module>plugins/org.gemoc.mocc.clocksystem.mac.core.ui</module>
   	
   	<module>releng/org.gemoc.mocc.clocksystem.common.feature</module>
-  	<module>releng/org.gemoc.mocc.clocksystem.features.updatesite</module>
   	<module>releng/org.gemoc.mocc.clocksystem.linonly.feature</module>
   	<module>releng/org.gemoc.mocc.clocksystem.winonly.feature</module>
+  	
+  	<module>releng/org.gemoc.mocc.clocksystem.features.updatesite</module>
   </modules>
  <properties>
 		<xtend.version>2.8.2</xtend.version>
@@ -83,5 +84,5 @@
 	    </profile>
     	
     </profiles>
-  <groupId>org.gemoc.concurrent.exploration</groupId>
+  <groupId>org.gemoc.concurrency.exploration</groupId>
 </project>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.gemoc.concurrent.exploration.common.feature"
+      id="org.gemoc.concurrency.exploration.common.feature"
       label="Common Features for ClockSystem"
       version="0.0.1.qualifier"
       provider-name="ENSTA Bretagne">
