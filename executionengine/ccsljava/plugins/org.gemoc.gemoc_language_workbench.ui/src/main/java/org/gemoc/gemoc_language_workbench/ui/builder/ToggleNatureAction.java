@@ -33,8 +33,8 @@ import org.gemoc.commons.eclipse.core.resources.NatureToggling;
 import org.gemoc.commons.eclipse.core.resources.Project;
 import org.gemoc.commons.eclipse.pde.JavaProject;
 import org.gemoc.commons.eclipse.pde.ui.PluginConverter;
-import org.gemoc.gemoc_language_workbench.conf.ConcurrentLanguageDefinition;
-import org.gemoc.gemoc_language_workbench.conf.impl.confFactoryImpl;
+import org.gemoc.executionengine.ccsljava.concurrent_xdsml.ConcurrentLanguageDefinition;
+import org.gemoc.executionengine.ccsljava.concurrent_xdsml.impl.Concurrent_xdsmlFactoryImpl;
 import org.gemoc.gemoc_language_workbench.ui.Activator;
 import org.gemoc.gemoc_language_workbench.ui.builder.pde.PluginXMLHelper;
 import org.osgi.framework.BundleException;
@@ -206,7 +206,7 @@ public class ToggleNatureAction implements IObjectActionDelegate {
 		    // Create the resource
 		    Resource resource = resSet.createResource(URI.createURI(configFile.getLocationURI().toString()));
 		    // Creates default root elements,
-		    ConcurrentLanguageDefinition ld = confFactoryImpl.eINSTANCE.createConcurrentLanguageDefinition();
+		    ConcurrentLanguageDefinition ld = Concurrent_xdsmlFactoryImpl.eINSTANCE.createConcurrentLanguageDefinition();
 		    ld.setName(languageName);
 		    resource.getContents().add(ld);	
 			

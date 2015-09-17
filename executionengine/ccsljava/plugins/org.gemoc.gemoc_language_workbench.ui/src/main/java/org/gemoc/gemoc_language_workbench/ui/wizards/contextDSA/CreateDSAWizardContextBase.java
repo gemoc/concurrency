@@ -14,9 +14,9 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.gemoc.gemoc_language_workbench.conf.DSAProject;
-import org.gemoc.gemoc_language_workbench.conf.ConcurrentLanguageDefinition;
-import org.gemoc.gemoc_language_workbench.conf.impl.confFactoryImpl;
+import org.gemoc.executionengine.ccsljava.concurrent_xdsml.ConcurrentLanguageDefinition;
+import org.gemoc.executionengine.ccsljava.concurrent_xdsml.DSAProject;
+import org.gemoc.executionengine.ccsljava.concurrent_xdsml.impl.Concurrent_xdsmlFactoryImpl;
 import org.gemoc.gemoc_language_workbench.ui.Activator;
 
 public class CreateDSAWizardContextBase {
@@ -74,7 +74,7 @@ public class CreateDSAWizardContextBase {
 		
 		    
 		    
-			DSAProject DSAProject = confFactoryImpl.eINSTANCE.createDSAProject();
+			DSAProject DSAProject = Concurrent_xdsmlFactoryImpl.eINSTANCE.createDSAProject();
 			DSAProject.setProjectName(projectName);
 			gemocLanguageModel.setDsaProject(DSAProject);
 		

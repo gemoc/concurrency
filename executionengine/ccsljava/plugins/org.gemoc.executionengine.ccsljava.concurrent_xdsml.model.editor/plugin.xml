@@ -13,7 +13,7 @@
       <wizard
             id="org.gemoc.gemoc_language_workbench.conf.presentation.confModelWizardID"
             name="%_UI_confModelWizard_label"
-            class="org.gemoc.gemoc_language_workbench.conf.presentation.confModelWizard"
+            class="org.gemoc.executionengine.ccsljava.concurrent_xdsml.presentation.Concurrent_xdsmlModelWizard"
             category="org.gemoc.gemoc_language_workbench.ui"
             icon="icons/full/obj16/confModelFile.gif">
          <description>%_UI_confModelWizard_description</description>
@@ -37,9 +37,36 @@
             name="%_UI_confEditor_label"
             icon="icons/full/obj16/confModelFile.gif"
             extensions="xdsml"
-            class="org.gemoc.gemoc_language_workbench.conf.presentation.confEditor"
-            contributorClass="org.gemoc.gemoc_language_workbench.conf.presentation.confActionBarContributor">
+            class="org.gemoc.executionengine.ccsljava.concurrent_xdsml.presentation.Concurrent_xdsmlEditor"
+            contributorClass="org.gemoc.executionengine.ccsljava.concurrent_xdsml.presentation.Concurrent_xdsmlActionBarContributor">
       </editor>
    </extension>
 
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated concurrent_xdsml -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.gemoc.executionengine.ccsljava.concurrent_xdsml.presentation.Concurrent_xdsmlModelWizardID"
+            name="%_UI_Concurrent_xdsmlModelWizard_label"
+            class="org.gemoc.executionengine.ccsljava.concurrent_xdsml.presentation.Concurrent_xdsmlModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/Concurrent_xdsmlModelFile.gif">
+         <description>%_UI_Concurrent_xdsmlModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated concurrent_xdsml -->
+      <editor
+            id="org.gemoc.executionengine.ccsljava.concurrent_xdsml.presentation.Concurrent_xdsmlEditorID"
+            name="%_UI_Concurrent_xdsmlEditor_label"
+            icon="icons/full/obj16/Concurrent_xdsmlModelFile.gif"
+            extensions="concurrent_xdsml"
+            class="org.gemoc.executionengine.ccsljava.concurrent_xdsml.presentation.Concurrent_xdsmlEditor"
+            contributorClass="org.gemoc.executionengine.ccsljava.concurrent_xdsml.presentation.Concurrent_xdsmlActionBarContributor">
+      </editor>
+   </extension>
 </plugin>

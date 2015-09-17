@@ -3,7 +3,15 @@
 <plugin>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
-      <package uri="http://www.gemoc.org/gemoc_language_workbench_conf" class="org.gemoc.gemoc_language_workbench.conf.confPackage" genModel="model/gemoc_language_workbench_conf.genmodel"></package>
+      <package uri="http://www.gemoc.org/gemoc_language_workbench_conf" class="org.gemoc.executionengine.ccsljava.conf.Concurrent_xdsmlPackage" genModel="model/concurrent_xdsml.genmodel"></package>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated concurrent_xdsml -->
+      <package
+            uri="http://www.gemoc.org/concurrent_xdsml"
+            class="org.gemoc.executionengine.ccsljava.concurrent_xdsml.Concurrent_xdsmlPackage"
+            genModel="model/concurrent_xdsml.genmodel"/>
    </extension>
 
 </plugin>

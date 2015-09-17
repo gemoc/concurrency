@@ -7,9 +7,9 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: org.gemoc.gemoc_language_workbench.conf,
- org.gemoc.gemoc_language_workbench.conf.impl,
- org.gemoc.gemoc_language_workbench.conf.util
+Export-Package: org.gemoc.executionengine.ccsljava.concurrent_xdsml,
+ org.gemoc.executionengine.ccsljava.concurrent_xdsml.impl,
+ org.gemoc.executionengine.ccsljava.concurrent_xdsml.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.gemoc.executionframework.xdsml_base.model;visibility:=reexport,

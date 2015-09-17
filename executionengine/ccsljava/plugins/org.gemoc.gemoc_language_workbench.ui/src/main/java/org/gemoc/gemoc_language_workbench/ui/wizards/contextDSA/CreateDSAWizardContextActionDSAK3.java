@@ -11,10 +11,10 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.wizards.IWizardDescriptor;
 import org.gemoc.commons.eclipse.core.resources.NewProjectWorkspaceListener;
 import org.gemoc.commons.eclipse.ui.WizardFinder;
+import org.gemoc.executionengine.ccsljava.concurrent_xdsml.ConcurrentLanguageDefinition;
 import org.gemoc.executionframework.ui.xdsml.activefile.ActiveFile;
 import org.gemoc.executionframework.ui.xdsml.activefile.ActiveFileEcore;
 import org.gemoc.executionframework.ui.xdsml.wizards.XDSMLProjectHelper;
-import org.gemoc.gemoc_language_workbench.conf.ConcurrentLanguageDefinition;
 import org.gemoc.gemoc_language_workbench.ui.Activator;
 
 import fr.inria.diverse.commons.eclipse.pde.wizards.pages.pde.TemplateListSelectionPage;

@@ -66,6 +66,11 @@ import org.eclipse.ui.forms.widgets.Section;
 import org.eclipse.ui.forms.widgets.TableWrapLayout;
 import org.gemoc.commons.eclipse.ui.OpenEditor;
 import org.gemoc.commons.eclipse.ui.dialogs.SelectPluginIProjectDialog;
+import org.gemoc.executionengine.ccsljava.concurrent_xdsml.ConcurrentLanguageDefinition;
+import org.gemoc.executionengine.ccsljava.concurrent_xdsml.DSAProject;
+import org.gemoc.executionengine.ccsljava.concurrent_xdsml.DSEProject;
+import org.gemoc.executionengine.ccsljava.concurrent_xdsml.MoCCProject;
+import org.gemoc.executionengine.ccsljava.concurrent_xdsml.provider.Concurrent_xdsmlItemProviderAdapterFactory;
 import org.gemoc.executionframework.ui.dialogs.SelectEMFIProjectDialog;
 import org.gemoc.executionframework.ui.dialogs.SelectODesignIProjectDialog;
 import org.gemoc.executionframework.ui.dialogs.SelectXtextIProjectDialog;
@@ -79,11 +84,6 @@ import org.gemoc.executionframework.xdsml_base.ProjectResource;
 import org.gemoc.executionframework.xdsml_base.SiriusAnimatorProject;
 import org.gemoc.executionframework.xdsml_base.SiriusEditorProject;
 import org.gemoc.executionframework.xdsml_base.XTextEditorProject;
-import org.gemoc.gemoc_language_workbench.conf.ConcurrentLanguageDefinition;
-import org.gemoc.gemoc_language_workbench.conf.DSAProject;
-import org.gemoc.gemoc_language_workbench.conf.DSEProject;
-import org.gemoc.gemoc_language_workbench.conf.MoCCProject;
-import org.gemoc.gemoc_language_workbench.conf.provider.confItemProviderAdapterFactory;
 import org.gemoc.gemoc_language_workbench.dashboard.action.DescriptionAction;
 import org.gemoc.gemoc_language_workbench.dashboard.action.FilterTreeAction;
 import org.gemoc.gemoc_language_workbench.dashboard.form.FormHelper;
@@ -860,7 +860,7 @@ public class GemocOverviewDashboardPage extends FormPage {
 				ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new confItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new Concurrent_xdsmlItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 		// Set content provider.
 		treeViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory) {

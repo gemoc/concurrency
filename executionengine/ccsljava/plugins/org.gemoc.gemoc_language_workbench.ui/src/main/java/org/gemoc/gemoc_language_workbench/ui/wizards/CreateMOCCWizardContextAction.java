@@ -11,11 +11,11 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.wizards.IWizardDescriptor;
 import org.gemoc.commons.eclipse.core.resources.NewProjectWorkspaceListener;
 import org.gemoc.commons.eclipse.ui.WizardFinder;
+import org.gemoc.executionengine.ccsljava.concurrent_xdsml.ConcurrentLanguageDefinition;
+import org.gemoc.executionengine.ccsljava.concurrent_xdsml.MoCCProject;
+import org.gemoc.executionengine.ccsljava.concurrent_xdsml.impl.Concurrent_xdsmlFactoryImpl;
 import org.gemoc.executionframework.ui.xdsml.wizards.XDSMLProjectHelper;
 import org.gemoc.executionframework.xdsml_base.LanguageDefinition;
-import org.gemoc.gemoc_language_workbench.conf.ConcurrentLanguageDefinition;
-import org.gemoc.gemoc_language_workbench.conf.MoCCProject;
-import org.gemoc.gemoc_language_workbench.conf.impl.confFactoryImpl;
 import org.gemoc.gemoc_language_workbench.ui.Activator;
 
 public class CreateMOCCWizardContextAction {
@@ -116,7 +116,7 @@ public class CreateMOCCWizardContextAction {
 	protected void addMoccProjectToConf(String projectName, ConcurrentLanguageDefinition languageDefinition) {
 		MoCCProject project;
 		if(languageDefinition.getMoCCProject() == null){
-			project = confFactoryImpl.eINSTANCE
+			project = Concurrent_xdsmlFactoryImpl.eINSTANCE
 				.createMoCCProject();
 			languageDefinition.setMoCCProject(project);
 		} else {
