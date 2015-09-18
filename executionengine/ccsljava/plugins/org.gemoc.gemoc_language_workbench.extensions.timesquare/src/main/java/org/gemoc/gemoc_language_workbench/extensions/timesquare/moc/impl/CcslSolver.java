@@ -363,11 +363,6 @@ public class CcslSolver implements org.gemoc.executionengine.ccsljava.api.moc.IS
 
 	@Override
 	public void dispose() {
-		try {
-			this.solverWrapper.getSolver().clearBDD();
-		} catch (SimulationException e) {
-			e.printStackTrace();
-		}
 		this.solverWrapper=null;
 	}
 }
