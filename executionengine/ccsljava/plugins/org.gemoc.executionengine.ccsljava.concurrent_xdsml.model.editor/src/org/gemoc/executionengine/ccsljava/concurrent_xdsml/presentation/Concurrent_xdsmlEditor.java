@@ -14,6 +14,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
@@ -48,6 +49,7 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.emf.edit.provider.ItemProvider;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
@@ -89,6 +91,7 @@ import org.eclipse.swt.dnd.FileTransfer;
 import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.events.ControlAdapter;
 import org.eclipse.swt.events.ControlEvent;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
@@ -986,41 +989,6 @@ public class Concurrent_xdsmlEditor
 		//
 		if (!getEditingDomain().getResourceSet().getResources().isEmpty()) {
 			
-			// Create a page for the selection tree view.
-						//
-						{
-							ViewerPane viewerPane =
-								new ViewerPane(getSite().getPage(), Concurrent_xdsmlEditor.this) {
-									@Override
-									public Viewer createViewer(Composite composite) {
-										Tree tree = new Tree(composite, SWT.MULTI);
-										TreeViewer newTreeViewer = new TreeViewer(tree);
-										return newTreeViewer;
-									}
-									@Override
-									public void requestActivation() {
-										super.requestActivation();
-										setCurrentViewerPane(this);
-									}
-								};
-							viewerPane.createControl(getContainer());
-
-							selectionViewer = (TreeViewer)viewerPane.getViewer();
-							selectionViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-
-							selectionViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
-							selectionViewer.setInput(editingDomain.getResourceSet());
-							selectionViewer.setSelection(new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
-							viewerPane.setTitle(editingDomain.getResourceSet());
-
-							new AdapterFactoryTreeEditor(selectionViewer.getTree(), adapterFactory);
-
-							createContextMenuFor(selectionViewer);
-							int pageIndex = addPage(viewerPane.getControl());
-							setPageText(pageIndex, getString("_UI_SelectionPage_label"));
-						}
-			
-			
 			// This is the page for the Gemoc Form viewer.
 			//
 			{
@@ -1047,7 +1015,10 @@ public class Concurrent_xdsmlEditor
 			
 				gemocFormViewer.setEditingDomain(editingDomain);
 				gemocFormViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-
+				
+				viewerPane.setTitle("Concurrent XDSML - "+getEditingDomain().getResourceSet().getResources().get(0).getURI().toString(), 
+						SharedIcons.getSharedImage(SharedIcons.CONCURRENT_XDSMLMODELFILE_ICON));
+				
 				//createContextMenuFor(gemocFormViewer);
 				int pageIndex = addPage(viewerPane.getControl());
 				setPageText(pageIndex, getString("_UI_GemocPage_label"));
@@ -1080,7 +1051,10 @@ public class Concurrent_xdsmlEditor
 				gemocAdvancedFormViewer.setEditingDomain(editingDomain);
 				gemocAdvancedFormViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
 
-				//createContextMenuFor(gemocFormViewer);
+				viewerPane.setTitle("Concurrent XDSML - "+getEditingDomain().getResourceSet().getResources().get(0).getURI().toString(), 
+						SharedIcons.getSharedImage(SharedIcons.CONCURRENT_XDSMLMODELFILE_ICON));
+				
+				//createContextMenuFor(gemocAdvancedFormViewer);
 				int pageIndex = addPage(viewerPane.getControl());
 				setPageText(pageIndex, getString("_UI_GemocAdvancedPage_label"));
 			}
