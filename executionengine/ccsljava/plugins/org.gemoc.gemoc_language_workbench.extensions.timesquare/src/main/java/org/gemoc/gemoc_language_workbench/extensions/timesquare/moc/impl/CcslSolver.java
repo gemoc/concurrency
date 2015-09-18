@@ -53,10 +53,10 @@ import fr.inria.aoste.trace.Reference;
  */
 public class CcslSolver implements org.gemoc.executionengine.ccsljava.api.moc.ISolver {
 
-	private CCSLKernelSolverWrapper solverWrapper = null;
-	private URI solverInputURI = null;
-	private ArrayList<LogicalStep> _lastLogicalSteps = new ArrayList<LogicalStep>();
-	private ActionModel _feedbackModel;
+	protected CCSLKernelSolverWrapper solverWrapper = null;
+	protected URI solverInputURI = null;
+	protected ArrayList<LogicalStep> _lastLogicalSteps = new ArrayList<LogicalStep>();
+	protected ActionModel _feedbackModel;
 	
 	public CcslSolver() 
 	{
@@ -363,7 +363,11 @@ public class CcslSolver implements org.gemoc.executionengine.ccsljava.api.moc.IS
 
 	@Override
 	public void dispose() {
-		// TODO Auto-generated method stub
-		
+		try {
+			this.solverWrapper.getSolver().clearBDD();
+		} catch (SimulationException e) {
+			e.printStackTrace();
+		}
+		this.solverWrapper=null;
 	}
 }
