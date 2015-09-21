@@ -45,7 +45,7 @@
                <groupMarker name="acceleo"/> 
          </menu>
          <action
-                class="org.gemoc.mocc.transformations.instance2clocksystem.handler.CompileAndGenerationClockSystemAction"
+               class="org.gemoc.mocc.transformations.instance2clocksystem.handler.CompileAndGenerationClockSystemAction"
                enablesFor="1"
                id="acceleo.compile.handlers.compileAndGenerateClockSystem"
                icon="icons/obp.gif"
