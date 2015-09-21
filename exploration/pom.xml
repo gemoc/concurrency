@@ -21,6 +21,7 @@
   	
   	<module>releng/org.gemoc.mocc.clocksystem.common.feature</module>
   	<module>releng/org.gemoc.mocc.clocksystem.linonly.feature</module>
+  	<module>releng/org.gemoc.mocc.clocksystem.maconly.feature</module>
   	<module>releng/org.gemoc.mocc.clocksystem.winonly.feature</module>
   	
   	<module>releng/org.gemoc.mocc.clocksystem.features.updatesite</module>
