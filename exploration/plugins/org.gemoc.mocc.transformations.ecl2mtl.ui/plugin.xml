@@ -23,8 +23,8 @@
             objectClass="org.eclipse.core.resources.IFile"
             nameFilter="*.ecl"
             id="org.gemoc.mocc.transformations.ecl2mtl.ui.popupMenus.contribution.IFile">
-         <menu id="org.eclipse.acceleo.module.menu" label="%menu.label" path="additionsAcceleo">
-               <groupMarker name="acceleo"/> 
+         <menu id="org.gemoc.mocc.transformations.ecl2mtl" label="%menu.label" path="exhaustiveExplorationGroup">
+               <groupMarker name="exhaustiveExploration"/> 
          </menu>
          <action
                class="org.gemoc.mocc.transformations.ecl2mtl.ui.popupMenus.AcceleoGenerateEcl2MTLAction"
@@ -32,7 +32,7 @@
                id="org.gemoc.mocc.transformations.ecl2mtl.ui.popupMenus.acceleoGenerateEcl2MTLAction"
                icon="icons/obp.gif"
                label="%t1.label"
-               menubarPath="org.eclipse.acceleo.module.menu/acceleo"/>
+               menubarPath="org.gemoc.mocc.transformations.ecl2mtl/exhaustiveExplorationGroup"/>
       </objectContribution>
    </extension>
    <extension point="org.eclipse.ui.popupMenus">
@@ -40,17 +40,17 @@
             adaptable="true"
             objectClass="org.eclipse.core.resources.IFile"
             nameFilter="*.*"
-            id="acceleo.compile.handlers.compileAndGenerateClockSystem.IFile">
-         <menu id="org.eclipse.acceleo.module.menu" label="%menu.label" path="additionsAcceleo">
-               <groupMarker name="acceleo"/> 
+            id="org.gemoc.mocc.transformations.instance2clocksystem.handler.compileAndGenerateClockSystem.IFile">
+         <menu id="org.gemoc.mocc.transformations.ecl2mtl" label="%menu.label" path="exhaustiveExplorationGroup">
+               <groupMarker name="exhaustiveExploration"/> 
          </menu>
          <action
                class="org.gemoc.mocc.transformations.instance2clocksystem.handler.CompileAndGenerationClockSystemAction"
                enablesFor="1"
-               id="acceleo.compile.handlers.compileAndGenerateClockSystem"
+               id="org.gemoc.mocc.transformations.instance2clocksystem.handler.compileAndGenerateClockSystem"
                icon="icons/obp.gif"
                label="%t2.label"
-               menubarPath="org.eclipse.acceleo.module.menu/acceleo"/>
+               menubarPath="org.gemoc.mocc.transformations.ecl2mtl/exhaustiveExplorationGroup"/>
       </objectContribution>
    </extension>
 </plugin>
