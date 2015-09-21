@@ -31,7 +31,7 @@
                enablesFor="1"
                id="org.gemoc.mocc.transformations.ecl2mtl.ui.popupMenus.acceleoGenerateEcl2MTLAction"
                icon="icons/obp.gif"
-               label="%action.label"
+               label="%t1.label"
                menubarPath="org.eclipse.acceleo.module.menu/acceleo"/>
       </objectContribution>
    </extension>
@@ -41,7 +41,7 @@
             objectClass="org.eclipse.core.resources.IFile"
             nameFilter="*.*"
             id="acceleo.compile.handlers.compileAndGenerateClockSystem.IFile">
-         <menu id="org.eclipse.acceleo.module.menu" label="ClockSystem" path="additionsAcceleo">
+         <menu id="org.eclipse.acceleo.module.menu" label="%menu.label" path="additionsAcceleo">
                <groupMarker name="acceleo"/> 
          </menu>
          <action
@@ -49,25 +49,7 @@
                enablesFor="1"
                id="acceleo.compile.handlers.compileAndGenerateClockSystem"
                icon="icons/obp.gif"
-               label="Generate ClockSystem File"
-               menubarPath="org.eclipse.acceleo.module.menu/acceleo"/>
-      </objectContribution>
-   </extension>
-    <extension point="org.eclipse.ui.popupMenus">
-      <objectContribution
-            adaptable="true"
-            objectClass="org.eclipse.core.resources.IFile"
-            nameFilter="*.*"
-            id="acceleo.compile.handlers.compileAndGenerateFiacre.IFile">
-         <menu id="org.eclipse.acceleo.module.menu" label="ClockSystem" path="additionsAcceleo">
-               <groupMarker name="acceleo"/> 
-         </menu>
-         <action
-                class="org.gemoc.mocc.transformations.instance2clocksystem.handler.CompileAndGenerationFiacreAction"
-               enablesFor="1"
-               id="acceleo.compile.handlers.compileAndGenerateFiacre"
-               icon="icons/obp.gif"
-               label="Generate Fiacre File"
+               label="%t2.label"
                menubarPath="org.eclipse.acceleo.module.menu/acceleo"/>
       </objectContribution>
    </extension>
