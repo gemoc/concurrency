@@ -3,8 +3,7 @@
       id="org.gemoc.concurrency.exploration.linonly.feature"
       label="ClockSystem Exhaustive Exploration Features (Linux ONLY)"
       version="0.0.1.qualifier"
-      provider-name="ENSTA Bretagne"
-      os="linux">
+      provider-name="ENSTA Bretagne">
 
    <description>
       This feature provides the required core functionalities to perform Exhaustive Exploration from a ClockSystem File.

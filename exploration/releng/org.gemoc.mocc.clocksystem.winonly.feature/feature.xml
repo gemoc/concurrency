@@ -3,8 +3,7 @@
       id="org.gemoc.concurrency.exploration.winonly.feature"
       label="ClockSystem Exhaustive Exploration Features (Windows ONLY)"
       version="0.0.1.qualifier"
-      provider-name="ENSTA Bretagne"
-      os="win32">
+      provider-name="ENSTA Bretagne">
 
    <description>
       This feature provides the required core functionalities to perform Exhaustive Exploration from a ClockSystem File.
