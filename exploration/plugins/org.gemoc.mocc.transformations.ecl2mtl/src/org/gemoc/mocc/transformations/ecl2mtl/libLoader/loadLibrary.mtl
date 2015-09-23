@@ -10,7 +10,6 @@
 	'http://www.eclipse.org/ocl/3.1.0/EssentialOCLCST', 
 	'http://org.gemoc.moccml/1.0', 
 	'http://fr.inria.aoste.timemodel', 
-	'http://www.eclipse.org/xtend/RichString', 
 	'http://www.eclipse.org/xtext/xbase/Xbase')]
 
 
