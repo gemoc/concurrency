@@ -60,7 +60,7 @@
             delegate="org.gemoc.gemoc_modeling_workbench.ui.launcher.Launcher"
             id="org.gemoc.gemoc_modeling_workbench.ui.launcher"
             modes="run, debug"
-            name="Gemoc eXecutable Model"
+            name="Gemoc Concurrent eXecutable Model"
             public="true"
             sourceLocatorId="org.gemoc.gemoc_modeling_workbench.ui.sourceLocator">
       </launchConfigurationType>
@@ -196,7 +196,7 @@
           class="org.gemoc.gemoc_modeling_workbench.ui.wizards.CreateNewGemocModelingProject"
           icon="icons/IconeGemocModel-16.png"
           id="org.gemoc.gemoc_modeling_workbench.ui.wizards.CreateNewGemocModelingProject"
-          name="GEMOC Modeling Project"
+          name="GEMOC Concurrent Modeling Project"
           project="true">
     </wizard>
  </extension>
