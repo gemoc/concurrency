@@ -61,8 +61,6 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 	protected Combo _deciderCombo;
 	protected Button _animationFirstBreak;
 
-	protected Group _k3Area;
-	protected Text _entryPointText;
 
 	protected Text modelofexecutionglml_LocationText;
 
@@ -87,8 +85,7 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 		Group debugArea = createGroup(area, "Animation:");
 		createAnimationLayout(debugArea, null);
 
-		_k3Area = createGroup(area, "Pure K3 execution:");
-		createK3Layout(_k3Area, null);
+	
 
 	}
 
@@ -117,7 +114,6 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 			_deciderCombo.setText(runConfiguration.getDeciderName());
 			_animationFirstBreak.setSelection(runConfiguration.getBreakStart());
 
-			_entryPointText.setText(runConfiguration.getExecutionEntryPoint());
 
 		} catch (CoreException e) {
 			Activator.error(e.getMessage(), e);
@@ -134,7 +130,6 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 		configuration.setAttribute(RunConfiguration.LAUNCH_SELECTED_LANGUAGE, this._languageCombo.getText());
 		configuration.setAttribute(RunConfiguration.LAUNCH_MELANGE_QUERY, this._melangeQueryText.getText());
 		configuration.setAttribute(RunConfiguration.LAUNCH_SELECTED_DECIDER, this._deciderCombo.getText());
-		configuration.setAttribute(RunConfiguration.LAUNCH_ENTRY_POINT, _entryPointText.getText());
 		configuration.setAttribute(RunConfiguration.LAUNCH_BREAK_START, _animationFirstBreak.getSelection());
 	}
 
@@ -326,47 +321,10 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 		return parent;
 	}
 
-	private Composite createK3Layout(Composite parent, Font font) {
-		createTextLabelLayout(parent, "Entry point");
-
-		_entryPointText = new Text(parent, SWT.SINGLE | SWT.BORDER);
-		_entryPointText.setLayoutData(createStandardLayout());
-		_entryPointText.setFont(font);
-		_entryPointText.addModifyListener(fBasicModifyListener);
-		Button javaMethodBrowseButton = createPushButton(parent, "Browse", null);
-		javaMethodBrowseButton.addSelectionListener(new SelectionAdapter() {
-			public void widgetSelected(SelectionEvent e) {
-				IJavaSearchScope searchScope = SearchEngine.createWorkspaceScope();
-				IRunnableContext c = new BusyIndicatorRunnableContext();
-				SelectionDialog dialog;
-				try {
-					dialog = JavaUI.createTypeDialog(_parent.getShell(), c, searchScope,
-							IJavaElementSearchConstants.CONSIDER_CLASSES, false);
-					dialog.open();
-					if (dialog.getReturnCode() == Dialog.OK) {
-						IType type = (IType) dialog.getResult()[0];
-						_entryPointText.setText(type.getFullyQualifiedName());
-					}
-				} catch (JavaModelException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-		});
-		return parent;
-	}
+	
 
 	@Override
 	protected void updateLaunchConfigurationDialog() {
 		super.updateLaunchConfigurationDialog();
-		ConcurrentLanguageDefinitionExtension concurrentextension = ConcurrentLanguageDefinitionExtensionPoint.findDefinition(_languageCombo
-				.getText());
-		// if we find that the language is a concurrent language, hide the purek3 widgets
-		if (concurrentextension == null) {				
-			_k3Area.setVisible(true);
-		} else {
-			_k3Area.setVisible(false);
-		}
-		
 	}
 }

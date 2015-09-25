@@ -79,7 +79,7 @@
              id="org.gemoc.gemoc_modeling_workbench.ui.plainK3debugModel">
        </debugModelPresentation>
     </extension>
-    <extension
+<!--    <extension
           id="org.gemoc.gemoc_modeling_workbench.ui.breakpoint.breakpointMarker"
           point="org.eclipse.core.resources.markers">
        <persistent
@@ -103,7 +103,7 @@
              markerType="org.gemoc.gemoc_modeling_workbench.ui.breakpoint.breakpointMarker"
              name="Gemoc Breakpoints">
        </breakpoint>
-    </extension>
+    </extension>-->
    <extension point="org.eclipse.debug.ui.launchConfigurationTypeImages">
     <launchConfigurationTypeImage
         icon="icons/IconeGemocModel-16.png"
