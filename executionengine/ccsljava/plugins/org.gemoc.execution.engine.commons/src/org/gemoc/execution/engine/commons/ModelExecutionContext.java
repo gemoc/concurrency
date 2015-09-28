@@ -21,7 +21,7 @@ import org.gemoc.gemoc_language_workbench.api.extensions.languages.LanguageDefin
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ActionModel;
 
-public class ModelExecutionContext implements IExecutionContext
+abstract public class ModelExecutionContext implements IExecutionContext
 {
 
 	protected IRunConfiguration _runConfiguration;
@@ -92,18 +92,18 @@ public class ModelExecutionContext implements IExecutionContext
 		return new DefaultExecutionPlatform(_languageDefinition, _runConfiguration);
 	}
 	
-	protected LanguageDefinitionExtension getLanguageDefinition(String languageName) throws EngineContextException
-	{
-		ConcurrentLanguageDefinitionExtension languageDefinition = ConcurrentLanguageDefinitionExtensionPoint.findDefinition(_runConfiguration.getLanguageName());
-		if (languageDefinition == null)
-		{
-			String message = "Cannot find xdsml definition for the language " + _runConfiguration.getLanguageName()
-					+ ", please verify that is is correctly deployed.";
-			EngineContextException exception = new EngineContextException(message);
-			throw exception;
-		}
-		return languageDefinition;
-	}
+	abstract protected LanguageDefinitionExtension getLanguageDefinition(String languageName) throws EngineContextException;
+//	{
+//		ConcurrentLanguageDefinitionExtension languageDefinition = ConcurrentLanguageDefinitionExtensionPoint.findDefinition(_runConfiguration.getLanguageName());
+//		if (languageDefinition == null)
+//		{
+//			String message = "Cannot find xdsml definition for the language " + _runConfiguration.getLanguageName()
+//					+ ", please verify that is is correctly deployed.";
+//			EngineContextException exception = new EngineContextException(message);
+//			throw exception;
+//		}
+//		return languageDefinition;
+//	}
 
 	private ResourceSet getResourceSet()
 	{

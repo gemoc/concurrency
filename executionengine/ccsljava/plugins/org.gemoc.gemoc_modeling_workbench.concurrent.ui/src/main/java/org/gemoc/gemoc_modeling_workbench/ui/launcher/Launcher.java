@@ -39,7 +39,6 @@ import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
 import org.gemoc.gemoc_language_workbench.api.core.IExecutionEngine;
 import org.gemoc.gemoc_language_workbench.api.core.ISequentialExecutionEngine;
 import org.gemoc.gemoc_language_workbench.api.engine_addon.IEngineAddon;
-import org.gemoc.gemoc_language_workbench.extensions.k3.PlainK3ExecutionEngine;
 import org.gemoc.gemoc_language_workbench.extensions.sirius.services.AbstractGemocAnimatorServices;
 import org.gemoc.gemoc_language_workbench.extensions.sirius.services.AbstractGemocDebuggerServices;
 import org.gemoc.gemoc_modeling_workbench.concurrent.ui.Activator;
@@ -273,10 +272,7 @@ public class Launcher extends fr.obeo.dsl.debug.ide.sirius.ui.launch.AbstractDSL
 
 	@Override
 	protected String getModelIdentifier() {
-		if (_executionEngine instanceof PlainK3ExecutionEngine)
-			return "org.gemoc.gemoc_modeling_workbench.ui.plainK3debugModel";
-		else
-			return MODEL_ID;
+		return MODEL_ID;
 	}
 
 	@Override
