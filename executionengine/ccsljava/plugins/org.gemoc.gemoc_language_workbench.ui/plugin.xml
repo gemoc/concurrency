@@ -157,7 +157,7 @@
       </category>
       <wizard
             category="org.gemoc.gemoc_language_workbench.ui"
-            class="org.gemoc.gemoc_language_workbench.ui.wizards.CreateNewGemocLanguageProject"
+            class="org.gemoc.gemoc_language_workbench.ui.wizards.CreateNewGemocConcurrentLanguageProject"
             icon="icons/IconeGemocLanguage-16.png"
             finalPerspective="org.eclipse.sirius.ui.tools.perspective.design"
             id="org.gemoc.gemoc_language_workbench.ui.wizards.CreateNewGemocLanguageProject"

@@ -4,9 +4,9 @@ import org.eclipse.core.resources.IProject;
 import org.gemoc.executionframework.ui.xdsml.wizards.AbstractCreateNewGemocLanguageProject;
 import org.gemoc.gemoc_language_workbench.ui.builder.ToggleNatureAction;
 
-public class CreateNewGemocLanguageProject extends AbstractCreateNewGemocLanguageProject {
+public class CreateNewGemocConcurrentLanguageProject extends AbstractCreateNewGemocLanguageProject {
 
-	public CreateNewGemocLanguageProject() {
+	public CreateNewGemocConcurrentLanguageProject() {
 		super();		
 	}
 
