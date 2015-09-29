@@ -1,10 +1,15 @@
 package org.gemoc.executionengine.ccsljava.engine;
 
+import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.Status;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
 public class Activator implements BundleActivator {
 
+	// The plug-in ID
+	public static final String PLUGIN_ID = "org.gemoc.executionengine.ccsljava.engine"; //$NON-NLS-1$
+	
 	private static BundleContext context;
 
 	static BundleContext getContext() {
@@ -27,4 +32,16 @@ public class Activator implements BundleActivator {
 		Activator.context = null;
 	}
 
+	public static void warn(String msg, Throwable e){
+		Platform.getLog(Platform.getBundle(PLUGIN_ID)).log(new Status(Status.WARNING, PLUGIN_ID,
+                Status.OK, 
+                msg, 
+                e));
+	}
+	public static void error(String msg, Throwable e){
+		Platform.getLog(Platform.getBundle(PLUGIN_ID)).log(new Status(Status.WARNING, PLUGIN_ID,
+                Status.OK, 
+                msg, 
+                e));
+	}
 }
