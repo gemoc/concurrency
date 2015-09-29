@@ -1,7 +1,7 @@
 package org.gemoc.executionengine.ccsljava.concurrent_xdsml.presentation;
 
 import org.gemoc.executionengine.ccsljava.concurrent_xdsml.ConcurrentLanguageDefinition;
-import org.gemoc.executionengine.ccsljava.concurrent_xdsml.util.XDSMLModelHelper;
+import org.gemoc.executionengine.ccsljava.concurrent_xdsml.util.XDSMLConcurrentModelHelper;
 import org.gemoc.executionframework.xdsml_base.AnimatorProject;
 import org.gemoc.executionframework.xdsml_base.DomainModelProject;
 import org.gemoc.executionframework.xdsml_base.EditorProject;
@@ -44,13 +44,13 @@ public class XDSMLModelWrapper extends ViewModelWrapper {
 	public void setDomainModelProjectName(String domainModelProjectName) {
 		String oldName = getDomainModelProjectName();
 		firePropertyChange("domainModelProjectName", oldName, domainModelProjectName);
-		XDSMLModelHelper.getOrCreateDomainModelProject(languageDefinition).setProjectName(domainModelProjectName);
+		XDSMLConcurrentModelHelper.getOrCreateDomainModelProject(languageDefinition).setProjectName(domainModelProjectName);
 	}
 
 	public void setGenmodelLocationURI(String genmodel) {
 		String oldName = getGenmodelLocationURI();
 		firePropertyChange("genmodelLocationURI", oldName, genmodel);
-		XDSMLModelHelper.getOrCreateDomainModelProject(languageDefinition).setGenmodeluri(genmodel);
+		XDSMLConcurrentModelHelper.getOrCreateDomainModelProject(languageDefinition).setGenmodeluri(genmodel);
 	}
 
 	public String getGenmodelLocationURI() {
@@ -66,7 +66,7 @@ public class XDSMLModelWrapper extends ViewModelWrapper {
 	public void setRootContainerModelElement(String root) {
 		String oldName = getRootContainerModelElement();
 		firePropertyChange("rootContainerModelElement", oldName, root);
-		(XDSMLModelHelper.getOrCreateDomainModelProject(languageDefinition)).setDefaultRootEObjectQualifiedName(root);
+		(XDSMLConcurrentModelHelper.getOrCreateDomainModelProject(languageDefinition)).setDefaultRootEObjectQualifiedName(root);
 	}
 
 	public String getRootContainerModelElement() {
@@ -83,7 +83,7 @@ public class XDSMLModelWrapper extends ViewModelWrapper {
 	public void setModelLoaderClass(String modelLoaderClass) {
 		String oldName = getGenmodelLocationURI();
 		firePropertyChange("modelLoaderClass", oldName, modelLoaderClass);
-		XDSMLModelHelper.getOrCreateDomainModelProject(languageDefinition).setModelLoaderClass(modelLoaderClass);
+		XDSMLConcurrentModelHelper.getOrCreateDomainModelProject(languageDefinition).setModelLoaderClass(modelLoaderClass);
 	}
 
 	public String getModelLoaderClass() {
@@ -131,7 +131,7 @@ public class XDSMLModelWrapper extends ViewModelWrapper {
 	public void setXTextEditorProjectName(String name) {
 		String oldName = getXTextEditorProjectName();
 		firePropertyChange("xTextEditorProjectName", oldName, name);
-		XDSMLModelHelper.getOrCreateXTextEditorProject(languageDefinition).setProjectName(name);
+		XDSMLConcurrentModelHelper.getOrCreateXTextEditorProject(languageDefinition).setProjectName(name);
 
 	}
 
@@ -149,7 +149,7 @@ public class XDSMLModelWrapper extends ViewModelWrapper {
 	public void setSiriusEditorProjectName(String name) {
 		String oldName = getSiriusEditorProjectName();
 		firePropertyChange("xSiriusEditorProjectName", oldName, name);
-		XDSMLModelHelper.getOrCreateSiriusEditorProject(languageDefinition).setProjectName(name);
+		XDSMLConcurrentModelHelper.getOrCreateSiriusEditorProject(languageDefinition).setProjectName(name);
 	}
 
 	public String getSiriusAnimatorProjectName() {
@@ -164,7 +164,7 @@ public class XDSMLModelWrapper extends ViewModelWrapper {
 	public void setSiriusAnimatorProjectName(String name) {
 		String oldName = getSiriusAnimatorProjectName();
 		firePropertyChange("xSiriusAnimatorProjectName", oldName, name);
-		XDSMLModelHelper.getOrCreateSiriusAnimatorProject(languageDefinition).setProjectName(name);
+		XDSMLConcurrentModelHelper.getOrCreateSiriusAnimatorProject(languageDefinition).setProjectName(name);
 	}
 
 	public String getDSAProjectName() {
@@ -178,7 +178,7 @@ public class XDSMLModelWrapper extends ViewModelWrapper {
 	public void setDSAProjectName(String projectName) {
 		String oldName = getDSAProjectName();
 		firePropertyChange("dSAProjectName", oldName, projectName);
-		XDSMLModelHelper.getOrCreateDSAProject(languageDefinition).setProjectName(projectName);
+		XDSMLConcurrentModelHelper.getOrCreateDSAProject(languageDefinition).setProjectName(projectName);
 	}
 
 	public String getCodeExecutorClass() {
@@ -194,7 +194,7 @@ public class XDSMLModelWrapper extends ViewModelWrapper {
 	public void setCodeExecutorClass(String codeExecutorClass) {
 		String oldName = getCodeExecutorClass();
 		firePropertyChange("codeExecutorClass", oldName, codeExecutorClass);
-		XDSMLModelHelper.getOrCreateDSAProject(languageDefinition).setCodeExecutorClass(codeExecutorClass);
+		XDSMLConcurrentModelHelper.getOrCreateDSAProject(languageDefinition).setCodeExecutorClass(codeExecutorClass);
 	}
 
 	public String getDSEProjectName() {
@@ -208,7 +208,7 @@ public class XDSMLModelWrapper extends ViewModelWrapper {
 	public void setDSEProjectName(String projectName) {
 		String oldName = getDSEProjectName();
 		firePropertyChange("dSEProjectName", oldName, projectName);
-		XDSMLModelHelper.getOrCreateDSEProject(languageDefinition).setProjectName(projectName);
+		XDSMLConcurrentModelHelper.getOrCreateDSEProject(languageDefinition).setProjectName(projectName);
 	}
 
 	public String getQvtoURI() {
@@ -223,7 +223,7 @@ public class XDSMLModelWrapper extends ViewModelWrapper {
 	public void setQvtoURI(String qvtoURI) {
 		String oldName = getQvtoURI();
 		firePropertyChange("qvtoURI", oldName, qvtoURI);
-		XDSMLModelHelper.getOrCreateDSEProject(languageDefinition).setQvtoURI(qvtoURI);
+		XDSMLConcurrentModelHelper.getOrCreateDSEProject(languageDefinition).setQvtoURI(qvtoURI);
 	}
 
 	public String getMoCCProjectName() {
@@ -237,7 +237,7 @@ public class XDSMLModelWrapper extends ViewModelWrapper {
 	public void setMoCCProjectName(String projectName) {
 		String oldName = getMoCCProjectName();
 		firePropertyChange("moCCProjectName", oldName, projectName);
-		XDSMLModelHelper.getOrCreateMoCCProject(languageDefinition).setProjectName(projectName);
+		XDSMLConcurrentModelHelper.getOrCreateMoCCProject(languageDefinition).setProjectName(projectName);
 	}
 
 

@@ -217,6 +217,8 @@ public class StimuliManagerView extends EngineSelectionDependentViewPart impleme
 		//startListeningToMotorSelectionChange();
 
 		LogicalStepsView decisionView = ViewHelper.<LogicalStepsView>retrieveView(LogicalStepsView.ID);
+		//DVK : warning this code must be reviewed, in some situation (typically on Eclipse startup, 
+		// the LogicalStepView might be available "after" the call to this view and raise a NPE here 
 		_decisionViewListener = new ISelectionChangedListener() 
 		{
 			@Override

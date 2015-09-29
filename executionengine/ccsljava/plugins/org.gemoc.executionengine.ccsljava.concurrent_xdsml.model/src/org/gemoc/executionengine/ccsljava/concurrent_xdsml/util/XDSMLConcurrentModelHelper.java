@@ -7,7 +7,7 @@ import org.gemoc.executionengine.ccsljava.concurrent_xdsml.DSAProject;
 import org.gemoc.executionengine.ccsljava.concurrent_xdsml.DSEProject;
 import org.gemoc.executionengine.ccsljava.concurrent_xdsml.MoCCProject;
 
-public class XDSMLModelHelper extends XDSMLBaseModelHelper{
+public class XDSMLConcurrentModelHelper extends XDSMLBaseModelHelper{
 	
 	public static DSAProject getOrCreateDSAProject(
 			ConcurrentLanguageDefinition languageDefinition) {
