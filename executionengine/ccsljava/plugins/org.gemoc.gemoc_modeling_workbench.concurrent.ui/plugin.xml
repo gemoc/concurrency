@@ -155,36 +155,17 @@
 		     </with>
             </enablement>
             <contextLabel
-                  label="Gemoc eXecutable Model"
+                  label="Gemoc Concurrent eXecutable Model"
                   mode="run">
             </contextLabel>
             <contextLabel
-                  label="Gemoc eXecutable Model"
+                  label="Gemoc Concurrent eXecutable Model"
                   mode="debug">
             </contextLabel>
          </contextualLaunch>
       </shortcut>
    </extension>
- <extension
-       point="org.eclipse.debug.ui.detailPaneFactories">
-    <detailFactories
-          class="org.gemoc.gemoc_modeling_workbench.ui.breakpoint.BreakpointDetailPaneFactory"
-          id="org.gemoc.gemoc_modeling_workbench.ui.breakpoint.detailFactories">
-       <enablement>
-          <with
-                variable="selection">
-             <count
-                   value="1">
-             </count>
-             <iterate>
-                <instanceof
-                      value="org.gemoc.gemoc_modeling_workbench.ui.breakpoint.GemocBreakpoint">
-                </instanceof>
-             </iterate>
-          </with>
-       </enablement>
-    </detailFactories>
- </extension>
+
  <extension
        point="org.eclipse.ui.newWizards">
     <category
