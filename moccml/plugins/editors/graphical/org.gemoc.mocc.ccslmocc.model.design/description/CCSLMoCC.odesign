@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="CCSLMoCC" version="8.1.0">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="CCSLMoCC" version="9.0.0">
   <ownedViewpoints name="MoCCML" modelFileExtension="ccsl xmi mocdsl moccml">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="State-Based Library Diagram" label="Constraint-Automata Library Diagram" domainClass="moccml.StateRelationBasedLibrary" enablePopupBars="true">
       <metamodel href="http://fr.inria.aoste.timemodel#/"/>
@@ -14,7 +14,7 @@
       <metamodel href="../../org.gemoc.mocc.ccslmocc.model/model/Ccslmocc.ecore#/"/>
       <metamodel href="../../org.gemoc.mocc.fsmkernel.model/model/FSMModel.ecore#/"/>
       <defaultLayer name="Default">
-        <edgeMappings name="RelationDefToDeclaration" deletionDescription="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DelDeclarationRelation']" sourceMapping="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@defaultLayer/@containerMappings[name='RelationLibrary']/@subContainerMappings[name='StateMachineRelationDefinition']" targetMapping="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@defaultLayer/@containerMappings[name='RelationLibrary']/@subContainerMappings[name='RelationDeclaration']" targetFinderExpression="feature:declaration" reconnections="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='SetDeclarationChange']">
+        <edgeMappings name="RelationDefToDeclaration" deletionDescription="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DelDeclarationRelation']" sourceMapping="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@defaultLayer/@containerMappings[name='RelationLibrary']/@subContainerMappings[name='StateMachineRelationDefinition']" targetMapping="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@defaultLayer/@containerMappings[name='RelationLibrary']/@subContainerMappings[name='RelationDeclaration']" targetFinderExpression="feature:declaration" reconnections="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DeclarationMoveTarget'] //@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DeclarationMoveSource']">
           <style lineStyle="dash" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelFormat="italic" showIcon="false" labelExpression="defines">
@@ -60,13 +60,16 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="DiscreteClockType" referenceName="predefinedTypes" variableName="disc">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['clock'+self.oclAsType(StateRelationBasedLibrary).predefinedTypes->size()/]"/>
+                </subModelOperations>
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="RelationLibrary" referenceName="relationLibraries">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['newRelationLib'+container->filter(StateRelationBasedLibrary).relationLibraries->size()/]"/>
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="RelationDeclaration" referenceName="relationDeclarations">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['newRelationDecl'+container->filter(StateRelationBasedLibrary).numRelationDeclaration()/]"/>
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="AbstractEntity" referenceName="parameters">
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['param'+container->filter(StateRelationBasedLibrary).numFormalParam()/]"/>
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="[(container->filter(StateRelationBasedLibrary).predefinedTypes->asOrderedSet()->first()).oclAsType(DiscreteClockType)/]"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="[(container->filter(StateRelationBasedLibrary).predefinedTypes->asOrderedSet()->first().oclAsType(DiscreteClockType))/]"/>
                     </subModelOperations>
                   </subModelOperations>
                 </subModelOperations>
@@ -79,7 +82,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="StateMachineRelationDefinition" referenceName="relationDefinitions">
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['newFSM'+((container->filter(RelationLibrary)).eContainer())->filter(StateRelationBasedLibrary).numStateMachineRelationDefinition()/]"/>
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="State" referenceName="states">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="FSMModel.State" referenceName="states">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['S'+((container->filter(RelationLibrary)).eContainer())->filter(StateRelationBasedLibrary).numStateMachineRelationDefinition()/]">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['S'+((container->filter(RelationLibrary)).eContainer())->filter(StateRelationBasedLibrary).numStates()/]"/>
                   </subModelOperations>
@@ -243,15 +246,17 @@
           </ownedTools>
         </toolSections>
         <toolSections name="LibraryToolsModification">
-          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="SetDeclarationChange" forceRefresh="true">
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="DeclarationMoveTarget" forceRefresh="true">
             <source name="source"/>
             <target name="target"/>
             <sourceView name="sourceView"/>
             <targetView name="targetView"/>
             <element name="element"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[edgeView.oclAsType(viewpoint::DEdge).sourceNode.oclAsType(viewpoint::DSemanticDecorator).target/]">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="declaration" valueExpression="var:target"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element.oclAsType(StateMachineRelationDefinition)/]">
+                <subModelOperations xsi:type="tool_1:Unset" featureName="declaration" elementExpression="var:source">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="declaration" valueExpression="var:target"/>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
             <edgeView name="edgeView"/>
@@ -261,10 +266,26 @@
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[elementView.oclAsType(viewpoint::DEdge).sourceNode.oclAsType(viewpoint::DSemanticDecorator).target/]">
-                <subModelOperations xsi:type="tool_1:Unset" featureName="declaration" elementExpression="[elementView.oclAsType(viewpoint::DEdge).targetNode.oclAsType(viewpoint::DSemanticDecorator).target/]"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:Unset" featureName="declaration" elementExpression="[self.oclAsType(StateMachineRelationDefinition).declaration/]"/>
               </firstModelOperations>
             </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="DeclarationMoveSource" forceRefresh="true" reconnectionKind="RECONNECT_SOURCE">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[target/]">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="declaration" valueExpression="[element.oclAsType(StateMachineRelationDefinition).declaration/]"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element/]">
+                  <subModelOperations xsi:type="tool_1:Unset" featureName="declaration" elementExpression="[self/]"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
           </ownedTools>
         </toolSections>
         <toolSections name="LibraryToolsLabelEdition">
@@ -305,8 +326,8 @@
         </toolSections>
       </defaultLayer>
       <additionalLayers name="LibraryDefinition" label="Library Definition" activeByDefault="true">
-        <containerMappings name="ImportURIContainer" semanticCandidatesExpression="[thisEObject.imports->first()/]" domainClass="ImportStatement" childrenPresentation="List">
-          <subNodeMappings name="ImportURI" labelDirectEdit="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@additionalLayers[name='LibraryDefinition']/@toolSections.2/@ownedTools[name='LabelImport']" semanticCandidatesExpression="[self.eContainer().oclAsType(StateRelationBasedLibrary).imports/]" domainClass="ImportStatement">
+        <containerMappings name="ImportURIContainer" semanticCandidatesExpression="[thisEObject.imports->first()/]" synchronizationLock="true" domainClass="ImportStatement" childrenPresentation="List">
+          <subNodeMappings name="ImportURI" labelDirectEdit="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@additionalLayers[name='LibraryDefinition']/@toolSections.2/@ownedTools[name='LabelImport']" semanticCandidatesExpression="[self.eContainer().oclAsType(StateRelationBasedLibrary).imports/]" synchronizationLock="true" domainClass="ImportStatement">
             <style xsi:type="style:SquareDescription" labelFormat="bold" showIcon="false" labelExpression="['import &quot;'+self.importURI+'&quot; as '+self.alias/]" labelAlignment="LEFT" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_gray']"/>
@@ -321,7 +342,7 @@
             <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.0"/>
           </style>
         </containerMappings>
-        <containerMappings name="ImportedTypeContainer" deletionDescription="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@additionalLayers[name='LibraryDefinition']/@toolSections.1/@ownedTools[name='DeleteImportedTypes']" semanticCandidatesExpression="[getImportedTypes()->first()/]" domainClass="BasicType.Type" childrenPresentation="List">
+        <containerMappings name="ImportedTypeContainer" deletionDescription="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@additionalLayers[name='LibraryDefinition']/@toolSections.1/@ownedTools[name='DeleteImportedTypes']" semanticCandidatesExpression="[getImportedTypes()->first()/]" synchronizationLock="true" domainClass="BasicType.Type" childrenPresentation="List">
           <subNodeMappings name="ImportedTypeDeclaration" deletionDescription="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@additionalLayers[name='LibraryDefinition']/@toolSections.1/@ownedTools[name='DeleteImportedTypes']" semanticCandidatesExpression="[containerView.eContainer(viewpoint::DSemanticDecorator).target.oclAsType(StateRelationBasedLibrary).getImportedTypes()/]" synchronizationLock="true" domainClass="BasicType.Type">
             <style xsi:type="style:SquareDescription" labelFormat="italic" showIcon="false" labelExpression="[self.eClass().name+': '+self.name/]" labelAlignment="LEFT" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -337,8 +358,8 @@
             <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.0"/>
           </style>
         </containerMappings>
-        <containerMappings name="TypeContainer" deletionDescription="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@additionalLayers[name='LibraryDefinition']/@toolSections.1/@ownedTools[name='DelPredefinedTypesID']" semanticCandidatesExpression="[predefinedTypes->first()/]" domainClass="BasicType.Type" childrenPresentation="List">
-          <subNodeMappings name="TypeDeclaration" deletionDescription="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@additionalLayers[name='LibraryDefinition']/@toolSections.1/@ownedTools[name='DelPredefinedTypesID']" labelDirectEdit="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@additionalLayers[name='LibraryDefinition']/@toolSections.2/@ownedTools[name='LabelType']" semanticCandidatesExpression="[eContainer().oclAsType(StateRelationBasedLibrary).predefinedTypes/]" domainClass="BasicType.Type">
+        <containerMappings name="TypeContainer" deletionDescription="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@additionalLayers[name='LibraryDefinition']/@toolSections.1/@ownedTools[name='DelPredefinedTypesID']" semanticCandidatesExpression="[predefinedTypes->first()/]" synchronizationLock="true" domainClass="BasicType.Type" childrenPresentation="List">
+          <subNodeMappings name="TypeDeclaration" deletionDescription="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@additionalLayers[name='LibraryDefinition']/@toolSections.1/@ownedTools[name='DelPredefinedTypesID']" labelDirectEdit="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@additionalLayers[name='LibraryDefinition']/@toolSections.2/@ownedTools[name='LabelType']" semanticCandidatesExpression="[eContainer().oclAsType(StateRelationBasedLibrary).predefinedTypes/]" synchronizationLock="true" domainClass="BasicType.Type">
             <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="[self.eClass().name+': '+self.name/]" labelAlignment="LEFT" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -729,8 +750,8 @@
             <element name="element"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element/]">
-                <subModelOperations xsi:type="tool_1:Unset" featureName="source" elementExpression="var:source">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="source" valueExpression="var:target"/>
+                <subModelOperations xsi:type="tool_1:Unset" featureName="source" elementExpression="[self/]">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="source" valueExpression="[target/]"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -741,17 +762,7 @@
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool_1:For" expression="inputTransitions" iteratorName="iT">
-                  <subModelOperations xsi:type="tool_1:Unset" featureName="source" elementExpression="[elementView->filter(viewpoint::DEdge).sourceNode->filter(viewpoint::DSemanticDecorator).target/]"/>
-                  <subModelOperations xsi:type="tool_1:Unset" featureName="target" elementExpression="[elementView->filter(viewpoint::DEdge).targetNode->filter(viewpoint::DSemanticDecorator).target/]"/>
-                  <subModelOperations xsi:type="tool_1:RemoveElement"/>
-                </subModelOperations>
-                <subModelOperations xsi:type="tool_1:For" expression="outputTransitions" iteratorName="oT">
-                  <subModelOperations xsi:type="tool_1:Unset" featureName="source" elementExpression="[elementView->filter(viewpoint::DEdge).sourceNode->filter(viewpoint::DSemanticDecorator).target/]"/>
-                  <subModelOperations xsi:type="tool_1:Unset" featureName="target" elementExpression="[elementView->filter(viewpoint::DEdge).targetNode->filter(viewpoint::DSemanticDecorator).target/]"/>
-                  <subModelOperations xsi:type="tool_1:RemoveElement"/>
-                </subModelOperations>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element/]">
                 <subModelOperations xsi:type="tool_1:RemoveElement"/>
               </firstModelOperations>
             </initialOperation>
@@ -767,38 +778,24 @@
                     <subModelOperations xsi:type="tool_1:Unset" featureName="initialStates" elementExpression="var:element"/>
                   </subModelOperations>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element"/>
                 <subModelOperations xsi:type="tool_1:If" conditionExpression="[self.eContainer(StateMachineRelationDefinition).finalStates->includes(self)/]">
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[eContainer()/]">
                     <subModelOperations xsi:type="tool_1:Unset" featureName="finalStates" elementExpression="var:element"/>
                   </subModelOperations>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element"/>
-                <subModelOperations xsi:type="tool_1:If" conditionExpression="[not self.oclAsType(FSMModel::State).inputTransitions->isEmpty()/]">
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.oclAsType(FSMModel::State)/]">
-                    <subModelOperations xsi:type="tool_1:For" expression="[inputTransitions/]" iteratorName="inputT">
-                      <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:inputT">
-                        <subModelOperations xsi:type="tool_1:Unset" featureName="target" elementExpression="[self.oclAsType(FSMModel::Transition).target/]"/>
-                        <subModelOperations xsi:type="tool_1:Unset" featureName="source" elementExpression="[self.oclAsType(FSMModel::Transition).source/]"/>
-                        <subModelOperations xsi:type="tool_1:RemoveElement"/>
-                      </subModelOperations>
-                    </subModelOperations>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                  <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:For" expression="[self.oclAsType(FSMModel::State).inputTransitions/]" iteratorName="inT">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[inT/]">
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
                   </subModelOperations>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element"/>
-                <subModelOperations xsi:type="tool_1:If" conditionExpression="[not self.oclAsType(FSMModel::State).outputTransitions->isEmpty()/]">
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.oclAsType(FSMModel::State)/]">
-                    <subModelOperations xsi:type="tool_1:For" expression="[outputTransitions/]" iteratorName="outputT">
-                      <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:outputT">
-                        <subModelOperations xsi:type="tool_1:Unset" featureName="target" elementExpression="[self.oclAsType(FSMModel::Transition).target/]"/>
-                        <subModelOperations xsi:type="tool_1:Unset" featureName="source" elementExpression="[self.oclAsType(FSMModel::Transition).source/]"/>
-                        <subModelOperations xsi:type="tool_1:RemoveElement"/>
-                      </subModelOperations>
-                    </subModelOperations>
+                <subModelOperations xsi:type="tool_1:For" expression="[self.oclAsType(FSMModel::State).outputTransitions/]" iteratorName="outT">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[outT/]">
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
                   </subModelOperations>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element"/>
-                <subModelOperations xsi:type="tool_1:RemoveElement"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
