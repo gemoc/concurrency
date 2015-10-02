@@ -29,7 +29,7 @@ import org.gemoc.execution.engine.ui.commons.RunConfiguration;
 import org.gemoc.executionengine.ccsljava.api.extensions.deciders.DeciderSpecificationExtension;
 import org.gemoc.executionengine.ccsljava.api.extensions.deciders.DeciderSpecificationExtensionPoint;
 import org.gemoc.executionengine.ccsljava.api.extensions.languages.ConcurrentLanguageDefinitionExtensionPoint;
-import org.gemoc.gemoc_language_workbench.ui.dialogs.SelectAIRDIFileDialog;
+import org.gemoc.executionframework.ui.dialogs.SelectAIRDIFileDialog;
 import org.gemoc.gemoc_modeling_workbench.concurrent.ui.Activator;
 
 import fr.obeo.dsl.debug.ide.launch.AbstractDSLLaunchConfigurationDelegate;
