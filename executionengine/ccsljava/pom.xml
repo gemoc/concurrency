@@ -21,7 +21,6 @@
         <module>plugins/org.gemoc.executionengine.ccsljava.concurrent_xdsml.model.editor</module>
         <module>plugins/org.gemoc.gemoc_language_workbench.dashboard</module>
         <module>plugins/org.gemoc.gemoc_language_workbench.extensions.k3</module>
-        <module>plugins/org.gemoc.gemoc_language_workbench.extensions.sirius</module>
         <module>plugins/org.gemoc.gemoc_language_workbench.extensions.timesquare</module>
         <module>plugins/org.gemoc.gemoc_language_workbench.ui</module>
         <module>plugins/org.gemoc.gemoc_language_workbench.utils</module>
