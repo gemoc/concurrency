@@ -5,8 +5,6 @@ import java.util.Collection;
 import java.util.Collections;
 
 import org.eclipse.core.runtime.CoreException;
-import org.gemoc.executionengine.ccsljava.api.dsa.executors.ICodeExecutor;
-import org.gemoc.executionengine.ccsljava.api.dse.IMSEStateController;
 import org.gemoc.gemoc_language_workbench.api.core.IExecutionPlatform;
 import org.gemoc.gemoc_language_workbench.api.core.IModelLoader;
 import org.gemoc.gemoc_language_workbench.api.core.IRunConfiguration;

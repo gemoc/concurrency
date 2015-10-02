@@ -7,17 +7,12 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.gemoc.execution.engine.core.ExecutionWorkspace;
-import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionContext;
-import org.gemoc.executionengine.ccsljava.api.core.ILogicalStepDecider;
-import org.gemoc.executionengine.ccsljava.api.extensions.languages.ConcurrentLanguageDefinitionExtension;
-import org.gemoc.executionengine.ccsljava.api.extensions.languages.ConcurrentLanguageDefinitionExtensionPoint;
 import org.gemoc.gemoc_language_workbench.api.core.ExecutionMode;
 import org.gemoc.gemoc_language_workbench.api.core.IExecutionContext;
 import org.gemoc.gemoc_language_workbench.api.core.IExecutionPlatform;
 import org.gemoc.gemoc_language_workbench.api.core.IExecutionWorkspace;
 import org.gemoc.gemoc_language_workbench.api.core.IRunConfiguration;
 import org.gemoc.gemoc_language_workbench.api.extensions.languages.LanguageDefinitionExtension;
-import org.gemoc.gemoc_language_workbench.api.extensions.languages.LanguageDefinitionExtensionPoint;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ActionModel;
 
