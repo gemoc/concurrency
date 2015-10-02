@@ -21,8 +21,8 @@
             objectClass="org.eclipse.core.resources.IFile"
             nameFilter="*.clocksystem"
             id="org.gemoc.mocc.clocksystem.core.ui.actions.ClockSystemOutput.IFile">
-         <menu id="org.eclipse.acceleo.module.menu" label="ClockSystem" path="additionsAcceleo">
-               <groupMarker name="acceleo"/> 
+         <menu id="org.gemoc.mocc.clocksystem.core" label="ClockSystem" path="exhaustiveExplorationGroup">
+               <groupMarker name="exhaustiveExploration"/> 
          </menu>
          <action
                 class="org.gemoc.mocc.clocksystem.core.ui.actions.ClockSystemFileGenHandler"
@@ -30,7 +30,7 @@
                id="org.gemoc.mocc.clocksystem.core.ui.actions.ClockSystemOutputID"
                icon="icons/obp.gif"
                label="Generate All Exploration Files"
-               menubarPath="org.eclipse.acceleo.module.menu/acceleo"/>
+               menubarPath="org.gemoc.mocc.clocksystem.core/exhaustiveExploration"/>
       </objectContribution>
    </extension>
 </plugin>
