@@ -18,27 +18,6 @@
    </license>
 
    <plugin
-         id="org.gemoc.gemoc_language_workbench.conf.model"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.gemoc.gemoc_language_workbench.conf.model.edit"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.gemoc.gemoc_language_workbench.conf.model.editor"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="org.gemoc.gemoc_language_workbench.dashboard"
          download-size="0"
          install-size="0"
@@ -109,6 +88,41 @@
 
    <plugin
          id="org.gemoc.execution.engine.commons"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.gemoc.executionengine.ccsljava.concurrent_xdsml.model"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.gemoc.executionengine.ccsljava.concurrent_xdsml.model.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.gemoc.executionengine.ccsljava.concurrent_xdsml.model.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.gemoc.executionframework.xdsml_base.model"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.gemoc.executionframework.xdsml_base.model.edit"
          download-size="0"
          install-size="0"
          version="0.0.0"
