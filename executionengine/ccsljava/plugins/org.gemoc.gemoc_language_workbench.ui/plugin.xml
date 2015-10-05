@@ -4,7 +4,7 @@
 
    <extension
          id="gemocLanguageDesignerBuilder"
-         name="Gemoc Language Designer Project"
+         name="GEMOC Concurrent xDSML Builder"
          point="org.eclipse.core.resources.builders">
       <builder
             hasNature="true">
@@ -15,7 +15,7 @@
    </extension>
    <extension
          id="gemocLanguageDesignerNature"
-         name="xDSML Project Nature"
+         name="Concurrent xDSML Project Nature"
          point="org.eclipse.core.resources.natures">
       <runtime>
          <run
@@ -38,7 +38,7 @@
                enablesFor="+"
                icon="icons/IconeGemocLanguage-16.png"
                id="org.gemoc.gemoc_language_workbench.ui.addRemoveNatureAction"
-               label="Add xDSML Nature"
+               label="Add Concurrent xDSML Nature"
                menubarPath="org.eclipse.ui.projectConfigure/additions">
          </action>
          <visibility>
@@ -60,7 +60,7 @@
                enablesFor="+"
                icon="icons/IconeGemocLanguage-16.png"
                id="org.gemoc.gemoc_language_workbench.ui.addRemoveNatureAction"
-               label="Remove xDSML Nature"
+               label="Remove Concurrent xDSML Nature"
                menubarPath="org.eclipse.ui.projectConfigure/additions">
          </action>
          
@@ -157,11 +157,11 @@
       </category>
       <wizard
             category="org.gemoc.gemoc_language_workbench.ui"
-            class="org.gemoc.gemoc_language_workbench.ui.wizards.CreateNewGemocLanguageProject"
+            class="org.gemoc.gemoc_language_workbench.ui.wizards.CreateNewGemocConcurrentLanguageProject"
             icon="icons/IconeGemocLanguage-16.png"
             finalPerspective="org.eclipse.sirius.ui.tools.perspective.design"
             id="org.gemoc.gemoc_language_workbench.ui.wizards.CreateNewGemocLanguageProject"
-            name="GEMOC Language Project"
+            name="GEMOC Concurrent xDSML Project"
             project="true">
       </wizard>
       <wizard

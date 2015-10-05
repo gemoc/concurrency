@@ -20,14 +20,16 @@ import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchWizard;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.wizards.IWizardDescriptor;
+import org.gemoc.commons.eclipse.core.resources.NewProjectWorkspaceListener;
 import org.gemoc.commons.eclipse.ui.WizardFinder;
-import org.gemoc.gemoc_language_workbench.conf.DSEProject;
-import org.gemoc.gemoc_language_workbench.conf.LanguageDefinition;
-import org.gemoc.gemoc_language_workbench.conf.impl.confFactoryImpl;
+import org.gemoc.executionengine.ccsljava.concurrent_xdsml.ConcurrentLanguageDefinition;
+import org.gemoc.executionengine.ccsljava.concurrent_xdsml.DSEProject;
+import org.gemoc.executionengine.ccsljava.concurrent_xdsml.impl.Concurrent_xdsmlFactoryImpl;
+import org.gemoc.executionframework.ui.xdsml.activefile.ActiveFileEcore;
+import org.gemoc.executionframework.ui.xdsml.wizards.XDSMLProjectHelper;
+import org.gemoc.executionframework.xdsml_base.LanguageDefinition;
 import org.gemoc.gemoc_language_workbench.ui.Activator;
-import org.gemoc.gemoc_language_workbench.ui.activeFile.ActiveFileEcore;
 import org.gemoc.gemoc_language_workbench.ui.dialogs.SelectECLIFileDialog;
-import org.gemoc.gemoc_language_workbench.ui.listeners.NewProjectWorkspaceListener;
 
 public class CreateDSEWizardContextAction {
 
@@ -40,12 +42,12 @@ public class CreateDSEWizardContextAction {
 	// one of these must be set, depending on it it will work on the file or
 	// directly in the model
 	protected IProject gemocLanguageIProject = null;
-	protected LanguageDefinition gemocLanguageModel = null;
+	protected ConcurrentLanguageDefinition gemocLanguageModel = null;
 
 	public CreateDSEWizardContextAction(IProject updatedGemocLanguageProject) {
 		gemocLanguageIProject = updatedGemocLanguageProject;
 	}
-	public CreateDSEWizardContextAction(IProject updatedGemocLanguageProject, LanguageDefinition rootModelElement) {
+	public CreateDSEWizardContextAction(IProject updatedGemocLanguageProject, ConcurrentLanguageDefinition rootModelElement) {
 		gemocLanguageIProject = updatedGemocLanguageProject;
 		gemocLanguageModel = rootModelElement;
 	}
@@ -77,7 +79,7 @@ public class CreateDSEWizardContextAction {
 				IWorkbench workbench = PlatformUI.getWorkbench();
 				CreateNewDSEProject createNewDSEProjectWizard = (CreateNewDSEProject)wizard;
 				// fine initialization
-				LanguageDefinition languageDefinition = getLanguageDefinition();
+				ConcurrentLanguageDefinition languageDefinition = getLanguageDefinition();
 				if(languageDefinition != null){
 					createNewDSEProjectWizard._askProjectNamePage.setInitialProjectName(XDSMLProjectHelper.baseProjectName(gemocLanguageIProject)+".dse");
 					createNewDSEProjectWizard._askDSEInfoPage.initialTemplateECLFileFieldValue = languageDefinition.getName();
@@ -153,7 +155,7 @@ public class CreateDSEWizardContextAction {
 		Resource resource = resSet
 				.getResource(URI.createURI(configFile.getLocationURI()
 						.toString()), true);
-		LanguageDefinition gemocLanguageWorkbenchConfiguration = (LanguageDefinition) resource
+		ConcurrentLanguageDefinition gemocLanguageWorkbenchConfiguration = (ConcurrentLanguageDefinition) resource
 				.getContents().get(0);
 		
 		addECLFileToConf(projectName, eclFileURI, gemocLanguageWorkbenchConfiguration);
@@ -173,8 +175,8 @@ public class CreateDSEWizardContextAction {
 		}
 	}
 	
-	protected void addECLFileToConf(String projectName, String eclFileURI, LanguageDefinition languageDefinition) {
-		DSEProject eclProject = confFactoryImpl.eINSTANCE
+	protected void addECLFileToConf(String projectName, String eclFileURI, ConcurrentLanguageDefinition languageDefinition) {
+		DSEProject eclProject = Concurrent_xdsmlFactoryImpl.eINSTANCE
 				.createDSEProject();
 		eclProject.setProjectName(projectName);
 		
@@ -189,11 +191,14 @@ public class CreateDSEWizardContextAction {
 		
 	}
 
-	protected LanguageDefinition getLanguageDefinition(){
+	protected ConcurrentLanguageDefinition getLanguageDefinition(){
 
 		if(this.gemocLanguageModel != null){
 			return this.gemocLanguageModel;
 		}
-		return XDSMLProjectHelper.getLanguageDefinition(gemocLanguageIProject);
+		LanguageDefinition ld = XDSMLProjectHelper.getLanguageDefinition(gemocLanguageIProject);
+		if(ld instanceof ConcurrentLanguageDefinition)
+			return (ConcurrentLanguageDefinition) ld;
+		else return null;
 	}
 }

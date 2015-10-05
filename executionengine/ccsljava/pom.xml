@@ -16,12 +16,11 @@
         <module>plugins/org.gemoc.executionengine.ccsljava.api</module>
         <module>plugins/org.gemoc.executionengine.ccsljava.engine</module>
         <module>plugins/org.gemoc.executionengine.ccsljava.stimuli_scenario.model</module>
-        <module>plugins/org.gemoc.gemoc_language_workbench.conf.model</module>
-        <module>plugins/org.gemoc.gemoc_language_workbench.conf.model.edit</module>
-        <module>plugins/org.gemoc.gemoc_language_workbench.conf.model.editor</module>
+        <module>plugins/org.gemoc.executionengine.ccsljava.concurrent_xdsml.model</module>
+        <module>plugins/org.gemoc.executionengine.ccsljava.concurrent_xdsml.model.edit</module>
+        <module>plugins/org.gemoc.executionengine.ccsljava.concurrent_xdsml.model.editor</module>
         <module>plugins/org.gemoc.gemoc_language_workbench.dashboard</module>
         <module>plugins/org.gemoc.gemoc_language_workbench.extensions.k3</module>
-        <module>plugins/org.gemoc.gemoc_language_workbench.extensions.sirius</module>
         <module>plugins/org.gemoc.gemoc_language_workbench.extensions.timesquare</module>
         <module>plugins/org.gemoc.gemoc_language_workbench.ui</module>
         <module>plugins/org.gemoc.gemoc_language_workbench.utils</module>
@@ -71,7 +70,7 @@
 		        <repository>
 		            <id>modelanimation_siriusmodelanimation on CI</id>
 		            <layout>p2</layout>
-		            <url>https://ci.inria.fr/gemoc/job/modelanimation_siriusmodelanimation/lastSuccessfulBuild/artifact/siriusmodelanimation/releng/org.gemoc.siriusmodelanimation.repository/target/repository/</url>
+		            <url>http://obeo-siriuslab-nightly.s3-website-eu-west-1.amazonaws.com/SiriusAnimator/master/repository/</url>
 		        </repository>
 		    </repositories>
 	    </profile>

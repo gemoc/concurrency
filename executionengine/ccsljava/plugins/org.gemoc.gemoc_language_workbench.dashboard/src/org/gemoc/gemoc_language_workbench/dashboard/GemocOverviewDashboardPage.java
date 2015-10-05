@@ -65,16 +65,25 @@ import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
 import org.eclipse.ui.forms.widgets.TableWrapLayout;
 import org.gemoc.commons.eclipse.ui.OpenEditor;
-import org.gemoc.gemoc_language_workbench.conf.DSAProject;
-import org.gemoc.gemoc_language_workbench.conf.DSEProject;
-import org.gemoc.gemoc_language_workbench.conf.DomainModelProject;
-import org.gemoc.gemoc_language_workbench.conf.LanguageDefinition;
-import org.gemoc.gemoc_language_workbench.conf.MoCCProject;
-import org.gemoc.gemoc_language_workbench.conf.ProjectResource;
-import org.gemoc.gemoc_language_workbench.conf.SiriusAnimatorProject;
-import org.gemoc.gemoc_language_workbench.conf.SiriusEditorProject;
-import org.gemoc.gemoc_language_workbench.conf.XTextEditorProject;
-import org.gemoc.gemoc_language_workbench.conf.provider.confItemProviderAdapterFactory;
+import org.gemoc.commons.eclipse.ui.dialogs.SelectPluginIProjectDialog;
+import org.gemoc.executionengine.ccsljava.concurrent_xdsml.ConcurrentLanguageDefinition;
+import org.gemoc.executionengine.ccsljava.concurrent_xdsml.DSAProject;
+import org.gemoc.executionengine.ccsljava.concurrent_xdsml.DSEProject;
+import org.gemoc.executionengine.ccsljava.concurrent_xdsml.MoCCProject;
+import org.gemoc.executionengine.ccsljava.concurrent_xdsml.provider.Concurrent_xdsmlItemProviderAdapterFactory;
+import org.gemoc.executionframework.ui.dialogs.SelectEMFIProjectDialog;
+import org.gemoc.executionframework.ui.dialogs.SelectODesignIProjectDialog;
+import org.gemoc.executionframework.ui.dialogs.SelectXtextIProjectDialog;
+import org.gemoc.executionframework.ui.xdsml.wizards.CreateAnimatorProjectWizardContextAction;
+import org.gemoc.executionframework.ui.xdsml.wizards.CreateAnimatorProjectWizardContextAction.CreateAnimatorProjectAction;
+import org.gemoc.executionframework.ui.xdsml.wizards.CreateDomainModelWizardContextAction;
+import org.gemoc.executionframework.ui.xdsml.wizards.CreateEditorProjectWizardContextAction;
+import org.gemoc.executionframework.ui.xdsml.wizards.CreateEditorProjectWizardContextAction.CreateEditorProjectAction;
+import org.gemoc.executionframework.xdsml_base.DomainModelProject;
+import org.gemoc.executionframework.xdsml_base.ProjectResource;
+import org.gemoc.executionframework.xdsml_base.SiriusAnimatorProject;
+import org.gemoc.executionframework.xdsml_base.SiriusEditorProject;
+import org.gemoc.executionframework.xdsml_base.XTextEditorProject;
 import org.gemoc.gemoc_language_workbench.dashboard.action.DescriptionAction;
 import org.gemoc.gemoc_language_workbench.dashboard.action.FilterTreeAction;
 import org.gemoc.gemoc_language_workbench.dashboard.form.FormHelper;
@@ -84,18 +93,9 @@ import org.gemoc.gemoc_language_workbench.dashboard.utils.Couple;
 import org.gemoc.gemoc_language_workbench.dashboard.utils.IImageKeys;
 import org.gemoc.gemoc_language_workbench.ui.dialogs.SelectDSAIProjectDialog;
 import org.gemoc.gemoc_language_workbench.ui.dialogs.SelectDSEIProjectDialog;
-import org.gemoc.gemoc_language_workbench.ui.dialogs.SelectEMFIProjectDialog;
 import org.gemoc.gemoc_language_workbench.ui.dialogs.SelectMoCCIProjectDialog;
-import org.gemoc.gemoc_language_workbench.ui.dialogs.SelectODesignIProjectDialog;
-import org.gemoc.gemoc_language_workbench.ui.dialogs.SelectPluginIProjectDialog;
-import org.gemoc.gemoc_language_workbench.ui.dialogs.SelectXtextIProjectDialog;
-import org.gemoc.gemoc_language_workbench.ui.wizards.CreateAnimatorProjectWizardContextAction;
-import org.gemoc.gemoc_language_workbench.ui.wizards.CreateAnimatorProjectWizardContextAction.CreateAnimatorProjectAction;
 import org.gemoc.gemoc_language_workbench.ui.wizards.CreateDSEWizardContextAction;
 import org.gemoc.gemoc_language_workbench.ui.wizards.CreateDSEWizardContextAction.CreateDSEAction;
-import org.gemoc.gemoc_language_workbench.ui.wizards.CreateDomainModelWizardContextAction;
-import org.gemoc.gemoc_language_workbench.ui.wizards.CreateEditorProjectWizardContextAction;
-import org.gemoc.gemoc_language_workbench.ui.wizards.CreateEditorProjectWizardContextAction.CreateEditorProjectAction;
 import org.gemoc.gemoc_language_workbench.ui.wizards.CreateMOCCWizardContextAction;
 import org.gemoc.gemoc_language_workbench.ui.wizards.CreateMOCCWizardContextAction.CreateMOCCAction;
 import org.gemoc.gemoc_language_workbench.ui.wizards.contextDSA.CreateDSAWizardContextActionDSAK3;
@@ -147,7 +147,7 @@ public class GemocOverviewDashboardPage extends FormPage {
 
 	private IResourceChangeListener resourceChangeListener;
 
-	private LanguageDefinition languageDefinition;
+	private ConcurrentLanguageDefinition languageDefinition;
 
 	public GemocOverviewDashboardPage(FormEditor formEditor) {
 		super(
@@ -162,7 +162,7 @@ public class GemocOverviewDashboardPage extends FormPage {
 					Resource resource = resSet.getResource(URI.createPlatformResourceURI(
 							((GemocDashboardEditorInput)getEditorInput()).getFile().getFullPath()
 									.toOSString(), false), true);
-					languageDefinition = (LanguageDefinition)resource.getContents().get(0);
+					languageDefinition = (ConcurrentLanguageDefinition)resource.getContents().get(0);
 					refreshForm(currentOverview);
 				}
 			}
@@ -860,7 +860,7 @@ public class GemocOverviewDashboardPage extends FormPage {
 				ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new confItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new Concurrent_xdsmlItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 		// Set content provider.
 		treeViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory) {
@@ -894,7 +894,7 @@ public class GemocOverviewDashboardPage extends FormPage {
 		Resource resource = resSet.getResource(URI.createPlatformResourceURI(
 				((GemocDashboardEditorInput)getEditorInput()).getFile().getFullPath().toOSString(), false),
 				true);
-		languageDefinition = (LanguageDefinition)resource.getContents().get(0);
+		languageDefinition = (ConcurrentLanguageDefinition)resource.getContents().get(0);
 		treeViewer.setInput(languageDefinition);
 
 		// Forward selection changes to the editor site selection provider to notify the platform (e.g

@@ -27,10 +27,10 @@ import org.eclipse.ui.internal.ide.IDEWorkbenchMessages;
 import org.eclipse.ui.internal.ide.IIDEHelpContextIds;
 import org.eclipse.ui.internal.ide.dialogs.ProjectContentsLocationArea;
 import org.gemoc.commons.eclipse.ui.dialogs.SelectAnyIFileDialog;
-import org.gemoc.gemoc_language_workbench.ui.activeFile.ActiveFile;
-import org.gemoc.gemoc_language_workbench.ui.commands.ENamedElementQualifiedNameLabelProvider;
-import org.gemoc.gemoc_language_workbench.ui.dialogs.SelectAnyConcreteEClassDialog;
-import org.gemoc.gemoc_language_workbench.ui.dialogs.SelectAnyEObjectDialog;
+import org.gemoc.executionframework.ui.dialogs.SelectAnyConcreteEClassDialog;
+import org.gemoc.executionframework.ui.dialogs.SelectAnyEObjectDialog;
+import org.gemoc.executionframework.ui.utils.ENamedElementQualifiedNameLabelProvider;
+import org.gemoc.executionframework.ui.xdsml.activefile.ActiveFile;
 
 public class AskMoCInfoWizardPage extends WizardPage {
 

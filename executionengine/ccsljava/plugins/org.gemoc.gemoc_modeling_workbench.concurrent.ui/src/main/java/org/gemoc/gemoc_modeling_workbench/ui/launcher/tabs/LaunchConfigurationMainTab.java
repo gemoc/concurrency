@@ -8,15 +8,7 @@ import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
-import org.eclipse.jdt.core.IType;
-import org.eclipse.jdt.core.JavaModelException;
-import org.eclipse.jdt.core.search.IJavaSearchScope;
-import org.eclipse.jdt.core.search.SearchEngine;
-import org.eclipse.jdt.internal.ui.util.BusyIndicatorRunnableContext;
-import org.eclipse.jdt.ui.IJavaElementSearchConstants;
-import org.eclipse.jdt.ui.JavaUI;
 import org.eclipse.jface.dialogs.Dialog;
-import org.eclipse.jface.operation.IRunnableContext;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
@@ -31,18 +23,13 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.ui.dialogs.SelectionDialog;
 import org.gemoc.commons.eclipse.emf.URIHelper;
 import org.gemoc.commons.eclipse.ui.dialogs.SelectAnyIFileDialog;
-import org.gemoc.execution.engine.commons.RunConfiguration;
+import org.gemoc.execution.engine.ui.commons.RunConfiguration;
 import org.gemoc.executionengine.ccsljava.api.extensions.deciders.DeciderSpecificationExtension;
 import org.gemoc.executionengine.ccsljava.api.extensions.deciders.DeciderSpecificationExtensionPoint;
-import org.gemoc.executionengine.ccsljava.api.extensions.languages.ConcurrentLanguageDefinitionExtension;
 import org.gemoc.executionengine.ccsljava.api.extensions.languages.ConcurrentLanguageDefinitionExtensionPoint;
-import org.gemoc.executionengine.ccsljava.api.moc.ISolver;
-import org.gemoc.gemoc_language_workbench.api.extensions.languages.LanguageDefinitionExtension;
-import org.gemoc.gemoc_language_workbench.api.extensions.languages.LanguageDefinitionExtensionPoint;
-import org.gemoc.gemoc_language_workbench.ui.dialogs.SelectAIRDIFileDialog;
+import org.gemoc.executionframework.ui.dialogs.SelectAIRDIFileDialog;
 import org.gemoc.gemoc_modeling_workbench.concurrent.ui.Activator;
 
 import fr.obeo.dsl.debug.ide.launch.AbstractDSLLaunchConfigurationDelegate;
@@ -61,8 +48,6 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 	protected Combo _deciderCombo;
 	protected Button _animationFirstBreak;
 
-	protected Group _k3Area;
-	protected Text _entryPointText;
 
 	protected Text modelofexecutionglml_LocationText;
 
@@ -87,8 +72,7 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 		Group debugArea = createGroup(area, "Animation:");
 		createAnimationLayout(debugArea, null);
 
-		_k3Area = createGroup(area, "Pure K3 execution:");
-		createK3Layout(_k3Area, null);
+	
 
 	}
 
@@ -117,7 +101,6 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 			_deciderCombo.setText(runConfiguration.getDeciderName());
 			_animationFirstBreak.setSelection(runConfiguration.getBreakStart());
 
-			_entryPointText.setText(runConfiguration.getExecutionEntryPoint());
 
 		} catch (CoreException e) {
 			Activator.error(e.getMessage(), e);
@@ -134,7 +117,6 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 		configuration.setAttribute(RunConfiguration.LAUNCH_SELECTED_LANGUAGE, this._languageCombo.getText());
 		configuration.setAttribute(RunConfiguration.LAUNCH_MELANGE_QUERY, this._melangeQueryText.getText());
 		configuration.setAttribute(RunConfiguration.LAUNCH_SELECTED_DECIDER, this._deciderCombo.getText());
-		configuration.setAttribute(RunConfiguration.LAUNCH_ENTRY_POINT, _entryPointText.getText());
 		configuration.setAttribute(RunConfiguration.LAUNCH_BREAK_START, _animationFirstBreak.getSelection());
 	}
 
@@ -326,47 +308,10 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 		return parent;
 	}
 
-	private Composite createK3Layout(Composite parent, Font font) {
-		createTextLabelLayout(parent, "Entry point");
-
-		_entryPointText = new Text(parent, SWT.SINGLE | SWT.BORDER);
-		_entryPointText.setLayoutData(createStandardLayout());
-		_entryPointText.setFont(font);
-		_entryPointText.addModifyListener(fBasicModifyListener);
-		Button javaMethodBrowseButton = createPushButton(parent, "Browse", null);
-		javaMethodBrowseButton.addSelectionListener(new SelectionAdapter() {
-			public void widgetSelected(SelectionEvent e) {
-				IJavaSearchScope searchScope = SearchEngine.createWorkspaceScope();
-				IRunnableContext c = new BusyIndicatorRunnableContext();
-				SelectionDialog dialog;
-				try {
-					dialog = JavaUI.createTypeDialog(_parent.getShell(), c, searchScope,
-							IJavaElementSearchConstants.CONSIDER_CLASSES, false);
-					dialog.open();
-					if (dialog.getReturnCode() == Dialog.OK) {
-						IType type = (IType) dialog.getResult()[0];
-						_entryPointText.setText(type.getFullyQualifiedName());
-					}
-				} catch (JavaModelException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-		});
-		return parent;
-	}
+	
 
 	@Override
 	protected void updateLaunchConfigurationDialog() {
 		super.updateLaunchConfigurationDialog();
-		ConcurrentLanguageDefinitionExtension concurrentextension = ConcurrentLanguageDefinitionExtensionPoint.findDefinition(_languageCombo
-				.getText());
-		// if we find that the language is a concurrent language, hide the purek3 widgets
-		if (concurrentextension == null) {				
-			_k3Area.setVisible(true);
-		} else {
-			_k3Area.setVisible(false);
-		}
-		
 	}
 }

@@ -14,20 +14,20 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.gemoc.gemoc_language_workbench.conf.DSAProject;
-import org.gemoc.gemoc_language_workbench.conf.LanguageDefinition;
-import org.gemoc.gemoc_language_workbench.conf.impl.confFactoryImpl;
+import org.gemoc.executionengine.ccsljava.concurrent_xdsml.ConcurrentLanguageDefinition;
+import org.gemoc.executionengine.ccsljava.concurrent_xdsml.DSAProject;
+import org.gemoc.executionengine.ccsljava.concurrent_xdsml.impl.Concurrent_xdsmlFactoryImpl;
 import org.gemoc.gemoc_language_workbench.ui.Activator;
 
 public class CreateDSAWizardContextBase {
 
 	protected IProject _gemocLanguageIProject;
-	protected LanguageDefinition _gemocLanguageModel = null;
+	protected ConcurrentLanguageDefinition _gemocLanguageModel = null;
 	
 	public CreateDSAWizardContextBase(IProject gemocLanguageIProject) {
 		_gemocLanguageIProject = gemocLanguageIProject;
 	}
-	public CreateDSAWizardContextBase(IProject gemocLanguageIProject, LanguageDefinition rootModelElement) {
+	public CreateDSAWizardContextBase(IProject gemocLanguageIProject, ConcurrentLanguageDefinition rootModelElement) {
 		_gemocLanguageIProject = gemocLanguageIProject;
 		_gemocLanguageModel = rootModelElement;
 	}
@@ -53,7 +53,7 @@ public class CreateDSAWizardContextBase {
 		    // get the resource
 		    Resource resource = resSet.getResource(URI.createURI(configFile.getLocationURI().toString()),true);
 		    
-		    LanguageDefinition gemocLanguageWorkbenchConfiguration = (LanguageDefinition) resource.getContents().get(0);
+		    ConcurrentLanguageDefinition gemocLanguageWorkbenchConfiguration = (ConcurrentLanguageDefinition) resource.getContents().get(0);
 		    
 		    addDSAProjectToConf(projectName, gemocLanguageWorkbenchConfiguration);
 		    
@@ -70,11 +70,11 @@ public class CreateDSAWizardContextBase {
 		}
 	}
 	
-	protected void addDSAProjectToConf(String projectName, LanguageDefinition gemocLanguageModel) {
+	protected void addDSAProjectToConf(String projectName, ConcurrentLanguageDefinition gemocLanguageModel) {
 		
 		    
 		    
-			DSAProject DSAProject = confFactoryImpl.eINSTANCE.createDSAProject();
+			DSAProject DSAProject = Concurrent_xdsmlFactoryImpl.eINSTANCE.createDSAProject();
 			DSAProject.setProjectName(projectName);
 			gemocLanguageModel.setDsaProject(DSAProject);
 		

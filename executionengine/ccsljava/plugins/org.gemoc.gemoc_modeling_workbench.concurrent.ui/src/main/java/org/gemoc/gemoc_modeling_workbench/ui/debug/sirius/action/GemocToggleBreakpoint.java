@@ -2,7 +2,7 @@ package org.gemoc.gemoc_modeling_workbench.ui.debug.sirius.action;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.ecore.EObject;
-import org.gemoc.gemoc_modeling_workbench.ui.breakpoint.GemocBreakpoint;
+import org.gemoc.execution.engine.debug.ui.breakpoint.GemocBreakpoint;
 import org.gemoc.gemoc_modeling_workbench.ui.launcher.Launcher;
 
 import fr.obeo.dsl.debug.ide.DSLBreakpoint;

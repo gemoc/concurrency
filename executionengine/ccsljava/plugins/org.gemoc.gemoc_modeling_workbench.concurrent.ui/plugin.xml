@@ -60,7 +60,7 @@
             delegate="org.gemoc.gemoc_modeling_workbench.ui.launcher.Launcher"
             id="org.gemoc.gemoc_modeling_workbench.ui.launcher"
             modes="run, debug"
-            name="Gemoc eXecutable Model"
+            name="Gemoc Concurrent eXecutable Model"
             public="true"
             sourceLocatorId="org.gemoc.gemoc_modeling_workbench.ui.sourceLocator">
       </launchConfigurationType>
@@ -79,7 +79,7 @@
              id="org.gemoc.gemoc_modeling_workbench.ui.plainK3debugModel">
        </debugModelPresentation>
     </extension>
-    <extension
+<!--    <extension
           id="org.gemoc.gemoc_modeling_workbench.ui.breakpoint.breakpointMarker"
           point="org.eclipse.core.resources.markers">
        <persistent
@@ -103,7 +103,7 @@
              markerType="org.gemoc.gemoc_modeling_workbench.ui.breakpoint.breakpointMarker"
              name="Gemoc Breakpoints">
        </breakpoint>
-    </extension>
+    </extension>-->
    <extension point="org.eclipse.debug.ui.launchConfigurationTypeImages">
     <launchConfigurationTypeImage
         icon="icons/IconeGemocModel-16.png"
@@ -155,36 +155,17 @@
 		     </with>
             </enablement>
             <contextLabel
-                  label="Gemoc eXecutable Model"
+                  label="Gemoc Concurrent eXecutable Model"
                   mode="run">
             </contextLabel>
             <contextLabel
-                  label="Gemoc eXecutable Model"
+                  label="Gemoc Concurrent eXecutable Model"
                   mode="debug">
             </contextLabel>
          </contextualLaunch>
       </shortcut>
    </extension>
- <extension
-       point="org.eclipse.debug.ui.detailPaneFactories">
-    <detailFactories
-          class="org.gemoc.gemoc_modeling_workbench.ui.breakpoint.BreakpointDetailPaneFactory"
-          id="org.gemoc.gemoc_modeling_workbench.ui.breakpoint.detailFactories">
-       <enablement>
-          <with
-                variable="selection">
-             <count
-                   value="1">
-             </count>
-             <iterate>
-                <instanceof
-                      value="org.gemoc.gemoc_modeling_workbench.ui.breakpoint.GemocBreakpoint">
-                </instanceof>
-             </iterate>
-          </with>
-       </enablement>
-    </detailFactories>
- </extension>
+
  <extension
        point="org.eclipse.ui.newWizards">
     <category
@@ -196,7 +177,7 @@
           class="org.gemoc.gemoc_modeling_workbench.ui.wizards.CreateNewGemocModelingProject"
           icon="icons/IconeGemocModel-16.png"
           id="org.gemoc.gemoc_modeling_workbench.ui.wizards.CreateNewGemocModelingProject"
-          name="GEMOC Modeling Project"
+          name="GEMOC Concurrent Modeling Project"
           project="true">
     </wizard>
  </extension>

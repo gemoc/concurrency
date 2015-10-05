@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.gemoc.commons.eclipse.emf.EMFResource;
 import org.gemoc.executionengine.ccsljava.api.extensions.languages.ConcurrentLanguageDefinitionExtension;
 import org.gemoc.executionengine.ccsljava.api.extensions.languages.ConcurrentLanguageDefinitionExtensionPoint;
-import org.gemoc.gemoc_language_workbench.conf.LanguageDefinition;
+import org.gemoc.executionengine.ccsljava.concurrent_xdsml.ConcurrentLanguageDefinition;
 
 /**
  * Property tester for context launching menu.
@@ -66,8 +66,8 @@ public class GemocConcurrentPropertyTester extends PropertyTester {
 				if (!xdsmluri.startsWith("platform:/plugin"))
 					xdsmluri = "platform:/plugin" + xdsmluri;
 				Object o = EMFResource.getFirstContent(xdsmluri);
-				if(o != null && o instanceof LanguageDefinition){
-					LanguageDefinition ld = (LanguageDefinition)o;
+				if(o != null && o instanceof ConcurrentLanguageDefinition){
+					ConcurrentLanguageDefinition ld = (ConcurrentLanguageDefinition)o;
 					if(ld.getFileExtensions().contains(fileExtension)){
 						return true;
 					}

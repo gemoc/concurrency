@@ -19,9 +19,9 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Text;
 import org.gemoc.commons.eclipse.ui.dialogs.SelectAnyIFileDialog;
-import org.gemoc.gemoc_language_workbench.ui.commands.ENamedElementQualifiedNameLabelProvider;
-import org.gemoc.gemoc_language_workbench.ui.dialogs.SelectAnyConcreteEClassDialog;
-import org.gemoc.gemoc_language_workbench.ui.dialogs.SelectAnyEObjectDialog;
+import org.gemoc.executionframework.ui.dialogs.SelectAnyConcreteEClassDialog;
+import org.gemoc.executionframework.ui.dialogs.SelectAnyEObjectDialog;
+import org.gemoc.executionframework.ui.utils.ENamedElementQualifiedNameLabelProvider;
 
 public class AskDSEInfoWizardPage extends WizardPage {
 

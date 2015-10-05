@@ -25,9 +25,9 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PlatformUI;
 import org.gemoc.execution.engine.commons.EngineContextException;
-import org.gemoc.execution.engine.commons.ModelExecutionContext;
-import org.gemoc.execution.engine.commons.RunConfiguration;
+import org.gemoc.execution.engine.debug.AbstractGemocDebugger;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
+import org.gemoc.execution.engine.ui.commons.RunConfiguration;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
 import org.gemoc.executionengine.ccsljava.api.moc.ISolver;
 import org.gemoc.executionengine.ccsljava.engine.commons.ConcurrentModelExecutionContext;
@@ -36,15 +36,11 @@ import org.gemoc.gemoc_language_workbench.api.core.EngineStatus.RunStatus;
 import org.gemoc.gemoc_language_workbench.api.core.ExecutionMode;
 import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
 import org.gemoc.gemoc_language_workbench.api.core.IExecutionEngine;
-import org.gemoc.gemoc_language_workbench.api.core.ISequentialExecutionEngine;
 import org.gemoc.gemoc_language_workbench.api.engine_addon.IEngineAddon;
-import org.gemoc.gemoc_language_workbench.extensions.k3.PlainK3ExecutionEngine;
 import org.gemoc.gemoc_language_workbench.extensions.sirius.services.AbstractGemocAnimatorServices;
 import org.gemoc.gemoc_language_workbench.extensions.sirius.services.AbstractGemocDebuggerServices;
 import org.gemoc.gemoc_modeling_workbench.concurrent.ui.Activator;
-import org.gemoc.gemoc_modeling_workbench.ui.debug.AbstractGemocDebugger;
 import org.gemoc.gemoc_modeling_workbench.ui.debug.GemocModelDebugger;
-import org.gemoc.gemoc_modeling_workbench.ui.debug.PlainK3ModelDebugger;
 
 import fr.inria.diverse.commons.messagingsystem.api.MessagingSystem;
 import fr.obeo.dsl.debug.ide.IDSLDebugger;
@@ -92,7 +88,9 @@ public class Launcher extends fr.obeo.dsl.debug.ide.sirius.ui.launch.AbstractDSL
 				concurrentexecutionContext = new ConcurrentModelExecutionContext(runConfiguration, executionMode);
 				solver = concurrentexecutionContext.getConcurrentLanguageDefinitionExtension().instanciateSolver();
 			} catch (CoreException e) {
+				throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID, "Cannot instanciate solver from language definition", e));
 			} catch (EngineContextException e) {
+				throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID, "Cannot instanciate solver from language definition", e));
 			}
 
 			// This allows us to decide which kind of engine to create
@@ -104,10 +102,7 @@ public class Launcher extends fr.obeo.dsl.debug.ide.sirius.ui.launch.AbstractDSL
 				// In any case we initialize the engine
 				_executionEngine.initialize(concurrentexecutionContext);
 			} else {
-				_executionEngine = new PlainK3ExecutionEngine();
-
-				// In any case we initialize the engine
-				_executionEngine.initialize(new ModelExecutionContext(runConfiguration, executionMode));
+				throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID, "Cannot instanciate solver from language definition", null));
 			}
 
 			// And we start it within a dedicated job
@@ -147,7 +142,7 @@ public class Launcher extends fr.obeo.dsl.debug.ide.sirius.ui.launch.AbstractDSL
 			String message = "Error occured when starting execution engine: " + e.getMessage()
 					+ " (see inner exception).";
 			// error(message);
-			e.printStackTrace();
+			Activator.error(message, e);
 			throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID, message, e));
 		}
 	}
@@ -230,8 +225,6 @@ public class Launcher extends fr.obeo.dsl.debug.ide.sirius.ui.launch.AbstractDSL
 
 			res = new GemocModelDebugger(dispatcher, _executionEngine);
 
-		} else if (_executionEngine instanceof ISequentialExecutionEngine) {
-			res = new PlainK3ModelDebugger(dispatcher, (ISequentialExecutionEngine) _executionEngine);
 		}
 
 		// If in the launch configuration it is asked to pause at the start,
@@ -277,10 +270,7 @@ public class Launcher extends fr.obeo.dsl.debug.ide.sirius.ui.launch.AbstractDSL
 
 	@Override
 	protected String getModelIdentifier() {
-		if (_executionEngine instanceof PlainK3ExecutionEngine)
-			return "org.gemoc.gemoc_modeling_workbench.ui.plainK3debugModel";
-		else
-			return MODEL_ID;
+		return MODEL_ID;
 	}
 
 	@Override
