@@ -40,7 +40,7 @@
             id="org.gemoc.executionengine.ccsljava.concurrent_xdsml.presentation.Concurrent_xdsmlEditorID"
             name="%_UI_Concurrent_xdsmlEditor_label"
             icon="icons/full/obj16/Concurrent_xdsmlModelFile.gif"
-            extensions="concurrent_xdsml"
+            extensions="xdsml"
             class="org.gemoc.executionengine.ccsljava.concurrent_xdsml.presentation.Concurrent_xdsmlEditor"
             contributorClass="org.gemoc.executionengine.ccsljava.concurrent_xdsml.presentation.Concurrent_xdsmlActionBarContributor">
       </editor>
