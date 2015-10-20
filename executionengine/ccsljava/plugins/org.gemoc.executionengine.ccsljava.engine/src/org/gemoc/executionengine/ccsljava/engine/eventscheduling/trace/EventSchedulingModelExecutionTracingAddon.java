@@ -403,7 +403,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 					// then mark it as chosen (ie. fully executed)
 					Choice choiceFullyExecuted = findPreviousChoiceWithLogicalStep(_lastChoice, selectedLogicalStep);
 					if(choiceFullyExecuted != null){
-						choiceFullyExecuted.setChosenLogicalStep(selectedLogicalStep);
+						choiceFullyExecuted.setChosenLogicalStep(selectedLogicalStep);						
 					}
 				}
 			}
