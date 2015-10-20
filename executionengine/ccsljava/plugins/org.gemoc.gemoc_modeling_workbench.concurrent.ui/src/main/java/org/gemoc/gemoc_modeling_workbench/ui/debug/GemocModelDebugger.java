@@ -5,6 +5,7 @@ import java.util.Collection;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.gemoc.execution.engine.core.AbstractExecutionEngine;
+import org.gemoc.execution.engine.core.EngineStoppedException;
 import org.gemoc.execution.engine.debug.AbstractGemocDebugger;
 import org.gemoc.execution.engine.debug.ui.breakpoint.GemocBreakpoint;
 import org.gemoc.execution.engine.trace.LogicalStepHelper;
@@ -209,7 +210,7 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 	{
 		if (!control(((AbstractExecutionEngine)executionEngine).thread.getName(), logicalStepToApply))
 		{
-			throw new RuntimeException("Debug thread has stopped.");
+			throw new EngineStoppedException("Debug thread has stopped.");
 		}
 	}
 
@@ -218,7 +219,7 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 	{
 		if (!control(((AbstractExecutionEngine)executionEngine).thread.getName(), mseOccurrence))
 		{
-			throw new RuntimeException("Debug thread has stopped.");			
+			throw new EngineStoppedException("Debug thread has stopped.");			
 		}
 	}
 	
