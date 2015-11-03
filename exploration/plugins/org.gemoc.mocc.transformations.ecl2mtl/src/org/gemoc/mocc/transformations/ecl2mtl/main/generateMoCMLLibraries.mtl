@@ -7,7 +7,7 @@
 [import org::gemoc::mocc::transformations::ecl2mtl::services::stringQueries /]
 
 [template public generateMoCMLLibraries(aStateRelationBasedLibrary : StateRelationBasedLibrary)]
-moccmllibs:={ #[aStateRelationBasedLibrary.name/] -> {
+moccmllibs:={ #[aStateRelationBasedLibrary.oclAsType(Library).name/] -> {
 [for (rl : RelationLibrary | aStateRelationBasedLibrary.oclAsType(Library).relationLibraries)]
 	[comment # [rl.name -> {/]
 		[for (rd : RelationDefinition | rl.relationDefinitions)]

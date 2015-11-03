@@ -37,9 +37,7 @@
 "MoCCML librairies specifications" 
 [for (importS : ImportStatement | anECLDocument.imports)]
 [if (importS.importURI.endsWith('.moccml'))]
-[let aStateRelationBasedLibrary : StateRelationBasedLibrary = importS.loadMoCMLLibrary()]
-[aStateRelationBasedLibrary.generateMoCMLLibraries()/]
-[/let]
+[importS.loadMoCMLLibrary().generateMoCMLLibraries() /]
 [/if]
 [/for]
 [/if]
