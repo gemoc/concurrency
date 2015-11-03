@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="CCSLMoCC" version="9.0.0">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:validation="http://www.eclipse.org/sirius/description/validation/1.1.0" name="CCSLMoCC" version="9.0.0">
   <ownedViewpoints name="MoCCML" modelFileExtension="ccsl xmi mocdsl moccml">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="State-Based Library Diagram" label="Constraint-Automata Library Diagram" domainClass="moccml.StateRelationBasedLibrary" enablePopupBars="true">
       <metamodel href="http://fr.inria.aoste.timemodel#/"/>
@@ -13,6 +13,11 @@
       <metamodel href="http://org.gemoc.mocc.fsmmodel/editionextension/1.0#/"/>
       <metamodel href="../../org.gemoc.mocc.ccslmocc.model/model/Ccslmocc.ecore#/"/>
       <metamodel href="../../org.gemoc.mocc.fsmkernel.model/model/FSMModel.ecore#/"/>
+      <validationSet>
+        <ownedRules xsi:type="validation:SemanticValidationRule" level="ERROR" targetClass="FSMModel.StateMachineDefinition">
+          <audits auditExpression="[self.initialStates->size()>0/]"/>
+        </ownedRules>
+      </validationSet>
       <defaultLayer name="Default">
         <edgeMappings name="RelationDefToDeclaration" deletionDescription="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DelDeclarationRelation']" sourceMapping="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@defaultLayer/@containerMappings[name='RelationLibrary']/@subContainerMappings[name='StateMachineRelationDefinition']" targetMapping="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@defaultLayer/@containerMappings[name='RelationLibrary']/@subContainerMappings[name='RelationDeclaration']" targetFinderExpression="feature:declaration" reconnections="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DeclarationMoveTarget'] //@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DeclarationMoveSource']">
           <style lineStyle="dash" sizeComputationExpression="2">
@@ -376,7 +381,7 @@
         </containerMappings>
         <toolSections name="LibraryBasicsTools" label="Types &amp; Imports">
           <ownedTools xsi:type="tool:ToolGroup" name="URICreationTools">
-            <tools xsi:type="tool_1:ToolDescription" name="CreateURI" label="Import Library" precondition="[container.oclIsTypeOf(StateRelationBasedLibrary) or container.oclIsTypeOf(ImportStatement)/]">
+            <tools xsi:type="tool_1:ToolDescription" name="CreateURI" label="Import Library" precondition="[container.oclIsTypeOf(StateRelationBasedLibrary) or container.oclIsTypeOf(ImportStatement)/]" forceRefresh="true">
               <element name="element"/>
               <elementView name="elementView"/>
               <initialOperation>
@@ -1039,7 +1044,7 @@
         <edgeMappings name="TransitionContentLink" preconditionExpression="[self.trigger &lt;> null or self.guard&lt;>null or self.actions->isEmpty()=false/]" sourceMapping="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']" targetMapping="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='DetailedTransitionLayerID']/@nodeMappings[name='TransitionDetailID']" targetFinderExpression="[self/]">
           <style lineStyle="dash" targetArrow="NoDecoration" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
-            <centerLabelStyleDescription labelFormat="italic" showIcon="false" labelExpression="[self.name+' details'/]">
+            <centerLabelStyleDescription labelFormat="italic" showIcon="false">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
             </centerLabelStyleDescription>
           </style>
@@ -1083,43 +1088,31 @@
           </ownedTools>
         </toolSections>
         <toolSections name="TransitionToolingModification">
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteTrigger" forceRefresh="true">
+          <ownedTools xsi:type="tool:ToolGroup" name="TransitionElementCreationGroup"/>
+          <ownedTools xsi:type="tool_1:PaneBasedSelectionWizardDescription" name="RemoveTransitionElement" precondition="[container.oclIsTypeOf(Transition)/]" forceRefresh="true" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/Delete.png" candidatesExpression="[self.oclAsType(FSMModel::Transition).getTransitionElements()/]" rootExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target/]" childrenExpression="[eAllContents()/]">
             <element name="element"/>
-            <elementView name="elementView"/>
             <containerView name="containerView"/>
+            <container name="container"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool_1:For" expression="trueTriggers" iteratorName="trigger">
-                  <subModelOperations xsi:type="tool_1:Unset" featureName="trueTriggers" elementExpression="trigger"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:For" expression="var:element">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="[i.oclIsKindOf(FSMModel::AbstractGuard)/]">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[i.oclAsType(FSMModel::AbstractGuard)/]">
+                      <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                    </subModelOperations>
+                    <subModelOperations xsi:type="tool_1:Unset" featureName="guard" elementExpression="[container.oclAsType(FSMModel::Transition)/]"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="[i.oclIsKindOf(FSMModel::AbstractAction)/]">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[i.oclAsType(FSMModel::AbstractAction)/]">
+                      <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="[i.oclIsTypeOf(FSMModel::AbstractTrigger)/]">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[i.oclAsType(FSMModel::AbstractTrigger)/]">
+                      <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                    </subModelOperations>
+                  </subModelOperations>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool_1:For" expression="falseTriggers" iteratorName="trigger">
-                  <subModelOperations xsi:type="tool_1:Unset" featureName="falseTriggers" elementExpression="trigger"/>
-                </subModelOperations>
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element/]">
-                  <subModelOperations xsi:type="tool_1:RemoveElement"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteGuard" label="Delete Guard">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <containerView name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool_1:Unset" featureName="value" elementExpression="[self.value/]">
-                  <subModelOperations xsi:type="tool_1:RemoveElement"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteAction">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <containerView name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool_1:RemoveElement"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -1135,6 +1128,9 @@
             </initialOperation>
           </ownedTools>
         </toolSections>
+        <decorationDescriptionsSet>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="HasSomethingInTransition" position="CENTER" decoratorPath="/org.gemoc.mocc.ccslmocc.model.design/images/Action.gif" preconditionExpression="[self.guard&lt;>null or self.actions->size()>0 or self.trigger&lt;>null/]" mappings="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']"/>
+        </decorationDescriptionsSet>
       </additionalLayers>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="org.gemoc.mocc.ccslmocc.model.design.services.MoCMLServices"/>

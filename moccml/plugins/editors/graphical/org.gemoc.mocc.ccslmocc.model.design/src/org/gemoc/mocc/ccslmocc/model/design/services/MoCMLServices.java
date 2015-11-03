@@ -24,18 +24,13 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.xtext.serializer.impl.Serializer;
-import org.gemoc.mocc.ccslmoc.model.moccml.CcslmoccPackage;
-import org.gemoc.mocc.ccslmoc.model.moccml.FinishClock;
-import org.gemoc.mocc.ccslmoc.model.moccml.StartClock;
 import org.gemoc.mocc.ccslmoc.model.moccml.StateMachineRelationDefinition;
 import org.gemoc.mocc.ccslmoc.model.moccml.StateRelationBasedLibrary;
 import org.gemoc.mocc.ccslmocc.model.xtext.MoCDslRuntimeModule;
 import org.gemoc.mocc.fsmkernel.model.FSMModel.AbstractAction;
 import org.gemoc.mocc.fsmkernel.model.FSMModel.Guard;
 import org.gemoc.mocc.fsmkernel.model.FSMModel.IntegerAssignement;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.IntegerAssignementBlock;
 import org.gemoc.mocc.fsmkernel.model.FSMModel.State;
 import org.gemoc.mocc.fsmkernel.model.FSMModel.Transition;
 import org.gemoc.mocc.fsmkernel.model.FSMModel.Trigger;
@@ -45,6 +40,7 @@ import org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.IntSupEqual;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
+import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.ImportStatement;
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.NamedElement;
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.BasicType.IntegerElement;
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.BasicType.Type;
@@ -69,7 +65,6 @@ import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpre
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.BindableEntity;
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.ConcreteEntity;
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.RelationDeclaration;
-import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.RelationDefinition;
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.RelationLibrary;
 
 
@@ -175,6 +170,19 @@ public class MoCMLServices {
 		return lst;
 	}
 	
+	/**
+	 * Return true if the current state relation based library already import a library with a particular uri.
+	 * @param stateLib
+	 * @return all existing types referenced by the model
+	 */
+	public Boolean containsImportedLibrary(StateRelationBasedLibrary stateLib, String uri){
+		for(ImportStatement importedStatement: stateLib.getImports()){
+			if(importedStatement.getImportURI().equals(uri)){
+				return true;
+			}
+		}
+		return false;
+	}
 	
 	/**
 	 * Get all types, including the given entry point type.
