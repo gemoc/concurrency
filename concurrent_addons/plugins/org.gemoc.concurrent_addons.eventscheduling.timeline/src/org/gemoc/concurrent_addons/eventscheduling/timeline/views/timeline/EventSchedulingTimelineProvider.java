@@ -311,6 +311,7 @@ public class EventSchedulingTimelineProvider extends AbstractTimelineProvider im
 	@Override
 	public void aboutToExecuteLogicalStep(IBasicExecutionEngine executionEngine, LogicalStep logicalStepToApply) 
 	{
+		update(executionEngine);
 	}
 
 	@Override
@@ -345,10 +346,12 @@ public class EventSchedulingTimelineProvider extends AbstractTimelineProvider im
 	@Override
 	public void logicalStepExecuted(IBasicExecutionEngine engine,
 			LogicalStep logicalStepExecuted) {
+		//update(engine);
 	}
 
 	@Override
 	public void mseOccurrenceExecuted(IBasicExecutionEngine engine, MSEOccurrence mseOccurrence) {
+		//update(engine);
 	}
 
 	@Override

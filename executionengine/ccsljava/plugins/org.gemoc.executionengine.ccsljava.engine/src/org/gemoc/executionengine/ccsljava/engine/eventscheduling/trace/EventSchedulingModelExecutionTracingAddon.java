@@ -54,7 +54,7 @@ import org.gemoc.gemoc_language_workbench.api.engine_addon.DefaultEngineAddon;
 @SuppressWarnings("restriction")
 public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddon {
 
-	private IConcurrentExecutionContext _executionContext;
+	private IExecutionContext _executionContext;
 	private IBasicExecutionEngine _executionEngine;
 	private ExecutionTraceModel _executionTraceModel;
 	private Choice _lastChoice;
@@ -66,6 +66,9 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 	private boolean stateChanged = false;
 	private boolean _backToPastHappened = false;
 	private boolean _cannotSaveTrace = false;
+	
+	// if true, the trace doesn't work on a pure Concurrentengine, some features will be disabled
+	private boolean _limitedMode = false;
 
 	private void modifyTrace(final Runnable r) {
 		RecordingCommand command = new RecordingCommand(getEditingDomain(), "update trace model") {
@@ -88,10 +91,15 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 	}
 
 	public void branch(Choice choice) throws ModelExecutionTracingException {
-		internalBranch(choice);
-		_backToPastHappened = true;
-		if (_executionEngine instanceof IConcurrentExecutionEngine) {
-			((IConcurrentExecutionEngine) _executionEngine).getLogicalStepDecider().preempt();
+		if(_limitedMode){
+			// Cannot Branch in limited mode
+		}
+		else{
+			internalBranch(choice);
+			_backToPastHappened = true;
+			if (_executionEngine instanceof IConcurrentExecutionEngine) {
+				((IConcurrentExecutionEngine) _executionEngine).getLogicalStepDecider().preempt();
+			}
 		}
 	}
 
@@ -132,16 +140,29 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 	}
 
 	public void jump(final ModelState state) {
-		modifyTrace(new Runnable() {
-			@Override
-			public void run() {
-				restoreModelState(state, false);
-			}
-		});
+		if(_limitedMode){
+			// Cannot jump in limited mode
+		}
+		else{
+			modifyTrace(new Runnable() {
+				@Override
+				public void run() {
+					restoreModelState(state, false);
+				}
+			});
+		}
 	}
 
+	
+	/**
+	 * This method works only with concurrentExecuctioncontex
+	 * @param state
+	 * @param restoreAspects
+	 */
 	private void restoreModelState(ModelState state, boolean restoreAspects) {
-
+		if(_limitedMode){
+			Activator.getDefault().error("incorrect call, restoreModelState of this addon doesn't work with Engine taht aren't concurrent");
+		}
 		EObject left = state.getModel();
 		EObject right = _executionContext.getResourceModel().getContents().get(0);
 
@@ -159,7 +180,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 				// if attribute, modify value on the aspect side that will
 				// modify the model in return.
 				AttributeChangeSpec asc = (AttributeChangeSpec) diff;
-				ICodeExecutor codeExecutor = _executionContext.getConcurrentExecutionPlatform().getCodeExecutor();
+				ICodeExecutor codeExecutor = ((IConcurrentExecutionContext)_executionContext).getConcurrentExecutionPlatform().getCodeExecutor();
 				EObject target = diff.getMatch().getRight();
 				String methodName = asc.getAttribute().getName();
 				ArrayList<Object> parameters = new ArrayList<Object>();
@@ -289,15 +310,16 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 			if(!(engine.getExecutionContext() instanceof IConcurrentExecutionContext)){
 				// DVK current implementation of this addon is Concurrent specific (due to the use of the CodeExecutor
 				// for now fail with an error message, later work may generalize this and remove the dependency (by removing some features ?)
-				System.err.println("incorrect use of ModelExecutionTracingAddon with non concurrent engine");
-				return;
+				System.err.println("use of ModelExecutionTracingAddon with non concurrent engine, will work in a limited mode");
+				Activator.getDefault().warn("Use of ModelExecutionTracingAddon with non concurrent engine. The trace will work in a limited mode");
+				_limitedMode = true; 
 			}
 			_executionEngine = engine;
 			_executionTraceModel = Gemoc_execution_traceFactory.eINSTANCE.createExecutionTraceModel();
 			_currentBranch = Gemoc_execution_traceFactory.eINSTANCE.createBranch();
 			_currentBranch.setStartIndex(0);
 			_executionTraceModel.getBranches().add(_currentBranch);
-			setModelExecutionContext((IConcurrentExecutionContext) engine.getExecutionContext());
+			setModelExecutionContext( engine.getExecutionContext());
 
 			adapter = new EContentAdapter() {
 
@@ -317,7 +339,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 
 	// private static class GemocTraceResource extends ResourceImpl
 
-	private void setModelExecutionContext(IConcurrentExecutionContext executionContext) {
+	private void setModelExecutionContext(IExecutionContext executionContext) {
 		_executionContext = executionContext;
 		ResourceSet rs = _executionContext.getResourceModel().getResourceSet();
 		URI traceModelURI = URI.createPlatformResourceURI(_executionContext.getWorkspace().getExecutionPath()
@@ -360,15 +382,28 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 		CommandExecution.execute(getEditingDomain(), command);
 	}
 
-	private void updateTraceModelAfterExecution(final LogicalStep selectedLogicalStep) {
+	private void updateTraceModelAfterExecution(final LogicalStep selectedLogicalStep) {		
 		RecordingCommand command = new RecordingCommand(getEditingDomain(), "update trace model after deciding") {
 			@Override
 			protected void doExecute() {
-				if (_lastChoice != null) {
-					if (_lastChoice.getPossibleLogicalSteps().size() == 0)
-						return;
-					if (_lastChoice.getPossibleLogicalSteps().contains(selectedLogicalStep)) {
-						_lastChoice.setChosenLogicalStep(selectedLogicalStep);
+				// in limited mode do nothing, we trace only the method call rather than the method return
+				if(!_limitedMode){
+					if (_lastChoice != null) {
+						if (_lastChoice.getPossibleLogicalSteps().size() == 0)
+							return;
+						if (_lastChoice.getPossibleLogicalSteps().contains(selectedLogicalStep)) {
+							_lastChoice.setChosenLogicalStep(selectedLogicalStep);
+						}
+					}
+				}
+				else {
+					// limited mode
+					// this is actually the end of the call, which may be in a stack
+					// retrieve the choice in the previous choice that has this logicalStep
+					// then mark it as chosen (ie. fully executed)
+					Choice choiceFullyExecuted = findPreviousChoiceWithLogicalStep(_lastChoice, selectedLogicalStep);
+					if(choiceFullyExecuted != null){
+						choiceFullyExecuted.setChosenLogicalStep(selectedLogicalStep);						
 					}
 				}
 			}
@@ -376,6 +411,15 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 		CommandExecution.execute(getEditingDomain(), command);
 	}
 
+	private Choice findPreviousChoiceWithLogicalStep(final Choice startingChoice, final LogicalStep selectedLogicalStep){
+		if(startingChoice.getPossibleLogicalSteps().contains(selectedLogicalStep)){
+			return startingChoice;
+		}
+		else if(startingChoice.getPreviousChoice() != null){
+			return findPreviousChoiceWithLogicalStep(startingChoice.getPreviousChoice(), selectedLogicalStep);
+		} else return null;
+	}
+	
 	public ExecutionTraceModel getExecutionTrace() {
 		return _executionTraceModel;
 	}
@@ -387,32 +431,51 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 	}
 
 	@Override
+	public void aboutToExecuteLogicalStep(
+			IBasicExecutionEngine executionEngine,
+			LogicalStep logicalStepToApply) {	
+		if(_limitedMode){
+			// in limited mode the engine is not concurrent so it will not call the aboutToSelectLogicalStep method
+			// so we do it here
+			setUp(executionEngine);
+			ArrayList<LogicalStep> beforeDecing = new ArrayList<LogicalStep>();
+			beforeDecing.add(logicalStepToApply);
+			updateTraceModelBeforeDeciding(beforeDecing);
+		}
+	}
+	
+	@Override
 	public void logicalStepExecuted(IBasicExecutionEngine engine, LogicalStep logicalStepExecuted) {
-		setUp(engine);
-		updateTraceModelAfterExecution(logicalStepExecuted);
+		setUp(engine);		
+		updateTraceModelAfterExecution(logicalStepExecuted);					
 	}
 
 	public void reintegrateBranch(final Choice choice) {
-		RecordingCommand command = new RecordingCommand(getEditingDomain(), "Reintegrate branch") {
-			@Override
-			protected void doExecute() {
-				_currentBranch = choice.getBranch();
-				_lastChoice = choice.getPreviousChoice();
-				choice.setPreviousChoice(null);
-				_lastChoice.setSelectedNextChoice(null);
-				_currentBranch.getChoices().remove(choice);
-				try {
-					restoreModelState(choice);
-					restoreSolverState(choice);
-					if (_executionEngine instanceof IConcurrentExecutionEngine) {
-						((IConcurrentExecutionEngine) _executionEngine).getLogicalStepDecider().preempt();
+		if(_limitedMode){
+			// Cannot reintegrateBranch in limited mode
+		}
+		else{
+			RecordingCommand command = new RecordingCommand(getEditingDomain(), "Reintegrate branch") {
+				@Override
+				protected void doExecute() {
+					_currentBranch = choice.getBranch();
+					_lastChoice = choice.getPreviousChoice();
+					choice.setPreviousChoice(null);
+					_lastChoice.setSelectedNextChoice(null);
+					_currentBranch.getChoices().remove(choice);
+					try {
+						restoreModelState(choice);
+						restoreSolverState(choice);
+						if (_executionEngine instanceof IConcurrentExecutionEngine) {
+							((IConcurrentExecutionEngine) _executionEngine).getLogicalStepDecider().preempt();
+						}
+					} catch (Exception e) {
+						e.printStackTrace();
 					}
-				} catch (Exception e) {
-					e.printStackTrace();
 				}
-			}
-		};
-		CommandExecution.execute(getEditingDomain(), command);
+			};
+			CommandExecution.execute(getEditingDomain(), command);
+		}
 	}
 
 	@Override

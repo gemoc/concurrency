@@ -7,9 +7,8 @@
       <Addon
             AddonGroupId="Concurrent.AddonGroup"
             Class="fr.inria.aoste.timesquare.backend.vcdgenerator.manager.VCDGeneratorManager"
-            Default="true"
+            Default="false"
             Name="VCD visualization"
-            ShortDesccription="Open a Value Change Dump view that displays when the MSE are triggered."
             ShortDescription="Open a Value Change Dump view that displays when the MSE are triggered."
             id="VCD_Visualization">
       </Addon>

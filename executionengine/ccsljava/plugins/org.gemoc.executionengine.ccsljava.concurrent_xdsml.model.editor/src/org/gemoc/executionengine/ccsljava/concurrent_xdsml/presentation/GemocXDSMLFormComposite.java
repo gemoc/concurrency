@@ -104,9 +104,7 @@ public class GemocXDSMLFormComposite extends AbstractGemocFormComposite {
 	private Text txtGenmodel;
 
 	protected XDSMLModelWrapper xdsmlWrappedObject = new XDSMLModelWrapper();
-	private Label lblSupportedFileExtensions;
-	private Button btnDeterministic;
-	private Button btnNondeterministic;
+	private Label lblSupportedFileExtensions;	
 	private Group grpMocDefinitionLibrary;
 	private Group grpDSEDefinition;
 	private Text txtEntryPoint;
@@ -309,15 +307,7 @@ public class GemocXDSMLFormComposite extends AbstractGemocFormComposite {
 		RowLayout rl_composite = new RowLayout(SWT.HORIZONTAL);
 		rl_composite.pack = false;
 		composite.setLayout(rl_composite);
-
-		btnDeterministic = new Button(composite, SWT.RADIO);
-		toolkit.adapt(btnDeterministic, true, true);
-		btnDeterministic.setText("Deterministic");
-
-		btnNondeterministic = new Button(composite, SWT.RADIO);
-		toolkit.adapt(btnNondeterministic, true, true);
-		btnNondeterministic.setText("Non-deterministic");
-
+		
 		Group grpDsaDefinition = new Group(grpBehaviorDefinition, SWT.NONE);
 		grpDsaDefinition.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 		grpDsaDefinition.setText("DSA definition");

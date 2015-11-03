@@ -7,7 +7,9 @@ import org.gemoc.gemoc_language_workbench.ui.builder.ToggleNatureAction;
 public class CreateNewGemocConcurrentLanguageProject extends AbstractCreateNewGemocLanguageProject {
 
 	public CreateNewGemocConcurrentLanguageProject() {
-		super();		
+		super();
+		_askProjectNamePage.setDescription("Create a new Gemoc Concurrent Language Project");
+		_askProjectNamePage.setInitialProjectName("org.company.my_concurrent_language.xdsml");
 	}
 
 	protected void initializeProject(IProject project, String languageName) {

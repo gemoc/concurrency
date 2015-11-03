@@ -49,7 +49,6 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.emf.edit.provider.ItemProvider;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
@@ -91,11 +90,9 @@ import org.eclipse.swt.dnd.FileTransfer;
 import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.events.ControlAdapter;
 import org.eclipse.swt.events.ControlEvent;
-import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
-import org.eclipse.swt.widgets.Tree;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
@@ -917,7 +914,7 @@ public class Concurrent_xdsmlEditor
 	 * This is the method called to load a resource into the editing domain's resource set based on the editor's input.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void createModel() {
 		URI resourceURI = EditUIUtil.getURI(getEditorInput());
@@ -932,7 +929,17 @@ public class Concurrent_xdsmlEditor
 			exception = e;
 			resource = editingDomain.getResourceSet().getResource(resourceURI, false);
 		}
-
+		if(	!resource.getContents().get(0).eClass().getName().equalsIgnoreCase("ConcurrentLanguageDefinition")){
+			BasicDiagnostic basicDiagnostic =
+					new BasicDiagnostic
+						(Diagnostic.ERROR,
+								"org.gemoc.executionengine.ccsljava.concurrent_xdsml.model.editor",
+						 0,
+						 "Cannot open a "+resource.getContents().get(0).eClass().getName()+ " as a ConcurrentLanguageDefinition, please use the correct XDSML editor",
+						 new Object [] { exception == null ? (Object)resource : exception });
+				basicDiagnostic.merge(EcoreUtil.computeDiagnostic(resource, true));
+			resourceToDiagnosticMap.put(resource, basicDiagnostic);
+		}
 		Diagnostic diagnostic = analyzeResourceProblems(resource, exception);
 		if (diagnostic.getSeverity() != Diagnostic.OK) {
 			resourceToDiagnosticMap.put(resource,  analyzeResourceProblems(resource, exception));
