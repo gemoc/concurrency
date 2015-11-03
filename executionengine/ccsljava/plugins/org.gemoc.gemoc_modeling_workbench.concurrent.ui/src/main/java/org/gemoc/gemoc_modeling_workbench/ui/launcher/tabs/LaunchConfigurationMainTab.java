@@ -2,13 +2,19 @@ package org.gemoc.gemoc_modeling_workbench.ui.launcher.tabs;
 
 import java.util.ArrayList;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.dialogs.Dialog;
+import org.eclipse.osgi.util.NLS;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
@@ -23,14 +29,18 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
+import org.gemoc.commons.eclipse.emf.EMFResource;
 import org.gemoc.commons.eclipse.emf.URIHelper;
 import org.gemoc.commons.eclipse.ui.dialogs.SelectAnyIFileDialog;
 import org.gemoc.execution.engine.ui.commons.RunConfiguration;
 import org.gemoc.executionengine.ccsljava.api.extensions.deciders.DeciderSpecificationExtension;
 import org.gemoc.executionengine.ccsljava.api.extensions.deciders.DeciderSpecificationExtensionPoint;
+import org.gemoc.executionengine.ccsljava.api.extensions.languages.ConcurrentLanguageDefinitionExtension;
 import org.gemoc.executionengine.ccsljava.api.extensions.languages.ConcurrentLanguageDefinitionExtensionPoint;
+import org.gemoc.executionengine.ccsljava.concurrent_xdsml.ConcurrentLanguageDefinition;
 import org.gemoc.executionframework.ui.dialogs.SelectAIRDIFileDialog;
 import org.gemoc.gemoc_modeling_workbench.concurrent.ui.Activator;
+import org.gemoc.gemoc_modeling_workbench.ui.launcher.LauncherMessages;
 
 import fr.obeo.dsl.debug.ide.launch.AbstractDSLLaunchConfigurationDelegate;
 import fr.obeo.dsl.debug.ide.sirius.ui.launch.AbstractDSLLaunchConfigurationDelegateUI;
@@ -313,5 +323,73 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 	@Override
 	protected void updateLaunchConfigurationDialog() {
 		super.updateLaunchConfigurationDialog();
+	}
+	
+	/* (non-Javadoc)
+	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#isValid(org.eclipse.debug.core.ILaunchConfiguration)
+	 */
+	@Override
+	public boolean isValid(ILaunchConfiguration config) {
+		setErrorMessage(null);
+		setMessage(null);
+		IWorkspace workspace = ResourcesPlugin.getWorkspace();
+		String modelName = _modelLocationText.getText().trim();
+		if (modelName.length() > 0) {
+			
+			IResource modelIResource = workspace.getRoot().findMember(modelName);
+			if (modelIResource == null || !modelIResource.exists()) {
+				setErrorMessage(NLS.bind(LauncherMessages.ConcurrentMainTab_model_doesnt_exist, new String[] {modelName})); 
+				return false;
+			}
+			if (modelName.equals("/")) {
+				setErrorMessage(LauncherMessages.ConcurrentMainTab_Model_not_specified); 
+				return false;
+			}
+			if (! (modelIResource instanceof IFile)) {
+				setErrorMessage(NLS.bind(LauncherMessages.ConcurrentMainTab_invalid_model_file, new String[] {modelName})); 
+				return false;
+			}
+		}
+		if (modelName.length() == 0) {
+			setErrorMessage(LauncherMessages.ConcurrentMainTab_Model_not_specified); 
+			return false;
+		}
+		
+		String languageName = _languageCombo.getText().trim();
+		if (languageName.length() == 0) {
+			setErrorMessage(LauncherMessages.ConcurrentMainTab_Language_not_specified); 
+			return false;
+		}
+		ConcurrentLanguageDefinitionExtension languageDefinitionExtPoint = ConcurrentLanguageDefinitionExtensionPoint
+				.findDefinition(languageName);
+		if(languageDefinitionExtPoint != null ){
+			try{
+				URI uri = URI.createPlatformPluginURI(languageDefinitionExtPoint.getXDSMLFilePath(), true);
+				Object o = EMFResource.getFirstContent(uri);
+				ConcurrentLanguageDefinition langDef = null;
+				if(o != null && o instanceof ConcurrentLanguageDefinition){
+					langDef = (ConcurrentLanguageDefinition)o;
+					IResource modelIResource = workspace.getRoot().findMember(modelName);
+					EList<String> recognizedFileExtensions = langDef.getFileExtensions();
+					if(recognizedFileExtensions != null && !recognizedFileExtensions.isEmpty() && !recognizedFileExtensions.contains(modelIResource.getFileExtension())){
+						String extensionListStr = String.join(", ", recognizedFileExtensions);
+						setErrorMessage(NLS.bind(LauncherMessages.ConcurrentMainTab_incompatible_model_extension_for_language, new String[] {modelIResource.getFileExtension(), languageName, extensionListStr})); 
+						return false;
+					}
+				}
+				else {
+					setErrorMessage(NLS.bind(LauncherMessages.ConcurrentMainTab_Invalid_Language_missing_xdsml, new String[] {languageName}) ); 
+					return false;
+				}
+			}
+			catch(Exception e){
+				setErrorMessage(NLS.bind(LauncherMessages.ConcurrentMainTab_Invalid_Language_missing_xdsml_with_error, new String[] {languageName, e.getMessage()}) );
+			}
+		}
+		else {
+			setErrorMessage(NLS.bind(LauncherMessages.ConcurrentMainTab_missing_language, new String[] {languageName})); 
+			return false;
+		}
+		return true;
 	}
 }
