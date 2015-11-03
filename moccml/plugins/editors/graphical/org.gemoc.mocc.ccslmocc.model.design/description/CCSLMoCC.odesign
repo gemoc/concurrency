@@ -843,6 +843,9 @@
             <menuItemDescription xsi:type="tool_1:ExternalJavaActionCall" name="org.gemoc.mocc.ccslmocc.model.design.popupOpenEditorActionCallFromP" forceRefresh="true" action="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='OpenEmbeddedEditorAction']"/>
           </ownedTools>
         </toolSections>
+        <decorationDescriptionsSet>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="HasSomethingInTransition" position="CENTER" decoratorPath="/org.gemoc.mocc.ccslmocc.model.design/images/Action.gif" preconditionExpression="[self.guard&lt;>null or self.actions->size()>0 or self.trigger&lt;>null/]" mappings="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']"/>
+        </decorationDescriptionsSet>
       </defaultLayer>
       <additionalLayers name="Declarations" activeByDefault="true">
         <containerMappings name="DeclarationBlockID" semanticCandidatesExpression="[declarationBlock/]" doubleClickDescription="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@toolSections.2/@ownedTools[name='OpenXtextEditor']" domainClass="FSMModel.DeclarationBlock" childrenPresentation="List">
@@ -1128,9 +1131,6 @@
             </initialOperation>
           </ownedTools>
         </toolSections>
-        <decorationDescriptionsSet>
-          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="HasSomethingInTransition" position="CENTER" decoratorPath="/org.gemoc.mocc.ccslmocc.model.design/images/Action.gif" preconditionExpression="[self.guard&lt;>null or self.actions->size()>0 or self.trigger&lt;>null/]" mappings="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']"/>
-        </decorationDescriptionsSet>
       </additionalLayers>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="org.gemoc.mocc.ccslmocc.model.design.services.MoCMLServices"/>

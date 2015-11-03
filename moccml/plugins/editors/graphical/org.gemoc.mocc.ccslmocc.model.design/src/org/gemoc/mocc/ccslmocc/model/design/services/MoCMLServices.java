@@ -196,6 +196,22 @@ public class MoCMLServices {
 		return null;
 	}
 	
+	/**
+	 * Get all transition elements(guards, event or actions)
+	 */
+	public Collection<EObject> getTransitionElements(Transition transition){
+		Collection<EObject> lst = new ArrayList<EObject>();
+		if(transition.getGuard()!=null){
+			lst.add(transition.getGuard());
+		}
+		if(transition.getTrigger()!=null){
+			lst.add(transition.getTrigger());
+		}
+		if(transition.getActions()!=null && !transition.getActions().isEmpty()){
+			lst.addAll(transition.getActions());
+		}
+		return lst;
+	}
 	
 	/**
 	 * Get all types, contained by the library or imported from others.
