@@ -68,17 +68,21 @@ public class EclServices {
 	
 	public String getMoCIDFromFirstLib(ECLDocument document){
 		
-		StateRelationBasedLibrary lib = null;
+		//StateRelationBasedLibrary lib = null;
 		
 		for (fr.inria.aoste.timesquare.ECL.ImportStatement st : document.getImports())
 		{
 			if(st.toString().contains("moccml"))
 			{
 				//lib = LibLoader.loadMoCMLLibrary(document.getImports().get(0));
-				lib = LibLoader.loadMoCMLLibrary(st);
+				StateRelationBasedLibrary lib = LibLoader.loadMoCMLLibrary(st);
+				// Return first lib name.
+				if(lib!=null){
+					return lib.getName();
+				}
 			}
 		}
-		return lib.getName();
+		return null;
 	}
 	
 	public EList<String> getContextFullLabels(ECLDocument document){
