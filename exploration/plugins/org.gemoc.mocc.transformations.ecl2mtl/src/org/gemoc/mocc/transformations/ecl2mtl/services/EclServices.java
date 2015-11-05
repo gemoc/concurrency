@@ -365,12 +365,24 @@ public class EclServices {
 		
 		for (Iterator<ContextDeclCS> iterator = getAllContextOccurences(document).iterator(); iterator.hasNext();) {
 			ContextDeclCS c = iterator.next();
-			if (((org.eclipse.ocl.examples.pivot.Class)c.getPivot()).getName().equals(contextName)) {
+			if (isPivotClassKindOf(((org.eclipse.ocl.examples.pivot.Class)c.getPivot()),contextName)) {
 				result.addAll(getEvents(c)); 
 				//result.addAll(getEventsWithDSA(c)); // Used when we want to have only the events with DSA 
 			}
 		}
 		return result;
+	}
+	
+	private boolean isPivotClassKindOf(org.eclipse.ocl.examples.pivot.Class pivot, String contextName){
+		if ((pivot.getPackage() + "::" + pivot.getName()).equals(contextName)) {
+			return true;
+		}
+		if (pivot.getName().equals(contextName)) {
+			return true;
+		} 
+		else{
+			return false;
+		}
 	}
 	
 	public EList<String> getEventsWithoutDSA(ECLDocument document, String contextName){

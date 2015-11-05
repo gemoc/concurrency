@@ -66,7 +66,7 @@ system addLibrary:moccmllibs asDictionary.
 
 [for (cDecl : String | anECLDocument.getContextLabels(rootElementName))][ '[' /]for (element : [cDecl/]| a[rootElementName.deleteSpecialCharacters()/].eAllContents([cDecl/]))[ ']' /]
 "clocks for [cDecl.getDeclRightPart()/] [ '[' /]element.name/[ ']' /]" 
-	system addClocks: #([for (e : String | anECLDocument.getAllEvents(cDecl))][e/][ '[' /]element.name/[ ']' /] [/for]).
+	system addClocks: #([for (e : String | anECLDocument.getAllEvents(cDecl))][e/][ '[' /]element.name/[ ']' /][/for]).
 	[if (anECLDocument.hasInternalEvents(cDecl))]
 "internal clocks for [cDecl/] [ '[' /]element.name/[ ']' /]" 
     system addInternalClocks: #([for (e : String | anECLDocument.getAllInternalEvents(cDecl))][e/][ '[' /]element.name/[ ']' /] [/for]).
