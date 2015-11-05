@@ -95,6 +95,7 @@ public class ClockSystemFileGen {
 		if(od.curos.equals("Windows"))
 		{
 			pb = new ProcessBuilder(runwinvm,"--headless",image_pathwin,"eval",toEvaluateWin);
+			System.out.println("Create new process builder for windows");
 		}
 		else if (od.curos.equals("mac"))
 		{
@@ -146,7 +147,7 @@ public class ClockSystemFileGen {
 	}
 
 	private void extractJar(JarFile jar, String tmpdir, String temp_dir_path) {
-		
+		System.out.println("Extract jar " + jar.getName() + " from dir " + tmpdir);
 		Enumeration<JarEntry> entries =  jar.entries();
 		ArrayList<File> list = new ArrayList<File>();
 		// Approximately takes 3 to 5 Minutes
@@ -377,6 +378,7 @@ public class ClockSystemFileGen {
 	{
 		try 
 		{
+			System.out.println("Run file gen");
 			//JOptionPane.showMessageDialog(null, pb.command(), "Command", JOptionPane.INFORMATION_MESSAGE);
 			Process p = pb.start();
 			LogStreamReader lsr = new LogStreamReader(p.getInputStream());
