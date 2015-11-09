@@ -38,6 +38,7 @@ import org.gemoc.executionengine.ccsljava.api.extensions.deciders.DeciderSpecifi
 import org.gemoc.executionengine.ccsljava.api.extensions.languages.ConcurrentLanguageDefinitionExtension;
 import org.gemoc.executionengine.ccsljava.api.extensions.languages.ConcurrentLanguageDefinitionExtensionPoint;
 import org.gemoc.executionengine.ccsljava.concurrent_xdsml.ConcurrentLanguageDefinition;
+import org.gemoc.executionengine.ccsljava.engine.ui.ConcurrentRunConfiguration;
 import org.gemoc.executionframework.ui.dialogs.SelectAIRDIFileDialog;
 import org.gemoc.gemoc_modeling_workbench.concurrent.ui.Activator;
 import org.gemoc.gemoc_modeling_workbench.ui.launcher.LauncherMessages;
@@ -90,7 +91,7 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
 		configuration.setAttribute(RunConfiguration.LAUNCH_DELAY, 1000);
 		configuration.setAttribute(RunConfiguration.LAUNCH_SELECTED_DECIDER,
-				RunConfiguration.DECIDER_ASKUSER_STEP_BY_STEP);
+				ConcurrentRunConfiguration.DECIDER_ASKUSER_STEP_BY_STEP);
 		configuration.setAttribute(RunConfiguration.LAUNCH_ENTRY_POINT, "");
 	}
 

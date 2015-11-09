@@ -87,7 +87,7 @@
          unpack="false"/>
 
    <plugin
-         id="org.gemoc.execution.engine.commons"
+         id="org.gemoc.executionengine.ccsljava.engine.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"

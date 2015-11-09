@@ -32,6 +32,7 @@ import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
 import org.gemoc.executionengine.ccsljava.api.moc.ISolver;
 import org.gemoc.executionengine.ccsljava.engine.commons.ConcurrentModelExecutionContext;
 import org.gemoc.executionengine.ccsljava.engine.dse.ConcurrentExecutionEngine;
+import org.gemoc.executionengine.ccsljava.engine.ui.ConcurrentRunConfiguration;
 import org.gemoc.gemoc_language_workbench.api.core.EngineStatus.RunStatus;
 import org.gemoc.gemoc_language_workbench.api.core.ExecutionMode;
 import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
@@ -289,7 +290,7 @@ public class Launcher extends fr.obeo.dsl.debug.ide.sirius.ui.launch.AbstractDSL
 					// TODO try to infer possible language and other attribute
 					// from project content and environment
 					configuration.setAttribute(RunConfiguration.LAUNCH_SELECTED_DECIDER,
-							RunConfiguration.DECIDER_ASKUSER_STEP_BY_STEP);
+							ConcurrentRunConfiguration.DECIDER_ASKUSER_STEP_BY_STEP);
 					final ILaunchGroup group = DebugUITools.getLaunchGroup(configuration, mode);
 					if (group != null) {
 						ILaunchConfiguration savedLaunchConfig = configuration.doSave();

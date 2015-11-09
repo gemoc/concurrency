@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="generate" name="org.gemoc.mocc.transformations.ecl2mtl">
-    <property name="ECLIPSE_HOME" value="../../../../../TmpBuildsGemoc/gemoc_studio-win32.win32.x86_64 (1)"/>
-    <property name="ECLIPSE_WORKSPACE" value="../../../../../GemocML"/>
+    <property name="ECLIPSE_HOME" value="../../../../../../eclipses/gemoc_studio-win32.win32.x86_refactoring_latest"/>
+    <property name="ECLIPSE_WORKSPACE" value="../../../../../../Users/dvojtise/workspaces/gemoc_on_github"/>
 
     <!-- The classpath with only the dependencies used by the project -->
     <path id="org.gemoc.mocc.transformations.ecl2mtl.libraryclasspath">
@@ -19,7 +19,7 @@
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.equinox.preferences_3.5.200.v20140224-1527.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.core.contenttype_3.4.200.v20140207-1251.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.equinox.app_1.3.200.v20130910-1609.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/fr.inria.aoste.timesquare.ecl_1.0.0.201509091602.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/fr.inria.aoste.timesquare.ecl_1.0.0.201510291213.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/fr.inria.aoste.timesquare.ccslkernel.model_1.0.0.201509180749.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.ecore_2.10.2.v20150123-0348.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.common_2.10.1.v20150123-0348.jar"/>
@@ -35,31 +35,26 @@
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.examples.common_3.3.0.v20140712-2020.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.examples.library_3.4.4.v20150125-1621.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.examples.domain_3.4.4.v20150125-1621.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.xtext_2.7.3.v201411190455.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.xtext_2.8.4.v201508050135.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.antlr.runtime_3.2.0.v201101311130.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/com.google.inject_3.0.0.v201312141243.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.mwe.core_1.3.4.v201409021027.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.mwe.core_1.3.11.v201508030321.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.apache.commons.cli_1.2.0.v201404270220.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.mwe2.runtime_2.7.0.v201409021027.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.mwe.utils_1.3.4.v201409021027.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.xtext.util_2.7.3.v201411190455.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.mwe2.runtime_2.8.1.v201508030321.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.mwe.utils_1.3.11.v201508030321.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.xtext.util_2.8.4.v201508050135.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/com.google.guava_15.0.0.v201403281430.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.xtext.common.types_2.7.3.v201411190455.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.xtext.common.types_2.8.4.v201508050135.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.examples.xtext.essentialocl_3.4.2.v20140819-1601.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.examples.xtext.completeocl_3.4.2.v20140819-1601.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.gemoc.mocc.ccslmocc.model_0.1.1.201509102241.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.gemoc.mocc.fsmkernel.model_0.1.1.201509102241.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.gemoc.mocc.ccslmocc.model.xtext.mocdsl_0.1.1.201509102241.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.xtext.xbase_2.7.3.v201411190455.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.xtend.lib_2.7.3.v201411190455.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.xtext.xbase.lib_2.7.3.v201411190455.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.xtend.lib.macro_2.7.3.v201411190455.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.gemoc.mocc.fsmkernel.model.xtext.fsmdsl_0.1.1.201509102241.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.xtext.xbase_2.8.4.v201508050135.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.xtend.lib_2.8.4.v201508050135.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.xtext.xbase.lib_2.8.4.v201508050135.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.xtend.lib.macro_2.8.4.v201508050135.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/fr.inria.aoste.timesquare.ccslkernel.library.xtext_1.0.0.201509180749.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/fr.inria.aoste.timesquare.ccslkernel.xtext.util_1.0.0.201509180749.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/fr.inria.aoste.timesquare.ccslkernel.parser.xtext_1.0.0.201509180749.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/fr.inria.aoste.timesquare.utils.umlhelpers_1.0.0.201509180749.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.gemoc.mocc.ccslmocc.model.xtext.mocdsl.ui_0.1.1.201509102241.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl_3.4.2.v20140725-2242.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/lpg.runtime.java_2.0.17.v201004271640.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.ecore_3.3.100.v20140610-0641.jar"/>
@@ -69,20 +64,19 @@
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.engine_3.5.1.201409021433.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.codegen.ecore_2.10.2.v20150123-0452.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.codegen_2.10.0.v20150123-0452.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/fr.inria.aoste.timesquare.ecl.xtext_1.0.0.201509091602.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/fr.inria.aoste.timesquare.ecl.xtext_1.0.0.201510291213.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.apache.log4j_1.2.15.v201012070815.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.apache.commons.logging_1.1.1.v201101211721.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/fr.inria.aoste.timesquare.ccslkernel.library.xtext.ui_1.0.0.201509180749.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ui_3.106.1.v20141002-1150.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.swt_3.103.2.v20150203-1313.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.swt.win32.win32.x86_64_3.103.2.v20150203-1351.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.swt.win32.win32.x86_3.103.2.v20150203-1351.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.jface_3.10.2.v20141021-1035.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.core.commands_3.6.100.v20140528-1422.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ui.workbench_3.106.2.v20150204-1030.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.e4.ui.workbench3_0.12.0.v20140227-2118.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.core.resources_3.9.1.v20140825-1431.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.xtend.core_2.7.3.v201411190455.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.gemoc.mocc.fsmkernel.model.xtext.fsmdsl.ui_0.1.1.201509102241.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.xtend.core_2.8.4.v201508050135.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/fr.inria.aoste.timesquare.ccslkernel.parser.xtext.ui_1.0.0.201509180749.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.parser_3.5.1.201409021433.jar"/>
     </path>

@@ -1,7 +1,6 @@
-package org.gemoc.execution.engine.commons;
+package org.gemoc.executionengine.ccsljava.engine.ui;
 
 import org.eclipse.core.runtime.CoreException;
-import org.gemoc.execution.engine.ui.commons.RunConfiguration;
 import org.gemoc.executionengine.ccsljava.api.core.ILogicalStepDecider;
 import org.gemoc.executionengine.ccsljava.api.extensions.deciders.DeciderSpecificationExtension;
 import org.gemoc.executionengine.ccsljava.api.extensions.deciders.DeciderSpecificationExtensionPoint;
@@ -14,7 +13,7 @@ public class LogicalStepDeciderFactory {
 		ILogicalStepDecider decider = null;
 		if (executionMode.equals(ExecutionMode.Run))
 		{
-			DeciderSpecificationExtension extension = DeciderSpecificationExtensionPoint.findDefinition(RunConfiguration.DECIDER_SOLVER);
+			DeciderSpecificationExtension extension = DeciderSpecificationExtensionPoint.findDefinition(ConcurrentRunConfiguration.DECIDER_SOLVER);
 			decider = extension.instanciateDecider();
 		}
 		else 

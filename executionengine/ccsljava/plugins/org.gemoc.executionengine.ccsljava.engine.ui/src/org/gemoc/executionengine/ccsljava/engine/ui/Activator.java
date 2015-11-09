@@ -1,4 +1,4 @@
-package org.gemoc.execution.engine.commons;
+package org.gemoc.executionengine.ccsljava.engine.ui;
 
 import org.gemoc.commons.eclipse.logging.backends.DefaultLoggingBackend;
 import org.gemoc.commons.eclipse.pde.GemocPlugin;
@@ -69,7 +69,7 @@ public class Activator extends GemocPlugin {
 		{
 			_loggingBackend = new DefaultLoggingBackend(this);
 			MessagingSystemManager msm = new MessagingSystemManager();
-			MessagingSystem ms = msm.createBestPlatformMessagingSystem(org.gemoc.execution.engine.commons.Activator.PLUGIN_ID, "Execution Engine");
+			MessagingSystem ms = msm.createBestPlatformMessagingSystem(org.gemoc.executionengine.ccsljava.engine.ui.Activator.PLUGIN_ID, "Execution Engine");
 			_loggingBackend.setMessagingSystem(ms);
 		}
 		return _loggingBackend;

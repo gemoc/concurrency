@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Gemoc Engine Commons
+Bundle-Name: Gemoc CCSLJava Engine UI
 Bundle-SymbolicName: org.gemoc.executionengine.ccsljava.engine.ui;singleton:=true
 Bundle-Version: 0.1.0.qualifier
-Bundle-Activator: org.gemoc.execution.engine.commons.Activator
+Bundle-Activator: org.gemoc.executionengine.ccsljava.engine.ui.Activator
 Require-Bundle: fr.inria.aoste.trace,
  org.gemoc.execution.engine.trace.model;bundle-version="0.1.0",
  org.gemoc.commons.eclipse,
@@ -24,7 +24,6 @@ Require-Bundle: fr.inria.aoste.trace,
  org.gemoc.execution.engine.ui;bundle-version="0.1.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: org.gemoc.execution.engine.commons,
- org.gemoc.execution.engine.commons.solvers.ccsl
+Export-Package: org.gemoc.executionengine.ccsljava.engine.ui
 Bundle-ClassPath: .
 Import-Package: fr.inria.aoste.timesquare.launcher.core.inter
