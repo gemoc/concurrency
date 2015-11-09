@@ -5,20 +5,20 @@ import org.gemoc.execution.engine.commons.EngineContextException;
 import org.gemoc.execution.engine.commons.ModelExecutionContext;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionContext;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionPlatform;
+import org.gemoc.executionengine.ccsljava.api.core.IConcurrentRunConfiguration;
 import org.gemoc.executionengine.ccsljava.api.core.ILogicalStepDecider;
 import org.gemoc.executionengine.ccsljava.api.extensions.languages.ConcurrentLanguageDefinitionExtension;
 import org.gemoc.executionengine.ccsljava.api.extensions.languages.ConcurrentLanguageDefinitionExtensionPoint;
 import org.gemoc.executionengine.ccsljava.engine.ui.LogicalStepDeciderFactory;
 import org.gemoc.gemoc_language_workbench.api.core.ExecutionMode;
 import org.gemoc.gemoc_language_workbench.api.core.IExecutionPlatform;
-import org.gemoc.gemoc_language_workbench.api.core.IRunConfiguration;
 import org.gemoc.gemoc_language_workbench.api.extensions.languages.LanguageDefinitionExtension;
 
 public class ConcurrentModelExecutionContext extends ModelExecutionContext implements IConcurrentExecutionContext
 {
 
 	
-	public ConcurrentModelExecutionContext(IRunConfiguration runConfiguration, ExecutionMode executionMode)
+	public ConcurrentModelExecutionContext(IConcurrentRunConfiguration runConfiguration, ExecutionMode executionMode)
 			throws EngineContextException
 	{
 		super(runConfiguration, executionMode);

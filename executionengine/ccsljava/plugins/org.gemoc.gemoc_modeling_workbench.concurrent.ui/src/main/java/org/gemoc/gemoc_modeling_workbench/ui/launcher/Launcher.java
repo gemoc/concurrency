@@ -63,7 +63,7 @@ public class Launcher extends fr.obeo.dsl.debug.ide.sirius.ui.launch.AbstractDSL
 			debug("About to initialize and run the GEMOC Execution Engine...");
 
 			// We parse the run configuration
-			final RunConfiguration runConfiguration = new RunConfiguration(configuration);
+			final ConcurrentRunConfiguration runConfiguration = new ConcurrentRunConfiguration(configuration);
 
 			// We detect if we are running in debug mode or not
 			ExecutionMode executionMode = null;
@@ -289,7 +289,7 @@ public class Launcher extends fr.obeo.dsl.debug.ide.sirius.ui.launch.AbstractDSL
 
 					// TODO try to infer possible language and other attribute
 					// from project content and environment
-					configuration.setAttribute(RunConfiguration.LAUNCH_SELECTED_DECIDER,
+					configuration.setAttribute(ConcurrentRunConfiguration.LAUNCH_SELECTED_DECIDER,
 							ConcurrentRunConfiguration.DECIDER_ASKUSER_STEP_BY_STEP);
 					final ILaunchGroup group = DebugUITools.getLaunchGroup(configuration, mode);
 					if (group != null) {

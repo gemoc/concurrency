@@ -90,7 +90,7 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 	@Override
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
 		configuration.setAttribute(RunConfiguration.LAUNCH_DELAY, 1000);
-		configuration.setAttribute(RunConfiguration.LAUNCH_SELECTED_DECIDER,
+		configuration.setAttribute(ConcurrentRunConfiguration.LAUNCH_SELECTED_DECIDER,
 				ConcurrentRunConfiguration.DECIDER_ASKUSER_STEP_BY_STEP);
 		configuration.setAttribute(RunConfiguration.LAUNCH_ENTRY_POINT, "");
 	}
@@ -98,7 +98,7 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 	@Override
 	public void initializeFrom(ILaunchConfiguration configuration) {
 		try {
-			RunConfiguration runConfiguration = new RunConfiguration(configuration);
+			ConcurrentRunConfiguration runConfiguration = new ConcurrentRunConfiguration(configuration);
 			_modelLocationText.setText(URIHelper.removePlatformScheme(runConfiguration.getExecutedModelURI()));
 
 			if (runConfiguration.getAnimatorURI() != null)
@@ -127,7 +127,7 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 		configuration.setAttribute(RunConfiguration.LAUNCH_DELAY, Integer.parseInt(_delayText.getText()));
 		configuration.setAttribute(RunConfiguration.LAUNCH_SELECTED_LANGUAGE, this._languageCombo.getText());
 		configuration.setAttribute(RunConfiguration.LAUNCH_MELANGE_QUERY, this._melangeQueryText.getText());
-		configuration.setAttribute(RunConfiguration.LAUNCH_SELECTED_DECIDER, this._deciderCombo.getText());
+		configuration.setAttribute(ConcurrentRunConfiguration.LAUNCH_SELECTED_DECIDER, this._deciderCombo.getText());
 		configuration.setAttribute(RunConfiguration.LAUNCH_BREAK_START, _animationFirstBreak.getSelection());
 	}
 
