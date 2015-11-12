@@ -44,7 +44,7 @@
          <visibility>
          <and>
             <not>
-                <objectState name="projectNature" value="org.gemoc.gemoc_language_workbench.ui.gemocLanguageDesignerNature"/>
+                <objectState name="projectNature" value="org.gemoc.gemoc_language_workbench.concurrent.ui.gemocLanguageDesignerNature"/>
             </not>
             <objectClass name="org.eclipse.core.resources.IProject" />
           </and>
@@ -71,7 +71,7 @@
 	          </objectClass>
 	          <objectState
 	                name="projectNature"
-	                value="org.gemoc.gemoc_language_workbench.ui.gemocLanguageDesignerNature">
+	                value="org.gemoc.gemoc_language_workbench.concurrent.ui.gemocLanguageDesignerNature">
 	          </objectState>
 	       </and>
 	    </visibility>
@@ -92,8 +92,8 @@
          point="org.eclipse.ui.ide.projectNatureImages">
       <image
             icon="icons/IconeGemocLanguage-10.png"
-            id="org.gemoc.gemoc_language_workbench.ui.gemocLanguageDesignerNature.image"
-            natureId="org.gemoc.gemoc_language_workbench.ui.gemocLanguageDesignerNature">
+            id="org.gemoc.gemoc_language_workbench.concurrent.ui.gemocLanguageDesignerNature.image"
+            natureId="org.gemoc.gemoc_language_workbench.concurrent.ui.gemocLanguageDesignerNature">
       </image>
    </extension>
    <!-- definitions of commands -->
