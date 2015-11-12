@@ -23,7 +23,7 @@
          </run>
       </runtime>
       <builder
-            id="org.gemoc.gemoc_language_workbench.ui.gemocLanguageDesignerBuilder">
+            id="org.gemoc.gemoc_language_workbench.concurrent.ui.gemocLanguageDesignerBuilder">
       </builder>
    </extension>
    <extension
