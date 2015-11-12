@@ -92,9 +92,9 @@ public class GemocDSEBuilder extends IncrementalProjectBuilder {
 		}
 	}*/
 
-	public static final String BUILDER_ID = "org.gemoc.gemoc_language_workbench.ui.dse_builder";
+	public static final String BUILDER_ID = "org.gemoc.gemoc_language_workbench.concurrent.ui.dse_builder";
 
-	public static final String MARKER_TYPE = "org.gemoc.gemoc_language_workbench.ui.dse_problem";
+	public static final String MARKER_TYPE = "org.gemoc.gemoc_language_workbench.concurrent.ui.dse_problem";
 
 	// private SAXParserFactory parserFactory;
 

@@ -248,7 +248,7 @@
          </run>
       </runtime>
       <builder
-            id="org.gemoc.gemoc_language_workbench.ui.dse_builder">
+            id="org.gemoc.gemoc_language_workbench.concurrent.ui.dse_builder">
       </builder>
    </extension>
    <extension
@@ -285,7 +285,7 @@
 			                  type="org.eclipse.core.resources.IProject">
 			               <test
 			                     property="org.eclipse.core.resources.projectNature "
-			                     value="org.gemoc.gemoc_language_workbench.ui.dse_nature">
+			                     value="org.gemoc.gemoc_language_workbench.concurrent.ui.dse_nature">
 			               </test>
 			            </adapt>
                      </and>
@@ -312,7 +312,7 @@
 			               <not>
 				               <test
 				                     property="org.eclipse.core.resources.projectNature "
-				                     value="org.gemoc.gemoc_language_workbench.ui.dse_nature">
+				                     value="org.gemoc.gemoc_language_workbench.concurrent.ui.dse_nature">
 				               </test>
                         	</not>
 			            </adapt>
