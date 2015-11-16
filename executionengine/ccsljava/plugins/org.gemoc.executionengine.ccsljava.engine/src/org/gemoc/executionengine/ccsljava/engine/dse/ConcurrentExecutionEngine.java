@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.core.runtime.CoreException;
+import org.gemoc.execution.ccsljava.concurrent_mse.FeedbackMSE;
 import org.gemoc.execution.engine.Activator;
 import org.gemoc.execution.engine.core.AbstractExecutionEngine;
+import org.gemoc.execution.engine.mse.engine_mse.MSE;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.LogicalStep;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionContext;
@@ -319,7 +321,7 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine implement
 		}
 	}
 
-	private void executeAssociatedActions(ModelSpecificEvent mse)
+	private void executeAssociatedActions(MSE mse)
 	{
 		synchronized(_futureActionsLock)
 		{
@@ -338,18 +340,21 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine implement
 	
 	private void executeMSEOccurrence(MSEOccurrence mseOccurrence)
 	{
-		ModelSpecificEvent mse = mseOccurrence.getMse();
+		MSE mse = mseOccurrence.getMse();
 		if (mse.getAction() != null) 
 		{			
-			ActionModel feedbackModel = _executionContext.getFeedbackModel();
 			ArrayList<When> whenStatements = new ArrayList<When>();
-			for (When w : feedbackModel.getWhenStatements())
-			{
-				if (w.getSource() == mse)
+			// we are in a concurrent engine, the MSE should be a FeedbackMSE
+			if(mse instanceof FeedbackMSE){
+				ActionModel feedbackModel = ((IConcurrentExecutionContext)_executionContext).getFeedbackModel();
+				for (When w : feedbackModel.getWhenStatements())
 				{
-					whenStatements.add(w);
-				}
-			}	
+					if (w.getSource() == ((FeedbackMSE)mse).getFeedbackModelSpecificEvent())
+					{
+						whenStatements.add(w);
+					}
+				}	
+			}
 			OperationExecution execution = null;
 			if (whenStatements.size() == 0)
 			{

@@ -15,13 +15,21 @@ import java.util.Map;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.transaction.RecordingCommand;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.gemoc.execution.ccsljava.concurrent_mse.FeedbackMSE;
+import org.gemoc.execution.engine.mse.engine_mse.MSE;
+import org.gemoc.execution.engine.mse.engine_mse.MSEModel;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.Gemoc_execution_traceFactory;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.LogicalStep;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
@@ -57,6 +65,7 @@ public class CcslSolver implements org.gemoc.executionengine.ccsljava.api.moc.IS
 	protected URI solverInputURI = null;
 	protected ArrayList<LogicalStep> _lastLogicalSteps = new ArrayList<LogicalStep>();
 	protected ActionModel _feedbackModel;
+	protected MSEModel _MSEModel;
 	
 	public CcslSolver() 
 	{
@@ -112,7 +121,7 @@ public class CcslSolver implements org.gemoc.executionengine.ccsljava.api.moc.IS
 		for (Event e : LogicalStepHelper.getTickedEvents(res))
 		{
 			MSEOccurrence mseOccurrence = Gemoc_execution_traceFactory.eINSTANCE.createMSEOccurrence();
-			for (ModelSpecificEvent mse : _feedbackModel.getEvents())
+			for (MSE mse : _MSEModel.getOwnedMSEs())
 			{
 				if (mse.getName().replace("MSE_", "").equals(e.getName().replace("evt_", "")))
 				{
@@ -135,7 +144,8 @@ public class CcslSolver implements org.gemoc.executionengine.ccsljava.api.moc.IS
 	private void createSolver(IExecutionContext context) 
 	{
 		this.solverInputURI = URI.createPlatformResourceURI(context.getWorkspace().getMoCPath().toString(), true);
-		URI feedbackURI = URI.createPlatformResourceURI(context.getWorkspace().getFeedbackModelPath().toString(), true);
+		URI feedbackURI = URI.createPlatformResourceURI(getFeedbackPathFromMSEModelPath(context.getWorkspace().getMSEModelPath()).toString(), true);
+		URI mseModelURI = URI.createPlatformResourceURI(context.getWorkspace().getMSEModelPath().toString(), true);
 		
 		try 
 		{
@@ -153,6 +163,8 @@ public class CcslSolver implements org.gemoc.executionengine.ccsljava.api.moc.IS
 
 			Resource feedbackResource = resourceSet.getResource(feedbackURI, true);
 			_feedbackModel = (ActionModel)feedbackResource.getContents().get(0);
+			Resource mseModelResource = resourceSet.getResource(mseModelURI, true);
+			_MSEModel = (MSEModel)mseModelResource.getContents().get(0);
 			
 		} catch (IOException e) {
 			String errorMessage = "IOException while instantiating the CcslSolver";
@@ -319,10 +331,10 @@ public class CcslSolver implements org.gemoc.executionengine.ccsljava.api.moc.IS
 		{
 			mustGenerate = true;
 		}
-		IFile feedbackFile = ResourcesPlugin.getWorkspace().getRoot().getFile(workspace.getFeedbackModelPath());
+		IFile feedbackFile = ResourcesPlugin.getWorkspace().getRoot().getFile(getFeedbackPathFromMSEModelPath(workspace.getMSEModelPath()));
 		if (!feedbackFile.exists()
 				|| 	ResourcesPlugin.getWorkspace().getRoot().getFile(workspace.getModelPath()).getLocalTimeStamp() > 
-					ResourcesPlugin.getWorkspace().getRoot().getFile(workspace.getFeedbackModelPath()).getLocalTimeStamp()) 
+					ResourcesPlugin.getWorkspace().getRoot().getFile(getFeedbackPathFromMSEModelPath(workspace.getMSEModelPath())).getLocalTimeStamp()) 
 		{
 			mustGenerate = true;
 		}
@@ -337,7 +349,7 @@ public class CcslSolver implements org.gemoc.executionengine.ccsljava.api.moc.IS
 			    File transformationFile =new File(fileURL.getFile());
 			    if (	feedbackFile.exists() &&
 			    		transformationFile.lastModified() > 
-						ResourcesPlugin.getWorkspace().getRoot().getFile(workspace.getFeedbackModelPath()).getLocalTimeStamp()) 
+						ResourcesPlugin.getWorkspace().getRoot().getFile(getFeedbackPathFromMSEModelPath(workspace.getMSEModelPath())).getLocalTimeStamp()) 
 				{
 					mustGenerate = true;
 				}
@@ -357,12 +369,61 @@ public class CcslSolver implements org.gemoc.executionengine.ccsljava.api.moc.IS
 						"platform:/plugin" + transformationPath, 
 						context.getRunConfiguration().getExecutedModelAsMelangeURI().toString(), 
 						"platform:/resource" + workspace.getMoCPath().toString(),
-						"platform:/resource" + workspace.getFeedbackModelPath().toString());			
+						"platform:/resource" + getFeedbackPathFromMSEModelPath(workspace.getMSEModelPath()).toString());	
+			// TODO must now generate the MSEModel based on this feedbackmodel, that'll wrap the ModelSpecificEvent from Timesquare to MSE for our internal trace
+			generateMSEModel(context);
+			// TODO must reload the model resourceSet since some element may have changed
 		}		
 	}
 
+	/**
+	 * generates a MSEModel that wraps the FeedbackModel used by Timesquare
+	 */
+	private void generateMSEModel(final IConcurrentExecutionContext context){
+		final URI feedbackURI = URI.createPlatformResourceURI(getFeedbackPathFromMSEModelPath(context.getWorkspace().getMSEModelPath()).toString(), true);
+		final URI mseModelURI = URI.createPlatformResourceURI(context.getWorkspace().getMSEModelPath().toString(), true);
+		
+//		ResourceSet rs = context.getResourceModel().getResourceSet();
+//		TransactionalEditingDomain edomain = org.eclipse.emf.transaction.TransactionalEditingDomain.Factory.INSTANCE.getEditingDomain(rs);
+//		
+//		edomain.getCommandStack().execute(new RecordingCommand(edomain) {
+//			public void doExecute() {
+		ResourceSet rs = new ResourceSetImpl();
+				Resource feedBackRes = rs.getResource(feedbackURI, true);
+				Resource mseRes = rs.createResource(mseModelURI);
+				mseRes.getContents().clear();
+				MSEModel mseModel = org.gemoc.execution.engine.mse.engine_mse.Engine_mseFactory.eINSTANCE.createMSEModel();		
+				mseRes.getContents().add(mseModel);
+				ActionModel feedbackModel = (ActionModel)feedBackRes.getContents().get(0);
+				if(feedbackModel!= null){
+					for(ModelSpecificEvent feedbackModelSpecificEvent : feedbackModel.getEvents()){
+						FeedbackMSE feedbackMSE = org.gemoc.execution.ccsljava.concurrent_mse.Concurrent_mseFactory.eINSTANCE.createFeedbackMSE();
+						feedbackMSE.setFeedbackModelSpecificEvent(feedbackModelSpecificEvent);
+						feedbackMSE.setName(feedbackModelSpecificEvent.getName());
+						mseModel.getOwnedMSEs().add(feedbackMSE);
+					}
+				}
+				try {
+					mseRes.save(null);
+				} catch (IOException e) {
+					Activator.getDefault().error("Problem creating MSEModel from feedback model", e);
+				}
+//			}
+//		});
+		
+		
+		
+		
+	}
+	
 	@Override
 	public void dispose() {
 		this.solverWrapper=null;
+	}
+	
+	public IPath getFeedbackPathFromMSEModelPath(IPath mseModelPath) 
+	{
+		IPath msePath= mseModelPath.removeFileExtension().addFileExtension("feedback");
+		return msePath;
 	}
 }

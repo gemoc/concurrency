@@ -1,6 +1,8 @@
 package org.gemoc.executionengine.ccsljava.engine.commons;
 
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.gemoc.execution.engine.commons.EngineContextException;
 import org.gemoc.execution.engine.commons.ModelExecutionContext;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionContext;
@@ -14,6 +16,8 @@ import org.gemoc.gemoc_language_workbench.api.core.ExecutionMode;
 import org.gemoc.gemoc_language_workbench.api.core.IExecutionPlatform;
 import org.gemoc.gemoc_language_workbench.api.extensions.languages.LanguageDefinitionExtension;
 
+import fr.inria.aoste.timesquare.ecl.feedback.feedback.ActionModel;
+
 public class ConcurrentModelExecutionContext extends ModelExecutionContext implements IConcurrentExecutionContext
 {
 
@@ -24,6 +28,8 @@ public class ConcurrentModelExecutionContext extends ModelExecutionContext imple
 		super(runConfiguration, executionMode);
 		try
 		{
+
+			setUpFeedbackModel();
 			
 			_logicalStepDecider = LogicalStepDeciderFactory.createDecider(runConfiguration.getDeciderName(),
 					executionMode);
@@ -59,6 +65,20 @@ public class ConcurrentModelExecutionContext extends ModelExecutionContext imple
 		return languageDefinition;
 	}
 
+	private void setUpFeedbackModel()
+	{
+		URI feedbackPlatformURI = URI.createPlatformResourceURI(getWorkspace().getMSEModelPath().removeFileExtension().addFileExtension("feedback").toString(),
+				true);
+		try
+		{
+			Resource resource = getResourceSet().getResource(feedbackPlatformURI, true);
+			_feedbackModel = (ActionModel) resource.getContents().get(0);
+		} catch (Exception e)
+		{
+			// file will be created later
+		}
+	}
+	
 	@Override
 	public void dispose()
 	{
@@ -67,7 +87,13 @@ public class ConcurrentModelExecutionContext extends ModelExecutionContext imple
 	}
 
 	
+	protected ActionModel _feedbackModel;
 
+	@Override
+	public ActionModel getFeedbackModel()
+	{
+		return _feedbackModel;
+	}
 	
 
 	protected ILogicalStepDecider _logicalStepDecider;

@@ -15,7 +15,9 @@ Require-Bundle: org.eclipse.ui,
  fr.inria.aoste.timesquare.vcd.antlr;bundle-version="1.4.0",
  org.gemoc.gemoc_language_workbench.api;bundle-version="0.1.0",
  org.gemoc.execution.engine.trace.model,
- org.gemoc.executionengine.ccsljava.api;bundle-version="1.0.0"
+ org.gemoc.executionengine.ccsljava.api;bundle-version="1.0.0",
+ fr.inria.aoste.trace;bundle-version="1.0.1",
+ org.gemoc.execution.ccsljava.concurrent.mse.model
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: fr.inria.aoste.timesquare.backend.vcdgenerator,
