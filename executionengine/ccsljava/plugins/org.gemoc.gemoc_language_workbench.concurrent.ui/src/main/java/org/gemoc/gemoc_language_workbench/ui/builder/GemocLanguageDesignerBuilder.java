@@ -91,7 +91,7 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 
 	}
 
-	public static final String BUILDER_ID = "org.gemoc.gemoc_language_workbench.ui.gemocLanguageDesignerBuilder";
+	public static final String BUILDER_ID = "org.gemoc.gemoc_language_workbench.concurrent.ui.gemocLanguageDesignerBuilder";
 
 	/*
 	 * (non-Javadoc)

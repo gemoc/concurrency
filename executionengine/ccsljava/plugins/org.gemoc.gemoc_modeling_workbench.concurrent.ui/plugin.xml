@@ -159,7 +159,7 @@
           category="org.gemoc.gemoc_language_workbench.ui"
           class="org.gemoc.gemoc_modeling_workbench.ui.wizards.CreateNewGemocModelingProject"
           icon="icons/IconeGemocModel-16.png"
-          id="org.gemoc.gemoc_modeling_workbench.ui.wizards.CreateNewGemocModelingProject"
+          id="org.gemoc.gemoc_modeling_workbench.concurrent.ui.wizards.CreateNewGemocModelingProject"
           name="GEMOC Concurrent Modeling Project"
           project="true">
     </wizard>
@@ -194,7 +194,7 @@
       <perspectiveExtension
             targetID="org.eclipse.sirius.ui.tools.perspective.modeling">
          <newWizardShortcut
-               id="org.gemoc.gemoc_modeling_workbench.ui.wizards.CreateNewGemocModelingProject">
+               id="org.gemoc.gemoc_modeling_workbench.concurrent.ui.wizards.CreateNewGemocModelingProject">
          </newWizardShortcut>
          <view
                id="org.gemoc.execution.engine.io.views.steps.LogicalStepsView"
@@ -242,7 +242,7 @@
       <commonWizard
             menuGroupId="org.gemoc.gemoc_modeling_workbench.ui.category"
             type="new"
-            wizardId="org.gemoc.gemoc_modeling_workbench.ui.wizards.CreateNewGemocModelingProject">
+            wizardId="org.gemoc.gemoc_modeling_workbench.concurrent.ui.wizards.CreateNewGemocModelingProject">
          <enablement>
             <with
                   variable="activeWorkbenchWindow.activePerspective">

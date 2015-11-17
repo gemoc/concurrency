@@ -1,7 +1,9 @@
 package org.gemoc.gemoc_language_workbench.ui.dse;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -27,12 +29,16 @@ import org.gemoc.commons.eclipse.core.resources.Marker;
 import org.gemoc.commons.eclipse.core.resources.Project;
 import org.gemoc.gemoc_language_workbench.ui.Activator;
 
+import com.google.common.base.Charsets;
+
 import toools.io.file.RegularFile;
 import fr.inria.aoste.timesquare.ecl.ecltoqvto.main.AcceleoLauncherForEclToQvto;
 
 public class GemocDSEBuilder extends IncrementalProjectBuilder {
+	
+	public static String QVTO_GEN_FOLDER = "qvto-gen";
 
-	class SampleDeltaVisitor implements IResourceDeltaVisitor {
+	class GemocDSEBuilderDeltaVisitor implements IResourceDeltaVisitor {
 		/*
 		 * (non-Javadoc)
 		 * 
@@ -40,6 +46,7 @@ public class GemocDSEBuilder extends IncrementalProjectBuilder {
 		 */
 		public boolean visit(IResourceDelta delta) throws CoreException {
 			IResource resource = delta.getResource();
+			
 			switch (delta.getKind()) {
 			case IResourceDelta.ADDED:
 				// handle added resource
@@ -66,41 +73,15 @@ public class GemocDSEBuilder extends IncrementalProjectBuilder {
 		}
 	}
 
-	/*class ECLErrorHandler extends DefaultHandler {
-		
-		private IFile file;
 
-		public ECLErrorHandler(IFile file) {
-			this.file = file;
-		}
+	public static final String BUILDER_ID = "org.gemoc.gemoc_language_workbench.concurrent.ui.dse_builder";
 
-		private void addMarker(SAXParseException e, int severity) {
-			ECLMoc2ASBuilder.this.addMarker(file, e.getMessage(), e
-					.getLineNumber(), severity);
-		}
+	public static final String MARKER_TYPE = "org.gemoc.gemoc_language_workbench.concurrent.ui.dse_problem";
 
-		public void error(SAXParseException exception) throws SAXException {
-			addMarker(exception, IMarker.SEVERITY_ERROR);
-		}
-
-		public void fatalError(SAXParseException exception) throws SAXException {
-			addMarker(exception, IMarker.SEVERITY_ERROR);
-		}
-
-		public void warning(SAXParseException exception) throws SAXException {
-			addMarker(exception, IMarker.SEVERITY_WARNING);
-		}
-	}*/
-
-	public static final String BUILDER_ID = "org.gemoc.gemoc_language_workbench.ui.dse_builder";
-
-	public static final String MARKER_TYPE = "org.gemoc.gemoc_language_workbench.ui.dse_problem";
-
-	// private SAXParserFactory parserFactory;
 
 	private void addMarker(IResource resource, String message, int lineNumber, int severity) {
 		try {
-			Marker.addMarker(resource, MARKER_TYPE, message, severity);
+			Marker.addMarker(resource, MARKER_TYPE, message, lineNumber, severity);
 		} catch (CoreException e) {
 			Activator.error(e.getMessage(), e);
 		}
@@ -142,6 +123,11 @@ public class GemocDSEBuilder extends IncrementalProjectBuilder {
 		else if(resource instanceof IFile && resource.getName().endsWith(".ecl")){
 			updateQVTOFromECL(resource);
 		}
+		else if(resource instanceof IFile 
+				&& resource.getName().endsWith(".qvto") 
+				&& resource.getProjectRelativePath().segment(0).equalsIgnoreCase(QVTO_GEN_FOLDER)){
+			checkQVTOContent((IFile)resource);
+		}
 	}
 	
 	protected void checkProjectMinimalContent(IProject project) {
@@ -152,6 +138,28 @@ public class GemocDSEBuilder extends IncrementalProjectBuilder {
 			addMarker(project, "Missing moc2as.properties, cannot generate qvto", -1, IMarker.SEVERITY_ERROR);
 			return;
 		}
+	}
+	
+	protected void checkQVTOContent(IFile qvtoFile) {
+		deleteMarkers(qvtoFile);
+		
+		try {
+			BufferedReader reader;
+			reader = new BufferedReader(new InputStreamReader(qvtoFile.getContents(),
+					  Charsets.UTF_8));
+		
+			int lineNumber =0;
+		
+			while (reader.ready()) {
+				  String line = reader.readLine();
+				  lineNumber++;
+				  if(line.contains("uses 'invalid';")){
+					  addMarker(qvtoFile, "Generated QVTO file is Invalid. Check your ECL file or try to clean/rebuild the project", lineNumber, IMarker.SEVERITY_ERROR);
+						return;  
+				  }
+			}
+		} catch (IOException e) {
+		} catch (CoreException e1) {}
 	}
 	
 	protected void checkProjectProperties(IFile propertyFile) {
@@ -196,7 +204,7 @@ public class GemocDSEBuilder extends IncrementalProjectBuilder {
 				String uristring = eclFile.getLocation().toOSString();
 			    final URI uri = URI.createFileURI(uristring);
 			    
-			    String genFolder = "qvto-gen";
+			    String genFolder = QVTO_GEN_FOLDER;
 			    final IFolder modelingFolder = Project.createFolder(project, genFolder + "/modeling");			    	
 			    final IFolder languageFolder = Project.createFolder(project, genFolder + "/language");			    	
 
@@ -247,7 +255,8 @@ public class GemocDSEBuilder extends IncrementalProjectBuilder {
 							launcher.doGenerate(new BasicMonitor());
 							
 							IFile qvtoFileForLanguage = languageFolder.getFile(qvtoFileName);
-							qvtoFileForLanguage.refreshLocal(0, new NullProgressMonitor());
+							qvtoFileForLanguage.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+							checkQVTOContent(qvtoFileForLanguage);
 
 							IFile qvtoFileForModeling = modelingFolder.getFile(qvtoFileName);
 									
@@ -258,7 +267,8 @@ public class GemocDSEBuilder extends IncrementalProjectBuilder {
 							String qvtoModelingContent = qvtoLanguageContent.replaceAll("platform:/resource", "platform:/plugin");
 							reg_qvtoFileForModeling.setContent(qvtoModelingContent.getBytes());
 								
-							qvtoFileForModeling.refreshLocal(0, new NullProgressMonitor());
+							qvtoFileForModeling.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+							checkQVTOContent(qvtoFileForModeling);
 						} catch (IOException e) {
 							addMarker(eclFile, e.getMessage(), -1, IMarker.SEVERITY_ERROR);
 							Activator.error(e.getMessage(), e);
@@ -295,6 +305,6 @@ public class GemocDSEBuilder extends IncrementalProjectBuilder {
 	protected void incrementalBuild(IResourceDelta delta,
 			IProgressMonitor monitor) throws CoreException {
 		// the visitor does the work.
-		delta.accept(new SampleDeltaVisitor());
+		delta.accept(new GemocDSEBuilderDeltaVisitor());
 	}
 }

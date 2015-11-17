@@ -23,7 +23,7 @@
          </run>
       </runtime>
       <builder
-            id="org.gemoc.gemoc_language_workbench.ui.gemocLanguageDesignerBuilder">
+            id="org.gemoc.gemoc_language_workbench.concurrent.ui.gemocLanguageDesignerBuilder">
       </builder>
    </extension>
    <extension
@@ -44,7 +44,7 @@
          <visibility>
          <and>
             <not>
-                <objectState name="projectNature" value="org.gemoc.gemoc_language_workbench.ui.gemocLanguageDesignerNature"/>
+                <objectState name="projectNature" value="org.gemoc.gemoc_language_workbench.concurrent.ui.gemocLanguageDesignerNature"/>
             </not>
             <objectClass name="org.eclipse.core.resources.IProject" />
           </and>
@@ -71,7 +71,7 @@
 	          </objectClass>
 	          <objectState
 	                name="projectNature"
-	                value="org.gemoc.gemoc_language_workbench.ui.gemocLanguageDesignerNature">
+	                value="org.gemoc.gemoc_language_workbench.concurrent.ui.gemocLanguageDesignerNature">
 	          </objectState>
 	       </and>
 	    </visibility>
@@ -92,8 +92,8 @@
          point="org.eclipse.ui.ide.projectNatureImages">
       <image
             icon="icons/IconeGemocLanguage-10.png"
-            id="org.gemoc.gemoc_language_workbench.ui.gemocLanguageDesignerNature.image"
-            natureId="org.gemoc.gemoc_language_workbench.ui.gemocLanguageDesignerNature">
+            id="org.gemoc.gemoc_language_workbench.concurrent.ui.gemocLanguageDesignerNature.image"
+            natureId="org.gemoc.gemoc_language_workbench.concurrent.ui.gemocLanguageDesignerNature">
       </image>
    </extension>
    <!-- definitions of commands -->
@@ -248,7 +248,7 @@
          </run>
       </runtime>
       <builder
-            id="org.gemoc.gemoc_language_workbench.ui.dse_builder">
+            id="org.gemoc.gemoc_language_workbench.concurrent.ui.dse_builder">
       </builder>
    </extension>
    <extension
@@ -285,7 +285,7 @@
 			                  type="org.eclipse.core.resources.IProject">
 			               <test
 			                     property="org.eclipse.core.resources.projectNature "
-			                     value="org.gemoc.gemoc_language_workbench.ui.dse_nature">
+			                     value="org.gemoc.gemoc_language_workbench.concurrent.ui.dse_nature">
 			               </test>
 			            </adapt>
                      </and>
@@ -312,7 +312,7 @@
 			               <not>
 				               <test
 				                     property="org.eclipse.core.resources.projectNature "
-				                     value="org.gemoc.gemoc_language_workbench.ui.dse_nature">
+				                     value="org.gemoc.gemoc_language_workbench.concurrent.ui.dse_nature">
 				               </test>
                         	</not>
 			            </adapt>
