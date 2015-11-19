@@ -17,12 +17,19 @@
         <module>plugins/org.gemoc.executionengine.gel.concurrent_xdsml_with_gel.model</module>
         <module>plugins/org.gemoc.executionengine.gel.concurrent_xdsml_with_gel.model.edit</module>
         <module>plugins/org.gemoc.executionengine.gel.concurrent_xdsml_with_gel.model.editor</module>
-        
+        <module>plugins/org.gemoc.executionengine.gel.api</module>
+        <module>plugins/org.gemoc.executionengine.gel.engine</module>
+        <module>plugins/org.gemoc.executionengine.gel.engine.ui</module>
+        <module>plugins/org.gemoc.gemoc_language_workbench.concurrent_with_gel.ui</module>
+        <module>plugins/org.gemoc.gemoc_modeling_workbench.concurrent_with_gel.ui</module>
         
         
         
         <!-- feature and update site -->
-        
+        <module>releng/org.gemoc.executionengine.gel.feature</module>
+        <module>releng/org.gemoc.executionengine.gel.runtime.feature</module>
+        <module>releng/org.gemoc.executionengine.gel.runtime.ui.feature</module>
+        <module>releng/org.gemoc.executionengine.gel.repository</module>
         
         
         
