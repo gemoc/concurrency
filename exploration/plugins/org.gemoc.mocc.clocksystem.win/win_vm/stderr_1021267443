@@ -1,0 +1,107 @@
+[31m==== Startup Error: MessageNotUnderstood: FileStream class>>run:
+[0mFileStream class(Object)>>doesNotUnderstand: #run:
+ScriptStarter class>>executeRunFor:with:
+ScriptStarter class>>startUp
+ScriptStarter class(Behavior)>>startUp:
+ScriptStarter class>>startUp:
+[ class perform: startUpOrShutDown with: argument ] in [ :name | 
+| class |
+class := self at: name ifAbsent: [ nil ].
+class
+	ifNil: [ removals add: name ]
+	ifNotNil: [ self logStartUpErrorDuring: [ class perform: startUpOrShutDown with: argument ] into: errors tryDebugger: false ] ] in SmalltalkImage>>send:toClassesNamedIn:with: in Block: [ class perform: startUpOrShutDown with: argument ...etc...
+BlockClosure>>on:do:
+SmalltalkImage>>logStartUpErrorDuring:into:tryDebugger:
+[ :name | 
+| class |
+class := self at: name ifAbsent: [ nil ].
+class
+	ifNil: [ removals add: name ]
+	ifNotNil: [ self logStartUpErrorDuring: [ class perform: startUpOrShutDown with: argument ] into: errors tryDebugger: false ] ] in SmalltalkImage>>send:toClassesNamedIn:with: in Block: [ :name | ...
+OrderedCollection>>do:
+SmalltalkImage>>send:toClassesNamedIn:with:
+SmalltalkImage>>processStartUpList:
+[ 
+startupErrors addAll: (self processStartUpList: isNewImage).
+isNewImage
+	ifTrue: [ self recordStartupStamp ] ] in SmalltalkImage>>startupImage:snapshotWorked: in Block: [ ...
+BlockClosure>>ensure:
+MorphicUIManager(UIManager)>>boot:during:
+SmalltalkImage>>startupImage:snapshotWorked:
+SmalltalkImage>>snapshot:andQuit:
+[ Smalltalk snapshot: true andQuit: false ] in WorldState class>>saveSession in Block: [ Smalltalk snapshot: true andQuit: false ]
+BlockClosure>>ensure:
+CursorWithMask(Cursor)>>showWhile:
+WorldState class>>saveSession
+[ 
+| selArgCount |
+"show cursor in case item opens a new MVC window"
+(selArgCount := selector numArgs) = 0
+	ifTrue: [ target perform: selector ]
+	ifFalse: [ 
+		selArgCount = arguments size
+			ifTrue: [ target perform: selector withArguments: arguments ]
+			ifFalse: [ target perform: selector withArguments: (arguments copyWith: evt) ] ].
+self changed ] in ToggleMenuItemMorph(MenuItemMorph)>>invokeWithEvent: in Block: [ ...
+BlockClosure>>ensure:
+CursorWithMask(Cursor)>>showWhile:
+ToggleMenuItemMorph(MenuItemMorph)>>invokeWithEvent:
+ToggleMenuItemMorph(MenuItemMorph)>>mouseUp:
+ToggleMenuItemMorph(MenuItemMorph)>>handleMouseUp:
+MouseButtonEvent>>sentTo:
+ToggleMenuItemMorph(Morph)>>handleEvent:
+MorphicEventDispatcher>>dispatchDefault:with:
+[0m[31mGot startup errors: 
+[0m[31m    MessageNotUnderstood: FileStream class>>run:
+[0mUsage: [--no-preferences|--preference-file=<FILE>][<subcommand>] [--help] [--copyright] [--version] [--list] [ --no-quit ]
+	--help       print this help message
+	--copyright  print the copyrights
+	--version    print the version for the image and the vm
+	--list       list a description of all active command line handlers
+	--no-quit    keep the image running without activating any other command line handler
+	<subcommand> a valid subcommand in --list
+	
+	Preference File Modification:
+	--preference-file   load the preferences from the given <FILE>
+	--no-default-preferences    do not load any preferences from the default locations
+	
+Documentation:
+A PharoCommandLineHandler handles default command line arguments and options.
+The PharoCommandLineHandler is activated before all other handlers. 
+It first checks if another handler is available. If so it will activate the found handler.
+[31mError: Command line handler failed
+[0mPharoCommandLineHandler(BasicCommandLineHandler)>>handleExit:for:
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleExit:
+[ :exit | ^ self handleExit: exit ] in PharoCommandLineHandler(BasicCommandLineHandler)>>activate in Block: [ :exit | ^ self handleExit: exit ]
+BlockClosure>>cull:
+Context>>evaluateSignal:
+Context>>handleSignal:
+Exit(Exception)>>signal
+Exit(Exception)>>signal:
+Exit class>>signalFailure:
+PharoCommandLineHandler(CommandLineHandler)>>exitFailure:
+PharoCommandLineHandler(CommandLineHandler)>>exitFailure
+PharoCommandLineHandler(BasicCommandLineHandler)>>error
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleArgument:
+[ self handleArgument: (self arguments ifEmpty: [ '' ] ifNotEmpty: [ :arguments | arguments first ]) ] in PharoCommandLineHandler(BasicCommandLineHandler)>>activate in Block: [ self handleArgument: (self arguments ifEmpty: [ ...etc...
+BlockClosure>>on:do:
+PharoCommandLineHandler(BasicCommandLineHandler)>>activate
+PharoCommandLineHandler>>activate
+PharoCommandLineHandler class(CommandLineHandler class)>>activateWith:
+[ super activateWith: aCommandLine ] in PharoCommandLineHandler class>>activateWith: in Block: [ super activateWith: aCommandLine ]
+WorldState>>runStepMethodsIn:
+WorldMorph>>runStepMethods
+WorldState>>doOneCycleNowFor:
+WorldState>>doOneCycleFor:
+WorldMorph>>doOneCycle
+[ 
+| aWidget |
+aWidget := aSystemWindow openAsIs.
+self activeHand mouseFocus: aWidget.
+[ aWidget world notNil ] whileTrue: [ aWidget outermostWorldMorph doOneCycle ] ] in WorldMorph(Morph)>>openModal: in Block: [ ...
+BlockClosure>>ensure:
+WorldMorph(Morph)>>openModal:
+WorldMorph(PasteUpMorph)>>openModal:
+Pharo3Theme(UITheme)>>customQuestionIn:text:yesText:noText:cancelText:default:title:
+MorphicUIManager>>confirm:trueChoice:falseChoice:cancelChoice:default:
+[0m

@@ -1,0 +1,1 @@
+library: #xSigpmlMocc relation: #ConnectorSDF_PAM_Def clocks: {executeB1. executeB2} constants: #(5 2 1 1) variables: #(0 0 1 2 0 0)

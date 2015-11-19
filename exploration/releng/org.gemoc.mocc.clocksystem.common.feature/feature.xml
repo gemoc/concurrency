@@ -36,4 +36,40 @@ which accompanies this distribution, and is available at http://www.eclipse.org/
          version="0.0.0"
          unpack="false"/>
 
+   <plugin
+         id="org.gemoc.mocc.clocksystem.common"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.gemoc.mocc.clocksystem.linux"
+         os="linux"
+         ws="gtk"
+         arch="x86_64"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.gemoc.mocc.clocksystem.win"
+         os="win32"
+         ws="win32"
+         arch="x86_64"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.gemoc.mocc.clocksystem.common.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
 </feature>

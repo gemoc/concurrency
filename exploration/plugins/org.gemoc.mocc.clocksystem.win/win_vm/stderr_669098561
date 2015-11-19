@@ -1,0 +1,50 @@
+Usage: [--no-preferences|--preference-file=<FILE>][<subcommand>] [--help] [--copyright] [--version] [--list] [ --no-quit ]
+	--help       print this help message
+	--copyright  print the copyrights
+	--version    print the version for the image and the vm
+	--list       list a description of all active command line handlers
+	--no-quit    keep the image running without activating any other command line handler
+	<subcommand> a valid subcommand in --list
+	
+	Preference File Modification:
+	--preference-file   load the preferences from the given <FILE>
+	--no-default-preferences    do not load any preferences from the default locations
+	
+Documentation:
+A PharoCommandLineHandler handles default command line arguments and options.
+The PharoCommandLineHandler is activated before all other handlers. 
+It first checks if another handler is available. If so it will activate the found handler.
+[31mError: Command line handler failed
+[0mPharoCommandLineHandler(BasicCommandLineHandler)>>handleExit:for:
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleExit:
+[ :exit | ^ self handleExit: exit ] in PharoCommandLineHandler(BasicCommandLineHandler)>>activate in Block: [ :exit | ^ self handleExit: exit ]
+BlockClosure>>cull:
+Context>>evaluateSignal:
+Context>>handleSignal:
+Exit(Exception)>>signal
+Exit(Exception)>>signal:
+Exit class>>signalFailure:
+PharoCommandLineHandler(CommandLineHandler)>>exitFailure:
+PharoCommandLineHandler(CommandLineHandler)>>exitFailure
+PharoCommandLineHandler(BasicCommandLineHandler)>>error
+PharoCommandLineHandler(BasicCommandLineHandler)>>handleArgument:
+[ self handleArgument: (self arguments ifEmpty: [ '' ] ifNotEmpty: [ :arguments | arguments first ]) ] in PharoCommandLineHandler(BasicCommandLineHandler)>>activate in Block: [ self handleArgument: (self arguments ifEmpty: [ ...etc...
+BlockClosure>>on:do:
+PharoCommandLineHandler(BasicCommandLineHandler)>>activate
+PharoCommandLineHandler>>activate
+PharoCommandLineHandler class(CommandLineHandler class)>>activateWith:
+[ super activateWith: aCommandLine ] in PharoCommandLineHandler class>>activateWith: in Block: [ super activateWith: aCommandLine ]
+WorldState>>runStepMethodsIn:
+WorldMorph>>runStepMethods
+WorldState>>doOneCycleNowFor:
+WorldState>>doOneCycleFor:
+WorldMorph>>doOneCycle
+[ 
+[ 
+World doOneCycle.
+Processor yield.
+false ] whileFalse: [  ] ] in MorphicUIManager>>spawnNewProcess in Block: [ ...
+[ 
+self value.
+Processor terminateActive ] in BlockClosure>>newProcess in Block: [ ...
+[0m

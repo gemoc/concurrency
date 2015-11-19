@@ -10,7 +10,7 @@
   	<relativePath>..</relativePath>
   </parent>
   <modules>
-  	<module>plugins/org.gemoc.mocc.transformations.ecl2mtl</module>
+  	<!--  <module>plugins/org.gemoc.mocc.transformations.ecl2mtl</module>
   	<module>plugins/org.gemoc.mocc.transformations.ecl2mtl.ui</module>
   	<module>plugins/org.gemoc.mocc.clocksystem.linux.core</module>
   	<module>plugins/org.gemoc.mocc.clocksystem.linux.core.ui</module>
@@ -22,7 +22,16 @@
   	<module>releng/org.gemoc.mocc.clocksystem.common.feature</module>
   	<module>releng/org.gemoc.mocc.clocksystem.linonly.feature</module>
   	<module>releng/org.gemoc.mocc.clocksystem.maconly.feature</module>
-  	<module>releng/org.gemoc.mocc.clocksystem.winonly.feature</module>
+  	<module>releng/org.gemoc.mocc.clocksystem.winonly.feature</module>-->
+  	
+  	<module>plugins/org.gemoc.mocc.transformations.ecl2mtl</module>
+  	<module>plugins/org.gemoc.mocc.transformations.ecl2mtl.ui</module>
+  	<module>plugins/org.gemoc.mocc.clocksystem.common</module>
+  	<module>plugins/org.gemoc.mocc.clocksystem.common.ui</module>
+    <module>plugins/org.gemoc.mocc.clocksystem.linux</module>
+	<module>plugins/org.gemoc.mocc.clocksystem.win</module>
+  	<module>releng/org.gemoc.mocc.clocksystem.common.feature</module>
+  	
   	
   	<module>releng/org.gemoc.mocc.clocksystem.features.updatesite</module>
   </modules>
@@ -99,4 +108,53 @@
     	
     </profiles>
   <groupId>org.gemoc.concurrency.exploration</groupId>
+  
+  
+  <!-- enable source bundle generation -->
+  <build>
+		<plugins>
+			<!--  <plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-source-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<executions>
+					<execution>
+						<id>plugin-source</id>
+						<goals>
+							<goal>plugin-source</goal>
+						</goals>
+						<configuration>
+			              <excludes>
+			                <plugin id="org.gemoc.mocc.clocksystem.linux"/>
+			                <plugin id="org.gemoc.mocc.clocksystem.win"/>
+			              </excludes>
+			            </configuration>
+					</execution>
+				</executions>
+			</plugin>-->
+			<!-- enable source feature generation -->
+			<!-- <plugin>
+		      <groupId>org.eclipse.tycho.extras</groupId>
+		      <artifactId>tycho-source-feature-plugin</artifactId>
+		      <version>${tycho-version}</version>
+		      <executions>
+		        <execution>
+		          <id>source-feature</id>
+		          <phase>package</phase>
+		          <goals>
+		            <goal>source-feature</goal>
+		          </goals>
+
+					<configuration>
+		              <excludes>
+			                <plugin id="org.gemoc.mocc.clocksystem.linux"/>
+			                <plugin id="org.gemoc.mocc.clocksystem.win"/>
+			          </excludes>
+		            </configuration>
+
+		        </execution>
+		      </executions>
+		    </plugin> -->
+  </plugins>
+</build>
 </project>
