@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated concurrent_xdsml_with_gel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.gemoc.executionengine.gel.concurrent_xdsml_with_gel.presentation.Concurrent_xdsml_with_gelModelWizardID"
+            name="%_UI_Concurrent_xdsml_with_gelModelWizard_label"
+            class="org.gemoc.executionengine.gel.concurrent_xdsml_with_gel.presentation.Concurrent_xdsml_with_gelModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/Concurrent_xdsml_with_gelModelFile.gif">
+         <description>%_UI_Concurrent_xdsml_with_gelModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated concurrent_xdsml_with_gel -->
+      <editor
+            id="org.gemoc.executionengine.gel.concurrent_xdsml_with_gel.presentation.Concurrent_xdsml_with_gelEditorID"
+            name="%_UI_Concurrent_xdsml_with_gelEditor_label"
+            icon="icons/full/obj16/Concurrent_xdsml_with_gelModelFile.gif"
+            extensions="xdsml"
+            class="org.gemoc.executionengine.gel.concurrent_xdsml_with_gel.presentation.Concurrent_xdsml_with_gelEditor"
+            contributorClass="org.gemoc.executionengine.gel.concurrent_xdsml_with_gel.presentation.Concurrent_xdsml_with_gelActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
