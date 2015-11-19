@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated concurrent_xdsml_with_gel -->
+      <package
+            uri="http://www.gemoc.org/concurrent_xdsml_with_gel"
+            class="org.gemoc.executionengine.gel.concurrent_xdsml_with_gel.Concurrent_xdsml_with_gelPackage"
+            genModel="model/concurrent_xdsml_with_gel.genmodel"/>
+   </extension>
+
+</plugin>

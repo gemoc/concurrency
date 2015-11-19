@@ -25,7 +25,7 @@ public class ConcurrentRunConfiguration extends RunConfiguration implements ICon
 
 	}
 	
-	private String _deciderName;
+	protected String _deciderName;
 
 	@Override
 	public String getDeciderName() {

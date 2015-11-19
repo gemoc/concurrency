@@ -21,7 +21,10 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.gemoc.execution.engine.commons.ModelExecutionContext;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.Gemoc_execution_traceFactory;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.LogicalStep;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
@@ -139,20 +142,30 @@ public class CcslSolver implements org.gemoc.executionengine.ccsljava.api.moc.IS
 		
 		try 
 		{
-			ResourceSet resourceSet = context.getResourceModel().getResourceSet();		
+//			ResourceSet resourceSet = context.getResourceModel().getResourceSet();		
+	
+			Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
+			Map<String, Object> m = reg.getExtensionToFactoryMap();
+			m.put("timemodel", new XMIResourceFactoryImpl());
+
+			ResourceSet ccslResourceSet = new ResourceSetImpl();
+			Resource ccslResource = ccslResourceSet.getResource(this.solverInputURI, true);
 			
-			Resource ccslResource = resourceSet.getResource(this.solverInputURI, true);
-			EcoreUtil.resolveAll(resourceSet);
-			traceResources(resourceSet);
-			traceUnresolvedProxies(resourceSet, solverInputURI);			
+			EcoreUtil.resolveAll(ccslResourceSet);
+			traceResources(ccslResourceSet);
+			traceUnresolvedProxies(ccslResourceSet, solverInputURI);			
 			
 			this.solverWrapper = new CCSLKernelSolverWrapper();
 			this.solverWrapper.getSolver().loadModel(ccslResource);
 			this.solverWrapper.getSolver().initSimulation();
 			this.solverWrapper.getSolver().setPolicy(new MaxCardSimulationPolicy());
 
-			Resource feedbackResource = resourceSet.getResource(feedbackURI, true);
+			
+			m.put("feedback", new XMIResourceFactoryImpl());
+			ResourceSet feedbackResourceSet = new ResourceSetImpl();
+			Resource feedbackResource = feedbackResourceSet.getResource(feedbackURI, true);
 			_feedbackModel = (ActionModel)feedbackResource.getContents().get(0);
+			((ModelExecutionContext) context).setFeedbackModel(_feedbackModel);
 			
 		} catch (IOException e) {
 			String errorMessage = "IOException while instantiating the CcslSolver";
@@ -342,10 +355,8 @@ public class CcslSolver implements org.gemoc.executionengine.ccsljava.api.moc.IS
 					mustGenerate = true;
 				}
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-	      
 	    }
 		
 		

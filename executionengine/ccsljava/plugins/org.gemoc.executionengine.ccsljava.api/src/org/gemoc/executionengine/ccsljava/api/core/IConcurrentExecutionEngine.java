@@ -21,7 +21,7 @@ public interface IConcurrentExecutionEngine extends IExecutionEngine{
 	List<LogicalStep> getPossibleLogicalSteps();
 	
 	LogicalStep getSelectedLogicalStep();
-		
+	
 	void addFutureAction(IFutureAction action);
 
 	ILogicalStepDecider getLogicalStepDecider();
