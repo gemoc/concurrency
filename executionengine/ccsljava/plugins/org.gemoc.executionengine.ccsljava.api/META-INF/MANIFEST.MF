@@ -7,7 +7,8 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.eclipse.core.runtime,
  org.gemoc.gemoc_language_workbench.api;bundle-version="0.1.0",
  fr.inria.aoste.trace,
- org.gemoc.execution.engine.trace.model
+ org.gemoc.execution.engine.trace.model,
+ fr.inria.aoste.timesquare.ecl.feedback.model
 Export-Package: org.gemoc.executionengine.ccsljava.api.core,
  org.gemoc.executionengine.ccsljava.api.dsa.executors,
  org.gemoc.executionengine.ccsljava.api.dse,
