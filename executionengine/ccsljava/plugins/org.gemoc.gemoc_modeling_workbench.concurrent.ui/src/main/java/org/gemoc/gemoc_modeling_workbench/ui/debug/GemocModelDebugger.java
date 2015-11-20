@@ -8,9 +8,9 @@ import org.gemoc.execution.engine.core.AbstractExecutionEngine;
 import org.gemoc.execution.engine.core.EngineStoppedException;
 import org.gemoc.execution.engine.debug.AbstractGemocDebugger;
 import org.gemoc.execution.engine.debug.ui.breakpoint.GemocBreakpoint;
-import org.gemoc.execution.engine.trace.LogicalStepHelper;
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.LogicalStep;
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
+import org.gemoc.execution.engine.mse.engine_mse.LogicalStep;
+import org.gemoc.execution.engine.mse.engine_mse.MSEOccurrence;
+import org.gemoc.execution.engine.mse.engine_mse.helper.LogicalStepHelper;
 import org.gemoc.gemoc_language_workbench.api.core.EngineStatus.RunStatus;
 import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
 import org.gemoc.gemoc_language_workbench.api.engine_addon.IEngineAddon;
@@ -93,7 +93,7 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 			pushStackFrame(threadName, LogicalStepHelper.getLogicalStepName((LogicalStep) instruction), instruction, instruction);
 			logicalStepFrameCreated = true;
 		} else if (instruction instanceof MSEOccurrence) {
-			final LogicalStep logicalStep = ((MSEOccurrence) instruction).getLogicalstep();
+			final LogicalStep logicalStep = ((MSEOccurrence) instruction).getLogicalStep();
 			pushStackFrame(threadName, LogicalStepHelper.getLogicalStepName(logicalStep), logicalStep, logicalStep);
 			logicalStepFrameCreated = true;
 			pushStackFrame(threadName, instruction.toString(), instruction, instruction);
@@ -152,7 +152,7 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 		else if ((super.shouldBreak(mseOccurrence.getMse()) && Boolean.valueOf((String)getBreakpointAttributes(mseOccurrence.getMse(), GemocBreakpoint.BREAK_ON_MSE_OCCURRENCE))) || (mseOccurrence.getMse().getCaller() != null && super.shouldBreak(mseOccurrence.getMse().getCaller()) && Boolean.valueOf((String)getBreakpointAttributes(mseOccurrence.getMse().getCaller(), GemocBreakpoint.BREAK_ON_MSE_OCCURRENCE)))) {
 			res = true;
 		} else {
-			LogicalStep locicalStep = mseOccurrence.getLogicalstep();
+			LogicalStep locicalStep = mseOccurrence.getLogicalStep();
 			res = super.shouldBreak(locicalStep) && Boolean.valueOf((String)getBreakpointAttributes(locicalStep, GemocBreakpoint.BREAK_ON_MSE_OCCURRENCE));
 		}
 		

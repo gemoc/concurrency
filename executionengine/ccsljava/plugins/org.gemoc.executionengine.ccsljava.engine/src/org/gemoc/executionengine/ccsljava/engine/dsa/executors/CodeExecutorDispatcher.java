@@ -3,7 +3,7 @@ package org.gemoc.executionengine.ccsljava.engine.dsa.executors;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
+import org.gemoc.execution.engine.mse.engine_mse.MSEOccurrence;
 import org.gemoc.executionengine.ccsljava.api.dsa.executors.CodeExecutionException;
 import org.gemoc.executionengine.ccsljava.api.dsa.executors.ICodeExecutor;
 

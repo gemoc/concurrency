@@ -16,7 +16,6 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IPath;
-import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -25,14 +24,12 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.transaction.RecordingCommand;
-import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.gemoc.execution.ccsljava.concurrent_mse.FeedbackMSE;
+import org.gemoc.execution.engine.mse.engine_mse.Engine_mseFactory;
+import org.gemoc.execution.engine.mse.engine_mse.LogicalStep;
 import org.gemoc.execution.engine.mse.engine_mse.MSE;
 import org.gemoc.execution.engine.mse.engine_mse.MSEModel;
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.Gemoc_execution_traceFactory;
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.LogicalStep;
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
+import org.gemoc.execution.engine.mse.engine_mse.MSEOccurrence;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionContext;
 import org.gemoc.gemoc_language_workbench.api.core.IExecutionContext;
 import org.gemoc.gemoc_language_workbench.api.core.IExecutionWorkspace;
@@ -117,10 +114,10 @@ public class CcslSolver implements org.gemoc.executionengine.ccsljava.api.moc.IS
 
 	private LogicalStep createLogicalStep(fr.inria.aoste.trace.LogicalStep res) 
 	{
-		LogicalStep ls = Gemoc_execution_traceFactory.eINSTANCE.createLogicalStep();
+		LogicalStep ls = Engine_mseFactory.eINSTANCE.createLogicalStep();
 		for (Event e : LogicalStepHelper.getTickedEvents(res))
 		{
-			MSEOccurrence mseOccurrence = Gemoc_execution_traceFactory.eINSTANCE.createMSEOccurrence();
+			MSEOccurrence mseOccurrence = Engine_mseFactory.eINSTANCE.createMSEOccurrence();
 			for (MSE mse : _MSEModel.getOwnedMSEs())
 			{
 				if (mse.getName().replace("MSE_", "").equals(e.getName().replace("evt_", "")))
