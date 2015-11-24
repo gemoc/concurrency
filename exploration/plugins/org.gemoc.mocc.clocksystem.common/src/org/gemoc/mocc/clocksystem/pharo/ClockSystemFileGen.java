@@ -14,17 +14,40 @@
  * $Id$
  */
 
-package org.gemoc.mocc.clocksystem.win.pharo;
+package org.gemoc.mocc.clocksystem.pharo;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
+
+import javax.swing.JOptionPane;
+
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.PlatformUI;
 
 public class ClockSystemFileGen {
 	
+	ProcessBuilder pb;
+	String tmpVMpath;
+	String vmtype;
+	OSDectect od;
+	
+	private Shell activeShell;
+	
 	public ClockSystemFileGen() throws URISyntaxException, IOException
 	{
-		/*tmpVMpath = System.getProperty("java.io.tmpdir");
+		tmpVMpath = System.getProperty("java.io.tmpdir");
 		od = new OSDectect();
 		if(od.curos.equals("Windows"))
 		{
@@ -42,12 +65,12 @@ public class ClockSystemFileGen {
 		System.out.println("Jar Name= " + ClockSystemFileGen.class.getProtectionDomain().getCodeSource().getLocation().toURI());
 		System.out.println("OS = " + od.curos +"\n"+"VM ="+  vmtype);
 		System.out.println("====================================");
-		*/
+		
 	}
 	
 	public void GenerateExploration(String filetab[], String dirtab[])
 	{
-		/*String currpath = tmpVMpath.replace("\\", "/");	
+		String currpath = tmpVMpath.replace("\\", "/");	
 		String currpath_win = tmpVMpath.replace("\\", "\\\\");
 		
 		String image_pathwin = currpath_win + vmtype + "\\\\" + "ClockSystem.image";
@@ -57,7 +80,7 @@ public class ClockSystemFileGen {
 		String runlinvm = currpath + "/" + vmtype + "/" + "pharo";
 		String runmacvm = currpath + "/" + vmtype + "/" + "Contents" + "/" + "MacOS" + "/" + "Pharo";
 
-		String locwin= "stream := FileStream readOnlyFileNamed:'"+filetab[0]+"'. ";
+		/*String locwin= "stream := FileStream readOnlyFileNamed:'"+filetab[0]+"'. ";
 		String locoth= "stream := '"+filetab[1]+"' asFileReference readStream. ";
 		String arg1= "sys := (Compiler evaluate: stream contents)system. ";
 		String arg2= " ClockSystem4GeMoC ";
@@ -71,27 +94,27 @@ public class ClockSystemFileGen {
 		
 		String myPath = "C://g//concurrency//exploration//plugins//org.gemoc.mocc.clocksystem.win.core//win_vm//";
 		pb = new ProcessBuilder(myPath + "//Pharo.exe","--headless",myPath + "//ClockSystem.image","eval", generatePharoScript(filetab[0], dirtab[0]).getAbsolutePath());
-		System.out.println("Create new process builder for windows");
-		*/
-		/*
+		System.out.println("Create new process builder for windows");*/
+		
+		
 		if(od.curos.equals("Windows"))
 		{
-			pb = new ProcessBuilder(runwinvm,"--headless",image_pathwin,"eval",toEvaluateWin);
+			pb = new ProcessBuilder(runwinvm,"--headless",image_pathwin,"eval",generatePharoScript(filetab[0], dirtab[0]).getAbsolutePath());
 			System.out.println("Create new process builder for windows");
 		}
 		else if (od.curos.equals("mac"))
 		{
-			pb = new ProcessBuilder(runmacvm,"-headless",image_pathother,"eval",toEvaluateOth);
+			pb = new ProcessBuilder(runmacvm,"-headless",image_pathother,"eval",generatePharoScript(filetab[0], dirtab[0]).getAbsolutePath());
 		}
 		else if (od.curos.equals("linux"))
 		{
-			pb = new ProcessBuilder(runlinvm,"-headless",image_pathother,"eval",toEvaluateOth);
-		}*/
+			pb = new ProcessBuilder(runlinvm,"-headless",image_pathother,"eval",generatePharoScript(filetab[0], dirtab[0]).getAbsolutePath());
+		}
 		runFileGen();
 		//pb.directory(new File("C:\\OBPFiacreTests\\GenOutput"));
 	}
 	
-	/*private File generatePharoScript(String clockSystemPath, String clockSystemRepositoryPath){
+	private File generatePharoScript(String clockSystemPath, String clockSystemRepositoryPath){
 		File result = new File(clockSystemRepositoryPath+"clockSystemScript.st");
 		try{
 			result.createNewFile();
@@ -107,11 +130,11 @@ public class ClockSystemFileGen {
 				return result;
 		}
 		return result;
-	}*/
+	}
 	
 	public void unzipClockSystemfromJar() throws URISyntaxException, IOException {
 		
-	/*	URI uriJar = ClockSystemFileGen.class.getProtectionDomain().getCodeSource().getLocation().toURI();
+		URI uriJar = ClockSystemFileGen.class.getProtectionDomain().getCodeSource().getLocation().toURI();
 		File aFile = new File(uriJar);
 		
 		try {
@@ -143,11 +166,11 @@ public class ClockSystemFileGen {
 		    	MessageDialog.openError(activeShell, "ERROR MESSAGE", e.toString());
 			}
 		});
-		}*/
+		}
 	}
 
 	private void extractJar(JarFile jar, String tmpdir, String temp_dir_path) {
-		/*System.out.println("Extract jar " + jar.getName() + " from dir " + tmpdir);
+		System.out.println("Extract jar " + jar.getName() + " from dir " + tmpdir);
 		Enumeration<JarEntry> entries =  jar.entries();
 		ArrayList<File> list = new ArrayList<File>();
 		// Approximately takes 3 to 5 Minutes
@@ -166,8 +189,7 @@ public class ClockSystemFileGen {
 	       if(!fl.exists())
 	        {
 	    	   
-	    	   if( fl.toString().endsWith(vmtype)==true)
-	    	   {
+	    	   if( fl.toString().endsWith(vmtype)==true){
 	    	       PlatformUI.getWorkbench().getDisplay().asyncExec(new Runnable() {
 	    			    public void run() {
 	    			    	activeShell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
@@ -371,12 +393,12 @@ public class ClockSystemFileGen {
 					l.setExecutable(true, false);
 				}
 			}
-		}*/
+		}
 	}
 
 	public void runFileGen()
 	{
-	/*	try 
+		try 
 		{
 			System.out.println("Run file gen");
 			//JOptionPane.showMessageDialog(null, pb.command(), "Command", JOptionPane.INFORMATION_MESSAGE);
@@ -394,6 +416,6 @@ public class ClockSystemFileGen {
 		    	MessageDialog.openError(activeShell, "ERROR MESSAGE", e.toString());
 			}
 		});
-		}*/
+		}
 	}
 }

@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.gemoc.concurrency.exploration.common.feature"
+      id="org.gemoc.mocc.clocksystem.common.feature"
       label="Common Features for ClockSystem"
       version="0.0.1.qualifier"
       provider-name="ENSTA Bretagne">
 
    <description>
-      This feature provides the required core functionalities to generate
-- in a first step the MTL Acceleo rules. 
-- in a second step to generated ClockSystem Files and Fiacre Processes.
+      This feature provides the support for Clocksystem Pharo VM.
    </description>
 
    <copyright>
@@ -23,20 +21,6 @@ which accompanies this distribution, and is available at http://www.eclipse.org/
    </license>
 
    <plugin
-         id="org.gemoc.mocc.transformations.ecl2mtl"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.gemoc.mocc.transformations.ecl2mtl.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="org.gemoc.mocc.clocksystem.common"
          download-size="0"
          install-size="0"
@@ -46,8 +30,6 @@ which accompanies this distribution, and is available at http://www.eclipse.org/
    <plugin
          id="org.gemoc.mocc.clocksystem.linux"
          os="linux"
-         ws="gtk"
-         arch="x86_64"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -58,7 +40,6 @@ which accompanies this distribution, and is available at http://www.eclipse.org/
          id="org.gemoc.mocc.clocksystem.win"
          os="win32"
          ws="win32"
-         arch="x86_64"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -70,6 +51,16 @@ which accompanies this distribution, and is available at http://www.eclipse.org/
          download-size="0"
          install-size="0"
          version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.gemoc.mocc.clocksystem.mac"
+         os="macosx"
+         ws="cocoa"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"
          unpack="false"/>
 
 </feature>

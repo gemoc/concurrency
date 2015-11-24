@@ -7,14 +7,14 @@
             adaptable="true"
             objectClass="org.eclipse.core.resources.IFile"
             nameFilter="*.clocksystem"
-            id="org.gemoc.mocc.clocksystem.ui.actions.ClockSystemOutput.IFile">
+            id="org.gemoc.mocc.clocksystem.common.ui.actions.ClockSystemOutput.IFile">
          <menu id="org.gemoc.mocc.clocksystem" label="ClockSystem" path="exhaustiveExplorationGroup">
                <groupMarker name="exhaustiveExploration"/> 
          </menu>
          <action
-                class="org.gemoc.mocc.clocksystem.ui.actions.ClockSystemFileGenHandler"
+                class="org.gemoc.mocc.clocksystem.common.ui.actions.ClockSystemFileGenHandler"
                enablesFor="1"
-               id="org.gemoc.mocc.clocksystem.ui.actions.ClockSystemOutputID"
+               id="org.gemoc.mocc.clocksystem.common.ui.actions.ClockSystemOutputID"
                icon="icons/obp.gif"
                label="Generate All Exploration Files"
                menubarPath="org.gemoc.mocc.clocksystem/exhaustiveExploration"/>

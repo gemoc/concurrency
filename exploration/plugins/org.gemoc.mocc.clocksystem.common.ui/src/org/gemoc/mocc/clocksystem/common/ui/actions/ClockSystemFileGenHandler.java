@@ -36,8 +36,8 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IActionDelegate;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.ActionDelegate;
-import org.gemoc.mocc.clocksystem.common.pharo.ClockSystemFileGen;
 import org.gemoc.mocc.clocksystem.common.ui.Activator;
+import org.gemoc.mocc.clocksystem.pharo.ClockSystemFileGen;
 
 
 public class ClockSystemFileGenHandler extends ActionDelegate implements IActionDelegate {
