@@ -99,8 +99,13 @@ public class Launcher extends fr.obeo.dsl.debug.ide.sirius.ui.launch.AbstractDSL
 			// in the xDSML file? not clear
 			// Or we would automatically find the appropriate engine...
 			if (solver != null) {
+				// do what we need before the model is loaded
+					// prepare files for the solver 
+				solver.prepareBeforeModelLoading(concurrentexecutionContext);
+				// load the model
+				concurrentexecutionContext.initializeResourceModel();
+				// create and we initialize the engine
 				_executionEngine = new ConcurrentExecutionEngine();
-				// In any case we initialize the engine
 				_executionEngine.initialize(concurrentexecutionContext);
 			} else {
 				throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID, "Cannot instanciate solver from language definition", null));
