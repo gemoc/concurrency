@@ -2,6 +2,8 @@ package org.gemoc.concurrent_addons.eventscheduling.timeline.views.timeline;
 
 import java.util.Collection;
 
+import org.eclipse.ui.PlatformUI;
+import org.gemoc.commons.eclipse.ui.ViewHelper;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.Branch;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.Choice;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.ExecutionTraceModel;
@@ -11,12 +13,18 @@ import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
 import org.gemoc.executionengine.ccsljava.engine.eventscheduling.trace.EventSchedulingModelExecutionTracingAddon;
 import org.gemoc.executionframework.ui.utils.ViewUtils;
 import org.gemoc.gemoc_language_workbench.api.core.EngineStatus.RunStatus;
-import org.gemoc.gemoc_language_workbench.api.core.IDisposable;
 import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
+import org.gemoc.gemoc_language_workbench.api.core.IDisposable;
 import org.gemoc.gemoc_language_workbench.api.engine_addon.IEngineAddon;
 
 import fr.obeo.timeline.view.AbstractTimelineProvider;
 
+
+/**
+ * This class is registered either as an addon on the launch config or via the view itself as it listen to engine selection changes
+ * @author dvojtise
+ *
+ */
 public class EventSchedulingTimelineProvider extends AbstractTimelineProvider implements IEngineAddon, IDisposable {
 
 	private IBasicExecutionEngine _engine;
@@ -300,6 +308,7 @@ public class EventSchedulingTimelineProvider extends AbstractTimelineProvider im
 	@Override
 	public void engineAboutToStart(IBasicExecutionEngine engine) 
 	{
+		
 	}
 
 	@Override
