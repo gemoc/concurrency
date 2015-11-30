@@ -43,6 +43,8 @@ import org.gemoc.gemoc_language_workbench.api.engine_addon.IEngineAddon;
 import org.gemoc.gemoc_language_workbench.extensions.sirius.services.AbstractGemocAnimatorServices;
 import org.gemoc.gemoc_language_workbench.extensions.sirius.services.AbstractGemocDebuggerServices;
 import org.gemoc.gemoc_modeling_workbench.concurrent.ui.Activator;
+import org.gemoc.gemoc_modeling_workbench.concurrent.ui.views.step.LogicalStepsView;
+import org.gemoc.gemoc_modeling_workbench.concurrent.ui.views.stimulimanager.StimuliManagerView;
 import org.gemoc.gemoc_modeling_workbench.ui.debug.GemocModelDebugger;
 
 import fr.inria.diverse.commons.messagingsystem.api.MessagingSystem;
@@ -70,7 +72,9 @@ public class Launcher extends fr.obeo.dsl.debug.ide.sirius.ui.launch.AbstractDSL
 					{
 						@Override
 						public void run() {
+							ViewHelper.retrieveView(StimuliManagerView.ID);
 							ViewHelper.retrieveView(EnginesStatusView.ID);
+							ViewHelper.showView(LogicalStepsView.ID);
 						}			
 					});	
 			
