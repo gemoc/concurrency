@@ -24,6 +24,7 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PlatformUI;
+import org.gemoc.commons.eclipse.ui.ViewHelper;
 import org.gemoc.execution.engine.commons.EngineContextException;
 import org.gemoc.execution.engine.debug.AbstractGemocDebugger;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
@@ -33,6 +34,7 @@ import org.gemoc.executionengine.ccsljava.api.moc.ISolver;
 import org.gemoc.executionengine.ccsljava.engine.commons.ConcurrentModelExecutionContext;
 import org.gemoc.executionengine.ccsljava.engine.dse.ConcurrentExecutionEngine;
 import org.gemoc.executionengine.ccsljava.engine.ui.ConcurrentRunConfiguration;
+import org.gemoc.executionframework.ui.views.engine.EnginesStatusView;
 import org.gemoc.gemoc_language_workbench.api.core.EngineStatus.RunStatus;
 import org.gemoc.gemoc_language_workbench.api.core.ExecutionMode;
 import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
@@ -62,6 +64,16 @@ public class Launcher extends fr.obeo.dsl.debug.ide.sirius.ui.launch.AbstractDSL
 		try {
 			debug("About to initialize and run the GEMOC Execution Engine...");
 
+			// make sure to have the engine view when starting the engine
+			PlatformUI.getWorkbench().getDisplay().syncExec(
+					new Runnable()
+					{
+						@Override
+						public void run() {
+							ViewHelper.retrieveView(EnginesStatusView.ID);
+						}			
+					});	
+			
 			// We parse the run configuration
 			final ConcurrentRunConfiguration runConfiguration = new ConcurrentRunConfiguration(configuration);
 
