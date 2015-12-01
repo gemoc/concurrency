@@ -27,7 +27,7 @@
   	<module>plugins/org.gemoc.mocc.transformations.ecl2mtl</module>
   	<module>plugins/org.gemoc.mocc.transformations.ecl2mtl.ui</module>
   	<module>plugins/org.gemoc.mocc.clocksystem.common</module>
-  	<!-- <module>plugins/org.gemoc.mocc.clocksystem.common.ui</module> -->
+  	<module>plugins/org.gemoc.mocc.clocksystem.common.ui</module>
     <module>plugins/org.gemoc.mocc.clocksystem.linux</module>
 	<module>plugins/org.gemoc.mocc.clocksystem.win</module>
 	<module>plugins/org.gemoc.mocc.clocksystem.mac</module>
