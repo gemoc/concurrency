@@ -10,3 +10,4 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: ENSTA
 Eclipse-ExtensibleAPI: true
+Export-Package: org.gemoc.mocc.clocksystem.pharo
