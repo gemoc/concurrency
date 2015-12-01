@@ -188,8 +188,7 @@ public class ClockSystemFileGen {
 	       if(!fl.exists())
 	        {
 	    	   
-	    	   if( fl.toString().endsWith(vmtype)==true)
-	    	   {
+	    	   if( fl.toString().endsWith(vmtype)==true){
 	    	       PlatformUI.getWorkbench().getDisplay().asyncExec(new Runnable() {
 	    			    public void run() {
 	    			    	activeShell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
