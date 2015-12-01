@@ -30,7 +30,7 @@
                class="org.gemoc.mocc.transformations.ecl2mtl.ui.popupMenus.AcceleoGenerateEcl2MTLAction"
                enablesFor="1"
                id="org.gemoc.mocc.transformations.ecl2mtl.ui.popupMenus.acceleoGenerateEcl2MTLAction"
-               icon="icons/obp.gif"
+               icon="icons/cs_t1_16x16.png"
                label="%t1.label"
                menubarPath="org.gemoc.mocc.transformations.ecl2mtl/exhaustiveExplorationGroup"/>
       </objectContribution>
@@ -48,7 +48,7 @@
                class="org.gemoc.mocc.transformations.instance2clocksystem.handler.CompileAndGenerationClockSystemAction"
                enablesFor="1"
                id="org.gemoc.mocc.transformations.instance2clocksystem.handler.compileAndGenerateClockSystem"
-               icon="icons/obp.gif"
+               icon="icons/cs_t2_16x16.png"
                label="%t2.label"
                menubarPath="org.gemoc.mocc.transformations.ecl2mtl/exhaustiveExplorationGroup"/>
       </objectContribution>

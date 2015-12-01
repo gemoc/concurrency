@@ -15,8 +15,8 @@
                 class="org.gemoc.mocc.clocksystem.common.ui.actions.ClockSystemFileGenHandler"
                enablesFor="1"
                id="org.gemoc.mocc.clocksystem.common.ui.actions.ClockSystemOutputID"
-               icon="icons/obp.gif"
-               label="Generate All Exploration Files"
+               icon="icons/clocksystem_logo_16x16.png"
+               label="Execute Clocksystem"
                menubarPath="org.gemoc.mocc.clocksystem/exhaustiveExploration"/>
       </objectContribution>
    </extension>
