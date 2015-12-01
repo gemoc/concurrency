@@ -414,7 +414,7 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine implement
 		} catch (CoreException e) {
 			throw new RuntimeException(e.getMessage());
 		}
-		solver.setUp(concurrentExecutionContext);
+		solver.initialize(concurrentExecutionContext);
 		this.setSolver(solver);
 		this.changeLogicalStepDecider(concurrentExecutionContext.getLogicalStepDecider());
 		

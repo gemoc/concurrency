@@ -24,7 +24,6 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.gemoc.execution.engine.commons.ModelExecutionContext;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.Gemoc_execution_traceFactory;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.LogicalStep;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
@@ -142,30 +141,20 @@ public class CcslSolver implements org.gemoc.executionengine.ccsljava.api.moc.IS
 		
 		try 
 		{
-//			ResourceSet resourceSet = context.getResourceModel().getResourceSet();		
-	
-			Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
-			Map<String, Object> m = reg.getExtensionToFactoryMap();
-			m.put("timemodel", new XMIResourceFactoryImpl());
-
-			ResourceSet ccslResourceSet = new ResourceSetImpl();
-			Resource ccslResource = ccslResourceSet.getResource(this.solverInputURI, true);
+			ResourceSet resourceSet = context.getResourceModel().getResourceSet();		
 			
-			EcoreUtil.resolveAll(ccslResourceSet);
-			traceResources(ccslResourceSet);
-			traceUnresolvedProxies(ccslResourceSet, solverInputURI);			
+			Resource ccslResource = resourceSet.getResource(this.solverInputURI, true);
+			EcoreUtil.resolveAll(resourceSet);
+			traceResources(resourceSet);
+			traceUnresolvedProxies(resourceSet, solverInputURI);			
 			
 			this.solverWrapper = new CCSLKernelSolverWrapper();
 			this.solverWrapper.getSolver().loadModel(ccslResource);
 			this.solverWrapper.getSolver().initSimulation();
 			this.solverWrapper.getSolver().setPolicy(new MaxCardSimulationPolicy());
 
-			
-			m.put("feedback", new XMIResourceFactoryImpl());
-			ResourceSet feedbackResourceSet = new ResourceSetImpl();
-			Resource feedbackResource = feedbackResourceSet.getResource(feedbackURI, true);
+			Resource feedbackResource = resourceSet.getResource(feedbackURI, true);
 			_feedbackModel = (ActionModel)feedbackResource.getContents().get(0);
-			((ModelExecutionContext) context).setFeedbackModel(_feedbackModel);
 			
 		} catch (IOException e) {
 			String errorMessage = "IOException while instantiating the CcslSolver";
@@ -314,12 +303,16 @@ public class CcslSolver implements org.gemoc.executionengine.ccsljava.api.moc.IS
 	
 	
 	@Override
-	public void setUp(IConcurrentExecutionContext context) 
+	public void initialize(IConcurrentExecutionContext context) 
 	{
-		generateMoC(context);
 		createSolver(context);
 	}
 	
+	@Override
+	public void prepareBeforeModelLoading(IConcurrentExecutionContext context) 
+	{
+		generateMoC(context);
+	}
 	private void generateMoC(IConcurrentExecutionContext context) 
 	{
 		IExecutionWorkspace workspace = context.getWorkspace();
@@ -355,16 +348,30 @@ public class CcslSolver implements org.gemoc.executionengine.ccsljava.api.moc.IS
 					mustGenerate = true;
 				}
 			} catch (IOException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+	      
 	    }
 		
 		
 		if (mustGenerate)
 		{
+//			Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
+//			Map<String, Object> m = reg.getExtensionToFactoryMap();
+//			m.put("timemodel", new XMIResourceFactoryImpl());
+//
+//			ResourceSet ccslResourceSet = new ResourceSetImpl();
+//			this.solverInputURI = URI.createPlatformResourceURI(context.getWorkspace().getMoCPath().toString(), true);
+//			Resource ccslResource = ccslResourceSet.getResource(this.solverInputURI, true);
+//			
+//			EcoreUtil.resolveAll(ccslResourceSet);
+//			traceResources(ccslResourceSet);
+//			traceUnresolvedProxies(ccslResourceSet, solverInputURI);			
+
 			QvtoTransformationPerformer performer = new QvtoTransformationPerformer();
 			performer.run(
-						context.getResourceModel().getResourceSet(),
+						new ResourceSetImpl(),
 						"platform:/plugin" + transformationPath, 
 						context.getRunConfiguration().getExecutedModelAsMelangeURI().toString(), 
 						"platform:/resource" + workspace.getMoCPath().toString(),

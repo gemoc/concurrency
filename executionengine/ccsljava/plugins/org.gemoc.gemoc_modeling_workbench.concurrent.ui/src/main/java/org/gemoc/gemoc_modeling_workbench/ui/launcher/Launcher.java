@@ -24,6 +24,7 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PlatformUI;
+import org.gemoc.commons.eclipse.ui.ViewHelper;
 import org.gemoc.execution.engine.commons.EngineContextException;
 import org.gemoc.execution.engine.debug.AbstractGemocDebugger;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
@@ -33,6 +34,7 @@ import org.gemoc.executionengine.ccsljava.api.moc.ISolver;
 import org.gemoc.executionengine.ccsljava.engine.commons.ConcurrentModelExecutionContext;
 import org.gemoc.executionengine.ccsljava.engine.dse.ConcurrentExecutionEngine;
 import org.gemoc.executionengine.ccsljava.engine.ui.ConcurrentRunConfiguration;
+import org.gemoc.executionframework.ui.views.engine.EnginesStatusView;
 import org.gemoc.gemoc_language_workbench.api.core.EngineStatus.RunStatus;
 import org.gemoc.gemoc_language_workbench.api.core.ExecutionMode;
 import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
@@ -41,6 +43,8 @@ import org.gemoc.gemoc_language_workbench.api.engine_addon.IEngineAddon;
 import org.gemoc.gemoc_language_workbench.extensions.sirius.services.AbstractGemocAnimatorServices;
 import org.gemoc.gemoc_language_workbench.extensions.sirius.services.AbstractGemocDebuggerServices;
 import org.gemoc.gemoc_modeling_workbench.concurrent.ui.Activator;
+import org.gemoc.gemoc_modeling_workbench.concurrent.ui.views.step.LogicalStepsView;
+import org.gemoc.gemoc_modeling_workbench.concurrent.ui.views.stimulimanager.StimuliManagerView;
 import org.gemoc.gemoc_modeling_workbench.ui.debug.GemocModelDebugger;
 
 import fr.inria.diverse.commons.messagingsystem.api.MessagingSystem;
@@ -62,6 +66,18 @@ public class Launcher extends fr.obeo.dsl.debug.ide.sirius.ui.launch.AbstractDSL
 		try {
 			debug("About to initialize and run the GEMOC Execution Engine...");
 
+			// make sure to have the engine view when starting the engine
+			PlatformUI.getWorkbench().getDisplay().syncExec(
+					new Runnable()
+					{
+						@Override
+						public void run() {
+							ViewHelper.retrieveView(StimuliManagerView.ID);
+							ViewHelper.retrieveView(EnginesStatusView.ID);
+							ViewHelper.showView(LogicalStepsView.ID);
+						}			
+					});	
+			
 			// We parse the run configuration
 			final ConcurrentRunConfiguration runConfiguration = new ConcurrentRunConfiguration(configuration);
 
@@ -99,8 +115,13 @@ public class Launcher extends fr.obeo.dsl.debug.ide.sirius.ui.launch.AbstractDSL
 			// in the xDSML file? not clear
 			// Or we would automatically find the appropriate engine...
 			if (solver != null) {
+				// do what we need before the model is loaded
+					// prepare files for the solver 
+				solver.prepareBeforeModelLoading(concurrentexecutionContext);
+				// load the model
+				concurrentexecutionContext.initializeResourceModel();
+				// create and we initialize the engine
 				_executionEngine = new ConcurrentExecutionEngine();
-				// In any case we initialize the engine
 				_executionEngine.initialize(concurrentexecutionContext);
 			} else {
 				throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID, "Cannot instanciate solver from language definition", null));

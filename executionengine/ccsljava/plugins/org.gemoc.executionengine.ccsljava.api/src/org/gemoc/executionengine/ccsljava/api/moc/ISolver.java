@@ -74,5 +74,18 @@ public interface ISolver extends IDisposable {
 
 	public void revertForceClockEffect();
 
-	public void setUp(IConcurrentExecutionContext context);
+	/**
+	 * Actions that could be done to prepare the workspace before any model is loaded
+	 * Ie. in the context the model is not loaded yet
+	 * @param context
+	 */
+	public void prepareBeforeModelLoading(IConcurrentExecutionContext context);
+	
+	/**
+	 * Initialize the solver 
+	 * The Executioncontext is supposed to be complete : uie. the model is loaded
+	 * @param context
+	 */
+	public void initialize(IConcurrentExecutionContext context);
+	
 }
