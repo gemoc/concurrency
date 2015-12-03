@@ -23,7 +23,11 @@
             objectClass="org.eclipse.core.resources.IFile"
             nameFilter="*.ecl"
             id="org.gemoc.mocc.transformations.ecl2mtl.ui.popupMenus.contribution.IFile">
-         <menu id="org.gemoc.mocc.transformations.ecl2mtl" label="%menu.label" path="exhaustiveExplorationGroup">
+         <menu
+               icon="icons/clocksystem_logo_16x16.png"
+               id="org.gemoc.mocc.transformations.ecl2mtl"
+               label="%menu.label"
+               path="exhaustiveExplorationGroup">
                <groupMarker name="exhaustiveExploration"/> 
          </menu>
          <action
@@ -41,7 +45,11 @@
             objectClass="org.eclipse.core.resources.IFile"
             nameFilter="*.*"
             id="org.gemoc.mocc.transformations.instance2clocksystem.handler.compileAndGenerateClockSystem.IFile">
-         <menu id="org.gemoc.mocc.transformations.ecl2mtl" label="%menu.label" path="exhaustiveExplorationGroup">
+         <menu
+               icon="icons/clocksystem_logo_16x16.png"
+               id="org.gemoc.mocc.transformations.ecl2mtl"
+               label="%menu.label"
+               path="exhaustiveExplorationGroup">
                <groupMarker name="exhaustiveExploration"/> 
          </menu>
          <action

@@ -8,7 +8,11 @@
             objectClass="org.eclipse.core.resources.IFile"
             nameFilter="*.clocksystem"
             id="org.gemoc.mocc.clocksystem.common.ui.actions.ClockSystemOutput.IFile">
-         <menu id="org.gemoc.mocc.clocksystem" label="ClockSystem" path="exhaustiveExplorationGroup">
+         <menu
+               icon="icons/clocksystem_logo_16x16.png"
+               id="org.gemoc.mocc.clocksystem"
+               label="ClockSystem"
+               path="exhaustiveExplorationGroup">
                <groupMarker name="exhaustiveExploration"/> 
          </menu>
          <action
