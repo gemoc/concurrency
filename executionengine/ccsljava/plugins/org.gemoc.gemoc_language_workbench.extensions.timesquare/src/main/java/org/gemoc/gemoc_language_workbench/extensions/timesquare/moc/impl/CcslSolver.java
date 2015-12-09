@@ -310,12 +310,16 @@ public class CcslSolver implements org.gemoc.executionengine.ccsljava.api.moc.IS
 	
 	
 	@Override
-	public void setUp(IConcurrentExecutionContext context) 
+	public void initialize(IConcurrentExecutionContext context) 
 	{
-		generateMoC(context);
 		createSolver(context);
 	}
 	
+	@Override
+	public void prepareBeforeModelLoading(IConcurrentExecutionContext context) 
+	{
+		generateMoC(context);
+	}
 	private void generateMoC(IConcurrentExecutionContext context) 
 	{
 		IExecutionWorkspace workspace = context.getWorkspace();
@@ -360,9 +364,21 @@ public class CcslSolver implements org.gemoc.executionengine.ccsljava.api.moc.IS
 		
 		if (mustGenerate)
 		{
+//			Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
+//			Map<String, Object> m = reg.getExtensionToFactoryMap();
+//			m.put("timemodel", new XMIResourceFactoryImpl());
+//
+//			ResourceSet ccslResourceSet = new ResourceSetImpl();
+//			this.solverInputURI = URI.createPlatformResourceURI(context.getWorkspace().getMoCPath().toString(), true);
+//			Resource ccslResource = ccslResourceSet.getResource(this.solverInputURI, true);
+//			
+//			EcoreUtil.resolveAll(ccslResourceSet);
+//			traceResources(ccslResourceSet);
+//			traceUnresolvedProxies(ccslResourceSet, solverInputURI);			
+
 			QvtoTransformationPerformer performer = new QvtoTransformationPerformer();
 			performer.run(
-						context.getResourceModel().getResourceSet(),
+						new ResourceSetImpl(),
 						"platform:/plugin" + transformationPath, 
 						context.getRunConfiguration().getExecutedModelAsMelangeURI().toString(), 
 						"platform:/resource" + workspace.getMoCPath().toString(),

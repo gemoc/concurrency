@@ -315,12 +315,13 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 				_limitedMode = true; 
 			}
 			_executionEngine = engine;
-			_executionTraceModel = Gemoc_execution_traceFactory.eINSTANCE.createExecutionTraceModel();
-			_currentBranch = Gemoc_execution_traceFactory.eINSTANCE.createBranch();
-			_currentBranch.setStartIndex(0);
-			_executionTraceModel.getBranches().add(_currentBranch);
-			setModelExecutionContext( engine.getExecutionContext());
-
+			if (_executionTraceModel == null){
+				_executionTraceModel = Gemoc_execution_traceFactory.eINSTANCE.createExecutionTraceModel();
+				_currentBranch = Gemoc_execution_traceFactory.eINSTANCE.createBranch();
+				_currentBranch.setStartIndex(0);
+				_executionTraceModel.getBranches().add(_currentBranch);
+				setModelExecutionContext( engine.getExecutionContext());
+			}
 			adapter = new EContentAdapter() {
 
 				@Override
@@ -376,7 +377,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 				}
 				choice.getPossibleLogicalSteps().addAll(possibleLogicalSteps);
 				_lastChoice = choice;
-				saveTraceModel(0);
+//				saveTraceModel(0);
 			}
 		};
 		CommandExecution.execute(getEditingDomain(), command);
@@ -449,6 +450,11 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 		setUp(engine);		
 		updateTraceModelAfterExecution(logicalStepExecuted);					
 	}
+	
+	@Override
+	public void engineAboutToDispose(IBasicExecutionEngine engine){
+		saveTraceModel(0);
+	}
 
 	public void reintegrateBranch(final Choice choice) {
 		if(_limitedMode){
@@ -488,7 +494,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 					_lastChoice.getPossibleLogicalSteps().clear();
 					_lastChoice.getPossibleLogicalSteps().addAll(logicalSteps);
 				}
-				saveTraceModel(0);
+//				saveTraceModel(0);
 			}
 		};
 		CommandExecution.execute(getEditingDomain(), command);

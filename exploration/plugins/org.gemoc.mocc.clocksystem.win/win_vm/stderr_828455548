@@ -1,0 +1,40 @@
+[31mMessageNotUnderstood: receiver of "asFileReference" is nil
+[0mUndefinedObject(Object)>>doesNotUnderstand: #asFileReference
+StandardFileStream class(FileStream class)>>fullName:
+StandardFileStream class>>fileDoesNotExistUserHandling:
+MorphicUIManager>>fileDoesNotExistsDefaultAction:
+FileDoesNotExistException>>defaultAction
+UndefinedObject>>handleSignal:
+Context>>handleSignal:
+Context>>handleSignal:
+FileDoesNotExistException(Exception)>>pass
+EvaluateCommandLineHandler(STCommandLineHandler)>>handleError:
+[ :error | self handleError: error ] in EvaluateCommandLineHandler>>evaluate: in Block: [ :error | self handleError: error ]
+BlockClosure>>cull:
+Context>>evaluateSignal:
+Context>>handleSignal:
+FileDoesNotExistException(Exception)>>signal
+MultiByteFileStream class(StandardFileStream class)>>forceNewFileNamed:
+FileStream class>>forceNewFileNamed:
+[ self forceNewFileNamed: fileName ] in FileStream class>>forceNewFileNamed:do: in Block: [ self forceNewFileNamed: fileName ]
+FileStream class>>detectFile:do:
+FileStream class>>forceNewFileNamed:do:
+[ 
+resultFile := resultsPath , sysName , '_csys.results'.
+FileStream
+	forceNewFileNamed: resultFile
+	do: [ :stream | 
+		stream
+			nextPutAll: 'system ' , sysName;
+			cr;
+			nextPutAll: 'ERROR' ] ] in ClockSystem4GeMoC class>>explore:resultIn: in Block: [ ...
+BlockClosure>>cull:
+Context>>evaluateSignal:
+Context>>handleSignal:
+FileDoesNotExistException(Exception)>>signal
+MultiByteFileStream class(StandardFileStream class)>>forceNewFileNamed:
+FileStream class>>forceNewFileNamed:
+[ self forceNewFileNamed: fileName ] in FileStream class>>forceNewFileNamed:do: in Block: [ self forceNewFileNamed: fileName ]
+FileStream class>>detectFile:do:
+FileStream class>>forceNewFileNamed:do:
+[0m

@@ -412,10 +412,6 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine implement
 		
 		IConcurrentExecutionContext concurrentExecutionContext = getConcurrentExecutionContext();
 		
-		_mseStateController = new DefaultMSEStateController();
-		concurrentExecutionContext.getConcurrentExecutionPlatform().getMSEStateControllers().add(_mseStateController);
-		
-		
 		ISolver solver;
 		//TODO very ugly
 		try {
@@ -423,9 +419,13 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine implement
 		} catch (CoreException e) {
 			throw new RuntimeException(e.getMessage());
 		}
-		solver.setUp(concurrentExecutionContext);
+		solver.initialize(concurrentExecutionContext);
 		this.setSolver(solver);
 		this.changeLogicalStepDecider(concurrentExecutionContext.getLogicalStepDecider());
+		
+
+		_mseStateController = new DefaultMSEStateController();
+		concurrentExecutionContext.getConcurrentExecutionPlatform().getMSEStateControllers().add(_mseStateController);
 		
 		
 		Activator.getDefault().info("*** Engine initialization done. ***");

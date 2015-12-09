@@ -65,13 +65,15 @@ public class ClockSystemFileGenHandler extends ActionDelegate implements IAction
 	@Override
 	public void run(IAction action) {
 		if (files != null) {
+			System.out.println("Run");
 			IRunnableWithProgress operation = new IRunnableWithProgress() {
 				public void run(IProgressMonitor monitor) {
 					try {
 						Iterator<IFile> filesIt = files.iterator();
+						System.out.println("files :" + files);
 						while (filesIt.hasNext()) {
 							clocksystem_file = (IFile)filesIt.next();
-								
+							System.out.println("clocksystem file :" + clocksystem_file.getFullPath().toString());
 							try {
 								
 								String clksysFileLoC = clocksystem_file.getLocation().toString();
@@ -87,9 +89,15 @@ public class ClockSystemFileGenHandler extends ActionDelegate implements IAction
 								
 								dirtab[0] = winFileDir;
 								dirtab[1] = otherFileDir;
+								System.out.println("filetab[0] :" + filetab[0]);
+								System.out.println("filetab[1] :" + filetab[1]);
+								System.out.println("dirtab[0] :" + dirtab[0]);
+								System.out.println("dirtab[1] :" + dirtab[1]);
 								
 								org.gemoc.mocc.clocksystem.core.actions.ClockSystemFileGen theFile = new org.gemoc.mocc.clocksystem.core.actions.ClockSystemFileGen();
+								System.out.println("unzipFromJar");
 								theFile.unzipClockSystemfromJar();
+								System.out.println("Generated exploration ...");
 								theFile.GenerateExploration(filetab, dirtab);
 
 							} catch (URISyntaxException e) {

@@ -31,8 +31,8 @@
             AddonGroupId="Concurrent.AddonGroup"
             Class="org.gemoc.executionengine.ccsljava.engine.eventscheduling.trace.EventSchedulingModelExecutionTracingAddon"
             Default="true"
-            Name="Event Scheduling Execution Tracing"
-            ShortDescription="Trace the LogicalStep decisions in an event scheduling execution. Will open the concurrent timeline view to allow navigation in the trace and present the decision branches."
+            Name="Event Scheduling Execution Reflective Tracing"
+            ShortDescription="Trace the execution events. It is able to trace LogicalStep decisions of concurrent engine."
             id="EventSchedulingExecutionTracing.Addon">
       </Addon>
    </extension>

@@ -5,6 +5,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.gemoc.execution.engine.commons.EngineContextException;
 import org.gemoc.execution.engine.commons.ModelExecutionContext;
+import org.gemoc.execution.engine.mse.engine_mse.MSEModel;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionContext;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionPlatform;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentRunConfiguration;
@@ -71,7 +72,7 @@ public class ConcurrentModelExecutionContext extends ModelExecutionContext imple
 				true);
 		try
 		{
-			Resource resource = getResourceSet().getResource(feedbackPlatformURI, true);
+			Resource resource = this.getResourceModel().getResourceSet().getResource(feedbackPlatformURI, true);
 			_feedbackModel = (ActionModel) resource.getContents().get(0);
 		} catch (Exception e)
 		{
@@ -114,6 +115,14 @@ public class ConcurrentModelExecutionContext extends ModelExecutionContext imple
 		if(getLanguageDefinitionExtension() instanceof ConcurrentLanguageDefinitionExtension) return (ConcurrentLanguageDefinitionExtension) getLanguageDefinitionExtension();
 		return null;
 	}
+
+	@Override
+	public MSEModel getMSEModel() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 
 
 

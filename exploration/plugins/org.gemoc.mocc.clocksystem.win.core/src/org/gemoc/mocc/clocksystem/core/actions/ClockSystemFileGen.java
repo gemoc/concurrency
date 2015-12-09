@@ -16,10 +16,10 @@
 
 package org.gemoc.mocc.clocksystem.core.actions;
 
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
@@ -64,12 +64,11 @@ public class ClockSystemFileGen {
 		System.out.println("Jar Name= " + ClockSystemFileGen.class.getProtectionDomain().getCodeSource().getLocation().toURI());
 		System.out.println("OS = " + od.curos +"\n"+"VM ="+  vmtype);
 		System.out.println("====================================");
+		
 	}
 	
 	public void GenerateExploration(String filetab[], String dirtab[])
 	{
-		
-		
 		String currpath = tmpVMpath.replace("\\", "/");	
 		String currpath_win = tmpVMpath.replace("\\", "\\\\");
 		
@@ -80,9 +79,9 @@ public class ClockSystemFileGen {
 		String runlinvm = currpath + "/" + vmtype + "/" + "pharo";
 		String runmacvm = currpath + "/" + vmtype + "/" + "Contents" + "/" + "MacOS" + "/" + "Pharo";
 
-		String locwin= "stream := '"+filetab[0]+"' asFileReference readStream. ";
+		/*String locwin= "stream := FileStream readOnlyFileNamed:'"+filetab[0]+"'. ";
 		String locoth= "stream := '"+filetab[1]+"' asFileReference readStream. ";
-		String arg1= "sys := Compiler evaluate: stream contents. ";
+		String arg1= "sys := (Compiler evaluate: stream contents)system. ";
 		String arg2= " ClockSystem4GeMoC ";
 		String arg3= "explore: sys resultIn: ";
 		
@@ -92,21 +91,44 @@ public class ClockSystemFileGen {
 		System.out.println("linux path = " + runlinvm);
 		System.out.println("output path = " + dirtab[1]);
 		
+		String myPath = "C://g//concurrency//exploration//plugins//org.gemoc.mocc.clocksystem.win.core//win_vm//";
+		pb = new ProcessBuilder(myPath + "//Pharo.exe","--headless",myPath + "//ClockSystem.image","eval", generatePharoScript(filetab[0], dirtab[0]).getAbsolutePath());
+		System.out.println("Create new process builder for windows");*/
+		
+		
 		if(od.curos.equals("Windows"))
 		{
-			pb = new ProcessBuilder(runwinvm,"--headless",image_pathwin,"eval",toEvaluateWin);
+			pb = new ProcessBuilder(runwinvm,"--headless",image_pathwin,"eval",generatePharoScript(filetab[0], dirtab[0]).getAbsolutePath());
 			System.out.println("Create new process builder for windows");
 		}
 		else if (od.curos.equals("mac"))
 		{
-			pb = new ProcessBuilder(runmacvm,"-headless",image_pathother,"eval",toEvaluateOth);
+			pb = new ProcessBuilder(runmacvm,"-headless",image_pathother,"eval",generatePharoScript(filetab[0], dirtab[0]).getAbsolutePath());
 		}
 		else if (od.curos.equals("linux"))
 		{
-			pb = new ProcessBuilder(runlinvm,"-headless",image_pathother,"eval",toEvaluateOth);
+			pb = new ProcessBuilder(runlinvm,"-headless",image_pathother,"eval",generatePharoScript(filetab[0], dirtab[0]).getAbsolutePath());
 		}
 		runFileGen();
 		//pb.directory(new File("C:\\OBPFiacreTests\\GenOutput"));
+	}
+	
+	private File generatePharoScript(String clockSystemPath, String clockSystemRepositoryPath){
+		File result = new File(clockSystemRepositoryPath+"clockSystemScript.st");
+		try{
+			result.createNewFile();
+			FileWriter fileWriter=new FileWriter(result);
+			fileWriter.write("stream := FileStream readOnlyFileNamed:'"+clockSystemPath+"'. ");
+			fileWriter.write("sys := (Compiler evaluate: stream contents)system. ");
+			fileWriter.write(" ClockSystem4GeMoC explore: sys resultIn:'" +clockSystemRepositoryPath +"'." );
+			fileWriter.close();
+		}
+		catch (Exception e) {
+				activeShell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+		    	MessageDialog.openError(activeShell, "ERROR MESSAGE", e.toString());
+				return result;
+		}
+		return result;
 	}
 	
 	public void unzipClockSystemfromJar() throws URISyntaxException, IOException {
@@ -166,8 +188,7 @@ public class ClockSystemFileGen {
 	       if(!fl.exists())
 	        {
 	    	   
-	    	   if( fl.toString().endsWith(vmtype)==true)
-	    	   {
+	    	   if( fl.toString().endsWith(vmtype)==true){
 	    	       PlatformUI.getWorkbench().getDisplay().asyncExec(new Runnable() {
 	    			    public void run() {
 	    			    	activeShell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
