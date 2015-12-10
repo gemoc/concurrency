@@ -139,7 +139,7 @@ public class StimuliManagerView extends EngineSelectionDependentViewPart impleme
 		}
 	}
 	
-	public static final String ID = "org.gemoc.execution.engine.io.views.event.StimuliManagerView";
+	public static final String ID = "org.gemoc.gemoc_modeling_workbench.concurrent.ui.views.stimulimanager.StimuliManagerView";
 
 	private Color notForcedSetColor;
 	private Color forcedSetColor;
