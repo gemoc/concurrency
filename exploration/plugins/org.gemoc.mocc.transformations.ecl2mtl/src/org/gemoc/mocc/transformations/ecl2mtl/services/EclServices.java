@@ -231,7 +231,7 @@ public class EclServices {
 								if (letVariableCS.getName().equalsIgnoreCase(eventName)) {
 									return ((ECLExpression)letVariableCS.getInitExpression()).getType().getName();
 								}
-							}
+							} 
 						}
 					}
 				}
@@ -307,7 +307,7 @@ public class EclServices {
 		}
 		
 		// add all events that does not have a DSA function attached
-		result.addAll(getEventsWithoutDSA(document, contextName)); // Only the events without Execution Functions defined
+		//Vincent this is only used a priori in expression, is it possible to have other things than lets:new event?: result.addAll(getEventsWithoutDSA(document, contextName)); // Only the events without Execution Functions defined
 		
 		return result;
 	}
