@@ -29,9 +29,6 @@ public class ConcurrentModelExecutionContext extends ModelExecutionContext imple
 		super(runConfiguration, executionMode);
 		try
 		{
-
-			setUpFeedbackModel();
-			
 			_logicalStepDecider = LogicalStepDeciderFactory.createDecider(runConfiguration.getDeciderName(),
 					executionMode);
 			
@@ -43,6 +40,8 @@ public class ConcurrentModelExecutionContext extends ModelExecutionContext imple
 		}
 	}
 
+	
+	
 	protected IExecutionPlatform createExecutionPlatform() throws CoreException{
 		if(_languageDefinition instanceof  ConcurrentLanguageDefinitionExtension ){
 			return new DefaultConcurrentExecutionPlatform((ConcurrentLanguageDefinitionExtension)_languageDefinition, _runConfiguration);
@@ -66,6 +65,19 @@ public class ConcurrentModelExecutionContext extends ModelExecutionContext imple
 		return languageDefinition;
 	}
 
+	private void setUpMSEModel()
+	{
+		URI msemodelPlatformURI = URI.createPlatformResourceURI(getWorkspace().getMSEModelPath().removeFileExtension().addFileExtension("msemodel").toString(),
+				true);
+		try
+		{
+			Resource resource = this.getResourceModel().getResourceSet().getResource(msemodelPlatformURI, true);
+			_mseModel = (MSEModel) resource.getContents().get(0);
+		} catch (Exception e)
+		{
+			// file will be created later
+		}
+	}
 	private void setUpFeedbackModel()
 	{
 		URI feedbackPlatformURI = URI.createPlatformResourceURI(getWorkspace().getMSEModelPath().removeFileExtension().addFileExtension("feedback").toString(),
@@ -93,6 +105,9 @@ public class ConcurrentModelExecutionContext extends ModelExecutionContext imple
 	@Override
 	public ActionModel getFeedbackModel()
 	{
+		if(_feedbackModel == null){
+			setUpFeedbackModel();
+		}
 		return _feedbackModel;
 	}
 	
@@ -116,10 +131,15 @@ public class ConcurrentModelExecutionContext extends ModelExecutionContext imple
 		return null;
 	}
 
+
+	protected MSEModel _mseModel;
+	
 	@Override
 	public MSEModel getMSEModel() {
-		// TODO Auto-generated method stub
-		return null;
+		if(_mseModel == null){
+			setUpMSEModel();
+		}
+		return _mseModel;
 	}
 
 	
