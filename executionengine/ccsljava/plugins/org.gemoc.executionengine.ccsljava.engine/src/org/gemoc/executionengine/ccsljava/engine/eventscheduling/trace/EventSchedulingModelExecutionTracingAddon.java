@@ -126,7 +126,8 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 						restoreModelState(choice);
 						restoreSolverState(choice);
 					} catch (Exception e) {
-						e.printStackTrace();
+						org.gemoc.executionengine.ccsljava.engine.Activator.error("Error while creating branch", e);
+						
 					}
 				}
 			};
@@ -291,7 +292,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 					try {
 						traceResource.save(null);
 					} catch (IOException e) {
-						e.printStackTrace();
+						org.gemoc.executionengine.ccsljava.engine.Activator.error("Error while saving trace to disk", e);
 						_cannotSaveTrace = true;
 					}
 				}
@@ -476,7 +477,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 							((IConcurrentExecutionEngine) _executionEngine).getLogicalStepDecider().preempt();
 						}
 					} catch (Exception e) {
-						e.printStackTrace();
+						org.gemoc.executionengine.ccsljava.engine.Activator.error("Error while reintegrating branch", e);
 					}
 				}
 			};
