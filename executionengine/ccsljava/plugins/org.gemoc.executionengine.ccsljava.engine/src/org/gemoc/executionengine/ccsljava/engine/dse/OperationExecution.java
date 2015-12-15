@@ -1,9 +1,8 @@
 package org.gemoc.executionengine.ccsljava.engine.dse;
 
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
+import org.gemoc.execution.engine.mse.engine_mse.MSEOccurrence;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionContext;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
-import org.gemoc.gemoc_language_workbench.api.core.IExecutionContext;
 
 public abstract class OperationExecution 
 {

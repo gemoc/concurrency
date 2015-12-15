@@ -3,7 +3,7 @@ package org.gemoc.executionengine.ccsljava.engine.deciders;
 import java.util.List;
 import java.util.Random;
 
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.LogicalStep;
+import org.gemoc.execution.engine.mse.engine_mse.LogicalStep;
 import org.gemoc.executionengine.ccsljava.api.core.ILogicalStepDecider;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
 

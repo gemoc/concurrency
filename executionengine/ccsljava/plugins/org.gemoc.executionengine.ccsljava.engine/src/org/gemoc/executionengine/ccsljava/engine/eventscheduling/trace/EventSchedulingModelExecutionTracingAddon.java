@@ -25,13 +25,13 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.gemoc.execution.engine.Activator;
 import org.gemoc.execution.engine.core.CommandExecution;
+import org.gemoc.execution.engine.mse.engine_mse.LogicalStep;
+import org.gemoc.execution.engine.mse.engine_mse.MSEOccurrence;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.Branch;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.Choice;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.ContextState;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.ExecutionTraceModel;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.Gemoc_execution_traceFactory;
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.LogicalStep;
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.ModelState;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.SolverState;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionContext;
@@ -126,7 +126,8 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 						restoreModelState(choice);
 						restoreSolverState(choice);
 					} catch (Exception e) {
-						e.printStackTrace();
+						org.gemoc.executionengine.ccsljava.engine.Activator.error("Error while creating branch", e);
+						
 					}
 				}
 			};
@@ -264,8 +265,10 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 		}
 	}
 
-	private void saveTraceModel(long stepNumber) {
-
+	/**
+	 * Store the current context State 
+	 */
+	private void storeCurrentContextState(){
 		Resource traceResource = _executionTraceModel.eResource();
 		if (traceResource.getContents().size() > 0) {
 
@@ -286,14 +289,25 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 				}
 
 				traceModel.getChoices().get(traceModel.getChoices().size() - 1).setContextState(contextState);
+			
+			}
+		}
+	}
+	
+	/**
+	 * S
+	 * @param stepNumber
+	 */
+	private void saveTraceModel(long stepNumber) {
 
-				if (!_cannotSaveTrace && shouldSave) {
-					try {
-						traceResource.save(null);
-					} catch (IOException e) {
-						e.printStackTrace();
-						_cannotSaveTrace = true;
-					}
+		Resource traceResource = _executionTraceModel.eResource();
+		if (traceResource.getContents().size() > 0) {
+			if (!_cannotSaveTrace && shouldSave) {
+				try {
+					traceResource.save(null);
+				} catch (IOException e) {
+					org.gemoc.executionengine.ccsljava.engine.Activator.error("Error while saving trace to disk", e);
+					_cannotSaveTrace = true;
 				}
 			}
 
@@ -377,7 +391,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 				}
 				choice.getPossibleLogicalSteps().addAll(possibleLogicalSteps);
 				_lastChoice = choice;
-//				saveTraceModel(0);
+				storeCurrentContextState();
 			}
 		};
 		CommandExecution.execute(getEditingDomain(), command);
@@ -453,6 +467,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 	
 	@Override
 	public void engineAboutToDispose(IBasicExecutionEngine engine){
+		storeCurrentContextState();
 		saveTraceModel(0);
 	}
 
@@ -476,7 +491,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 							((IConcurrentExecutionEngine) _executionEngine).getLogicalStepDecider().preempt();
 						}
 					} catch (Exception e) {
-						e.printStackTrace();
+						org.gemoc.executionengine.ccsljava.engine.Activator.error("Error while reintegrating branch", e);
 					}
 				}
 			};
@@ -494,6 +509,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 					_lastChoice.getPossibleLogicalSteps().clear();
 					_lastChoice.getPossibleLogicalSteps().addAll(logicalSteps);
 				}
+				storeCurrentContextState();
 //				saveTraceModel(0);
 			}
 		};

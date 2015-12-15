@@ -2,11 +2,10 @@ package org.gemoc.executionengine.ccsljava.api.core;
 
 import java.util.List;
 
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.LogicalStep;
+import org.gemoc.execution.engine.mse.engine_mse.LogicalStep;
 import org.gemoc.executionengine.ccsljava.api.dsa.executors.ICodeExecutor;
 import org.gemoc.executionengine.ccsljava.api.moc.ISolver;
 import org.gemoc.gemoc_language_workbench.api.core.IExecutionEngine;
-import org.gemoc.gemoc_language_workbench.api.core.IFutureAction;
 
 public interface IConcurrentExecutionEngine extends IExecutionEngine{
 

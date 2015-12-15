@@ -2,7 +2,7 @@ package org.gemoc.gemoc_modeling_workbench.concurrent.ui.views.step;
 
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.LogicalStep;
+import org.gemoc.execution.engine.mse.engine_mse.LogicalStep;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
 import org.gemoc.gemoc_language_workbench.api.core.EngineStatus.RunStatus;
 
