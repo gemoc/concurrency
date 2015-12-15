@@ -958,5 +958,8 @@ public class StimuliManagerView extends EngineSelectionDependentViewPart impleme
 	public void engineAboutToDispose(IBasicExecutionEngine engine) {
 	}
 
-
+	@Override
+	public List<String> validate(List<IEngineAddon> otherAddons) {
+		return new ArrayList<String>();
+	}
 }

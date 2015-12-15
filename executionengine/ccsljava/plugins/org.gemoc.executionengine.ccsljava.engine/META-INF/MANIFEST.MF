@@ -15,7 +15,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.compare.rcp,
  org.gemoc.executionengine.ccsljava.engine.ui,
  fr.inria.aoste.trace,
- org.gemoc.execution.ccsljava.concurrent.mse.model;bundle-version="0.1.0"
+ org.gemoc.execution.ccsljava.concurrent.mse.model;bundle-version="0.1.0",
+ fr.inria.diverse.trace.gemoc.api
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: org.gemoc.executionengine.ccsljava.engine,

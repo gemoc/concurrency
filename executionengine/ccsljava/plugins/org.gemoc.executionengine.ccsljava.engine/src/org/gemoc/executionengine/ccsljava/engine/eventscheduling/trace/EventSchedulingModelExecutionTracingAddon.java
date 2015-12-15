@@ -42,6 +42,9 @@ import org.gemoc.executionengine.ccsljava.api.moc.ISolver;
 import org.gemoc.gemoc_language_workbench.api.core.IExecutionContext;
 import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
 import org.gemoc.gemoc_language_workbench.api.engine_addon.DefaultEngineAddon;
+import org.gemoc.gemoc_language_workbench.api.engine_addon.IEngineAddon;
+
+import fr.inria.diverse.trace.gemoc.api.IMultiDimensionalTraceAddon;
 
 /**
  * 
@@ -556,5 +559,24 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 	@Override
 	public void engineAboutToStart(IBasicExecutionEngine engine) {
 		setUp(engine);
+	}
+	
+	@Override
+	public List<String> validate(List<IEngineAddon> otherAddons) {
+		ArrayList<String> errors = new ArrayList<String>();
+		
+		boolean found = false;
+		for (IEngineAddon iEngineAddon : otherAddons) {
+			if( iEngineAddon instanceof IMultiDimensionalTraceAddon){
+				found = true;
+				break;
+			}
+		}
+		
+		if(found){
+			errors.add("EventSchedulingModelExecutionTracingAddon can't run with IMultiDimensionalTraceAddon");
+		}
+		
+		return errors;
 	}
 }

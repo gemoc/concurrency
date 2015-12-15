@@ -1,6 +1,8 @@
 package org.gemoc.concurrent_addons.eventscheduling.timeline.views.timeline;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.gemoc.execution.engine.mse.engine_mse.LogicalStep;
 import org.gemoc.execution.engine.mse.engine_mse.MSEOccurrence;
@@ -323,4 +325,8 @@ public class EventSchedulingTimelineProvider extends AbstractTimelineProvider im
 	public void engineAboutToDispose(IBasicExecutionEngine engine) {
 	}
 
+	@Override
+	public List<String> validate(List<IEngineAddon> otherAddons) {
+		return new ArrayList<String>();
+	}
 }

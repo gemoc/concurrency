@@ -1,11 +1,14 @@
 package org.gemoc.concurrent_addons.eventscheduling.timeline.views.timeline;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.eclipse.ui.PlatformUI;
 import org.gemoc.commons.eclipse.ui.ViewHelper;
 import org.gemoc.execution.engine.mse.engine_mse.LogicalStep;
 import org.gemoc.execution.engine.mse.engine_mse.MSEOccurrence;
+import org.gemoc.executionengine.ccsljava.engine.eventscheduling.trace.EventSchedulingModelExecutionTracingAddon;
 import org.gemoc.gemoc_language_workbench.api.core.EngineStatus.RunStatus;
 import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
 import org.gemoc.gemoc_language_workbench.api.engine_addon.IEngineAddon;
@@ -99,4 +102,24 @@ public class EventSchedulingTimelineOpenViewAddon implements IEngineAddon {
 
 	}
 
+	@Override
+	public List<String> validate(List<IEngineAddon> otherAddons) {
+		
+		ArrayList<String> errors = new ArrayList<String>();
+		
+		//Require EventSchedulingModelExecutionTracingAddon
+		boolean found = false;
+		for (IEngineAddon iEngineAddon : otherAddons) {
+			if(iEngineAddon instanceof EventSchedulingModelExecutionTracingAddon){
+				found = true;
+				break;
+			}
+		}
+		
+		if(!found){
+			errors.add("EventSchedulingTimelineOpenViewAddon can't run without EventSchedulingModelExecutionTracingAddon");
+		}
+		
+		return errors;
+	}
 }
