@@ -59,7 +59,6 @@
          version="0.0.0"
          unpack="false"/>
 
-
    <plugin
          id="org.gemoc.executionengine.ccsljava.concurrent_xdsml.model"
          download-size="0"
@@ -69,6 +68,13 @@
 
    <plugin
          id="org.gemoc.executionframework.xdsml_base.model"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.gemoc.execution.ccsljava.concurrent.mse.model"
          download-size="0"
          install-size="0"
          version="0.0.0"

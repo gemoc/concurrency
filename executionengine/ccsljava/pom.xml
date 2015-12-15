@@ -13,6 +13,7 @@
 	</parent>
     <modules>
         <!-- plugins -->
+        <module>plugins/org.gemoc.execution.ccsljava.concurrent.mse.model</module>
         <module>plugins/org.gemoc.executionengine.ccsljava.api</module>
         <module>plugins/org.gemoc.executionengine.ccsljava.engine</module>
         <module>plugins/org.gemoc.executionengine.ccsljava.engine.ui</module>
