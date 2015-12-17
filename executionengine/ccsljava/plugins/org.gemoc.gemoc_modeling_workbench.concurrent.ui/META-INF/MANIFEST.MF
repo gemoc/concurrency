@@ -46,7 +46,8 @@ Require-Bundle: org.eclipse.ui,
  org.gemoc.executionframework.ui,
  org.gemoc.executionengine.ccsljava.stimuli_scenario.model;bundle-version="0.1.0",
  org.gemoc.execution.engine.ui;bundle-version="0.1.0",
- org.gemoc.executionframework.extensions.sirius
+ org.gemoc.executionframework.extensions.sirius,
+ org.gemoc.xdsmlframework.ui.utils
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: org.gemoc.gemoc_modeling_workbench.concurrent.ui,
