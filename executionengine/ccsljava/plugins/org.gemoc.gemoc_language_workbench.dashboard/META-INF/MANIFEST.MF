@@ -23,6 +23,6 @@ Require-Bundle: org.eclipse.ui.workbench,
  org.gemoc.executionframework.ui,
  org.gemoc.xdsmlframework.ide.ui,
  org.gemoc.xdsmlframework.ui.utils,
- org.gemoc.gemoc_language_workbench.extensions.sirius;bundle-version="0.1.0"
+ org.gemoc.xdsmlframework.extensions.sirius;bundle-version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
