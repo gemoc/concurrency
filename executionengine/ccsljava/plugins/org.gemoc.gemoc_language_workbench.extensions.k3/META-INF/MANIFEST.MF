@@ -5,7 +5,7 @@ Bundle-SymbolicName: org.gemoc.gemoc_language_workbench.extensions.k3
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.gemoc.gemoc_language_workbench.extensions.k3.Activator
 Require-Bundle: org.eclipse.core.runtime,
- org.gemoc.gemoc_language_workbench.api,
+ org.gemoc.xdsmlframework.api,
  org.eclipse.emf.ecore,
  fr.inria.diverse.commons.eclipse.messagingsystem.api;bundle-version="1.0.0",
  fr.inria.aoste.timesquare.ecl.feedback.model,
