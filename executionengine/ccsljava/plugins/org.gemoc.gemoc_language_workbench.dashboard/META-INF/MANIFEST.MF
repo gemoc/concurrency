@@ -21,7 +21,7 @@ Require-Bundle: org.eclipse.ui.workbench,
  org.gemoc.executionengine.ccsljava.concurrent_xdsml.model.edit,
  org.gemoc.gemoc_language_workbench.concurrent.ui,
  org.gemoc.executionframework.ui,
- org.gemoc.executionframework.language_workbench.ui,
+ org.gemoc.xdsmlframework.ide.ui,
  org.gemoc.xdsmlframework.ui.utils,
  org.gemoc.gemoc_language_workbench.extensions.sirius;bundle-version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
