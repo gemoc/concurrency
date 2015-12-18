@@ -24,11 +24,11 @@ import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
 import org.gemoc.executionengine.ccsljava.engine.eventscheduling.trace.EventSchedulingModelExecutionTracingAddon;
 import org.gemoc.executionengine.ccsljava.engine.eventscheduling.trace.ModelExecutionTracingException;
 import org.gemoc.executionframework.ui.views.engine.IEngineSelectionListener;
-import org.gemoc.gemoc_language_workbench.api.core.EngineStatus.RunStatus;
-import org.gemoc.gemoc_language_workbench.api.core.ExecutionMode;
-import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
-import org.gemoc.gemoc_language_workbench.api.core.IDisposable;
 import org.gemoc.gemoc_modeling_workbench.concurrent.ui.deciders.AbstractUserDecider;
+import org.gemoc.xdsmlframework.api.core.ExecutionMode;
+import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
+import org.gemoc.xdsmlframework.api.core.IDisposable;
+import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 
 import fr.obeo.timeline.editpart.PossibleStepEditPart;
 import fr.obeo.timeline.editpart.TimelineEditPartFactory;

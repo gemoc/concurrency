@@ -31,10 +31,10 @@ import org.gemoc.execution.engine.mse.engine_mse.MSE;
 import org.gemoc.execution.engine.mse.engine_mse.MSEModel;
 import org.gemoc.execution.engine.mse.engine_mse.MSEOccurrence;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionContext;
-import org.gemoc.gemoc_language_workbench.api.core.IExecutionContext;
-import org.gemoc.gemoc_language_workbench.api.core.IExecutionWorkspace;
 import org.gemoc.gemoc_language_workbench.extensions.timesquare.Activator;
 import org.gemoc.gemoc_language_workbench.utils.ccsl.QvtoTransformationPerformer;
+import org.gemoc.xdsmlframework.api.core.IExecutionContext;
+import org.gemoc.xdsmlframework.api.core.IExecutionWorkspace;
 import org.osgi.framework.Bundle;
 
 import fr.inria.aoste.timesquare.ccslkernel.explorer.CCSLConstraintState;

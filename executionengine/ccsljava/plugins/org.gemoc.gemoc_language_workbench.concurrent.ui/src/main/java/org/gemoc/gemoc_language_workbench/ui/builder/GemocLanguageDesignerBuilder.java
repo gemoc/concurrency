@@ -34,8 +34,8 @@ import org.gemoc.executionframework.xdsml_base.DomainModelProject;
 import org.gemoc.executionframework.xdsml_base.SiriusAnimatorProject;
 import org.gemoc.executionframework.xdsml_base.SiriusEditorProject;
 import org.gemoc.executionframework.xdsml_base.XTextEditorProject;
-import org.gemoc.gemoc_language_workbench.api.extensions.languages.LanguageDefinitionExtensionPoint;
 import org.gemoc.gemoc_language_workbench.ui.Activator;
+import org.gemoc.xdsmlframework.api.extensions.languages.LanguageDefinitionExtensionPoint;
 import org.jdom2.Element;
 import org.osgi.framework.BundleException;
 

@@ -4,7 +4,7 @@ import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 import org.gemoc.execution.engine.mse.engine_mse.LogicalStep;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
-import org.gemoc.gemoc_language_workbench.api.core.EngineStatus.RunStatus;
+import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 
 public class LogicalStepsViewContentProvider implements ITreeContentProvider {
 

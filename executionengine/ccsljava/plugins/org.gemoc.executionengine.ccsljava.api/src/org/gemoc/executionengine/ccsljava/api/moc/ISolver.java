@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.gemoc.execution.engine.mse.engine_mse.LogicalStep;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionContext;
-import org.gemoc.gemoc_language_workbench.api.core.IDisposable;
+import org.gemoc.xdsmlframework.api.core.IDisposable;
 
 import fr.inria.aoste.trace.EventOccurrence;
 import fr.inria.aoste.trace.ModelElementReference;
