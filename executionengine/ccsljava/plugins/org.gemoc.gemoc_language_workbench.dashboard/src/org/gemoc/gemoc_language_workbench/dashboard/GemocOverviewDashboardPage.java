@@ -71,9 +71,6 @@ import org.gemoc.executionengine.ccsljava.concurrent_xdsml.DSAProject;
 import org.gemoc.executionengine.ccsljava.concurrent_xdsml.DSEProject;
 import org.gemoc.executionengine.ccsljava.concurrent_xdsml.MoCCProject;
 import org.gemoc.executionengine.ccsljava.concurrent_xdsml.provider.Concurrent_xdsmlItemProviderAdapterFactory;
-import org.gemoc.executionframework.language_workbench.ui.dialogs.SelectEMFIProjectDialog;
-import org.gemoc.executionframework.language_workbench.ui.dialogs.SelectODesignIProjectDialog;
-import org.gemoc.executionframework.language_workbench.ui.dialogs.SelectXtextIProjectDialog;
 import org.gemoc.executionframework.xdsml_base.DomainModelProject;
 import org.gemoc.executionframework.xdsml_base.ProjectResource;
 import org.gemoc.executionframework.xdsml_base.SiriusAnimatorProject;
@@ -95,6 +92,9 @@ import org.gemoc.gemoc_language_workbench.ui.wizards.contextDSA.CreateDSAWizardC
 import org.gemoc.xdsmlframework.ide.ui.xdsml.wizards.CreateAnimatorProjectWizardContextAction;
 import org.gemoc.xdsmlframework.ide.ui.xdsml.wizards.CreateDomainModelWizardContextAction;
 import org.gemoc.xdsmlframework.ide.ui.xdsml.wizards.CreateEditorProjectWizardContextAction;
+import org.gemoc.xdsmlframework.ui.utils.dialogs.SelectEMFIProjectDialog;
+import org.gemoc.xdsmlframework.ui.utils.dialogs.SelectODesignIProjectDialog;
+import org.gemoc.xdsmlframework.ui.utils.dialogs.SelectXtextIProjectDialog;
 
 public class GemocOverviewDashboardPage extends FormPage {
 	private FormToolkit toolkit;

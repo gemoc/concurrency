@@ -57,11 +57,6 @@ import org.gemoc.commons.eclipse.ui.OpenEditor;
 import org.gemoc.commons.eclipse.ui.dialogs.SelectAnyIFileDialog;
 import org.gemoc.commons.eclipse.ui.dialogs.SelectPluginIProjectDialog;
 import org.gemoc.executionengine.ccsljava.concurrent_xdsml.ConcurrentLanguageDefinition;
-import org.gemoc.executionframework.language_workbench.ui.dialogs.SelectAnyConcreteEClassDialog;
-import org.gemoc.executionframework.language_workbench.ui.dialogs.SelectAnyEObjectDialog;
-import org.gemoc.executionframework.language_workbench.ui.dialogs.SelectEMFIProjectDialog;
-import org.gemoc.executionframework.language_workbench.ui.dialogs.SelectODesignIProjectDialog;
-import org.gemoc.executionframework.language_workbench.ui.dialogs.SelectXtextIProjectDialog;
 import org.gemoc.executionframework.ui.utils.ENamedElementQualifiedNameLabelProvider;
 import org.gemoc.executionframework.xdsml_base.EditorProject;
 import org.gemoc.executionframework.xdsml_base.XTextEditorProject;
@@ -79,6 +74,11 @@ import org.gemoc.xdsmlframework.ide.ui.xdsml.wizards.CreateEditorProjectWizardCo
 import org.gemoc.xdsmlframework.ide.ui.xdsml.wizards.CreateAnimatorProjectWizardContextAction.CreateAnimatorProjectAction;
 import org.gemoc.xdsmlframework.ide.ui.xdsml.wizards.CreateDomainModelWizardContextAction.CreateDomainModelAction;
 import org.gemoc.xdsmlframework.ide.ui.xdsml.wizards.CreateEditorProjectWizardContextAction.CreateEditorProjectAction;
+import org.gemoc.xdsmlframework.ui.utils.dialogs.SelectAnyConcreteEClassDialog;
+import org.gemoc.xdsmlframework.ui.utils.dialogs.SelectAnyEObjectDialog;
+import org.gemoc.xdsmlframework.ui.utils.dialogs.SelectEMFIProjectDialog;
+import org.gemoc.xdsmlframework.ui.utils.dialogs.SelectODesignIProjectDialog;
+import org.gemoc.xdsmlframework.ui.utils.dialogs.SelectXtextIProjectDialog;
 import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.core.databinding.UpdateValueStrategy;
 
