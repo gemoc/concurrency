@@ -13,5 +13,5 @@ Export-Package: org.gemoc.execution.ccsljava.concurrent_mse,
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  fr.inria.aoste.timesquare.ecl.feedback.model;visibility:=reexport,
- org.gemoc.execution.engine.mse.model;visibility:=reexport
+ org.gemoc.executionframework.engine.mse.model;visibility:=reexport
 Bundle-ActivationPolicy: lazy
