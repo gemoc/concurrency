@@ -67,7 +67,7 @@
          unpack="false"/>
 
    <plugin
-         id="org.gemoc.executionframework.xdsml_base.model"
+         id="org.gemoc.xdsmlframework.xdsml.model"
          download-size="0"
          install-size="0"
          version="0.0.0"
