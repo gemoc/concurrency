@@ -14,8 +14,8 @@ import org.gemoc.commons.eclipse.ui.WizardFinder;
 import org.gemoc.executionengine.ccsljava.concurrent_xdsml.ConcurrentLanguageDefinition;
 import org.gemoc.executionframework.ui.xdsml.activefile.ActiveFile;
 import org.gemoc.executionframework.ui.xdsml.activefile.ActiveFileEcore;
-import org.gemoc.executionframework.ui.xdsml.wizards.XDSMLProjectHelper;
 import org.gemoc.gemoc_language_workbench.ui.Activator;
+import org.gemoc.xdsmlframework.ide.ui.xdsml.wizards.XDSMLProjectHelper;
 
 import fr.inria.diverse.commons.eclipse.pde.wizards.pages.pde.TemplateListSelectionPage;
 import fr.inria.diverse.k3.ui.wizards.NewK3ProjectWizard;

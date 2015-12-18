@@ -63,12 +63,6 @@ import org.gemoc.executionframework.language_workbench.ui.dialogs.SelectEMFIProj
 import org.gemoc.executionframework.language_workbench.ui.dialogs.SelectODesignIProjectDialog;
 import org.gemoc.executionframework.language_workbench.ui.dialogs.SelectXtextIProjectDialog;
 import org.gemoc.executionframework.ui.utils.ENamedElementQualifiedNameLabelProvider;
-import org.gemoc.executionframework.ui.xdsml.wizards.CreateAnimatorProjectWizardContextAction;
-import org.gemoc.executionframework.ui.xdsml.wizards.CreateAnimatorProjectWizardContextAction.CreateAnimatorProjectAction;
-import org.gemoc.executionframework.ui.xdsml.wizards.CreateDomainModelWizardContextAction;
-import org.gemoc.executionframework.ui.xdsml.wizards.CreateDomainModelWizardContextAction.CreateDomainModelAction;
-import org.gemoc.executionframework.ui.xdsml.wizards.CreateEditorProjectWizardContextAction;
-import org.gemoc.executionframework.ui.xdsml.wizards.CreateEditorProjectWizardContextAction.CreateEditorProjectAction;
 import org.gemoc.executionframework.xdsml_base.EditorProject;
 import org.gemoc.executionframework.xdsml_base.XTextEditorProject;
 import org.gemoc.gemoc_language_workbench.ui.dialogs.SelectDSAIProjectDialog;
@@ -79,6 +73,12 @@ import org.gemoc.gemoc_language_workbench.ui.wizards.CreateDSEWizardContextActio
 import org.gemoc.gemoc_language_workbench.ui.wizards.CreateMOCCWizardContextAction;
 import org.gemoc.gemoc_language_workbench.ui.wizards.CreateMOCCWizardContextAction.CreateMOCCAction;
 import org.gemoc.gemoc_language_workbench.ui.wizards.contextDSA.CreateDSAWizardContextActionDSAK3;
+import org.gemoc.xdsmlframework.ide.ui.xdsml.wizards.CreateAnimatorProjectWizardContextAction;
+import org.gemoc.xdsmlframework.ide.ui.xdsml.wizards.CreateDomainModelWizardContextAction;
+import org.gemoc.xdsmlframework.ide.ui.xdsml.wizards.CreateEditorProjectWizardContextAction;
+import org.gemoc.xdsmlframework.ide.ui.xdsml.wizards.CreateAnimatorProjectWizardContextAction.CreateAnimatorProjectAction;
+import org.gemoc.xdsmlframework.ide.ui.xdsml.wizards.CreateDomainModelWizardContextAction.CreateDomainModelAction;
+import org.gemoc.xdsmlframework.ide.ui.xdsml.wizards.CreateEditorProjectWizardContextAction.CreateEditorProjectAction;
 import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.core.databinding.UpdateValueStrategy;
 

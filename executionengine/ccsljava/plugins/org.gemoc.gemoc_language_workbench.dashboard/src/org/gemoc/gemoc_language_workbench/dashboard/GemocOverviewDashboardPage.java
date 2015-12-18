@@ -74,9 +74,6 @@ import org.gemoc.executionengine.ccsljava.concurrent_xdsml.provider.Concurrent_x
 import org.gemoc.executionframework.language_workbench.ui.dialogs.SelectEMFIProjectDialog;
 import org.gemoc.executionframework.language_workbench.ui.dialogs.SelectODesignIProjectDialog;
 import org.gemoc.executionframework.language_workbench.ui.dialogs.SelectXtextIProjectDialog;
-import org.gemoc.executionframework.ui.xdsml.wizards.CreateAnimatorProjectWizardContextAction;
-import org.gemoc.executionframework.ui.xdsml.wizards.CreateDomainModelWizardContextAction;
-import org.gemoc.executionframework.ui.xdsml.wizards.CreateEditorProjectWizardContextAction;
 import org.gemoc.executionframework.xdsml_base.DomainModelProject;
 import org.gemoc.executionframework.xdsml_base.ProjectResource;
 import org.gemoc.executionframework.xdsml_base.SiriusAnimatorProject;
@@ -95,6 +92,9 @@ import org.gemoc.gemoc_language_workbench.ui.dialogs.SelectMoCCIProjectDialog;
 import org.gemoc.gemoc_language_workbench.ui.wizards.CreateDSEWizardContextAction;
 import org.gemoc.gemoc_language_workbench.ui.wizards.CreateMOCCWizardContextAction;
 import org.gemoc.gemoc_language_workbench.ui.wizards.contextDSA.CreateDSAWizardContextActionDSAK3;
+import org.gemoc.xdsmlframework.ide.ui.xdsml.wizards.CreateAnimatorProjectWizardContextAction;
+import org.gemoc.xdsmlframework.ide.ui.xdsml.wizards.CreateDomainModelWizardContextAction;
+import org.gemoc.xdsmlframework.ide.ui.xdsml.wizards.CreateEditorProjectWizardContextAction;
 
 public class GemocOverviewDashboardPage extends FormPage {
 	private FormToolkit toolkit;

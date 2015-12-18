@@ -35,8 +35,8 @@ import org.gemoc.commons.eclipse.pde.JavaProject;
 import org.gemoc.commons.eclipse.pde.ui.PluginConverter;
 import org.gemoc.executionengine.ccsljava.concurrent_xdsml.ConcurrentLanguageDefinition;
 import org.gemoc.executionengine.ccsljava.concurrent_xdsml.impl.Concurrent_xdsmlFactoryImpl;
-import org.gemoc.executionframework.language_workbench.ui.builder.pde.PluginXMLHelper;
 import org.gemoc.gemoc_language_workbench.ui.Activator;
+import org.gemoc.xdsmlframework.ide.ui.builder.pde.PluginXMLHelper;
 import org.osgi.framework.BundleException;
 
 import fr.inria.diverse.commons.eclipse.pde.manifest.ManifestChanger;

@@ -1,8 +1,8 @@
 package org.gemoc.gemoc_language_workbench.ui.wizards;
 
 import org.eclipse.core.resources.IProject;
-import org.gemoc.executionframework.ui.xdsml.wizards.AbstractCreateNewGemocLanguageProject;
 import org.gemoc.gemoc_language_workbench.ui.builder.ToggleNatureAction;
+import org.gemoc.xdsmlframework.ide.ui.xdsml.wizards.AbstractCreateNewGemocLanguageProject;
 
 public class CreateNewGemocConcurrentLanguageProject extends AbstractCreateNewGemocLanguageProject {
 
