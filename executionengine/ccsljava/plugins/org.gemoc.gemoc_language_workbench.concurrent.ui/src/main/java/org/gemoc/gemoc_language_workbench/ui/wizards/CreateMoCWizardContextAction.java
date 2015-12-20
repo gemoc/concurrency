@@ -25,10 +25,10 @@ import org.gemoc.commons.eclipse.ui.WizardFinder;
 import org.gemoc.executionengine.ccsljava.concurrent_xdsml.ConcurrentLanguageDefinition;
 import org.gemoc.executionengine.ccsljava.concurrent_xdsml.MoCCProject;
 import org.gemoc.executionengine.ccsljava.concurrent_xdsml.impl.Concurrent_xdsmlFactoryImpl;
-import org.gemoc.executionframework.ui.xdsml.wizards.XDSMLProjectHelper;
 import org.gemoc.executionframework.xdsml_base.LanguageDefinition;
 import org.gemoc.gemoc_language_workbench.ui.Activator;
 import org.gemoc.gemoc_language_workbench.ui.dialogs.SelectMoCIFileDialog;
+import org.gemoc.xdsmlframework.ide.ui.xdsml.wizards.XDSMLProjectHelper;
 
 public class CreateMoCWizardContextAction {
 

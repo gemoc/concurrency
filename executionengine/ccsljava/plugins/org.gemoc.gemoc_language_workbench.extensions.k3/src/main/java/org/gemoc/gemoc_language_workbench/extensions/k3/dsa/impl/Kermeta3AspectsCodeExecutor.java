@@ -13,7 +13,7 @@ import java.util.Properties;
 import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
+import org.gemoc.execution.engine.mse.engine_mse.MSEOccurrence;
 import org.gemoc.executionengine.ccsljava.api.dsa.executors.CodeExecutionException;
 import org.gemoc.executionengine.ccsljava.api.dsa.executors.ICodeExecutor;
 import org.gemoc.gemoc_language_workbench.extensions.k3.Activator;

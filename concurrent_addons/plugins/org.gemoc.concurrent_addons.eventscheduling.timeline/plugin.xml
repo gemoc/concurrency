@@ -14,31 +14,6 @@
             id="org.gemoc.concurrent_addons.eventscheduling.timeline.views.timeline.EventSchedulingTimeLineView"
             name="Event Scheduling Timeline">
       </view>
-	</extension>
-   <extension
-         point="org.eclipse.ui.perspectiveExtensions">
-      <perspectiveExtension
-            targetID="org.eclipse.debug.ui.DebugPerspective">         
-         <view
-               id="org.gemoc.concurrent_addons.eventscheduling.timeline.views.timeline.EventSchedulingTimeLineView"
-               minimized="false"
-               ratio="0.5"
-               relationship="left"
-               relative="org.eclipse.ui.console.ConsoleView"
-               visible="true">
-         </view>
-      </perspectiveExtension>
-      <perspectiveExtension
-            targetID="org.eclipse.sirius.ui.tools.perspective.modeling">
-         <view
-               id="org.gemoc.concurrent_addons.eventscheduling.timeline.views.timeline.EventSchedulingTimeLineView"
-               minimized="false"
-               ratio="0.5"
-               relationship="left"
-               relative="org.eclipse.ui.views.PropertySheet"
-               visible="true">
-         </view>
-      </perspectiveExtension>
    </extension>
    <extension
          point="org.eclipse.ui.menus">

@@ -1,7 +1,7 @@
 package org.gemoc.executionengine.ccsljava.engine.dse;
 
+import org.gemoc.executionengine.ccsljava.api.core.IFutureAction;
 import org.gemoc.executionengine.ccsljava.api.dse.IMSEStateController;
-import org.gemoc.gemoc_language_workbench.api.core.IFutureAction;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
 

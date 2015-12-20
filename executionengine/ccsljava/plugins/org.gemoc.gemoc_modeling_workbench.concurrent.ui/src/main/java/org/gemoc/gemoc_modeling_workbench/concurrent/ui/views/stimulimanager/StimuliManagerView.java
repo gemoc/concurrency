@@ -46,15 +46,11 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IWorkbenchActionConstants;
 import org.gemoc.commons.eclipse.ui.ViewHelper;
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.LogicalStep;
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
+import org.gemoc.execution.engine.mse.engine_mse.LogicalStep;
+import org.gemoc.execution.engine.mse.engine_mse.MSEOccurrence;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
 import org.gemoc.executionframework.ui.IMSEPresenter;
 import org.gemoc.executionframework.ui.views.engine.EngineSelectionDependentViewPart;
-import org.gemoc.gemoc_language_workbench.api.core.EngineStatus.RunStatus;
-import org.gemoc.gemoc_language_workbench.api.core.ExecutionMode;
-import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
-import org.gemoc.gemoc_language_workbench.api.engine_addon.IEngineAddon;
 import org.gemoc.gemoc_modeling_workbench.concurrent.ui.SharedIcons;
 import org.gemoc.gemoc_modeling_workbench.concurrent.ui.views.step.LogicalStepsView;
 import org.gemoc.gemoc_modeling_workbench.concurrent.ui.views.stimulimanager.actions.PlayScenarioAction;
@@ -66,6 +62,10 @@ import org.gemoc.gemoc_modeling_workbench.concurrent.ui.views.stimulimanager.fil
 import org.gemoc.gemoc_modeling_workbench.concurrent.ui.views.stimulimanager.scenario.ScenarioException;
 import org.gemoc.gemoc_modeling_workbench.concurrent.ui.views.stimulimanager.scenario.ScenarioManager;
 import org.gemoc.gemoc_modeling_workbench.concurrent.ui.views.stimulimanager.scenario.ScenarioManagerState;
+import org.gemoc.xdsmlframework.api.core.ExecutionMode;
+import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
+import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
+import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
 import fr.obeo.dsl.debug.ide.DSLBreakpoint;
@@ -139,7 +139,7 @@ public class StimuliManagerView extends EngineSelectionDependentViewPart impleme
 		}
 	}
 	
-	public static final String ID = "org.gemoc.execution.engine.io.views.event.StimuliManagerView";
+	public static final String ID = "org.gemoc.gemoc_modeling_workbench.concurrent.ui.views.stimulimanager.StimuliManagerView";
 
 	private Color notForcedSetColor;
 	private Color forcedSetColor;
@@ -958,5 +958,8 @@ public class StimuliManagerView extends EngineSelectionDependentViewPart impleme
 	public void engineAboutToDispose(IBasicExecutionEngine engine) {
 	}
 
-
+	@Override
+	public List<String> validate(List<IEngineAddon> otherAddons) {
+		return new ArrayList<String>();
+	}
 }

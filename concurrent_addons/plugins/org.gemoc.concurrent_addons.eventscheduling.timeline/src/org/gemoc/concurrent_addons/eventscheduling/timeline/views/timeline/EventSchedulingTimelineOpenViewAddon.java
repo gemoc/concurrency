@@ -1,14 +1,17 @@
 package org.gemoc.concurrent_addons.eventscheduling.timeline.views.timeline;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.eclipse.ui.PlatformUI;
 import org.gemoc.commons.eclipse.ui.ViewHelper;
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.LogicalStep;
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
-import org.gemoc.gemoc_language_workbench.api.core.EngineStatus.RunStatus;
-import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
-import org.gemoc.gemoc_language_workbench.api.engine_addon.IEngineAddon;
+import org.gemoc.execution.engine.mse.engine_mse.LogicalStep;
+import org.gemoc.execution.engine.mse.engine_mse.MSEOccurrence;
+import org.gemoc.executionengine.ccsljava.engine.eventscheduling.trace.EventSchedulingModelExecutionTracingAddon;
+import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
+import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
+import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 
 public class EventSchedulingTimelineOpenViewAddon implements IEngineAddon {
 
@@ -17,16 +20,14 @@ public class EventSchedulingTimelineOpenViewAddon implements IEngineAddon {
 		// when selected in the addon from launch config, make sure to start the view
 		final IBasicExecutionEngine _engine = engine;
 		// make sure to have the view when starting the engine
-		PlatformUI.getWorkbench().getDisplay().syncExec(
-				new Runnable()
-				{
-					@Override
-					public void run() {
-						EventSchedulingTimeLineView timelineView;
-						timelineView = ViewHelper.showView(EventSchedulingTimeLineView.ID);
-						timelineView.configure(_engine);
-					}			
-				});	
+		PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable() {
+			@Override
+			public void run() {
+				EventSchedulingTimeLineView timelineView;
+				timelineView = ViewHelper.showView(EventSchedulingTimeLineView.ID);
+				timelineView.configure(_engine);
+			}
+		});
 	}
 
 	@Override
@@ -54,59 +55,71 @@ public class EventSchedulingTimelineOpenViewAddon implements IEngineAddon {
 	}
 
 	@Override
-	public void aboutToSelectLogicalStep(IBasicExecutionEngine engine,
-			Collection<LogicalStep> logicalSteps) {
+	public void engineStatusChanged(IBasicExecutionEngine engine, RunStatus newStatus) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void proposedLogicalStepsChanged(IBasicExecutionEngine engine,
-			Collection<LogicalStep> logicalSteps) {
+	public void aboutToSelectLogicalStep(IBasicExecutionEngine engine, Collection<LogicalStep> logicalSteps) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void logicalStepSelected(IBasicExecutionEngine engine,
-			LogicalStep selectedLogicalStep) {
+	public void proposedLogicalStepsChanged(IBasicExecutionEngine engine, Collection<LogicalStep> logicalSteps) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void aboutToExecuteLogicalStep(IBasicExecutionEngine engine,
-			LogicalStep logicalStepToExecute) {
+	public void logicalStepSelected(IBasicExecutionEngine engine, LogicalStep selectedLogicalStep) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void logicalStepExecuted(IBasicExecutionEngine engine,
-			LogicalStep logicalStepExecuted) {
+	public void aboutToExecuteLogicalStep(IBasicExecutionEngine engine, LogicalStep logicalStepToExecute) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void aboutToExecuteMSEOccurrence(IBasicExecutionEngine engine,
-			MSEOccurrence mseOccurrence) {
+	public void logicalStepExecuted(IBasicExecutionEngine engine, LogicalStep logicalStepExecuted) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void mseOccurrenceExecuted(IBasicExecutionEngine engine,
-			MSEOccurrence mseOccurrence) {
+	public void aboutToExecuteMSEOccurrence(IBasicExecutionEngine engine, MSEOccurrence mseOccurrence) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void engineStatusChanged(IBasicExecutionEngine engine,
-			RunStatus newStatus) {
+	public void mseOccurrenceExecuted(IBasicExecutionEngine engine, MSEOccurrence mseOccurrence) {
 		// TODO Auto-generated method stub
 
 	}
 
+	@Override
+	public List<String> validate(List<IEngineAddon> otherAddons) {
+		
+		ArrayList<String> errors = new ArrayList<String>();
+		
+		//Require EventSchedulingModelExecutionTracingAddon
+		boolean found = false;
+		for (IEngineAddon iEngineAddon : otherAddons) {
+			if(iEngineAddon instanceof EventSchedulingModelExecutionTracingAddon){
+				found = true;
+				break;
+			}
+		}
+		
+		if(!found){
+			errors.add("EventSchedulingTimelineOpenViewAddon can't run without EventSchedulingModelExecutionTracingAddon");
+		}
+		
+		return errors;
+	}
 }

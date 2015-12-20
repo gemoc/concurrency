@@ -1,36 +1,16 @@
 package org.gemoc.gemoc_language_workbench.ui.wizards.pages;
 
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IResource;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.util.BidiUtils;
-import org.eclipse.jface.viewers.LabelProvider;
-import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
-import org.eclipse.ui.internal.ide.IDEWorkbenchMessages;
-import org.eclipse.ui.internal.ide.IIDEHelpContextIds;
-import org.eclipse.ui.internal.ide.dialogs.ProjectContentsLocationArea;
-import org.gemoc.commons.eclipse.ui.dialogs.SelectAnyIFileDialog;
-import org.gemoc.executionframework.ui.dialogs.SelectAnyConcreteEClassDialog;
-import org.gemoc.executionframework.ui.dialogs.SelectAnyEObjectDialog;
-import org.gemoc.executionframework.ui.utils.ENamedElementQualifiedNameLabelProvider;
-import org.gemoc.executionframework.ui.xdsml.activefile.ActiveFile;
 
 public class AskMoCInfoWizardPage extends WizardPage {
 

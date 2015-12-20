@@ -35,8 +35,8 @@ import org.gemoc.commons.eclipse.pde.JavaProject;
 import org.gemoc.commons.eclipse.pde.ui.PluginConverter;
 import org.gemoc.executionengine.ccsljava.concurrent_xdsml.ConcurrentLanguageDefinition;
 import org.gemoc.executionengine.ccsljava.concurrent_xdsml.impl.Concurrent_xdsmlFactoryImpl;
-import org.gemoc.executionframework.language_workbench.ui.builder.pde.PluginXMLHelper;
 import org.gemoc.gemoc_language_workbench.ui.Activator;
+import org.gemoc.xdsmlframework.ide.ui.builder.pde.PluginXMLHelper;
 import org.osgi.framework.BundleException;
 
 import fr.inria.diverse.commons.eclipse.pde.manifest.ManifestChanger;
@@ -148,12 +148,12 @@ public class ToggleNatureAction implements IObjectActionDelegate {
 				PluginConverter.convert(project);							
 				// complement manifest
 				ManifestChanger changer = new ManifestChanger(project);
-				changer.addPluginDependency(org.gemoc.gemoc_language_workbench.api.Activator.PLUGIN_ID, "0.1.0", true, true);
+				changer.addPluginDependency(org.gemoc.xdsmlframework.api.Activator.PLUGIN_ID, "0.1.0", true, true);
 				changer.addPluginDependency("org.eclipse.emf.ecore.xmi", "2.8.0", true, true);				
-				changer.addPluginDependency("org.gemoc.gemoc_language_workbench.api");				
+				changer.addPluginDependency("org.gemoc.xdsmlframework.api");				
 				changer.addPluginDependency("org.gemoc.executionengine.ccsljava.api");				
 				changer.addPluginDependency("org.gemoc.executionengine.ccsljava.engine");
-				changer.addPluginDependency("org.gemoc.execution.engine");
+				changer.addPluginDependency("org.gemoc.executionframework.engine");
 				changer.addSingleton();
 				changer.addAttributes("Bundle-RequiredExecutionEnvironment","JavaSE-1.6");
 				changer.commit();					

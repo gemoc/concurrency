@@ -1,8 +1,11 @@
 package org.gemoc.executionengine.ccsljava.engine.commons;
 
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.gemoc.execution.engine.commons.EngineContextException;
 import org.gemoc.execution.engine.commons.ModelExecutionContext;
+import org.gemoc.execution.engine.mse.engine_mse.MSEModel;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionContext;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionPlatform;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentRunConfiguration;
@@ -10,9 +13,11 @@ import org.gemoc.executionengine.ccsljava.api.core.ILogicalStepDecider;
 import org.gemoc.executionengine.ccsljava.api.extensions.languages.ConcurrentLanguageDefinitionExtension;
 import org.gemoc.executionengine.ccsljava.api.extensions.languages.ConcurrentLanguageDefinitionExtensionPoint;
 import org.gemoc.executionengine.ccsljava.engine.ui.LogicalStepDeciderFactory;
-import org.gemoc.gemoc_language_workbench.api.core.ExecutionMode;
-import org.gemoc.gemoc_language_workbench.api.core.IExecutionPlatform;
-import org.gemoc.gemoc_language_workbench.api.extensions.languages.LanguageDefinitionExtension;
+import org.gemoc.xdsmlframework.api.core.ExecutionMode;
+import org.gemoc.xdsmlframework.api.core.IExecutionPlatform;
+import org.gemoc.xdsmlframework.api.extensions.languages.LanguageDefinitionExtension;
+
+import fr.inria.aoste.timesquare.ecl.feedback.feedback.ActionModel;
 
 public class ConcurrentModelExecutionContext extends ModelExecutionContext implements IConcurrentExecutionContext
 {
@@ -24,7 +29,6 @@ public class ConcurrentModelExecutionContext extends ModelExecutionContext imple
 		super(runConfiguration, executionMode);
 		try
 		{
-			
 			_logicalStepDecider = LogicalStepDeciderFactory.createDecider(runConfiguration.getDeciderName(),
 					executionMode);
 			
@@ -36,6 +40,8 @@ public class ConcurrentModelExecutionContext extends ModelExecutionContext imple
 		}
 	}
 
+	
+	
 	protected IExecutionPlatform createExecutionPlatform() throws CoreException{
 		if(_languageDefinition instanceof  ConcurrentLanguageDefinitionExtension ){
 			return new DefaultConcurrentExecutionPlatform((ConcurrentLanguageDefinitionExtension)_languageDefinition, _runConfiguration);
@@ -59,6 +65,33 @@ public class ConcurrentModelExecutionContext extends ModelExecutionContext imple
 		return languageDefinition;
 	}
 
+	private void setUpMSEModel()
+	{
+		URI msemodelPlatformURI = URI.createPlatformResourceURI(getWorkspace().getMSEModelPath().removeFileExtension().addFileExtension("msemodel").toString(),
+				true);
+		try
+		{
+			Resource resource = this.getResourceModel().getResourceSet().getResource(msemodelPlatformURI, true);
+			_mseModel = (MSEModel) resource.getContents().get(0);
+		} catch (Exception e)
+		{
+			// file will be created later
+		}
+	}
+	private void setUpFeedbackModel()
+	{
+		URI feedbackPlatformURI = URI.createPlatformResourceURI(getWorkspace().getMSEModelPath().removeFileExtension().addFileExtension("feedback").toString(),
+				true);
+		try
+		{
+			Resource resource = this.getResourceModel().getResourceSet().getResource(feedbackPlatformURI, true);
+			_feedbackModel = (ActionModel) resource.getContents().get(0);
+		} catch (Exception e)
+		{
+			// file will be created later
+		}
+	}
+	
 	@Override
 	public void dispose()
 	{
@@ -67,7 +100,16 @@ public class ConcurrentModelExecutionContext extends ModelExecutionContext imple
 	}
 
 	
+	protected ActionModel _feedbackModel;
 
+	@Override
+	public ActionModel getFeedbackModel()
+	{
+		if(_feedbackModel == null){
+			setUpFeedbackModel();
+		}
+		return _feedbackModel;
+	}
 	
 
 	protected ILogicalStepDecider _logicalStepDecider;
@@ -87,6 +129,17 @@ public class ConcurrentModelExecutionContext extends ModelExecutionContext imple
 	public ConcurrentLanguageDefinitionExtension getConcurrentLanguageDefinitionExtension() {
 		if(getLanguageDefinitionExtension() instanceof ConcurrentLanguageDefinitionExtension) return (ConcurrentLanguageDefinitionExtension) getLanguageDefinitionExtension();
 		return null;
+	}
+
+
+	protected MSEModel _mseModel;
+	
+	@Override
+	public MSEModel getMSEModel() {
+		if(_mseModel == null){
+			setUpMSEModel();
+		}
+		return _mseModel;
 	}
 
 	

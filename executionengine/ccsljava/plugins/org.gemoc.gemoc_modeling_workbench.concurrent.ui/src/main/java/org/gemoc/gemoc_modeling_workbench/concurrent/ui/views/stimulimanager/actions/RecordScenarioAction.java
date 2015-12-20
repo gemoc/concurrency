@@ -3,9 +3,9 @@ package org.gemoc.gemoc_modeling_workbench.concurrent.ui.views.stimulimanager.ac
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.gemoc.commons.eclipse.ui.ViewHelper;
-import org.gemoc.gemoc_language_workbench.api.core.EngineStatus.RunStatus;
 import org.gemoc.gemoc_modeling_workbench.concurrent.ui.Activator;
 import org.gemoc.gemoc_modeling_workbench.concurrent.ui.views.stimulimanager.StimuliManagerView;
+import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 
 public class RecordScenarioAction extends Action {
 

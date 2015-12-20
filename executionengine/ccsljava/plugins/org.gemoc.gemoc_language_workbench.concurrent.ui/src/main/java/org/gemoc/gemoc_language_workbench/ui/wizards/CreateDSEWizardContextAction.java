@@ -26,10 +26,10 @@ import org.gemoc.executionengine.ccsljava.concurrent_xdsml.ConcurrentLanguageDef
 import org.gemoc.executionengine.ccsljava.concurrent_xdsml.DSEProject;
 import org.gemoc.executionengine.ccsljava.concurrent_xdsml.impl.Concurrent_xdsmlFactoryImpl;
 import org.gemoc.executionframework.ui.xdsml.activefile.ActiveFileEcore;
-import org.gemoc.executionframework.ui.xdsml.wizards.XDSMLProjectHelper;
 import org.gemoc.executionframework.xdsml_base.LanguageDefinition;
 import org.gemoc.gemoc_language_workbench.ui.Activator;
 import org.gemoc.gemoc_language_workbench.ui.dialogs.SelectECLIFileDialog;
+import org.gemoc.xdsmlframework.ide.ui.xdsml.wizards.XDSMLProjectHelper;
 
 public class CreateDSEWizardContextAction {
 

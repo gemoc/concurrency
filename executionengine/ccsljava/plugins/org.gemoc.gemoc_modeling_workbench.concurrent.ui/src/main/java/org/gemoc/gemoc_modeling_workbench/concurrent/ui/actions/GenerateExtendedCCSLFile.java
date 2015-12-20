@@ -15,7 +15,7 @@ import org.gemoc.commons.eclipse.emf.EMFResource;
 import org.gemoc.executionengine.ccsljava.api.extensions.languages.ConcurrentLanguageDefinitionExtension;
 import org.gemoc.executionengine.ccsljava.api.extensions.languages.ConcurrentLanguageDefinitionExtensionPoint;
 import org.gemoc.executionengine.ccsljava.concurrent_xdsml.ConcurrentLanguageDefinition;
-import org.gemoc.gemoc_language_workbench.api.extensions.languages.LanguageDefinitionExtension;
+import org.gemoc.xdsmlframework.api.extensions.languages.LanguageDefinitionExtension;
 
 public class GenerateExtendedCCSLFile extends GenerateExtendedCCSLFileAction {
 

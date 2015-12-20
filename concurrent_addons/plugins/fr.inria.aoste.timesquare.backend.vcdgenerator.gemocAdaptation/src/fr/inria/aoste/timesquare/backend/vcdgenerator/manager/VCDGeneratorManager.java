@@ -12,12 +12,13 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Display;
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.LogicalStep;
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
+import org.gemoc.execution.ccsljava.concurrent_mse.FeedbackMSE;
+import org.gemoc.execution.engine.mse.engine_mse.LogicalStep;
+import org.gemoc.execution.engine.mse.engine_mse.MSEOccurrence;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
 import org.gemoc.executionengine.ccsljava.api.moc.ISolver;
-import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
-import org.gemoc.gemoc_language_workbench.api.engine_addon.DefaultEngineAddon;
+import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
+import org.gemoc.xdsmlframework.api.engine_addon.DefaultEngineAddon;
 
 import fr.inria.aoste.timesquare.backend.manager.visible.ClockEntity;
 import fr.inria.aoste.timesquare.backend.manager.visible.ConfigurationHelper;
@@ -448,20 +449,22 @@ public class VCDGeneratorManager extends DefaultEngineAddon{
 		
 		ArrayList<AbstractVCDClockBehavior> alreadyDone = new ArrayList<AbstractVCDClockBehavior>();
 		for(MSEOccurrence occ : logicalStepExecuted.getMseOccurrences()){
-			Clock c = (Clock) occ.getMse().getSolverEvent();
-			for (AbstractVCDClockBehavior b : _behaviorList){
-				if (b instanceof VCDGeneratorClockBehavior){
-					VCDGeneratorClockBehavior vb = (VCDGeneratorClockBehavior)b;
-					ConcreteEntity ce = ((GemocClockEntity)vb.getClock())._ce;
-					ModelElementReference mer = ((GemocClockEntity)vb.getClock())._mer;
-					if (ce.getName() == c.getName()){ //TODO: Fix this ugly comparison
-						alreadyDone.add(b);
-						EventOccurrence eocc = TraceFactory.eINSTANCE.createEventOccurrence();
-						eocc.setFState(FiredStateKind.TICK);
-						eocc.setReferedElement(mer);
-						TraceHelper th = new TraceHelper(eocc, vb.getClock());
-						vb.run(th);
-						vb.aPostNewStep();
+			if(occ.getMse() instanceof FeedbackMSE){
+				Clock c = (Clock) ((FeedbackMSE)occ.getMse()).getFeedbackModelSpecificEvent().getSolverEvent();
+				for (AbstractVCDClockBehavior b : _behaviorList){
+					if (b instanceof VCDGeneratorClockBehavior){
+						VCDGeneratorClockBehavior vb = (VCDGeneratorClockBehavior)b;
+						ConcreteEntity ce = ((GemocClockEntity)vb.getClock())._ce;
+						ModelElementReference mer = ((GemocClockEntity)vb.getClock())._mer;
+						if (ce.getName() == c.getName()){ //TODO: Fix this ugly comparison
+							alreadyDone.add(b);
+							EventOccurrence eocc = TraceFactory.eINSTANCE.createEventOccurrence();
+							eocc.setFState(FiredStateKind.TICK);
+							eocc.setReferedElement(mer);
+							TraceHelper th = new TraceHelper(eocc, vb.getClock());
+							vb.run(th);
+							vb.aPostNewStep();
+						}
 					}
 				}
 			}

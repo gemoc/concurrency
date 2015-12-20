@@ -4,22 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.core.runtime.CoreException;
+import org.gemoc.execution.ccsljava.concurrent_mse.FeedbackMSE;
 import org.gemoc.execution.engine.Activator;
 import org.gemoc.execution.engine.core.AbstractExecutionEngine;
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.LogicalStep;
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
+import org.gemoc.execution.engine.mse.engine_mse.MSE;
+import org.gemoc.execution.engine.mse.engine_mse.LogicalStep;
+import org.gemoc.execution.engine.mse.engine_mse.MSEOccurrence;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionContext;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
+import org.gemoc.executionengine.ccsljava.api.core.IFutureAction;
 import org.gemoc.executionengine.ccsljava.api.core.ILogicalStepDecider;
 import org.gemoc.executionengine.ccsljava.api.dsa.executors.ICodeExecutor;
 import org.gemoc.executionengine.ccsljava.api.dse.IMSEStateController;
 import org.gemoc.executionengine.ccsljava.api.moc.ISolver;
-import org.gemoc.gemoc_language_workbench.api.core.EngineStatus;
-import org.gemoc.gemoc_language_workbench.api.core.IDisposable;
-import org.gemoc.gemoc_language_workbench.api.core.IExecutionContext;
-import org.gemoc.gemoc_language_workbench.api.core.IExecutionEngine;
-import org.gemoc.gemoc_language_workbench.api.core.IFutureAction;
-import org.gemoc.gemoc_language_workbench.api.engine_addon.IEngineAddon;
+import org.gemoc.xdsmlframework.api.core.EngineStatus;
+import org.gemoc.xdsmlframework.api.core.IDisposable;
+import org.gemoc.xdsmlframework.api.core.IExecutionContext;
+import org.gemoc.xdsmlframework.api.core.IExecutionEngine;
+import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ActionModel;
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
@@ -319,7 +321,7 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine implement
 		}
 	}
 
-	private void executeAssociatedActions(ModelSpecificEvent mse)
+	private void executeAssociatedActions(MSE mse)
 	{
 		synchronized(_futureActionsLock)
 		{
@@ -338,18 +340,21 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine implement
 	
 	private void executeMSEOccurrence(MSEOccurrence mseOccurrence)
 	{
-		ModelSpecificEvent mse = mseOccurrence.getMse();
+		MSE mse = mseOccurrence.getMse();
 		if (mse.getAction() != null) 
 		{			
-			ActionModel feedbackModel = _executionContext.getFeedbackModel();
 			ArrayList<When> whenStatements = new ArrayList<When>();
-			for (When w : feedbackModel.getWhenStatements())
-			{
-				if (w.getSource() == mse)
+			// we are in a concurrent engine, the MSE should be a FeedbackMSE
+			if(mse instanceof FeedbackMSE){
+				ActionModel feedbackModel = ((IConcurrentExecutionContext)_executionContext).getFeedbackModel();
+				for (When w : feedbackModel.getWhenStatements())
 				{
-					whenStatements.add(w);
-				}
-			}	
+					if (w.getSource() == ((FeedbackMSE)mse).getFeedbackModelSpecificEvent())
+					{
+						whenStatements.add(w);
+					}
+				}	
+			}
 			OperationExecution execution = null;
 			if (whenStatements.size() == 0)
 			{

@@ -11,13 +11,13 @@ import org.gemoc.execution.engine.debug.AbstractGemocDebugger;
 import org.gemoc.execution.engine.debug.AnnotationMutableFieldExtractor;
 import org.gemoc.execution.engine.debug.IMutableFieldExtractor;
 import org.gemoc.execution.engine.debug.ui.breakpoint.GemocBreakpoint;
-import org.gemoc.execution.engine.trace.LogicalStepHelper;
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.LogicalStep;
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
+import org.gemoc.execution.engine.mse.engine_mse.LogicalStep;
+import org.gemoc.execution.engine.mse.engine_mse.MSEOccurrence;
+import org.gemoc.execution.engine.mse.engine_mse.helper.LogicalStepHelper;
 import org.gemoc.executionengine.ccsljava.concurrent_xdsml.ConcurrentLanguageDefinition;
 import org.gemoc.executionframework.xdsml_base.LanguageDefinition;
-import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
-import org.gemoc.gemoc_language_workbench.api.engine_addon.IEngineAddon;
+import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
+import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 
 import fr.obeo.dsl.debug.ide.event.IDSLDebugEventProcessor;
 
@@ -92,7 +92,7 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 					instruction);
 			logicalStepFrameCreated = true;
 		} else if (instruction instanceof MSEOccurrence) {
-			final LogicalStep logicalStep = ((MSEOccurrence) instruction).getLogicalstep();
+			final LogicalStep logicalStep = ((MSEOccurrence) instruction).getLogicalStep();
 			pushStackFrame(threadName, LogicalStepHelper.getLogicalStepName(logicalStep), logicalStep, logicalStep);
 			logicalStepFrameCreated = true;
 			pushStackFrame(threadName, instruction.toString(), instruction, instruction);
@@ -155,7 +155,7 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 								GemocBreakpoint.BREAK_ON_MSE_OCCURRENCE)))) {
 			res = true;
 		} else {
-			LogicalStep locicalStep = mseOccurrence.getLogicalstep();
+			LogicalStep locicalStep = mseOccurrence.getLogicalStep();
 			res = super.shouldBreak(locicalStep)
 					&& Boolean.valueOf((String) getBreakpointAttributes(locicalStep,
 							GemocBreakpoint.BREAK_ON_MSE_OCCURRENCE));
@@ -218,7 +218,7 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 		extractors.add(new AnnotationMutableFieldExtractor());
 		return extractors;
 	}
-	
+
 	@Override
 	protected String getBundleSymbolicName(LanguageDefinition languageDefinition) {
 		if (languageDefinition instanceof ConcurrentLanguageDefinition) {

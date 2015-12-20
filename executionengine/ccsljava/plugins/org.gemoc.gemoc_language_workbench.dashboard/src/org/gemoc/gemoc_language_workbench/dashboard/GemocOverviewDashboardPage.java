@@ -71,14 +71,6 @@ import org.gemoc.executionengine.ccsljava.concurrent_xdsml.DSAProject;
 import org.gemoc.executionengine.ccsljava.concurrent_xdsml.DSEProject;
 import org.gemoc.executionengine.ccsljava.concurrent_xdsml.MoCCProject;
 import org.gemoc.executionengine.ccsljava.concurrent_xdsml.provider.Concurrent_xdsmlItemProviderAdapterFactory;
-import org.gemoc.executionframework.ui.dialogs.SelectEMFIProjectDialog;
-import org.gemoc.executionframework.ui.dialogs.SelectODesignIProjectDialog;
-import org.gemoc.executionframework.ui.dialogs.SelectXtextIProjectDialog;
-import org.gemoc.executionframework.ui.xdsml.wizards.CreateAnimatorProjectWizardContextAction;
-import org.gemoc.executionframework.ui.xdsml.wizards.CreateAnimatorProjectWizardContextAction.CreateAnimatorProjectAction;
-import org.gemoc.executionframework.ui.xdsml.wizards.CreateDomainModelWizardContextAction;
-import org.gemoc.executionframework.ui.xdsml.wizards.CreateEditorProjectWizardContextAction;
-import org.gemoc.executionframework.ui.xdsml.wizards.CreateEditorProjectWizardContextAction.CreateEditorProjectAction;
 import org.gemoc.executionframework.xdsml_base.DomainModelProject;
 import org.gemoc.executionframework.xdsml_base.ProjectResource;
 import org.gemoc.executionframework.xdsml_base.SiriusAnimatorProject;
@@ -95,10 +87,14 @@ import org.gemoc.gemoc_language_workbench.ui.dialogs.SelectDSAIProjectDialog;
 import org.gemoc.gemoc_language_workbench.ui.dialogs.SelectDSEIProjectDialog;
 import org.gemoc.gemoc_language_workbench.ui.dialogs.SelectMoCCIProjectDialog;
 import org.gemoc.gemoc_language_workbench.ui.wizards.CreateDSEWizardContextAction;
-import org.gemoc.gemoc_language_workbench.ui.wizards.CreateDSEWizardContextAction.CreateDSEAction;
 import org.gemoc.gemoc_language_workbench.ui.wizards.CreateMOCCWizardContextAction;
-import org.gemoc.gemoc_language_workbench.ui.wizards.CreateMOCCWizardContextAction.CreateMOCCAction;
 import org.gemoc.gemoc_language_workbench.ui.wizards.contextDSA.CreateDSAWizardContextActionDSAK3;
+import org.gemoc.xdsmlframework.ide.ui.xdsml.wizards.CreateAnimatorProjectWizardContextAction;
+import org.gemoc.xdsmlframework.ide.ui.xdsml.wizards.CreateDomainModelWizardContextAction;
+import org.gemoc.xdsmlframework.ide.ui.xdsml.wizards.CreateEditorProjectWizardContextAction;
+import org.gemoc.xdsmlframework.ui.utils.dialogs.SelectEMFIProjectDialog;
+import org.gemoc.xdsmlframework.ui.utils.dialogs.SelectODesignIProjectDialog;
+import org.gemoc.xdsmlframework.ui.utils.dialogs.SelectXtextIProjectDialog;
 
 public class GemocOverviewDashboardPage extends FormPage {
 	private FormToolkit toolkit;
@@ -395,7 +391,7 @@ public class GemocOverviewDashboardPage extends FormPage {
 						CreateAnimatorProjectWizardContextAction action = new CreateAnimatorProjectWizardContextAction(
 								((GemocDashboardEditorInput)getEditorInput()).getFile().getProject(),
 								languageDefinition);
-						action.actionToExecute = CreateAnimatorProjectAction.CREATE_NEW_SIRIUS_PROJECT;
+						action.actionToExecute = CreateAnimatorProjectWizardContextAction.CreateAnimatorProjectAction.CREATE_NEW_SIRIUS_PROJECT;
 						action.execute();
 					}
 				});
@@ -556,7 +552,7 @@ public class GemocOverviewDashboardPage extends FormPage {
 						CreateEditorProjectWizardContextAction action = new CreateEditorProjectWizardContextAction(
 								((GemocDashboardEditorInput)getEditorInput()).getFile().getProject(),
 								languageDefinition);
-						action.actionToExecute = CreateEditorProjectAction.CREATE_NEW_XTEXT_PROJECT;
+						action.actionToExecute = CreateEditorProjectWizardContextAction.CreateEditorProjectAction.CREATE_NEW_XTEXT_PROJECT;
 						action.execute();
 					}
 				});
@@ -697,7 +693,7 @@ public class GemocOverviewDashboardPage extends FormPage {
 						CreateDSEWizardContextAction action = new CreateDSEWizardContextAction(
 								((GemocDashboardEditorInput)getEditorInput()).getFile().getProject(),
 								languageDefinition);
-						action.actionToExecute = CreateDSEAction.CREATE_NEW_DSE_PROJECT;
+						action.actionToExecute = CreateDSEWizardContextAction.CreateDSEAction.CREATE_NEW_DSE_PROJECT;
 						action.execute();
 					}
 				});
@@ -731,7 +727,7 @@ public class GemocOverviewDashboardPage extends FormPage {
 						CreateMOCCWizardContextAction action = new CreateMOCCWizardContextAction(
 								((GemocDashboardEditorInput)getEditorInput()).getFile().getProject(),
 								languageDefinition);
-						action.actionToExecute = CreateMOCCAction.CREATE_NEW_MOCC_PROJECT;
+						action.actionToExecute = CreateMOCCWizardContextAction.CreateMOCCAction.CREATE_NEW_MOCC_PROJECT;
 						action.execute();
 					}
 				});

@@ -87,7 +87,7 @@ public class Activator extends AbstractUIPlugin {
 		if (messaggingSystem ==  null)
 		{
 			MessagingSystemManager msm = new MessagingSystemManager();
-			messaggingSystem  = msm.createBestPlatformMessagingSystem(PLUGIN_ID, "Modeling workbench console");
+			messaggingSystem  = msm.createBestPlatformMessagingSystem(org.gemoc.execution.engine.Activator.PLUGIN_ID, "Modeling Workbench Console");
 		}
 		return messaggingSystem;
 	}

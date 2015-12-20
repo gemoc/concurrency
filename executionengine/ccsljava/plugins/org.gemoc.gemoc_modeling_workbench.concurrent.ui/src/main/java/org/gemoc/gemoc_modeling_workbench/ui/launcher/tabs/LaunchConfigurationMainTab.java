@@ -39,9 +39,9 @@ import org.gemoc.executionengine.ccsljava.api.extensions.languages.ConcurrentLan
 import org.gemoc.executionengine.ccsljava.api.extensions.languages.ConcurrentLanguageDefinitionExtensionPoint;
 import org.gemoc.executionengine.ccsljava.concurrent_xdsml.ConcurrentLanguageDefinition;
 import org.gemoc.executionengine.ccsljava.engine.ui.ConcurrentRunConfiguration;
-import org.gemoc.executionframework.ui.dialogs.SelectAIRDIFileDialog;
 import org.gemoc.gemoc_modeling_workbench.concurrent.ui.Activator;
 import org.gemoc.gemoc_modeling_workbench.ui.launcher.LauncherMessages;
+import org.gemoc.xdsmlframework.ui.utils.dialogs.SelectAIRDIFileDialog;
 
 import fr.obeo.dsl.debug.ide.launch.AbstractDSLLaunchConfigurationDelegate;
 import fr.obeo.dsl.debug.ide.sirius.ui.launch.AbstractDSLLaunchConfigurationDelegateUI;

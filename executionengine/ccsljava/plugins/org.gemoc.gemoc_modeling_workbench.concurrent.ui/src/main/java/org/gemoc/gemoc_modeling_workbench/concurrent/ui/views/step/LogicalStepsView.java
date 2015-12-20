@@ -36,23 +36,23 @@ import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IWorkbenchActionConstants;
 import org.gemoc.commons.eclipse.ui.TreeViewerHelper;
 import org.gemoc.execution.engine.core.GemocRunningEnginesRegistry;
+import org.gemoc.execution.engine.mse.engine_mse.LogicalStep;
+import org.gemoc.execution.engine.mse.engine_mse.MSE;
+import org.gemoc.execution.engine.mse.engine_mse.MSEOccurrence;
 import org.gemoc.execution.engine.trace.LogicalStepHelper;
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.LogicalStep;
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
 import org.gemoc.executionframework.ui.IMSEPresenter;
 import org.gemoc.executionframework.ui.utils.ViewUtils;
 import org.gemoc.executionframework.ui.views.engine.EngineSelectionDependentViewPart;
 import org.gemoc.executionframework.ui.views.engine.actions.StopEngineAction;
-import org.gemoc.gemoc_language_workbench.api.core.EngineStatus.RunStatus;
-import org.gemoc.gemoc_language_workbench.api.core.ExecutionMode;
-import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
 import org.gemoc.gemoc_modeling_workbench.concurrent.ui.Activator;
 import org.gemoc.gemoc_modeling_workbench.concurrent.ui.SharedIcons;
 import org.gemoc.gemoc_modeling_workbench.concurrent.ui.deciders.actions.PauseResumeEngineDeciderAction;
 import org.gemoc.gemoc_modeling_workbench.concurrent.ui.deciders.actions.SwitchDeciderAction;
+import org.gemoc.xdsmlframework.api.core.ExecutionMode;
+import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
+import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 
-import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
 
 public class LogicalStepsView extends EngineSelectionDependentViewPart implements IMSEPresenter
 {
@@ -150,7 +150,7 @@ public class LogicalStepsView extends EngineSelectionDependentViewPart implement
 
 				if (element instanceof MSEOccurrence)
 				{
-					ModelSpecificEvent mse = ((MSEOccurrence) element).getMse();
+					MSE mse = ((MSEOccurrence) element).getMse();
 					if (mse != null && _eventsToPresent.contains(EcoreUtil.getURI(mse)))
 						res = _representedEventColor;
 					else
@@ -177,7 +177,7 @@ public class LogicalStepsView extends EngineSelectionDependentViewPart implement
 			{
 				if (element instanceof MSEOccurrence)
 				{
-					ModelSpecificEvent mse = ((MSEOccurrence) element).getMse();
+					MSE mse = ((MSEOccurrence) element).getMse();
 					if (mse != null)
 						return "   " + ViewUtils.eventToString(mse);
 					else
@@ -194,7 +194,7 @@ public class LogicalStepsView extends EngineSelectionDependentViewPart implement
 
 				if (element instanceof MSEOccurrence)
 				{
-					ModelSpecificEvent mse = ((MSEOccurrence) element).getMse();
+					MSE mse = ((MSEOccurrence) element).getMse();
 					if (mse != null && _eventsToPresent.contains(EcoreUtil.getURI(mse)))
 						res = _representedEventColor;
 					else

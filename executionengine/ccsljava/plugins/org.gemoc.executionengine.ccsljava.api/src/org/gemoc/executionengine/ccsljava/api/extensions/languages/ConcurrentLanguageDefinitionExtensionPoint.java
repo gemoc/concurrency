@@ -2,7 +2,7 @@ package org.gemoc.executionengine.ccsljava.api.extensions.languages;
 
 import java.util.Collection;
 
-import org.gemoc.gemoc_language_workbench.api.extensions.ExtensionPoint;
+import org.gemoc.xdsmlframework.api.extensions.ExtensionPoint;
 
 public class ConcurrentLanguageDefinitionExtensionPoint extends ExtensionPoint<ConcurrentLanguageDefinitionExtension>
 {

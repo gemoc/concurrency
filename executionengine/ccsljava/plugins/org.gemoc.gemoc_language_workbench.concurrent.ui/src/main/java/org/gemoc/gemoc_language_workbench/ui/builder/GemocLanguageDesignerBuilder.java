@@ -29,13 +29,13 @@ import org.gemoc.executionengine.ccsljava.concurrent_xdsml.ConcurrentLanguageDef
 import org.gemoc.executionengine.ccsljava.concurrent_xdsml.DSAProject;
 import org.gemoc.executionengine.ccsljava.concurrent_xdsml.DSEProject;
 import org.gemoc.executionengine.ccsljava.concurrent_xdsml.MoCCProject;
-import org.gemoc.executionframework.language_workbench.ui.builder.pde.PluginXMLHelper;
 import org.gemoc.executionframework.xdsml_base.DomainModelProject;
 import org.gemoc.executionframework.xdsml_base.SiriusAnimatorProject;
 import org.gemoc.executionframework.xdsml_base.SiriusEditorProject;
 import org.gemoc.executionframework.xdsml_base.XTextEditorProject;
-import org.gemoc.gemoc_language_workbench.api.extensions.languages.LanguageDefinitionExtensionPoint;
 import org.gemoc.gemoc_language_workbench.ui.Activator;
+import org.gemoc.xdsmlframework.api.extensions.languages.LanguageDefinitionExtensionPoint;
+import org.gemoc.xdsmlframework.ide.ui.builder.pde.PluginXMLHelper;
 import org.jdom2.Element;
 import org.osgi.framework.BundleException;
 
@@ -188,7 +188,7 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 			updateDependenciesWithProject(manifestChanger, domainModelProject.getProjectName());
 			updateModelLoaderClass(project, domainModelProject.getModelLoaderClass());
 			if(domainModelProject.getModelLoaderClass() == null){
-				manifestChanger.addPluginDependency(org.gemoc.gemoc_language_workbench.extensions.sirius.Activator.PLUGIN_ID);
+				manifestChanger.addPluginDependency(org.gemoc.xdsmlframework.extensions.sirius.Activator.PLUGIN_ID);
 			}
 			languageRootElement = domainModelProject.getDefaultRootEObjectQualifiedName();
 		}

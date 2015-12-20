@@ -30,7 +30,7 @@ public class ModelSpecificEventContext
 
 	private void configure()
 	{
-		_mseSet = new ModelSpecificEventSet(_engine.getExecutionContext().getFeedbackModel());
+		_mseSet = new ModelSpecificEventSet(_engine.getConcurrentExecutionContext().getFeedbackModel());
 		_engine.getConcurrentExecutionContext().getConcurrentExecutionPlatform().getMSEStateControllers().add(_clockController);
 	}
 

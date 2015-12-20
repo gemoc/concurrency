@@ -8,7 +8,7 @@ import org.eclipse.core.runtime.IConfigurationElement;
 import org.gemoc.executionengine.ccsljava.api.dsa.executors.ICodeExecutor;
 import org.gemoc.executionengine.ccsljava.api.dse.IMSEStateController;
 import org.gemoc.executionengine.ccsljava.api.moc.ISolver;
-import org.gemoc.gemoc_language_workbench.api.extensions.languages.LanguageDefinitionExtension;
+import org.gemoc.xdsmlframework.api.extensions.languages.LanguageDefinitionExtension;
 
 public class ConcurrentLanguageDefinitionExtension extends LanguageDefinitionExtension {
 

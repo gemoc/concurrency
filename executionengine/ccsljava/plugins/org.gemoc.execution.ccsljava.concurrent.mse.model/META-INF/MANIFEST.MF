@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.gemoc.execution.ccsljava.concurrent.mse.model;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: INRIA
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.gemoc.execution.ccsljava.concurrent_mse,
+ org.gemoc.execution.ccsljava.concurrent_mse.impl,
+ org.gemoc.execution.ccsljava.concurrent_mse.util
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ fr.inria.aoste.timesquare.ecl.feedback.model;visibility:=reexport,
+ org.gemoc.executionframework.engine.mse.model;visibility:=reexport
+Bundle-ActivationPolicy: lazy
