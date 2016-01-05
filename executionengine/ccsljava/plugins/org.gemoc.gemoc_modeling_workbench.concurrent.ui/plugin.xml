@@ -2,7 +2,7 @@
 <?eclipse version="3.4"?>
 <plugin>
 
-   <extension
+<!--   <extension
          point="org.eclipse.ui.popupMenus">
       <objectContribution
             adaptable="true"
@@ -52,7 +52,7 @@
 	       </and>
 	    </visibility>
       </objectContribution>
-   </extension>
+   </extension> -->
    <!-- definitions of launch menu -->
    	<extension
          point="org.eclipse.debug.core.launchConfigurationTypes">
