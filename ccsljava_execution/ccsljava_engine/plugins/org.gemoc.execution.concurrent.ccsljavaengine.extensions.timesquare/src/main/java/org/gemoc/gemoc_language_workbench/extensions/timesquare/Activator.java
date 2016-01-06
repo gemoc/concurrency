@@ -15,7 +15,7 @@ public class Activator extends GemocPlugin {
 		return context;
 	}
 	
-	public static final String PLUGIN_ID = "org.gemoc.gemoc_language_workbench.extensions.timesquare"; //$NON-NLS-1$
+	public static final String PLUGIN_ID = "org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare"; //$NON-NLS-1$
 
 	// The shared instance
 	private static Activator plugin;

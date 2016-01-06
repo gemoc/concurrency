@@ -12,7 +12,7 @@ import org.osgi.framework.BundleContext;
 public class GemocDashboardActivator extends AbstractUIPlugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "org.gemoc.gemoc_language_workbench.dashboard"; //$NON-NLS-1$
+	public static final String PLUGIN_ID = "org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dashboard"; //$NON-NLS-1$
 
 	// The shared instance
 	private static GemocDashboardActivator plugin;

@@ -10,7 +10,7 @@ import fr.inria.diverse.commons.messagingsystem.api.MessagingSystem;
 public class Activator extends GemocPlugin {
 
 	// The plug-in ID
-		public static final String PLUGIN_ID = "org.gemoc.executionengine.ccsljava.engine.ui"; //$NON-NLS-1$
+		public static final String PLUGIN_ID = "org.gemoc.execution.concurrent.ccsljavaengine"; //$NON-NLS-1$
 		
 		// The shared instance
 		private static Activator plugin;
