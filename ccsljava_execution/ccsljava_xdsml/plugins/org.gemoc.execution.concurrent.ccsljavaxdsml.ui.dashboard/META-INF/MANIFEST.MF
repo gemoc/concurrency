@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Dashboard
 Bundle-SymbolicName: org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dashboard;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: org.gemoc.gemoc_language_workbench.dashboard.GemocDashboardActivator
+Bundle-Activator: org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dashboard.GemocDashboardActivator
 Bundle-Vendor: Obeo
 Require-Bundle: org.eclipse.ui.workbench,
  org.eclipse.ui,
