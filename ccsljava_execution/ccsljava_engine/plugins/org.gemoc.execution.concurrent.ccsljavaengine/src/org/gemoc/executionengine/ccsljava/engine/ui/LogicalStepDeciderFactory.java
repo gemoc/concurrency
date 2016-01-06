@@ -8,12 +8,14 @@ import org.gemoc.xdsmlframework.api.core.ExecutionMode;
 
 public class LogicalStepDeciderFactory {
 
+
+	public static final String DECIDER_SOLVER = "Solver decider";
 	public static ILogicalStepDecider createDecider(String deciderKind, ExecutionMode executionMode) throws CoreException 
 	{
 		ILogicalStepDecider decider = null;
 		if (executionMode.equals(ExecutionMode.Run))
 		{
-			DeciderSpecificationExtension extension = DeciderSpecificationExtensionPoint.findDefinition(ConcurrentRunConfiguration.DECIDER_SOLVER);
+			DeciderSpecificationExtension extension = DeciderSpecificationExtensionPoint.findDefinition(DECIDER_SOLVER);
 			decider = extension.instanciateDecider();
 		}
 		else 

@@ -13,10 +13,12 @@ Require-Bundle: org.eclipse.core.runtime,
  com.google.guava;bundle-version="15.0.0",
  org.eclipse.emf.compare,
  org.eclipse.emf.compare.rcp,
- org.gemoc.execution.concurrent.ccsljavaengine.ui.api,
  fr.inria.aoste.trace,
  org.gemoc.execution.concurrent.ccsljavaxdsml.mse.model;bundle-version="0.1.0",
- fr.inria.diverse.trace.gemoc.api
+ fr.inria.diverse.trace.gemoc.api,
+ org.eclipse.debug.core,
+ org.gemoc.commons.eclipse,
+ fr.inria.diverse.commons.eclipse.messagingsystem.api
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: org.gemoc.executionengine.ccsljava.engine,
@@ -24,4 +26,5 @@ Export-Package: org.gemoc.executionengine.ccsljava.engine,
  org.gemoc.executionengine.ccsljava.engine.deciders,
  org.gemoc.executionengine.ccsljava.engine.dsa.executors,
  org.gemoc.executionengine.ccsljava.engine.dse,
- org.gemoc.executionengine.ccsljava.engine.eventscheduling.trace
+ org.gemoc.executionengine.ccsljava.engine.eventscheduling.trace,
+ org.gemoc.executionengine.ccsljava.engine.ui

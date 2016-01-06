@@ -56,11 +56,11 @@ public class CodeExecutorDispatcher implements ICodeExecutor
 			} catch (CodeExecutionException e) 
 			{
 				if (e.isCodeExecutionApplicable()){
-					org.gemoc.executionengine.ccsljava.engine.ui.Activator.getDefault().error( "Code executor("+count+"/"+_executors.size()+") "+executor.getExcutorID()+" wasn't able to process the request. "+e.getMessage(), e);
+					org.gemoc.executionengine.ccsljava.engine.Activator.getDefault().error( "Code executor("+count+"/"+_executors.size()+") "+executor.getExcutorID()+" wasn't able to process the request. "+e.getMessage(), e);
 					//org.gemoc.execution.engine.commons.Activator.getDefault().error("", e);
 					throw new CodeExecutionException("An applicable code executor was found but failed due to "+e.getMessage(), mseOccurrence);
 				}else{
-					org.gemoc.executionengine.ccsljava.engine.ui.Activator.getDefault().debug( "Code executor("+count+"/"+_executors.size()+") "+executor.getExcutorID()+" wasn't able to process the request. "+e.getMessage());
+					org.gemoc.executionengine.ccsljava.engine.Activator.getDefault().debug( "Code executor("+count+"/"+_executors.size()+") "+executor.getExcutorID()+" wasn't able to process the request. "+e.getMessage());
 				}
 			}
 		}
