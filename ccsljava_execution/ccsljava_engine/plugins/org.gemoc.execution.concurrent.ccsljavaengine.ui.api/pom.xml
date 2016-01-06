@@ -9,6 +9,7 @@
     <version>0.1.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>org.gemoc.gemoc_modeling_workbench.concurrent.ui</artifactId>
+  <artifactId>org.gemoc.execution.concurrent.ccsljavaengine.ui</artifactId>
   <packaging>eclipse-plugin</packaging>
+  <version>0.1.0-SNAPSHOT</version>
 </project>
