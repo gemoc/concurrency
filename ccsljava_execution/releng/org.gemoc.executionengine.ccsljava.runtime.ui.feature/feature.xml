@@ -29,7 +29,7 @@
          unpack="false"/>
 
    <plugin
-         id="org.gemoc.executionengine.ccsljava.engine.ui"
+         id="org.gemoc.execution.concurrent.ccsljavaengine.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"

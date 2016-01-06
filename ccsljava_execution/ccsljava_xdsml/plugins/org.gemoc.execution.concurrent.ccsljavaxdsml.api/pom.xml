@@ -9,7 +9,7 @@
     <version>0.1.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>org.gemoc.executionengine.ccsljava.api</artifactId>
+  <artifactId>org.gemoc.execution.concurrent.ccsljavaxdsml.api</artifactId>
   <packaging>eclipse-plugin</packaging>
   <version>1.0.0-SNAPSHOT</version>
 </project>

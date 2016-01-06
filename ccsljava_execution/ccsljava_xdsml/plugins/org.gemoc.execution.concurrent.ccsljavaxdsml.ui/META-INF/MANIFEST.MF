@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Gemoc Language Workbench UI
-Bundle-SymbolicName: org.gemoc.gemoc_language_workbench.concurrent.ui;singleton:=true
+Bundle-SymbolicName: org.gemoc.execution.concurrent.ccsljavaxdsml.ui;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.gemoc.gemoc_language_workbench.ui.Activator
 Bundle-Vendor: INRIA
@@ -10,11 +10,11 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.resources,
  org.eclipse.ui.ide,
  org.eclipse.core.expressions;bundle-version="3.4.400",
- org.gemoc.executionengine.ccsljava.concurrent_xdsml.model;bundle-version="0.1.0",
+ org.gemoc.execution.concurrent.ccsljavaxdsml.model;bundle-version="0.1.0",
  org.eclipse.emf.ecore.xmi;bundle-version="2.8.1",
  org.eclipse.emf.importer.ecore;bundle-version="2.6.0",
  org.eclipse.emf.codegen.ecore.ui;bundle-version="2.8.0",
- org.gemoc.gemoc_language_workbench.utils;bundle-version="0.1.0",
+ org.gemoc.execution.concurrent.ccsljavaxdsml.utils;bundle-version="0.1.0",
  org.eclipse.jdt.core,
  org.eclipse.pde.ui,
  fr.inria.aoste.timesquare.ecl.ecltoqvto;bundle-version="1.0.0",
@@ -29,14 +29,14 @@ Require-Bundle: org.eclipse.ui,
  org.gemoc.commons.eclipse.pde,
  org.gemoc.commons.eclipse.jdt,
  org.gemoc.commons.eclipse.ui,
- org.gemoc.gemoc_language_workbench.extensions.k3;bundle-version="0.1.0",
+ org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3;bundle-version="0.1.0",
  org.gemoc.xdsmlframework.extensions.sirius;bundle-version="0.1.0",
- org.gemoc.gemoc_language_workbench.extensions.timesquare;bundle-version="0.1.0",
+ org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare;bundle-version="0.1.0",
  org.eclipse.emf.ecoretools.design,
  org.eclipse.emf.ecore.editor,
  org.eclipse.sirius.editor,
  org.eclipse.ui.navigator,
- org.gemoc.executionengine.ccsljava.api,
+ org.gemoc.execution.concurrent.ccsljavaxdsml.api,
  org.gemoc.xdsmlframework.ide.ui;bundle-version="0.1.0",
  org.gemoc.xdsmlframework.ui.utils
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

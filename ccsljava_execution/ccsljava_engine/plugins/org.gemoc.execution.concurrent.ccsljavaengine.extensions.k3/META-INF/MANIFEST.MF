@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Gemoc extension for K3
-Bundle-SymbolicName: org.gemoc.gemoc_language_workbench.extensions.k3
+Bundle-SymbolicName: org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.gemoc.gemoc_language_workbench.extensions.k3.Activator
 Require-Bundle: org.eclipse.core.runtime,
@@ -12,14 +12,14 @@ Require-Bundle: org.eclipse.core.runtime,
  org.gemoc.executionframework.reflectivetrace.model,
  org.eclipse.core.resources,
  org.gemoc.commons.eclipse,
- org.gemoc.executionengine.ccsljava.concurrent_xdsml.model,
+ org.gemoc.execution.concurrent.ccsljavaxdsml.model,
  org.eclipse.emf.transaction;bundle-version="1.8.0",
- org.gemoc.executionengine.ccsljava.engine.ui;bundle-version="0.1.0",
+ org.gemoc.execution.concurrent.ccsljavaengine.ui;bundle-version="0.1.0",
  fr.inria.diverse.k3.al.annotationprocessor.plugin,
  org.gemoc.executionframework.engine,
  org.eclipse.jdt.core;bundle-version="3.10.0",
  fr.inria.diverse.commons.provisionner4eclipse;bundle-version="1.0.0",
- org.gemoc.executionengine.ccsljava.api,
+ org.gemoc.execution.concurrent.ccsljavaxdsml.api,
  org.gemoc.executionframework.engine.mse.model
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

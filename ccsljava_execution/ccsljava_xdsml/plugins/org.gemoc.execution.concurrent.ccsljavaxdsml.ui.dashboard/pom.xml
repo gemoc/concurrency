@@ -9,7 +9,7 @@
     <version>0.1.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>org.gemoc.gemoc_language_workbench.dashboard</artifactId>
+  <artifactId>org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dashboard</artifactId>
   <packaging>eclipse-plugin</packaging>
   <version>1.0.0-SNAPSHOT</version>
 </project>

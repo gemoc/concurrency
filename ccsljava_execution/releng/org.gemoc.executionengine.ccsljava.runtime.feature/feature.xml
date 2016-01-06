@@ -18,49 +18,49 @@
    </license>
 
    <plugin
-         id="org.gemoc.gemoc_language_workbench.extensions.k3"
+         id="org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.gemoc.gemoc_language_workbench.extensions.timesquare"
+         id="org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.gemoc.gemoc_language_workbench.utils"
+         id="org.gemoc.execution.concurrent.ccsljavaxdsml.utils"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.gemoc.executionengine.ccsljava.api"
+         id="org.gemoc.execution.concurrent.ccsljavaxdsml.api"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.gemoc.executionengine.ccsljava.engine"
+         id="org.gemoc.execution.concurrent.ccsljavaengine"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.gemoc.executionengine.ccsljava.stimuli_scenario.model"
+         id="org.gemoc.execution.concurrent.ccsljavaengine.stimuli_scenario.model"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.gemoc.executionengine.ccsljava.concurrent_xdsml.model"
+         id="org.gemoc.execution.concurrent.ccsljavaxdsml.model"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -74,7 +74,7 @@
          unpack="false"/>
 
    <plugin
-         id="org.gemoc.execution.ccsljava.concurrent.mse.model"
+         id="org.gemoc.execution.concurrent.ccsljavaxdsml.mse.model"
          download-size="0"
          install-size="0"
          version="0.0.0"

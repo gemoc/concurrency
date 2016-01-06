@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Api
-Bundle-SymbolicName: org.gemoc.executionengine.ccsljava.api;singleton:=true
+Bundle-SymbolicName: org.gemoc.execution.concurrent.ccsljavaxdsml.api;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.eclipse.core.runtime,

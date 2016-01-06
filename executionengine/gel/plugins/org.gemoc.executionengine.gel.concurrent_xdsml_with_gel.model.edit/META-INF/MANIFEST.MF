@@ -12,8 +12,8 @@ Export-Package: org.gemoc.executionengine.gel.concurrent_xdsml_with_gel.provider
 Require-Bundle: org.eclipse.core.runtime,
  org.gemoc.executionengine.gel.concurrent_xdsml_with_gel.model;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport,
- org.gemoc.executionengine.ccsljava.concurrent_xdsml.model;visibility:=reexport,
- org.gemoc.executionengine.ccsljava.concurrent_xdsml.model.edit;visibility:=reexport,
+ org.gemoc.execution.concurrent.ccsljavaxdsml.model;visibility:=reexport,
+ org.gemoc.execution.concurrent.ccsljavaxdsml.model.edit;visibility:=reexport,
  org.gemoc.xdsmlframework.xdsml.model;visibility:=reexport,
  org.gemoc.xdsmlframework.xdsml.model.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy

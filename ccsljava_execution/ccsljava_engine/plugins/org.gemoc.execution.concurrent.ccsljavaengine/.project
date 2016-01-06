@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>org.gemoc.executionengine.ccsljava.engine</name>
+	<name>org.gemoc.execution.concurrent.ccsljavaengine</name>
 	<comment></comment>
 	<projects>
 	</projects>
