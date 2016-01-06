@@ -1,4 +1,4 @@
-package org.gemoc.executionengine.ccsljava.engine.dsa.executors;
+package org.gemoc.execution.concurrent.ccsljavaengine.dsa.executors;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,11 +56,11 @@ public class CodeExecutorDispatcher implements ICodeExecutor
 			} catch (CodeExecutionException e) 
 			{
 				if (e.isCodeExecutionApplicable()){
-					org.gemoc.executionengine.ccsljava.engine.Activator.getDefault().error( "Code executor("+count+"/"+_executors.size()+") "+executor.getExcutorID()+" wasn't able to process the request. "+e.getMessage(), e);
+					org.gemoc.execution.concurrent.ccsljavaengine.Activator.getDefault().error( "Code executor("+count+"/"+_executors.size()+") "+executor.getExcutorID()+" wasn't able to process the request. "+e.getMessage(), e);
 					//org.gemoc.execution.engine.commons.Activator.getDefault().error("", e);
 					throw new CodeExecutionException("An applicable code executor was found but failed due to "+e.getMessage(), mseOccurrence);
 				}else{
-					org.gemoc.executionengine.ccsljava.engine.Activator.getDefault().debug( "Code executor("+count+"/"+_executors.size()+") "+executor.getExcutorID()+" wasn't able to process the request. "+e.getMessage());
+					org.gemoc.execution.concurrent.ccsljavaengine.Activator.getDefault().debug( "Code executor("+count+"/"+_executors.size()+") "+executor.getExcutorID()+" wasn't able to process the request. "+e.getMessage());
 				}
 			}
 		}

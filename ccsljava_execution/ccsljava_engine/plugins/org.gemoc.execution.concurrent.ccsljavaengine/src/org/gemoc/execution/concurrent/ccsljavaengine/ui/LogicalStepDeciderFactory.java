@@ -1,4 +1,4 @@
-package org.gemoc.executionengine.ccsljava.engine.ui;
+package org.gemoc.execution.concurrent.ccsljavaengine.ui;
 
 import org.eclipse.core.runtime.CoreException;
 import org.gemoc.executionengine.ccsljava.api.core.ILogicalStepDecider;

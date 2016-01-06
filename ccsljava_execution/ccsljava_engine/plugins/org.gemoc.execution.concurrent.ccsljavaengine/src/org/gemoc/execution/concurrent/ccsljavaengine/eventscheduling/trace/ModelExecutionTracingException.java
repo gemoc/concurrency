@@ -1,4 +1,4 @@
-package org.gemoc.executionengine.ccsljava.engine.eventscheduling.trace;
+package org.gemoc.execution.concurrent.ccsljavaengine.eventscheduling.trace;
 
 
 public class ModelExecutionTracingException extends Exception 

@@ -3,8 +3,8 @@ package org.gemoc.gemoc_modeling_workbench.concurrent.ui.views.stimulimanager;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import org.gemoc.execution.concurrent.ccsljavaengine.dse.DefaultMSEStateController;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
-import org.gemoc.executionengine.ccsljava.engine.dse.DefaultMSEStateController;
 import org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.Future;
 import org.gemoc.gemoc_modeling_workbench.concurrent.ui.views.stimulimanager.scenario.ScenarioManager;
 

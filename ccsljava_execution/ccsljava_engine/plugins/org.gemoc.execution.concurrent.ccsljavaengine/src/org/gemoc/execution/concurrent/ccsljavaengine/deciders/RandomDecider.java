@@ -1,4 +1,4 @@
-package org.gemoc.executionengine.ccsljava.engine.deciders;
+package org.gemoc.execution.concurrent.ccsljavaengine.deciders;
 
 import java.util.List;
 import java.util.Random;

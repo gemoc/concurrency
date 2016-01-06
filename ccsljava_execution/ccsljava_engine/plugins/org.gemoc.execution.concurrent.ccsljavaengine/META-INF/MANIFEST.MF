@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: CCSLJava Engine
 Bundle-SymbolicName: org.gemoc.execution.concurrent.ccsljavaengine;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: org.gemoc.executionengine.ccsljava.engine.Activator
+Bundle-Activator: org.gemoc.execution.concurrent.ccsljavaengine.Activator
 Require-Bundle: org.eclipse.core.runtime,
  org.gemoc.execution.concurrent.ccsljavaxdsml.api;bundle-version="1.0.0",
  org.gemoc.executionframework.engine;bundle-version="0.1.0",
@@ -21,10 +21,10 @@ Require-Bundle: org.eclipse.core.runtime,
  fr.inria.diverse.commons.eclipse.messagingsystem.api
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
-Export-Package: org.gemoc.executionengine.ccsljava.engine,
- org.gemoc.executionengine.ccsljava.engine.commons,
- org.gemoc.executionengine.ccsljava.engine.deciders,
- org.gemoc.executionengine.ccsljava.engine.dsa.executors,
- org.gemoc.executionengine.ccsljava.engine.dse,
- org.gemoc.executionengine.ccsljava.engine.eventscheduling.trace,
- org.gemoc.executionengine.ccsljava.engine.ui
+Export-Package: org.gemoc.execution.concurrent.ccsljavaengine,
+ org.gemoc.execution.concurrent.ccsljavaengine.commons,
+ org.gemoc.execution.concurrent.ccsljavaengine.deciders,
+ org.gemoc.execution.concurrent.ccsljavaengine.dsa.executors,
+ org.gemoc.execution.concurrent.ccsljavaengine.dse,
+ org.gemoc.execution.concurrent.ccsljavaengine.eventscheduling.trace,
+ org.gemoc.execution.concurrent.ccsljavaengine.ui

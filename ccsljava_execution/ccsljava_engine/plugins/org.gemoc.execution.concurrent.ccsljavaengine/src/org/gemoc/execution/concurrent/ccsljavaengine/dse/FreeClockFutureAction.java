@@ -1,4 +1,4 @@
-package org.gemoc.executionengine.ccsljava.engine.dse;
+package org.gemoc.execution.concurrent.ccsljavaengine.dse;
 
 import org.gemoc.executionengine.ccsljava.api.core.IFutureAction;
 import org.gemoc.executionengine.ccsljava.api.dse.IMSEStateController;

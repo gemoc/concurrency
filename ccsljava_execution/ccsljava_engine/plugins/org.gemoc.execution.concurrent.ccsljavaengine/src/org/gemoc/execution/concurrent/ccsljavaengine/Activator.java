@@ -1,4 +1,4 @@
-package org.gemoc.executionengine.ccsljava.engine;
+package org.gemoc.execution.concurrent.ccsljavaengine;
 
 import org.osgi.framework.BundleContext;
 import org.gemoc.commons.eclipse.logging.backends.DefaultLoggingBackend;

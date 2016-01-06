@@ -1,4 +1,4 @@
-package org.gemoc.executionengine.ccsljava.engine.commons;
+package org.gemoc.execution.concurrent.ccsljavaengine.commons;
 
 import java.util.Collection;
 
