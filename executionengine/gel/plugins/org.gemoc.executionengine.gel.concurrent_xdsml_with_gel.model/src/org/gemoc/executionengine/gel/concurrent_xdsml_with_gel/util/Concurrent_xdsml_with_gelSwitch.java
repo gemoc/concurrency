@@ -4,13 +4,9 @@ package org.gemoc.executionengine.gel.concurrent_xdsml_with_gel.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
-import org.gemoc.executionengine.ccsljava.concurrent_xdsml.ConcurrentLanguageDefinition;
-
+import org.gemoc.execution.concurrent.ccsljavaxdsml.concurrent_xdsml.ConcurrentLanguageDefinition;
 import org.gemoc.executionengine.gel.concurrent_xdsml_with_gel.*;
-
 import org.gemoc.executionframework.xdsml_base.LanguageDefinition;
 import org.gemoc.executionframework.xdsml_base.ProjectResource;
 

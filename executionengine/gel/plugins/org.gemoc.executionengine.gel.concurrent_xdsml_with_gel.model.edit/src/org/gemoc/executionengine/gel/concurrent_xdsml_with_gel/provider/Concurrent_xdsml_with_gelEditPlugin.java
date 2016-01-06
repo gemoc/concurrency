@@ -3,11 +3,8 @@
 package org.gemoc.executionengine.gel.concurrent_xdsml_with_gel.provider;
 
 import org.eclipse.emf.common.EMFPlugin;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.gemoc.executionengine.ccsljava.concurrent_xdsml.provider.Concurrent_xdsmlEditPlugin;
-
+import org.gemoc.execution.concurrent.ccsljavaxdsml.concurrent_xdsml.provider.Concurrent_xdsmlEditPlugin;
 import org.gemoc.executionframework.xdsml_base.provider.Xdsml_baseEditPlugin;
 
 /**

@@ -5,11 +5,11 @@ Bundle-SymbolicName: org.gemoc.execution.concurrent.ccsljavaxdsml.model.editor;s
 Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .,
  swing2swt.jar
-Bundle-Activator: org.gemoc.executionengine.ccsljava.concurrent_xdsml.presentation.Concurrent_xdsmlEditorPlugin$Implementation
+Bundle-Activator: org.gemoc.execution.concurrent.ccsljavaxdsml.concurrent_xdsml.presentation.Concurrent_xdsmlEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: org.gemoc.executionengine.ccsljava.concurrent_xdsml.presentation
+Export-Package: org.gemoc.execution.concurrent.ccsljavaxdsml.concurrent_xdsml.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
  org.gemoc.execution.concurrent.ccsljavaxdsml.model.edit;visibility:=reexport,

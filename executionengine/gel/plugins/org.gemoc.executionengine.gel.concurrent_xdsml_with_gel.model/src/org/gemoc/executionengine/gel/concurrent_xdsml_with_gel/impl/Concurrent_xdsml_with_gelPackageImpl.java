@@ -5,16 +5,12 @@ package org.gemoc.executionengine.gel.concurrent_xdsml_with_gel.impl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
-import org.gemoc.executionengine.ccsljava.concurrent_xdsml.Concurrent_xdsmlPackage;
-
+import org.gemoc.execution.concurrent.ccsljavaxdsml.concurrent_xdsml.Concurrent_xdsmlPackage;
 import org.gemoc.executionengine.gel.concurrent_xdsml_with_gel.ConcurrentLanguageWithGelDefinition;
 import org.gemoc.executionengine.gel.concurrent_xdsml_with_gel.Concurrent_xdsml_with_gelFactory;
 import org.gemoc.executionengine.gel.concurrent_xdsml_with_gel.Concurrent_xdsml_with_gelPackage;
 import org.gemoc.executionengine.gel.concurrent_xdsml_with_gel.GelProject;
-
 import org.gemoc.executionframework.xdsml_base.Xdsml_basePackage;
 
 /**

@@ -3,9 +3,7 @@
 package org.gemoc.executionengine.gel.concurrent_xdsml_with_gel.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.gemoc.executionengine.ccsljava.concurrent_xdsml.impl.ConcurrentLanguageDefinitionImpl;
-
+import org.gemoc.execution.concurrent.ccsljavaxdsml.concurrent_xdsml.impl.ConcurrentLanguageDefinitionImpl;
 import org.gemoc.executionengine.gel.concurrent_xdsml_with_gel.ConcurrentLanguageWithGelDefinition;
 import org.gemoc.executionengine.gel.concurrent_xdsml_with_gel.Concurrent_xdsml_with_gelPackage;
 

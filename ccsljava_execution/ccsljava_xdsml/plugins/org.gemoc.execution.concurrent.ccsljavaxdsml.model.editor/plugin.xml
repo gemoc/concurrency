@@ -26,7 +26,7 @@
       <wizard
             id="org.gemoc.executionengine.ccsljava.concurrent_xdsml.presentation.Concurrent_xdsmlModelWizardID"
             name="%_UI_Concurrent_xdsmlModelWizard_label"
-            class="org.gemoc.executionengine.ccsljava.concurrent_xdsml.presentation.Concurrent_xdsmlModelWizard"
+            class="org.gemoc.execution.concurrent.ccsljavaxdsml.concurrent_xdsml.presentation.Concurrent_xdsmlModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/Concurrent_xdsmlModelFile.gif">
          <description>%_UI_Concurrent_xdsmlModelWizard_description</description>
@@ -41,8 +41,8 @@
             name="%_UI_Concurrent_xdsmlEditor_label"
             icon="icons/full/obj16/Concurrent_xdsmlModelFile.gif"
             extensions="xdsml"
-            class="org.gemoc.executionengine.ccsljava.concurrent_xdsml.presentation.Concurrent_xdsmlEditor"
-            contributorClass="org.gemoc.executionengine.ccsljava.concurrent_xdsml.presentation.Concurrent_xdsmlActionBarContributor">
+            class="org.gemoc.execution.concurrent.ccsljavaxdsml.concurrent_xdsml.presentation.Concurrent_xdsmlEditor"
+            contributorClass="org.gemoc.execution.concurrent.ccsljavaxdsml.concurrent_xdsml.presentation.Concurrent_xdsmlActionBarContributor">
       </editor>
    </extension>
 </plugin>

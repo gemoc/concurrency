@@ -6,7 +6,7 @@
       <!-- @generated concurrent_xdsml -->
       <package
             uri="http://www.gemoc.org/concurrent_xdsml"
-            class="org.gemoc.executionengine.ccsljava.concurrent_xdsml.Concurrent_xdsmlPackage"
+            class="org.gemoc.execution.concurrent.ccsljavaxdsml.concurrent_xdsml.Concurrent_xdsmlPackage"
             genModel="model/concurrent_xdsml.genmodel"/>
    </extension>
 

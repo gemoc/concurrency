@@ -2,7 +2,7 @@
  */
 package org.gemoc.executionengine.gel.concurrent_xdsml_with_gel;
 
-import org.gemoc.executionengine.ccsljava.concurrent_xdsml.ConcurrentLanguageDefinition;
+import org.gemoc.execution.concurrent.ccsljavaxdsml.concurrent_xdsml.ConcurrentLanguageDefinition;
 
 /**
  * <!-- begin-user-doc -->
