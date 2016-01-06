@@ -149,7 +149,7 @@
       </shortcut>
    </extension>
 
- <extension
+<!-- <extension
        point="org.eclipse.ui.newWizards">
     <category
           id="org.gemoc.gemoc_modeling_workbench.ui.category"
@@ -163,7 +163,7 @@
           name="GEMOC Concurrent Modeling Project"
           project="true">
     </wizard>
- </extension>
+ </extension>-->
    <extension
          point="org.eclipse.sirius.externalJavaAction">
       <javaActions
