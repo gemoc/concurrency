@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Gemoc Concurrent Executable Modeling Workbench UI
 Bundle-SymbolicName: org.gemoc.execution.concurrent.ccsljavaengine.ui;singleton:=true
 Bundle-Version: 0.1.0.qualifier
-Bundle-Activator: org.gemoc.gemoc_modeling_workbench.concurrent.ui.Activator
+Bundle-Activator: org.gemoc.execution.concurrent.ccsljavaengine.ui.Activator
 Bundle-Vendor: INRIA
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
@@ -49,20 +49,19 @@ Require-Bundle: org.eclipse.ui,
  org.gemoc.xdsmlframework.ui.utils
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
-Export-Package: org.gemoc.executionengine.ccsljava.engine.ui,
- org.gemoc.gemoc_modeling_workbench.concurrent.ui,
- org.gemoc.gemoc_modeling_workbench.concurrent.ui.actions,
- org.gemoc.gemoc_modeling_workbench.concurrent.ui.deciders,
- org.gemoc.gemoc_modeling_workbench.concurrent.ui.deciders.actions,
- org.gemoc.gemoc_modeling_workbench.concurrent.ui.propertytesters,
- org.gemoc.gemoc_modeling_workbench.concurrent.ui.views.step,
- org.gemoc.gemoc_modeling_workbench.concurrent.ui.views.stimulimanager,
- org.gemoc.gemoc_modeling_workbench.concurrent.ui.views.stimulimanager.actions,
- org.gemoc.gemoc_modeling_workbench.concurrent.ui.views.stimulimanager.filters,
- org.gemoc.gemoc_modeling_workbench.concurrent.ui.views.stimulimanager.scenario,
- org.gemoc.gemoc_modeling_workbench.ui.commands,
- org.gemoc.gemoc_modeling_workbench.ui.debug,
- org.gemoc.gemoc_modeling_workbench.ui.debug.sirius.action,
- org.gemoc.gemoc_modeling_workbench.ui.launcher,
- org.gemoc.gemoc_modeling_workbench.ui.launcher.tabs,
- org.gemoc.gemoc_modeling_workbench.ui.wizards
+Export-Package: org.gemoc.execution.concurrent.ccsljavaengine.ui,
+ org.gemoc.execution.concurrent.ccsljavaengine.ui.actions,
+ org.gemoc.execution.concurrent.ccsljavaengine.ui.commands,
+ org.gemoc.execution.concurrent.ccsljavaengine.ui.debug,
+ org.gemoc.execution.concurrent.ccsljavaengine.ui.debug.sirius.action,
+ org.gemoc.execution.concurrent.ccsljavaengine.ui.deciders,
+ org.gemoc.execution.concurrent.ccsljavaengine.ui.deciders.actions,
+ org.gemoc.execution.concurrent.ccsljavaengine.ui.launcher,
+ org.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.tabs,
+ org.gemoc.execution.concurrent.ccsljavaengine.ui.propertytesters,
+ org.gemoc.execution.concurrent.ccsljavaengine.ui.views.step,
+ org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager,
+ org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.actions,
+ org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.filters,
+ org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.scenario,
+ org.gemoc.execution.concurrent.ccsljavaengine.ui.wizards
