@@ -14,19 +14,19 @@
     <modules>
     
         <!-- plugins -->
-        <module>ccsljava_xdsml/plugins/org.gemoc.execution.ccsljava.concurrent.mse.model</module>
-        <module>ccsljava_xdsml/plugins/org.gemoc.executionengine.ccsljava.api</module>
-        <module>ccsljava_engine/plugins/org.gemoc.executionengine.ccsljava.engine</module>
-        <module>ccsljava_engine/plugins/org.gemoc.executionengine.ccsljava.engine.ui</module>
-        <module>ccsljava_engine/plugins/org.gemoc.executionengine.ccsljava.stimuli_scenario.model</module>
-        <module>ccsljava_xdsml/plugins/org.gemoc.executionengine.ccsljava.concurrent_xdsml.model</module>
-        <module>ccsljava_xdsml/plugins/org.gemoc.executionengine.ccsljava.concurrent_xdsml.model.edit</module>
-        <module>ccsljava_xdsml/plugins/org.gemoc.executionengine.ccsljava.concurrent_xdsml.model.editor</module>
-        <module>ccsljava_xdsml/plugins/org.gemoc.gemoc_language_workbench.dashboard</module>
-        <module>ccsljava_engine/plugins/org.gemoc.gemoc_language_workbench.extensions.k3</module>
-        <module>ccsljava_engine/plugins/org.gemoc.gemoc_language_workbench.extensions.timesquare</module>
-        <module>ccsljava_xdsml/plugins/org.gemoc.gemoc_language_workbench.concurrent.ui</module>
-        <module>ccsljava_xdsml/plugins/org.gemoc.gemoc_language_workbench.utils</module>
+        <module>ccsljava_xdsml/plugins/org.gemoc.execution.concurrent.ccsljavaxdsml.mse.model</module>
+        <module>ccsljava_xdsml/plugins/org.gemoc.execution.concurrent.ccsljavaxdsml.api</module>
+        <module>ccsljava_engine/plugins/org.gemoc.execution.concurrent.ccsljavaengine</module>
+        <module>ccsljava_engine/plugins/org.gemoc.execution.concurrent.ccsljavaengine.ui</module>
+        <module>ccsljava_engine/plugins/org.gemoc.execution.concurrent.ccsljavaengine.stimuli_scenario.model</module>
+        <module>ccsljava_xdsml/plugins/org.gemoc.execution.concurrent.ccsljavaxdsml.model</module>
+        <module>ccsljava_xdsml/plugins/org.gemoc.execution.concurrent.ccsljavaxdsml.model.edit</module>
+        <module>ccsljava_xdsml/plugins/org.gemoc.execution.concurrent.ccsljavaxdsml.model.editor</module>
+        <module>ccsljava_xdsml/plugins/org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dashboard</module>
+        <module>ccsljava_engine/plugins/org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3</module>
+        <module>ccsljava_engine/plugins/org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare</module>
+        <module>ccsljava_xdsml/plugins/org.gemoc.execution.concurrent.ccsljavaxdsml.ui</module>
+        <module>ccsljava_xdsml/plugins/org.gemoc.execution.concurrent.ccsljavaxdsml.utils</module>
         <module>ccsljava_engine/plugins/org.gemoc.gemoc_modeling_workbench.concurrent.ui</module>
         
         
