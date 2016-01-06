@@ -1,4 +1,4 @@
-package org.gemoc.gemoc_language_workbench.extensions.k3;
+package org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;

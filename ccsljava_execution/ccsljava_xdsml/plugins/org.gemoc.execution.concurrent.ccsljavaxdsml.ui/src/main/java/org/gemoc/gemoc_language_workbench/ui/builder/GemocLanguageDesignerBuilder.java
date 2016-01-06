@@ -259,10 +259,10 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 					
 					
 				sbContent.append("// add K3 DSA specific executor\n");
-				sbContent.append("\t\taddExecutor(new org.gemoc.gemoc_language_workbench.extensions.k3.dsa.impl.Kermeta3AspectsCodeExecutor(this,\n");
+				sbContent.append("\t\taddExecutor(new org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.dsa.impl.Kermeta3AspectsCodeExecutor(this,\n");
 				sbContent.append("\t\t\t\""+ld.getDsaProject().getProjectName()+"\"));\n");
 				
-				sbImplementContent.append("\n\t\timplements org.gemoc.gemoc_language_workbench.extensions.k3.dsa.api.IK3DSAExecutorClassLoader ");
+				sbImplementContent.append("\n\t\timplements org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.dsa.api.IK3DSAExecutorClassLoader ");
 				
 				sbAdditionalOperations.append("@Override\n"+
 "	public Class<?> getClassForName(String className) throws ClassNotFoundException {\n"+
@@ -340,7 +340,7 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 		updateDependenciesWithProject(connection, dsaPoject.getProjectName());
 		if (dsaPoject.getCodeExecutorClass() == null || dsaPoject.getCodeExecutorClass().isEmpty()) {
 			// a k3 code executor has been generated so add the required dependency 
-			connection.addPluginDependency(org.gemoc.gemoc_language_workbench.extensions.k3.Activator.PLUGIN_ID);
+			connection.addPluginDependency(org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.Activator.PLUGIN_ID);
 		}
 	}
 	protected void updateDependenciesWithDSEProject(ManifestChanger connection, DSEProject dsePoject) throws BundleException, IOException, CoreException {
