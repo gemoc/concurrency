@@ -156,7 +156,7 @@
           name="GEMOC">
     </category>
     <wizard
-          category="org.gemoc.gemoc_language_workbench.ui"
+          category="org.gemoc.execution.concurrent.ccsljavaxdsml.ui"
           class="org.gemoc.gemoc_modeling_workbench.ui.wizards.CreateNewGemocModelingProject"
           icon="icons/IconeGemocModel-16.png"
           id="org.gemoc.gemoc_modeling_workbench.concurrent.ui.wizards.CreateNewGemocModelingProject"

@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Gemoc Language Workbench UI
 Bundle-SymbolicName: org.gemoc.execution.concurrent.ccsljavaxdsml.ui;singleton:=true
 Bundle-Version: 0.1.0.qualifier
-Bundle-Activator: org.gemoc.gemoc_language_workbench.ui.Activator
+Bundle-Activator: org.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator
 Bundle-Vendor: INRIA
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
@@ -43,11 +43,11 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.core.filesystem
 Bundle-ClassPath: .
-Export-Package: org.gemoc.gemoc_language_workbench.ui,
- org.gemoc.gemoc_language_workbench.ui.builder,
- org.gemoc.gemoc_language_workbench.ui.commands,
- org.gemoc.gemoc_language_workbench.ui.dialogs,
- org.gemoc.gemoc_language_workbench.ui.dse,
- org.gemoc.gemoc_language_workbench.ui.wizards,
- org.gemoc.gemoc_language_workbench.ui.wizards.contextDSA,
- org.gemoc.gemoc_language_workbench.ui.wizards.pages
+Export-Package: org.gemoc.execution.concurrent.ccsljavaxdsml.ui,
+ org.gemoc.execution.concurrent.ccsljavaxdsml.ui.builder,
+ org.gemoc.execution.concurrent.ccsljavaxdsml.ui.commands,
+ org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dialogs,
+ org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse,
+ org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards,
+ org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.contextDSA,
+ org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.pages
