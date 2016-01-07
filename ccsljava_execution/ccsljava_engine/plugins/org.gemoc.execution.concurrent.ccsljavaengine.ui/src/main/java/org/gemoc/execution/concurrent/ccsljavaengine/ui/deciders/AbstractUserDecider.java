@@ -13,7 +13,7 @@ import org.gemoc.execution.concurrent.ccsljavaengine.ui.SharedIcons;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.step.LogicalStepsView;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.ILogicalStepDecider;
-import org.gemoc.execution.engine.mse.engine_mse.LogicalStep;
+import org.gemoc.executionframework.engine.mse.LogicalStep;
 
 public abstract class AbstractUserDecider implements ILogicalStepDecider 
 {

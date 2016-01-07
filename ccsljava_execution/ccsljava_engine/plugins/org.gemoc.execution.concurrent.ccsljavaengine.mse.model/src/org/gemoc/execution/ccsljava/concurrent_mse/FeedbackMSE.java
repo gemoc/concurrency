@@ -6,8 +6,7 @@ import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EOperation;
-
-import org.gemoc.execution.engine.mse.engine_mse.MSE;
+import org.gemoc.executionframework.engine.mse.MSE;
 
 /**
  * <!-- begin-user-doc -->

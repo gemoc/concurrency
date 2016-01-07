@@ -4,16 +4,12 @@ package org.gemoc.execution.ccsljava.concurrent_mse.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EModelElement;
 import org.eclipse.emf.ecore.ENamedElement;
 import org.eclipse.emf.ecore.EObject;
-
 import org.gemoc.execution.ccsljava.concurrent_mse.*;
-
-import org.gemoc.execution.engine.mse.engine_mse.MSE;
+import org.gemoc.executionframework.engine.mse.MSE;
 
 /**
  * <!-- begin-user-doc -->
@@ -150,13 +146,13 @@ public class Concurrent_mseAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.gemoc.execution.engine.mse.engine_mse.MSE <em>MSE</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.gemoc.executionframework.engine.mse.MSE <em>MSE</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.gemoc.execution.engine.mse.engine_mse.MSE
+	 * @see org.gemoc.executionframework.engine.mse.MSE
 	 * @generated
 	 */
 	public Adapter createMSEAdapter() {

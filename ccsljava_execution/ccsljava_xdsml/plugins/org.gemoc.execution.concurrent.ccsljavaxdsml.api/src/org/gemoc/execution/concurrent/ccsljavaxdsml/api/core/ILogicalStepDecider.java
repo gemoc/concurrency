@@ -2,7 +2,7 @@ package org.gemoc.execution.concurrent.ccsljavaxdsml.api.core;
 
 import java.util.List;
 
-import org.gemoc.execution.engine.mse.engine_mse.LogicalStep;
+import org.gemoc.executionframework.engine.mse.LogicalStep;
 import org.gemoc.xdsmlframework.api.core.IDisposable;
 
 

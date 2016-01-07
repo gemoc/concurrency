@@ -8,7 +8,7 @@ import java.util.List;
 
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.CodeExecutionException;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
-import org.gemoc.execution.engine.mse.engine_mse.MSEOccurrence;
+import org.gemoc.executionframework.engine.mse.MSEOccurrence;
 
 public class JavaCodeExecutor implements ICodeExecutor {
 

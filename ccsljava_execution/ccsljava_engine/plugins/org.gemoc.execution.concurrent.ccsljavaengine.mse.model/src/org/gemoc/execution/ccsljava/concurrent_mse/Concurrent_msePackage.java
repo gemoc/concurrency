@@ -6,8 +6,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
-import org.gemoc.execution.engine.mse.engine_mse.Engine_msePackage;
+import org.gemoc.executionframework.engine.mse.Engine_msePackage;
 
 /**
  * <!-- begin-user-doc -->

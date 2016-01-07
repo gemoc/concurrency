@@ -9,14 +9,11 @@ import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.gemoc.execution.ccsljava.concurrent_mse.Concurrent_mseFactory;
 import org.gemoc.execution.ccsljava.concurrent_mse.Concurrent_msePackage;
 import org.gemoc.execution.ccsljava.concurrent_mse.FeedbackMSE;
-
-import org.gemoc.execution.engine.mse.engine_mse.Engine_msePackage;
+import org.gemoc.executionframework.engine.mse.Engine_msePackage;
 
 /**
  * <!-- begin-user-doc -->

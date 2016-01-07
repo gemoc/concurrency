@@ -7,7 +7,7 @@ import java.util.Map.Entry;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dse.IMSEStateController;
 import org.gemoc.execution.engine.Activator;
-import org.gemoc.execution.engine.mse.engine_mse.MSEOccurrence;
+import org.gemoc.executionframework.engine.mse.MSEOccurrence;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ActionFinishedCondition;
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ActionResultCondition;

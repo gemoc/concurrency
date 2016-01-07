@@ -1,6 +1,6 @@
 package org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors;
 
-import org.gemoc.execution.engine.mse.engine_mse.MSEOccurrence;
+import org.gemoc.executionframework.engine.mse.MSEOccurrence;
 
 
 public class CodeExecutionException extends Exception

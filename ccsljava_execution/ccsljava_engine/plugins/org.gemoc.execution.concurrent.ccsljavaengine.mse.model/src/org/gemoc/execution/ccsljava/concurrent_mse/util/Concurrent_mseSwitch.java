@@ -6,12 +6,9 @@ import org.eclipse.emf.ecore.EModelElement;
 import org.eclipse.emf.ecore.ENamedElement;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
 import org.gemoc.execution.ccsljava.concurrent_mse.*;
-
-import org.gemoc.execution.engine.mse.engine_mse.MSE;
+import org.gemoc.executionframework.engine.mse.MSE;
 
 /**
  * <!-- begin-user-doc -->

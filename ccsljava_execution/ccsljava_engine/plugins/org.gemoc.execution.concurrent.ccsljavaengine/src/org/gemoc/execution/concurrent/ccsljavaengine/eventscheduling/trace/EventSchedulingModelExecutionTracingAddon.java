@@ -30,8 +30,6 @@ import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecu
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
 import org.gemoc.execution.engine.Activator;
 import org.gemoc.execution.engine.core.CommandExecution;
-import org.gemoc.execution.engine.mse.engine_mse.LogicalStep;
-import org.gemoc.execution.engine.mse.engine_mse.MSEOccurrence;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.Branch;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.Choice;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.ContextState;
@@ -39,6 +37,8 @@ import org.gemoc.execution.engine.trace.gemoc_execution_trace.ExecutionTraceMode
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.Gemoc_execution_traceFactory;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.ModelState;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.SolverState;
+import org.gemoc.executionframework.engine.mse.LogicalStep;
+import org.gemoc.executionframework.engine.mse.MSEOccurrence;
 import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
 import org.gemoc.xdsmlframework.api.core.IExecutionContext;
 import org.gemoc.xdsmlframework.api.engine_addon.DefaultEngineAddon;

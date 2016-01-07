@@ -41,10 +41,10 @@ import org.gemoc.execution.concurrent.ccsljavaengine.ui.deciders.actions.PauseRe
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.deciders.actions.SwitchDeciderAction;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 import org.gemoc.execution.engine.core.GemocRunningEnginesRegistry;
-import org.gemoc.execution.engine.mse.engine_mse.LogicalStep;
-import org.gemoc.execution.engine.mse.engine_mse.MSE;
-import org.gemoc.execution.engine.mse.engine_mse.MSEOccurrence;
 import org.gemoc.execution.engine.trace.LogicalStepHelper;
+import org.gemoc.executionframework.engine.mse.LogicalStep;
+import org.gemoc.executionframework.engine.mse.MSE;
+import org.gemoc.executionframework.engine.mse.MSEOccurrence;
 import org.gemoc.executionframework.ui.IMSEPresenter;
 import org.gemoc.executionframework.ui.utils.ViewUtils;
 import org.gemoc.executionframework.ui.views.engine.EngineSelectionDependentViewPart;

@@ -27,11 +27,11 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.gemoc.execution.ccsljava.concurrent_mse.FeedbackMSE;
 import org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.Activator;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionContext;
-import org.gemoc.execution.engine.mse.engine_mse.Engine_mseFactory;
-import org.gemoc.execution.engine.mse.engine_mse.LogicalStep;
-import org.gemoc.execution.engine.mse.engine_mse.MSE;
-import org.gemoc.execution.engine.mse.engine_mse.MSEModel;
-import org.gemoc.execution.engine.mse.engine_mse.MSEOccurrence;
+import org.gemoc.executionframework.engine.mse.Engine_mseFactory;
+import org.gemoc.executionframework.engine.mse.LogicalStep;
+import org.gemoc.executionframework.engine.mse.MSE;
+import org.gemoc.executionframework.engine.mse.MSEModel;
+import org.gemoc.executionframework.engine.mse.MSEOccurrence;
 import org.gemoc.gemoc_language_workbench.utils.ccsl.QvtoTransformationPerformer;
 import org.gemoc.xdsmlframework.api.core.IExecutionContext;
 import org.gemoc.xdsmlframework.api.core.IExecutionWorkspace;
@@ -405,7 +405,7 @@ public class CcslSolver implements org.gemoc.execution.concurrent.ccsljavaxdsml.
 				Resource feedBackRes = rs.getResource(feedbackURI, true);
 				Resource mseRes = rs.createResource(mseModelURI);
 				mseRes.getContents().clear();
-				MSEModel mseModel = org.gemoc.execution.engine.mse.engine_mse.Engine_mseFactory.eINSTANCE.createMSEModel();		
+				MSEModel mseModel = org.gemoc.executionframework.engine.mse.Engine_mseFactory.eINSTANCE.createMSEModel();		
 				mseRes.getContents().add(mseModel);
 				ActionModel feedbackModel = (ActionModel)feedBackRes.getContents().get(0);
 				if(feedbackModel!= null){

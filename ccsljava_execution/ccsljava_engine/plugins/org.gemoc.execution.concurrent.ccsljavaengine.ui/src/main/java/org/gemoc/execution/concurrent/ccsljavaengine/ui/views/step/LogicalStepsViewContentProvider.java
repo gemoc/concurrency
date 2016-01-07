@@ -3,7 +3,7 @@ package org.gemoc.execution.concurrent.ccsljavaengine.ui.views.step;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
-import org.gemoc.execution.engine.mse.engine_mse.LogicalStep;
+import org.gemoc.executionframework.engine.mse.LogicalStep;
 import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 
 public class LogicalStepsViewContentProvider implements ITreeContentProvider {

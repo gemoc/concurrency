@@ -31,8 +31,8 @@ import org.eclipse.ui.handlers.HandlerUtil;
 
 
 
-import org.gemoc.execution.engine.mse.engine_mse.LogicalStep;
-import org.gemoc.execution.engine.mse.engine_mse.MSEOccurrence;
+import org.gemoc.executionframework.engine.mse.LogicalStep;
+import org.gemoc.executionframework.engine.mse.MSEOccurrence;
 
 import fr.obeo.dsl.debug.ide.sirius.ui.DebugSiriusIdeUiPlugin;
 import fr.obeo.dsl.debug.ide.sirius.ui.SiriusEditorUtils;

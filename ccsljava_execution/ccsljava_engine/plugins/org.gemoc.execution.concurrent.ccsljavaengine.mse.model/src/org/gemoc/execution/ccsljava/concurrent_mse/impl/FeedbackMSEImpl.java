@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.gemoc.execution.ccsljava.concurrent_mse.Concurrent_msePackage;
 import org.gemoc.execution.ccsljava.concurrent_mse.FeedbackMSE;
-import org.gemoc.execution.engine.mse.engine_mse.impl.MSEImpl;
+import org.gemoc.executionframework.engine.mse.impl.MSEImpl;
 
 /**
  * <!-- begin-user-doc -->

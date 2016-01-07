@@ -35,8 +35,8 @@ import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutio
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
 import org.gemoc.execution.engine.commons.EngineContextException;
 import org.gemoc.execution.engine.debug.AbstractGemocDebugger;
-import org.gemoc.execution.engine.mse.engine_mse.MSEOccurrence;
 import org.gemoc.execution.engine.ui.commons.RunConfiguration;
+import org.gemoc.executionframework.engine.mse.MSEOccurrence;
 import org.gemoc.executionframework.ui.views.engine.EnginesStatusView;
 import org.gemoc.gemoc_language_workbench.extensions.sirius.services.AbstractGemocAnimatorServices;
 import org.gemoc.gemoc_language_workbench.extensions.sirius.services.AbstractGemocDebuggerServices;
