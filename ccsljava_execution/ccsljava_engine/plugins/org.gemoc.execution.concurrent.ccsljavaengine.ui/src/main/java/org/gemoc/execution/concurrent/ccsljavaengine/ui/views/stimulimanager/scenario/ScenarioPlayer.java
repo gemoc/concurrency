@@ -7,15 +7,15 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.gemoc.commons.eclipse.ui.ViewHelper;
+import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.EventState;
+import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ExecutionStep;
+import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Future;
+import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Scenario;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.ClockStatus;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.ModelSpecificEventContext;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.ModelSpecificEventWrapper;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.StimuliManagerView;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
-import org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.EventState;
-import org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.ExecutionStep;
-import org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.Future;
-import org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.Scenario;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
 

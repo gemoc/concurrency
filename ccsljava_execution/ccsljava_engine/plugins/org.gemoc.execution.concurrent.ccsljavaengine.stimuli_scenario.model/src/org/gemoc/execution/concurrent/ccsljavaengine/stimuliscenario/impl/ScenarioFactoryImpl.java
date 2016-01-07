@@ -1,17 +1,14 @@
 /**
  */
-package org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.impl;
+package org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.*;
+import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.*;
 
 /**
  * <!-- begin-user-doc -->

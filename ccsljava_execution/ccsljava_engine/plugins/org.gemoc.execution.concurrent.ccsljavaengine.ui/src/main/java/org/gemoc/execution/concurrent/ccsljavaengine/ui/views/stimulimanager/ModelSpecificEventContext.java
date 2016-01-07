@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import org.gemoc.execution.concurrent.ccsljavaengine.dse.DefaultMSEStateController;
+import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Future;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.scenario.ScenarioManager;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
-import org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.Future;
 
 public class ModelSpecificEventContext 
 {

@@ -1,55 +1,50 @@
 /**
  */
-package org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.impl;
+package org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl;
 
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
-import org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.ExecutionStep;
-import org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.Fragment;
-import org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.ScenarioPackage;
+import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Reference;
+import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Scenario;
+import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ScenarioPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Fragment</b></em>'.
+ * An implementation of the model object '<em><b>Scenario</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.impl.FragmentImpl#getStepList <em>Step List</em>}</li>
+ *   <li>{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioImpl#getRefList <em>Ref List</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class FragmentImpl extends MinimalEObjectImpl.Container implements Fragment {
+public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenario {
 	/**
-	 * The cached value of the '{@link #getStepList() <em>Step List</em>}' containment reference list.
+	 * The cached value of the '{@link #getRefList() <em>Ref List</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getStepList()
+	 * @see #getRefList()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ExecutionStep> stepList;
+	protected EList<Reference> refList;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected FragmentImpl() {
+	protected ScenarioImpl() {
 		super();
 	}
 
@@ -60,7 +55,7 @@ public class FragmentImpl extends MinimalEObjectImpl.Container implements Fragme
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ScenarioPackage.Literals.FRAGMENT;
+		return ScenarioPackage.Literals.SCENARIO;
 	}
 
 	/**
@@ -68,11 +63,11 @@ public class FragmentImpl extends MinimalEObjectImpl.Container implements Fragme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ExecutionStep> getStepList() {
-		if (stepList == null) {
-			stepList = new EObjectContainmentEList<ExecutionStep>(ExecutionStep.class, this, ScenarioPackage.FRAGMENT__STEP_LIST);
+	public EList<Reference> getRefList() {
+		if (refList == null) {
+			refList = new EObjectContainmentEList<Reference>(Reference.class, this, ScenarioPackage.SCENARIO__REF_LIST);
 		}
-		return stepList;
+		return refList;
 	}
 
 	/**
@@ -83,8 +78,8 @@ public class FragmentImpl extends MinimalEObjectImpl.Container implements Fragme
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ScenarioPackage.FRAGMENT__STEP_LIST:
-				return ((InternalEList<?>)getStepList()).basicRemove(otherEnd, msgs);
+			case ScenarioPackage.SCENARIO__REF_LIST:
+				return ((InternalEList<?>)getRefList()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -97,8 +92,8 @@ public class FragmentImpl extends MinimalEObjectImpl.Container implements Fragme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ScenarioPackage.FRAGMENT__STEP_LIST:
-				return getStepList();
+			case ScenarioPackage.SCENARIO__REF_LIST:
+				return getRefList();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -112,9 +107,9 @@ public class FragmentImpl extends MinimalEObjectImpl.Container implements Fragme
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ScenarioPackage.FRAGMENT__STEP_LIST:
-				getStepList().clear();
-				getStepList().addAll((Collection<? extends ExecutionStep>)newValue);
+			case ScenarioPackage.SCENARIO__REF_LIST:
+				getRefList().clear();
+				getRefList().addAll((Collection<? extends Reference>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -128,8 +123,8 @@ public class FragmentImpl extends MinimalEObjectImpl.Container implements Fragme
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ScenarioPackage.FRAGMENT__STEP_LIST:
-				getStepList().clear();
+			case ScenarioPackage.SCENARIO__REF_LIST:
+				getRefList().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -143,10 +138,10 @@ public class FragmentImpl extends MinimalEObjectImpl.Container implements Fragme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ScenarioPackage.FRAGMENT__STEP_LIST:
-				return stepList != null && !stepList.isEmpty();
+			case ScenarioPackage.SCENARIO__REF_LIST:
+				return refList != null && !refList.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //FragmentImpl
+} //ScenarioImpl

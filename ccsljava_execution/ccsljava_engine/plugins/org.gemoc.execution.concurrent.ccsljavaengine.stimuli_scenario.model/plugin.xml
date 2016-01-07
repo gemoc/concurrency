@@ -10,7 +10,7 @@
       <!-- @generated Scenario -->
       <package
             uri="http://www.inira.fr/scenario"
-            class="org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.ScenarioPackage"
+            class="org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ScenarioPackage"
             genModel="model/Scenario.genmodel"/>
    </extension>
 

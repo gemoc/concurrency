@@ -10,7 +10,7 @@
     usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../fr.inria.aoste.timesquare.ecl.feedback.model/model/feedback.genmodel#//feedback"
     operationReflection="true" importOrganizing="true">
   <foreignModel>Scenario.ecore</foreignModel>
-  <genPackages prefix="Scenario" basePackage="org.gemoc.executionengine.ccsljava.stimuli_scenario"
+  <genPackages prefix="Stimuliscenario" basePackage="org.gemoc.execution.concurrent.ccsljavaengine"
       disposableProviderFactory="true" ecorePackage="Scenario.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="Scenario.ecore#//Future">
       <genEnumLiterals ecoreEnumLiteral="Scenario.ecore#//Future/tick"/>

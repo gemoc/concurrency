@@ -1,13 +1,11 @@
 /**
  */
-package org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.util;
+package org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
-import org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.*;
+import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,7 +17,7 @@ import org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.*;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.ScenarioPackage
+ * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ScenarioPackage
  * @generated
  */
 public class ScenarioSwitch<T> extends Switch<T> {

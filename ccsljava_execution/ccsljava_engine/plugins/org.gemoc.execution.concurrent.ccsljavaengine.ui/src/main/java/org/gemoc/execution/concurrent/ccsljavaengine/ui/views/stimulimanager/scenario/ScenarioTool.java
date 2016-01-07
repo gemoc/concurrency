@@ -4,12 +4,12 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
+import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Fragment;
+import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Scenario;
+import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ScenarioFactory;
+import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioFactoryImpl;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.ModelSpecificEventContext;
 import org.gemoc.execution.engine.core.CommandExecution;
-import org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.Fragment;
-import org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.Scenario;
-import org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.ScenarioFactory;
-import org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.impl.ScenarioFactoryImpl;
 
 public class ScenarioTool 
 {

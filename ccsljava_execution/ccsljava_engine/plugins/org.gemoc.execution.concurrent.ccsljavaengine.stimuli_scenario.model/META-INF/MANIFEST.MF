@@ -7,9 +7,9 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario,
- org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.impl,
- org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.util
+Export-Package: org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario,
+ org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl,
+ org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  fr.inria.aoste.timesquare.ecl.feedback.model;visibility:=reexport,

@@ -1,6 +1,6 @@
 /**
  */
-package org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.impl;
+package org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.FeedbackPackage;
 
@@ -9,17 +9,15 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
-import org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.EventState;
-import org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.ExecutionStep;
-import org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.Fragment;
-import org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.Future;
-import org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.Reference;
-import org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.Scenario;
-import org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.ScenarioFactory;
-import org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.ScenarioPackage;
+import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.EventState;
+import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ExecutionStep;
+import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Fragment;
+import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Future;
+import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Reference;
+import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Scenario;
+import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ScenarioFactory;
+import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ScenarioPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -81,7 +79,7 @@ public class ScenarioPackageImpl extends EPackageImpl implements ScenarioPackage
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
-	 * @see org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.ScenarioPackage#eNS_URI
+	 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ScenarioPackage#eNS_URI
 	 * @see #init()
 	 * @generated
 	 */

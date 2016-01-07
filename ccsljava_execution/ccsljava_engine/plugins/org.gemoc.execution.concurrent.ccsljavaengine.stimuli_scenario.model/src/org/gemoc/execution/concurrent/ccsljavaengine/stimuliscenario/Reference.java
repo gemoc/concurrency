@@ -1,6 +1,6 @@
 /**
  */
-package org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario;
+package org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -13,11 +13,11 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.Reference#getFragment <em>Fragment</em>}</li>
- *   <li>{@link org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.Reference#getStartStep <em>Start Step</em>}</li>
+ *   <li>{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Reference#getFragment <em>Fragment</em>}</li>
+ *   <li>{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Reference#getStartStep <em>Start Step</em>}</li>
  * </ul>
  *
- * @see org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.ScenarioPackage#getReference()
+ * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ScenarioPackage#getReference()
  * @model
  * @generated
  */
@@ -32,14 +32,14 @@ public interface Reference extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Fragment</em>' containment reference.
 	 * @see #setFragment(Fragment)
-	 * @see org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.ScenarioPackage#getReference_Fragment()
+	 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ScenarioPackage#getReference_Fragment()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	Fragment getFragment();
 
 	/**
-	 * Sets the value of the '{@link org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.Reference#getFragment <em>Fragment</em>}' containment reference.
+	 * Sets the value of the '{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Reference#getFragment <em>Fragment</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Fragment</em>' containment reference.
@@ -58,14 +58,14 @@ public interface Reference extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Start Step</em>' attribute.
 	 * @see #setStartStep(int)
-	 * @see org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.ScenarioPackage#getReference_StartStep()
+	 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ScenarioPackage#getReference_StartStep()
 	 * @model
 	 * @generated
 	 */
 	int getStartStep();
 
 	/**
-	 * Sets the value of the '{@link org.gemoc.executionengine.ccsljava.stimuli_scenario.scenario.Reference#getStartStep <em>Start Step</em>}' attribute.
+	 * Sets the value of the '{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Reference#getStartStep <em>Start Step</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Start Step</em>' attribute.
