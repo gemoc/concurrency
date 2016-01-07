@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.Concurrent_mseFactory;
 import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.Concurrent_msePackage;
 import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
-import org.gemoc.executionframework.engine.mse.Engine_msePackage;
+import org.gemoc.executionframework.engine.mse.MsePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -77,7 +77,7 @@ public class Concurrent_msePackageImpl extends EPackageImpl implements Concurren
 
 		// Initialize simple dependencies
 		FeedbackPackage.eINSTANCE.eClass();
-		Engine_msePackage.eINSTANCE.eClass();
+		MsePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theConcurrent_msePackage.createPackageContents();
@@ -188,7 +188,7 @@ public class Concurrent_msePackageImpl extends EPackageImpl implements Concurren
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		Engine_msePackage theEngine_msePackage = (Engine_msePackage)EPackage.Registry.INSTANCE.getEPackage(Engine_msePackage.eNS_URI);
+		MsePackage theMsePackage = (MsePackage)EPackage.Registry.INSTANCE.getEPackage(MsePackage.eNS_URI);
 		FeedbackPackage theFeedbackPackage = (FeedbackPackage)EPackage.Registry.INSTANCE.getEPackage(FeedbackPackage.eNS_URI);
 		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 
@@ -197,7 +197,7 @@ public class Concurrent_msePackageImpl extends EPackageImpl implements Concurren
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		feedbackMSEEClass.getESuperTypes().add(theEngine_msePackage.getMSE());
+		feedbackMSEEClass.getESuperTypes().add(theMsePackage.getMSE());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(feedbackMSEEClass, FeedbackMSE.class, "FeedbackMSE", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

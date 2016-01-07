@@ -6,7 +6,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-import org.gemoc.executionframework.engine.mse.Engine_msePackage;
+import org.gemoc.executionframework.engine.mse.MsePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -74,7 +74,7 @@ public interface Concurrent_msePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEEDBACK_MSE__EANNOTATIONS = Engine_msePackage.MSE__EANNOTATIONS;
+	int FEEDBACK_MSE__EANNOTATIONS = MsePackage.MSE__EANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -83,7 +83,7 @@ public interface Concurrent_msePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEEDBACK_MSE__NAME = Engine_msePackage.MSE__NAME;
+	int FEEDBACK_MSE__NAME = MsePackage.MSE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Feedback Model Specific Event</b></em>' reference.
@@ -92,7 +92,7 @@ public interface Concurrent_msePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEEDBACK_MSE__FEEDBACK_MODEL_SPECIFIC_EVENT = Engine_msePackage.MSE_FEATURE_COUNT + 0;
+	int FEEDBACK_MSE__FEEDBACK_MODEL_SPECIFIC_EVENT = MsePackage.MSE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Feedback MSE</em>' class.
@@ -101,7 +101,7 @@ public interface Concurrent_msePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEEDBACK_MSE_FEATURE_COUNT = Engine_msePackage.MSE_FEATURE_COUNT + 1;
+	int FEEDBACK_MSE_FEATURE_COUNT = MsePackage.MSE_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get EAnnotation</em>' operation.
@@ -110,7 +110,7 @@ public interface Concurrent_msePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEEDBACK_MSE___GET_EANNOTATION__STRING = Engine_msePackage.MSE___GET_EANNOTATION__STRING;
+	int FEEDBACK_MSE___GET_EANNOTATION__STRING = MsePackage.MSE___GET_EANNOTATION__STRING;
 
 	/**
 	 * The operation id for the '<em>Get Caller</em>' operation.
@@ -119,7 +119,7 @@ public interface Concurrent_msePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEEDBACK_MSE___GET_CALLER = Engine_msePackage.MSE_OPERATION_COUNT + 0;
+	int FEEDBACK_MSE___GET_CALLER = MsePackage.MSE_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get Action</em>' operation.
@@ -128,7 +128,7 @@ public interface Concurrent_msePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEEDBACK_MSE___GET_ACTION = Engine_msePackage.MSE_OPERATION_COUNT + 1;
+	int FEEDBACK_MSE___GET_ACTION = MsePackage.MSE_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Feedback MSE</em>' class.
@@ -137,7 +137,7 @@ public interface Concurrent_msePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEEDBACK_MSE_OPERATION_COUNT = Engine_msePackage.MSE_OPERATION_COUNT + 2;
+	int FEEDBACK_MSE_OPERATION_COUNT = MsePackage.MSE_OPERATION_COUNT + 2;
 
 
 	/**
