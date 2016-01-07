@@ -74,7 +74,7 @@
          unpack="false"/>
 
    <plugin
-         id="org.gemoc.execution.concurrent.ccsljavaxdsml.mse.model"
+         id="org.gemoc.execution.concurrent.ccsljavaengine.mse.model"
          download-size="0"
          install-size="0"
          version="0.0.0"

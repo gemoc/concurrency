@@ -16,7 +16,7 @@ Require-Bundle: org.eclipse.ui,
  org.gemoc.xdsmlframework.api;bundle-version="0.1.0",
  org.gemoc.executionframework.reflectivetrace.model,
  fr.inria.aoste.trace;bundle-version="1.0.1",
- org.gemoc.execution.concurrent.ccsljavaxdsml.mse.model,
+ org.gemoc.execution.concurrent.ccsljavaengine.mse.model,
  org.gemoc.execution.concurrent.ccsljavaxdsml.api
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
