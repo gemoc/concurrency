@@ -40,7 +40,7 @@
 
 
    <plugin
-         id="org.gemoc.executionengine.ccsljava.concurrent_xdsml.model"
+         id="org.gemoc.execution.concurrent.ccsljavaxdsml.model"
          download-size="0"
          install-size="0"
          version="0.0.0"
