@@ -1,4 +1,4 @@
-package org.gemoc.gemoc_language_workbench.utils;
+package org.gemoc.execution.concurrent.ccsljavaxdsml.utils;
 
 import org.eclipse.core.runtime.Plugin;
 import org.eclipse.core.runtime.Status;

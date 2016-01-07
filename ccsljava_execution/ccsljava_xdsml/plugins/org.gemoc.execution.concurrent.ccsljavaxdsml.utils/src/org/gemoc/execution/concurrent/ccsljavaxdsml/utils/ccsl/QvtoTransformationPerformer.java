@@ -1,4 +1,4 @@
-package org.gemoc.gemoc_language_workbench.utils.ccsl;
+package org.gemoc.execution.concurrent.ccsljavaxdsml.utils.ccsl;
 
 import java.io.IOException;
 import java.util.HashMap;
