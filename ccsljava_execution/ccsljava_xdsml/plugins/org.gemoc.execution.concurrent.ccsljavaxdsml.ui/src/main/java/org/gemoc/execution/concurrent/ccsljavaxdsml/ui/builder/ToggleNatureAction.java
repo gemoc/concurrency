@@ -151,8 +151,8 @@ public class ToggleNatureAction implements IObjectActionDelegate {
 				changer.addPluginDependency(org.gemoc.xdsmlframework.api.Activator.PLUGIN_ID, "0.1.0", true, true);
 				changer.addPluginDependency("org.eclipse.emf.ecore.xmi", "2.8.0", true, true);				
 				changer.addPluginDependency("org.gemoc.xdsmlframework.api");				
-				changer.addPluginDependency("org.gemoc.executionengine.ccsljava.api");				
-				changer.addPluginDependency("org.gemoc.executionengine.ccsljava.engine");
+				changer.addPluginDependency("org.gemoc.execution.concurrent.ccsljavaxdsml.api");				
+				changer.addPluginDependency("org.gemoc.execution.concurrent.ccsljavaengine");
 				changer.addPluginDependency("org.gemoc.executionframework.engine");
 				changer.addSingleton();
 				changer.addAttributes("Bundle-RequiredExecutionEnvironment","JavaSE-1.6");
