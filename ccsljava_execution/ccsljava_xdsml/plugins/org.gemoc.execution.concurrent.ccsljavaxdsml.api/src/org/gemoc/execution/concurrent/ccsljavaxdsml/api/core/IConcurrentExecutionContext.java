@@ -1,6 +1,6 @@
-package org.gemoc.executionengine.ccsljava.api.core;
+package org.gemoc.execution.concurrent.ccsljavaxdsml.api.core;
 
-import org.gemoc.executionengine.ccsljava.api.extensions.languages.ConcurrentLanguageDefinitionExtension;
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtension;
 import org.gemoc.xdsmlframework.api.core.IExecutionContext;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ActionModel;

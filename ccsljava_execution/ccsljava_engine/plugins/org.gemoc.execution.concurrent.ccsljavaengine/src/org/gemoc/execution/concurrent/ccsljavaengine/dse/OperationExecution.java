@@ -1,8 +1,8 @@
 package org.gemoc.execution.concurrent.ccsljavaengine.dse;
 
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionContext;
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 import org.gemoc.execution.engine.mse.engine_mse.MSEOccurrence;
-import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionContext;
-import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
 
 public abstract class OperationExecution 
 {

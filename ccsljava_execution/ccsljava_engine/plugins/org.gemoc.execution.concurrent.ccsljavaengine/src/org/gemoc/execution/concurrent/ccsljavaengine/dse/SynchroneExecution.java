@@ -6,11 +6,11 @@ import java.util.List;
 
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.CodeExecutionException;
 import org.gemoc.execution.engine.Activator;
 import org.gemoc.execution.engine.core.CommandExecution;
 import org.gemoc.execution.engine.mse.engine_mse.MSEOccurrence;
-import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
-import org.gemoc.executionengine.ccsljava.api.dsa.executors.CodeExecutionException;
 import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 
 public class SynchroneExecution extends OperationExecution 

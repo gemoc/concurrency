@@ -7,7 +7,7 @@ import org.eclipse.jface.action.ActionContributionItem;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Menu;
 import org.gemoc.commons.eclipse.ui.ViewHelper;
-import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 import org.gemoc.executionframework.ui.views.engine.EnginesStatusView;
 import org.gemoc.executionframework.ui.views.engine.actions.AbstractEngineAction;
 import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;

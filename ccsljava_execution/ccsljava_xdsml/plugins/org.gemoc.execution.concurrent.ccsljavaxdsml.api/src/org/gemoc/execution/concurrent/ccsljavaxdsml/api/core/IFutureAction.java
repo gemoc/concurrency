@@ -1,4 +1,4 @@
-package org.gemoc.executionengine.ccsljava.api.core;
+package org.gemoc.execution.concurrent.ccsljavaxdsml.api.core;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
 

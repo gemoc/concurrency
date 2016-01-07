@@ -3,9 +3,9 @@ package org.gemoc.execution.concurrent.ccsljavaengine.ui.deciders.actions;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.gemoc.executionengine.ccsljava.api.core.ILogicalStepDecider;
-import org.gemoc.executionengine.ccsljava.api.extensions.deciders.DeciderSpecificationExtension;
-import org.gemoc.executionengine.ccsljava.api.extensions.deciders.DeciderSpecificationExtensionPoint;
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.ILogicalStepDecider;
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.deciders.DeciderSpecificationExtension;
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.deciders.DeciderSpecificationExtensionPoint;
 
 public class DeciderManager {
 

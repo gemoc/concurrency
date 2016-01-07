@@ -26,12 +26,12 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.gemoc.execution.ccsljava.concurrent_mse.FeedbackMSE;
 import org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.Activator;
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionContext;
 import org.gemoc.execution.engine.mse.engine_mse.Engine_mseFactory;
 import org.gemoc.execution.engine.mse.engine_mse.LogicalStep;
 import org.gemoc.execution.engine.mse.engine_mse.MSE;
 import org.gemoc.execution.engine.mse.engine_mse.MSEModel;
 import org.gemoc.execution.engine.mse.engine_mse.MSEOccurrence;
-import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionContext;
 import org.gemoc.gemoc_language_workbench.utils.ccsl.QvtoTransformationPerformer;
 import org.gemoc.xdsmlframework.api.core.IExecutionContext;
 import org.gemoc.xdsmlframework.api.core.IExecutionWorkspace;
@@ -56,7 +56,7 @@ import fr.inria.aoste.trace.Reference;
  * Implementation of the ISolver dedicated to CCSL.
  * 
  */
-public class CcslSolver implements org.gemoc.executionengine.ccsljava.api.moc.ISolver {
+public class CcslSolver implements org.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver {
 
 	protected CCSLKernelSolverWrapper solverWrapper = null;
 	protected URI solverInputURI = null;

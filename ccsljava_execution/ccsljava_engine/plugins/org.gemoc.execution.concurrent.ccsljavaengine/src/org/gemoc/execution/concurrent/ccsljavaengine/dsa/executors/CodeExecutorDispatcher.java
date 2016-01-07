@@ -3,9 +3,9 @@ package org.gemoc.execution.concurrent.ccsljavaengine.dsa.executors;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.CodeExecutionException;
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
 import org.gemoc.execution.engine.mse.engine_mse.MSEOccurrence;
-import org.gemoc.executionengine.ccsljava.api.dsa.executors.CodeExecutionException;
-import org.gemoc.executionengine.ccsljava.api.dsa.executors.ICodeExecutor;
 
 /**
  * An aggregation of several CodeExecutors.

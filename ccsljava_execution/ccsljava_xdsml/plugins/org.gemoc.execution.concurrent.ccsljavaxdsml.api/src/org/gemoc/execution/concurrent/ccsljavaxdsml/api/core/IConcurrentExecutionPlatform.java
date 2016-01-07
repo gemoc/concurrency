@@ -1,9 +1,9 @@
-package org.gemoc.executionengine.ccsljava.api.core;
+package org.gemoc.execution.concurrent.ccsljavaxdsml.api.core;
 
 import java.util.Collection;
 
-import org.gemoc.executionengine.ccsljava.api.dsa.executors.ICodeExecutor;
-import org.gemoc.executionengine.ccsljava.api.dse.IMSEStateController;
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dse.IMSEStateController;
 import org.gemoc.xdsmlframework.api.core.IExecutionPlatform;
 
 public interface IConcurrentExecutionPlatform extends IExecutionPlatform

@@ -15,7 +15,7 @@ import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.Clo
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.ModelSpecificEventContext;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.ModelSpecificEventWrapper;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.StimuliManagerView;
-import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
 

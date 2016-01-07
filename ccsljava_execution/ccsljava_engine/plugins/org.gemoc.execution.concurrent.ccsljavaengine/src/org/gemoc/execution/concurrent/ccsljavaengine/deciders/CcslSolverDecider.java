@@ -2,9 +2,9 @@ package org.gemoc.execution.concurrent.ccsljavaengine.deciders;
 
 import java.util.List;
 
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.ILogicalStepDecider;
 import org.gemoc.execution.engine.mse.engine_mse.LogicalStep;
-import org.gemoc.executionengine.ccsljava.api.core.ILogicalStepDecider;
-import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
 
 /**
  * Decider that will delegate its choice to the solver

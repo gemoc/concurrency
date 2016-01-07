@@ -15,9 +15,9 @@ import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
 import org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.Activator;
 import org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.dsa.api.IK3DSAExecutorClassLoader;
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.CodeExecutionException;
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
 import org.gemoc.execution.engine.mse.engine_mse.MSEOccurrence;
-import org.gemoc.executionengine.ccsljava.api.dsa.executors.CodeExecutionException;
-import org.gemoc.executionengine.ccsljava.api.dsa.executors.ICodeExecutor;
 
 /**
  * Executor that is able to find the helper class associated with a given object

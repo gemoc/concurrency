@@ -3,11 +3,11 @@ package org.gemoc.execution.concurrent.ccsljavaengine.commons;
 import java.util.Collection;
 
 import org.eclipse.core.runtime.CoreException;
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionPlatform;
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dse.IMSEStateController;
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtension;
 import org.gemoc.execution.engine.commons.DefaultExecutionPlatform;
-import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionPlatform;
-import org.gemoc.executionengine.ccsljava.api.dsa.executors.ICodeExecutor;
-import org.gemoc.executionengine.ccsljava.api.dse.IMSEStateController;
-import org.gemoc.executionengine.ccsljava.api.extensions.languages.ConcurrentLanguageDefinitionExtension;
 import org.gemoc.xdsmlframework.api.core.IRunConfiguration;
 import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 import org.gemoc.xdsmlframework.api.extensions.engine_addon.EngineAddonSpecificationExtension;

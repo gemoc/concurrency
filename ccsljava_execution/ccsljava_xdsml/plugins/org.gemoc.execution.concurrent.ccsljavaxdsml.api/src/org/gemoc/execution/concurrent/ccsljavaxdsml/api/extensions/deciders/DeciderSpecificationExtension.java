@@ -1,10 +1,10 @@
-package org.gemoc.executionengine.ccsljava.api.extensions.deciders;
+package org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.deciders;
 
 import java.net.URL;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Platform;
-import org.gemoc.executionengine.ccsljava.api.core.ILogicalStepDecider;
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.ILogicalStepDecider;
 import org.gemoc.xdsmlframework.api.extensions.Extension;
 import org.osgi.framework.Bundle;
 

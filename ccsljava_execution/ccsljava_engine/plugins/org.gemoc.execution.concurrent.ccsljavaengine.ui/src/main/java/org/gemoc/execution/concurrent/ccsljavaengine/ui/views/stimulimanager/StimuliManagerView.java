@@ -57,9 +57,9 @@ import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.fil
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.scenario.ScenarioException;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.scenario.ScenarioManager;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.scenario.ScenarioManagerState;
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 import org.gemoc.execution.engine.mse.engine_mse.LogicalStep;
 import org.gemoc.execution.engine.mse.engine_mse.MSEOccurrence;
-import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
 import org.gemoc.executionframework.ui.IMSEPresenter;
 import org.gemoc.executionframework.ui.views.engine.EngineSelectionDependentViewPart;
 import org.gemoc.xdsmlframework.api.core.ExecutionMode;

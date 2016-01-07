@@ -1,10 +1,10 @@
-package org.gemoc.executionengine.ccsljava.api.core;
+package org.gemoc.execution.concurrent.ccsljavaxdsml.api.core;
 
 import java.util.List;
 
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
 import org.gemoc.execution.engine.mse.engine_mse.LogicalStep;
-import org.gemoc.executionengine.ccsljava.api.dsa.executors.ICodeExecutor;
-import org.gemoc.executionengine.ccsljava.api.moc.ISolver;
 import org.gemoc.xdsmlframework.api.core.IExecutionEngine;
 
 public interface IConcurrentExecutionEngine extends IExecutionEngine{

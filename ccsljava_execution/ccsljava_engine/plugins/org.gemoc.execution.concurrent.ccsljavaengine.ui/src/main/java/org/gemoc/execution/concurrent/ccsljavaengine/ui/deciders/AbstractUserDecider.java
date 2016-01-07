@@ -11,9 +11,9 @@ import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.gemoc.commons.eclipse.ui.ViewHelper;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.SharedIcons;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.step.LogicalStepsView;
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.ILogicalStepDecider;
 import org.gemoc.execution.engine.mse.engine_mse.LogicalStep;
-import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
-import org.gemoc.executionengine.ccsljava.api.core.ILogicalStepDecider;
 
 public abstract class AbstractUserDecider implements ILogicalStepDecider 
 {

@@ -2,9 +2,9 @@ package org.gemoc.execution.concurrent.ccsljavaengine.ui.deciders.actions;
 
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.SharedIcons;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.deciders.AbstractUserDecider;
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.ILogicalStepDecider;
 import org.gemoc.execution.engine.mse.engine_mse.LogicalStep;
-import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
-import org.gemoc.executionengine.ccsljava.api.core.ILogicalStepDecider;
 import org.gemoc.executionframework.ui.views.engine.actions.AbstractEngineAction;
 import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
 import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;

@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.gemoc.executionengine.ccsljava.api.dse.IMSEStateController;
-import org.gemoc.executionengine.ccsljava.api.moc.ISolver;
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dse.IMSEStateController;
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
 import fr.inria.aoste.trace.EventOccurrence;
