@@ -1,4 +1,4 @@
-package org.gemoc.gemoc_language_workbench.extensions.timesquare;
+package org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare;
 
 import org.gemoc.commons.eclipse.logging.backends.DefaultLoggingBackend;
 import org.gemoc.commons.eclipse.pde.GemocPlugin;

@@ -1,4 +1,4 @@
-package org.gemoc.gemoc_language_workbench.extensions.timesquare.moc.impl;
+package org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.moc.impl;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -25,13 +25,13 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.gemoc.execution.ccsljava.concurrent_mse.FeedbackMSE;
+import org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.Activator;
 import org.gemoc.execution.engine.mse.engine_mse.Engine_mseFactory;
 import org.gemoc.execution.engine.mse.engine_mse.LogicalStep;
 import org.gemoc.execution.engine.mse.engine_mse.MSE;
 import org.gemoc.execution.engine.mse.engine_mse.MSEModel;
 import org.gemoc.execution.engine.mse.engine_mse.MSEOccurrence;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionContext;
-import org.gemoc.gemoc_language_workbench.extensions.timesquare.Activator;
 import org.gemoc.gemoc_language_workbench.utils.ccsl.QvtoTransformationPerformer;
 import org.gemoc.xdsmlframework.api.core.IExecutionContext;
 import org.gemoc.xdsmlframework.api.core.IExecutionWorkspace;

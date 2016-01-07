@@ -349,7 +349,7 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 			updateDependenciesWithProject(connection, dsePoject.getProjectName());
 			String solverClassName = dsePoject.getSolverClass();
 			if(solverClassName == null || solverClassName.isEmpty()){
-				connection.addPluginDependency(org.gemoc.gemoc_language_workbench.extensions.timesquare.Activator.PLUGIN_ID);
+				connection.addPluginDependency(org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.Activator.PLUGIN_ID);
 			}
 		}
 	}

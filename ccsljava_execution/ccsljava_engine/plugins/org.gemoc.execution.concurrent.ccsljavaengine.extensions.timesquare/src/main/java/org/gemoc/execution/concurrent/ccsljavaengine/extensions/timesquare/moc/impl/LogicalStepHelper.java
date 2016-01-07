@@ -1,4 +1,4 @@
-package org.gemoc.gemoc_language_workbench.extensions.timesquare.moc.impl;
+package org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.moc.impl;
 
 import java.util.ArrayList;
 import java.util.List;

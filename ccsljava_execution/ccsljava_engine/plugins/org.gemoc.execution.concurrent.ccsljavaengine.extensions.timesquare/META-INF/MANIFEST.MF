@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Gemoc extension for TimeSquare
 Bundle-SymbolicName: org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare
 Bundle-Version: 0.1.0.qualifier
-Bundle-Activator: org.gemoc.gemoc_language_workbench.extensions.timesquare.Activator
+Bundle-Activator: org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.Activator
 Require-Bundle: org.eclipse.core.runtime,
  org.gemoc.xdsmlframework.api,
  org.eclipse.emf.ecore,
@@ -30,5 +30,5 @@ Require-Bundle: org.eclipse.core.runtime,
  org.gemoc.executionframework.engine
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: org.gemoc.gemoc_language_workbench.extensions.timesquare,
- org.gemoc.gemoc_language_workbench.extensions.timesquare.moc.impl
+Export-Package: org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare,
+ org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.moc.impl
