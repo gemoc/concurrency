@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.gemoc.execution.ccsljava.concurrent_mse.FeedbackMSE;
+import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
 import org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.Activator;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionContext;
 import org.gemoc.executionframework.engine.mse.Engine_mseFactory;
@@ -410,7 +410,7 @@ public class CcslSolver implements org.gemoc.execution.concurrent.ccsljavaxdsml.
 				ActionModel feedbackModel = (ActionModel)feedBackRes.getContents().get(0);
 				if(feedbackModel!= null){
 					for(ModelSpecificEvent feedbackModelSpecificEvent : feedbackModel.getEvents()){
-						FeedbackMSE feedbackMSE = org.gemoc.execution.ccsljava.concurrent_mse.Concurrent_mseFactory.eINSTANCE.createFeedbackMSE();
+						FeedbackMSE feedbackMSE = org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.Concurrent_mseFactory.eINSTANCE.createFeedbackMSE();
 						feedbackMSE.setFeedbackModelSpecificEvent(feedbackModelSpecificEvent);
 						feedbackMSE.setName(feedbackModelSpecificEvent.getName());
 						mseModel.getOwnedMSEs().add(feedbackMSE);

@@ -1,6 +1,6 @@
 /**
  */
-package org.gemoc.execution.ccsljava.concurrent_mse;
+package org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
 
@@ -16,11 +16,11 @@ import org.gemoc.executionframework.engine.mse.MSE;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.gemoc.execution.ccsljava.concurrent_mse.FeedbackMSE#getFeedbackModelSpecificEvent <em>Feedback Model Specific Event</em>}</li>
+ *   <li>{@link org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE#getFeedbackModelSpecificEvent <em>Feedback Model Specific Event</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.gemoc.execution.ccsljava.concurrent_mse.Concurrent_msePackage#getFeedbackMSE()
+ * @see org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.Concurrent_msePackage#getFeedbackMSE()
  * @model
  * @generated
  */
@@ -35,14 +35,14 @@ public interface FeedbackMSE extends MSE {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Feedback Model Specific Event</em>' reference.
 	 * @see #setFeedbackModelSpecificEvent(ModelSpecificEvent)
-	 * @see org.gemoc.execution.ccsljava.concurrent_mse.Concurrent_msePackage#getFeedbackMSE_FeedbackModelSpecificEvent()
+	 * @see org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.Concurrent_msePackage#getFeedbackMSE_FeedbackModelSpecificEvent()
 	 * @model required="true"
 	 * @generated
 	 */
 	ModelSpecificEvent getFeedbackModelSpecificEvent();
 
 	/**
-	 * Sets the value of the '{@link org.gemoc.execution.ccsljava.concurrent_mse.FeedbackMSE#getFeedbackModelSpecificEvent <em>Feedback Model Specific Event</em>}' reference.
+	 * Sets the value of the '{@link org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE#getFeedbackModelSpecificEvent <em>Feedback Model Specific Event</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Feedback Model Specific Event</em>' reference.

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="concurrent_mse" nsURI="http://www.gemoc.org/gemoc_execution_engine_concurrent_mse"
-    nsPrefix="concurrent_mse">
-  <eClassifiers xsi:type="ecore:EClass" name="FeedbackMSE" eSuperTypes="../../org.gemoc.execution.engine.mse.model/model/GemocExecutionEngineMSE.ecore#//MSE">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="concurrentmse" nsURI="http://www.gemoc.org/gemoc_execution_engine_concurrent_mse"
+    nsPrefix="concurrentmse">
+  <eClassifiers xsi:type="ecore:EClass" name="FeedbackMSE" eSuperTypes="../../org.gemoc.executionframework.engine.mse.model/model/GemocExecutionEngineMSE.ecore#//MSE">
     <eOperations name="getCaller" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
     <eOperations name="getAction" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EOperation"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="feedbackModelSpecificEvent"

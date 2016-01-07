@@ -1,13 +1,13 @@
 /**
  */
-package org.gemoc.execution.ccsljava.concurrent_mse.util;
+package org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.util;
 
 import org.eclipse.emf.ecore.EModelElement;
 import org.eclipse.emf.ecore.ENamedElement;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
-import org.gemoc.execution.ccsljava.concurrent_mse.*;
+import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.*;
 import org.gemoc.executionframework.engine.mse.MSE;
 
 /**
@@ -20,7 +20,7 @@ import org.gemoc.executionframework.engine.mse.MSE;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see org.gemoc.execution.ccsljava.concurrent_mse.Concurrent_msePackage
+ * @see org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.Concurrent_msePackage
  * @generated
  */
 public class Concurrent_mseSwitch<T> extends Switch<T> {
