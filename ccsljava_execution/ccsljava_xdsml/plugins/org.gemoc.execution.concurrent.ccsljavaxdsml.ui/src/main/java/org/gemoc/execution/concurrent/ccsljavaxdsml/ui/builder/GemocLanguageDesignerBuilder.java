@@ -407,7 +407,7 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 		String computedSolverClassName = "";
 		if(dseProjectName!= null && !dseProjectName.isEmpty()){
 			if(solverClassName == null || solverClassName.isEmpty()){
-				computedSolverClassName = "org.gemoc.gemoc_language_workbench.extensions.timesquare.moc.impl.CcslSolver";
+				computedSolverClassName = "org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.moc.impl.CcslSolver";
 			}
 			else{
 				computedSolverClassName = solverClassName;
