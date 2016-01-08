@@ -1,18 +1,15 @@
 package org.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.tabs;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.swt.SWT;
@@ -29,18 +26,15 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-import org.gemoc.commons.eclipse.emf.EMFResource;
 import org.gemoc.commons.eclipse.emf.URIHelper;
 import org.gemoc.commons.eclipse.ui.dialogs.SelectAnyIFileDialog;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.Activator;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.ConcurrentRunConfiguration;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.LauncherMessages;
+import org.gemoc.execution.engine.commons.MelangeHelper;
+import org.gemoc.execution.engine.ui.commons.RunConfiguration;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.deciders.DeciderSpecificationExtension;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.deciders.DeciderSpecificationExtensionPoint;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtension;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtensionPoint;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.concurrent_xdsml.ConcurrentLanguageDefinition;
-import org.gemoc.execution.engine.ui.commons.RunConfiguration;
+import org.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.ConcurrentRunConfiguration;
+import org.gemoc.execution.concurrent.ccsljavaengine.ui.Activator;
+import org.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.LauncherMessages;
 import org.gemoc.xdsmlframework.ui.utils.dialogs.SelectAIRDIFileDialog;
 
 import fr.obeo.dsl.debug.ide.launch.AbstractDSLLaunchConfigurationDelegate;
@@ -55,7 +49,7 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 	protected Button _animateButton;
 	protected Text _delayText;
 	protected Combo _languageCombo;
-	protected Text _melangeQueryText;
+	protected Combo _modelTypeCombo;
 	protected Combo _deciderCombo;
 	protected Button _animationFirstBreak;
 
@@ -92,7 +86,6 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 		configuration.setAttribute(RunConfiguration.LAUNCH_DELAY, 1000);
 		configuration.setAttribute(ConcurrentRunConfiguration.LAUNCH_SELECTED_DECIDER,
 				ConcurrentRunConfiguration.DECIDER_ASKUSER_STEP_BY_STEP);
-		configuration.setAttribute(RunConfiguration.LAUNCH_ENTRY_POINT, "");
 	}
 
 	@Override
@@ -108,7 +101,6 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 				_siriusRepresentationLocationText.setText("");
 			_delayText.setText(Integer.toString(runConfiguration.getAnimationDelay()));
 			_languageCombo.setText(runConfiguration.getLanguageName());
-			_melangeQueryText.setText(runConfiguration.getMelangeQuery());
 			_deciderCombo.setText(runConfiguration.getDeciderName());
 			_animationFirstBreak.setSelection(runConfiguration.getBreakStart());
 
@@ -126,7 +118,6 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 				this._siriusRepresentationLocationText.getText());
 		configuration.setAttribute(RunConfiguration.LAUNCH_DELAY, Integer.parseInt(_delayText.getText()));
 		configuration.setAttribute(RunConfiguration.LAUNCH_SELECTED_LANGUAGE, this._languageCombo.getText());
-		configuration.setAttribute(RunConfiguration.LAUNCH_MELANGE_QUERY, this._melangeQueryText.getText());
 		configuration.setAttribute(ConcurrentRunConfiguration.LAUNCH_SELECTED_DECIDER, this._deciderCombo.getText());
 		configuration.setAttribute(RunConfiguration.LAUNCH_BREAK_START, _animationFirstBreak.getSelection());
 	}
@@ -261,62 +252,31 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 	 * @return
 	 */
 	public Composite createLanguageLayout(Composite parent, Font font) {
-		createTextLabelLayout(parent, "xDSML");
-		_languageCombo = new Combo(parent, SWT.NONE);
-		_languageCombo.setLayoutData(createStandardLayout());
+		// Language
+				createTextLabelLayout(parent, "Melange languages");
+				_languageCombo = new Combo(parent, SWT.NONE);
+				_languageCombo.setLayoutData(createStandardLayout());
 
-		ArrayList<String> xdsmlNames = new ArrayList<String>();
-		IConfigurationElement[] confElements = Platform.getExtensionRegistry().getConfigurationElementsFor(
-				ConcurrentLanguageDefinitionExtensionPoint.GEMOC_CONCURRENT_LANGUAGE_EXTENSION_POINT);
-		for (int i = 0; i < confElements.length; i++) {
-			xdsmlNames.add(confElements[i].getAttribute("name"));
-		}
-		if (confElements.length == 0) {
-			xdsmlNames.add("<No xdml available>");
-		}
-		String[] empty = {};
-		_languageCombo.setItems(xdsmlNames.toArray(empty));
-		_languageCombo.addModifyListener(fBasicModifyListener);
-		createTextLabelLayout(parent, "");
+				List<String> languagesNames = MelangeHelper.getAllLanguages();
+				String[] empty = {};
+				_languageCombo.setItems(languagesNames.toArray(empty));
+				_languageCombo.addSelectionListener(new SelectionAdapter() {
+					@Override
+					public void widgetSelected(SelectionEvent e) {
+						String selection = _languageCombo.getText();
+						List<String> modelTypeNames = MelangeHelper.getModelTypes(selection);
+						_modelTypeCombo.setItems(modelTypeNames.toArray(empty));
+						updateLaunchConfigurationDialog();
+					}
+				});
+				createTextLabelLayout(parent, "");
 
-		// ********* Melange support ****
-		// in a future version this should be extracted from the xdml itself
-		createTextLabelLayout(parent, "Melange URI query");
-		_melangeQueryText = new Text(parent, SWT.SINGLE | SWT.BORDER);
-		_melangeQueryText.setLayoutData(createStandardLayout());
-		_melangeQueryText.addModifyListener(new ModifyListener() {
+				// ModelType
+				createTextLabelLayout(parent, "Available ModelType");
+				_modelTypeCombo = new Combo(parent, SWT.NONE);
+				_modelTypeCombo.setLayoutData(createStandardLayout());
 
-			@Override
-			public void modifyText(ModifyEvent e) {
-				updateLaunchConfigurationDialog();
-			}
-		});
-		createTextLabelLayout(parent, "ex: ?mm=http://yourmetamodelextended");
-
-		/*
-		 * languageCombo.addListener (SWT.DefaultSelection, new Listener () {
-		 * public void handleEvent (Event e) { //System.out.println (e.widget +
-		 * " - Default Selection");
-		 * 
-		 * updateLaunchConfigurationDialog(); } });
-		 */
-
-		// button to deal with dynamic language creation and provisionning
-		// Button projectLocationButton = createPushButton(parent,
-		// "Dynamic Language Variants...", null);
-		// projectLocationButton.setEnabled(false);
-		// projectLocationButton.addSelectionListener(new SelectionAdapter() {
-		// public void widgetSelected(SelectionEvent evt) {
-		// // handleModelLocationButtonSelected();
-		// // TODO launch the appropriate selector
-		// MessageDialog.openWarning(PlatformUI.getWorkbench()
-		// .getActiveWorkbenchWindow().getShell(),
-		// "Dynamic Language Variants",
-		// "Action not implemented yet");
-		// updateLaunchConfigurationDialog();
-		// }
-		// });
-		return parent;
+				return parent;
 	}
 
 	
@@ -361,36 +321,36 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 			setErrorMessage(LauncherMessages.ConcurrentMainTab_Language_not_specified); 
 			return false;
 		}
-		ConcurrentLanguageDefinitionExtension languageDefinitionExtPoint = ConcurrentLanguageDefinitionExtensionPoint
-				.findDefinition(languageName);
-		if(languageDefinitionExtPoint != null ){
-			try{
-				URI uri = URI.createPlatformPluginURI(languageDefinitionExtPoint.getXDSMLFilePath(), true);
-				Object o = EMFResource.getFirstContent(uri);
-				ConcurrentLanguageDefinition langDef = null;
-				if(o != null && o instanceof ConcurrentLanguageDefinition){
-					langDef = (ConcurrentLanguageDefinition)o;
-					IResource modelIResource = workspace.getRoot().findMember(modelName);
-					EList<String> recognizedFileExtensions = langDef.getFileExtensions();
-					if(recognizedFileExtensions != null && !recognizedFileExtensions.isEmpty() && !recognizedFileExtensions.contains(modelIResource.getFileExtension())){
-						String extensionListStr = String.join(", ", recognizedFileExtensions);
-						setErrorMessage(NLS.bind(LauncherMessages.ConcurrentMainTab_incompatible_model_extension_for_language, new String[] {modelIResource.getFileExtension(), languageName, extensionListStr})); 
-						return false;
-					}
-				}
-				else {
-					setErrorMessage(NLS.bind(LauncherMessages.ConcurrentMainTab_Invalid_Language_missing_xdsml, new String[] {languageName}) ); 
-					return false;
-				}
-			}
-			catch(Exception e){
-				setErrorMessage(NLS.bind(LauncherMessages.ConcurrentMainTab_Invalid_Language_missing_xdsml_with_error, new String[] {languageName, e.getMessage()}) );
-			}
-		}
-		else {
-			setErrorMessage(NLS.bind(LauncherMessages.ConcurrentMainTab_missing_language, new String[] {languageName})); 
-			return false;
-		}
+//		ConcurrentLanguageDefinitionExtension languageDefinitionExtPoint = ConcurrentLanguageDefinitionExtensionPoint
+//				.findDefinition(languageName);
+//		if(languageDefinitionExtPoint != null ){
+//			try{
+//				URI uri = URI.createPlatformPluginURI(languageDefinitionExtPoint.getXDSMLFilePath(), true);
+//				Object o = EMFResource.getFirstContent(uri);
+//				ConcurrentLanguageDefinition langDef = null;
+//				if(o != null && o instanceof ConcurrentLanguageDefinition){
+//					langDef = (ConcurrentLanguageDefinition)o;
+//					IResource modelIResource = workspace.getRoot().findMember(modelName);
+//					EList<String> recognizedFileExtensions = langDef.getFileExtensions();
+//					if(recognizedFileExtensions != null && !recognizedFileExtensions.isEmpty() && !recognizedFileExtensions.contains(modelIResource.getFileExtension())){
+//						String extensionListStr = String.join(", ", recognizedFileExtensions);
+//						setErrorMessage(NLS.bind(LauncherMessages.ConcurrentMainTab_incompatible_model_extension_for_language, new String[] {modelIResource.getFileExtension(), languageName, extensionListStr})); 
+//						return false;
+//					}
+//				}
+//				else {
+//					setErrorMessage(NLS.bind(LauncherMessages.ConcurrentMainTab_Invalid_Language_missing_xdsml, new String[] {languageName}) ); 
+//					return false;
+//				}
+//			}
+//			catch(Exception e){
+//				setErrorMessage(NLS.bind(LauncherMessages.ConcurrentMainTab_Invalid_Language_missing_xdsml_with_error, new String[] {languageName, e.getMessage()}) );
+//			}
+//		}
+//		else {
+//			setErrorMessage(NLS.bind(LauncherMessages.ConcurrentMainTab_missing_language, new String[] {languageName})); 
+//			return false;
+//		}
 		return true;
 	}
 }
