@@ -188,7 +188,7 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 			updateDependenciesWithProject(manifestChanger, domainModelProject.getProjectName());
 			updateModelLoaderClass(project, domainModelProject.getModelLoaderClass());
 			if(domainModelProject.getModelLoaderClass() == null){
-				manifestChanger.addPluginDependency(org.gemoc.xdsmlframework.extensions.sirius.Activator.PLUGIN_ID);
+				manifestChanger.addPluginDependency(org.gemoc.executionframework.extensions.sirius.Activator.PLUGIN_ID);
 			}
 			languageRootElement = domainModelProject.getDefaultRootEObjectQualifiedName();
 		}
@@ -371,7 +371,7 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 		helper.updateXDSMLDefinitionAttributeInExtensionPoint(
 				gemocExtensionPoint,
 				LanguageDefinitionExtensionPoint.GEMOC_LANGUAGE_EXTENSION_POINT_XDSML_DEF_LOADMODEL_ATT,
-				modelLoaderClass != null ? modelLoaderClass : "org.gemoc.gemoc_language_workbench.extensions.sirius.modelloader.DefaultModelLoader");
+				modelLoaderClass != null ? modelLoaderClass : "org.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader");
 		helper.saveDocument(pluginfile);
 
 
@@ -407,7 +407,7 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 		String computedSolverClassName = "";
 		if(dseProjectName!= null && !dseProjectName.isEmpty()){
 			if(solverClassName == null || solverClassName.isEmpty()){
-				computedSolverClassName = "org.gemoc.gemoc_language_workbench.extensions.timesquare.moc.impl.CcslSolver";
+				computedSolverClassName = "org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.moc.impl.CcslSolver";
 			}
 			else{
 				computedSolverClassName = solverClassName;
