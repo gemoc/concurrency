@@ -371,7 +371,7 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 		helper.updateXDSMLDefinitionAttributeInExtensionPoint(
 				gemocExtensionPoint,
 				LanguageDefinitionExtensionPoint.GEMOC_LANGUAGE_EXTENSION_POINT_XDSML_DEF_LOADMODEL_ATT,
-				modelLoaderClass != null ? modelLoaderClass : "org.gemoc.gemoc_language_workbench.extensions.sirius.modelloader.DefaultModelLoader");
+				modelLoaderClass != null ? modelLoaderClass : "org.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader");
 		helper.saveDocument(pluginfile);
 
 
