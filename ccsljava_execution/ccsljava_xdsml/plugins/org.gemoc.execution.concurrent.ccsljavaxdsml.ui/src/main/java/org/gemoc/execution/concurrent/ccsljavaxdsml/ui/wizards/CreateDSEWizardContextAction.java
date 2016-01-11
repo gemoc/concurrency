@@ -68,7 +68,7 @@ public class CreateDSEWizardContextAction {
 	}
 	
 	protected void createNewDSEProject() {
-		final IWizardDescriptor descriptor = WizardFinder.findNewWizardDescriptor("org.gemoc.gemoc_language_workbench.ui.wizards.CreateNewDSEProject");
+		final IWizardDescriptor descriptor = WizardFinder.findNewWizardDescriptor(Activator.PLUGIN_ID+".wizards.CreateNewDSEProject");
 		// Then if we have a wizard, open it.
 		if (descriptor != null) {				
 			NewProjectWorkspaceListener workspaceListener = new NewProjectWorkspaceListener();
@@ -116,7 +116,7 @@ public class CreateDSEWizardContextAction {
 			}
 		}
 		else{
-			Activator.error("wizard with id=org.gemoc.gemoc_language_workbench.ui.wizards.CreateNewDSEProject not found", null);
+			Activator.error("wizard with id="+Activator.PLUGIN_ID+".ui.wizards.CreateNewDSEProject not found", null);
 		}
 	}
 
