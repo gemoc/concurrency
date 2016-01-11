@@ -74,9 +74,9 @@ public class GemocDSEBuilder extends IncrementalProjectBuilder {
 	}
 
 
-	public static final String BUILDER_ID = "org.gemoc.gemoc_language_workbench.concurrent.ui.dse_builder";
+	public static final String BUILDER_ID = Activator.PLUGIN_ID+".dse_builder";
 
-	public static final String MARKER_TYPE = "org.gemoc.gemoc_language_workbench.concurrent.ui.dse_problem";
+	public static final String MARKER_TYPE = Activator.PLUGIN_ID+".dse_problem";
 
 
 	private void addMarker(IResource resource, String message, int lineNumber, int severity) {
