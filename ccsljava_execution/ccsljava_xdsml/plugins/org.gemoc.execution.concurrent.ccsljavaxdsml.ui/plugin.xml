@@ -23,7 +23,7 @@
          </run>
       </runtime>
       <builder
-            id="org.gemoc.gemoc_language_workbench.concurrent.ui.gemocLanguageDesignerBuilder">
+            id="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.gemocLanguageDesignerBuilder">
       </builder>
    </extension>
    <extension
@@ -32,12 +32,12 @@
             adaptable="true"
             objectClass="org.eclipse.core.resources.IProject"
             nameFilter="*"
-            id="org.gemoc.gemoc_language_workbench.ui.addnature.contribution">
+            id="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.addnature.contribution">
          <action
                class="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.builder.ToggleNatureAction"
                enablesFor="+"
                icon="icons/IconeGemocLanguage-16.png"
-               id="org.gemoc.gemoc_language_workbench.ui.addRemoveNatureAction"
+               id="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.addRemoveNatureAction"
                label="Add Concurrent xDSML Nature"
                menubarPath="org.eclipse.ui.projectConfigure/additions">
          </action>
@@ -54,12 +54,12 @@
             adaptable="true"
             objectClass="org.eclipse.core.resources.IProject"
             nameFilter="*"
-            id="org.gemoc.gemoc_language_workbench.ui.removenature.contribution">
+            id="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.removenature.contribution">
          <action
                class="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.builder.ToggleNatureAction"
                enablesFor="+"
                icon="icons/IconeGemocLanguage-16.png"
-               id="org.gemoc.gemoc_language_workbench.ui.addRemoveNatureAction"
+               id="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.addRemoveNatureAction"
                label="Remove Concurrent xDSML Nature"
                menubarPath="org.eclipse.ui.projectConfigure/additions">
          </action>
@@ -92,8 +92,8 @@
          point="org.eclipse.ui.ide.projectNatureImages">
       <image
             icon="icons/IconeGemocLanguage-10.png"
-            id="org.gemoc.gemoc_language_workbench.concurrent.ui.gemocLanguageDesignerNature.image"
-            natureId="org.gemoc.gemoc_language_workbench.concurrent.ui.gemocLanguageDesignerNature">
+            id="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.gemocLanguageDesignerNature.image"
+            natureId="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.gemocLanguageDesignerNature">
       </image>
    </extension>
    <!-- definitions of commands -->
@@ -101,7 +101,7 @@
          point="org.eclipse.ui.commands">
       <command
             defaultHandler="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.commands.MergeExtendedCCSLCommandHandler"
-            id="org.gemoc.gemoc_language_workbench.ui.commands.MergeExtendedCCSL"
+            id="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.commands.MergeExtendedCCSL"
             name="Merge extendedCCSLFile or time model ino one XMI resource">
       </command>
    </extension>
@@ -116,7 +116,7 @@
                id="GEMOCFile.Menu"
                label="GEMOC File">
             <command
-                  commandId="org.gemoc.gemoc_language_workbench.ui.commands.MergeExtendedCCSL"
+                  commandId="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.commands.MergeExtendedCCSL"
                   label="Merge into one XMI resource"
                   style="push">
                <visibleWhen
@@ -152,42 +152,42 @@
    <extension
          point="org.eclipse.ui.newWizards">
       <category
-            id="org.gemoc.gemoc_language_workbench.ui"
+            id="org.gemoc.execution.concurrent.ccsljavaxdsml.ui"
             name="GEMOC">
       </category>
       <wizard
-            category="org.gemoc.gemoc_language_workbench.ui"
+            category="org.gemoc.execution.concurrent.ccsljavaxdsml.ui"
             class="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateNewGemocConcurrentLanguageProject"
             icon="icons/IconeGemocLanguage-16.png"
             finalPerspective="org.eclipse.sirius.ui.tools.perspective.design"
-            id="org.gemoc.gemoc_language_workbench.ui.wizards.CreateNewGemocLanguageProject"
+            id="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateNewGemocLanguageProject"
             name="GEMOC Concurrent xDSML Project"
             project="true">
       </wizard>
       <wizard
-            category="org.gemoc.gemoc_language_workbench.ui.category.ecl"
+            category="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.category.ecl"
             class="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateNewDSEProject"
             finalPerspective="org.eclipse.sirius.ui.tools.perspective.design"
             icon="icons/IconeGemocLanguage-16.png"
-            id="org.gemoc.gemoc_language_workbench.ui.wizards.CreateNewDSEProject"
+            id="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateNewDSEProject"
             name="DSE Project"
             project="true">
       </wizard>
       <wizard
-            category="org.gemoc.gemoc_language_workbench.ui.category.moccml"
+            category="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.category.moccml"
             class="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateNewMoCProject"
             finalPerspective="org.eclipse.sirius.ui.tools.perspective.design"
             icon="icons/IconeGemocLanguage-16.png"
-            id="org.gemoc.gemoc_language_workbench.ui.wizards.CreateNewMoCProject"
+            id="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateNewMoCProject"
             name="MoCCML Project"
             project="true">
       </wizard>
       <category
-            id="org.gemoc.gemoc_language_workbench.ui.category.ecl"
+            id="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.category.ecl"
             name="ECL">
       </category>
       <category
-            id="org.gemoc.gemoc_language_workbench.ui.category.moccml"
+            id="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.category.moccml"
             name="MoCCML">
       </category>
    </extension>
@@ -198,22 +198,22 @@
        <perspectiveExtension
              targetID="org.eclipse.sirius.ui.tools.perspective.design">
           <newWizardShortcut
-                id="org.gemoc.gemoc_language_workbench.ui.wizards.CreateNewGemocLanguageProject">
+                id="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateNewGemocLanguageProject">
           </newWizardShortcut>
           <newWizardShortcut
-                id="org.gemoc.gemoc_language_workbench.ui.wizards.CreateNewDSEProject">
+                id="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateNewDSEProject">
           </newWizardShortcut>
           <newWizardShortcut
-                id="org.gemoc.gemoc_language_workbench.ui.wizards.CreateNewMoCProject">
+                id="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateNewMoCProject">
           </newWizardShortcut>
        </perspectiveExtension>
     </extension>
    <extension
          point="org.eclipse.ui.navigator.navigatorContent">
       <commonWizard
-            menuGroupId="org.gemoc.gemoc_language_workbench.ui"
+            menuGroupId="org.gemoc.execution.concurrent.ccsljavaxdsml.ui"
             type="new"
-            wizardId="org.gemoc.gemoc_language_workbench.ui.wizards.CreateNewGemocLanguageProject">
+            wizardId="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateNewGemocLanguageProject">
          <enablement>
             <with
                   variable="activeWorkbenchWindow.activePerspective">
@@ -248,19 +248,19 @@
          </run>
       </runtime>
       <builder
-            id="org.gemoc.gemoc_language_workbench.concurrent.ui.dse_builder">
+            id="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse_builder">
       </builder>
    </extension>
    <extension
          point="org.eclipse.ui.commands">
       <category
-            id="org.gemoc.gemoc_language_workbench.ui.dse.category"
+            id="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse.category"
             name="ECL">
       </category>
       <command
-            categoryId="org.gemoc.gemoc_language_workbench.ui.dse.category"
+            categoryId="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse.category"
             defaultHandler="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse.AddRemoveGemocDSENatureHandler"
-            id="org.gemoc.gemoc_language_workbench.ui.dse.addRemoveDSENature"
+            id="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse.addRemoveDSENature"
             name="Add/Remove DSE Project Nature">
       </command>
    </extension>
@@ -269,7 +269,7 @@
       <menuContribution
             locationURI="popup:org.eclipse.ui.projectConfigure?after=additions">
          <command
-               commandId="org.gemoc.gemoc_language_workbench.ui.dse.addRemoveDSENature"
+               commandId="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse.addRemoveDSENature"
                label="Disable DSE builder"
                style="push">
             <visibleWhen
@@ -294,7 +294,7 @@
             </visibleWhen>
          </command>
          <command
-               commandId="org.gemoc.gemoc_language_workbench.ui.dse.addRemoveDSENature"
+               commandId="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse.addRemoveDSENature"
                label="Enable DSE builder"
                style="push">
             <visibleWhen
