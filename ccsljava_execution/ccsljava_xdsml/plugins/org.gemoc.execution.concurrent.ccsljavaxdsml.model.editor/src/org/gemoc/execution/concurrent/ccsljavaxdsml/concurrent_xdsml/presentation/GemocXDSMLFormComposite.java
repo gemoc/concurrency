@@ -1,8 +1,5 @@
 package org.gemoc.execution.concurrent.ccsljavaxdsml.concurrent_xdsml.presentation;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.beans.BeanProperties;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
@@ -10,7 +7,6 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -19,16 +15,8 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.jdt.core.IType;
-import org.eclipse.jdt.core.JavaModelException;
-import org.eclipse.jdt.core.search.IJavaSearchScope;
-import org.eclipse.jdt.core.search.SearchEngine;
-import org.eclipse.jdt.internal.ui.util.BusyIndicatorRunnableContext;
-import org.eclipse.jdt.ui.IJavaElementSearchConstants;
-import org.eclipse.jdt.ui.JavaUI;
 import org.eclipse.jface.databinding.swt.WidgetProperties;
 import org.eclipse.jface.dialogs.Dialog;
-import org.eclipse.jface.operation.IRunnableContext;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.SWT;
@@ -40,6 +28,7 @@ import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
@@ -50,7 +39,6 @@ import org.eclipse.swt.widgets.Link;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.dialogs.SelectionDialog;
 import org.eclipse.ui.forms.widgets.ColumnLayout;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.gemoc.commons.eclipse.ui.OpenEditor;
@@ -61,26 +49,24 @@ import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dialogs.SelectDSAIProject
 import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dialogs.SelectDSEIProjectDialog;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dialogs.SelectMoCCIProjectDialog;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateDSEWizardContextAction;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateMOCCWizardContextAction;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateDSEWizardContextAction.CreateDSEAction;
+import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateMOCCWizardContextAction;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateMOCCWizardContextAction.CreateMOCCAction;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.contextDSA.CreateDSAWizardContextActionDSAK3;
 import org.gemoc.executionframework.ui.utils.ENamedElementQualifiedNameLabelProvider;
 import org.gemoc.executionframework.xdsml_base.EditorProject;
 import org.gemoc.executionframework.xdsml_base.XTextEditorProject;
 import org.gemoc.xdsmlframework.ide.ui.xdsml.wizards.CreateAnimatorProjectWizardContextAction;
-import org.gemoc.xdsmlframework.ide.ui.xdsml.wizards.CreateDomainModelWizardContextAction;
-import org.gemoc.xdsmlframework.ide.ui.xdsml.wizards.CreateEditorProjectWizardContextAction;
 import org.gemoc.xdsmlframework.ide.ui.xdsml.wizards.CreateAnimatorProjectWizardContextAction.CreateAnimatorProjectAction;
+import org.gemoc.xdsmlframework.ide.ui.xdsml.wizards.CreateDomainModelWizardContextAction;
 import org.gemoc.xdsmlframework.ide.ui.xdsml.wizards.CreateDomainModelWizardContextAction.CreateDomainModelAction;
+import org.gemoc.xdsmlframework.ide.ui.xdsml.wizards.CreateEditorProjectWizardContextAction;
 import org.gemoc.xdsmlframework.ide.ui.xdsml.wizards.CreateEditorProjectWizardContextAction.CreateEditorProjectAction;
 import org.gemoc.xdsmlframework.ui.utils.dialogs.SelectAnyConcreteEClassDialog;
 import org.gemoc.xdsmlframework.ui.utils.dialogs.SelectAnyEObjectDialog;
 import org.gemoc.xdsmlframework.ui.utils.dialogs.SelectEMFIProjectDialog;
 import org.gemoc.xdsmlframework.ui.utils.dialogs.SelectODesignIProjectDialog;
 import org.gemoc.xdsmlframework.ui.utils.dialogs.SelectXtextIProjectDialog;
-import org.eclipse.swt.layout.RowLayout;
-import org.eclipse.core.databinding.UpdateValueStrategy;
 
 /*
  * IMPORTANT : this file has been edited using Windows builder.
@@ -107,9 +93,6 @@ public class GemocXDSMLFormComposite extends AbstractGemocFormComposite {
 	private Label lblSupportedFileExtensions;	
 	private Group grpMocDefinitionLibrary;
 	private Group grpDSEDefinition;
-	private Text txtEntryPoint;
-	private Label lblEntryPoint;
-	private Button btnBrowseEntryPoint;
 
 	/**
 	 * Create the composite.
@@ -337,41 +320,6 @@ public class GemocXDSMLFormComposite extends AbstractGemocFormComposite {
 		btnBrowseDSAProject.setBounds(0, 0, 75, 25);
 		toolkit.adapt(btnBrowseDSAProject, true, true);
 		btnBrowseDSAProject.setText("Browse");
-
-		lblEntryPoint = new Label(grpDsaDefinition, SWT.NONE);
-		lblEntryPoint.setText("Entry Point");
-		toolkit.adapt(lblEntryPoint, true, true);
-
-		txtEntryPoint = new Text(grpDsaDefinition, SWT.BORDER);
-		txtEntryPoint.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		toolkit.adapt(txtEntryPoint, true, true);
-
-		btnBrowseEntryPoint = new Button(grpDsaDefinition, SWT.NONE);
-		btnBrowseEntryPoint.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				IJavaSearchScope searchScope = SearchEngine.createWorkspaceScope();
-				IRunnableContext c = new BusyIndicatorRunnableContext();
-				SelectionDialog dialog;
-				try {
-					dialog = JavaUI.createTypeDialog(getShell(), c, searchScope,
-							IJavaElementSearchConstants.CONSIDER_CLASSES, false);
-
-					dialog.open();
-					if (dialog.getReturnCode() == Dialog.OK) {
-						IType type = (IType) dialog.getResult()[0];
-						txtEntryPoint.setText(type.getFullyQualifiedName());
-
-					}
-				} catch (JavaModelException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-		});
-		btnBrowseEntryPoint.setBounds(0, 0, 75, 25);
-		toolkit.adapt(btnBrowseEntryPoint, true, true);
-		btnBrowseEntryPoint.setText("Browse");
 
 		grpMocDefinitionLibrary = new Group(grpBehaviorDefinition, SWT.NONE);
 		grpMocDefinitionLibrary.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
