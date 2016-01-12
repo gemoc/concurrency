@@ -37,6 +37,7 @@ import org.gemoc.execution.engine.commons.EngineContextException;
 import org.gemoc.execution.engine.debug.AbstractGemocDebugger;
 import org.gemoc.execution.engine.ui.commons.RunConfiguration;
 import org.gemoc.executionframework.engine.mse.MSEOccurrence;
+import org.gemoc.executionframework.engine.ui.launcher.AbstractGemocLauncher;
 import org.gemoc.executionframework.extensions.sirius.services.AbstractGemocAnimatorServices;
 import org.gemoc.executionframework.extensions.sirius.services.AbstractGemocDebuggerServices;
 import org.gemoc.executionframework.ui.views.engine.EnginesStatusView;
@@ -51,11 +52,9 @@ import fr.obeo.dsl.debug.ide.IDSLDebugger;
 import fr.obeo.dsl.debug.ide.adapter.IDSLCurrentInstructionListener;
 import fr.obeo.dsl.debug.ide.event.DSLDebugEventDispatcher;
 
-public class Launcher extends fr.obeo.dsl.debug.ide.sirius.ui.launch.AbstractDSLLaunchConfigurationDelegateUI {
+public class Launcher extends AbstractGemocLauncher {
 
 	public final static String TYPE_ID = Activator.PLUGIN_ID+".launcher";
-
-	public final static String MODEL_ID = Activator.PLUGIN_ID+".debugModel";
 
 	private IBasicExecutionEngine _executionEngine;
 
