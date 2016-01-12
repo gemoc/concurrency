@@ -62,7 +62,7 @@ public class Activator extends GemocPlugin {
 			_loggingBackend = new DefaultLoggingBackend(this);
 			MessagingSystemManager msm = new MessagingSystemManager();
 			// use the baseMessageGroup of the engine in order to share consoles instead of duplicating them
-			MessagingSystem ms = msm.createBestPlatformMessagingSystem(org.gemoc.execution.engine.Activator.PLUGIN_ID, "Modeling Workbench Console");
+			MessagingSystem ms = msm.createBestPlatformMessagingSystem(org.gemoc.executionframework.engine.Activator.PLUGIN_ID, "Modeling Workbench Console");
 			_loggingBackend.setMessagingSystem(ms);
 		}
 		return _loggingBackend;

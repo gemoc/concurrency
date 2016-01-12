@@ -8,8 +8,8 @@ import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.CodeExecutionException;
-import org.gemoc.execution.engine.Activator;
-import org.gemoc.execution.engine.core.CommandExecution;
+import org.gemoc.executionframework.engine.Activator;
+import org.gemoc.executionframework.engine.core.CommandExecution;
 import org.gemoc.executionframework.engine.mse.MSEOccurrence;
 import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 

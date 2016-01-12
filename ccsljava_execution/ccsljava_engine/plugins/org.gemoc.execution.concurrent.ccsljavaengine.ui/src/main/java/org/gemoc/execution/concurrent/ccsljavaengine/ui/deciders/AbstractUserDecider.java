@@ -126,7 +126,7 @@ public abstract class AbstractUserDecider implements ILogicalStepDecider
 				_semaphore.release();
 			}
 		};
-		selectLogicalStepAction.setId("org.gemoc.execution.engine.io.commands.SelectLogicalStep");
+		selectLogicalStepAction.setId("org.gemoc.executionframework.engine.io.commands.SelectLogicalStep");
 		selectLogicalStepAction.setText("Select LogicalStep");
 		selectLogicalStepAction.setToolTipText("Use selected LogicalStep");
 		selectLogicalStepAction.setImageDescriptor(SharedIcons.LOGICALSTEP_ICON);
