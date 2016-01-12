@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.List;
 
 import org.gemoc.execution.concurrent.ccsljavaengine.eventscheduling.trace.EventSchedulingModelExecutionTracingAddon;
+import org.gemoc.execution.engine.trace.LogicalStepHelper;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.Branch;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.Choice;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.ExecutionTraceModel;
@@ -139,6 +140,8 @@ public class EventSchedulingTimelineProvider extends AbstractTimelineProvider im
 	public String getTextAt(int branchIndex, int choiceIndex, int logicalStepIndex) {
 		StringBuilder builder = new StringBuilder();
 		LogicalStep ls = (LogicalStep) getAt(branchIndex, choiceIndex, logicalStepIndex);
+		builder.append(LogicalStepHelper.getLogicalStepName(ls));
+		builder.append(System.getProperty("line.separator"));
 		for (MSEOccurrence mseOccurrence : ls.getMseOccurrences()) {
 			appendToolTipTextToBuilder(builder, mseOccurrence);
 			builder.append(System.getProperty("line.separator"));
