@@ -29,14 +29,36 @@ import org.gemoc.commons.eclipse.core.resources.Marker;
 import org.gemoc.commons.eclipse.core.resources.Project;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
 
+import toools.io.file.RegularFile;
+
 import com.google.common.base.Charsets;
 
-import toools.io.file.RegularFile;
 import fr.inria.aoste.timesquare.ecl.ecltoqvto.main.AcceleoLauncherForEclToQvto;
 
 public class GemocDSEBuilder extends IncrementalProjectBuilder {
 	
 	public static String QVTO_GEN_FOLDER = "qvto-gen";
+
+	ArrayList<IGemocDSEBuilderAddon> addons;
+	
+	public GemocDSEBuilder() {
+		try {
+			addons = instanciateBuilderAddons();
+		} catch (CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	final public ArrayList<IGemocDSEBuilderAddon> instanciateBuilderAddons() throws CoreException {
+		ArrayList<IGemocDSEBuilderAddon> addons = new ArrayList<IGemocDSEBuilderAddon>();
+		for (GemocDSEBuilderAddonExtension addonExtension : GemocDSEBuilderAddonExtensionPoint.getSpecifications()) {
+			addons.add(addonExtension.instanciateComponent());
+		}
+		return addons;
+	}
+	
 
 	class GemocDSEBuilderDeltaVisitor implements IResourceDeltaVisitor {
 		/*
@@ -79,7 +101,7 @@ public class GemocDSEBuilder extends IncrementalProjectBuilder {
 	public static final String MARKER_TYPE = Activator.PLUGIN_ID+".dse_problem";
 
 
-	private void addMarker(IResource resource, String message, int lineNumber, int severity) {
+	protected void addMarker(IResource resource, String message, int lineNumber, int severity) {
 		try {
 			Marker.addMarker(resource, MARKER_TYPE, message, lineNumber, severity);
 		} catch (CoreException e) {
@@ -114,20 +136,28 @@ public class GemocDSEBuilder extends IncrementalProjectBuilder {
 	}
 
 	protected void processResource(IResource resource){
-		if (resource instanceof IFile && resource.getName().equals("moc2as.properties")) {
-			checkProjectProperties((IFile) resource);
+		
+		for(IGemocDSEBuilderAddon addon : addons){
+			
+			if (resource instanceof IFile && resource.getName().equals("moc2as.properties")) {
+				checkProjectProperties((IFile) resource);
+			}
+			else if (resource instanceof IProject)  {
+				checkProjectMinimalContent((IProject) resource);
+			}
+			else if(resource instanceof IFile && resource.getName().endsWith(".ecl")){
+				updateQVTOFromECL(resource);
+			}
+			else if(resource instanceof IFile 
+					&& resource.getName().endsWith(".qvto") 
+					&& resource.getProjectRelativePath().segment(0).equalsIgnoreCase(QVTO_GEN_FOLDER)){
+				checkQVTOContent((IFile)resource);
+			}
+			
+			addon.processResourceAddon(resource);
+			
 		}
-		else if (resource instanceof IProject)  {
-			checkProjectMinimalContent((IProject) resource);
-		}
-		else if(resource instanceof IFile && resource.getName().endsWith(".ecl")){
-			updateQVTOFromECL(resource);
-		}
-		else if(resource instanceof IFile 
-				&& resource.getName().endsWith(".qvto") 
-				&& resource.getProjectRelativePath().segment(0).equalsIgnoreCase(QVTO_GEN_FOLDER)){
-			checkQVTOContent((IFile)resource);
-		}
+		
 	}
 	
 	protected void checkProjectMinimalContent(IProject project) {
@@ -286,7 +316,8 @@ public class GemocDSEBuilder extends IncrementalProjectBuilder {
 			}
 		}
 	}
-
+	
+	
 	private void deleteMarkers(IResource file) {
 		try {
 			Marker.removeMarkers(file, MARKER_TYPE);
