@@ -40,8 +40,8 @@ import org.gemoc.execution.concurrent.ccsljavaengine.ui.SharedIcons;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.deciders.actions.PauseResumeEngineDeciderAction;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.deciders.actions.SwitchDeciderAction;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
-import org.gemoc.execution.engine.core.GemocRunningEnginesRegistry;
 import org.gemoc.execution.engine.trace.LogicalStepHelper;
+import org.gemoc.executionframework.engine.core.GemocRunningEnginesRegistry;
 import org.gemoc.executionframework.engine.mse.LogicalStep;
 import org.gemoc.executionframework.engine.mse.MSE;
 import org.gemoc.executionframework.engine.mse.MSEOccurrence;
@@ -57,7 +57,7 @@ import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 public class LogicalStepsView extends EngineSelectionDependentViewPart implements IMSEPresenter
 {
 
-	public static final String ID = "org.gemoc.execution.engine.io.views.steps.LogicalStepsView";
+	public static final String ID = "org.gemoc.executionframework.engine.io.views.steps.LogicalStepsView";
 
 	private Color _representedEventColor;
 
@@ -282,7 +282,7 @@ public class LogicalStepsView extends EngineSelectionDependentViewPart implement
 			}
 			
 			// display engine full name in tooltip
-			GemocRunningEnginesRegistry registry = org.gemoc.execution.engine.Activator.getDefault().gemocRunningEngineRegistry;
+			GemocRunningEnginesRegistry registry = org.gemoc.executionframework.engine.Activator.getDefault().gemocRunningEngineRegistry;
 			for (Entry<String, IBasicExecutionEngine> e : registry.getRunningEngines().entrySet())
 			{
 				if (e.getValue() == engine)
