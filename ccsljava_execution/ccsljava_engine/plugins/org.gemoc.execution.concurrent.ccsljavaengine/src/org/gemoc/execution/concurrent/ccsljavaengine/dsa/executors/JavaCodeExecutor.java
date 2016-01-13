@@ -26,7 +26,7 @@ public class JavaCodeExecutor implements ICodeExecutor {
 	@Override
 	public Object execute(Object caller, String methodName, List<Object> parameters) throws CodeExecutionException {
 
-		Class<?>[] parameterTypes = null;
+		Class<?>[] parameterTypes = new Class<?>[0];
 		ArrayList<Class<?>> parameterTypesList = new ArrayList<Class<?>>();
 		if (parameters != null) {
 			for (Object param : parameters) {
@@ -50,7 +50,7 @@ public class JavaCodeExecutor implements ICodeExecutor {
 
 	private Object execute(Object caller, String methodName, Collection<Object> parameters, MSEOccurrence mseoccurrence)
 			throws CodeExecutionException {
-		Class<?>[] parameterTypes = null;
+		Class<?>[] parameterTypes = new Class<?>[0];
 		ArrayList<Class<?>> parameterTypesList = new ArrayList<Class<?>>();
 		if (mseoccurrence.getParameters() != null) {
 			for (Object param : mseoccurrence.getParameters()) {
@@ -61,7 +61,7 @@ public class JavaCodeExecutor implements ICodeExecutor {
 		Object result = null;
 		try {
 			method = caller.getClass().getMethod(methodName, parameterTypes);
-			result = method.invoke(caller, mseoccurrence.getParameters());
+			result = method.invoke(caller/*, mseoccurrence.getParameters()*/);
 		} catch (NoSuchMethodException e) {
 			throw new CodeExecutionException("No applicable method " + methodName
 					+ "for this code executor. Could not perform action call, see inner exception.", e, mseoccurrence,
