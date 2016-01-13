@@ -12,8 +12,8 @@ import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.ILogicalStepDecider
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dse.IMSEStateController;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
-import org.gemoc.execution.engine.Activator;
-import org.gemoc.execution.engine.core.AbstractExecutionEngine;
+import org.gemoc.executionframework.engine.Activator;
+import org.gemoc.executionframework.engine.core.AbstractExecutionEngine;
 import org.gemoc.executionframework.engine.mse.LogicalStep;
 import org.gemoc.executionframework.engine.mse.MSE;
 import org.gemoc.executionframework.engine.mse.MSEOccurrence;

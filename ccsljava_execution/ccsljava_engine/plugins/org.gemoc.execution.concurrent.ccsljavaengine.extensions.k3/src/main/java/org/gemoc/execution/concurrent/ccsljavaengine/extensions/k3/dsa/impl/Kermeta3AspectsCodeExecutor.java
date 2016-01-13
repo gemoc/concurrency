@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
-import org.gemoc.execution.engine.commons.MelangeHelper;
+import org.gemoc.executionframework.engine.commons.MelangeHelper;
 import org.gemoc.executionframework.engine.mse.MSEOccurrence;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.CodeExecutionException;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;

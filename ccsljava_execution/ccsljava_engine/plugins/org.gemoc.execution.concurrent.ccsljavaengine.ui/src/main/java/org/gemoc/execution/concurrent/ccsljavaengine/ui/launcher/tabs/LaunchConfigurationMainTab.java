@@ -28,13 +28,13 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.gemoc.commons.eclipse.emf.URIHelper;
 import org.gemoc.commons.eclipse.ui.dialogs.SelectAnyIFileDialog;
-import org.gemoc.execution.engine.commons.MelangeHelper;
-import org.gemoc.execution.engine.ui.commons.RunConfiguration;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.deciders.DeciderSpecificationExtension;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.deciders.DeciderSpecificationExtensionPoint;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.ConcurrentRunConfiguration;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.Activator;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.LauncherMessages;
+import org.gemoc.executionframework.engine.commons.MelangeHelper;
+import org.gemoc.executionframework.engine.ui.commons.RunConfiguration;
 import org.gemoc.xdsmlframework.ui.utils.dialogs.SelectAIRDIFileDialog;
 
 import fr.obeo.dsl.debug.ide.launch.AbstractDSLLaunchConfigurationDelegate;

@@ -33,10 +33,11 @@ import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.step.LogicalStepsV
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.StimuliManagerView;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
-import org.gemoc.execution.engine.commons.EngineContextException;
-import org.gemoc.execution.engine.debug.AbstractGemocDebugger;
-import org.gemoc.execution.engine.ui.commons.RunConfiguration;
+import org.gemoc.executionframework.engine.commons.EngineContextException;
 import org.gemoc.executionframework.engine.mse.MSEOccurrence;
+import org.gemoc.executionframework.engine.ui.commons.RunConfiguration;
+import org.gemoc.executionframework.engine.ui.debug.AbstractGemocDebugger;
+import org.gemoc.executionframework.engine.ui.launcher.AbstractGemocLauncher;
 import org.gemoc.executionframework.extensions.sirius.services.AbstractGemocAnimatorServices;
 import org.gemoc.executionframework.extensions.sirius.services.AbstractGemocDebuggerServices;
 import org.gemoc.executionframework.ui.views.engine.EnginesStatusView;
@@ -51,11 +52,9 @@ import fr.obeo.dsl.debug.ide.IDSLDebugger;
 import fr.obeo.dsl.debug.ide.adapter.IDSLCurrentInstructionListener;
 import fr.obeo.dsl.debug.ide.event.DSLDebugEventDispatcher;
 
-public class Launcher extends fr.obeo.dsl.debug.ide.sirius.ui.launch.AbstractDSLLaunchConfigurationDelegateUI {
+public class Launcher extends AbstractGemocLauncher {
 
-	public final static String TYPE_ID = "org.gemoc.gemoc_modeling_workbench.ui.launcher";
-
-	public final static String MODEL_ID = "org.gemoc.gemoc_modeling_workbench.ui.debugModel";
+	public final static String TYPE_ID = Activator.PLUGIN_ID+".launcher";
 
 	private IBasicExecutionEngine _executionEngine;
 
@@ -170,7 +169,7 @@ public class Launcher extends fr.obeo.dsl.debug.ide.sirius.ui.launch.AbstractDSL
 
 	private boolean isEngineAlreadyRunning(URI launchedModelURI) throws CoreException {
 		// make sure there is no other running engine on this model
-		Collection<IBasicExecutionEngine> engines = org.gemoc.execution.engine.Activator.getDefault().gemocRunningEngineRegistry
+		Collection<IBasicExecutionEngine> engines = org.gemoc.executionframework.engine.Activator.getDefault().gemocRunningEngineRegistry
 				.getRunningEngines().values();
 		for (IBasicExecutionEngine engine : engines) {
 			IExecutionEngine observable = (IExecutionEngine) engine;

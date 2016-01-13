@@ -84,7 +84,7 @@
 					</snapshots>
 				</repository>
 		        
-		       <!--  <repository>
+		        <repository>
 		            <id>modelanimation_executionframework on CI</id>
 		            <layout>p2</layout>
 		            <url>https://ci.inria.fr/gemoc/job/modelanimation_executionframework/lastSuccessfulBuild/artifact/executionframework/releng/org.gemoc.executionframework.repository/target/repository/</url>
@@ -93,17 +93,39 @@
 		            <id>modelanimation_siriusmodelanimation on CI</id>
 		            <layout>p2</layout>
 		            <url>https://ci.inria.fr/gemoc/job/modelanimation_siriusmodelanimation/lastSuccessfulBuild/artifact/siriusmodelanimation/releng/org.gemoc.siriusmodelanimation.repository/target/repository/</url>
-		        </repository> -->
+		        </repository>
 		        <repository>
 					<id>concurrency_executionengine_ccsljava on CI</id>
 					<layout>p2</layout>
 					<url>https://ci.inria.fr/gemoc/view/All/job/concurrency_executionengine_ccsljava/lastSuccessfulBuild/artifact/ccsljava_execution/releng/org.gemoc.executionengine.ccsljava.repository/target/repository/</url>
 				</repository>
+				 <repository>
+		            <id>modeldebugging_trace_commons on CI</id>
+		            <layout>p2</layout>
+		            <url>https://ci.inria.fr/gemoc/job/modeldebugging_trace_commons/lastSuccessfulBuild/artifact/trace/commons/releng/fr.inria.diverse.trace.commons.updatesite/target/repository/</url>
+		        </repository>
 		        <repository>
 		            <id>concurrency_moccml on CI</id>
 		            <layout>p2</layout>
 		            <url>https://ci.inria.fr/gemoc/view/All/job/concurrency_moccml/lastSuccessfulBuild/artifact/moccml/releng/org.gemoc.mocc.p2updatesite/target/repository/</url>
 		        </repository>
+		        <repository>
+		            <id>modeldebugging_framework_frameworkcommons on CI</id>
+		            <layout>p2</layout>
+		            <url>https://ci.inria.fr/gemoc/job/modeldebugging_framework_framework_commons/lastSuccessfulBuild/artifact/framework/framework_commons/releng/org.gemoc.modeldebugging.framework.commons.repository/target/repository/</url>
+		        </repository>
+		        <repository>
+		            <id>modeldebugging_framework_xdsmlframework on CI</id>
+		            <layout>p2</layout>
+		            <url>https://ci.inria.fr/gemoc/job/modeldebugging_framework_xdsmlframework/lastSuccessfulBuild/artifact/framework/xdsml_framework/releng/org.gemoc.modeldebugging.xdsmlframework.repository/target/repository/</url>
+		        </repository>
+		        <repository>
+		            <id>modeldebugging_framework_executionframework on CI</id>
+		            <layout>p2</layout>
+		            <url>https://ci.inria.fr/gemoc/job/modeldebugging_framework_executionframework/lastSuccessfulBuild/artifact/framework/execution_framework/releng/org.gemoc.modeldebugging.executionframework.repository/target/repository/</url>
+		        </repository>
+		      
+		       
 		    </repositories>
 	    </profile>
     	

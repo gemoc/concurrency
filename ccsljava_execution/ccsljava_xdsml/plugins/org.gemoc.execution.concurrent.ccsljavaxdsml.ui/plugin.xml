@@ -153,7 +153,7 @@
          point="org.eclipse.ui.newWizards">
       <category
             id="org.gemoc.execution.concurrent.ccsljavaxdsml.ui"
-            name="GEMOC">
+            name="GEMOC Concurrent">
       </category>
       <wizard
             category="org.gemoc.execution.concurrent.ccsljavaxdsml.ui"
@@ -335,4 +335,7 @@
       </persistent>
    </extension>
     
+   <extension-point id="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse.builder_addon"
+    name="GemocDSEBuilderAddon" 
+    schema="schema/org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse.builder_addon.exsd" />
 </plugin>

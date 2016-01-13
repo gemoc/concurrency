@@ -45,7 +45,7 @@ public class Generate extends AbstractAcceleoGenerator {
      *
      * @generated
      */
-    public static final String[] TEMPLATE_NAMES = { "generate" };
+    public static final String[] TEMPLATE_NAMES = { "ecl2mtl" };
     
     /**
      * The list of properties files from the launch parameters (Launch configuration).

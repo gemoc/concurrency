@@ -2,7 +2,6 @@ package org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards;
 
 import java.lang.reflect.InvocationTargetException;
 
-import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IResource;
@@ -108,7 +107,17 @@ public class CreateNewDSEProject extends Wizard implements INewWizard {
 								+ _askDSEInfoPage.getRootContainerModelElement();
 					 Project.createFile(createdProject, "moc2as.properties", content, monitor);
 					 String filePath = "ecl/" + _askDSEInfoPage.getTemplateECLFileNameFile() + ".ecl";
-					 Project.createFile(createdProject, filePath, "import '"+_askDSEInfoPage.getEcoreFile()+"'", monitor);
+					 
+					 StringBuilder eclfilecontent = new StringBuilder();
+					 eclfilecontent.append("import '"+_askDSEInfoPage.getEcoreFile()+"'\n");
+					 String packageName;
+					 if(_askDSEInfoPage.getRootContainerModelElement().contains("::")){
+						 packageName = _askDSEInfoPage.getRootContainerModelElement().substring(0, _askDSEInfoPage.getRootContainerModelElement().indexOf("::"));
+						 eclfilecontent.append("package "+packageName+"\nendpackage");
+					 }
+					 
+					 
+					 Project.createFile(createdProject, filePath, eclfilecontent.toString(), monitor);
 //						
 					 String buildFileContent = "bin.includes = META-INF/,\\\r\n\tqvto-gen/modeling/";
 					 Project.setFileContent(createdProject, "build.properties", buildFileContent);
