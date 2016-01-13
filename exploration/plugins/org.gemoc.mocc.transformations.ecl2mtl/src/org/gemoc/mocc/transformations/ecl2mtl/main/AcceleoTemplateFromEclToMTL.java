@@ -32,13 +32,13 @@ import fr.inria.aoste.timesquare.ecl.xtext.EclStandaloneSetup;
  *
  * @generated
  */
-public class Generate extends AbstractAcceleoGenerator {
+public class AcceleoTemplateFromEclToMTL extends AbstractAcceleoGenerator {
     /**
      * The name of the module.
      *
      * @generated
      */
-    public static final String MODULE_FILE_NAME = "generate";
+    public static final String MODULE_FILE_NAME = "org/gemoc/mocc/transformations/ecl2mtl/main/generate";
     
     /**
      * The name of the templates that are to be generated.
@@ -68,7 +68,7 @@ public class Generate extends AbstractAcceleoGenerator {
      *
      * @generated
      */
-    public Generate() {
+    public AcceleoTemplateFromEclToMTL() {
         // Empty implementation
     }
 
@@ -88,7 +88,7 @@ public class Generate extends AbstractAcceleoGenerator {
      *             the model cannot be loaded.
      * @generated
      */
-    public Generate(URI modelURI, File targetFolder,
+    public AcceleoTemplateFromEclToMTL(URI modelURI, File targetFolder,
             List<? extends Object> arguments) throws IOException {
         initialize(modelURI, targetFolder, arguments);
     }
@@ -109,7 +109,7 @@ public class Generate extends AbstractAcceleoGenerator {
      *             This can be thrown in two scenarios : the module cannot be found, or it cannot be loaded.
      * @generated
      */
-    public Generate(EObject model, File targetFolder,
+    public AcceleoTemplateFromEclToMTL(EObject model, File targetFolder,
             List<? extends Object> arguments) throws IOException {
         initialize(model, targetFolder, arguments);
     }
@@ -144,7 +144,7 @@ public class Generate extends AbstractAcceleoGenerator {
                  * add in "arguments" this "String" attribute.
                  */
                 
-                Generate generator = new Generate(modelURI, folder, arguments);
+                AcceleoTemplateFromEclToMTL generator = new AcceleoTemplateFromEclToMTL(modelURI, folder, arguments);
                 
                 /*
                  * Add the properties from the launch arguments.

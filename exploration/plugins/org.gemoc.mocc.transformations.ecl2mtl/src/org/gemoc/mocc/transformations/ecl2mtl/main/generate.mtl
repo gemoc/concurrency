@@ -15,9 +15,9 @@
 [import org::gemoc::mocc::transformations::ecl2mtl::services::stringQueries /]
 [import org::gemoc::mocc::transformations::ecl2mtl::services::fiacreQueries /]  
  
-[template public generate(anECLDocument : ECLDocument, resFileNames : String, rootElementName:String)] 
+[template public ecl2mtl(anECLDocument : ECLDocument, resFileNames : String, rootElementName:String)] 
 [comment @main/]
-[file (resFileNames.toString()+'toClockSystem.mtl', false, 'UTF-8')] 
+[file (resFileNames.toString(), false, 'UTF-8')] 
 [ '[' /]comment encoding = UTF-8 /[ ']' /]
 
 [ '[' /]module generate('http://fr.inria.aoste.timemodel.ccslmodel.clockexpressionandrelation', 
