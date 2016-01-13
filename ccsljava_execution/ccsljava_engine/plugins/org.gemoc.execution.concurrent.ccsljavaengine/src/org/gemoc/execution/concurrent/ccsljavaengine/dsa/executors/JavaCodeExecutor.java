@@ -1,5 +1,6 @@
 package org.gemoc.execution.concurrent.ccsljavaengine.dsa.executors;
 
+import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -73,8 +74,43 @@ public class JavaCodeExecutor implements ICodeExecutor {
 	}
 
 	@Override
+	public List<Method> findCompatibleMethodsWithAnnotation(Object caller,
+			List<Object> parameters, Class<? extends Annotation> annotationClass) {
+		ArrayList<Method> result = new ArrayList<Method>();
+		for(Method m : caller.getClass().getMethods()){
+			Class<?>[] evaluatedMethodParamTypes = m.getParameterTypes();
+			if(m.isAnnotationPresent(annotationClass) && evaluatedMethodParamTypes.length == parameters.size()){
+				boolean isAllParamCompatible = true;
+				for (int i = 0; i < evaluatedMethodParamTypes.length; i++) {
+					Object p = parameters.get(i);
+					if (evaluatedMethodParamTypes[i].isPrimitive()) {
+
+						if (evaluatedMethodParamTypes[i].equals(Integer.TYPE) && !Integer.class.isInstance(p)) {
+							isAllParamCompatible = false;
+							break;
+						} else if (evaluatedMethodParamTypes[i].equals(Boolean.TYPE) && !Boolean.class.isInstance(p)) {
+							isAllParamCompatible = false;
+							break;
+						}
+
+					} else if (!evaluatedMethodParamTypes[i].isInstance(p)) {
+						isAllParamCompatible = false;
+						break;
+					}
+				}
+				if (isAllParamCompatible) {
+					result.add(m);
+				}
+			}
+		}
+		
+		return result;
+	}
+	
+	@Override
 	public String getExcutorID() {
 		return this.getClass().getSimpleName();
 	}
+
 
 }

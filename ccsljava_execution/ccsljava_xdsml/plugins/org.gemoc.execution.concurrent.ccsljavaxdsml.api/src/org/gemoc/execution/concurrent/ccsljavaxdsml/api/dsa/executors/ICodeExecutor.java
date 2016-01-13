@@ -1,5 +1,7 @@
 package org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors;
 
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
 import java.util.List;
 
 import org.gemoc.executionframework.engine.mse.MSEOccurrence;
@@ -17,6 +19,9 @@ public interface ICodeExecutor
 	
 	Object execute(MSEOccurrence mseOccurrence) throws CodeExecutionException;
 	Object execute(Object caller, String methodName, List<Object> parameters) throws CodeExecutionException;
+	
+	/** allows to find methods applicable to the caller with a given list of parameters and with an annotation regardless of the method name */
+	List<Method> findCompatibleMethodsWithAnnotation(Object caller, List<Object> parameters, Class<? extends Annotation> annotationClass);
 	
 	String getExcutorID();
 
