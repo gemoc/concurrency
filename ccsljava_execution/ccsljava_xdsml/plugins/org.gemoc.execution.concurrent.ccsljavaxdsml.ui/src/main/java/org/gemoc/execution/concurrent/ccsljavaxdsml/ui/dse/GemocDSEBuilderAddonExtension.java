@@ -1,13 +1,7 @@
 package org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IConfigurationElement;
-import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 import org.gemoc.xdsmlframework.api.extensions.Extension;
-import org.gemoc.xdsmlframework.api.extensions.languages.LanguageDefinitionExtensionPoint;
 
 public class GemocDSEBuilderAddonExtension extends Extension
 {

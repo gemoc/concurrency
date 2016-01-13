@@ -39,14 +39,13 @@ public class GemocDSEBuilder extends IncrementalProjectBuilder {
 	
 	public static String QVTO_GEN_FOLDER = "qvto-gen";
 
-	ArrayList<IGemocDSEBuilderAddon> addons;
+	private ArrayList<IGemocDSEBuilderAddon> addons;
 	
 	public GemocDSEBuilder() {
 		try {
 			addons = instanciateBuilderAddons();
 		} catch (CoreException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Activator.error(e.getMessage(), e);
 		}
 	}
 	
@@ -137,25 +136,23 @@ public class GemocDSEBuilder extends IncrementalProjectBuilder {
 
 	protected void processResource(IResource resource){
 		
+		if (resource instanceof IFile && resource.getName().equals("moc2as.properties")) {
+			checkProjectProperties((IFile) resource);
+		}
+		else if (resource instanceof IProject)  {
+			checkProjectMinimalContent((IProject) resource);
+		}
+		else if(resource instanceof IFile && resource.getName().endsWith(".ecl")){
+			updateQVTOFromECL(resource);
+		}
+		else if(resource instanceof IFile 
+				&& resource.getName().endsWith(".qvto") 
+				&& resource.getProjectRelativePath().segment(0).equalsIgnoreCase(QVTO_GEN_FOLDER)){
+			checkQVTOContent((IFile)resource);
+		}
+			
 		for(IGemocDSEBuilderAddon addon : addons){
-			
-			if (resource instanceof IFile && resource.getName().equals("moc2as.properties")) {
-				checkProjectProperties((IFile) resource);
-			}
-			else if (resource instanceof IProject)  {
-				checkProjectMinimalContent((IProject) resource);
-			}
-			else if(resource instanceof IFile && resource.getName().endsWith(".ecl")){
-				updateQVTOFromECL(resource);
-			}
-			else if(resource instanceof IFile 
-					&& resource.getName().endsWith(".qvto") 
-					&& resource.getProjectRelativePath().segment(0).equalsIgnoreCase(QVTO_GEN_FOLDER)){
-				checkQVTOContent((IFile)resource);
-			}
-			
 			addon.processResourceAddon(resource);
-			
 		}
 		
 	}

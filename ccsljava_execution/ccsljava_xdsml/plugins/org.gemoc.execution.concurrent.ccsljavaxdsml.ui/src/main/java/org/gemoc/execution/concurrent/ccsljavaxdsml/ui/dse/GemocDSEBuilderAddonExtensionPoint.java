@@ -1,7 +1,6 @@
 package org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 import org.gemoc.xdsmlframework.api.extensions.ExtensionPoint;
 
