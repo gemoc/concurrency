@@ -45,8 +45,7 @@ public class GemocDSEBuilder extends IncrementalProjectBuilder {
 		try {
 			addons = instanciateBuilderAddons();
 		} catch (CoreException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Activator.error(e.getMessage(), e);
 		}
 	}
 	
