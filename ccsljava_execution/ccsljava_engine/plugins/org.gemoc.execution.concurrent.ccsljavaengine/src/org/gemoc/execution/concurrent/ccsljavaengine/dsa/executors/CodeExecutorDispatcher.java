@@ -1,5 +1,7 @@
 package org.gemoc.execution.concurrent.ccsljavaengine.dsa.executors;
 
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -83,7 +85,20 @@ public class CodeExecutorDispatcher implements ICodeExecutor
 	}
 	
 	@Override
+	public List<Method> findCompatibleMethodsWithAnnotation(Object caller,
+			List<Object> parameters, Class<? extends Annotation> annotationClass) {
+		ArrayList<Method> result = new ArrayList<Method>();
+		for (ICodeExecutor executor : _executors) 
+		{
+			result.addAll(executor.findCompatibleMethodsWithAnnotation(caller, parameters, annotationClass));
+		}
+		return result;
+	}
+	
+	@Override
 	public String getExcutorID() {
 		return this.getClass().getSimpleName();
 	}
+
+	
 }

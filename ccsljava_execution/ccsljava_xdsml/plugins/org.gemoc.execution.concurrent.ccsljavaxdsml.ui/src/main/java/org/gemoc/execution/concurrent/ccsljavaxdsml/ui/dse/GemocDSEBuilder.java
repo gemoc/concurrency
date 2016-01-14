@@ -152,7 +152,12 @@ public class GemocDSEBuilder extends IncrementalProjectBuilder {
 		}
 			
 		for(IGemocDSEBuilderAddon addon : addons){
-			addon.processResourceAddon(resource);
+			try{
+				addon.processResourceAddon(resource);
+			}
+			catch (Throwable e){
+				Activator.error("Error in addon "+e.getMessage(), e);
+			}
 		}
 		
 	}

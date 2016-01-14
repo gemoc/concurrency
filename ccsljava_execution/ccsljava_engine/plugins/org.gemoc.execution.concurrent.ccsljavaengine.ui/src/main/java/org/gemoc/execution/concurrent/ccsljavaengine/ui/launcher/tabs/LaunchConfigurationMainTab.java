@@ -1,6 +1,8 @@
 package org.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.tabs;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
@@ -13,6 +15,7 @@ import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.swt.SWT;
@@ -35,6 +38,7 @@ import org.gemoc.commons.eclipse.ui.dialogs.SelectAnyIFileDialog;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.Activator;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.ConcurrentRunConfiguration;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.LauncherMessages;
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.deciders.DeciderSpecificationExtension;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.deciders.DeciderSpecificationExtensionPoint;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtension;
@@ -42,6 +46,7 @@ import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.Con
 import org.gemoc.execution.concurrent.ccsljavaxdsml.concurrent_xdsml.ConcurrentLanguageDefinition;
 import org.gemoc.executionframework.engine.ui.commons.RunConfiguration;
 import org.gemoc.xdsmlframework.ui.utils.dialogs.SelectAIRDIFileDialog;
+import org.osgi.framework.Bundle;
 
 import fr.obeo.dsl.debug.ide.launch.AbstractDSLLaunchConfigurationDelegate;
 import fr.obeo.dsl.debug.ide.sirius.ui.launch.AbstractDSLLaunchConfigurationDelegateUI;
@@ -51,6 +56,8 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 	protected Composite _parent;
 
 	protected Text _modelLocationText;
+	protected Text _modelInitializationMethodText;
+	protected Text _modelInitializationArgumentsText;
 	protected Text _siriusRepresentationLocationText;
 	protected Button _animateButton;
 	protected Text _delayText;
@@ -112,6 +119,7 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 			_deciderCombo.setText(runConfiguration.getDeciderName());
 			_animationFirstBreak.setSelection(runConfiguration.getBreakStart());
 
+			_modelInitializationArgumentsText.setText(runConfiguration.getModelInitializationArguments());
 
 		} catch (CoreException e) {
 			Activator.error(e.getMessage(), e);
@@ -128,6 +136,10 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 		configuration.setAttribute(RunConfiguration.LAUNCH_SELECTED_LANGUAGE, this._languageCombo.getText());
 		configuration.setAttribute(RunConfiguration.LAUNCH_MELANGE_QUERY, this._melangeQueryText.getText());
 		configuration.setAttribute(ConcurrentRunConfiguration.LAUNCH_SELECTED_DECIDER, this._deciderCombo.getText());
+		configuration.setAttribute(RunConfiguration.LAUNCH_INITIALIZATION_METHOD,
+				_modelInitializationMethodText.getText());
+		configuration.setAttribute(RunConfiguration.LAUNCH_INITIALIZATION_ARGUMENTS,
+				_modelInitializationArgumentsText.getText());
 		configuration.setAttribute(RunConfiguration.LAUNCH_BREAK_START, _animationFirstBreak.getSelection());
 	}
 
@@ -178,6 +190,28 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 				}
 			}
 		});
+		createTextLabelLayout(parent, "Model initialization method");
+		_modelInitializationMethodText = new Text(parent, SWT.SINGLE | SWT.BORDER);
+		_modelInitializationMethodText.setLayoutData(createStandardLayout());
+		_modelInitializationMethodText.setFont(font);
+		_modelInitializationMethodText.setEditable(false);
+		createTextLabelLayout(parent, "");
+		createTextLabelLayout(parent, "Model initialization arguments");
+		_modelInitializationArgumentsText = new Text(parent, SWT.MULTI | SWT.BORDER |  SWT.WRAP | SWT.V_SCROLL);
+		GridData gridData = new GridData(GridData.FILL_BOTH);
+		gridData.heightHint = 40;
+		_modelInitializationArgumentsText.setLayoutData(gridData);
+		//_modelInitializationArgumentsText.setLayoutData(createStandardLayout());
+		_modelInitializationArgumentsText.setFont(font);
+		_modelInitializationArgumentsText.setEditable(true);
+		_modelInitializationArgumentsText.addModifyListener(new ModifyListener() {
+
+			@Override
+			public void modifyText(ModifyEvent e) {
+				updateLaunchConfigurationDialog();
+			}
+		});
+		createTextLabelLayout(parent, "");
 		return parent;
 	}
 
@@ -324,6 +358,57 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 	@Override
 	protected void updateLaunchConfigurationDialog() {
 		super.updateLaunchConfigurationDialog();
+		// modelInitializationMethod must come from the xdsml, maybe later we would allows an "expert mode" where we will allow to change it there
+		ConcurrentLanguageDefinitionExtension languageDefinitionExtPoint = ConcurrentLanguageDefinitionExtensionPoint
+						.findDefinition(_languageCombo.getText());
+		if(languageDefinitionExtPoint != null ){
+			ConcurrentLanguageDefinition langDef =getLanguageDefinition(languageDefinitionExtPoint.getXDSMLFilePath());
+			if(langDef != null && langDef.getDsaProject()!=null){
+				_modelInitializationMethodText.setText(getModelInitializationMethodName(languageDefinitionExtPoint));
+			}
+			else {
+				_modelInitializationMethodText.setText("");
+			}
+		}
+		else {
+			_modelInitializationMethodText.setText("");	
+		}
+		_modelInitializationArgumentsText.setEnabled(!_modelInitializationMethodText.getText().isEmpty());
+		
+	}
+	
+	protected String getModelInitializationMethodName(ConcurrentLanguageDefinitionExtension languageDefinitionExtension){
+		
+		ICodeExecutor codeExecutor;
+		try {
+			codeExecutor = languageDefinitionExtension.instanciateCodeExecutor();
+		
+			URI uri = URI.createPlatformResourceURI(_modelLocationText.getText(), true);
+			Object caller = EMFResource.getFirstContent(uri);
+			ArrayList<Object> parameters = new ArrayList<Object>(); 
+			parameters.add(new String[1]);
+			List<Method> methods = codeExecutor.findCompatibleMethodsWithAnnotation(caller, parameters, fr.inria.diverse.k3.al.annotationprocessor.InitializeModel.class);
+			
+			if(!methods.isEmpty()){
+			
+				Method selectedMethod = methods.get(0);
+				return selectedMethod.getDeclaringClass().getCanonicalName()+"."+selectedMethod.getName();
+				
+			}
+		} catch (CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "";
+	}
+	
+	protected ConcurrentLanguageDefinition getLanguageDefinition(String xDSMLFilePath) {
+		URI uri = URI.createPlatformPluginURI(xDSMLFilePath, true);
+		Object o = EMFResource.getFirstContent(uri);		
+		if(o != null && o instanceof ConcurrentLanguageDefinition){
+			return (ConcurrentLanguageDefinition)o;
+		}
+		return null;
 	}
 	
 	/* (non-Javadoc)
@@ -365,11 +450,8 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 				.findDefinition(languageName);
 		if(languageDefinitionExtPoint != null ){
 			try{
-				URI uri = URI.createPlatformPluginURI(languageDefinitionExtPoint.getXDSMLFilePath(), true);
-				Object o = EMFResource.getFirstContent(uri);
-				ConcurrentLanguageDefinition langDef = null;
-				if(o != null && o instanceof ConcurrentLanguageDefinition){
-					langDef = (ConcurrentLanguageDefinition)o;
+				ConcurrentLanguageDefinition langDef = getLanguageDefinition(languageDefinitionExtPoint.getXDSMLFilePath());
+				if(langDef != null){
 					IResource modelIResource = workspace.getRoot().findMember(modelName);
 					EList<String> recognizedFileExtensions = langDef.getFileExtensions();
 					if(recognizedFileExtensions != null && !recognizedFileExtensions.isEmpty() && !recognizedFileExtensions.contains(modelIResource.getFileExtension())){
