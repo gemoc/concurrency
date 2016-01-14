@@ -6,6 +6,7 @@ import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.gemoc.executionframework.engine.mse.LogicalStep;
+import org.gemoc.executionframework.engine.mse.MSE;
 import org.gemoc.executionframework.engine.mse.MSEOccurrence;
 import org.gemoc.executionframework.engine.mse.helper.LogicalStepHelper;
 import org.gemoc.executionframework.engine.core.AbstractExecutionEngine;
@@ -14,6 +15,8 @@ import org.gemoc.executionframework.engine.ui.debug.AbstractGemocDebugger;
 import org.gemoc.executionframework.engine.ui.debug.AnnotationMutableFieldExtractor;
 import org.gemoc.executionframework.engine.ui.debug.IMutableFieldExtractor;
 import org.gemoc.executionframework.engine.ui.debug.breakpoint.GemocBreakpoint;
+import org.gemoc.executionframework.ui.utils.ViewUtils;
+import org.gemoc.executionframework.xdsml_base.LanguageDefinition;
 import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
 import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 
@@ -93,11 +96,19 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 			final LogicalStep logicalStep = ((MSEOccurrence) instruction).getLogicalStep();
 			pushStackFrame(threadName, LogicalStepHelper.getLogicalStepName(logicalStep), logicalStep, logicalStep);
 			logicalStepFrameCreated = true;
-			pushStackFrame(threadName, instruction.toString(), instruction, instruction);
+			pushStackFrame(threadName, mseOccurrenceText((MSEOccurrence)instruction), instruction, instruction);
 			mseFrameCreated = true;
 		}
 	}
 
+	private String mseOccurrenceText(MSEOccurrence mseOcc){
+		MSE mse = mseOcc.getMse();
+		if (mse != null)
+			return mse.getName() +"   " + ViewUtils.eventToString(mse);
+		else
+			return mseOcc.toString();
+	}
+	
 	@Override
 	public boolean shouldBreak(EObject instruction) {
 		boolean res = false;
