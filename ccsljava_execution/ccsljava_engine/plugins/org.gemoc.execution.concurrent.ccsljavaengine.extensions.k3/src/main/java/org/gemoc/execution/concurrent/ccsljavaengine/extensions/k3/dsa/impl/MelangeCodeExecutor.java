@@ -1,5 +1,6 @@
 package org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.dsa.impl;
 
+import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -216,23 +217,10 @@ public class MelangeCodeExecutor implements ICodeExecutor {
 		return this.getClass().getSimpleName() + "[" + languageName + "]";
 	}
 
-	// @Override
-	// public boolean canExecute(ActionCall call)
-	// {
-	// return getBestApplicableMethod(call.getTriggeringEvent().getCaller(),
-	// call.getTriggeringEvent().getAction().getName(),
-	// call.getParameters(),
-	// call) != null;
-	// }
-	//
-	//
-	// @Override
-	// public boolean canExecute(Object caller, String methodName, List<Object>
-	// parameters)
-	// {
-	// return getBestApplicableMethod(caller,
-	// methodName,
-	// parameters,
-	// null) != null;
-	// }
+	@Override
+	public List<Method> findCompatibleMethodsWithAnnotation(Object caller,
+			List<Object> parameters, Class<? extends Annotation> annotationClass) {
+		// TODO Auto-generated method stub
+		return new ArrayList<>();
+	}
 }

@@ -1,19 +1,24 @@
 package org.gemoc.execution.concurrent.ccsljavaengine.dse;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.emf.transaction.RecordingCommand;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionContext;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IFutureAction;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.ILogicalStepDecider;
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.CodeExecutionException;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dse.IMSEStateController;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
 import org.gemoc.executionframework.engine.Activator;
 import org.gemoc.executionframework.engine.core.AbstractExecutionEngine;
+import org.gemoc.executionframework.engine.core.CommandExecution;
 import org.gemoc.executionframework.engine.mse.LogicalStep;
 import org.gemoc.executionframework.engine.mse.MSE;
 import org.gemoc.executionframework.engine.mse.MSEOccurrence;
@@ -24,7 +29,6 @@ import org.gemoc.xdsmlframework.api.core.IExecutionEngine;
 import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ActionModel;
-import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.When;
 
 /**
@@ -427,10 +431,53 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine implement
 		_mseStateController = new DefaultMSEStateController();
 		concurrentExecutionContext.getConcurrentExecutionPlatform().getMSEStateControllers().add(_mseStateController);
 		
-		
+		executeInitializeModelMethod(executionContext);
 		Activator.getDefault().info("*** Engine initialization done. ***");
 	}
 
+	protected void executeInitializeModelMethod(IExecutionContext executionContext){
+
+		String modelInitializationMethodQName = executionContext.getRunConfiguration().getModelInitializationMethod();
+		if(!modelInitializationMethodQName.isEmpty()){
+			
+			Object target = executionContext.getResourceModel().getContents().get(0);
+			String modelInitializationMethodName = modelInitializationMethodQName.substring(modelInitializationMethodQName.lastIndexOf(".")+1); 
+			final ArrayList<Object> modelInitializationParameters = new ArrayList<>();
+			modelInitializationParameters.add(executionContext.getRunConfiguration().getModelInitializationArguments().split("\\r?\\n"));
+			
+			final TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Factory.INSTANCE.getEditingDomain(getExecutionContext().getResourceModel().getResourceSet());
+			Object res = null;
+			if (editingDomain != null) {
+				final RecordingCommand command = new RecordingCommand(editingDomain, "execute  "+modelInitializationMethodQName) {
+					private List<Object> result = new ArrayList<Object>();
+
+					@Override
+					protected void doExecute() {
+						try {
+							result.add(getConcurrentExecutionContext().getConcurrentExecutionPlatform().getCodeExecutor().execute(target, modelInitializationMethodName, modelInitializationParameters));
+						} catch (CodeExecutionException e) {
+							Activator.getDefault().error("Exception received " + e.getMessage(), e);
+						}
+					}
+
+					@Override
+					public Collection<?> getResult() {
+						return result;
+					}
+				};
+				res = CommandExecution.execute(editingDomain, command);
+			} else {
+				try {
+					res = getConcurrentExecutionContext().getConcurrentExecutionPlatform().getCodeExecutor().execute(target, modelInitializationMethodName, modelInitializationParameters);
+				} catch (CodeExecutionException e) { 
+					Activator.getDefault().error("Exception received " + e.getMessage(), e);
+				}
+			}
+		}
+		
+		Activator.getDefault().info("*** Model initialization done. ***");
+	}
+	
 	@Override
 	public String engineKindName() {
 		return "GEMOC Concurrent Engine";
