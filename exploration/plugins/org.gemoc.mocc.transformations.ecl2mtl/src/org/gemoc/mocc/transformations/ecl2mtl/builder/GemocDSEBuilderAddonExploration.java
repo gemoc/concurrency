@@ -52,14 +52,13 @@ public class GemocDSEBuilderAddonExploration implements IGemocDSEBuilderAddon {
 			    final URI uri = URI.createFileURI(uristring);
 			    
 			    String genFolder = MTL_GEN_FOLDER;
-                final IFolder modelingFolder = Project.createFolder(project, genFolder + "/modeling");                   
-                final IFolder languageFolder = Project.createFolder(project, genFolder + "/language");                   
+			    final IFolder folder = project.getFolder(genFolder);
+               // final IFolder modelingFolder = Project.createFolder(project, genFolder + "/modeling");                   
+               // final IFolder languageFolder = Project.createFolder(project, genFolder + "/language");                   
 
-                final String mtlFileName = eclFile.getFullPath()
-                                    .removeFileExtension()
-                                    .addFileExtension("mtl")
-                                    .lastSegment();
-
+                final String mtlFileName = eclFile.getFullPath().removeFileExtension().lastSegment() + "toClockSystem.mtl";
+                
+                
                 Properties properties = new Properties();
 				properties.load(propertyFile.getContents());
 				String rootElement = properties.getProperty("rootElement");
@@ -69,7 +68,8 @@ public class GemocDSEBuilderAddonExploration implements IGemocDSEBuilderAddon {
 
                 final List<String> arguments = new ArrayList<String>();
 
-                arguments.add(mtlFileName);
+                arguments.add(eclFile.getFullPath()
+                        .removeFileExtension().lastSegment());
                 
                 String fixedRootElement = rootElement;
 				if(rootElement.contains("::")){
@@ -89,14 +89,14 @@ public class GemocDSEBuilderAddonExploration implements IGemocDSEBuilderAddon {
 	
 						try {
 
-                            System.out.println("launching ecl to mtl:\n\turi=" + uri + "\n\tfolder=" + languageFolder + "\n\targs="
+                            System.out.println("launching ecl to mtl:\n\turi=" + uri + "\n\tfolder=" + folder + "\n\targs="
                                     + arguments);
-                            AcceleoTemplateFromEclToMTL generator = new AcceleoTemplateFromEclToMTL(uri, new File(languageFolder.getLocation().toOSString()), arguments);
+                            AcceleoTemplateFromEclToMTL generator = new AcceleoTemplateFromEclToMTL(uri, new File(folder.getLocation().toOSString()), arguments);
                             generator.doGenerate(new BasicMonitor());
-                            IFile mtlFileForLanguage = languageFolder.getFile(mtlFileName);
+                            IFile mtlFileForLanguage = folder.getFile(mtlFileName);
                             mtlFileForLanguage.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
                         
-                            IFile mtlFileForModeling = modelingFolder.getFile(mtlFileName);
+                            /*IFile mtlFileForModeling = modelingFolder.getFile(mtlFileName);
 
                             RegularFile reg_mtlFileForLanguage = new RegularFile(mtlFileForLanguage.getLocation().toOSString());
                             RegularFile reg_mtlFileForModeling = new RegularFile(mtlFileForModeling.getLocation().toOSString());
@@ -105,7 +105,7 @@ public class GemocDSEBuilderAddonExploration implements IGemocDSEBuilderAddon {
                             String mtlModelingContent = mtlLanguageContent.replaceAll("platform:/resource", "platform:/plugin");
                             reg_mtlFileForModeling.setContent(mtlModelingContent.getBytes());
 
-                            mtlFileForModeling.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+                            mtlFileForModeling.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());*/
    
 
 						} catch (IOException e) {

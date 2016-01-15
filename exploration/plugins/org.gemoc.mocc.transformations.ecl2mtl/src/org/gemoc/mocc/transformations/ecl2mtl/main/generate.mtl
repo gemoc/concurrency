@@ -17,7 +17,7 @@
  
 [template public ecl2mtl(anECLDocument : ECLDocument, resFileNames : String, rootElementName:String)] 
 [comment @main/]
-[file (resFileNames.toString(), false, 'UTF-8')] 
+[file (resFileNames.toString()+'toClockSystem.mtl', false, 'UTF-8')] 
 [ '[' /]comment encoding = UTF-8 /[ ']' /]
 
 [ '[' /]module generate('http://fr.inria.aoste.timemodel.ccslmodel.clockexpressionandrelation', 
