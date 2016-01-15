@@ -4,8 +4,6 @@ import java.util.ArrayList;
 
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.jface.action.IAction;
-import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
@@ -15,11 +13,10 @@ import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.ui.IActionDelegate;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtensionPoint;
 
 
-public class CompileAndGenerationClockSystemWizard extends Wizard implements IActionDelegate{
+public class CompileAndGenerationClockSystemWizard extends Wizard {
 
   protected Combo _languageCombo;
 	
@@ -45,20 +42,6 @@ public class CompileAndGenerationClockSystemWizard extends Wizard implements IAc
   public boolean performFinish() {
     return true;
   }
-
-@Override
-public void run(IAction action) {
-	// TODO Auto-generated method stub
-	 System.out.println("run");
-}
-
-@Override
-public void selectionChanged(IAction action, ISelection selection) {
-	// TODO Auto-generated method stub
-	
-}
-
-
 
 public class SelectProjectPage extends WizardPage {
 	  private Text text1;
