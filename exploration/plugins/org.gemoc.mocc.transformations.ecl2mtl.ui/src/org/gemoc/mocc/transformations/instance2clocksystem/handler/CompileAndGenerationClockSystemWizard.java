@@ -53,7 +53,6 @@ public class SelectProjectPage extends WizardPage {
 	    setDescription("Select xdsml");
 	  }
 
-	  @Override
 	  public void createControl(Composite parent) {
 	    container = new Composite(parent, SWT.NONE);
 	    GridLayout layout = new GridLayout();

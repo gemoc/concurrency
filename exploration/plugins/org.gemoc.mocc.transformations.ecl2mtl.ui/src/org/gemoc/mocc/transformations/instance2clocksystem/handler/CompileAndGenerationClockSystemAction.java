@@ -79,12 +79,12 @@ public class CompileAndGenerationClockSystemAction extends ActionDelegate implem
 	 */
 	public void run(IAction action) {
 		if (files != null) {
-			CompileAndGenerationClockSystemWizard wizard = new CompileAndGenerationClockSystemWizard();
+			//CompileAndGenerationClockSystemWizard wizard = ;
 			Display.getDefault().syncExec(new Runnable() {
 			    public void run() {
 			    	// Create the wizard dialog
 				      WizardDialog dialog = new WizardDialog
-				         ( new Shell(),wizard);
+				         ( new Shell(),new CompileAndGenerationClockSystemWizard());
 				      // Open the wizard dialog
 				      dialog.open();
 			    }
