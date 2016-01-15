@@ -22,6 +22,9 @@ import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.wizard.WizardDialog;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IActionDelegate;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.ActionDelegate;
@@ -64,8 +67,11 @@ public class CompileAndGenerationClockSystemAction extends ActionDelegate implem
 			files = ((IStructuredSelection) selection).toList();
 		}
 	}
-	
 
+	protected final Shell getShell() {
+		return null;//PlatformUI.getWorkbench().getModalDialogShellProvider().getActiveWorkbenchWindow().getShell();
+	}
+	
 	/**{@inheritDoc}
 	 *
 	 * @see org.eclipse.ui.actions.ActionDelegate#run(org.eclipse.jface.action.IAction)
@@ -73,7 +79,17 @@ public class CompileAndGenerationClockSystemAction extends ActionDelegate implem
 	 */
 	public void run(IAction action) {
 		if (files != null) {
-			
+			CompileAndGenerationClockSystemWizard wizard = new CompileAndGenerationClockSystemWizard();
+			Display.getDefault().syncExec(new Runnable() {
+			    public void run() {
+			    	// Create the wizard dialog
+				      WizardDialog dialog = new WizardDialog
+				         ( new Shell(),wizard);
+				      // Open the wizard dialog
+				      dialog.open();
+			    }
+			});
+		
 			IRunnableWithProgress operation = new IRunnableWithProgress() {
 				public void run(IProgressMonitor monitor) {
 					try {
@@ -83,6 +99,7 @@ public class CompileAndGenerationClockSystemAction extends ActionDelegate implem
 							
 							URI modelURI = URI.createPlatformResourceURI(model.getFullPath().toString(), true);
 							try {
+								
 								
 								System.out.println("ModelURI: "+ modelURI);
 								
