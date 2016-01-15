@@ -20,6 +20,7 @@ public class SharedIcons {
 	public static ImageDescriptor LOGICALSTEP_RUNNING_ICON = ImageDescriptor.createFromFile(SharedIcons.class, "/icons/footprints-running-cat-16.png");
 	
 	public static ImageDescriptor VISIBLE_EVENT_ICON = ImageDescriptor.createFromFile(SharedIcons.class, "/icons/visible-16.png");
+	public static ImageDescriptor VISIBLE_EVENT_OVERLAY = ImageDescriptor.createFromFile(SharedIcons.class, "/icons/visible-deco.png");
 
 	public static ImageDescriptor PAST_CHOSEN_LOGICALSTEP_ICON = ImageDescriptor.createFromFile(SharedIcons.class, "/icons/circle-blue-16.png");
 	public static ImageDescriptor PAST_POSSIBLE_LOGICALSTEP_ICON = ImageDescriptor.createFromFile(SharedIcons.class, "/icons/circle-blue-outline-16.png");

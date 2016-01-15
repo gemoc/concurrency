@@ -41,10 +41,10 @@ import org.gemoc.executionframework.engine.ui.launcher.AbstractGemocLauncher;
 import org.gemoc.executionframework.extensions.sirius.services.AbstractGemocAnimatorServices;
 import org.gemoc.executionframework.extensions.sirius.services.AbstractGemocDebuggerServices;
 import org.gemoc.executionframework.ui.views.engine.EnginesStatusView;
+import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 import org.gemoc.xdsmlframework.api.core.ExecutionMode;
 import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
 import org.gemoc.xdsmlframework.api.core.IExecutionEngine;
-import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 
 import fr.inria.diverse.commons.messagingsystem.api.MessagingSystem;
@@ -280,7 +280,7 @@ public class Launcher extends AbstractGemocLauncher {
 
 	@Override
 	protected String getDebugJobName(ILaunchConfiguration configuration, EObject firstInstruction) {
-		return "Gemoc debug job";
+		return "Gemoc Concurrent debug job";
 	}
 
 	@Override
@@ -290,7 +290,10 @@ public class Launcher extends AbstractGemocLauncher {
 
 	@Override
 	protected String getModelIdentifier() {
-		return MODEL_ID;
+		if (_executionEngine instanceof ConcurrentExecutionEngine)
+			return Activator.PLUGIN_ID+".debugModel";
+		else
+			return MODEL_ID;
 	}
 
 	@Override

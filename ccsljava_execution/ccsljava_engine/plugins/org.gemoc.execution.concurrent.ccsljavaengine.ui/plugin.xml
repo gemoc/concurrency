@@ -65,13 +65,14 @@
             sourceLocatorId="org.gemoc.execution.concurrent.ccsljavaengine.ui.sourceLocator">
       </launchConfigurationType>
    </extension>
-<!--<extension
+   <extension
           point="org.eclipse.debug.ui.debugModelPresentations">
        <debugModelPresentation
-             class="org.gemoc.gemoc_modeling_workbench.ui.launcher.GemocDebugModelPresentation"
-             id="org.gemoc.gemoc_modeling_workbench.ui.debugModel">
+             class="org.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.GemocDebugModelPresentation"
+             id="org.gemoc.execution.concurrent.ccsljavaengine.ui.debugModel">
        </debugModelPresentation>
-    </extension>ibute
+    </extension>
+    <!--ibute
              name="org.gemoc.gemoc_modeling_workbench.ui.breakpoint.breakOnLogicalStep">
        </attribute>
        <attribute
@@ -169,6 +170,10 @@
       <javaActions
             actionClass="org.gemoc.execution.concurrent.ccsljavaengine.ui.debug.sirius.action.GemocDebugAs"
             id="org.gemoc.execution.concurrent.ccsljavaengine.ui.debug.sirius.action.gemocDebugAs">
+      </javaActions>
+      <javaActions
+            actionClass="org.gemoc.execution.concurrent.ccsljavaengine.ui.debug.sirius.action.GemocConcurrentToggleBreakpointAction"
+            id="org.gemoc.execution.concurrent.ccsljavaengine.ui.debug.sirius.action.GemocConcurrentToggleBreakpointAction">
       </javaActions>
    </extension>
    <extension

@@ -94,10 +94,13 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 					instruction);
 			logicalStepFrameCreated = true;
 		} else if (instruction instanceof MSEOccurrence) {
-			final LogicalStep logicalStep = ((MSEOccurrence) instruction).getLogicalStep();
+			final MSEOccurrence mseOcc = (MSEOccurrence) instruction;
+			final LogicalStep logicalStep = mseOcc.getLogicalStep();
 			pushStackFrame(threadName, LogicalStepHelper.getLogicalStepName(logicalStep), logicalStep, logicalStep);
 			logicalStepFrameCreated = true;
-			pushStackFrame(threadName, mseOccurrenceText((MSEOccurrence)instruction), instruction, instruction);
+			EObject caller = instruction;
+			if(mseOcc.getMse() != null && mseOcc.getMse().getCaller() != null) caller = mseOcc.getMse().getCaller();
+			pushStackFrame(threadName, mseOccurrenceText(mseOcc), caller, instruction);
 			mseFrameCreated = true;
 		}
 	}
