@@ -13,17 +13,13 @@ public class Activator extends AbstractUIPlugin {
 	// The plug-in ID
 	public static final String PLUGIN_ID = "org.gemoc.execution.concurrent.ccsljavaxdsml.ui"; //$NON-NLS-1$
 
-	public static final String GEMOC_PROJECT_CONFIGURATION_FILE_EXTENSION = "xdsml";
-	public static final String GEMOC_PROJECT_CONFIGURATION_FILE = "project."
-			+ GEMOC_PROJECT_CONFIGURATION_FILE_EXTENSION;
-
 	// extension point constants
 	
 
 	public static final String MODEL_LOADER_CLASS_NAMEPART = "ModelLoader";
 	public static final String CODEEXECUTOR_CLASS_NAMEPART = "CodeExecutor";
 	public static final String SOLVER_CLASS_NAMEPART = "Solver";
-	public static final String EXTENSION_GENERATED_CLASS_FOLDER_NAME = "src/main/xdsml-java-gen/";
+	public static final String EXTENSION_GENERATED_CLASS_FOLDER_NAME = "xdsml-java-gen/";
 
 	// The shared instance
 	private static Activator plugin;
