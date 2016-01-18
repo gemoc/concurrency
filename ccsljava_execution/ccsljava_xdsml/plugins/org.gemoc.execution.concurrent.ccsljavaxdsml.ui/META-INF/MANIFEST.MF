@@ -38,7 +38,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.navigator,
  org.gemoc.execution.concurrent.ccsljavaxdsml.api,
  org.gemoc.xdsmlframework.ide.ui;bundle-version="0.1.0",
- org.gemoc.xdsmlframework.ui.utils
+ org.gemoc.xdsmlframework.ui.utils,
+ fr.inria.diverse.melange.metamodel
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.core.filesystem

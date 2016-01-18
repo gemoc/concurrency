@@ -5,13 +5,12 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EcorePackage;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.concurrent_xdsml.ConcurrentLanguageDefinition;
-import org.gemoc.executionframework.engine.core.AbstractExecutionEngine;
-import org.gemoc.executionframework.engine.core.EngineStoppedException;
 import org.gemoc.executionframework.engine.mse.LogicalStep;
 import org.gemoc.executionframework.engine.mse.MSE;
 import org.gemoc.executionframework.engine.mse.MSEOccurrence;
 import org.gemoc.executionframework.engine.mse.helper.LogicalStepHelper;
+import org.gemoc.executionframework.engine.core.AbstractExecutionEngine;
+import org.gemoc.executionframework.engine.core.EngineStoppedException;
 import org.gemoc.executionframework.engine.ui.debug.AbstractGemocDebugger;
 import org.gemoc.executionframework.engine.ui.debug.AnnotationMutableFieldExtractor;
 import org.gemoc.executionframework.engine.ui.debug.IMutableFieldExtractor;
@@ -230,14 +229,6 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 		List<IMutableFieldExtractor> extractors = new ArrayList<IMutableFieldExtractor>();
 		extractors.add(new AnnotationMutableFieldExtractor());
 		return extractors;
-	}
-
-	@Override
-	protected String getBundleSymbolicName(LanguageDefinition languageDefinition) {
-		if (languageDefinition instanceof ConcurrentLanguageDefinition) {
-			return ((ConcurrentLanguageDefinition) languageDefinition).getDsaProject().getProjectName();
-		}
-		return null;
 	}
 
 }

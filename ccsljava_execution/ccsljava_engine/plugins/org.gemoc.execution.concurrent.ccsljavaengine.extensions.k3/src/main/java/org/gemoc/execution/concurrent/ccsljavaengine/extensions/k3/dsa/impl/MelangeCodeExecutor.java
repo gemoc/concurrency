@@ -1,7 +1,5 @@
 package org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.dsa.impl;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -10,34 +8,26 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Properties;
 import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
-import org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.Activator;
-import org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.dsa.api.IK3DSAExecutorClassLoader;
+import org.gemoc.executionframework.engine.commons.MelangeHelper;
+import org.gemoc.executionframework.engine.mse.MSEOccurrence;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.CodeExecutionException;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
-import org.gemoc.executionframework.engine.mse.MSEOccurrence;
+import org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.dsa.api.IK3DSAExecutorClassLoader;
 
-/**
- * Executor that is able to find the helper class associated with a given object
- * It also works for aspect on EMF: - In case of EObject, (target or parameter)
- * it is also able to find the appropriate interface when looking for the method
- * 
- * @author dvojtise
- * 
- */
-public class Kermeta3AspectsCodeExecutor implements ICodeExecutor {
+//TODO: extends Kermeta3AspectsCodeExecutor?
+public class MelangeCodeExecutor implements ICodeExecutor {
 
 	// protected ClassLoader classLoader;
 	protected IK3DSAExecutorClassLoader k3DSAExecutorClassLoader;
-	protected String bundleSymbolicName;
+	protected String languageName;
 
-	public Kermeta3AspectsCodeExecutor(IK3DSAExecutorClassLoader k3DSAExecutorClassLoader, String bundleSymbolicName) {
+	public MelangeCodeExecutor(IK3DSAExecutorClassLoader k3DSAExecutorClassLoader, String languageName) {
 		// this.classLoader = classLoader;
 		this.k3DSAExecutorClassLoader = k3DSAExecutorClassLoader;
-		this.bundleSymbolicName = bundleSymbolicName;
+		this.languageName = languageName;
 	}
 
 	@Override
@@ -143,56 +133,9 @@ public class Kermeta3AspectsCodeExecutor implements ICodeExecutor {
 	 * 
 	 */
 	protected Set<Class<?>> getStaticHelperClasses(Object target) {
-		List<Class<?>> allPossibleInterfaces = getInterfacesClassOfEObjectOrClass(target);
-
-		String searchedPropertyFileName = "/META-INF/xtend-gen/" + bundleSymbolicName + ".k3_aspect_mapping.properties";
-		Properties properties = new Properties();
-		InputStream inputStream = k3DSAExecutorClassLoader.getResourceAsStream(searchedPropertyFileName);
-		if (inputStream == null) {
-			try {
-				inputStream = org.eclipse.core.runtime.Platform.getBundle(bundleSymbolicName)
-						.getEntry(searchedPropertyFileName).openStream();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				return null;
-			}
-		}
-		String possibleStaticClassesNames = null;
-		try {
-			if (inputStream != null) {
-				properties.load(inputStream);
-				for (int i = 0; i < allPossibleInterfaces.size(); i++) {
-					possibleStaticClassesNames = properties
-							.getProperty(allPossibleInterfaces.get(i).getCanonicalName());
-					// Break so that the aspect is applied on the most precise
-					// type
-					if (possibleStaticClassesNames != null)
-						break;
-				}
-			}
-		} catch (IOException e) {
-			// TODO report for debug that no mapping was found
-			return null;
-		}
-		if (possibleStaticClassesNames == null) {
-			return null;
-		}
-
 		Set<Class<?>> classes = new HashSet<Class<?>>();
-		ClassNotFoundException possibleException = null;
-		for (String possibleName : possibleStaticClassesNames.replaceAll(" ", "").split(",")) {
-			try {
-				classes.add(k3DSAExecutorClassLoader.getClassForName(possibleName));
-			} catch (ClassNotFoundException e) {
-				possibleException = e;
-			}
-		}
-		if (classes.isEmpty()) {
-			Activator.getMessagingSystem().error("ClassNotFoundException, see Error Log View", Activator.PLUGIN_ID,
-					possibleException);
-		}
-
+		classes.addAll((Collection<? extends Class<?>>) MelangeHelper.getAspectsOn(languageName, target.getClass()));
+		//TODO: report for aspects not found on target 
 		return classes;
 	}
 
@@ -270,64 +213,14 @@ public class Kermeta3AspectsCodeExecutor implements ICodeExecutor {
 	}
 
 	@Override
+	public String getExcutorID() {
+		return this.getClass().getSimpleName() + "[" + languageName + "]";
+	}
+
+	@Override
 	public List<Method> findCompatibleMethodsWithAnnotation(Object caller,
 			List<Object> parameters, Class<? extends Annotation> annotationClass) {
-		ArrayList<Method> result = new ArrayList<Method>();
-		ArrayList<Object> staticParameters = new ArrayList<Object>();
-		staticParameters.add(caller);
-		staticParameters.addAll(parameters);
-		Set<Class<?>> staticHelperClasses = getStaticHelperClasses(caller);
-		if (staticHelperClasses == null || staticHelperClasses.isEmpty()) {
-			return result;
-		}
-		for (Class<?> c : staticHelperClasses) {
-			result.addAll(getApplicableMethodsWithAnnotation(c,  staticParameters, annotationClass));
-		}
-		return result;
+		// TODO Auto-generated method stub
+		return new ArrayList<>();
 	}
-	
-	protected List<Method> getApplicableMethodsWithAnnotation(Class<?> staticHelperClass,  List<Object> parameters, Class<? extends Annotation> annotationClass) {
-		ArrayList<Method> result = new ArrayList<Method>();
-		Method[] methods = staticHelperClass.getDeclaredMethods();
-		for (Method method : methods) {
-			Class<?>[] evaluatedMethodParamTypes = method.getParameterTypes();
-			if (method.isAnnotationPresent(annotationClass) && evaluatedMethodParamTypes.length == parameters.size()) {
-				boolean isAllParamCompatible = true;
-				for (int i = 0; i < evaluatedMethodParamTypes.length; i++) {
-					Object p = parameters.get(i);
-					if (evaluatedMethodParamTypes[i].isPrimitive()) {
-
-						if (evaluatedMethodParamTypes[i].equals(Integer.TYPE) && !Integer.class.isInstance(p)) {
-							isAllParamCompatible = false;
-							break;
-						} else if (evaluatedMethodParamTypes[i].equals(Boolean.TYPE) && !Boolean.class.isInstance(p)) {
-							isAllParamCompatible = false;
-							break;
-						}
-
-					} else if (!evaluatedMethodParamTypes[i].isInstance(p)) {
-						isAllParamCompatible = false;
-						break;
-					}
-				}
-				if (isAllParamCompatible) {
-					result.add(method);
-				}
-			}
-		}
-		// tries going in the inheritance hierarchy
-		Class<?> superClass = staticHelperClass.getSuperclass();
-		if (superClass != null){
-			result.addAll(getApplicableMethodsWithAnnotation(superClass, parameters, annotationClass));
-		}
-			
-		return result;
-	}
-	
-	
-	@Override
-	public String getExcutorID() {
-		return this.getClass().getSimpleName() + "[" + bundleSymbolicName + "]";
-	}
-
 }
