@@ -128,46 +128,49 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 	 */
 	private void updateProjectPluginConfiguration(IResource resource) {
 		if (resource instanceof IFile 
-				&& resource.getFileExtension().equals("melange")) {
-				IFile file = (IFile) resource;
-				IProject project = file.getProject();
-				// try {
-				if (file.exists()) {
-					//Load .melange file
-					URI uri = URI.createPlatformResourceURI(file.getFullPath().toString(), true);
-					ResourceSet rs = new ResourceSetImpl();
-					Resource res = rs.getResource(uri, true);
-					ModelTypingSpace root = (ModelTypingSpace)res.getContents().get(0);
-					
-					ManifestChanger manifestChanger = new ManifestChanger(project);
-					
-					//Browse declared Languages
-					for (fr.inria.diverse.melange.metamodel.melange.Element element : root.getElements()) {
-						if(element instanceof Language){
-							Language language = (Language) element;
-							// update entry in plugin.xml
-							try {
-								updateCodeExecutorClass(project, language.getName(), manifestChanger);
-								updateModelLoaderClass(project, language.getName(), null);
-								updateSolverClass(project, language.getName(), null);
-								String eclUri = "";
-								List<String> ecls = language.getEcl();
-								if(!ecls.isEmpty()) eclUri = ecls.get(0);
-								updateQVTO(project, language.getName(), eclUri, null);
-							} catch (BundleException | IOException
-									| CoreException e) {
-								e.printStackTrace();
-							}
+			&& resource.getFileExtension().equals("melange")) {
+			IFile file = (IFile) resource;
+			IProject project = file.getProject();
+			// try {
+			if (file.exists()) {
+				//Load .melange file
+				URI uri = URI.createPlatformResourceURI(file.getFullPath().toString(), true);
+				ResourceSet rs = new ResourceSetImpl();
+				Resource res = rs.getResource(uri, true);
+				ModelTypingSpace root = (ModelTypingSpace)res.getContents().get(0);
+				String packageName = root.getName();
+				
+				ManifestChanger manifestChanger = new ManifestChanger(project);
+				
+				//Browse declared Languages
+				for (fr.inria.diverse.melange.metamodel.melange.Element element : root.getElements()) {
+					if(element instanceof Language){
+						Language language = (Language) element;
+						String languageName = packageName+"."+language.getName();
+						// update entry in plugin.xml
+						try {
+							setPluginLanguageNameAndFilePath(project, file, packageName+"."+language.getName());
+							updateCodeExecutorClass(project, languageName, manifestChanger);
+							updateModelLoaderClass(project, languageName, null);
+							updateSolverClass(project, languageName, null);
+							String eclUri = "";
+							List<String> ecls = language.getEcl();
+							if(!ecls.isEmpty()) eclUri = ecls.get(0);
+							updateQVTO(project, languageName, eclUri, null);
+						} catch (BundleException | IOException
+								| CoreException e) {
+							e.printStackTrace();
 						}
 					}
-					
-					try {
-						manifestChanger.addPluginDependency(org.gemoc.executionframework.extensions.sirius.Activator.PLUGIN_ID);
-						manifestChanger.commit();
-					} catch (BundleException | IOException | CoreException e) {
-						e.printStackTrace();
-					}
 				}
+				
+				try {
+					manifestChanger.addPluginDependency(org.gemoc.executionframework.extensions.sirius.Activator.PLUGIN_ID);
+					manifestChanger.commit();
+				} catch (BundleException | IOException | CoreException e) {
+					e.printStackTrace();
+				}
+			}
 		}
 	}
 
@@ -182,8 +185,11 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 	 * @throws IOException 
 	 * @throws BundleException 
 	 */
-	protected void updateCodeExecutorClass(IProject project, String languageName, ManifestChanger manifestChanger) throws BundleException, IOException, CoreException {
+	protected void updateCodeExecutorClass(IProject project, String fullLanguageName, ManifestChanger manifestChanger) throws BundleException, IOException, CoreException {
 		// create the java class
+		int lastDot = fullLanguageName.lastIndexOf(".");
+		if(lastDot == -1)lastDot = 0;
+		String languageName = fullLanguageName.substring(lastDot+1);
 		String languageToUpperFirst = getLanguageNameWithFirstUpper(languageName);
 		String packageName = getPackageName(languageName);
 		String folderName = getFolderName(languageName);
@@ -202,7 +208,7 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 			
 		sbContent.append("// add K3 DSA specific executor\n");
 		sbContent.append("\t\taddExecutor(new org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.dsa.impl.MelangeCodeExecutor(this,\n");
-		sbContent.append("\t\t\t\""+languageName+"\"));\n");
+		sbContent.append("\t\t\t\""+fullLanguageName+"\"));\n");
 		
 		sbImplementContent.append("\n\t\timplements org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.dsa.api.IK3DSAExecutorClassLoader ");
 		
@@ -255,7 +261,7 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 		helper.saveDocument(pluginfile);
 	}
 	
-	protected void setPluginLanguageNameAndFilePath(IProject project, final String languageName) {
+	protected void setPluginLanguageNameAndFilePath(IProject project, final IFile melangeFile, String languageName) {
 		IFile pluginfile = project.getFile(PluginXMLHelper.PLUGIN_FILENAME);
 		PluginXMLHelper.createEmptyTemplateFile(pluginfile, false);
 		PluginXMLHelper helper = new PluginXMLHelper();
@@ -263,7 +269,8 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 		Element gemocExtensionPoint = helper.getOrCreateExtensionPoint(ConcurrentLanguageDefinitionExtensionPoint.GEMOC_CONCURRENT_LANGUAGE_EXTENSION_POINT);
 		helper.updateXDSMLDefinitionInExtensionPoint(gemocExtensionPoint, languageName);
 		helper.updateXDSMLDefinitionAttributeInExtensionPoint(gemocExtensionPoint,
-				LanguageDefinitionExtensionPoint.GEMOC_LANGUAGE_EXTENSION_POINT_XDSML_DEF_XDSML_FILE_PATH_ATT, "");
+				LanguageDefinitionExtensionPoint.GEMOC_LANGUAGE_EXTENSION_POINT_XDSML_DEF_XDSML_FILE_PATH_ATT, 
+				project.getFullPath().toString() + "/" + melangeFile.getProjectRelativePath());
 		helper.saveDocument(pluginfile);
 	}
 	

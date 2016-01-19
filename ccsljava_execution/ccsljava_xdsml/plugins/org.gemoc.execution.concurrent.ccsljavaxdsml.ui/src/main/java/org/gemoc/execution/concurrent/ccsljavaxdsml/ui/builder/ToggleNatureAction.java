@@ -9,12 +9,14 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Properties;
 
+import org.eclipse.core.internal.resources.File;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.OperationCanceledException;
@@ -24,6 +26,11 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.eclipse.jdt.core.IClasspathEntry;
+import org.eclipse.jdt.core.IJavaProject;
+import org.eclipse.jdt.core.IPackageFragmentRoot;
+import org.eclipse.jdt.core.JavaCore;
+import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -65,7 +72,7 @@ public class ToggleNatureAction implements IObjectActionDelegate {
 				}
 				if (project != null) {
 					// [FT] Use the AskLanguaeName wizard here because the name of the project may contain some bad characters.
-					toggleNature(project, project.getName());
+					toggleNature(project);
 				}
 			}
 		}
@@ -96,7 +103,7 @@ public class ToggleNatureAction implements IObjectActionDelegate {
 	 * @param project
 	 *            to have sample nature added or removed
 	 */
-	public void toggleNature(IProject project, String languageName) 
+	public void toggleNature(IProject project) 
 	{
 		try 
 		{
@@ -105,7 +112,7 @@ public class ToggleNatureAction implements IObjectActionDelegate {
 				case Added:
 					JavaProject.create(project);
 					addPluginNature(project);
-					addGemocNature(project, languageName);
+					addGemocNature(project);
 					break;
 				case Removed:
 					break;	
@@ -153,9 +160,10 @@ public class ToggleNatureAction implements IObjectActionDelegate {
 				changer.addPluginDependency("org.gemoc.xdsmlframework.api");				
 				changer.addPluginDependency("org.gemoc.execution.concurrent.ccsljavaxdsml.api");				
 				changer.addPluginDependency("org.gemoc.execution.concurrent.ccsljavaengine");
+				changer.addPluginDependency("org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3");
 				changer.addPluginDependency("org.gemoc.executionframework.engine");
 				changer.addSingleton();
-				changer.addAttributes("Bundle-RequiredExecutionEnvironment","JavaSE-1.6");
+				changer.addAttributes("Bundle-RequiredExecutionEnvironment","JavaSE-1.7");
 				changer.commit();					
 			} 
 			catch (InvocationTargetException | InterruptedException | IOException | BundleException e) 
@@ -165,11 +173,12 @@ public class ToggleNatureAction implements IObjectActionDelegate {
 		}
 	}
 	
-	private void addGemocNature(IProject project, String languageName)
+	private void addGemocNature(IProject project)
 			throws CoreException {
 		addAsMainNature(project, GemocLanguageDesignerNature.NATURE_ID, null);
-		addMissingResourcesToNature(project, languageName);
+		addMissingResourcesToNature(project);
 		addGemocResourcesToBuildProperties(project);
+		addSourceFolder(project,Activator.EXTENSION_GENERATED_CLASS_FOLDER_NAME);
 	}
 
 	// add the nature making sure this will be the first
@@ -192,7 +201,25 @@ public class ToggleNatureAction implements IObjectActionDelegate {
 		}
 	}
 	
-	private void addMissingResourcesToNature(IProject project, String languageName) {
+	public void addSourceFolder(IProject project, String folder){
+		try {
+			IJavaProject javaProject = JavaCore.create(project);
+			IClasspathEntry[] entries = javaProject.getRawClasspath();
+			IClasspathEntry[] newEntries = new IClasspathEntry[entries.length + 1];
+			System.arraycopy(entries, 0, newEntries, 0, entries.length);
+
+			IPath srcPath= javaProject.getPath().append(folder);
+			IClasspathEntry srcEntry= JavaCore.newSourceEntry(srcPath, null);
+
+			newEntries[entries.length] = JavaCore.newSourceEntry(srcEntry.getPath());
+			javaProject.setRawClasspath(newEntries, null);
+		} catch (JavaModelException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	private void addMissingResourcesToNature(IProject project) {
 	}
 	
 	private void addGemocResourcesToBuildProperties(IProject project){
