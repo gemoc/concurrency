@@ -140,34 +140,34 @@ public class CreateMoCWizardContextAction {
 		}
 	}
 	protected void addMoCFileToConf(String projectName, String mocFileURI, IProject gemocLanguageIProject) {
-		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
-		Map<String, Object> m = reg.getExtensionToFactoryMap();
-		m.put(Activator.GEMOC_PROJECT_CONFIGURATION_FILE_EXTENSION,
-				new XMIResourceFactoryImpl());
-		ResourceSet resSet = new ResourceSetImpl();
-		// get the resource
-		IFile configFile = gemocLanguageIProject.getFile(new Path(Activator.GEMOC_PROJECT_CONFIGURATION_FILE));
-		Resource resource = resSet
-				.getResource(URI.createURI(configFile.getLocationURI()
-						.toString()), true);
-		ConcurrentLanguageDefinition gemocLanguageWorkbenchConfiguration = (ConcurrentLanguageDefinition) resource
-				.getContents().get(0);
-		
-		addMoCFileToConf(projectName, mocFileURI, gemocLanguageWorkbenchConfiguration);
-		
-		try {
-			resource.save(null);
-		} catch (IOException e) {
-			Activator.error(e.getMessage(), e);
-		}
-		if (configFile != null) {
-			try {
-				configFile.refreshLocal(IResource.DEPTH_ZERO,
-						new NullProgressMonitor());
-			} catch (CoreException e) {
-				Activator.error(e.getMessage(), e);
-			}
-		}
+//		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
+//		Map<String, Object> m = reg.getExtensionToFactoryMap();
+//		m.put(Activator.GEMOC_PROJECT_CONFIGURATION_FILE_EXTENSION,
+//				new XMIResourceFactoryImpl());
+//		ResourceSet resSet = new ResourceSetImpl();
+//		// get the resource
+//		IFile configFile = gemocLanguageIProject.getFile(new Path(Activator.GEMOC_PROJECT_CONFIGURATION_FILE));
+//		Resource resource = resSet
+//				.getResource(URI.createURI(configFile.getLocationURI()
+//						.toString()), true);
+//		ConcurrentLanguageDefinition gemocLanguageWorkbenchConfiguration = (ConcurrentLanguageDefinition) resource
+//				.getContents().get(0);
+//		
+//		addMoCFileToConf(projectName, mocFileURI, gemocLanguageWorkbenchConfiguration);
+//		
+//		try {
+//			resource.save(null);
+//		} catch (IOException e) {
+//			Activator.error(e.getMessage(), e);
+//		}
+//		if (configFile != null) {
+//			try {
+//				configFile.refreshLocal(IResource.DEPTH_ZERO,
+//						new NullProgressMonitor());
+//			} catch (CoreException e) {
+//				Activator.error(e.getMessage(), e);
+//			}
+//		}
 	}
 	
 	protected void addMoCFileToConf(String projectName, String mocFileURI, ConcurrentLanguageDefinition languageDefinition) {
