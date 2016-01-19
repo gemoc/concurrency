@@ -373,7 +373,20 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 			int endProjectIndex = eclFileLocationUri.indexOf("/");
 			if(endProjectIndex != -1){
 				String eclProject = eclFileLocationUri.substring(0,endProjectIndex);
-				computedQVTOLocationURI = eclProject + "/qvto-gen/modeling";
+				
+				// search the relevant qvto in the dse project
+				IProject dseProject = ResourcesPlugin.getWorkspace().getRoot().getProject(eclProject);	
+				IFolder qvtoFolder = dseProject.getFolder("qvto-gen/modeling");
+				if(qvtoFolder != null){			
+					FileFinderVisitor fileFinder = new FileFinderVisitor("qvto");
+					try {
+						qvtoFolder.accept(fileFinder);
+						IFile qvtoFile = fileFinder.getFile();
+						if(qvtoFile != null){
+							computedQVTOLocationURI = qvtoFile.getFullPath().toString();
+						}
+					} catch (CoreException e) {	}
+				}
 			}
 		}
 		else{
