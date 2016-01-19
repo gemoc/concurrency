@@ -173,6 +173,7 @@ public class ToggleNatureAction implements IObjectActionDelegate {
 			changer.addPluginDependency("org.gemoc.execution.concurrent.ccsljavaengine");
 			changer.addPluginDependency("org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3");
 			changer.addPluginDependency("org.gemoc.executionframework.engine");
+			changer.addPluginDependency("org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare");
 //			changer.addSingleton();
 //			changer.addAttributes("Bundle-RequiredExecutionEnvironment","JavaSE-1.7");
 			changer.commit();	
