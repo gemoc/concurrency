@@ -113,6 +113,7 @@ public class ToggleNatureAction implements IObjectActionDelegate {
 					JavaProject.create(project);
 					addPluginNature(project);
 					addGemocNature(project);
+					updateManifestFile(project);
 					break;
 				case Removed:
 					break;	
@@ -153,23 +154,31 @@ public class ToggleNatureAction implements IObjectActionDelegate {
 				PluginXMLHelper.createEmptyTemplateFile(project.getFile(PluginXMLHelper.PLUGIN_FILENAME), false);					
 				// convert to plugin and add necessary entries in the build.properties
 				PluginConverter.convert(project);							
-				// complement manifest
-				ManifestChanger changer = new ManifestChanger(project);
-				changer.addPluginDependency(org.gemoc.xdsmlframework.api.Activator.PLUGIN_ID, "0.1.0", true, true);
-				changer.addPluginDependency("org.eclipse.emf.ecore.xmi", "2.8.0", true, true);				
-				changer.addPluginDependency("org.gemoc.xdsmlframework.api");				
-				changer.addPluginDependency("org.gemoc.execution.concurrent.ccsljavaxdsml.api");				
-				changer.addPluginDependency("org.gemoc.execution.concurrent.ccsljavaengine");
-				changer.addPluginDependency("org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3");
-				changer.addPluginDependency("org.gemoc.executionframework.engine");
-				changer.addSingleton();
-				changer.addAttributes("Bundle-RequiredExecutionEnvironment","JavaSE-1.7");
-				changer.commit();					
 			} 
-			catch (InvocationTargetException | InterruptedException | IOException | BundleException e) 
+			catch (InvocationTargetException | InterruptedException e) 
 			{
 				Activator.error("cannot add org.eclipse.pde.PluginNature nature to project due to " + e.getMessage(), e);
 			}								
+		}
+	}
+	
+	private void updateManifestFile(IProject project){
+		// complement manifest
+		ManifestChanger changer = new ManifestChanger(project);
+		try {
+			changer.addPluginDependency(org.gemoc.xdsmlframework.api.Activator.PLUGIN_ID, "0.1.0", true, true);
+			changer.addPluginDependency("org.eclipse.emf.ecore.xmi", "2.8.0", true, true);				
+			changer.addPluginDependency("org.gemoc.xdsmlframework.api");				
+			changer.addPluginDependency("org.gemoc.execution.concurrent.ccsljavaxdsml.api");				
+			changer.addPluginDependency("org.gemoc.execution.concurrent.ccsljavaengine");
+			changer.addPluginDependency("org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3");
+			changer.addPluginDependency("org.gemoc.executionframework.engine");
+//			changer.addSingleton();
+//			changer.addAttributes("Bundle-RequiredExecutionEnvironment","JavaSE-1.7");
+			changer.commit();	
+		} catch (BundleException | IOException | CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 	
