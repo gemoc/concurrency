@@ -49,9 +49,16 @@
 
    <element name="XDSML_Definition">
       <complexType>
-         <sequence minOccurs="0" maxOccurs="unbounded">
-            <element ref="EngineAddon_Definition"/>
-            <element ref="MSE_State_Controller_Definition"/>
+         <sequence minOccurs="0" maxOccurs="1">
+            <choice minOccurs="0" maxOccurs="1">
+               <element ref="XDSML_Definition_Customization"/>
+            </choice>
+            <sequence minOccurs="0" maxOccurs="unbounded">
+               <element ref="EngineAddon_Definition"/>
+            </sequence>
+            <sequence minOccurs="0" maxOccurs="unbounded">
+               <element ref="MSE_State_Controller_Definition"/>
+            </sequence>
          </sequence>
          <attribute name="name" type="string" use="required">
             <annotation>
@@ -135,6 +142,24 @@ This is optional, if not set, the engine will ignore it.
                <appinfo>
                   <meta.attribute kind="java" basedOn=":org.gemoc.gemoc_language_workbench.api.dse.IMSEStateController"/>
                </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="XDSML_Definition_Customization">
+      <annotation>
+         <documentation>
+            This optional enty allow to define custumization elemnet for th XDSML definition
+If some element are redefined here, they overide the value that is in the main XSDML_Definition
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="fileExtensions" type="string">
+            <annotation>
+               <documentation>
+                  coma separated list of file extensions supported for this xDSML (ie. file extensions with a editor) they will be used to enable the &quot;Debug as&quot; popup on files with this extension.
+               </documentation>
             </annotation>
          </attribute>
       </complexType>
