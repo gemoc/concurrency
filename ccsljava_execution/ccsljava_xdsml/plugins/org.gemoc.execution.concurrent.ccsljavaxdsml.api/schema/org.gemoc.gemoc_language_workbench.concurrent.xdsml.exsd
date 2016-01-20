@@ -50,15 +50,13 @@
    <element name="XDSML_Definition">
       <complexType>
          <sequence minOccurs="0" maxOccurs="1">
-            <choice minOccurs="0" maxOccurs="1">
-               <element ref="XDSML_Definition_Customization"/>
-            </choice>
             <sequence minOccurs="0" maxOccurs="unbounded">
                <element ref="EngineAddon_Definition"/>
             </sequence>
             <sequence minOccurs="0" maxOccurs="unbounded">
                <element ref="MSE_State_Controller_Definition"/>
             </sequence>
+            <element ref="XDSML_Definition_Customization" minOccurs="0" maxOccurs="1"/>
          </sequence>
          <attribute name="name" type="string" use="required">
             <annotation>

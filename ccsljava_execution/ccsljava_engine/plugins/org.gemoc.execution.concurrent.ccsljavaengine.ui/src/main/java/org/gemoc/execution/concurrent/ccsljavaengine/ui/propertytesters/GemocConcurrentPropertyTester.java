@@ -8,10 +8,8 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.gemoc.commons.eclipse.emf.EMFResource;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtension;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtensionPoint;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.concurrent_xdsml.ConcurrentLanguageDefinition;
 
 /**
  * Property tester for context launching menu.
@@ -61,21 +59,8 @@ public class GemocConcurrentPropertyTester extends PropertyTester {
 	
 	protected boolean existsDSMLWithFileExtension(String fileExtension){
 		for(ConcurrentLanguageDefinitionExtension lde : ConcurrentLanguageDefinitionExtensionPoint.getSpecifications()){
-			try{
-				String xdsmluri = lde.getXDSMLFilePath();
-				if (!xdsmluri.startsWith("platform:/plugin"))
-					xdsmluri = "platform:/plugin" + xdsmluri;
-				Object o = EMFResource.getFirstContent(xdsmluri);
-				if(o != null && o instanceof ConcurrentLanguageDefinition){
-					ConcurrentLanguageDefinition ld = (ConcurrentLanguageDefinition)o;
-					if(ld.getFileExtensions().contains(fileExtension)){
-						return true;
-					}
-				}
-			}
-			catch(Exception e){}
+			if( lde.getFileExtensions().contains(fileExtension)) return true;
 		}
-		
 		
 		return false;
 	}
