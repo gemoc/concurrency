@@ -366,9 +366,13 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 		helper.saveDocument(pluginfile);
 	}
 
-	protected void updateQVTO(final IProject project, String languageName, final String eclFileLocationUri, final String qvtoFileLocationUri) {
+	protected void updateQVTO(final IProject project, String languageName, String eclFileLocationUri, final String qvtoFileLocationUri) {
 		String computedQVTOLocationURI = "";
 		if(qvtoFileLocationUri == null || qvtoFileLocationUri.isEmpty()){
+			
+			if(eclFileLocationUri.startsWith("/")){
+				eclFileLocationUri = eclFileLocationUri.substring(1);
+			}
 			
 			int endProjectIndex = eclFileLocationUri.indexOf("/");
 			if(endProjectIndex != -1){

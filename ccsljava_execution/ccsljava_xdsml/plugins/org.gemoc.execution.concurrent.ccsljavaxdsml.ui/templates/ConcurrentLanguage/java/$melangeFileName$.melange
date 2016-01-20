@@ -1,0 +1,9 @@
+package $packageName$
+
+language $metamodelName$ {
+	syntax "platform:/resource/$ecoreFilePath$"
+	
+	ecl "$eclFilePath$"
+	
+	exactType $metamodelName$MT
+}
