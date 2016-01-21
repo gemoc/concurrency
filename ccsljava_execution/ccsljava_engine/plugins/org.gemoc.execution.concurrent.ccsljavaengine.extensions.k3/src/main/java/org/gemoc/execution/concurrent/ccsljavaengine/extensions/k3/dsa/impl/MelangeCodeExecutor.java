@@ -1,6 +1,5 @@
 package org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.dsa.impl;
 
-import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -11,14 +10,14 @@ import java.util.List;
 import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
-import org.gemoc.executionframework.engine.commons.MelangeHelper;
-import org.gemoc.executionframework.engine.mse.MSEOccurrence;
+import org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.dsa.api.IK3DSAExecutorClassLoader;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.CodeExecutionException;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
-import org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.dsa.api.IK3DSAExecutorClassLoader;
+import org.gemoc.executionframework.engine.commons.MelangeHelper;
+import org.gemoc.executionframework.engine.mse.MSEOccurrence;
 
 //TODO: extends Kermeta3AspectsCodeExecutor?
-public class MelangeCodeExecutor implements ICodeExecutor {
+public class MelangeCodeExecutor extends AbstractAspectsCodeExecutor implements ICodeExecutor {
 
 	// protected ClassLoader classLoader;
 	protected IK3DSAExecutorClassLoader k3DSAExecutorClassLoader;
@@ -132,6 +131,7 @@ public class MelangeCodeExecutor implements ICodeExecutor {
 	 * aspects, and deals with it as a list of applicable static classes)
 	 * 
 	 */
+	@Override
 	protected Set<Class<?>> getStaticHelperClasses(Object target) {
 		Set<Class<?>> classes = new HashSet<Class<?>>();
 		classes.addAll((Collection<? extends Class<?>>) MelangeHelper.getAspectsOn(languageName, target.getClass()));
@@ -217,10 +217,5 @@ public class MelangeCodeExecutor implements ICodeExecutor {
 		return this.getClass().getSimpleName() + "[" + languageName + "]";
 	}
 
-	@Override
-	public List<Method> findCompatibleMethodsWithAnnotation(Object caller,
-			List<Object> parameters, Class<? extends Annotation> annotationClass) {
-		// TODO Auto-generated method stub
-		return new ArrayList<>();
-	}
+	
 }

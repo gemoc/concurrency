@@ -443,10 +443,13 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine implement
 			Object target = executionContext.getResourceModel().getContents().get(0);
 			String modelInitializationMethodName = modelInitializationMethodQName.substring(modelInitializationMethodQName.lastIndexOf(".")+1); 
 			final ArrayList<Object> modelInitializationParameters = new ArrayList<>();
-			modelInitializationParameters.add(executionContext.getRunConfiguration().getModelInitializationArguments().split("\\r?\\n"));
+			ArrayList<String> modelInitializationArgs = new ArrayList<>();
+			for(String s : executionContext.getRunConfiguration().getModelInitializationArguments().split("\\r?\\n")){
+				modelInitializationArgs.add(s);
+			}
+			modelInitializationParameters.add(modelInitializationArgs);
 			
-			final TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Factory.INSTANCE.getEditingDomain(getExecutionContext().getResourceModel().getResourceSet());
-			Object res = null;
+			final TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Factory.INSTANCE.getEditingDomain(getExecutionContext().getResourceModel().getResourceSet());			
 			if (editingDomain != null) {
 				final RecordingCommand command = new RecordingCommand(editingDomain, "execute  "+modelInitializationMethodQName) {
 					private List<Object> result = new ArrayList<Object>();
@@ -465,10 +468,10 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine implement
 						return result;
 					}
 				};
-				res = CommandExecution.execute(editingDomain, command);
+				CommandExecution.execute(editingDomain, command);
 			} else {
 				try {
-					res = getConcurrentExecutionContext().getConcurrentExecutionPlatform().getCodeExecutor().execute(target, modelInitializationMethodName, modelInitializationParameters);
+					getConcurrentExecutionContext().getConcurrentExecutionPlatform().getCodeExecutor().execute(target, modelInitializationMethodName, modelInitializationParameters);
 				} catch (CodeExecutionException e) { 
 					Activator.getDefault().error("Exception received " + e.getMessage(), e);
 				}

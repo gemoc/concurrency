@@ -346,9 +346,14 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 		
 			URI uri = URI.createPlatformResourceURI(_modelLocationText.getText(), true);
 			Object caller = EMFResource.getFirstContent(uri);
-			ArrayList<Object> parameters = new ArrayList<Object>(); 
+			ArrayList<Object> parameters = new ArrayList<Object>();
+			// try with String[] agrs
 			parameters.add(new String[1]);
 			List<Method> methods = codeExecutor.findCompatibleMethodsWithAnnotation(caller, parameters, fr.inria.diverse.k3.al.annotationprocessor.InitializeModel.class);
+			// try with List<String>
+			parameters.clear();
+			parameters.add(new ArrayList<String>());
+			methods.addAll(codeExecutor.findCompatibleMethodsWithAnnotation(caller, parameters, fr.inria.diverse.k3.al.annotationprocessor.InitializeModel.class));
 			
 			if(!methods.isEmpty()){
 			
