@@ -165,7 +165,7 @@
             project="true">
       </wizard>
       <wizard
-            category="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.category.ecl"
+            category="org.gemoc.execution.concurrent.ccsljavaxdsml.ui"
             class="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateNewDSEProject"
             finalPerspective="org.eclipse.sirius.ui.tools.perspective.design"
             icon="icons/IconeGemocLanguage-16.png"
@@ -174,7 +174,7 @@
             project="true">
       </wizard>
       <wizard
-            category="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.category.moccml"
+            category="org.gemoc.execution.concurrent.ccsljavaxdsml.ui"
             class="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateNewMoCProject"
             finalPerspective="org.eclipse.sirius.ui.tools.perspective.design"
             icon="icons/IconeGemocLanguage-16.png"
@@ -182,14 +182,6 @@
             name="MoCCML Project"
             project="true">
       </wizard>
-      <category
-            id="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.category.ecl"
-            name="ECL">
-      </category>
-      <category
-            id="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.category.moccml"
-            name="MoCCML">
-      </category>
    </extension>
 
 
