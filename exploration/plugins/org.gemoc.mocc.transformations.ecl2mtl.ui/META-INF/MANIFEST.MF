@@ -23,10 +23,7 @@ Require-Bundle: org.eclipse.ui,
  org.gemoc.commons.eclipse.jdt;bundle-version="0.1.0",
  org.gemoc.commons.eclipse.pde;bundle-version="0.1.0",
  org.gemoc.commons.eclipse.ui;bundle-version="0.1.0",
- org.gemoc.commons.eclipse,
- org.gemoc.xdsmlframework.api;resolution:=optional,
- org.gemoc.execution.concurrent.ccsljavaxdsml.model;resolution:=optional,
- org.gemoc.execution.concurrent.ccsljavaxdsml.api;resolution:=optional
+ org.gemoc.commons.eclipse
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-ActivationPolicy: lazy
 Eclipse-LazyStart: true

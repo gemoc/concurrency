@@ -1,14 +1,8 @@
 package org.gemoc.mocc.transformations.instance2clocksystem.handler;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 
-import org.eclipse.core.runtime.FileLocator;
-import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Platform;
-import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
@@ -20,13 +14,6 @@ import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-import org.gemoc.commons.eclipse.emf.EMFResource;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtension;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtensionPoint;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.concurrent_xdsml.ConcurrentLanguageDefinition;
-import org.gemoc.mocc.transformations.ecl2mtl.ui.Activator;
-import org.gemoc.xdsmlframework.api.extensions.languages.LanguageDefinitionExtension;
-import org.osgi.framework.Bundle;
 
 
 public class CompileAndGenerationClockSystemWizard extends Wizard {
@@ -86,7 +73,7 @@ public class CompileAndGenerationClockSystemWizard extends Wizard {
   
   private File retrieveSourceFile(){
 	  	File sourceFile = null;
-	  	ConcurrentLanguageDefinitionExtension dfe = ConcurrentLanguageDefinitionExtensionPoint.findDefinition(selectProject.projectName);
+	  /*	ConcurrentLanguageDefinitionExtension dfe = ConcurrentLanguageDefinitionExtensionPoint.findDefinition(selectProject.projectName);
 
 	  	String xdsmluri = ((LanguageDefinitionExtension)dfe).getXDSMLFilePath();
 		if (!xdsmluri.startsWith("platform:/plugin"))
@@ -107,7 +94,7 @@ public class CompileAndGenerationClockSystemWizard extends Wizard {
 				IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e);
 				Activator.getDefault().getLog().log(status);
 			}
-		}
+		}*/
 		return sourceFile;
   }
   
@@ -166,7 +153,7 @@ public class SelectProjectPage extends WizardPage {
 	  	_languageCombo = new Combo(parent, SWT.NONE);
 	  
 	  	ArrayList<String> xdsmlNames = new ArrayList<String>();
-	  	IConfigurationElement[] confElements = Platform
+	  	/*IConfigurationElement[] confElements = Platform
 	  			.getExtensionRegistry()
 	  			.getConfigurationElementsFor(
 	  					ConcurrentLanguageDefinitionExtensionPoint.GEMOC_CONCURRENT_LANGUAGE_EXTENSION_POINT);
@@ -178,7 +165,7 @@ public class SelectProjectPage extends WizardPage {
 	  	}
 	  	String[] empty = {};
 	  	_languageCombo.setItems(xdsmlNames.toArray(empty));
-	  	
+	  	*/
 	  	
 	  	_languageCombo.addSelectionListener(new SelectionAdapter() {
 			@Override
