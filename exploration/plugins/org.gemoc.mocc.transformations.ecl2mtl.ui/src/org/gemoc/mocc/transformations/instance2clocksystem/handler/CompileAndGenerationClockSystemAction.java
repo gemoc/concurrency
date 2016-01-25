@@ -5,6 +5,12 @@ import java.io.FileNotFoundException;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.nio.file.FileVisitResult;
+import java.nio.file.FileVisitor;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -68,9 +74,9 @@ public class CompileAndGenerationClockSystemAction extends ActionDelegate implem
 		}
 	}
 
-	protected final Shell getShell() {
+	/*protected final Shell getShell() {
 		return null;//PlatformUI.getWorkbench().getModalDialogShellProvider().getActiveWorkbenchWindow().getShell();
-	}
+	}*/
 	
 	/**{@inheritDoc}
 	 *
@@ -78,113 +84,168 @@ public class CompileAndGenerationClockSystemAction extends ActionDelegate implem
 	 * @generated
 	 */
 	public void run(IAction action) {
+		//URI modelURI = null;
+		//IContainer clksysTransfoLoc = null;
+		final CompileAndGenerationClockSystemWizard wizard= new CompileAndGenerationClockSystemWizard();
+		// Find the model from the selected file
 		if (files != null) {
-			//CompileAndGenerationClockSystemWizard wizard = ;
-			Display.getDefault().syncExec(new Runnable() {
-			    public void run() {
-			    	// Create the wizard dialog
-				      WizardDialog dialog = new WizardDialog
-				         ( new Shell(),new CompileAndGenerationClockSystemWizard());
-				      // Open the wizard dialog
-				      dialog.open();
-			    }
-			});
+	
+			Iterator<IFile> filesIt = files.iterator();
+			while (filesIt.hasNext()) {
+				model = (IFile)filesIt.next();
+				//modelURI = URI.createPlatformResourceURI(model.getFullPath().toString(), true);
+				//clksysTransfoLoc = model.getProject().getFolder(MTL_FOLDER);
+			}
+		}
+		// Call a wizard to select a xdsml project with corresponding transfos
+		Display.getDefault().syncExec(new Runnable() {
+			public void run() {
+			    // Create the wizard dialog
+				WizardDialog dialog = new WizardDialog
+				     ( new Shell(),wizard);
+				// Open the wizard dialog
+				dialog.open();
+			}
+		});
 		
-			IRunnableWithProgress operation = new IRunnableWithProgress() {
-				public void run(IProgressMonitor monitor) {
+		// Run the transfo
+		IRunnableWithProgress operation = new IRunnableWithProgress() {
+			public void run(IProgressMonitor monitor) {	
+				try {			
+					IContainer clksysTransfoLoc = model.getProject().getFolder(MTL_FOLDER);	
+					// Retrieve the transfo folder
+					//System.out.println("@@@ target "+ clksysTransfoLoc.getLocation().toOSString());
+					Files.walkFileTree(wizard.getSourceFile().toPath(), 
+							new CopyFile(wizard.getSourceFile().toPath(),new File(clksysTransfoLoc.getLocation().toOSString()).toPath()) );
 					try {
-						Iterator<IFile> filesIt = files.iterator();
-						while (filesIt.hasNext()) {
-							model = (IFile)filesIt.next();
-							
-							URI modelURI = URI.createPlatformResourceURI(model.getFullPath().toString(), true);
-							try {
-								
-								
-								System.out.println("ModelURI: "+ modelURI);
-								
-								IContainer clksysTransfoLoc = model.getProject().getFolder(MTL_FOLDER);
-								
-								System.out.println("clksysTransfoLoc: "+ clksysTransfoLoc);
-								
-								// Get the toClockSystem.mtl file in the mtl-gen repository
-								File mtldir = new File(clksysTransfoLoc.getLocation().toString());
-								
-								System.out.println("mtldir: "+ mtldir.exists());
-								System.out.println("mtldir: "+ mtldir.listFiles());
-								
-								File[] matches = mtldir.listFiles(new FilenameFilter()
-								{
-								  public boolean accept(File dir, String name)
-								  {
-								     return name.endsWith("toClockSystem.mtl");
-								  }
-								});
-								String mtlFilePath = matches[0].toString();
-								System.out.println("mtlFilePath = " + mtlFilePath);
-								// Create the storage folder of the generated ClockSystem models if doesnt exist
-								IContainer target = model.getProject().getFolder(GEN_FOLDER);
-								if (!target.getLocation().toFile().exists()) {
-									target.getLocation().toFile().mkdirs();
-								}
-									
-								// path of the repository that will contain the generated ClockSystem files
-								String genrepo = model.getProject().getFolder(GEN_FOLDER).getLocation().toString();
-							
-								// Retrieve and put all the URI of allURI.txt in an Array of URI
-								String uriFilePath = clksysTransfoLoc.getLocation().toString()+"/allURI.txt"; // File storing all the URI in the toClockSystem.mtl
-								ArrayList<String> listURI = new ArrayList<String>();
-								File file = new File(uriFilePath);
-								Scanner input;
-								try {
-									input = new Scanner(file);
-									while(input.hasNextLine()) 
-									{
-										final String lineFromFile = input.nextLine();
-										String newuri = lineFromFile.toString().replace(",", "").replace("'", "").replaceAll("\\s+","");
-								        listURI.add(newuri);
-								    }
-									input.close();
-								} catch (FileNotFoundException e) {
-									// TODO Auto-generated catch block
-									e.printStackTrace();
-								}
-								
-								// Compile and Generate the ClockSystem Models using the toClockSystem.mtl
-								System.out.println("=====================================================================");
-								System.out.println("listURI: "+ listURI);
-								System.out.println("modelURI: "+modelURI);
-								System.out.println("mtlFilePath: "+mtlFilePath);
-								System.out.println("GenRepo: "+genrepo);
-								System.out.println("=====================================================================");
-								
-								CompileAndGenerate generator = new CompileAndGenerate(listURI,modelURI,mtlFilePath, genrepo);
-							
-							} catch (FileNotFoundException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							} catch (IOException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							} finally {
-								model.getProject().refreshLocal(IResource.DEPTH_INFINITE, monitor);
+						model.getProject().refreshLocal(IResource.DEPTH_INFINITE, monitor);
+					} catch (CoreException e1) {
+						IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e1.getMessage(), e1);
+						Activator.getDefault().getLog().log(status);
+					}
+					
+					// Get the toClockSystem.mtl file in the mtl-gen repository
+					File mtldir = new File(clksysTransfoLoc.getLocation().toString());			
+					File[] matches = mtldir.listFiles(new FilenameFilter()
+						{
+							public boolean accept(File dir, String name){
+								  return name.endsWith("toClockSystem.mtl");
 							}
 						}
+					);
+					
+					String mtlFilePath = matches[0].toString();
+					// Create the storage folder of the generated ClockSystem models if doesnt exist
+					IContainer target = model.getProject().getFolder(GEN_FOLDER);
+					if (!target.getLocation().toFile().exists()) {
+						target.getLocation().toFile().mkdirs();
+					}
+									
+					// path of the repository that will contain the generated ClockSystem files
+					String genrepo = model.getProject().getFolder(GEN_FOLDER).getLocation().toString();
+							
+					// Retrieve and put all the URI of allURI.txt in an Array of URI
+					String uriFilePath = clksysTransfoLoc.getLocation().toString()+"/allURI.txt"; // File storing all the URI in the toClockSystem.mtl
+					ArrayList<String> listURI = new ArrayList<String>();
+					File file = new File(uriFilePath);
+					Scanner input;
+					try {
+						input = new Scanner(file);
+						while(input.hasNextLine()) {
+							final String lineFromFile = input.nextLine();
+							String newuri = lineFromFile.toString().replace(",", "").replace("'", "").replaceAll("\\s+","");
+							listURI.add(newuri);
+						}
+						input.close();
+					} catch (FileNotFoundException e) {
+						IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e);
+						Activator.getDefault().getLog().log(status);
+					}
+								
+					URI modelURI = URI.createPlatformResourceURI(model.getFullPath().toString(), true);
+					
+					// Compile and Generate the ClockSystem Models using the toClockSystem.mtl
+					System.out.println("=====================================================================");
+					System.out.println("listURI: "+ listURI);
+					System.out.println("modelURI: "+modelURI);
+					System.out.println("mtlFilePath: "+mtlFilePath);
+					System.out.println("GenRepo: "+genrepo);
+					System.out.println("=====================================================================");
+								
+					CompileAndGenerate generator = new CompileAndGenerate(listURI,modelURI,mtlFilePath, genrepo);
+							
+				} catch (FileNotFoundException e) {
+					IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e);
+					Activator.getDefault().getLog().log(status);
+				} catch (IOException e) {
+					IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e);
+					Activator.getDefault().getLog().log(status);
+				} finally {
+					try {
+						model.getProject().refreshLocal(IResource.DEPTH_INFINITE, monitor);
 					} catch (CoreException e) {
 						IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e);
 						Activator.getDefault().getLog().log(status);
 					}
 				}
-			};
-			try {
+			}
+		};
+			/*		} catch (CoreException e) {
+						IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e);
+						Activator.getDefault().getLog().log(status);
+					}
+				}
+			};*/
+		try {
+			if(wizard.isHasFinished()){
 				PlatformUI.getWorkbench().getProgressService().run(true, true, operation);
-			} catch (InvocationTargetException e) {
-				IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e);
-				Activator.getDefault().getLog().log(status);
-			} catch (InterruptedException e) {
-				IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e);
+			}
+		} catch (InvocationTargetException e) {
+			IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e);
+			Activator.getDefault().getLog().log(status);
+		} catch (InterruptedException e) {
+			IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e);
 				Activator.getDefault().getLog().log(status);
 			}
 		}
-	}
+	
+	public class CopyFile implements FileVisitor<Path> {
+        private final Path source;
+        private final Path target;
+ 
+        CopyFile(Path source, Path target) {
+            this.source = source;
+            this.target = target;
+        }
+ 
+        public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) {
+            Path newdir = target.resolve(source.relativize(dir));
+            try {
+				Files.copy(dir, newdir, StandardCopyOption.REPLACE_EXISTING);
+			} catch (IOException e) {
+				return FileVisitResult.CONTINUE;
+			}
+            return FileVisitResult.CONTINUE;
+        }
+ 
+        public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) {
+        	try {
+				Files.copy(file, target.resolve(source.relativize(file)),StandardCopyOption.REPLACE_EXISTING);
+			} catch (IOException e) {
+				return FileVisitResult.CONTINUE;
+			}
+            return FileVisitResult.CONTINUE;
+        }
+
+		public FileVisitResult postVisitDirectory(Path dir, IOException exc)
+				throws IOException {
+			return FileVisitResult.CONTINUE;
+		}
+
+		public FileVisitResult visitFileFailed(Path file, IOException exc)
+				throws IOException {
+			return FileVisitResult.CONTINUE;
+		}
+ 
+    }
 }
