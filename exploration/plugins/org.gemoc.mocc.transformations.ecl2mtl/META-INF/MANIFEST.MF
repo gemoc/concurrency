@@ -28,8 +28,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.xtend.core;bundle-version="2.7.3",
  org.gemoc.mocc.fsmkernel.model.xtext.fsmdsl.ui;bundle-version="0.1.1",
  org.eclipse.acceleo.parser;bundle-version="3.5.1",
- org.gemoc.execution.concurrent.ccsljavaxdsml.ui,
- org.gemoc.commons.eclipse
+ org.gemoc.execution.concurrent.ccsljavaxdsml.ui
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Eclipse-LazyStart: true
