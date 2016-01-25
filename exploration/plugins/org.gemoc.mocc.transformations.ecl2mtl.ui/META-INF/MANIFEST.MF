@@ -26,9 +26,8 @@ Require-Bundle: org.eclipse.ui,
  org.gemoc.commons.eclipse.ui;bundle-version="0.1.0",
  org.gemoc.execution.concurrent.ccsljavaxdsml.api,
  org.gemoc.commons.eclipse,
- org.gemoc.execution.concurrent.ccsljavaxdsml.model,
- org.gemoc.xdsmlframework.api,
- org.apache.batik.pdf
+ org.gemoc.execution.concurrent.ccsljavaxdsml.model;resolution:="optional",
+ org.gemoc.xdsmlframework.api;resolution:="optional"
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-ActivationPolicy: lazy
 Eclipse-LazyStart: true

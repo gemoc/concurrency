@@ -100,7 +100,7 @@ public class CompileAndGenerationClockSystemWizard extends Wizard {
 				throw new RuntimeException("Could not resolve plugin: " + ld.getDSEProject().getProjectName());
 			
 			try {
-				System.out.println("@@@ " + FileLocator.getBundleFile(bundle) + "/mtl-gen/");
+				//System.out.println("@@@ " + FileLocator.getBundleFile(bundle) + "/mtl-gen/");
 				setSourceFile(new File(FileLocator.getBundleFile(bundle) + "/mtl-gen/"));
 				sourceFileHasChanged = false;
 			} catch (IOException e) {
