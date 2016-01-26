@@ -8,7 +8,7 @@ import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.contextDSA.Create
 
 import fr.inria.diverse.melange.metamodel.melange.Language;
 
-public class CreateDSAProjectHandler extends AbstractMelangeProjectHandler implements IHandler  {
+public class CreateDSAProjectHandler extends AbstractMelangeSelectHandler implements IHandler  {
 
 	
 
