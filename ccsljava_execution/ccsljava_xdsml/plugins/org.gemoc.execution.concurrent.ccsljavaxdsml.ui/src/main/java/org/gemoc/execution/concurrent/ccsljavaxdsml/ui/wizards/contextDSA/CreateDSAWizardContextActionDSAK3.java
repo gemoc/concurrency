@@ -31,9 +31,11 @@ public class CreateDSAWizardContextActionDSAK3 extends CreateDSAWizardContextBas
 	public CreateDSAWizardContextActionDSAK3(IProject gemocLanguageIProject, ConcurrentLanguageDefinition rootModelElement) {
 		super(gemocLanguageIProject, rootModelElement);
 	}
-
-//	@Override
 	public void createNewDSAProject() {
+		createNewDSAProject(null);
+	}
+	
+	public void createNewDSAProject(IFile ecoreFile) {
 		// launch DSA Kermeta New wizard		
 		IWizardDescriptor descriptor = WizardFinder.findNewWizardDescriptor("fr.inria.diverse.k3.ui.wizards.WizardNewProjectK3Plugin");
 		
@@ -50,10 +52,12 @@ public class CreateDSAWizardContextActionDSAK3 extends CreateDSAWizardContextBas
 				NewK3ProjectWizard k3Wizard = (NewK3ProjectWizard)wizard;
 				k3Wizard.init(PlatformUI.getWorkbench(), (IStructuredSelection) PlatformUI.getWorkbench().getActiveWorkbenchWindow().getSelectionService().getSelection());
 				
-				ActiveFile activeFileEcore = new ActiveFileEcore(_gemocLanguageIProject);
-				IFile ecoreFile = activeFileEcore.getActiveFile();
+				if(ecoreFile == null){
+					ActiveFile activeFileEcore = new ActiveFileEcore(_gemocLanguageIProject);
+					ecoreFile = activeFileEcore.getActiveFile();
+				}
 				
-				k3Wizard.getContext().ecoreIFile = activeFileEcore.getActiveFile();
+				k3Wizard.getContext().ecoreIFile = ecoreFile;
 				
 				WizardDialog wd = new WizardDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), wizard);
 				
