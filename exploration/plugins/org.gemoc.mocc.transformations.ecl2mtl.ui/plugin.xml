@@ -39,6 +39,30 @@
                menubarPath="org.gemoc.mocc.transformations.ecl2mtl/exhaustiveExplorationGroup"/>
       </objectContribution>
    </extension>
+   
+   <extension point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.ecl"
+            id="org.gemoc.mocc.transformations.ecl2mtl.ui.popupMenus.contribution.IFile">
+         <menu
+               icon="icons/clocksystem_logo_16x16.png"
+               id="org.gemoc.mocc.transformations.ecl2mtl"
+               label="%menu.label"
+               path="exhaustiveExplorationGroup">
+               <groupMarker name="exhaustiveExploration"/> 
+         </menu>
+         <action
+               class="org.gemoc.mocc.transformations.ecl2mtl.ui.popupMenus.AcceleoGenerateEcl2ClocksystemAction"
+               enablesFor="1"
+               id="org.gemoc.mocc.transformations.ecl2mtl.ui.popupMenus.acceleoGenerateEcl2ClocksystemAction"
+               icon="icons/cs_t1_16x16.png"
+               label="%t3.label"
+               menubarPath="org.gemoc.mocc.transformations.ecl2mtl/exhaustiveExplorationGroup"/>
+      </objectContribution>
+   </extension>
+   
    <extension point="org.eclipse.ui.popupMenus">
       <objectContribution
             adaptable="true"

@@ -111,7 +111,7 @@ public class CompileAndGenerationClockSystemWizard extends Wizard {
   @Override
   public boolean canFinish() {
 	  if(selectProject.projectName!=null){
-		  System.out.println("@@@ " + selectProject.projectName);
+		//  System.out.println("@@@ " + selectProject.projectName);
 		  if(getSourceFile()!=null){
 			  return true;
 		  }
