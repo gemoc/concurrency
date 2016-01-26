@@ -29,7 +29,7 @@ import fr.inria.diverse.melange.metamodel.melange.Language;
 import fr.inria.diverse.melange.metamodel.melange.Operator;
 
 @SuppressWarnings("all")
-public abstract class AbstractMelangeProjectHandler extends AbstractGemocLanguageProjectHandler {
+public abstract class AbstractMelangeSelectHandler extends AbstractGemocLanguageProjectHandler {
 
 	public abstract Object executeForSelectedLanguage(ExecutionEvent event, IProject updatedGemocLanguageProject,
 			Language language) throws ExecutionException;
