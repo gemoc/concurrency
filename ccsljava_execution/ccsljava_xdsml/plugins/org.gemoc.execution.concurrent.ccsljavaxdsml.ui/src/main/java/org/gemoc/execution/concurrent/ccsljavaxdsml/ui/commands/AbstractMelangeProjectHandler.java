@@ -30,47 +30,53 @@ import fr.inria.diverse.melange.metamodel.melange.Operator;
 
 @SuppressWarnings("all")
 public abstract class AbstractMelangeProjectHandler extends AbstractGemocLanguageProjectHandler {
-	
-	public abstract Object executeForSelectedLanguage(ExecutionEvent event, IProject updatedGemocLanguageProject, Language language) throws ExecutionException;
-	
+
+	public abstract Object executeForSelectedLanguage(ExecutionEvent event, IProject updatedGemocLanguageProject,
+			Language language) throws ExecutionException;
+
 	public abstract String getSelectionMessage();
-	
+
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		
-		// get the optional selection and eventually project data to preset the wizard
+
+		// get the optional selection and eventually project data to preset the
+		// wizard
 		final IProject updatedGemocLanguageProject = getUpdatedGemocLanguageProjectFromSelection(event);
-		
+
 		final IFile melangeFile = getMelangeFileFromSelection(event);
 		final ResourceSet rs = new ResourceSetImpl();
-		if(melangeFile != null){
+		if (melangeFile != null) {
 			final URI uri = URI.createPlatformResourceURI(melangeFile.getFullPath().toString(), true);
 			rs.getResource(uri, true);
-		}
-		else{
-			
+		} else {
+
 			FileFinderVisitor melangeProjectVisitor = new FileFinderVisitor("melange");
 			try {
 				updatedGemocLanguageProject.accept(melangeProjectVisitor);
-				for(IFile projectMelangeIFile: melangeProjectVisitor.getFiles()){
-					// consider all melange files in the project, get them in the ResourceSet
-					if(!(projectMelangeIFile.getFullPath().toString().contains("/bin/")|projectMelangeIFile.getFullPath().toString().contains("/target/"))){ 
-						// stupid check to remove some typical duplicates, a beter impl should look into java output
-						
-						final URI uri = URI.createPlatformResourceURI(projectMelangeIFile.getFullPath().toString(), true);
+				for (IFile projectMelangeIFile : melangeProjectVisitor.getFiles()) {
+					// consider all melange files in the project, get them in
+					// the ResourceSet
+					if (!(projectMelangeIFile.getFullPath().toString().contains("/bin/") | projectMelangeIFile
+							.getFullPath().toString().contains("/target/"))) {
+						// FIXME stupid check to remove some typical duplicates,
+						// a better impl should look into java output
+
+						final URI uri = URI.createPlatformResourceURI(projectMelangeIFile.getFullPath().toString(),
+								true);
 						rs.getResource(uri, true);
 					}
 				}
 			} catch (CoreException e) {
 				Activator.error(e.getMessage(), e);
 			}
-		}	
-			
-		final LabelProvider labelProvider = new LabelProvider(){								
+		}
+
+		final LabelProvider labelProvider = new LabelProvider() {
 			public String getText(Object element) {
-				if(element instanceof Language){
-					return ((Language)element).getName();
-				} else	return super.getText(element);
+				if (element instanceof Language) {
+					return ((Language) element).getName();
+				} else
+					return super.getText(element);
 			}
 		};
 		final SelectAnyMelangeLanguageDialog dialog = new SelectAnyMelangeLanguageDialog(rs, labelProvider);
@@ -78,33 +84,33 @@ public abstract class AbstractMelangeProjectHandler extends AbstractGemocLanguag
 		dialog.setMessage(getSelectionMessage());
 		final int res = dialog.open();
 		if (res == WizardDialog.OK) {
-			final Language lang = (Language)dialog.getFirstResult();
+			final Language lang = (Language) dialog.getFirstResult();
 			executeForSelectedLanguage(event, updatedGemocLanguageProject, lang);
 		}
-			
+
 		return null;
-	} 
-	
-  public String getFirstEcorePath(final Language language) {
-    EList<Operator> _operators = language.getOperators();
-    Iterable<Import> _filter = Iterables.<Import>filter(_operators, Import.class);
-    final Import firstImport = IterableExtensions.<Import>head(_filter);
-    if ((firstImport != null)) {
-      return firstImport.getEcoreUri();
-    }
-    return null;
-  }
-  
-  public IFile getFirstEcore(final Language lang) {
-    final String ecoreURI = this.getFirstEcorePath(lang);
-    if ((ecoreURI != null)) {
-      final URI uri = URI.createURI(ecoreURI);
-      final String filePath = uri.toPlatformString(true);
-      final IPath path = new Path(filePath);
-      IWorkspace _workspace = ResourcesPlugin.getWorkspace();
-      IWorkspaceRoot _root = _workspace.getRoot();
-      return _root.getFile(path);
-    }
+	}
+
+	public String getFirstEcorePath(final Language language) {
+		EList<Operator> _operators = language.getOperators();
+		Iterable<Import> _filter = Iterables.<Import> filter(_operators, Import.class);
+		final Import firstImport = IterableExtensions.<Import> head(_filter);
+		if ((firstImport != null)) {
+			return firstImport.getEcoreUri();
+		}
+		return null;
+	}
+
+	public IFile getFirstEcore(final Language lang) {
+		final String ecoreURI = this.getFirstEcorePath(lang);
+		if ((ecoreURI != null)) {
+			final URI uri = URI.createURI(ecoreURI);
+			final String filePath = uri.toPlatformString(true);
+			final IPath path = new Path(filePath);
+			IWorkspace _workspace = ResourcesPlugin.getWorkspace();
+			IWorkspaceRoot _root = _workspace.getRoot();
+			return _root.getFile(path);
+		}
 		return null;
 	}
 }
