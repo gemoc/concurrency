@@ -23,15 +23,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
-import javax.swing.JOptionPane;
-
+import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
@@ -39,30 +38,38 @@ import org.eclipse.ui.PlatformUI;
 public class ClockSystemFileGen {
 	
 	ProcessBuilder pb;
-	String tmpVMpath;
+	private String vmpath;
+
 	String vmtype;
 	OSDectect od;
 	
+	//private URI uriJar;
+	private File vmFile;
+
 	private Shell activeShell;
 	
 	public ClockSystemFileGen() throws URISyntaxException, IOException
 	{
-		tmpVMpath = System.getProperty("java.io.tmpdir");
+	
 		od = new OSDectect();
 		if(od.curos.equals("Windows"))
 		{
 			vmtype = "win_vm";
+			vmFile = new File(FileLocator.getBundleFile(Platform.getBundle("org.gemoc.mocc.clocksystem.win")).toURI());
+			
 		}
 		else if (od.curos.equals("mac"))
 		{
 			vmtype = "mac_vm";
+			vmFile = new File(FileLocator.getBundleFile(Platform.getBundle("org.gemoc.mocc.clocksystem.mac")).toURI());
 		}
 		else if (od.curos.equals("linux"))
 		{
 			vmtype = "linux_vm";
+			vmFile = new File(FileLocator.getBundleFile(Platform.getBundle("org.gemoc.mocc.clocksystem.linux")).toURI());
 		}
 		System.out.println("====================================");
-		System.out.println("Jar Name= " + ClockSystemFileGen.class.getProtectionDomain().getCodeSource().getLocation().toURI());
+		System.out.println("File Name= " + vmFile);
 		System.out.println("OS = " + od.curos +"\n"+"VM ="+  vmtype);
 		System.out.println("====================================");
 		
@@ -70,16 +77,21 @@ public class ClockSystemFileGen {
 	
 	public void GenerateExploration(String filetab[], String dirtab[])
 	{
-		String currpath = tmpVMpath.replace("\\", "/");	
-		String currpath_win = tmpVMpath.replace("\\", "\\\\");
+		String currpath = getVmpath().replace("\\", "/");	
+		String currpath_win = getVmpath().replace("\\", "\\\\");
 		
-		String image_pathwin = currpath_win + vmtype + "\\\\" + "ClockSystem.image";
+		String image_pathwin = currpath_win + "\\\\"  +vmtype + "\\\\" + "ClockSystem.image";
 		String image_pathother = currpath + "/" + vmtype + "/" + "ClockSystem.image";
 		
-		String runwinvm = currpath_win + vmtype + "\\\\" + "Pharo.exe";
+		String runwinvm = currpath_win +"\\\\"+ vmtype + "\\\\" + "Pharo.exe";
 		String runlinvm = currpath + "/" + vmtype + "/" + "pharo";
 		String runmacvm = currpath + "/" + vmtype + "/" + "Contents" + "/" + "MacOS" + "/" + "Pharo";
 
+		System.out.println("====================================");
+		System.out.println("currpath_win= " + currpath_win);
+		System.out.println("image_pathwin= "+ image_pathwin);
+		System.out.println("====================================");
+		
 		/*String locwin= "stream := FileStream readOnlyFileNamed:'"+filetab[0]+"'. ";
 		String locoth= "stream := '"+filetab[1]+"' asFileReference readStream. ";
 		String arg1= "sys := (Compiler evaluate: stream contents)system. ";
@@ -132,23 +144,29 @@ public class ClockSystemFileGen {
 		return result;
 	}
 	
+	public File getVmFile() {
+		return vmFile;
+	}
+	
+	public String getVmpath() {
+		/*if(vmFile.isDirectory()){
+			return vmFile.getAbsolutePath();
+		}else if(vmFile.isFile()){
+			return vmpath = System.getProperty("java.io.tmpdir");
+		}
+		return vmpath;*/
+		return vmFile.getAbsolutePath();
+	}
+	
 	public void unzipClockSystemfromJar() throws URISyntaxException, IOException {
 		
-		URI uriJar = ClockSystemFileGen.class.getProtectionDomain().getCodeSource().getLocation().toURI();
-		File aFile = new File(uriJar);
+		//URI uriJar = ClockSystemFileGen.class.getProtectionDomain().getCodeSource().getLocation().toURI();
+		//File aFile = new File(uriJar);
 		
 		try {
-
-				if(aFile.isDirectory())
-				{
-					System.err.println("This is NOT a Jar File");
-				}	
-				else
-				{
-					JarFile jar = new JarFile(aFile);
-					extractJar(jar, "ClockSystemFileGen.class",tmpVMpath);				
-				}
-			} 
+			JarFile jar = new JarFile(vmFile);
+			extractJar(jar, "ClockSystemFileGen.class",vmpath);				
+		} 
 		catch (final FileNotFoundException e) {
 		e.printStackTrace();
 		PlatformUI.getWorkbench().getDisplay().asyncExec(new Runnable() {

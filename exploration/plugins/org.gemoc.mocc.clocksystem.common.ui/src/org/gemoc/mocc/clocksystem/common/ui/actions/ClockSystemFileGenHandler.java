@@ -96,7 +96,9 @@ public class ClockSystemFileGenHandler extends ActionDelegate implements IAction
 								
 								ClockSystemFileGen theFile = new ClockSystemFileGen();
 								System.out.println("unzipFromJar");
-								theFile.unzipClockSystemfromJar();
+								if(!theFile.getVmFile().isDirectory()){
+									theFile.unzipClockSystemfromJar();
+								}
 								System.out.println("Generated exploration ...");
 								theFile.GenerateExploration(filetab, dirtab);
 
