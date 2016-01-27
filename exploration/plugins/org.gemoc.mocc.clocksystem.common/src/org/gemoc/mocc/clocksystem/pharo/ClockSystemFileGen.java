@@ -165,7 +165,7 @@ public class ClockSystemFileGen {
 		
 		try {
 			JarFile jar = new JarFile(vmFile);
-			extractJar(jar, "ClockSystemFileGen.class",vmpath);				
+			extractJar(jar, "ClockSystemFileGen.class",getVmpath());				
 		} 
 		catch (final FileNotFoundException e) {
 		e.printStackTrace();
