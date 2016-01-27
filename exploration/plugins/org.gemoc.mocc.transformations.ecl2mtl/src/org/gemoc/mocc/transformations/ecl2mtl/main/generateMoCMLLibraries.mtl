@@ -12,20 +12,20 @@ moccmllibs:={ #[aStateRelationBasedLibrary.oclAsType(Library).name/] -> {
 	[comment # [rl.name -> {/]
 		[for (rd : RelationDefinition | rl.relationDefinitions)]
 			[if (rd.oclIsTypeOf(StateMachineRelationDefinition))]
-		#[rd.oclAsType(NamedElement).name/] -> [rd.lSquareBracket()/]:s [rd.oclAsType(StateMachineRelationDefinition).getVariables()/] [rd.oclAsType(StateMachineRelationDefinition).declaration.getConstants()/] [rd.oclAsType(StateMachineRelationDefinition).getListedClocks()/]|
+		#[rd.oclAsType(NamedElement).name/] -> [rd.lSquareBracket()/]:s [rd.oclAsType(StateMachineRelationDefinition).getVariables()/] [rd.declaration.getConstants()/] [rd.oclAsType(StateMachineRelationDefinition).getListedClocks()/]|
 	
 				s caseOf: {
 					[comment initial state is mandatory (mm conformance) - no additional checking /]
 							[rd.lSquareBracket()/][rd.oclAsType(StateMachineRelationDefinition).initialStates->first().nameToNumID()/][rd.rSquareBracket()/] [if (rd.oclAsType(StateMachineRelationDefinition).initialStates->first().outputTransitions->size()<>0)] -> [rd.lSquareBracket()/][if (rd.hasOnlyTriggers()=true)]{
 								[for (t : Transition | rd.oclAsType(StateMachineRelationDefinition).initialStates->first().outputTransitions)]
-								[rd.oclAsType(StateMachineRelationDefinition).initialStates->first().nameToNumID()/] -> [t.target.nameToNumID()/][if (t.trigger<>0)] when: {[t.trigger.oclAsType(Trigger).printTriggers()/]}[/if][if (rd.oclAsType(StateMachineRelationDefinition).initialStates->first().outputTransitions->last()<>t)].[/if] 
+								[rd.oclAsType(StateMachineRelationDefinition).initialStates->first().nameToNumID()/] -> [t.target.nameToNumID()/][if (t.trigger<>0)] when: {[t.oclAsType(Transition).printTriggers()/]}[/if][if (rd.oclAsType(StateMachineRelationDefinition).initialStates->first().outputTransitions->last()<>t)].[/if] 
 								[/for]
 							}[rd.rSquareBracket()/].[/if]
 							[if (rd.hasOnlyTriggers()=false)]|transitions|
 							transitions := OrderedCollection new.
 							[for (t : Transition | rd.oclAsType(StateMachineRelationDefinition).initialStates->first().outputTransitions)]
 							[if (t.guard<>null)]([t.printGuard()/]) ifTrue:[/if][if (t.guard=null)]true ifTrue:[/if] [rd.lSquareBracket()/]
-									transitions add: ([t.source.nameToNumID()/] -> [t.target.nameToNumID()/] [if (t.trigger<>null)] when:{[t.trigger.oclAsType(Trigger).printTriggers()/]} [/if] [if (t.hasActions()=true)] do: [rd.lSquareBracket()/]:configuration |
+									transitions add: ([t.source.nameToNumID()/] -> [t.target.nameToNumID()/] [if (t.trigger<>null)] when:{[t.oclAsType(Transition).printTriggers()/]} [/if] [if (t.hasActions()=true)] do: [rd.lSquareBracket()/]:configuration |
 										|[for (action : AbstractAction | t.actions)][if (action.oclIsTypeOf(IntegerAssignement))][action.oclAsType(IntegerAssignement).getActionVariableName()/]_ [/if][/for]| [comment TODO for other action types!!/]
 										[for (action : AbstractAction | t.actions)]
 										[if (action.oclIsTypeOf(IntegerAssignement))]
@@ -46,13 +46,13 @@ moccmllibs:={ #[aStateRelationBasedLibrary.oclAsType(Library).name/] -> {
 					[for (s : State | rd.oclAsType(StateMachineRelationDefinition).states)][if (not rd.oclAsType(StateMachineRelationDefinition).initialStates->includes(s))]
 							[rd.lSquareBracket()/][s.nameToNumID()/][rd.rSquareBracket()/] [if (s.outputTransitions->size()<>0)] -> [rd.lSquareBracket()/][if (rd.hasOnlyTriggers()=true)]{
 								[for (t : Transition | s.outputTransitions)]
-								[s.nameToNumID()/] -> [t.target.nameToNumID()/][if (t.trigger<>0)] when: {[t.trigger.oclAsType(Trigger).printTriggers()/]}[/if][if (s.outputTransitions->last()<>t)].[/if] 
+								[s.nameToNumID()/] -> [t.target.nameToNumID()/][if (t.trigger<>0)] when: {[t.oclAsType(Transition).printTriggers()/]}[/if][if (s.outputTransitions->last()<>t)].[/if] 
 								[/for]
 							}[/if][if (rd.hasOnlyTriggers()=false)]|transitions|
 							transitions := OrderedCollection new.
 							[for (t : Transition | s.outputTransitions)]
 							[if (t.guard<>null)]([t.printGuard()/]) ifTrue:[/if][rd.lSquareBracket()/]
-									transitions add: ([t.source.nameToNumID()/] -> [t.target.nameToNumID()/] [if (t.trigger<>null)] when:{[t.trigger.oclAsType(Trigger).printTriggers()/]} [/if] [if (t.hasActions()=true)] do: [rd.lSquareBracket()/]:configuration |
+									transitions add: ([t.source.nameToNumID()/] -> [t.target.nameToNumID()/] [if (t.trigger<>null)] when:{[t.oclAsType(Transition).printTriggers()/]} [/if] [if (t.hasActions()=true)] do: [rd.lSquareBracket()/]:configuration |
 										|[for (action : AbstractAction | t.actions)][if (action.oclIsTypeOf(IntegerAssignement))][action.oclAsType(IntegerAssignement).getActionVariableName()/]_ [/if][/for]|[comment TODO for other action types!!/]
 										[for (action : AbstractAction | t.actions)]
 										[if (action.oclIsTypeOf(IntegerAssignement))]
@@ -80,6 +80,89 @@ moccmllibs:={ #[aStateRelationBasedLibrary.oclAsType(Library).name/] -> {
 					} "end caseof"
  
 			[rd.rSquareBracket()/]. "end #[rd.oclAsType(NamedElement).name/]"
+			[/if]
+
+		[/for]
+		[comment }/]
+
+[/for]
+} asDictionary }.
+[/template]
+
+[template public generateMoCMLLibraries2Clocksystem(aStateRelationBasedLibrary : StateRelationBasedLibrary)]
+moccmllibs:={ #[aStateRelationBasedLibrary.oclAsType(Library).name/] -> {
+[for (rl : RelationLibrary | aStateRelationBasedLibrary.oclAsType(Library).relationLibraries)]
+	[comment # [rl.name -> {/]
+		[for (rd : RelationDefinition | rl.relationDefinitions)]
+			[if (rd.oclIsTypeOf(StateMachineRelationDefinition))]
+		#[rd.oclAsType(NamedElement).name/] -> [ '[' /] :s [rd.oclAsType(StateMachineRelationDefinition).getVariables()/] [rd.declaration.getConstants()/] [rd.oclAsType(StateMachineRelationDefinition).getListedClocks()/]|
+	
+				s caseOf: {
+					[comment initial state is mandatory (mm conformance) - no additional checking /]
+							[ '[' /] [rd.oclAsType(StateMachineRelationDefinition).initialStates->first().nameToNumID()/][ ']' /] [if (rd.oclAsType(StateMachineRelationDefinition).initialStates->first().outputTransitions->size()<>0)] -> [ '[' /] [if (rd.hasOnlyTriggers()=true)]{
+								[for (t : Transition | rd.oclAsType(StateMachineRelationDefinition).initialStates->first().outputTransitions)]
+								[rd.oclAsType(StateMachineRelationDefinition).initialStates->first().nameToNumID()/] -> [t.target.nameToNumID()/][if (t.trigger<>0)] when: {[t.oclAsType(Transition).printTriggers()/]}[/if][if (rd.oclAsType(StateMachineRelationDefinition).initialStates->first().outputTransitions->last()<>t)].[/if] 
+								[/for]
+							}[ ']' /] .[/if]
+							[if (rd.hasOnlyTriggers()=false)]|transitions|
+							transitions := OrderedCollection new.
+							[for (t : Transition | rd.oclAsType(StateMachineRelationDefinition).initialStates->first().outputTransitions)]
+							[if (t.guard<>null)]([t.printGuard()/]) ifTrue:[/if][if (t.guard=null)]true ifTrue:[/if] [ '[' /] 
+									transitions add: ([t.source.nameToNumID()/] -> [t.target.nameToNumID()/] [if (t.trigger<>null)] when:{[t.oclAsType(Transition).printTriggers()/]} [/if] [if (t.hasActions()=true)] do: [ '[' /]:configuration |
+										|[for (action : AbstractAction | t.actions)][if (action.oclIsTypeOf(IntegerAssignement))][action.oclAsType(IntegerAssignement).getActionVariableName()/]_ [/if][/for]| [comment TODO for other action types!!/]
+										[for (action : AbstractAction | t.actions)]
+										[if (action.oclIsTypeOf(IntegerAssignement))]
+										[action.oclAsType(IntegerAssignement).getActionVariableName()/]_ := configuration at: [rd.getVariableIndexPlusOne(action.oclAsType(IntegerAssignement).getActionVariableName())/].
+										[/if][/for]
+										[for (action : AbstractAction | t.actions)]
+										[if (action.oclIsTypeOf(IntegerAssignement))]
+										configuration at: [rd.getVariableIndexPlusOne(action.oclAsType(IntegerAssignement).getActionVariableName())/] put: ([action.oclAsType(IntegerAssignement).getExpression()/]).[/if]
+
+[/for]
+
+									[ ']' /][/if]
+
+									) [ ']' /].[/for]
+							
+									transitions asArray.
+							[ ']' /][/if][/if].
+					[for (s : State | rd.oclAsType(StateMachineRelationDefinition).states)][if (not rd.oclAsType(StateMachineRelationDefinition).initialStates->includes(s))]
+							[ '[' /][s.nameToNumID()/][ ']' /] [if (s.outputTransitions->size()<>0)] -> [ '[' /][if (rd.hasOnlyTriggers()=true)]{
+								[for (t : Transition | s.outputTransitions)]
+								[s.nameToNumID()/] -> [t.target.nameToNumID()/][if (t.trigger<>0)] when: {[t.oclAsType(Transition).printTriggers()/]}[/if][if (s.outputTransitions->last()<>t)].[/if] 
+								[/for]
+							}[/if][if (rd.hasOnlyTriggers()=false)]|transitions|
+							transitions := OrderedCollection new.
+							[for (t : Transition | s.outputTransitions)]
+							[if (t.guard<>null)]([t.printGuard()/]) ifTrue:[/if][ '[' /]
+									transitions add: ([t.source.nameToNumID()/] -> [t.target.nameToNumID()/] [if (t.trigger<>null)] when:{[t.oclAsType(Transition).printTriggers()/]} [/if] [if (t.hasActions()=true)] do: [ '[' /]:configuration |
+										|[for (action : AbstractAction | t.actions)][if (action.oclIsTypeOf(IntegerAssignement))][action.oclAsType(IntegerAssignement).getActionVariableName()/]_ [/if][/for]|[comment TODO for other action types!!/]
+										[for (action : AbstractAction | t.actions)]
+										[if (action.oclIsTypeOf(IntegerAssignement))]
+										[action.oclAsType(IntegerAssignement).getActionVariableName()/]_ := configuration at: [rd.getVariableIndexPlusOne(action.oclAsType(IntegerAssignement).getActionVariableName())/].
+										[/if][/for]
+										[for (action : AbstractAction | t.actions)]
+										[if (action.oclIsTypeOf(IntegerAssignement))]
+										configuration at: [rd.getVariableIndexPlusOne(action.oclAsType(IntegerAssignement).getActionVariableName())/] put: ([action.oclAsType(IntegerAssignement).getExpression()/]).[/if]
+
+[/for]
+	
+									[ ']' /][/if]
+
+									) [ ']' /].
+
+							[/for]
+
+									transitions asArray.[/if]
+
+							[ ']' /][/if].
+							[/if]
+
+							[/for]	
+					
+					} "end caseof"
+ 
+			[ ']' /]. "end #[rd.oclAsType(NamedElement).name/]"
 			[/if]
 
 		[/for]

@@ -12,7 +12,7 @@ ccsllibs:= #[aLibrary.name/] -> {
 	[for (rd : RelationDefinition | rl.relationDefinitions)]
 		[if (rd.oclIsTypeOf(StateMachineRelationDefinition)=false)]
 		#[rd.oclAsType(NamedElement).name/] -> [rd.lSquareBracket()/]:s [rd.oclAsType(RelationDefinition).getVariablestoString()/] [rd.oclAsType(RelationDefinition).declaration.getConstants()/] [rd.oclAsType(RelationDefinition).declaration.getClocks()/]|
-		
+	
 		Sequence -- Affectation
 		Expression -- InternalClock ?
 		Integer -- Affectation

@@ -13,6 +13,7 @@
 [import org::gemoc::mocc::transformations::ecl2mtl::main::xtendmodule /] 
 [import org::gemoc::mocc::transformations::ecl2mtl::services::eclQueries /]
 [import org::gemoc::mocc::transformations::ecl2mtl::services::stringQueries /]
+[import org::gemoc::mocc::transformations::ecl2mtl::services::fiacreQueries /]  
  
 [template public ecl2clocksystem(anECLDocument : ECLDocument, resFileNames : String, rootElementName:String)] 
 [comment @main/]
@@ -24,7 +25,7 @@
 "MoCCML librairies specifications" 
 [for (importS : ImportStatement | anECLDocument.imports)]
 [if (importS.importURI.endsWith('.moccml'))]
-[importS.loadMoCMLLibrary().generateMoCMLLibraries() /]
+[importS.loadMoCMLLibrary().generateMoCMLLibraries2Clocksystem() /]
 [/if]
 [/for]
 [/if]

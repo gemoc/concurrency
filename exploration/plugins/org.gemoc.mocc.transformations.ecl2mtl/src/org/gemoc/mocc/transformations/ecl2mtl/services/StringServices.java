@@ -18,6 +18,7 @@ package org.gemoc.mocc.transformations.ecl2mtl.services;
 import java.util.Iterator;
 
 import org.eclipse.emf.ecore.EObject;
+import org.gemoc.mocc.fsmkernel.model.FSMModel.Transition;
 import org.gemoc.mocc.fsmkernel.model.FSMModel.Trigger;
 
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.BindableEntity;
@@ -73,6 +74,15 @@ public class StringServices {
 		}
 		
 		return "";
+	}
+	
+	public String printTriggers(Transition transition){
+		Trigger t = (Trigger) transition.getTrigger();
+		if(t!=null){
+			return printTriggers(t);
+		}else{
+			return "";	
+		}
 	}
 	
 	public String deleteSpecialCharacters (String rootName)

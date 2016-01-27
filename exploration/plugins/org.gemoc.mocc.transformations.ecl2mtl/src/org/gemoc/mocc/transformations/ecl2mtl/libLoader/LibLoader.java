@@ -22,6 +22,7 @@ import org.eclipse.xtend.core.xtend.XtendFile;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
 import org.gemoc.mocc.ccslmoc.model.moccml.StateRelationBasedLibrary;
+import org.gemoc.mocc.ccslmoc.model.moccml.impl.StateRelationBasedLibraryImpl;
 import org.gemoc.mocc.ccslmocc.model.xtext.ui.internal.MoCDslActivator;
 
 import com.google.inject.Injector;
@@ -29,6 +30,7 @@ import com.google.inject.Injector;
 import fr.inria.aoste.timesquare.ECL.ImportStatement;
 import fr.inria.aoste.timesquare.ccslkernel.library.xtext.ui.internal.CCSLLibraryActivator;
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.Library;
+import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.impl.LibraryImpl;
 
 /**
  * @author Stfun
@@ -129,7 +131,7 @@ public class LibLoader {
 			XtextResourceSet rs = xtextInjector.getInstance(XtextResourceSet.class);
 			rs.setClasspathURIContext(LibLoader.class);
 			XtextResource xtextResource = (XtextResource) rs.getResource(libURI, true);
-			return (StateRelationBasedLibrary) xtextResource.getContents().get(0);
+			return (LibraryImpl) xtextResource.getContents().get(0);
 		}
 		return null;
 		

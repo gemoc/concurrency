@@ -507,6 +507,7 @@ public class EclServices {
 		ECLExpression exp = (ECLExpression)var.getInitExpression();
 		for (int i = 0; i < exp.getParameters().size(); i++) {
 			ExpCS e = exp.getParameters().get(i);
+			String pivotValue = e.getPivot().toString();
 			if (e.toString().contains("self.")) {
 				// clocks
 			}else {

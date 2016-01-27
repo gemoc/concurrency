@@ -590,19 +590,22 @@ public String toStringAction(Transition t){
 		//FIXME check whether var in the declaration block are considered as
 		//variables or constants (by going through the automaton)
 		//String vars = "";
-		for (ConcreteEntity ce : sm.getDeclarationBlock().getConcreteEntities()) {
-			if (st.length()!=0) {
-				st.append(" ");
+		if(sm.getDeclarationBlock()!=null){
+			for (ConcreteEntity ce : sm.getDeclarationBlock().getConcreteEntities()) {
+				if (st.length()!=0) {
+					st.append(" ");
+				}
+				
+				/*if(ce instanceof IntegerElement)
+				{
+					IntegerElement vCE = (IntegerElement)ce;
+					vars = vars + "==> " + vCE.getValue() + "\n";
+				}*/
+				st.append(":").append(ce.getName());
+				
 			}
-			
-			/*if(ce instanceof IntegerElement)
-			{
-				IntegerElement vCE = (IntegerElement)ce;
-				vars = vars + "==> " + vCE.getValue() + "\n";
-			}*/
-			st.append(":").append(ce.getName());
-			
 		}
+		
 		//System.out.println("=====================================================");
 		//System.out.println(vars);
 		//System.out.println("=====================================================");

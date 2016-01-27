@@ -13,7 +13,11 @@
 
 [query public printTriggers(arg0 : Trigger) : String
 	= invoke('org.gemoc.mocc.transformations.ecl2mtl.services.StringServices', 'printTriggers(org.gemoc.mocc.fsmkernel.model.FSMModel.Trigger)', Sequence{arg0})
-/] 
+/]
+
+[query public printTriggers(arg0 : Transition) : String
+	= invoke('org.gemoc.mocc.transformations.ecl2mtl.services.StringServices', 'printTriggers(org.gemoc.mocc.fsmkernel.model.FSMModel.Transition)', Sequence{arg0})
+/]  
 
 [query public deleteSpecialCharacters(arg0 : String) : String
 	= invoke('org.gemoc.mocc.transformations.ecl2mtl.services.StringServices', 'deleteSpecialCharacters(java.lang.String)', Sequence{arg0})
