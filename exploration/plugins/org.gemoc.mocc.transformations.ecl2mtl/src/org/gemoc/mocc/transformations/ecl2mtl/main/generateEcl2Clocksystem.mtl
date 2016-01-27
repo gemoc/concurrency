@@ -42,7 +42,7 @@
 	[ /for]
 [ /if]
 
-system := ClockSystem named: a[rootElementName.deleteSpecialCharacters()/]_withMoC-[anECLDocument.getMoCIDFromFirstLib()/]'.
+system := ClockSystem named: 'a[rootElementName.deleteSpecialCharacters()/]_withMoC-[anECLDocument.getMoCIDFromFirstLib()/]'.
 system addLibrary:moccmllibs asDictionary.
 
 [/file]

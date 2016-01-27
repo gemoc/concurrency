@@ -476,17 +476,17 @@ public class EclServices {
 			//e.
 			if (e.getPivot().toString().contains("->collect")) {
 				//[for (ne : NamedElement | element.allocatedAgents.oclAsType(Agent))] isExecuting[ne.name/] [/for]
-				String str = e.toString().replace("self.", "element.");
+				String str = e.getPivot().toString().replace("self.", "element.");
 				String type = str.substring(str.lastIndexOf("oclAsType("), str.length());
 				sb.append("[for (ne : ").append(type.substring(10, type.indexOf(")"))).append(" | ").append(str.substring(0, str.lastIndexOf("."))).append(")]").append(str.substring(str.lastIndexOf(".")+1, str.length())).append("[ne.name/]").append(sep).append("[/for]");
 			} else {
 				if (e.toString().contains("self.")) {
 					if (e.toString().replace("self.", "").contains(".")) {
 						//complex navigation TODO
-						String str = e.toString().replace("self.", "element.");//FIXME
+						String str = e.getPivot().toString().replace("self.", "element.");//FIXME
 						sb.append(str.substring(str.lastIndexOf(".")+1, str.length())).append("[").append(str.substring(0, str.lastIndexOf("."))).append(".name/]"); 
 					}else {
-						sb.append(e.toString().replace("self.", "")).append("[element.name/]"); //FIXME UGGLY
+						sb.append(e.getPivot().toString().replace("self.", "")).append("[element.name/]"); //FIXME UGGLY
 					}
 				}else {
 					//parameter of type integer constant 
@@ -498,7 +498,7 @@ public class EclServices {
 				}
 			}
 		}
-		return sb.toString();
+		return sb.toString().replace("[?]", "");
 	}
 	
 	
@@ -625,7 +625,7 @@ public class EclServices {
 						}
 					}
 				}
-				return sb.toString();
+				return sb.toString().replace("[?]", "");
 			}
 			return "TODO: complete EclServices.java, ConstraintCS.getClockNamesListedAndSepBySep()";
 		}
@@ -710,13 +710,13 @@ public class EclServices {
 							if (letVariableCS.getInitExpression().toString().contains("self.")) {
 								if (letVariableCS.getInitExpression().toString().replace("self.", "").contains(".")) {
 									//complex navigation TODO
-									sb.append("["+letVariableCS.getInitExpression().toString().replace("self.", "element.")+"/]"); //FIXME
+									sb.append("["+letVariableCS.getInitExpression().getPivot().toString().replace("self.", "element.")+"/]"); //FIXME
 									
 								}else {
-									sb.append("[element."+letVariableCS.getInitExpression().toString().replace("self.", "")+"/]");
+									sb.append("[element."+letVariableCS.getInitExpression().getPivot().toString().replace("self.", "")+"/]");
 								}
 							}else {
-								sb.append(letVariableCS.getInitExpression().toString());
+								sb.append(letVariableCS.getInitExpression().getPivot().toString());
 							}
 							if (i<listVar.size()-1) {
 								sb.append(". ");
@@ -730,7 +730,7 @@ public class EclServices {
 				sb.append(". ");
 			}
 		}
-		return sb.toString();
+		return sb.toString().replace("[?]", "");
 	}
 	
 	private ECLRelation getLetRelation(ExpCS exp, EList<LetExpCS> lst){
