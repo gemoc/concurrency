@@ -5,6 +5,8 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandler;
 import org.eclipse.core.resources.IProject;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.contextDSA.CreateDSAWizardContextActionDSAK3;
+import org.gemoc.xdsmlframework.ide.ui.commands.AbstractMelangeSelectHandler;
+import org.gemoc.xdsmlframework.ide.ui.xdsml.wizards.MelangeXDSMLProjectHelper;
 
 import fr.inria.diverse.melange.metamodel.melange.Language;
 
@@ -17,7 +19,7 @@ public class CreateDSAProjectHandler extends AbstractMelangeSelectHandler implem
 		
 		CreateDSAWizardContextActionDSAK3 action = new CreateDSAWizardContextActionDSAK3(
 				updatedGemocLanguageProject, null);
-		action.createNewDSAProject(getFirstEcore(language));
+		action.createNewDSAProject(MelangeXDSMLProjectHelper.getFirstEcore(language));
 		return null;
 	}
 
