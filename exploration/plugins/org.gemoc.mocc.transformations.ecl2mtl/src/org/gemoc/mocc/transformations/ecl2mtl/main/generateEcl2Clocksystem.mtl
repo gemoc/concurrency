@@ -41,16 +41,9 @@
 	[ /for]
 [ /if]
 
-system := ClockSystem named: a[rootElementName.deleteSpecialCharacters()/].name/[ ']' /]_withMoC-[anECLDocument.getMoCIDFromFirstLib()/]'.
+system := ClockSystem named: a[rootElementName.deleteSpecialCharacters()/]_withMoC-[anECLDocument.getMoCIDFromFirstLib()/]'.
 system addLibrary:moccmllibs asDictionary.
 
 [/file]
 
-[file ('allURI.txt', false, 'UTF-8')] 
-'http://www.eclipse.org/emf/2002/Ecore', 
-'http://org.gemoc.moccml/1.0', 
-'http://fr.inria.aoste.timemodel',
-'http://org.gemoc.moccml.fsmmodel/1.0',
-[anECLDocument.getNsURIToDeclare()/]
-[/file]
 [/template]

@@ -556,29 +556,31 @@ public class EclServices {
 			if (rel!=null) {
 				for (int i = 0; i < rel.getParameters().size(); i++) {
 					ExpCS e = rel.getParameters().get(i);
-					if (e.getPivot().toString().contains("->collect")) {
-						String str = e.toString().replace("self.", "element.");
+					String pivotValue = e.getPivot().toString(); 
+					if (pivotValue.contains("->collect")) {
+						String str = pivotValue.replace("self.", "element.");
 						String type = str.substring(str.lastIndexOf("oclAsType("), str.length());
 						sb.append("[for (ne : ").append(type.substring(10, type.indexOf(")"))).append(" | ").append(str.substring(0, str.lastIndexOf("."))).append(")]").append(str.substring(str.lastIndexOf(".")+1, str.length())).append("[ne.name/] [/for]");
 					}else {
-						if (e.toString().contains("self.")) {
-							if (e.toString().replace("self.", "").contains(".")) {
+						if (pivotValue.contains("self.")) {
+							if (pivotValue.replace("self.", "").contains(".")) {
 								//complex navigation TODO
-								String str = e.toString().replace("self.", "element.");//FIXME
+								String str = pivotValue.replace("self.", "element.");//FIXME
+								//
 								sb.append(str.substring(str.lastIndexOf(".")+1, str.length())).append("[").append(str.substring(0, str.lastIndexOf("."))).append(".name/]"); 
 							}else {
-								sb.append(e.toString().replace("self.", "")).append("[element.name/]"); //FIXME UGGLY
+								sb.append(pivotValue.replace("self.", "")).append("[element.name/]"); //FIXME UGGLY
 							}
 						}else {
-							if (e.toString().startsWith("(")) { //clock in let
-								String letID = e.toString().substring(e.toString().indexOf("(")+1, e.toString().lastIndexOf(")"));
+							if (pivotValue.startsWith("(")) { //clock in let
+								String letID = pivotValue.substring(e.toString().indexOf("(")+1, pivotValue.lastIndexOf(")"));
 								EList<LetExpCS> lst = new BasicEList<>();
 								getLetRelation(((ExpSpecificationCS)inv.getSpecification()).getOwnedExpression(), lst);
 								for (LetExpCS letExpCS : lst) {
 									for (LetVariableCS letVariableCS : letExpCS.getVariable()) {
 										if (letVariableCS.getName().equals(letID)) {
 											String str = letVariableCS.getInitExpression().toString().replace("self", "element");//FIXME
-											sb.append(e.toString().substring(e.toString().lastIndexOf(".")+1, e.toString().length())).append("[").append(str).append(".name/]");
+											sb.append(pivotValue.substring(pivotValue.lastIndexOf(".")+1, pivotValue.length())).append("[").append(str).append(".name/]");
 										}
 									}
 								}
@@ -595,13 +597,13 @@ public class EclServices {
 									for (LetVariableCS letVarCS : letExpCS.getVariable()) {
 										if (letVarCS.getName().equals(e.toString())) {
 											if (letVarCS.getOwnedType() instanceof EventType) {
-												if (e.toString().contains("self.")) {
-													if (e.toString().replace("self.", "").contains(".")) {
+												if (pivotValue.contains("self.")) {
+													if (pivotValue.replace("self.", "").contains(".")) {
 														//complex navigation TODO
-														String str = e.toString().replace("self.", "element.");//FIXME
+														String str = pivotValue.replace("self.", "element.");//FIXME
 														sb.append(str.substring(str.lastIndexOf(".")+1, str.length())).append("[").append(str.substring(0, str.lastIndexOf("."))).append(".name/]"); 
 													}else {
-														sb.append(e.toString().replace("self.", "")).append("[element.name/]"); //FIXME UGGLY
+														sb.append(pivotValue.replace("self.", "")).append("[element.name/]"); //FIXME UGGLY
 													}
 												}else {
 													if (sb.length()!=0) {
