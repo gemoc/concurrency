@@ -1,1 +1,0 @@
-Invalid arguments: "stream := FileStream readOnlyFileNamed: 'C:\\g\\Gemoc\\trunk\\workspaces\\modeling-Sigpml\\SigpmlModelingTuto\\clocksystem-files\\myApplication_withMoC-xSigpmlMocc.clocksystem'. sys := Compiler evaluate: stream contents."[

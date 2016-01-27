@@ -49,21 +49,16 @@ public class ClockSystemFileGen {
 	
 	public ClockSystemFileGen() throws URISyntaxException, IOException
 	{
-	
 		od = new OSDectect();
-		if(od.curos.equals("Windows"))
-		{
+		if(od.curos.equals("Windows")){
 			vmtype = "win_vm";
-			vmFile = new File(FileLocator.getBundleFile(Platform.getBundle("org.gemoc.mocc.clocksystem.win")).toURI());
-			
+			vmFile = new File(FileLocator.getBundleFile(Platform.getBundle("org.gemoc.mocc.clocksystem.win")).toURI());	
 		}
-		else if (od.curos.equals("mac"))
-		{
+		else if (od.curos.equals("mac")){
 			vmtype = "mac_vm";
 			vmFile = new File(FileLocator.getBundleFile(Platform.getBundle("org.gemoc.mocc.clocksystem.mac")).toURI());
 		}
-		else if (od.curos.equals("linux"))
-		{
+		else if (od.curos.equals("linux")){
 			vmtype = "linux_vm";
 			vmFile = new File(FileLocator.getBundleFile(Platform.getBundle("org.gemoc.mocc.clocksystem.linux")).toURI());
 		}
@@ -154,7 +149,7 @@ public class ClockSystemFileGen {
 			return vmpath = System.getProperty("java.io.tmpdir");
 		}
 		return vmpath;*/
-		return vmFile.getAbsolutePath();
+		return System.getProperty("java.io.tmpdir");
 	}
 	
 	public void unzipClockSystemfromJar() throws URISyntaxException, IOException {
