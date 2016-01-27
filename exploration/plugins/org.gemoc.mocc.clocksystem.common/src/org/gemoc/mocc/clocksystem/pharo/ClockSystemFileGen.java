@@ -38,7 +38,6 @@ import org.eclipse.ui.PlatformUI;
 public class ClockSystemFileGen {
 	
 	ProcessBuilder pb;
-	private String vmpath;
 
 	String vmtype;
 	OSDectect od;
