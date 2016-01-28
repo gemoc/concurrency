@@ -131,7 +131,8 @@ public class EclServices {
 			if(tab.length>1)
 				name = tab[0] + "::"+_contextDeclCS.getClassifier().getName();
 			else
-				name = ((org.eclipse.ocl.examples.pivot.Class)contextDeclCS.getPivot()).getName();
+				//name = ((org.eclipse.ocl.examples.pivot.Class)contextDeclCS.getPivot()).getName();
+				name = ((org.eclipse.ocl.examples.pivot.Class)contextDeclCS.getPivot()).toString();
 			if (!result.contains(name)) {
 				result.add(name);
 			}	
