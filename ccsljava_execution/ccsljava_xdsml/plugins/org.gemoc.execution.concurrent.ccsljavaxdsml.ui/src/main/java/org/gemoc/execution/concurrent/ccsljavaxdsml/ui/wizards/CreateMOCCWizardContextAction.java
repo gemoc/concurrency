@@ -18,9 +18,11 @@ import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
 import org.gemoc.executionframework.xdsml_base.LanguageDefinition;
 import org.gemoc.xdsmlframework.ide.ui.xdsml.wizards.XDSMLProjectHelper;
 
+import fr.inria.diverse.melange.metamodel.melange.Language;
+
 public class CreateMOCCWizardContextAction {
 
-	public static final String MOCCWIZARD_ID = "org.gemoc.gemoc_language_workbench.ui.wizards.CreateNewMoCProject";
+	public static final String MOCCWIZARD_ID = Activator.PLUGIN_ID+".wizards.CreateNewMoCProject";
 	
 	public enum CreateMOCCAction {CREATE_NEW_MOCC_PROJECT, SELECT_EXISTING_MOCC_PROJECT};
 	
@@ -29,6 +31,7 @@ public class CreateMOCCWizardContextAction {
 	// one of these must be set, depending on it it will work on the file or directly in the model 
 	protected IProject gemocLanguageIProject = null;
 	protected ConcurrentLanguageDefinition gemocLanguageModel = null; 
+	protected Language gemocMelangeLanguage = null;
 	
 	public CreateMOCCWizardContextAction(IProject updatedGemocLanguageProject) {
 		gemocLanguageIProject = updatedGemocLanguageProject;
@@ -36,6 +39,10 @@ public class CreateMOCCWizardContextAction {
 	public CreateMOCCWizardContextAction(IProject updatedGemocLanguageProject, ConcurrentLanguageDefinition rootModelElement) {
 		gemocLanguageIProject = updatedGemocLanguageProject;
 		gemocLanguageModel = rootModelElement;
+	}
+	public CreateMOCCWizardContextAction(IProject updatedGemocLanguageProject, Language melangeLanguage) {
+		gemocLanguageIProject = updatedGemocLanguageProject;
+		gemocMelangeLanguage = melangeLanguage;
 	}
 
 	public void execute() {
@@ -66,8 +73,12 @@ public class CreateMOCCWizardContextAction {
 				// fine initialization
 				ConcurrentLanguageDefinition languageDefinition = getLanguageDefinition();
 				if(languageDefinition != null){
-					createNewMoCCProjectWizard._askProjectNamePage.setInitialProjectName(XDSMLProjectHelper.baseProjectName(gemocLanguageIProject)+".mocc");
-					createNewMoCCProjectWizard._askMoCInfoPage.initialTemplateMoCFileFieldValue = languageDefinition.getName().replaceAll(" ", "_");
+					initWizardFromXDSMLModel(createNewMoCCProjectWizard, languageDefinition);
+				} else {
+					Language mLanguage = getMelangeLanguage();
+					if(mLanguage != null){
+						initWizardFromMelangeLanguage(createNewMoCCProjectWizard, mLanguage);
+					}
 				}
 				wizard.init(workbench, null);
 				WizardDialog wd = new WizardDialog(workbench.getActiveWorkbenchWindow().getShell(), wizard);
@@ -97,6 +108,15 @@ public class CreateMOCCWizardContextAction {
 		else{
 			Activator.error("wizard with id="+MOCCWIZARD_ID+" not found", null);
 		}
+	}
+	
+	protected void initWizardFromMelangeLanguage(CreateNewMoCProject createNewMOCProjectWizard, Language language){
+		createNewMOCProjectWizard._askProjectNamePage.setInitialProjectName(XDSMLProjectHelper.baseProjectName(gemocLanguageIProject)+".mocc");
+		createNewMOCProjectWizard._askMoCInfoPage.initialTemplateMoCFileFieldValue = language.getName().replaceAll(" ", "_");
+	}
+	protected void initWizardFromXDSMLModel(CreateNewMoCProject createNewMOCProjectWizard, ConcurrentLanguageDefinition languageDefinition){
+		createNewMOCProjectWizard._askProjectNamePage.setInitialProjectName(XDSMLProjectHelper.baseProjectName(gemocLanguageIProject)+".mocc");
+		createNewMOCProjectWizard._askMoCInfoPage.initialTemplateMoCFileFieldValue = languageDefinition.getName().replaceAll(" ", "_");
 	}
 	
 	protected void selectExistingMOCCProject(){
@@ -139,6 +159,12 @@ public class CreateMOCCWizardContextAction {
 			return (ConcurrentLanguageDefinition) ld;
 		else return null;
 	}
+	protected Language getMelangeLanguage(){
 
+		if(this.gemocMelangeLanguage != null){
+			return this.gemocMelangeLanguage;
+		}
+		else return null;
+	}
 
 }
