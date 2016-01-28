@@ -74,10 +74,10 @@ public class ClockSystemFileGen {
 		String currpath = getVmpath().replace("\\", "/");	
 		String currpath_win = getVmpath().replace("\\", "\\\\");
 		
-		String image_pathwin = currpath_win + "\\\\"  +vmtype + "\\\\" + "ClockSystem.image";
+		String image_pathwin = currpath_win + vmtype + "\\\\" + "ClockSystem.image";
 		String image_pathother = currpath + "/" + vmtype + "/" + "ClockSystem.image";
 		
-		String runwinvm = currpath_win +"\\\\"+ vmtype + "\\\\" + "Pharo.exe";
+		String runwinvm = currpath_win + vmtype + "\\\\" + "Pharo.exe";
 		String runlinvm = currpath + "/" + vmtype + "/" + "pharo";
 		String runmacvm = currpath + "/" + vmtype + "/" + "Contents" + "/" + "MacOS" + "/" + "Pharo";
 
