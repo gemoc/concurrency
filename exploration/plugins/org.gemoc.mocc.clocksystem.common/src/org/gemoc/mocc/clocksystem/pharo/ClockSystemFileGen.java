@@ -84,6 +84,7 @@ public class ClockSystemFileGen {
 		System.out.println("====================================");
 		System.out.println("currpath_win= " + currpath_win);
 		System.out.println("image_pathwin= "+ image_pathwin);
+		System.out.println("runwinvm= "+ runwinvm);
 		System.out.println("====================================");
 		
 		/*String locwin= "stream := FileStream readOnlyFileNamed:'"+filetab[0]+"'. ";
