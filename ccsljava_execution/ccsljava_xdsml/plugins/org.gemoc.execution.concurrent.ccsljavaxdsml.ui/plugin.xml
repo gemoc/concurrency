@@ -269,6 +269,12 @@
       </command>
       <command
             categoryId="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.GemocConcurrenrLanguageNature.category"
+            defaultHandler="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.commands.CreateMOCCProjectHandler"
+            id="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.commands.CreateMOCCProject"
+            name="CreateMOCCProject">
+      </command>
+      <command
+            categoryId="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.GemocConcurrenrLanguageNature.category"
             defaultHandler="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.commands.CreateSiriusEditorProjectHandler"
             id="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.commands.CreateSiriusEditorProject"
             name="CreateSiriusEditorProject">
@@ -383,6 +389,27 @@
                   commandId="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.commands.CreateDSEProject"
                   icon="icons/plus-16.png"
                   label="Create DSE Project for language"
+                  style="push">
+               <visibleWhen
+                     checkEnabled="false">
+                  <with
+                        variable="selection">
+                     <count
+                           value="1">
+                     </count>
+                     <iterate
+                           ifEmpty="false">
+                        <reference
+                              definitionId="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.definitions.IsSelectionInGemocConcurrentLanguageProject">
+                        </reference>
+                     </iterate>
+                  </with>
+               </visibleWhen>
+            </command>
+            <command
+                  commandId="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.commands.CreateMOCCProject"
+                  icon="icons/plus-16.png"
+                  label="Create MOCC Library Project for language"
                   style="push">
                <visibleWhen
                      checkEnabled="false">
