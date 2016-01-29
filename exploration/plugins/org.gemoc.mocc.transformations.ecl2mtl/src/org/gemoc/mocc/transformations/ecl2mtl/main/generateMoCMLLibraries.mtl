@@ -42,7 +42,7 @@ moccmllibs:={ #[aStateRelationBasedLibrary.oclAsType(Library).name/] -> {
 									) [rd.rSquareBracket()/].[/for]
 							
 									transitions asArray.
-							[rd.rSquareBracket()/][/if][/if].
+							[rd.rSquareBracket()/][/if][/if]
 					[for (s : State | rd.oclAsType(StateMachineRelationDefinition).states)][if (not rd.oclAsType(StateMachineRelationDefinition).initialStates->includes(s))]
 							[rd.lSquareBracket()/][s.nameToNumID()/][rd.rSquareBracket()/] [if (s.outputTransitions->size()<>0)] -> [rd.lSquareBracket()/][if (rd.hasOnlyTriggers()=true)]{
 								[for (t : Transition | s.outputTransitions)]
@@ -125,7 +125,7 @@ moccmllibs:={ #[aStateRelationBasedLibrary.oclAsType(Library).name/] -> {
 									) [ ']' /].[/for]
 							
 									transitions asArray.
-							[ ']' /][/if][/if].
+							[ ']' /][/if][/if]
 					[for (s : State | rd.oclAsType(StateMachineRelationDefinition).states)][if (not rd.oclAsType(StateMachineRelationDefinition).initialStates->includes(s))]
 							[ '[' /][s.nameToNumID()/][ ']' /] [if (s.outputTransitions->size()<>0)] -> [ '[' /][if (rd.hasOnlyTriggers()=true)]{
 								[for (t : Transition | s.outputTransitions)]
