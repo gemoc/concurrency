@@ -16,25 +16,14 @@ import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.gemoc.commons.eclipse.core.resources.FileFinderVisitor;
 import org.gemoc.commons.eclipse.core.resources.GFile;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtensionPoint;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.concurrent_xdsml.ConcurrentLanguageDefinition;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.concurrent_xdsml.DSAProject;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.concurrent_xdsml.DSEProject;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.concurrent_xdsml.MoCCProject;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
-import org.gemoc.executionframework.xdsml_base.DomainModelProject;
-import org.gemoc.executionframework.xdsml_base.SiriusAnimatorProject;
-import org.gemoc.executionframework.xdsml_base.SiriusEditorProject;
-import org.gemoc.executionframework.xdsml_base.XTextEditorProject;
 import org.gemoc.xdsmlframework.api.extensions.languages.LanguageDefinitionExtensionPoint;
 import org.gemoc.xdsmlframework.ide.ui.builder.pde.PluginXMLHelper;
 import org.jdom2.Element;
@@ -206,7 +195,7 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 		StringBuilder sbAdditionalOperations = new StringBuilder();
 			
 			
-		sbContent.append("// add K3 DSA specific executor\n");
+		sbContent.append("// add Melange or K3 DSA specific executors\n");
 		sbContent.append("\t\taddExecutor(new org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.dsa.impl.MelangeCodeExecutor(this,\n");
 		sbContent.append("\t\t\t\""+fullLanguageName+"\"));\n");
 		
