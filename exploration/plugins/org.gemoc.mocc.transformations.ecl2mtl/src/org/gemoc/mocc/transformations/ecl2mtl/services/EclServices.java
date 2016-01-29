@@ -661,15 +661,17 @@ public class EclServices {
 				return "TODO: complete EclServices.java, ConstraintCS.getVariablesListedAndSepByDot() for expression type " +((ExpSpecificationCS)inv.getSpecification()).getOwnedExpression().eClass().getName();
 			}
 			if (rd instanceof StateMachineRelationDefinition) {
-				for (ConcreteEntity ce : ((StateMachineRelationDefinition)rd).getDeclarationBlock().getConcreteEntities()) {
-					//FIXME do it for other concreteEntity specializations
-					if (ce instanceof IntegerElement) {
-						if (sb.length()!=0) {
-							sb.append(". ");
+				if(((StateMachineRelationDefinition)rd).getDeclarationBlock()!=null){
+					for (ConcreteEntity ce : ((StateMachineRelationDefinition)rd).getDeclarationBlock().getConcreteEntities()) {
+						//FIXME do it for other concreteEntity specializations
+						if (ce instanceof IntegerElement) {
+							if (sb.length()!=0) {
+								sb.append(". ");
+							}
+							sb.append(((IntegerElement)ce).getValue());
+						}else {
+							return "TODO: complete EclServices.java, ConstraintCS.getVariablesListedAndSepByDot() for expression type " +((ExpSpecificationCS)inv.getSpecification()).getOwnedExpression().eClass().getName();
 						}
-						sb.append(((IntegerElement)ce).getValue());
-					}else {
-						return "TODO: complete EclServices.java, ConstraintCS.getVariablesListedAndSepByDot() for expression type " +((ExpSpecificationCS)inv.getSpecification()).getOwnedExpression().eClass().getName();
 					}
 				}
 			}
