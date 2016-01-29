@@ -7,15 +7,19 @@ import java.util.ArrayList;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.GC;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.gemoc.commons.eclipse.emf.EMFResource;
@@ -126,9 +130,12 @@ public class SelectProjectPage extends WizardPage {
 	  private String projectName;
 
 	  public SelectProjectPage() {
-	    super("Select xdsml");
-	    setTitle("Select xdsml");
-	    setDescription("Select xdsml");
+	    super("Select the Xdsml","Select xdsml", ImageDescriptor
+				.createFromImage(new Image(Display.getCurrent(),
+			  			CompileAndGenerationClockSystemWizard.class.getResourceAsStream(
+				  			      "/../icons/clocksystem_logo_64x64.png"))));
+	    //setTitle("Select xdsml");
+	    setDescription("Select a xdsml to define the clocksystem execution semantics");
 	  }
 
 	  public void createControl(Composite parent) {
@@ -150,17 +157,23 @@ public class SelectProjectPage extends WizardPage {
 	   * @param labelString
 	   *            the label of the input text to create
 	   */
-	  protected void createTextLabelLayout(Composite parent, String labelString) {
+	  protected Label createTextLabelLayout(Composite parent, String labelString) {
 	  	GridData gd = new GridData(GridData.FILL_HORIZONTAL);
 	  	parent.setLayoutData(gd);
 	  	Label inputLabel = new Label(parent, SWT.NONE);
 	  	inputLabel.setText(labelString); //$NON-NLS-1$
+	  	return inputLabel;
 	  }
 
 	  public Composite createLanguageLayout(Composite parent) {
-	  	createTextLabelLayout(parent, "xDSML");
+		//createTextLabelLayout(parent, "xDSML");
+	  	Label label = createTextLabelLayout(parent, "xDSML");
+	  	Image image = new Image(getShell().getDisplay(),
+	  			CompileAndGenerationClockSystemWizard.class.getResourceAsStream(
+	  			      "/../icons/IconeGemocLanguage-16.png"));
+	  	label.setImage(image);
 	  	_languageCombo = new Combo(parent, SWT.NONE);
-	  
+
 	  	ArrayList<String> xdsmlNames = new ArrayList<String>();
 	  	IConfigurationElement[] confElements = Platform
 	  			.getExtensionRegistry()
