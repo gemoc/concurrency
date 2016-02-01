@@ -165,7 +165,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 	 */
 	private void restoreModelState(ModelState state, boolean restoreAspects) {
 		if(_limitedMode){
-			Activator.getDefault().error("incorrect call, restoreModelState of this addon doesn't work with Engine taht aren't concurrent");
+			Activator.getDefault().error("incorrect call, restoreModelState of this addon doesn't work with Engine that aren't concurrent");
 		}
 		EObject left = state.getModel();
 		EObject right = _executionContext.getResourceModel().getContents().get(0);
@@ -327,8 +327,8 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 			if(!(engine.getExecutionContext() instanceof IConcurrentExecutionContext)){
 				// DVK current implementation of this addon is Concurrent specific (due to the use of the CodeExecutor
 				// for now fail with an error message, later work may generalize this and remove the dependency (by removing some features ?)
-				System.err.println("use of ModelExecutionTracingAddon with non concurrent engine, will work in a limited mode");
-				Activator.getDefault().warn("Use of ModelExecutionTracingAddon with non concurrent engine. The trace will work in a limited mode");
+				System.err.println("use of MultibranchTracingAddon with non concurrent engine, will work in a limited mode");
+				Activator.getDefault().warn("Use of MultibranchTracingAddon with non concurrent engine. The trace will work in a limited mode");
 				_limitedMode = true; 
 			}
 			_executionEngine = engine;
@@ -566,15 +566,17 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 		ArrayList<String> errors = new ArrayList<String>();
 		
 		boolean found = false;
+		String multiDimenstionaladdonFound = "";
 		for (IEngineAddon iEngineAddon : otherAddons) {
 			if( iEngineAddon instanceof IMultiDimensionalTraceAddon){
 				found = true;
+				multiDimenstionaladdonFound = ((IMultiDimensionalTraceAddon)iEngineAddon).getClass().getSimpleName();
 				break;
 			}
 		}
 		
 		if(found){
-			errors.add("EventSchedulingModelExecutionTracingAddon can't run with IMultiDimensionalTraceAddon");
+			errors.add("MultiBranch Reflective Tracing Addon can't run with an MultiDimensional Tracing Addon like "+multiDimenstionaladdonFound);
 		}
 		
 		return errors;

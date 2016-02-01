@@ -88,8 +88,8 @@
             AddonGroupId="Concurrent.AddonGroup"
             Class="org.gemoc.concurrent_addons.eventscheduling.timeline.views.timeline.EventSchedulingTimelineOpenViewAddon"
             Default="false"
-            Name="Open Event Scheduling Timeline view"
-            ShortDescription="Open the Event Scheduling Timeline view. (requires Event Scheduling Execution Tracing)"
+            Name="MultiBranch Timeline"
+            ShortDescription="Open the MultiBranch Timeline view. (requires MultiBranch Execution Tracing)"
             id="EventSchedulingTimelineView">
       </Addon>
    </extension>
