@@ -43,6 +43,7 @@ import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
 import org.gemoc.xdsmlframework.api.core.IExecutionContext;
 import org.gemoc.xdsmlframework.api.engine_addon.DefaultEngineAddon;
 import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
+import org.gemoc.xdsmlframework.api.extensions.engine_addon.EngineAddonSpecificationExtensionPoint;
 
 import fr.inria.diverse.trace.gemoc.api.IMultiDimensionalTraceAddon;
 
@@ -566,17 +567,19 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 		ArrayList<String> errors = new ArrayList<String>();
 		
 		boolean found = false;
-		String multiDimenstionaladdonFound = "";
+		String addonName = "";
 		for (IEngineAddon iEngineAddon : otherAddons) {
 			if( iEngineAddon instanceof IMultiDimensionalTraceAddon){
 				found = true;
-				multiDimenstionaladdonFound = ((IMultiDimensionalTraceAddon)iEngineAddon).getClass().getSimpleName();
+				addonName = EngineAddonSpecificationExtensionPoint.getName(iEngineAddon);
 				break;
 			}
 		}
 		
+		
 		if(found){
-			errors.add("MultiBranch Reflective Tracing Addon can't run with an MultiDimensional Tracing Addon like "+multiDimenstionaladdonFound);
+			String thisName = EngineAddonSpecificationExtensionPoint.getName(this);
+			errors.add(thisName+" can't run with "+ addonName);
 		}
 		
 		return errors;
