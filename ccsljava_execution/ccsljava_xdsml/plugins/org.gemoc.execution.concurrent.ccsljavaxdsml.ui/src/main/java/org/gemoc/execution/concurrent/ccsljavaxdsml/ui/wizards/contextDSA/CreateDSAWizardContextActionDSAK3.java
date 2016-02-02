@@ -24,6 +24,8 @@ import fr.inria.diverse.k3.ui.wizards.pages.NewK3ProjectWizardFields.KindsOfProj
 
 public class CreateDSAWizardContextActionDSAK3 extends CreateDSAWizardContextBase {
 
+	IProject createdProject;
+	
 	public CreateDSAWizardContextActionDSAK3(IProject gemocLanguageIProject) {
 		super(gemocLanguageIProject);
 	}
@@ -82,13 +84,10 @@ public class CreateDSAWizardContextActionDSAK3 extends CreateDSAWizardContextBas
 				if(res == WizardDialog.OK){
 					//((KermetaProjectNewWizard )wizard).performFinish();
 					ResourcesPlugin.getWorkspace().removeResourceChangeListener(workspaceListener);
-					IProject createdProject = workspaceListener.getLastCreatedProject();
+					createdProject = workspaceListener.getLastCreatedProject();
 					// update the project configuration model
 					if(createdProject != null){
 						addDSAProjectToConf(createdProject.getName());
-					}
-					else{
-						addDSAProjectToConf("");
 					}
 				}
 			} catch (CoreException e) {
@@ -99,6 +98,10 @@ public class CreateDSAWizardContextActionDSAK3 extends CreateDSAWizardContextBas
 				ResourcesPlugin.getWorkspace().removeResourceChangeListener(workspaceListener);
 			}
 		}
+	}
+	
+	public IProject getLastCreatedProject(){
+		return createdProject;
 	}
 
 }
