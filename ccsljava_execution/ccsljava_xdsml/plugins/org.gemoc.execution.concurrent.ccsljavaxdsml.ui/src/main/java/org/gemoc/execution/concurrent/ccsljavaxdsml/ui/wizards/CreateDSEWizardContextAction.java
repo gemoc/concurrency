@@ -37,6 +37,8 @@ public class CreateDSEWizardContextAction {
 	protected ConcurrentLanguageDefinition gemocLanguageModel = null;
 	
 	protected Language gemocMelangeLanguage = null;
+	
+	private String eclPath = null;
 
 	public CreateDSEWizardContextAction(IProject updatedGemocLanguageProject) {
 		gemocLanguageIProject = updatedGemocLanguageProject;
@@ -98,9 +100,9 @@ public class CreateDSEWizardContextAction {
 					// update the project configuration model					
 					if(createdProject != null){
 						
-						
+						eclPath = "/"+createNewDSEProjectWizard.createdProjectName+"/ecl/"+createNewDSEProjectWizard.createdTemplateECLFile+".ecl";
 						addECLFileToConf(createNewDSEProjectWizard.createdProjectName, 
-									"/"+createNewDSEProjectWizard.createdProjectName+"/ecl/"+createNewDSEProjectWizard.createdTemplateECLFile+".ecl");
+								eclPath);
 					}
 					else{
 						Activator.error("not able to detect which project was created by wizard", null);
@@ -223,5 +225,9 @@ public class CreateDSEWizardContextAction {
 			return this.gemocMelangeLanguage;
 		}
 		else return null;
+	}
+	
+	public String getEclPath(){
+		return eclPath;
 	}
 }
