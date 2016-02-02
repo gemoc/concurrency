@@ -117,7 +117,7 @@ public class EventSchedulingTimelineOpenViewAddon implements IEngineAddon {
 		}
 		
 		if(!found){
-			errors.add("'Open Event Scheduling Timeline view' can't run without 'Event Scheduling Execution Reflective Tracing'");
+			errors.add("'MultiBranch Timeline' can't run without 'MultiBranch Reflective Tracing'");
 		}
 		
 		return errors;
