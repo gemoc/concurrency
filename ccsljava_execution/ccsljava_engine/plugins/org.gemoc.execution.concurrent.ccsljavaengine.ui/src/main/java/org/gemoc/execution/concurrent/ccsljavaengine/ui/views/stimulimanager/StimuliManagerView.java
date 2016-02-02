@@ -21,8 +21,8 @@ import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
-import org.eclipse.jface.viewers.ISelectionChangedListener;
-import org.eclipse.jface.viewers.SelectionChangedEvent;
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
@@ -44,7 +44,9 @@ import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.ui.IActionBars;
+import org.eclipse.ui.ISelectionListener;
 import org.eclipse.ui.IWorkbenchActionConstants;
+import org.eclipse.ui.IWorkbenchPart;
 import org.gemoc.commons.eclipse.ui.ViewHelper;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.SharedIcons;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.step.LogicalStepsView;
@@ -62,9 +64,9 @@ import org.gemoc.executionframework.engine.mse.LogicalStep;
 import org.gemoc.executionframework.engine.mse.MSEOccurrence;
 import org.gemoc.executionframework.ui.IMSEPresenter;
 import org.gemoc.executionframework.ui.views.engine.EngineSelectionDependentViewPart;
+import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 import org.gemoc.xdsmlframework.api.core.ExecutionMode;
 import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
-import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
@@ -150,7 +152,19 @@ public class StimuliManagerView extends EngineSelectionDependentViewPart impleme
 	private IConcurrentExecutionEngine _currentSelectedEngine;
 	private Map<IConcurrentExecutionEngine, ModelSpecificEventContext> _mseContextMap = new HashMap<IConcurrentExecutionEngine, ModelSpecificEventContext>();
 	private Filter _strategyFilterSelected;
-	private ISelectionChangedListener _decisionViewListener;
+	private ISelectionListener _decisionViewListener = new ISelectionListener() {
+		IStructuredSelection previousSelection = null;
+        public void selectionChanged(IWorkbenchPart sourcepart, ISelection selection) {
+        	// listen for changes in the LogicalStepsView
+        	LogicalStepsView decisionView = ViewHelper.<LogicalStepsView>retrieveView(LogicalStepsView.ID);
+	        if (sourcepart == decisionView &&
+	            selection instanceof IStructuredSelection && selection != previousSelection && !selection.isEmpty()) {
+	        	previousSelection = (IStructuredSelection) selection;
+	        	
+	        	updateView();
+	            }
+	        }
+    };
 	private SelectionListener _menuAndButtonListener;
 	private Composite _bottomComposite;
 	private Composite _informationBar;
@@ -212,27 +226,16 @@ public class StimuliManagerView extends EngineSelectionDependentViewPart impleme
 
 		createInformationAndButtons(parent);
 
-		//createInformationAndButtons();
-		// get the view to listen to motor selection
-		//startListeningToMotorSelectionChange();
-
-		LogicalStepsView decisionView = ViewHelper.<LogicalStepsView>retrieveView(LogicalStepsView.ID);
-		//DVK : warning this code must be reviewed, in some situation (typically on Eclipse startup, 
-		// the LogicalStepView might be available "after" the call to this view and raise a NPE here 
-		_decisionViewListener = new ISelectionChangedListener() 
-		{
-			@Override
-			public void selectionChanged(SelectionChangedEvent event) 
-			{
-				updateView();
-			}
-		};		
-		decisionView.addSelectionChangedListener(_decisionViewListener);
+		// regirter to listen decision changes
+	    getSite().getWorkbenchWindow().getSelectionService().addSelectionListener(LogicalStepsView.ID, _decisionViewListener);
+		
 		updateView();
 		createMenuManager();
 		org.gemoc.executionframework.ui.Activator.getDefault().getEventPresenters().add(this);
 	}
 
+	
+	
 	/**
 	 * Generate a label and a combo to make the user able to change the filter strategy
 	 */
@@ -710,8 +713,8 @@ public class StimuliManagerView extends EngineSelectionDependentViewPart impleme
 	{
 		org.gemoc.executionframework.ui.Activator.getDefault().getEventPresenters().remove(this);
 		super.dispose();
-		LogicalStepsView decisionView = ViewHelper.<LogicalStepsView>retrieveView(LogicalStepsView.ID);
-		decisionView.removeSelectionChangedListener(_decisionViewListener);
+		// remove DecisionView listeners
+		getSite().getWorkbenchWindow().getSelectionService().removeSelectionListener(LogicalStepsView.ID, _decisionViewListener);
 		_contentProvider.dispose();
 		if(_currentSelectedEngine != null) {
 			_currentSelectedEngine.getExecutionContext().getExecutionPlatform().removeEngineAddon(this);
