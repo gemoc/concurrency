@@ -63,7 +63,6 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 	protected Button _animateButton;
 	protected Text _delayText;
 	protected Combo _languageCombo;
-	protected Combo _modelTypeCombo;
 	protected Combo _deciderCombo;
 	protected Button _animationFirstBreak;
 
@@ -304,18 +303,10 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 				_languageCombo.addSelectionListener(new SelectionAdapter() {
 					@Override
 					public void widgetSelected(SelectionEvent e) {
-						String selection = _languageCombo.getText();
-						List<String> modelTypeNames = MelangeHelper.getModelTypes(selection);
-						_modelTypeCombo.setItems(modelTypeNames.toArray(empty));
 						updateLaunchConfigurationDialog();
 					}
 				});
 				createTextLabelLayout(parent, "");
-
-				// ModelType
-				createTextLabelLayout(parent, "Available ModelType");
-				_modelTypeCombo = new Combo(parent, SWT.NONE);
-				_modelTypeCombo.setLayoutData(createStandardLayout());
 
 				return parent;
 	}
