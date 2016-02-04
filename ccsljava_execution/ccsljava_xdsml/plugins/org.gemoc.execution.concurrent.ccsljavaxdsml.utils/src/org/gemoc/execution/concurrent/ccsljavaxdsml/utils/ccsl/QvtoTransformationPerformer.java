@@ -86,6 +86,7 @@ public class QvtoTransformationPerformer {
 		System.out.println(diagnostic);
 		if(diagnostic.getSeverity() != ExecutionDiagnostic.OK){
 			messagingSystem.error(diagnostic.getMessage(), Activator.PLUGIN_ID);
+			throw new ExceptionInInitializerError("the QVTo file compiled from the ECL contains syntactic errors. Please double check your ECL:"+diagnostic.getMessage());
 		}
 		//output resource saving
 	    
