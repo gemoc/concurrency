@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
+import org.eclipse.acceleo.common.preference.AcceleoPreferences;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IMarker;
@@ -42,6 +43,8 @@ public class GemocDSEBuilder extends IncrementalProjectBuilder {
 	private ArrayList<IGemocDSEBuilderAddon> addons;
 	
 	public GemocDSEBuilder() {
+		//remove acceleo notifications
+		AcceleoPreferences.switchForceDeactivationNotifications(true);
 		try {
 			addons = instanciateBuilderAddons();
 		} catch (CoreException e) {
