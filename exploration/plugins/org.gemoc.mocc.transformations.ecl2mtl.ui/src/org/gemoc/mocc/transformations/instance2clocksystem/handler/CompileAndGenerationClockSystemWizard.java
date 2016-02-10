@@ -2,10 +2,12 @@ package org.gemoc.mocc.transformations.instance2clocksystem.handler;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.wizard.Wizard;
@@ -130,10 +132,10 @@ public class SelectProjectPage extends WizardPage {
 	  private String projectName;
 
 	  public SelectProjectPage() {
-	    super("Select the Xdsml","Select xdsml", ImageDescriptor
-				.createFromImage(new Image(Display.getCurrent(),
-			  			CompileAndGenerationClockSystemWizard.class.getResourceAsStream(
-				  			      "/../icons/clocksystem_logo_64x64.png"))));
+	    super("Select the Xdsml","Select xdsml", 
+	    		ImageDescriptor.createFromURL(FileLocator.find(
+	    				Platform.getBundle("org.gemoc.mocc.transformations.ecl2mtl.ui"),
+	    				new Path("icons/clocksystem_logo_64x64.png"), null)));
 	    //setTitle("Select xdsml");
 	    setDescription("Select a xdsml to define the clocksystem execution semantics");
 	  }
