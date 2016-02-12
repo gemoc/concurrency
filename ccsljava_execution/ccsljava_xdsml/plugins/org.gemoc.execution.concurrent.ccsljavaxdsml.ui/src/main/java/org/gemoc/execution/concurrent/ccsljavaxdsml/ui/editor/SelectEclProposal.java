@@ -18,7 +18,7 @@ public class SelectEclProposal implements IProposal{
 
 	@Override
 	public String getDisplayText() {
-		return "Select an existing ECL file";
+		return "-- Select an existing ECL file --";
 	}
 
 	@Override
