@@ -78,7 +78,7 @@ public class ClockSystemFileGen {
 		String image_pathother = currpath + "/" + vmtype + "/" + "ClockSystem.image";
 		
 		String runwinvm = currpath_win + vmtype + "\\\\" + "Pharo.exe";
-		String runlinvm = currpath + vmtype + "/" + "pharo";
+		String runlinvm = currpath + "/" + vmtype + "/" + "pharo";
 		String runmacvm = currpath + "/" + vmtype + "/" + "Contents" + "/" + "MacOS" + "/" + "Pharo";
 
 		System.out.println("====================================");
@@ -111,11 +111,11 @@ public class ClockSystemFileGen {
 		}
 		else if (od.curos.equals("mac"))
 		{
-			pb = new ProcessBuilder(runmacvm,"-headless",image_pathother,"eval",generatePharoScript(filetab[0], dirtab[0]).getAbsolutePath());
+			pb = new ProcessBuilder(runmacvm,"-headless",image_pathother,"eval",generatePharoScript(filetab[1], dirtab[1]).getAbsolutePath());
 		}
 		else if (od.curos.equals("linux"))
 		{
-			pb = new ProcessBuilder("/bin/bash", runlinvm,"-headless",image_pathother,"eval",generatePharoScript(filetab[0], dirtab[0]).getAbsolutePath());
+			pb = new ProcessBuilder("/bin/bash", runlinvm,"-headless",image_pathother,"eval",generatePharoScript(filetab[1], dirtab[1]).getAbsolutePath());
 		}
 		runFileGen();
 		//pb.directory(new File("C:\\OBPFiacreTests\\GenOutput"));
