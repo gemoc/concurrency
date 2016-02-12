@@ -574,4 +574,10 @@
          </adapt>
       </definition>
    </extension>
+   <extension
+         point="fr.inria.diverse.melange.ui.contentassist_ecl">
+      <proposal
+            class="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.editor.SelectEclProposal">
+      </proposal>
+   </extension>
 </plugin>
