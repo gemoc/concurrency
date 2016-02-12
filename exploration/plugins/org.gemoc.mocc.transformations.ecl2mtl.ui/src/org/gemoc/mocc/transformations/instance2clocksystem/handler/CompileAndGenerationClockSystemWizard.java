@@ -25,6 +25,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.gemoc.commons.eclipse.emf.EMFResource;
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtension;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtensionPoint;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.concurrent_xdsml.ConcurrentLanguageDefinition;
 import org.gemoc.xdsmlframework.api.extensions.languages.LanguageDefinitionExtension;
@@ -89,27 +90,43 @@ public class CompileAndGenerationClockSystemWizard extends Wizard {
   private File retrieveSourceFile(){
 	  	File sourceFile = null;
 	  	LanguageDefinitionExtension dfe = ConcurrentLanguageDefinitionExtensionPoint.findDefinition(selectProject.projectName);
-
+	  	
 	  	String xdsmluri = dfe.getXDSMLFilePath();
 		if (!xdsmluri.startsWith("platform:/plugin"))
 			xdsmluri = "platform:/plugin" + xdsmluri;
-		Object o = EMFResource.getFirstContent(xdsmluri);
-		if(o != null && o instanceof ConcurrentLanguageDefinition){
-			ConcurrentLanguageDefinition ld = (ConcurrentLanguageDefinition)o;
 		
-			Bundle bundle = Platform.getBundle(ld.getDSEProject().getProjectName());
-			if( bundle == null )
-				throw new RuntimeException("Could not resolve plugin: " + ld.getDSEProject().getProjectName());
-			
-			try {
-				//System.out.println("@@@ " + FileLocator.getBundleFile(bundle) + "/mtl-gen/");
-				setSourceFile(new File(FileLocator.getBundleFile(bundle) + "/mtl-gen/"));
-				sourceFileHasChanged = false;
-			} catch (IOException e) {
-				//IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e);
-				//Activator.getDefault().getLog().log(status);
-			}
+		Bundle bundle = null;
+		
+		try{
+			Object o = EMFResource.getFirstContent(xdsmluri);
+			if(o != null && o instanceof ConcurrentLanguageDefinition){
+				ConcurrentLanguageDefinition ld = (ConcurrentLanguageDefinition)o;
+				bundle = Platform.getBundle(ld.getDSEProject().getProjectName());
+			}	
 		}
+		// HACK: Since melange, cannot do the same to retrieve the dse project.
+		// Need to store in the extension the bundle ID and it should be Ok, or retrieve propertly the melange Object.
+		catch (Exception e) {
+			ConcurrentLanguageDefinitionExtension extension =(ConcurrentLanguageDefinitionExtension)dfe;
+			Path path = new Path(extension.getQVTOPath());
+			bundle = Platform.getBundle((path.removeLastSegments(3).toString().replace("/", "")));
+		}
+		
+		
+		if( bundle == null )
+			throw new RuntimeException("Cannot fin any DSE project related to this XDSML");
+		
+		try {
+			//System.out.println("@@@ " + FileLocator.getBundleFile(bundle) + "/mtl-gen/");
+			setSourceFile(new File(FileLocator.getBundleFile(bundle) + "/mtl-gen/"));
+			sourceFileHasChanged = false;
+		} catch (IOException e) {
+			//IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e);
+			//Activator.getDefault().getLog().log(status);
+		}
+	
+		
+		
 		return sourceFile;
   }
   
@@ -132,12 +149,22 @@ public class SelectProjectPage extends WizardPage {
 	  private String projectName;
 
 	  public SelectProjectPage() {
-	    super("Select the Xdsml","Select xdsml", 
-	    		ImageDescriptor.createFromURL(FileLocator.find(
-	    				Platform.getBundle("org.gemoc.mocc.transformations.ecl2mtl.ui"),
-	    				new Path("icons/clocksystem_logo_64x64.png"), null)));
+	    super("Select the Xdsml");
 	    //setTitle("Select xdsml");
 	    setDescription("Select a xdsml to define the clocksystem execution semantics");
+	    
+	    try{
+	    	URL url = FileLocator.find(
+					Platform.getBundle("org.gemoc.mocc.transformations.ecl2mtl.ui"),
+					new Path("icons/clocksystem_logo_64x64.png"), null);
+	    	if(url!=null){
+	    		setImageDescriptor(ImageDescriptor.createFromURL(url));
+	    	}
+	    }catch(Exception e){
+	    	System.out.print("Not image found");
+	    }
+		
+	    
 	  }
 
 	  public void createControl(Composite parent) {
@@ -170,10 +197,19 @@ public class SelectProjectPage extends WizardPage {
 	  public Composite createLanguageLayout(Composite parent) {
 		//createTextLabelLayout(parent, "xDSML");
 	  	Label label = createTextLabelLayout(parent, "xDSML");
-	  	Image image = new Image(getShell().getDisplay(),
-	  			CompileAndGenerationClockSystemWizard.class.getResourceAsStream(
-	  			      "/../icons/IconeGemocLanguage-16.png"));
-	  	label.setImage(image);
+	  	
+	  	try{
+	    	URL url = FileLocator.find(
+					Platform.getBundle("org.gemoc.mocc.transformations.ecl2mtl.ui"),
+					new Path("icons/IconeGemocLanguage-16.png"), null);
+	    	if(url!=null){
+	    		Image image = ImageDescriptor.createFromURL(url).createImage();
+	    	  	label.setImage(image);
+	    	}
+	    }catch(Exception e){
+	    	System.out.print("Not image found");
+	    }
+	  	
 	  	_languageCombo = new Combo(parent, SWT.NONE);
 
 	  	ArrayList<String> xdsmlNames = new ArrayList<String>();
