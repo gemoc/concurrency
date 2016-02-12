@@ -78,7 +78,7 @@ public class ClockSystemFileGen {
 		String image_pathother = currpath + "/" + vmtype + "/" + "ClockSystem.image";
 		
 		String runwinvm = currpath_win + vmtype + "\\\\" + "Pharo.exe";
-		String runlinvm = currpath + "/" + vmtype + "/" + "pharo";
+		String runlinvm = currpath + vmtype + "/" + "pharo";
 		String runmacvm = currpath + "/" + vmtype + "/" + "Contents" + "/" + "MacOS" + "/" + "Pharo";
 
 		System.out.println("====================================");
@@ -115,7 +115,7 @@ public class ClockSystemFileGen {
 		}
 		else if (od.curos.equals("linux"))
 		{
-			pb = new ProcessBuilder(runlinvm,"-headless",image_pathother,"eval",generatePharoScript(filetab[0], dirtab[0]).getAbsolutePath());
+			pb = new ProcessBuilder("/bin/bash", runlinvm,"-headless",image_pathother,"eval",generatePharoScript(filetab[0], dirtab[0]).getAbsolutePath());
 		}
 		runFileGen();
 		//pb.directory(new File("C:\\OBPFiacreTests\\GenOutput"));
@@ -129,7 +129,7 @@ public class ClockSystemFileGen {
 			fileWriter.write("stream := FileStream readOnlyFileNamed:'"+clockSystemPath+"'. ");
 			fileWriter.write("sys := (Compiler evaluate: stream contents)system. ");
 			fileWriter.write(" ClockSystem4GeMoC explore: sys resultIn:'" +clockSystemRepositoryPath +"'." );
-			fileWriter.write(" Pharo exit." );
+			//fileWriter.write(" Pharo exit." );
 			fileWriter.close();
 		}
 		catch (Exception e) {
