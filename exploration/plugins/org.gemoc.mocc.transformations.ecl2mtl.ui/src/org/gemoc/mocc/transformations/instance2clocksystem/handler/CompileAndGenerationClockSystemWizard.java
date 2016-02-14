@@ -15,13 +15,11 @@ import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.gemoc.commons.eclipse.emf.EMFResource;
@@ -102,6 +100,12 @@ public class CompileAndGenerationClockSystemWizard extends Wizard {
 			if(o != null && o instanceof ConcurrentLanguageDefinition){
 				ConcurrentLanguageDefinition ld = (ConcurrentLanguageDefinition)o;
 				bundle = Platform.getBundle(ld.getDSEProject().getProjectName());
+			}	
+			if(bundle==null){
+				//ModelTypingSpace ld = (ModelTypingSpace)o;
+				ConcurrentLanguageDefinitionExtension extension =(ConcurrentLanguageDefinitionExtension)dfe;
+				Path path = new Path(extension.getQVTOPath());
+				bundle = Platform.getBundle((path.removeLastSegments(3).toString().replace("/", "")));
 			}	
 		}
 		// HACK: Since melange, cannot do the same to retrieve the dse project.
