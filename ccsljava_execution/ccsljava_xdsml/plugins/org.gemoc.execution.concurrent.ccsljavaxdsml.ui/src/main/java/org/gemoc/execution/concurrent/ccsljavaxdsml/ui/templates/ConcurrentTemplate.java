@@ -185,7 +185,7 @@ public class ConcurrentTemplate extends SimpleMTTemplate{
 			throws CoreException {
 		
 		//Replace KEY_ASPECTS' value (which is a project name) by a list of aspects 
-		final String DEFAULT_VALUE = "\twith qualified.class.name\n";
+		final String DEFAULT_VALUE = "/*\n *\twith qualified.class.name\n */\n";
 		
 		String selection = dsaProjectName;
 		if(selection != null && !selection.isEmpty()){
