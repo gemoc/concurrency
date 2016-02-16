@@ -1,5 +1,6 @@
 package org.gemoc.execution.concurrent.ccsljavaxdsml.ui.editor;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.dialogs.Dialog;
@@ -36,6 +37,12 @@ public class SelectEclProposal implements IProposal{
 			}
 		}
 		return "\"/project/file.ecore\"";
+	}
+
+	@Override
+	public void configureProject(IProject project) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
