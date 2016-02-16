@@ -42,7 +42,11 @@ public class SelectEclProposal implements IProposal{
 	@Override
 	public void configureProject(IProject project) {
 		// TODO Auto-generated method stub
-		
+	}
+
+	@Override
+	public void configureProposal(String packageName, String languageName) {
+		// TODO Auto-generated method stub
 	}
 
 }
