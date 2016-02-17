@@ -1,7 +1,9 @@
 package org.gemoc.execution.concurrent.ccsljavaxdsml.ui.editor;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.dialogs.Dialog;
 import org.gemoc.commons.eclipse.core.resources.FileFinderVisitor;
 import org.gemoc.commons.eclipse.ui.dialogs.SelectSpecificFileDialog;
@@ -18,7 +20,7 @@ public class SelectEclProposal implements IProposal{
 
 	@Override
 	public String getDisplayText() {
-		return "Select an existing ECL file";
+		return "-- Select an existing ECL file --";
 	}
 
 	@Override
@@ -36,6 +38,16 @@ public class SelectEclProposal implements IProposal{
 			}
 		}
 		return "\"/project/file.ecore\"";
+	}
+
+	@Override
+	public void configureProject(IProject project) {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void configureProposal(EObject context) {
+		// TODO Auto-generated method stub
 	}
 
 }
