@@ -38,8 +38,10 @@ import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.PackageDeclarati
 import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.ExpCS;
 import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.ExpSpecificationCS;
 import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.InfixExpCS;
+import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.InvocationExpCS;
 import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.LetExpCS;
 import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.LetVariableCS;
+import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.NavigatingArgCS;
 import org.gemoc.mocc.ccslmoc.model.moccml.StateMachineRelationDefinition;
 import org.gemoc.mocc.ccslmoc.model.moccml.StateRelationBasedLibrary;
 import org.gemoc.mocc.transformations.ecl2mtl.libLoader.LibLoader;
@@ -221,7 +223,7 @@ public class EclServices {
 	
 	public String getExpressionName(ECLDocument document, String contextName, String eventName){
 		for (ContextDeclCS contextDeclCS : getAllContextOccurences(document)) {
-			if (((org.eclipse.ocl.examples.pivot.Class)contextDeclCS.getPivot()).getName().equals(contextName)) {
+			if (((org.eclipse.ocl.examples.pivot.Class)contextDeclCS.getPivot()).toString().equals(contextName)) {
 				EList<ConstraintCS> invList = getInvariants(contextDeclCS);
 				for (ConstraintCS constraintCS : invList) {
 					EList<LetExpCS> lst = new BasicEList<>();
@@ -244,7 +246,7 @@ public class EclServices {
 	
 	public String printListedClockParameters(ECLDocument document, String contextName, String eventName){
 		for (ContextDeclCS contextDeclCS : getAllContextOccurences(document)) {
-			if (((org.eclipse.ocl.examples.pivot.Class)contextDeclCS.getPivot()).getName().equals(contextName)) {
+			if (((org.eclipse.ocl.examples.pivot.Class)contextDeclCS.getPivot()).toString().equals(contextName)) {
 				EList<ConstraintCS> invList = getInvariants(contextDeclCS);
 				for (ConstraintCS constraintCS : invList) {
 					EList<LetExpCS> lst = new BasicEList<>();
@@ -290,7 +292,7 @@ public class EclServices {
 		EList<String> result = new BasicEList<>();
 		//add internal events from let expression
 		for (ContextDeclCS contextDeclCS : getAllContextOccurences(document)) {
-			if (((org.eclipse.ocl.examples.pivot.Class)contextDeclCS.getPivot()).getName().equals(contextName)) {
+			if (((org.eclipse.ocl.examples.pivot.Class)contextDeclCS.getPivot()).toString().equals(contextName)) {
 				EList<ConstraintCS> invList = getInvariants(contextDeclCS);
 				for (ConstraintCS constraintCS : invList) {
 					EList<LetExpCS> lst = new BasicEList<>();
@@ -317,7 +319,7 @@ public class EclServices {
 	public boolean hasInternalEvents(ECLDocument document, String contextName){
 		//add internal events from let expression
 		for (ContextDeclCS contextDeclCS : getAllContextOccurences(document)) {
-			if (((org.eclipse.ocl.examples.pivot.Class)contextDeclCS.getPivot()).getName().equals(contextName)) {
+			if (((org.eclipse.ocl.examples.pivot.Class)contextDeclCS.getPivot()).toString().equals(contextName)) {
 				EList<ConstraintCS> invList = getInvariants(contextDeclCS);
 				for (ConstraintCS constraintCS : invList) {
 					EList<LetExpCS> lst = new BasicEList<>();
@@ -477,17 +479,17 @@ public class EclServices {
 			//e.
 			if (e.getPivot().toString().contains("->collect")) {
 				//[for (ne : NamedElement | element.allocatedAgents.oclAsType(Agent))] isExecuting[ne.name/] [/for]
-				String str = e.getPivot().toString().replace("self.", "element.");
+				String str = getFullNamespaceOfExpression(e).replace("self.", "element.");
 				String type = str.substring(str.lastIndexOf("oclAsType("), str.length());
 				sb.append("[for (ne : ").append(type.substring(10, type.indexOf(")"))).append(" | ").append(str.substring(0, str.lastIndexOf("."))).append(")]").append(str.substring(str.lastIndexOf(".")+1, str.length())).append("[ne.name/]").append(sep).append("[/for]");
 			} else {
 				if (e.toString().contains("self.")) {
 					if (e.toString().replace("self.", "").contains(".")) {
 						//complex navigation TODO
-						String str = e.getPivot().toString().replace("self.", "element.");//FIXME
+						String str = getFullNamespaceOfExpression(e).replace("self.", "element.");//FIXME
 						sb.append(str.substring(str.lastIndexOf(".")+1, str.length())).append("[").append(str.substring(0, str.lastIndexOf("."))).append(".name/]"); 
 					}else {
-						sb.append(e.getPivot().toString().replace("self.", "")).append("[element.name/]"); //FIXME UGGLY
+						sb.append(getFullNamespaceOfExpression(e).replace("self.", "")).append("[element.name/]"); //FIXME UGGLY
 					}
 				}else {
 					//parameter of type integer constant 
@@ -557,9 +559,14 @@ public class EclServices {
 			
 			if (rel!=null) {
 				for (int i = 0; i < rel.getParameters().size(); i++) {
+					
+					if(sb.length() != 0){
+						sb.append(sep);
+					}
+					
 					ExpCS e = rel.getParameters().get(i);
-					String pivotValue = e.getPivot().toString(); 
-					if (pivotValue.contains("->collect")) {
+					String pivotValue = getFullNamespaceOfExpression(e); 
+					if (e.getPivot().toString().contains("->collect")) {
 						String str = pivotValue.replace("self.", "element.");
 						String type = str.substring(str.lastIndexOf("oclAsType("), str.length());
 						sb.append("[for (ne : ").append(type.substring(10, type.indexOf(")"))).append(" | ").append(str.substring(0, str.lastIndexOf("."))).append(")]").append(str.substring(str.lastIndexOf(".")+1, str.length())).append("[ne.name/] [/for]");
@@ -631,6 +638,30 @@ public class EclServices {
 			return "TODO: complete EclServices.java, ConstraintCS.getClockNamesListedAndSepBySep()";
 		}
 		return "TODO: complete EclServices.java, ConstraintCS.getClockNamesListedAndSepBySep()";
+	}
+	
+	/**
+	 * This method should be used to prevent the lose of context.
+	 * It appends to the name of each cast instruction the whole namespace of the Type.
+	 * @param e
+	 * @return
+	 */
+	private String getFullNamespaceOfExpression(ExpCS e){
+		String returned = e.toString();
+		if(e instanceof InfixExpCS){
+			InfixExpCS infix = (InfixExpCS)e;
+			for(ExpCS exp : infix.getOwnedExpression()){
+				if(exp instanceof InvocationExpCS){
+					InvocationExpCS invok = (InvocationExpCS) exp;
+					for(NavigatingArgCS arg : invok.getArgument()){
+						String replaced = invok.toString();
+						replaced = replaced.replace(arg.toString(), invok.getSourceType().toString());
+						returned = returned.replace(invok.toString(), replaced);
+					}
+				}
+			}
+		}
+		return returned;
 	}
 	
 	public String getClockNamesListedAndSepBySpace(ConstraintCS inv){
