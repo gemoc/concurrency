@@ -42,6 +42,7 @@ import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.InvocationExpC
 import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.LetExpCS;
 import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.LetVariableCS;
 import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.NavigatingArgCS;
+import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.NestedExpCS;
 import org.gemoc.mocc.ccslmoc.model.moccml.StateMachineRelationDefinition;
 import org.gemoc.mocc.ccslmoc.model.moccml.StateRelationBasedLibrary;
 import org.gemoc.mocc.transformations.ecl2mtl.libLoader.LibLoader;
@@ -817,6 +818,9 @@ public class EclServices {
 	private ECLRelation getECLRelation(ExpCS exp){
 		if (exp instanceof ECLRelation) {
 			return (ECLRelation) exp;
+		}
+		if (exp instanceof NestedExpCS) {
+			return getECLRelation(((NestedExpCS) exp).getSource());
 		}
 		if (exp instanceof LetExpCS) {
 			return getECLRelation(((LetExpCS)exp).getIn());
