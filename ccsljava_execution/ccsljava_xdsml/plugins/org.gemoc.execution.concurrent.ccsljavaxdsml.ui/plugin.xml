@@ -110,11 +110,11 @@
          point="org.eclipse.ui.menus">
       <menuContribution
             allPopups="true"
-            locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+            locationURI="popup:org.eclipse.ui.popup.any?after=xdsmlGroup">
          <menu
-               icon="icons/IconeGemocLanguage-16.png"
-               id="GEMOCFile.Menu"
-               label="GEMOC File">
+               icon="icons/IconeGemocModel-16.png"
+               id="org.gemoc.modeling.advanced.menu"
+               label="GEMOC Modeling advanced tools">
             <command
                   commandId="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.commands.MergeExtendedCCSL"
                   label="Merge into one XMI resource"
@@ -296,7 +296,7 @@
          point="org.eclipse.ui.menus">
       <menuContribution
             allPopups="false"
-            locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+            locationURI="popup:org.eclipse.ui.popup.any?after=xdsmlGroup">
          <menu
                icon="icons/IconeGemocLanguage-16.png"
                id="GemocConcurrentLanguage.menu"

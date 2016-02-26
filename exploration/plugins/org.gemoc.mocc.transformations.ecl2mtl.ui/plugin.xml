@@ -25,10 +25,10 @@
             id="org.gemoc.mocc.transformations.ecl2mtl.ui.popupMenus.contribution.IFile">
          <menu
                icon="icons/clocksystem_logo_16x16.png"
-               id="org.gemoc.mocc.transformations.ecl2mtl"
+               id="org.gemoc.mocc.exhaustiveExploration"
                label="%menu.label"
-               path="exhaustiveExplorationGroup">
-               <groupMarker name="exhaustiveExploration"/> 
+               path="xdsmlGroup">
+               <groupMarker name="additions"/> 
          </menu>
          <action
                class="org.gemoc.mocc.transformations.ecl2mtl.ui.popupMenus.AcceleoGenerateEcl2MTLAction"
@@ -36,7 +36,7 @@
                id="org.gemoc.mocc.transformations.ecl2mtl.ui.popupMenus.acceleoGenerateEcl2MTLAction"
                icon="icons/cs_t1_16x16.png"
                label="%t1.label"
-               menubarPath="org.gemoc.mocc.transformations.ecl2mtl/exhaustiveExplorationGroup"/>
+               menubarPath="org.gemoc.mocc.exhaustiveExploration/additions"/>
       </objectContribution>
    </extension>
    
@@ -48,10 +48,10 @@
             id="org.gemoc.mocc.transformations.ecl2mtl.ui.popupMenus.contribution.IFile">
          <menu
                icon="icons/clocksystem_logo_16x16.png"
-               id="org.gemoc.mocc.transformations.ecl2mtl"
+               id="org.gemoc.mocc.exhaustiveExploration"
                label="%menu.label"
-               path="exhaustiveExplorationGroup">
-               <groupMarker name="exhaustiveExploration"/> 
+               path="xdsmlGroup">
+               <groupMarker name="additions"/> 
          </menu>
          <action
                class="org.gemoc.mocc.transformations.ecl2mtl.ui.popupMenus.AcceleoGenerateEcl2ClocksystemAction"
@@ -59,7 +59,7 @@
                id="org.gemoc.mocc.transformations.ecl2mtl.ui.popupMenus.acceleoGenerateEcl2ClocksystemAction"
                icon="icons/cs_t1_16x16.png"
                label="%t3.label"
-               menubarPath="org.gemoc.mocc.transformations.ecl2mtl/exhaustiveExplorationGroup"/>
+               menubarPath="org.gemoc.mocc.exhaustiveExploration/additions"/>
       </objectContribution>
    </extension>
    
@@ -71,10 +71,10 @@
             id="org.gemoc.mocc.transformations.instance2clocksystem.handler.compileAndGenerateClockSystem.IFile">
          <menu
                icon="icons/clocksystem_logo_16x16.png"
-               id="org.gemoc.mocc.transformations.ecl2mtl"
+               id="org.gemoc.mocc.exhaustiveExploration"
                label="%menu.label"
-               path="exhaustiveExplorationGroup">
-               <groupMarker name="exhaustiveExploration"/> 
+               path="xdsmlGroup">
+               <groupMarker name="additions"/> 
          </menu>
          <action
                class="org.gemoc.mocc.transformations.instance2clocksystem.handler.CompileAndGenerationClockSystemAction"
@@ -82,7 +82,7 @@
                id="org.gemoc.mocc.transformations.instance2clocksystem.handler.compileAndGenerateClockSystem"
                icon="icons/cs_t2_16x16.png"
                label="%t2.label"
-               menubarPath="org.gemoc.mocc.transformations.ecl2mtl/exhaustiveExplorationGroup"/>
+               menubarPath="org.gemoc.mocc.exhaustiveExploration/additions"/>
       </objectContribution>
    </extension>
 </plugin>

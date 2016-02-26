@@ -259,40 +259,40 @@
          point="org.eclipse.ui.popupMenus">
       <objectContribution
             objectClass="org.eclipse.core.resources.IFile"
-            id="org.gemoc.modeling.menu.contribution">
+            id="org.gemoc.modeling.advanced.menu.contribution">
          <menu
                icon="icons/IconeGemocModel-16.png"
-               id="org.gemoc.modeling.menu"
-               label="GEMOC advanced tools"
-               path="additions">
+               id="org.gemoc.modeling.advanced.menu"
+               label="GEMOC Modeling advanced tools"
+               path="xdsmlGroup">
             <separator
-                  name="group1">
+                  name="additions">
             </separator>
          </menu>
          <action
                label="Generate extended CCSL (use language specified QVTO)"
                class="org.gemoc.execution.concurrent.ccsljavaengine.ui.actions.GenerateExtendedCCSLFile"
-               menubarPath="org.gemoc.modeling.menu/group1"
+               menubarPath="org.gemoc.modeling.advanced.menu/additions"
                id="org.gemoc.modeling.generate.extendedccsl">
          </action>
          <action
                class="org.gemoc.execution.concurrent.ccsljavaengine.ui.actions.ChooseQVTOAndGenerateExtendedCCSLFile"
                id="org.gemoc.modeling.generate.extendedccsl2"
                label="Generate extended CCSL (choose QVTO)"
-               menubarPath="org.gemoc.modeling.menu/group1">
+               menubarPath="org.gemoc.modeling.advanced.menu/additions">
          </action>
 
          <action
                label="Generate time model (use language specified QVTO)"
                class="org.gemoc.execution.concurrent.ccsljavaengine.ui.actions.GenerateTimeModelFile"
-               menubarPath="org.gemoc.modeling.menu/group1"
+               menubarPath="org.gemoc.modeling.advanced.menu/additions"
                id="org.gemoc.modeling.generate.extendedccsl">
          </action>
          <action
                class="org.gemoc.execution.concurrent.ccsljavaengine.ui.actions.ChooseQVTOAndGenerateTimeModelFile"
                id="org.gemoc.modeling.generate.extendedccsl2"
                label="Generate time model (choose QVTO)"
-               menubarPath="org.gemoc.modeling.menu/group1">
+               menubarPath="org.gemoc.modeling.advanced.menu/additions">
          </action>
 
       </objectContribution>
