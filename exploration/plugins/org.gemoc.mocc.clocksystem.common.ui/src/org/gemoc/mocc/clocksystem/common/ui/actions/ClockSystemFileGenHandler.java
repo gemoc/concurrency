@@ -70,7 +70,7 @@ public class ClockSystemFileGenHandler extends ActionDelegate implements IAction
 				public void run(IProgressMonitor monitor) {
 					try {
 						Iterator<IFile> filesIt = files.iterator();
-						System.out.println("files :" + files);
+						//System.out.println("files :" + files);
 						while (filesIt.hasNext()) {
 							clocksystem_file = (IFile)filesIt.next();
 							System.out.println("clocksystem file :" + clocksystem_file.getFullPath().toString());
@@ -89,13 +89,13 @@ public class ClockSystemFileGenHandler extends ActionDelegate implements IAction
 								
 								dirtab[0] = winFileDir;
 								dirtab[1] = otherFileDir;
-								System.out.println("filetab[0] :" + filetab[0]);
+							/*	System.out.println("filetab[0] :" + filetab[0]);
 								System.out.println("filetab[1] :" + filetab[1]);
 								System.out.println("dirtab[0] :" + dirtab[0]);
-								System.out.println("dirtab[1] :" + dirtab[1]);
+								System.out.println("dirtab[1] :" + dirtab[1]);*/
 								
 								ClockSystemFileGen theFile = new ClockSystemFileGen();
-								System.out.println("unzipFromJar");
+								//System.out.println("unzipFromJar");
 								if(!theFile.getVmFile().isDirectory()){
 									theFile.unzipClockSystemfromJar();
 								}
