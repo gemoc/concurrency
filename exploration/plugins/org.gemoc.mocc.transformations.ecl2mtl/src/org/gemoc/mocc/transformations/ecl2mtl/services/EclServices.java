@@ -364,6 +364,18 @@ public class EclServices {
 		return result;
 	}
 	
+	
+	public boolean hasEventsDSA(ECLDocument document, String contextName){
+		for (Iterator<ContextDeclCS> iterator = getAllContextOccurences(document).iterator(); iterator.hasNext();) {
+			ContextDeclCS c = iterator.next();
+			if (isPivotClassKindOf(((org.eclipse.ocl.examples.pivot.Class)c.getPivot()),contextName)) {
+				if(getEvents(c).size()>0)
+					return true;
+			}
+		}
+		return false;
+	}
+	
 	public EList<String> getEventsDSA(ECLDocument document, String contextName){
 		EList<String> result = new BasicEList<>();
 		
