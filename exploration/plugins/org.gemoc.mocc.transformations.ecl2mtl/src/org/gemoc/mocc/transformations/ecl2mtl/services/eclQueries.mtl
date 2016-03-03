@@ -45,8 +45,8 @@
 	= invoke('org.gemoc.mocc.transformations.ecl2mtl.services.EclServices', 'hasEventsDSA(fr.inria.aoste.timesquare.ECL.ECLDocument, java.lang.String)', Sequence{arg0,arg1})
 /]
 
-[query public getAllInternalEvents(arg0 : ECLDocument, arg1 : String) : EEList
-	= invoke('org.gemoc.mocc.transformations.ecl2mtl.services.EclServices', 'getAllInternalEvents(fr.inria.aoste.timesquare.ECL.ECLDocument, java.lang.String)', Sequence{arg0,arg1})
+[query public getAllInternalEventsAsString(arg0 : ECLDocument, arg1 : String) : EEList
+	= invoke('org.gemoc.mocc.transformations.ecl2mtl.services.EclServices', 'getAllInternalEventsAsString(fr.inria.aoste.timesquare.ECL.ECLDocument, java.lang.String)', Sequence{arg0,arg1})
 /]
 
 [query public getExpressionName(arg0 : ECLDocument, arg1 : String, arg2 : String) : String
@@ -55,6 +55,10 @@
 
 [query public printListedClockParameters(arg0 : ECLDocument, arg1 : String, arg2 : String) : String
 	= invoke('org.gemoc.mocc.transformations.ecl2mtl.services.EclServices', 'printListedClockParameters(fr.inria.aoste.timesquare.ECL.ECLDocument, java.lang.String, java.lang.String)', Sequence{arg0,arg1,arg2})
+/]
+
+[query public getClockIterator(arg0 : ECLDocument, arg1 : String, arg2 : String) : String
+	= invoke('org.gemoc.mocc.transformations.ecl2mtl.services.EclServices', 'getClockIterator(fr.inria.aoste.timesquare.ECL.ECLDocument, java.lang.String, java.lang.String)', Sequence{arg0,arg1,arg2})
 /]
 
 [query public printListedClockParametersSepByDot(arg0 : ECLDocument, arg1 : String, arg2 : String) : String

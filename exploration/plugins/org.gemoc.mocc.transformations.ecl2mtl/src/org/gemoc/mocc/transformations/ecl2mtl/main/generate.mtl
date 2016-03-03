@@ -72,7 +72,8 @@ system addLibrary:moccmllibs asDictionary.
 	[/if]
 	[if (anECLDocument.hasInternalEvents(cDecl))]
 "internal clocks for [cDecl/] [ '[' /]element.name/[ ']' /]" 
-    system addInternalClocks: #([for (e : String | anECLDocument.getAllInternalEvents(cDecl))][e/][ '[' /]element.name /[ ']' /] [/for]).
+    [comment]system addInternalClocks: #([for (e : String | anECLDocument.getAllInternalEventsAsString(cDecl))][e/][ '[' /]element.name /[ ']' /] [/for]).[/comment]
+	[anECLDocument.getAllInternalEventsAsString(cDecl)/]
 	[/if]
 [ '[' /]/for[ ']' /]
 [/for]	
@@ -81,7 +82,11 @@ system addLibrary:moccmllibs asDictionary.
 	[if (anECLDocument.hasInternalEvents(cDecl))]
 "expressions used by  [cDecl.getDeclRightPart()/] [ '[' /]element.name/[ ']' /]" 
 	[for (internalClockName : String | anECLDocument.getAllInternalEvents(cDecl))]
+
+	[ '[' /]if ( [anECLDocument.getClockIterator(cDecl, internalClockName)/]->size()>1) [ ']' /]
 	system all[anECLDocument.getExpressionName(cDecl, internalClockName)/]: #([anECLDocument.printListedClockParameters(cDecl, internalClockName)/]) named: #[internalClockName/][ '[' /]element.name/[ ']' /]. 
+	[ '[' /]/if[ ']' /]
+ 
  	[/for]
 	[/if]
 "relations for [cDecl.getDeclRightPart()/] [ '[' /]element.name/[ ']' /]" 

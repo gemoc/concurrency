@@ -20,7 +20,10 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -35,12 +38,14 @@ import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.ClassifierContex
 import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.ContextDeclCS;
 import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.DefCS;
 import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.PackageDeclarationCS;
+import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.AbstractNameExpCS;
 import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.ExpCS;
 import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.ExpSpecificationCS;
 import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.InfixExpCS;
 import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.InvocationExpCS;
 import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.LetExpCS;
 import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.LetVariableCS;
+import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.NameExpCS;
 import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.NavigatingArgCS;
 import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.NestedExpCS;
 import org.gemoc.mocc.ccslmoc.model.moccml.StateMachineRelationDefinition;
@@ -289,8 +294,23 @@ public class EclServices {
 		return "error in printListedClockParametersSepByDot";
 	}
 	
-	public EList<String> getAllInternalEvents(ECLDocument document, String contextName){
-		EList<String> result = new BasicEList<>();
+	public String getAllInternalEventsAsString(ECLDocument document, String contextName){
+		StringBuilder sb = new StringBuilder();
+		for(LetVariableCS letVariableCS : getAllInternalEvents(document, contextName)){
+			sb.append("[if ( ");
+			sb.append(processVariableExpression(letVariableCS));
+			sb.append("->size()>1) ]");
+			sb.append("system addInternalClocks: ");
+			sb.append("#("+letVariableCS.getName() + "[element.name/]).");
+			sb.append("[/if]");	
+			sb.append(System.getProperty("line.separator"));
+			// system addInternalClocks: #([for (e : String | anECLDocument.getAllInternalEventsAsString(cDecl))][e/][ '[' /]element.name /[ ']' /] [/for]).
+		}
+		return sb.toString();
+	}
+	
+	public EList<LetVariableCS> getAllInternalEvents(ECLDocument document, String contextName){
+		EList<LetVariableCS> result = new BasicEList<>();
 		//add internal events from let expression
 		for (ContextDeclCS contextDeclCS : getAllContextOccurences(document)) {
 			if (((org.eclipse.ocl.examples.pivot.Class)contextDeclCS.getPivot()).toString().equals(contextName)) {
@@ -301,7 +321,7 @@ public class EclServices {
 					for (LetExpCS letExpCS : lst) {
 						for(LetVariableCS letVariableCS :letExpCS.getVariable()){
 							if (letVariableCS.getOwnedType() instanceof EventType) {
-								result.add(letVariableCS.getName());
+								result.add(letVariableCS);
 							}
 						}
 					}
@@ -484,6 +504,125 @@ public class EclServices {
 		return getClockNamesListedAndSepBySep(var, " ");
 	}
 	
+	public String getClockIterator(ECLDocument document, String contextName, String eventName){
+		
+		for (ContextDeclCS contextDeclCS : getAllContextOccurences(document)) {
+			if (((org.eclipse.ocl.examples.pivot.Class)contextDeclCS.getPivot()).toString().equals(contextName)) {
+				EList<ConstraintCS> invList = getInvariants(contextDeclCS);
+				for (ConstraintCS constraintCS : invList) {
+					EList<LetExpCS> lst = new BasicEList<>();
+					getLetRelation(((ExpSpecificationCS)constraintCS.getSpecification()).getOwnedExpression(), lst);
+					for (LetExpCS letExpCS : lst) {
+						for(LetVariableCS letVariableCS :letExpCS.getVariable()){
+							if (letVariableCS.getOwnedType() instanceof EventType) {
+								if (letVariableCS.getName().equalsIgnoreCase(eventName)) {
+									return processVariableExpression(letVariableCS);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		return "";
+	}
+	
+	/**
+	 * From a Let expression create a String expression formalized for acceleo
+	 * @param variable
+	 * @return
+	 */
+	private String processVariableExpression(LetVariableCS variable){
+		StringBuilder sb = new StringBuilder(16);
+		ECLExpression exp = (ECLExpression)variable.getInitExpression();
+		for (int i = 0; i < exp.getParameters().size(); i++) {
+			ExpCS e = exp.getParameters().get(i);
+			//e.
+			if (e.getPivot().toString().contains("->collect")) {
+				//[for (ne : NamedElement | element.allocatedAgents.oclAsType(Agent))] isExecuting[ne.name/] [/for]
+				String str = getFullNamespaceOfExpression(e).replace("self.", "element.");
+				String type = str.substring(str.lastIndexOf("oclAsType("), str.length());
+				sb.append(str.substring(0, str.lastIndexOf(".")));
+			} 
+		}
+		 addSetOfClock( variable);
+		return sb.toString().replace("[?]", "");
+	}
+	
+	
+	/**
+	 * From a Let expression create a String expression formalized for acceleo
+	 * @param variable
+	 * @return
+	 */
+	private String processFirstVariableExpression(LetVariableCS variable){
+		String result = processVariableExpression(variable);
+		return result+"->first().name";
+	}
+	
+	private List<LetVariableCS> setOfClocks = new ArrayList<LetVariableCS>();
+	
+	
+	/**
+	 * Add an set of clock
+	 * @param variable
+	 * @return
+	 */
+	private void addSetOfClock(LetVariableCS variable){
+		if(!setOfClocks.contains(variable)){
+			setOfClocks.add(variable);
+		}
+	}
+	
+	/**
+	 * Return the first clock of set of clock
+	 * @param variable
+	 * @return
+	 */
+	public String firstClockOfSetOfClock(LetVariableCS variable){
+		for(LetVariableCS existingVar : setOfClocks){
+			if(existingVar.equals(variable)){
+				return processFirstVariableExpression(variable);
+			}
+		}
+		return "";
+	}
+	
+	/**
+	 * Return variable corresponding to the clock name
+	 * @param variable
+	 * @return
+	 */
+	public LetVariableCS getVariableFromSetOfClock(String clockName){
+		for(LetVariableCS existingVar : setOfClocks){
+			if(existingVar.getName().equals(clockName)){
+				return existingVar;
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * Return the last parameter of an expression.
+	 * @param exp
+	 * @return
+	 */
+	private ExpCS getLastParameter(ExpCS exp){
+		if(exp instanceof InfixExpCS){
+			InfixExpCS infixExp = (InfixExpCS)exp;
+			return infixExp.getOwnedExpression().get(infixExp.getOwnedExpression().size()-1);
+		}else if (exp instanceof ECLExpression){
+			ECLExpression eclExp = (ECLExpression)exp;
+			return getLastParameter(eclExp.getParameters().get(0));
+		}else if (exp instanceof LetVariableCS){
+			LetVariableCS varExp = (LetVariableCS)exp;
+			return getLastParameter(varExp.getInitExpression());
+		}else
+			return null;
+	}
+	
+	
 	public String getClockNamesListedAndSepBySep(LetVariableCS var, String sep){
 		StringBuilder sb = new StringBuilder(16);
 		ECLExpression exp = (ECLExpression)var.getInitExpression();
@@ -578,7 +717,9 @@ public class EclServices {
 					}
 					
 					ExpCS e = rel.getParameters().get(i);
-					String pivotValue = getFullNamespaceOfExpression(e); 
+					String pivotValue = getFullNamespaceOfExpression(e);
+					
+					
 					if (e.getPivot().toString().contains("->collect")) {
 						String str = pivotValue.replace("self.", "element.");
 						String type = str.substring(str.lastIndexOf("oclAsType("), str.length());
@@ -631,7 +772,23 @@ public class EclServices {
 													if (sb.length()!=0) {
 														sb.append(sep);
 													}
-													sb.append(e.toString()).append("[element.name/]");
+													if(getVariableFromSetOfClock(pivotValue)!=null){
+														sb.append("[if ( ");
+														sb.append(processVariableExpression(getVariableFromSetOfClock(pivotValue)));
+														sb.append("->size()<2) ]");
+														sb.append("#" + getLastParameter(getVariableFromSetOfClock(pivotValue)).toString());
+														sb.append("[" + processFirstVariableExpression(getVariableFromSetOfClock(pivotValue))+ "/]" );
+														sb.append("[/if]");
+														
+														sb.append("[if ( ");
+														sb.append(processVariableExpression(getVariableFromSetOfClock(pivotValue)));
+														sb.append("->size()>1) ]");
+														sb.append("#"+pivotValue+ "[element.name/]");
+														sb.append("[/if]");
+													}else{
+														sb.append(e.toString()).append("[element.name/]");
+													}
+													
 												}
 											}
 										}
