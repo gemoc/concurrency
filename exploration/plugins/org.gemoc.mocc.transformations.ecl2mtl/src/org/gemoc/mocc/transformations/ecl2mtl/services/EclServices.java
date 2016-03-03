@@ -309,6 +309,14 @@ public class EclServices {
 		return sb.toString();
 	}
 	
+	public EList<String> getAllInternalEventsListAsString(ECLDocument document, String contextName){
+		EList<String> result = new BasicEList<>();
+		for(LetVariableCS letVariableCS : getAllInternalEvents(document, contextName)){
+			result.add(letVariableCS.getName());
+		}
+		return result;
+	}
+	
 	public EList<LetVariableCS> getAllInternalEvents(ECLDocument document, String contextName){
 		EList<LetVariableCS> result = new BasicEList<>();
 		//add internal events from let expression
@@ -776,14 +784,14 @@ public class EclServices {
 														sb.append("[if ( ");
 														sb.append(processVariableExpression(getVariableFromSetOfClock(pivotValue)));
 														sb.append("->size()<2) ]");
-														sb.append("#" + getLastParameter(getVariableFromSetOfClock(pivotValue)).toString());
+														sb.append(getLastParameter(getVariableFromSetOfClock(pivotValue)).toString());
 														sb.append("[" + processFirstVariableExpression(getVariableFromSetOfClock(pivotValue))+ "/]" );
 														sb.append("[/if]");
 														
 														sb.append("[if ( ");
 														sb.append(processVariableExpression(getVariableFromSetOfClock(pivotValue)));
 														sb.append("->size()>1) ]");
-														sb.append("#"+pivotValue+ "[element.name/]");
+														sb.append(pivotValue+ "[element.name/]");
 														sb.append("[/if]");
 													}else{
 														sb.append(e.toString()).append("[element.name/]");
@@ -984,6 +992,20 @@ public class EclServices {
 		return "TODO";
 	}
 	
+	public String getRelationCondition(ConstraintCS inv){
+		if (inv.getSpecification()!=null) {
+			if (!(inv.getSpecification() instanceof ExpSpecificationCS)) {
+				return "TODO";
+			}
+			ExpCS exp = getECLCondition(((ExpSpecificationCS)inv.getSpecification()).getOwnedExpression());
+			
+			if (exp!=null) {
+				return exp.toString();
+			}
+		}
+		return "true";
+	}
+	
 	private ECLRelation getECLRelation(ExpCS exp){
 		if (exp instanceof ECLRelation) {
 			return (ECLRelation) exp;
@@ -996,6 +1018,16 @@ public class EclServices {
 		}
 		if (exp instanceof InfixExpCS) {
 			return getECLRelation(((InfixExpCS)exp).getOwnedExpression().get(1));
+		}
+		return null;
+	}
+	
+	private ExpCS getECLCondition(ExpCS exp){
+		if (exp instanceof NestedExpCS) {
+			return ((NestedExpCS) exp).getSource();
+		}
+		if (exp instanceof InfixExpCS) {
+			return getECLCondition(((InfixExpCS)exp).getOwnedExpression().get(0));
 		}
 		return null;
 	}

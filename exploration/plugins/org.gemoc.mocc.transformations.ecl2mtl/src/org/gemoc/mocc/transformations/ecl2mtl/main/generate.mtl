@@ -81,7 +81,7 @@ system addLibrary:moccmllibs asDictionary.
 [for (cDecl : String | anECLDocument.getContextLabels(rootElementName))][ '[' /]for (element : [cDecl/]| a[rootElementName.deleteSpecialCharacters()/].eAllContents([cDecl/]))[ ']' /]
 	[if (anECLDocument.hasInternalEvents(cDecl))]
 "expressions used by  [cDecl.getDeclRightPart()/] [ '[' /]element.name/[ ']' /]" 
-	[for (internalClockName : String | anECLDocument.getAllInternalEvents(cDecl))]
+	[for (internalClockName : String | anECLDocument.getAllInternalEventsListAsString(cDecl))]
 
 	[ '[' /]if ( [anECLDocument.getClockIterator(cDecl, internalClockName)/]->size()>1) [ ']' /]
 	system all[anECLDocument.getExpressionName(cDecl, internalClockName)/]: #([anECLDocument.printListedClockParameters(cDecl, internalClockName)/]) named: #[internalClockName/][ '[' /]element.name/[ ']' /]. 
@@ -93,7 +93,11 @@ system addLibrary:moccmllibs asDictionary.
 	[for (invar : ConstraintCS | anECLDocument.getInvariants(cDecl))]
 	"[invar.name/] in [cDecl.getDeclRightPart()/] [ '[' /]element.name/[ ']' /]"
 	[if (invar.getLibraryName().equalsIgnoreCase('CCSL') or invar.getLibraryName().equalsIgnoreCase('kernelLibrary'))]
-		system library: #Kernel relation: #[invar.getRelationDeclName()/] clocks: #([invar.getClockNamesListedAndSepBySpace()/]).
+		[ '[' /]if ( [invar.getRelationCondition()/]) [ ']' /]
+	system library: #Kernel relation: #[invar.getRelationDeclName()/] clocks: #([invar.getClockNamesListedAndSepBySpace()/]).
+		[ '[' /]/if[ ']' /]
+		
+		
 	[else]
 	system
 		library: #[invar.getLibraryName()/]

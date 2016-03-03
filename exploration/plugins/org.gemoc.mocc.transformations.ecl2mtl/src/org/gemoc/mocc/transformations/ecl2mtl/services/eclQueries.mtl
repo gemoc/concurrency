@@ -49,6 +49,10 @@
 	= invoke('org.gemoc.mocc.transformations.ecl2mtl.services.EclServices', 'getAllInternalEventsAsString(fr.inria.aoste.timesquare.ECL.ECLDocument, java.lang.String)', Sequence{arg0,arg1})
 /]
 
+[query public getAllInternalEventsListAsString(arg0 : ECLDocument, arg1 : String) : EEList
+	= invoke('org.gemoc.mocc.transformations.ecl2mtl.services.EclServices', 'getAllInternalEventsListAsString(fr.inria.aoste.timesquare.ECL.ECLDocument, java.lang.String)', Sequence{arg0,arg1})
+/]
+
 [query public getExpressionName(arg0 : ECLDocument, arg1 : String, arg2 : String) : String
 	= invoke('org.gemoc.mocc.transformations.ecl2mtl.services.EclServices', 'getExpressionName(fr.inria.aoste.timesquare.ECL.ECLDocument, java.lang.String, java.lang.String)', Sequence{arg0,arg1,arg2})
 /]
@@ -123,6 +127,10 @@
 
 [query public getRelationDeclName(arg0 : ConstraintCS) : String
 	= invoke('org.gemoc.mocc.transformations.ecl2mtl.services.EclServices', 'getRelationDeclName(org.eclipse.ocl.examples.xtext.base.basecs.ConstraintCS)', Sequence{arg0})
+/]
+
+[query public getRelationCondition(arg0 : ConstraintCS) : String
+	= invoke('org.gemoc.mocc.transformations.ecl2mtl.services.EclServices', 'getRelationCondition(org.eclipse.ocl.examples.xtext.base.basecs.ConstraintCS)', Sequence{arg0})
 /]
 
 [query public getClockNamesListedAndSepByDot(arg0 : ConstraintCS) : String
