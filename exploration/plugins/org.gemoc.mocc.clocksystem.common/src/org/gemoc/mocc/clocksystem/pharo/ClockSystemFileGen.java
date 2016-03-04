@@ -115,7 +115,9 @@ public class ClockSystemFileGen {
 		}
 		else if (od.curos.equals("linux"))
 		{
-			pb = new ProcessBuilder("/bin/bash", runlinvm,"-headless",image_pathother,"eval",generatePharoScript(filetab[1], dirtab[1]).getAbsolutePath());
+			File lunchScript = generatePharoScript(filetab[1], dirtab[1]);
+			lunchScript.setReadable(true);
+			pb = new ProcessBuilder("/bin/bash", runlinvm,image_pathother,"eval",lunchScript.getAbsolutePath());
 		}
 		runFileGen();
 		//pb.directory(new File("C:\\OBPFiacreTests\\GenOutput"));
