@@ -165,12 +165,12 @@ public class CompileAndGenerationClockSystemAction extends ActionDelegate implem
 					URI modelURI = URI.createPlatformResourceURI(model.getFullPath().toString(), true);
 					
 					// Compile and Generate the ClockSystem Models using the toClockSystem.mtl
-					System.out.println("=====================================================================");
+					/*System.out.println("=====================================================================");
 					System.out.println("listURI: "+ listURI);
 					System.out.println("modelURI: "+modelURI);
 					System.out.println("mtlFilePath: "+mtlFilePath);
 					System.out.println("GenRepo: "+genrepo);
-					System.out.println("=====================================================================");
+					System.out.println("=====================================================================");*/
 								
 					CompileAndGenerate generator = new CompileAndGenerate(listURI,modelURI,mtlFilePath, genrepo);
 							

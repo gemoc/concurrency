@@ -88,18 +88,18 @@ public class GenerateEcl2Clocksystem {
 		//};
 		//gen0.doGenerate(BasicMonitor.toMonitor(monitor));
 		monitor.subTask("Initialize...");
-		System.out.println("modelUri :" + modelURI);
-		System.out.println("targetFolder.getLocation().toFile() :" + targetFolder.getLocation().toFile());
-		System.out.println("arguments :" + arguments);
+		//System.out.println("modelUri :" + modelURI);
+		//System.out.println("targetFolder.getLocation().toFile() :" + targetFolder.getLocation().toFile());
+		//System.out.println("arguments :" + arguments);
 		AcceleoTemplateFromEclToClockSystem gen0 = new AcceleoTemplateFromEclToClockSystem(modelURI, targetFolder.getLocation().toFile(), arguments);
-		System.out.println("End initialization");
+		//System.out.println("End initialization");
 		monitor.worked(1);
 		@SuppressWarnings("unchecked")
 		String generationID = org.eclipse.acceleo.engine.utils.AcceleoLaunchingUtil.computeUIProjectID("org.gemoc.mocc.transformations.ecl2mtl", "org.gemoc.mocc.transformations.ecl2mtl.main.GenerateEcl2Clocksystem", modelURI.toString(), targetFolder.getFullPath().toString(), (List<String>) /*new ArrayList<String>()*/arguments);
 		gen0.setGenerationID(generationID);
-		System.out.println("Generate");
+		//System.out.println("Generate");
 		gen0.doGenerate(BasicMonitor.toMonitor(monitor));
-		System.out.println("End Generate");
+		//System.out.println("End Generate");
 		
 	}
 	

@@ -37,7 +37,7 @@ public class SelectEclProposal implements IProposal{
 				return replacementText;
 			}
 		}
-		return "\"/project/file.ecore\"";
+		return "";
 	}
 
 	@Override
