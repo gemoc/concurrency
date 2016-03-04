@@ -323,7 +323,6 @@ public class CcslSolver implements org.gemoc.execution.concurrent.ccsljavaxdsml.
 	private void generateMoC(IConcurrentExecutionContext context) 
 	{
 		IExecutionWorkspace workspace = context.getWorkspace();
-		String transformationPath = context.getConcurrentLanguageDefinitionExtension().getQVTOPath();
 		boolean mustGenerate = false;
 		IFile mocFile = ResourcesPlugin.getWorkspace().getRoot().getFile(workspace.getMoCPath());		
 		if (!mocFile.exists()
@@ -339,27 +338,31 @@ public class CcslSolver implements org.gemoc.execution.concurrent.ccsljavaxdsml.
 		{
 			mustGenerate = true;
 		}
-		
-		final int bundleNameEnd=transformationPath.indexOf('/', 1);
-	    final String bundleName=transformationPath.substring(1,bundleNameEnd);
-	    Bundle bundle=Platform.getBundle(bundleName);
-	    if (bundle != null) {
-		    final URL bundleFileURL=bundle.getEntry(transformationPath.substring(bundleNameEnd));
-			try {
-				URL fileURL = FileLocator.toFileURL(bundleFileURL);
-			    File transformationFile =new File(fileURL.getFile());
-			    if (	feedbackFile.exists() &&
-			    		transformationFile.lastModified() > 
-						ResourcesPlugin.getWorkspace().getRoot().getFile(getFeedbackPathFromMSEModelPath(workspace.getMSEModelPath())).getLocalTimeStamp()) 
-				{
-					mustGenerate = true;
+		String transformationPath = context.getConcurrentLanguageDefinitionExtension().getQVTOPath();
+		if(transformationPath != null && transformationPath.length()!=0){
+			final int bundleNameEnd=transformationPath.indexOf('/', 1);
+		    final String bundleName=transformationPath.substring(1,bundleNameEnd);
+		    Bundle bundle=Platform.getBundle(bundleName);
+		    if (bundle != null) {
+			    final URL bundleFileURL=bundle.getEntry(transformationPath.substring(bundleNameEnd));
+				try {
+					URL fileURL = FileLocator.toFileURL(bundleFileURL);
+				    File transformationFile =new File(fileURL.getFile());
+				    if (	feedbackFile.exists() &&
+				    		transformationFile.lastModified() > 
+							ResourcesPlugin.getWorkspace().getRoot().getFile(getFeedbackPathFromMSEModelPath(workspace.getMSEModelPath())).getLocalTimeStamp()) 
+					{
+						mustGenerate = true;
+					}
+				} catch (IOException e) {
+					Activator.getDefault().error("QVTo file "+transformationPath+" not found, please verify your language specification", e);
 				}
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-	      
-	    }
+		      
+		    }
+		} else {
+			Activator.getDefault().error("QVTo file  not correctly specified in plugin.xml, please verify your language specification");
+			mustGenerate = false;
+		}
 		
 		
 		if (mustGenerate)
