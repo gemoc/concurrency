@@ -95,6 +95,11 @@
             id="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.gemocLanguageDesignerNature.image"
             natureId="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.gemocLanguageDesignerNature">
       </image>
+      <image
+            icon="icons/IconeGemocDSE-10.png"
+            id="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.gemocDSENature.image"
+            natureId="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse_nature">
+      </image>
    </extension>
    <!-- definitions of commands -->
    <extension
