@@ -17,12 +17,6 @@
       [Enter License Description here.]
    </license>
 
-   <plugin
-         id="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dashboard"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
 
    <plugin
          id="org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3"
@@ -95,20 +89,6 @@
 
    <plugin
          id="org.gemoc.execution.concurrent.ccsljavaxdsml.model"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.gemoc.execution.concurrent.ccsljavaxdsml.model.edit"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.gemoc.execution.concurrent.ccsljavaxdsml.model.editor"
          download-size="0"
          install-size="0"
          version="0.0.0"
