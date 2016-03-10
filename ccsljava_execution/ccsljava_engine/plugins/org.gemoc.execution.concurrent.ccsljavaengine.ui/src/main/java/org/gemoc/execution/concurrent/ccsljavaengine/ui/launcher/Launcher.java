@@ -125,6 +125,8 @@ public class Launcher extends AbstractGemocLauncher {
 				throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID, "Cannot instanciate solver from language definition", null));
 			}
 
+			openViewsRecommandedByAddons(runConfiguration);
+
 			// And we start it within a dedicated job
 			Job job = new Job(getDebugJobName(configuration, getFirstInstruction(configuration))) {
 				@Override
