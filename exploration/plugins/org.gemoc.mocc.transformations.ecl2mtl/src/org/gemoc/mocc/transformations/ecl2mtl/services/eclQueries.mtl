@@ -141,6 +141,10 @@
 	= invoke('org.gemoc.mocc.transformations.ecl2mtl.services.EclServices', 'getClockNamesListedAndSepBySpace(org.eclipse.ocl.examples.xtext.base.basecs.ConstraintCS)', Sequence{arg0})
 /] 
 
+[query public getOrderedDataNames(arg0 : ConstraintCS) : EEList
+	= invoke('org.gemoc.mocc.transformations.ecl2mtl.services.EclServices', 'getOrderedDataNames(org.eclipse.ocl.examples.xtext.base.basecs.ConstraintCS)', Sequence{arg0})
+/] 
+
 [query public getNsURIToDeclare(arg0 : ECLDocument) : String
 	= invoke('org.gemoc.mocc.transformations.ecl2mtl.services.EclServices', 'getNsURIToDeclare(fr.inria.aoste.timesquare.ECL.ECLDocument)', Sequence{arg0})
 /] 

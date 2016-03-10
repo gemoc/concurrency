@@ -68,7 +68,8 @@ system addLibrary:moccmllibs asDictionary.
 [for (cDecl : String | anECLDocument.getContextLabels(rootElementName))][ '[' /]for (element : [cDecl/]| a[rootElementName.deleteSpecialCharacters()/].eAllContents([cDecl/]))[ ']' /]
 "clocks for [cDecl.getDeclRightPart()/] [ '[' /]element.name/[ ']' /]" 
 [if (anECLDocument.hasEventsDSA(cDecl))]
-	system addClocks: #([for (e : String | anECLDocument.getAllEvents(cDecl))][e/][ '[' /]element.name /[ ']' /] [/for]).
+	[comment]system addClocks: #([for (e : String | anECLDocument.getAllEvents(cDecl))][e/][ '[' /]element.name /[ ']' /] [/for]).[/comment]
+[for (e : String | anECLDocument.getAllEvents(cDecl))][e/][/for]
 	[/if]
 	[if (anECLDocument.hasInternalEvents(cDecl))]
 "internal clocks for [cDecl/] [ '[' /]element.name/[ ']' /]" 
@@ -83,7 +84,7 @@ system addLibrary:moccmllibs asDictionary.
 "expressions used by  [cDecl.getDeclRightPart()/] [ '[' /]element.name/[ ']' /]" 
 	[for (internalClockName : String | anECLDocument.getAllInternalEventsListAsString(cDecl))]
 
-	[ '[' /]if ( [anECLDocument.getClockIterator(cDecl, internalClockName)/]->size()>1) [ ']' /]
+	[ '[' /]if ( [anECLDocument.getClockIterator(cDecl, internalClockName)/]) [ ']' /]
 	system all[anECLDocument.getExpressionName(cDecl, internalClockName)/]: #([anECLDocument.printListedClockParameters(cDecl, internalClockName)/]) named: #[internalClockName/][ '[' /]element.name/[ ']' /]. 
 	[ '[' /]/if[ ']' /]
  
@@ -96,15 +97,16 @@ system addLibrary:moccmllibs asDictionary.
 		[ '[' /]if ( [invar.getRelationCondition()/]) [ ']' /]
 	system library: #Kernel relation: #[invar.getRelationDeclName()/] clocks: #([invar.getClockNamesListedAndSepBySpace()/]).
 		[ '[' /]/if[ ']' /]
-		
-		
 	[else]
+	[ '[' /]if ( [invar.getRelationCondition()/]) [ ']' /]
 	system
 		library: #[invar.getLibraryName()/]
 		relation: #[invar.getRelationName()/]
 		clocks: #([invar.getClockNamesListedAndSepBySpace()/])
 		constants: {[invar.getConstantsOrLinkersListedAndSepByDot()/]}
 		variables: {[invar.getVariablesListedAndSepByDot()/]}.
+	[ '[' /]/if[ ']' /]
+
 	[/if]
 
 	[/for]
@@ -114,7 +116,12 @@ system addLibrary:moccmllibs asDictionary.
 [ '[' /]file ('ClkSysFunctionTest.clocksystem', false, 'UTF-8')[ ']' /]
 SimpleSDF example1 system
 [ '[' /]/file[ ']' /]
+
+
 [ '[' /]/template[ ']' /]
+
+
+
 [/file]
 [file (resFileNames.toString()+'toFiacre.mtl', false, 'UTF-8')]
 [ '[' /]comment encoding = UTF-8 /[ ']' /]
@@ -225,4 +232,9 @@ sys
 'http://org.gemoc.moccml.fsmmodel/1.0',
 [anECLDocument.getNsURIToDeclare()/]
 [/file]
+
+[comment][file (resFileNames.toString()+'toLtsObpMapping.mtl', false, 'UTF-8')] 
+
+[/file][/comment]
+
 [/template]

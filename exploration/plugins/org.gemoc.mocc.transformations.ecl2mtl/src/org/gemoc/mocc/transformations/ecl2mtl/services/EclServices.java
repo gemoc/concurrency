@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.StringTokenizer;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -39,6 +40,7 @@ import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.ContextDeclCS;
 import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.DefCS;
 import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.PackageDeclarationCS;
 import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.AbstractNameExpCS;
+import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.BinaryOperatorCS;
 import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.ExpCS;
 import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.ExpSpecificationCS;
 import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.InfixExpCS;
@@ -52,6 +54,7 @@ import org.gemoc.mocc.ccslmoc.model.moccml.StateMachineRelationDefinition;
 import org.gemoc.mocc.ccslmoc.model.moccml.StateRelationBasedLibrary;
 import org.gemoc.mocc.transformations.ecl2mtl.libLoader.LibLoader;
 
+import fr.inria.aoste.timesquare.ECL.ECLDefCS;
 import fr.inria.aoste.timesquare.ECL.ECLDocument;
 import fr.inria.aoste.timesquare.ECL.ECLExpression;
 import fr.inria.aoste.timesquare.ECL.ECLRelation;
@@ -167,6 +170,37 @@ public class EclServices {
 			result.addAll(getEvents(c));
 		}
 		return result;
+	}
+	
+	private String getDeclaredEvents(ContextDeclCS context){
+		StringBuilder sb = new StringBuilder();
+		if (context instanceof ClassifierContextDeclCS) {
+			ClassifierContextDeclCS cCls = (ClassifierContextDeclCS) context;
+			for (Iterator<DefCS> iterator2 = cCls.getDefinitions().iterator(); iterator2
+						.hasNext();) {
+				DefCS def = iterator2.next();
+				if (def.getOwnedType() instanceof EventType) {	
+					if(def instanceof ECLDefCS && ((ECLDefCS)def).getCondition()!=null){
+						sb.append("[if(" );
+						sb.append(substituteNonAcceleoOperation(((ECLDefCS)def).getCondition().toString()));
+						sb.append(") ]" );
+						sb.append("system addClocks: #(" );
+						sb.append(def.getName());
+						sb.append("[element.name/]");
+						sb.append(").");
+						sb.append("[/if]");
+						sb.append(System.getProperty("line.separator"));
+					}else{
+						sb.append("system addClocks: #(" );
+						sb.append(def.getName());
+						sb.append("[element.name/]");
+						sb.append(").");
+						sb.append(System.getProperty("line.separator"));
+					}
+				}				
+			}	
+		}
+		return sb.toString();
 	}
 	
 	public String getLabel(ContextDeclCS context){
@@ -297,13 +331,20 @@ public class EclServices {
 	public String getAllInternalEventsAsString(ECLDocument document, String contextName){
 		StringBuilder sb = new StringBuilder();
 		for(LetVariableCS letVariableCS : getAllInternalEvents(document, contextName)){
-			sb.append("[if ( ");
-			sb.append(processVariableExpression(letVariableCS));
-			sb.append("->size()>1) ]");
-			sb.append("system addInternalClocks: ");
-			sb.append("#("+letVariableCS.getName() + "[element.name/]).");
-			sb.append("[/if]");	
-			sb.append(System.getProperty("line.separator"));
+			if(!processVariableExpression(letVariableCS).equals("")){
+				sb.append("[if ( ");
+				sb.append(processVariableExpression(letVariableCS));
+				sb.append("->size()>1) ]");
+				sb.append("system addInternalClocks: ");
+				sb.append("#("+letVariableCS.getName() + "[element.name/]).");
+				sb.append("[/if]");	
+				sb.append(System.getProperty("line.separator"));
+			}else{
+				sb.append("system addInternalClocks: ");
+				sb.append("#("+letVariableCS.getName() + "[element.name/]).");
+				sb.append(System.getProperty("line.separator"));
+			}
+			
 			// system addInternalClocks: #([for (e : String | anECLDocument.getAllInternalEventsAsString(cDecl))][e/][ '[' /]element.name /[ ']' /] [/for]).
 		}
 		return sb.toString();
@@ -410,7 +451,7 @@ public class EclServices {
 		for (Iterator<ContextDeclCS> iterator = getAllContextOccurences(document).iterator(); iterator.hasNext();) {
 			ContextDeclCS c = iterator.next();
 			if (isPivotClassKindOf(((org.eclipse.ocl.examples.pivot.Class)c.getPivot()),contextName)) {
-				result.addAll(getEvents(c)); 
+				result.add(getDeclaredEvents(c)); 
 				//result.addAll(getEventsWithDSA(c)); // Used when we want to have only the events with DSA 
 			}
 		}
@@ -524,7 +565,7 @@ public class EclServices {
 						for(LetVariableCS letVariableCS :letExpCS.getVariable()){
 							if (letVariableCS.getOwnedType() instanceof EventType) {
 								if (letVariableCS.getName().equalsIgnoreCase(eventName)) {
-									return processVariableExpression(letVariableCS);
+									return extractMultipleClockConditionFromClockExpression(letVariableCS);
 								}
 							}
 						}
@@ -535,6 +576,16 @@ public class EclServices {
 		
 		return "";
 	}
+	
+	private String extractMultipleClockConditionFromClockExpression(LetVariableCS letVariableCS){
+		ECLExpression exp = (ECLExpression)letVariableCS.getInitExpression();
+		if(exp.getParameters().size()>1){
+			return "true";
+		}else{
+			return processVariableExpression(letVariableCS) + "->size()>1";
+		}
+	}
+	
 	
 	/**
 	 * From a Let expression create a String expression formalized for acceleo
@@ -552,9 +603,13 @@ public class EclServices {
 				String str = getFullNamespaceOfExpression(e).replace("self.", "element.");
 				String type = str.substring(str.lastIndexOf("oclAsType("), str.length());
 				sb.append(str.substring(0, str.lastIndexOf(".")));
-			} 
+			}/* else{
+				String str = getFullNamespaceOfExpression(e).replace("self.", "element.");
+				sb.append(e);
+			}*/
 		}
-		 addSetOfClock( variable);
+
+		addSetOfClock( variable);
 		return sb.toString().replace("[?]", "");
 	}
 	
@@ -709,6 +764,18 @@ public class EclServices {
 		return sb.toString();
 	}
 	
+	private LetVariableCS getVarInLetExpression(ConstraintCS inv,String name){
+		for(LetExpCS letExp : getLetExpressions(inv)){
+			for(LetVariableCS var : letExp.getVariable()){
+				if(var.getName().equals(name)){
+					return var;
+				}
+			}
+			
+		}
+		return null;
+	}
+	
 	public String getClockNamesListedAndSepBySep(ConstraintCS inv, String sep){
 		StringBuilder sb = new StringBuilder();
 		if (inv.getSpecification()!=null) {
@@ -725,6 +792,7 @@ public class EclServices {
 					}
 					
 					ExpCS e = rel.getParameters().get(i);
+					//String pivotValue = e.getPivot().toString();//getFullNamespaceOfExpression(e);
 					String pivotValue = getFullNamespaceOfExpression(e);
 					
 					
@@ -733,7 +801,7 @@ public class EclServices {
 						String type = str.substring(str.lastIndexOf("oclAsType("), str.length());
 						sb.append("[for (ne : ").append(type.substring(10, type.indexOf(")"))).append(" | ").append(str.substring(0, str.lastIndexOf("."))).append(")]").append(str.substring(str.lastIndexOf(".")+1, str.length())).append("[ne.name/] [/for]");
 					}else {
-						if (pivotValue.contains("self.")) {
+						/*if (pivotValue.contains("self.")) {
 							if (pivotValue.replace("self.", "").contains(".")) {
 								//complex navigation TODO
 								String str = pivotValue.replace("self.", "element.");//FIXME
@@ -742,7 +810,7 @@ public class EclServices {
 							}else {
 								sb.append(pivotValue.replace("self.", "")).append("[element.name/]"); //FIXME UGGLY
 							}
-						}else {
+						}else {*/
 							if (pivotValue.startsWith("(")) { //clock in let
 								String letID = pivotValue.substring(e.toString().indexOf("(")+1, pivotValue.lastIndexOf(")"));
 								EList<LetExpCS> lst = new BasicEList<>();
@@ -755,7 +823,7 @@ public class EclServices {
 										}
 									}
 								}
-								
+							
 							}else {//only name, either parameter of type integer constant or internal clock
 								EObject eo = e.eContainer();
 								do {
@@ -764,9 +832,14 @@ public class EclServices {
 								ConstraintCS c = (ConstraintCS)eo;
 								EList<LetExpCS> lst = new BasicEList<>();
 								getLetRelation(((ExpSpecificationCS)c.getSpecification()).getOwnedExpression(), lst);
+								String variableString =pivotValue;
 								for (LetExpCS letExpCS : lst) {
 									for (LetVariableCS letVarCS : letExpCS.getVariable()) {
-										if (letVarCS.getName().equals(e.toString())) {
+										if (e.toString().contains(letVarCS.getName())) {
+											if(letVarCS.getOwnedType() instanceof PrimitiveTypeRefCS){
+												variableString = pivotValue.replace(letVarCS.getName(), letVarCS.getInitExpression().toString());
+											}
+											
 											if (letVarCS.getOwnedType() instanceof EventType) {
 												if (pivotValue.contains("self.")) {
 													if (pivotValue.replace("self.", "").contains(".")) {
@@ -780,37 +853,58 @@ public class EclServices {
 													if (sb.length()!=0) {
 														sb.append(sep);
 													}
-													if(getVariableFromSetOfClock(pivotValue)!=null){
-														sb.append("[if ( ");
-														sb.append(processVariableExpression(getVariableFromSetOfClock(pivotValue)));
-														sb.append("->size()<2) ]");
-														sb.append(getLastParameter(getVariableFromSetOfClock(pivotValue)).toString());
-														sb.append("[" + processFirstVariableExpression(getVariableFromSetOfClock(pivotValue))+ "/]" );
-														sb.append("[/if]");
-														
-														sb.append("[if ( ");
-														sb.append(processVariableExpression(getVariableFromSetOfClock(pivotValue)));
-														sb.append("->size()>1) ]");
-														sb.append(pivotValue+ "[element.name/]");
-														sb.append("[/if]");
+													if(getVariableFromSetOfClock(pivotValue)!=null ){
+														String varExp = processVariableExpression(getVariableFromSetOfClock(pivotValue));
+														if(!processVariableExpression(getVariableFromSetOfClock(pivotValue)).equals("")){
+															sb.append("[if ( ");
+															sb.append(processVariableExpression(getVariableFromSetOfClock(pivotValue)));
+															sb.append("->size()<2) ]");
+															sb.append(getLastParameter(getVariableFromSetOfClock(pivotValue)).toString());
+															sb.append("[" + processFirstVariableExpression(getVariableFromSetOfClock(pivotValue))+ "/]" );
+															sb.append("[/if]");
+															sb.append("[if ( ");
+															sb.append(processVariableExpression(getVariableFromSetOfClock(pivotValue)));
+															sb.append("->size()>1) ]");
+															sb.append(pivotValue+ "[element.name/]");
+															sb.append("[/if]");
+														}else{
+															sb.append(pivotValue+ "[element.name/]");
+														}		
 													}else{
 														sb.append(e.toString()).append("[element.name/]");
-													}
-													
+													}	
 												}
 											}
 										}
 									}
+									
+									
+								//}
 								}
-							}
+								if (variableString.contains("self.")) {
+									if (variableString.replace("self.", "").contains(".")) {
+										//complex navigation TODO
+										String str = variableString.replace("self.", "element.");//FIXME
+										//
+										sb.append(str.substring(str.lastIndexOf(".")+1, str.length())).append("[").append(str.substring(0, str.lastIndexOf("."))).append(".name/]"); 
+									}else {
+										sb.append(variableString.replace("self.", "")).append("[element.name/]"); //FIXME UGGLY
+									}
+								}
 						}
+							
 						if (i<rel.getParameters().size()-1) {
 							if (rel.getParameters().get(i+1).toString().contains("self.") || rel.getParameters().get(i+1).toString().startsWith("(")) {
 								sb.append(sep);
 							}
 						}
 					}
+					
+					
+					
 				}
+				
+				
 				return sb.toString().replace("[?]", "");
 			}
 			return "TODO: complete EclServices.java, ConstraintCS.getClockNamesListedAndSepBySep()";
@@ -824,8 +918,8 @@ public class EclServices {
 	 * @param e
 	 * @return
 	 */
-	private String getFullNamespaceOfExpression(ExpCS e){
-		String returned = e.toString();
+	/*private String getFullNamespaceOfExpression(ExpCS e){
+		StringBuilder returned = new StringBuilder();
 		if(e instanceof InfixExpCS){
 			InfixExpCS infix = (InfixExpCS)e;
 			for(ExpCS exp : infix.getOwnedExpression()){
@@ -834,16 +928,114 @@ public class EclServices {
 					for(NavigatingArgCS arg : invok.getArgument()){
 						String replaced = invok.toString();
 						replaced = replaced.replace(arg.toString(), invok.getSourceType().toString());
-						returned = returned.replace(invok.toString(), replaced);
+						returned.append(returned.toString().replace(invok.toString(), replaced));
 					}
 				}
 			}
 		}
-		return returned;
+		
+		return e.getPivot().toString();
+	}*/
+	
+	private String getFullNamespaceOfExpression(ExpCS e){
+		String returned = e.toString();
+		StringBuilder sb = new StringBuilder();
+		if(e instanceof InfixExpCS){
+			InfixExpCS infix = (InfixExpCS)e;
+			for(ExpCS exp : infix.getOwnedExpression()){
+				if(exp instanceof InvocationExpCS){
+					InvocationExpCS invok = (InvocationExpCS) exp;
+					sb.append(substituteNonAcceleoOperation(invok.getNameExp().toString()));
+					sb.append("(");
+					for(NavigatingArgCS arg : invok.getArgument()){
+						//String replaced = invok.toString();
+						//replaced = replaced.replace(arg.toString(), invok.getSourceType().toString());
+						//returned = returned.replace(invok.toString(), replaced);
+						sb.append(arg.getPrefix() != null ? arg.getPrefix() : "");  
+						sb.append(arg.getPivot() ==null || arg.getPivot().toString().contains("OclInvalid[?]") ? arg.getName() : arg.getPivot());
+						/*if(invok.getArgument().indexOf(arg) > invok.getArgument().size()-1){
+							sb.append(",");
+						}*/
+					}
+					sb.append(")");
+				}else{
+					sb.append(exp.toString());
+				}
+				int index = infix.getOwnedExpression().indexOf(exp);
+				if(index<infix.getOwnedOperator().size())
+					sb.append(infix.getOwnedOperator().get(index).toString());
+			}
+		}
+		return sb.toString();
 	}
 	
 	public String getClockNamesListedAndSepBySpace(ConstraintCS inv){
 		return getClockNamesListedAndSepBySep(inv, " ");
+	}
+	
+	public List<String> getOrderedDataNames(ConstraintCS inv){
+		List<String> returned = new ArrayList<String>();
+		for(IntegerElement var : getIntegerVariables(inv)){
+			//if(!returned.contains(var.getName()))
+				returned.add(var.getName());
+		}
+		for(LetVariableCS var : getConstantsOrLinker(inv)){
+			//if(!returned.contains(var.getName()))
+				returned.add(var.getName());
+		}
+		
+		return returned;
+	}
+	
+	public List<LetVariableCS> getConstantsOrLinker(ConstraintCS inv){
+		List<LetVariableCS> constants = new ArrayList<LetVariableCS>();
+		EList<LetExpCS> lst = new BasicEList<>();
+		getLetRelation(((ExpSpecificationCS)inv.getSpecification()).getOwnedExpression(), lst);
+		for (Iterator<LetExpCS> iterator = lst.iterator(); iterator.hasNext();) {
+			LetExpCS expCS = iterator.next();
+			EList<LetVariableCS> listVar = expCS.getVariable();
+			boolean isIn = false;
+			for (int i = 0; i < listVar.size(); i++) {
+				LetVariableCS letVariableCS = listVar.get(i);
+				if (letVariableCS.getOwnedType() instanceof  PrimitiveTypeRefCS) {
+					if (((PrimitiveTypeRefCS)letVariableCS.getOwnedType()).getName().equalsIgnoreCase("Integer")) {
+						isIn = false;
+						ECLRelation rel = getECLRelation(((ExpSpecificationCS)inv.getSpecification()).getOwnedExpression());
+						for (ExpCS e : rel.getParameters()) {
+							if (e.toString().contains(expCS.getVariable().get(0).getName())) {
+								isIn=true;
+							};
+						}
+						if (isIn) {//if in relation
+							constants.add(letVariableCS);
+						}
+					}
+				}
+				
+			}
+		}
+		return constants;
+	}
+	
+	public List<IntegerElement> getIntegerVariables(ConstraintCS inv){
+		List<IntegerElement> integers= new ArrayList<IntegerElement>();
+		if (inv.getSpecification()!=null) {
+			ECLRelation rel = getECLRelation(((ExpSpecificationCS)inv.getSpecification()).getOwnedExpression());
+			if (rel!=null && !(((RelationLibrary)rel.getType().eContainer()).getName().equalsIgnoreCase("kernelRelations"))) {
+				RelationDefinition rd = getCorrespondingRelationDefinition(((RelationLibrary)rel.getType().eContainer()), rel.getType());
+			
+				if (rd!=null && rd instanceof StateMachineRelationDefinition) {
+					if(((StateMachineRelationDefinition)rd).getDeclarationBlock()!=null){
+						for (ConcreteEntity ce : ((StateMachineRelationDefinition)rd).getDeclarationBlock().getConcreteEntities()) {
+							if (ce instanceof IntegerElement) {
+								integers.add((IntegerElement) ce);
+							}
+						}
+					}
+				}
+			}	
+		}
+		return integers;
 	}
 	
 	
@@ -898,6 +1090,11 @@ public class EclServices {
 		return null;
 	}
 	
+	public List<LetExpCS> getLetExpressions(ConstraintCS inv){
+		EList<LetExpCS> lst = new BasicEList<>();
+		getLetRelation(((ExpSpecificationCS)inv.getSpecification()).getOwnedExpression(), lst);
+		return lst;
+	}
 	
 	public String getConstantsOrLinkersListedAndSepByDot(ConstraintCS inv){
 		StringBuilder sb = new StringBuilder(16);
@@ -992,15 +1189,29 @@ public class EclServices {
 		return "TODO";
 	}
 	
+	private String substituteNonAcceleoOperation(String operationName){
+		String result = operationName.replace("allInstances", "eAllContents");
+		result = result.replace("allSubobjectsOfKind", "eAllContents");
+		
+		return result;
+	}
+	
 	public String getRelationCondition(ConstraintCS inv){
 		if (inv.getSpecification()!=null) {
 			if (!(inv.getSpecification() instanceof ExpSpecificationCS)) {
 				return "TODO";
 			}
-			ExpCS exp = getECLCondition(((ExpSpecificationCS)inv.getSpecification()).getOwnedExpression());
-			
-			if (exp!=null) {
-				return exp.toString();
+			List<ExpCS> exps = getECLCondition(((ExpSpecificationCS)inv.getSpecification()).getOwnedExpression());
+			StringBuilder sb = new StringBuilder();
+			for(ExpCS expCS : exps){
+				sb.append((expCS instanceof BinaryOperatorCS) ? " " : "( ");	
+				sb.append(substituteNonAcceleoOperation(expCS.toString()));
+				sb.append((expCS instanceof BinaryOperatorCS) ? " " : ") ");	
+			}
+			if(sb.toString().equals("")){
+				return "true";
+			}else{
+				return sb.toString();
 			}
 		}
 		return "true";
@@ -1017,20 +1228,37 @@ public class EclServices {
 			return getECLRelation(((LetExpCS)exp).getIn());
 		}
 		if (exp instanceof InfixExpCS) {
-			return getECLRelation(((InfixExpCS)exp).getOwnedExpression().get(1));
+			ECLRelation relation = null;
+			for(ExpCS ownExp : ((InfixExpCS)exp).getOwnedExpression()){
+				if(getECLRelation(ownExp)!=null){
+					relation = getECLRelation(ownExp);
+				}
+			}
+			return relation;
 		}
 		return null;
 	}
 	
-	private ExpCS getECLCondition(ExpCS exp){
-		if (exp instanceof NestedExpCS) {
-			return ((NestedExpCS) exp).getSource();
+	private List<ExpCS> getECLCondition(ExpCS exp){
+		List<ExpCS> exps = new ArrayList<ExpCS>();
+		if (exp instanceof NestedExpCS && !(((NestedExpCS)exp).getSource() instanceof ECLRelation)) {
+			exps.add(((NestedExpCS) exp).getSource());
+			return exps;
 		}
 		if (exp instanceof InfixExpCS) {
-			return getECLCondition(((InfixExpCS)exp).getOwnedExpression().get(0));
+			for(int i =0;i<((InfixExpCS)exp).getOwnedExpression().size(); i++){
+				ExpCS ownedExp = ((InfixExpCS)exp).getOwnedExpression().get(i);
+				exps.addAll(getECLCondition(ownedExp));
+				if(((InfixExpCS)exp).getOwnedOperator().size()>=(i+1) && 
+						!((InfixExpCS)exp).getOwnedOperator().get(i).getName().equals("implies")){
+					exps.add(((InfixExpCS)exp).getOwnedOperator().get(i));
+				}
+				
+			}
 		}
-		return null;
+		return exps;
 	}
+	
 	
 	public String getNsURIToDeclare(ECLDocument document){
 		StringBuilder sb = new StringBuilder(48);
