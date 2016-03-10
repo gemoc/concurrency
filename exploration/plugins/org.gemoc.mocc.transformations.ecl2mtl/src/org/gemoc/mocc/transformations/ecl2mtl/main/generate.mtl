@@ -95,7 +95,7 @@ system addLibrary:moccmllibs asDictionary.
 	"[invar.name/] in [cDecl.getDeclRightPart()/] [ '[' /]element.name/[ ']' /]"
 	[if (invar.getLibraryName().equalsIgnoreCase('CCSL') or invar.getLibraryName().equalsIgnoreCase('kernelLibrary'))]
 		[ '[' /]if ( [invar.getRelationCondition()/]) [ ']' /]
-	system library: #Kernel relation: #[invar.getRelationDeclName()/] clocks: #([invar.getClockNamesListedAndSepBySpace()/]).
+	system library: #Kernel relation: #[invar.getRelationDeclName()/] clocks: #([invar.getClockNamesListedAndSepBySpace()/]) [if (invar.getRelationDeclName().equalsIgnoreCase('Precedes'))] constants:{-1} [/if].
 		[ '[' /]/if[ ']' /]
 	[else]
 	[ '[' /]if ( [invar.getRelationCondition()/]) [ ']' /]
@@ -108,7 +108,6 @@ system addLibrary:moccmllibs asDictionary.
 	[ '[' /]/if[ ']' /]
 
 	[/if]
-
 	[/for]
 [ '[' /]/for[ ']' /]
 [/for]
