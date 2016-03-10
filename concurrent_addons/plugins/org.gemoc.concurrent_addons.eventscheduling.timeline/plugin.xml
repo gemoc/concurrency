@@ -82,16 +82,5 @@
          </menuContribution>
       </extension>
 
-	<extension
-         point="org.gemoc.gemoc_language_workbench.engine_addon">
-      <Addon
-            AddonGroupId="Concurrent.AddonGroup"
-            Class="org.gemoc.concurrent_addons.eventscheduling.timeline.views.timeline.EventSchedulingTimelineOpenViewAddon"
-            Default="false"
-            Name="MultiBranch Timeline"
-            ShortDescription="Open the MultiBranch Timeline view. (requires MultiBranch Execution Tracing)"
-            id="EventSchedulingTimelineView">
-      </Addon>
-   </extension>
 
 </plugin>

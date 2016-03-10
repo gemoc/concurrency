@@ -31,9 +31,10 @@
             AddonGroupId="Concurrent.AddonGroup"
             Class="org.gemoc.execution.concurrent.ccsljavaengine.eventscheduling.trace.EventSchedulingModelExecutionTracingAddon"
             Default="true"
-            Name="MultiBranch Reflective Tracing"
+            Name="MultiBranch Reflective Trace"
             ShortDescription="Trace the execution events. It is able to trace LogicalStep decisions of concurrent engine."
-            id="EventSchedulingExecutionTracing.Addon">
+            id="EventSchedulingExecutionTracing.Addon"
+            openViewIds="org.gemoc.concurrent_addons.eventscheduling.timeline.views.timeline.EventSchedulingTimeLineView">
       </Addon>
    </extension>
 </plugin>
