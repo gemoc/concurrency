@@ -42,12 +42,10 @@ import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
-import org.eclipse.swt.widgets.Decorations;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorSite;
-import org.eclipse.xtext.linking.impl.XtextLinkingDiagnostic;
 import org.eclipse.xtext.nodemodel.ICompositeNode;
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.parser.IParseResult;
@@ -251,15 +249,13 @@ public class PopupXTextEditorHelper {
 			} catch (Exception exc) {
 				Activator.logError(exc);
 			}
-			//xtextEditor.dispose();
+			xtextEditor.dispose();
 			xtextEditor = null;
 			xtextEditorComposite.setVisible(false);
 			xtextEditorComposite.dispose();
 			xtextEditorComposite =null;
 		}
 	}
-	
-	
 	
 	/**
 	 * Performs a reconciliation with the host resource whether possible (document  has no error)
