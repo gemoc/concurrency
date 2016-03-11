@@ -218,6 +218,12 @@
                relative="org.eclipse.ui.views.PropertySheet"
                visible="true">
          </view>
+         <viewShortcut
+               id="org.gemoc.executionframework.engine.io.views.steps.LogicalStepsView">
+         </viewShortcut>
+         <viewShortcut
+               id="org.gemoc.gemoc_modeling_workbench.concurrent.ui.views.stimulimanager.StimuliManagerView">
+         </viewShortcut>
       </perspectiveExtension>
       <perspectiveExtension
             targetID="org.eclipse.debug.ui.DebugPerspective">
@@ -235,6 +241,12 @@
                relationship="right"
                relative="org.eclipse.debug.ui.VariableView">
          </view>
+         <viewShortcut
+               id="org.gemoc.gemoc_modeling_workbench.concurrent.ui.views.stimulimanager.StimuliManagerView">
+         </viewShortcut>
+         <viewShortcut
+               id="org.gemoc.executionframework.engine.io.views.steps.LogicalStepsView">
+         </viewShortcut>
       </perspectiveExtension>
       
    </extension>
