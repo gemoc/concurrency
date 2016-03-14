@@ -19,6 +19,7 @@ import org.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
 import org.gemoc.executionframework.engine.Activator;
 import org.gemoc.executionframework.engine.core.AbstractExecutionEngine;
 import org.gemoc.executionframework.engine.core.CommandExecution;
+import org.gemoc.executionframework.engine.core.EngineStoppedException;
 import org.gemoc.executionframework.engine.mse.LogicalStep;
 import org.gemoc.executionframework.engine.mse.MSE;
 import org.gemoc.executionframework.engine.mse.MSEOccurrence;
@@ -277,7 +278,9 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine implement
 				while (!_isStopped) 
 				{					
 					performExecutionStep();							
-				} 
+				}
+			} catch (EngineStoppedException ese) {
+				throw ese; 	// forward the stop exception
 			} catch (Throwable e) {
 				throw new RuntimeException(e);
 			}
@@ -318,10 +321,12 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine implement
 		// thread in the debugger
 		// execution feedback is sent to the solver so it can take internal
 		// event into account
-		for (final MSEOccurrence mseOccurence : getSelectedLogicalStep().getMseOccurrences()) 
-		{
-			executeAssociatedActions(mseOccurence.getMse());
-			executeMSEOccurrence(mseOccurence);
+		if(!_isStopped){ // execute while stopped may occur when we push the stop button when paused in the debugger
+			for (final MSEOccurrence mseOccurence : getSelectedLogicalStep().getMseOccurrences()) 
+			{
+				executeAssociatedActions(mseOccurence.getMse());
+				executeMSEOccurrence(mseOccurence);
+			}
 		}
 	}
 
@@ -432,16 +437,16 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine implement
 		concurrentExecutionContext.getConcurrentExecutionPlatform().getMSEStateControllers().add(_mseStateController);
 		
 		executeInitializeModelMethod(executionContext);
-		Activator.getDefault().info("*** Engine initialization done. ***");
+		Activator.getDefault().debug("*** Engine initialization done. ***");
 	}
 
 	protected void executeInitializeModelMethod(IExecutionContext executionContext){
 
 		String modelInitializationMethodQName = executionContext.getRunConfiguration().getModelInitializationMethod();
 		if(!modelInitializationMethodQName.isEmpty()){
-			
 			Object target = executionContext.getResourceModel().getContents().get(0);
-			String modelInitializationMethodName = modelInitializationMethodQName.substring(modelInitializationMethodQName.lastIndexOf(".")+1); 
+			String modelInitializationMethodName = modelInitializationMethodQName.substring(modelInitializationMethodQName.lastIndexOf(".")+1);
+			Activator.getDefault().debug("*** Calling Model initialization method "+modelInitializationMethodName+"(). ***"); 
 			final ArrayList<Object> modelInitializationParameters = new ArrayList<>();
 			ArrayList<String> modelInitializationArgs = new ArrayList<>();
 			for(String s : executionContext.getRunConfiguration().getModelInitializationArguments().split("\\r?\\n")){
@@ -458,8 +463,9 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine implement
 					protected void doExecute() {
 						try {
 							result.add(getConcurrentExecutionContext().getConcurrentExecutionPlatform().getCodeExecutor().execute(target, modelInitializationMethodName, modelInitializationParameters));
+							Activator.getDefault().debug("*** Model initialization done. ***");
 						} catch (CodeExecutionException e) {
-							Activator.getDefault().error("Exception received " + e.getMessage(), e);
+							Activator.getDefault().error("Exception while initializing model " + e.getMessage(), e);
 						}
 					}
 
@@ -472,13 +478,15 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine implement
 			} else {
 				try {
 					getConcurrentExecutionContext().getConcurrentExecutionPlatform().getCodeExecutor().execute(target, modelInitializationMethodName, modelInitializationParameters);
+					Activator.getDefault().debug("*** Model initialization done. ***");
 				} catch (CodeExecutionException e) { 
-					Activator.getDefault().error("Exception received " + e.getMessage(), e);
+					Activator.getDefault().error("Exception while initializing model " + e.getMessage(), e);
 				}
 			}
+		} else {
+			Activator.getDefault().debug("*** Model initialization done. (no modelInitialization method defined for the language) ***");
 		}
 		
-		Activator.getDefault().info("*** Model initialization done. ***");
 	}
 	
 	@Override

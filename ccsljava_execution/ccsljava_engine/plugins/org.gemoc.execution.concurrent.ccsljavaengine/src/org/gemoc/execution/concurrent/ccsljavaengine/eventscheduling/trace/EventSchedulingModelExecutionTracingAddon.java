@@ -471,8 +471,15 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 	
 	@Override
 	public void engineAboutToDispose(IBasicExecutionEngine engine){
-		storeCurrentContextState();
-		saveTraceModel(0);
+		RecordingCommand command = new RecordingCommand(getEditingDomain(), "update trace model") {
+
+			@Override
+			protected void doExecute() {
+				storeCurrentContextState();
+				saveTraceModel(0);
+			}
+		};
+		CommandExecution.execute(getEditingDomain(), command);
 	}
 
 	public void reintegrateBranch(final Choice choice) {
