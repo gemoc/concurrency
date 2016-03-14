@@ -247,8 +247,9 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 			ExecutionTraceModel traceModel = (ExecutionTraceModel) traceResource.getContents().get(0);
 
 			if (stateChanged || currentState == null) {
-
-				Activator.getDefault().debug("saving model state " + traceModel.getReachedStates().size());
+				Activator.getDefault().debug(String.format("[trace-%10s] new model state %3d detected", 
+						getCurrentEngineShortName(),
+						traceModel.getReachedStates().size()));
 
 				ModelState modelState = null;
 				// copy the model
@@ -293,6 +294,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 				}
 
 				traceModel.getChoices().get(traceModel.getChoices().size() - 1).setContextState(contextState);
+				contextState.setChoice(traceModel.getChoices().get(traceModel.getChoices().size() - 1));
 			
 			}
 		}
@@ -309,6 +311,10 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 			if (!_cannotSaveTrace && shouldSave) {
 				try {
 					traceResource.save(null);
+					Activator.getDefault().debug(String.format("[trace-%10s] %d states saved to %s",
+							getCurrentEngineShortName(),
+							_executionTraceModel.getReachedStates().size(), 
+							_executionTraceModel.eResource().getURI()));
 				} catch (IOException e) {
 					org.gemoc.execution.concurrent.ccsljavaengine.Activator.getDefault().error("Error while saving trace to disk", e);
 					_cannotSaveTrace = true;
@@ -475,7 +481,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 
 			@Override
 			protected void doExecute() {
-				storeCurrentContextState();
+				//storeCurrentContextState(); // we don't know if the stop was called on a coherent state, save only the previous valid contextState
 				saveTraceModel(0);
 			}
 		};
@@ -590,5 +596,9 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 		}
 		
 		return errors;
+	}
+	
+	public String getCurrentEngineShortName(){
+		return _executionContext.getRunConfiguration().getExecutedModelURI().lastSegment();
 	}
 }
