@@ -332,4 +332,22 @@ public class EventSchedulingTimelineProvider extends AbstractTimelineProvider im
 	public List<String> validate(List<IEngineAddon> otherAddons) {
 		return new ArrayList<String>();
 	}
+
+	@Override
+	public int getCurrentBranch() {
+		// TODO Auto-generated method stub
+		return -1;
+	}
+
+	@Override
+	public int getCurrentChoice() {
+		// TODO Auto-generated method stub
+		return -1;
+	}
+
+	@Override
+	public int getCurrentPossibleStep() {
+		// TODO Auto-generated method stub
+		return -1;
+	}
 }
