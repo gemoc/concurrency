@@ -56,6 +56,24 @@ public class EventSchedulingTimelineProvider extends AbstractTimelineProvider im
 		}
 		return result;
 	}
+	
+	/**
+	 * returns the index of the given Branch or -1 if not found
+	 */
+	private int getBranchIndex(Branch branch){
+		int result = -1;
+		if(getExecutionTrace() != null && branch != null){
+			int index = 0;
+			for(Branch possibleBranch : getExecutionTrace().getBranches()){
+				if(possibleBranch.equals(branch)){
+					return index;
+				} else {
+					index++;
+				}
+			}
+		}
+		return result;
+	}
 
 	public Choice getChoiceAt(int branchIndex, int executionStepIndex) {
 		Choice result = null;
@@ -335,8 +353,7 @@ public class EventSchedulingTimelineProvider extends AbstractTimelineProvider im
 
 	@Override
 	public int getCurrentBranch() {
-		// TODO Auto-generated method stub
-		return -1;
+		return getBranchIndex(_tracingAddon.getCurrentBranch());
 	}
 
 	@Override
