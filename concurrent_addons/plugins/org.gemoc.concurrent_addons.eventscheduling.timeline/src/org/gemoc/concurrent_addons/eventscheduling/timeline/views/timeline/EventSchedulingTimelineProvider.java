@@ -350,7 +350,11 @@ public class EventSchedulingTimelineProvider extends AbstractTimelineProvider im
 
 	@Override
 	public int getCurrentPossibleStep() {
-		// TODO Auto-generated method stub
+		Choice choice = _tracingAddon.getCurrentChoice();
+		Choice previous = choice.getPreviousChoice();
+		if(previous != null){			
+			return previous.getPossibleLogicalSteps().indexOf(previous.getChosenLogicalStep());
+		}
 		return -1;
 	}
 }
