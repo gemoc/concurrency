@@ -327,6 +327,10 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 	public Branch getCurrentBranch() {
 		return _currentBranch;
 	}
+	
+	public Choice getCurrentChoice() {
+		return _lastChoice;
+	}
 
 	private void setUp(IBasicExecutionEngine engine) {
 		if (_executionContext == null) {

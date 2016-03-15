@@ -57,24 +57,6 @@ public class EventSchedulingTimelineProvider extends AbstractTimelineProvider im
 		return result;
 	}
 	
-	/**
-	 * returns the index of the given Branch or -1 if not found
-	 */
-	private int getBranchIndex(Branch branch){
-		int result = -1;
-		if(getExecutionTrace() != null && branch != null){
-			int index = 0;
-			for(Branch possibleBranch : getExecutionTrace().getBranches()){
-				if(possibleBranch.equals(branch)){
-					return index;
-				} else {
-					index++;
-				}
-			}
-		}
-		return result;
-	}
-
 	public Choice getChoiceAt(int branchIndex, int executionStepIndex) {
 		Choice result = null;
 		Branch branch = getBranchAt(branchIndex);
@@ -353,13 +335,17 @@ public class EventSchedulingTimelineProvider extends AbstractTimelineProvider im
 
 	@Override
 	public int getCurrentBranch() {
-		return getBranchIndex(_tracingAddon.getCurrentBranch());
+		Branch currentBranch = _tracingAddon.getCurrentBranch();
+		if(currentBranch.getChoices().indexOf(_tracingAddon.getCurrentChoice()) == 0){
+			return getExecutionTrace().getBranches().indexOf(_tracingAddon.getCurrentBranch().getChoices().get(0).getPreviousChoice().getBranch());
+		}
+		return getExecutionTrace().getBranches().indexOf(_tracingAddon.getCurrentBranch());
 	}
 
 	@Override
 	public int getCurrentChoice() {
-		// TODO Auto-generated method stub
-		return -1;
+		Branch branch = _tracingAddon.getCurrentBranch();
+		return branch.getChoices().indexOf(_tracingAddon.getCurrentChoice())+branch.getStartIndex()-1;
 	}
 
 	@Override
