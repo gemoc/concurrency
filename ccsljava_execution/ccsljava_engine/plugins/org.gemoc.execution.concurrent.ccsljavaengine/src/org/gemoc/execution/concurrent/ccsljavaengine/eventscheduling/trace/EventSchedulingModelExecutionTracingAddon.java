@@ -477,17 +477,10 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 	
 	@Override
 	public void engineAboutToDispose(IBasicExecutionEngine engine){
-		RecordingCommand command = new RecordingCommand(getEditingDomain(), "update trace model") {
-
-			@Override
-			protected void doExecute() {
-				//storeCurrentContextState(); // we don't know if the stop was called on a coherent state, save only the previous valid contextState
-				saveTraceModel(0);
-			}
-		};
-		CommandExecution.execute(getEditingDomain(), command);
+		
 	}
 
+	
 	public void reintegrateBranch(final Choice choice) {
 		if(_limitedMode){
 			// Cannot reintegrateBranch in limited mode
@@ -566,8 +559,16 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 
 				// No need to observe changes in the model anymore
 				_executionContext.getResourceModel().eAdapters().remove(adapter);
+				
 			}
 		});
+		RecordingCommand command = new RecordingCommand(getEditingDomain(), "Save trace model") {
+			@Override
+			protected void doExecute() {
+				saveTraceModel(0);
+			}
+		};
+		CommandExecution.execute(getEditingDomain(), command);
 	}
 
 	@Override
