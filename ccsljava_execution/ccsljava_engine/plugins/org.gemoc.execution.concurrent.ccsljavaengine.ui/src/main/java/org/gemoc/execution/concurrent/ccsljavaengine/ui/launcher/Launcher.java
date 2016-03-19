@@ -1,5 +1,6 @@
 package org.gemoc.execution.concurrent.ccsljavaengine.ui.launcher;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.function.BiPredicate;
@@ -37,6 +38,8 @@ import org.gemoc.executionframework.engine.commons.EngineContextException;
 import org.gemoc.executionframework.engine.mse.MSEOccurrence;
 import org.gemoc.executionframework.engine.ui.commons.RunConfiguration;
 import org.gemoc.executionframework.engine.ui.debug.AbstractGemocDebugger;
+import org.gemoc.executionframework.engine.ui.debug.AnnotationMutableFieldExtractor;
+import org.gemoc.executionframework.engine.ui.debug.IMutableFieldExtractor;
 import org.gemoc.executionframework.engine.ui.launcher.AbstractGemocLauncher;
 import org.gemoc.executionframework.extensions.sirius.services.AbstractGemocAnimatorServices;
 import org.gemoc.executionframework.extensions.sirius.services.AbstractGemocDebuggerServices;
@@ -246,7 +249,11 @@ public class Launcher extends AbstractGemocLauncher {
 		if (_executionEngine instanceof IConcurrentExecutionEngine) {
 
 			res = new GemocModelDebugger(dispatcher, _executionEngine);
-
+			
+			List<IMutableFieldExtractor> extractors = new ArrayList<IMutableFieldExtractor>();
+			extractors.add(new AnnotationMutableFieldExtractor());
+			
+			res.setMutableFieldExtractors(extractors);
 		}
 
 		// If in the launch configuration it is asked to pause at the start,

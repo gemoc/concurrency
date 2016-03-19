@@ -224,11 +224,4 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 		engine.stop();
 	}
 
-	@Override
-	protected List<IMutableFieldExtractor> getMutableFieldExtractors() {
-		List<IMutableFieldExtractor> extractors = new ArrayList<IMutableFieldExtractor>();
-		extractors.add(new AnnotationMutableFieldExtractor());
-		return extractors;
-	}
-
 }
