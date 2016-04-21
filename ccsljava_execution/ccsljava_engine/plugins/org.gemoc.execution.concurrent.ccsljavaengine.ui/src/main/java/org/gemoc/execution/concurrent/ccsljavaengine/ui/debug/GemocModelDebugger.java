@@ -1,5 +1,9 @@
 package org.gemoc.execution.concurrent.ccsljavaengine.ui.debug;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.gemoc.executionframework.engine.core.AbstractExecutionEngine;
@@ -71,6 +75,8 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 
 		return res;
 	}
+	
+	private Map<MSEOccurrence,LogicalStep> occ2step = new HashMap<>();
 
 	@Override
 	protected void updateStack(String threadName, EObject instruction) {
@@ -83,12 +89,13 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 			logicalStepFrameCreated = false;
 		}
 		if (instruction instanceof LogicalStep) {
+			((LogicalStep)instruction).getMseOccurrences().forEach(m->occ2step.computeIfAbsent(m, o->(LogicalStep)instruction));
 			pushStackFrame(threadName, LogicalStepHelper.getLogicalStepName((LogicalStep) instruction), instruction,
 					instruction);
 			logicalStepFrameCreated = true;
 		} else if (instruction instanceof MSEOccurrence) {
 			final MSEOccurrence mseOcc = (MSEOccurrence) instruction;
-			final LogicalStep logicalStep = mseOcc.getLogicalStep();
+			final LogicalStep logicalStep = occ2step.get(mseOcc);
 			pushStackFrame(threadName, LogicalStepHelper.getLogicalStepName(logicalStep), logicalStep, logicalStep);
 			logicalStepFrameCreated = true;
 			EObject caller = instruction;
@@ -161,7 +168,7 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 								GemocBreakpoint.BREAK_ON_MSE_OCCURRENCE)))) {
 			res = true;
 		} else {
-			LogicalStep locicalStep = mseOccurrence.getLogicalStep();
+			LogicalStep locicalStep = occ2step.get(mseOccurrence);
 			res = super.shouldBreak(locicalStep)
 					&& Boolean.valueOf((String) getBreakpointAttributes(locicalStep,
 							GemocBreakpoint.BREAK_ON_MSE_OCCURRENCE));
