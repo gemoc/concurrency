@@ -15,10 +15,10 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.SharedIcons;
-import org.gemoc.execution.engine.trace.LogicalStepHelper;
-import org.gemoc.executionframework.engine.mse.LogicalStep;
+import org.gemoc.execution.engine.mse.engine.mse.helper.StepHelper;
 import org.gemoc.executionframework.engine.mse.MSE;
 import org.gemoc.executionframework.engine.mse.MSEOccurrence;
+import org.gemoc.executionframework.engine.mse.Step;
 import org.gemoc.executionframework.ui.IMSEPresenter;
 
 import fr.obeo.dsl.debug.DebugTarget;
@@ -68,8 +68,8 @@ public class GemocDebugModelPresentation extends DSLDebugModelPresentation {
 			if (editorPart instanceof DialectEditor) {
 				EObject instruction = ((DSLStackFrameAdapter) frame)
 						.getCurrentInstruction();
-				if (instruction instanceof LogicalStep) {
-					final List<MSE> tickedEvents = LogicalStepHelper.getMSEs((LogicalStep) instruction);
+				if (instruction instanceof Step) {
+					final List<MSE> tickedEvents = StepHelper.collectAllMSEs((Step)instruction);
 					showEvents(tickedEvents);
 					final Set<EObject> callers = new LinkedHashSet<EObject>();
 					for (MSE event : tickedEvents) {
@@ -130,7 +130,7 @@ public class GemocDebugModelPresentation extends DSLDebugModelPresentation {
 			final Object target = ((Adapter)element).getTarget();
 			if(target instanceof StackFrame) {
 				final StackFrame stackFrame = (StackFrame) target;
-				if(stackFrame.getCurrentInstruction() instanceof LogicalStep && stackFrame.getContext() instanceof LogicalStep){
+				if(stackFrame.getCurrentInstruction() instanceof Step && stackFrame.getContext() instanceof Step){
 					return SharedIcons.getSharedImage(SharedIcons.LOGICALSTEP_ICON);
 				} else if(stackFrame.getCurrentInstruction() instanceof MSEOccurrence){
 					// MSEOccurrence mseOcc = (MSEOccurrence) stackFrame.getCurrentInstruction();

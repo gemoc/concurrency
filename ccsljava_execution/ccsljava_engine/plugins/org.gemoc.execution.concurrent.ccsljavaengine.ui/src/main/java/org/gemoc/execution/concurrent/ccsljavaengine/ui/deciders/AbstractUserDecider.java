@@ -13,7 +13,7 @@ import org.gemoc.execution.concurrent.ccsljavaengine.ui.SharedIcons;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.step.LogicalStepsView;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.ILogicalStepDecider;
-import org.gemoc.executionframework.engine.mse.LogicalStep;
+import org.gemoc.executionframework.engine.mse.Step;
 
 public abstract class AbstractUserDecider implements ILogicalStepDecider 
 {
@@ -23,12 +23,12 @@ public abstract class AbstractUserDecider implements ILogicalStepDecider
 		super();
 	}
 	
-	private LogicalStep _selectedLogicalStep;
+	private Step _selectedLogicalStep;
 
 	private Semaphore _semaphore = null;
 
 	@Override
-	public LogicalStep decide(final IConcurrentExecutionEngine engine, final List<LogicalStep> possibleLogicalSteps)
+	public Step decide(final IConcurrentExecutionEngine engine, final List<Step> possibleLogicalSteps)
 			throws InterruptedException {
 		_preemptionHappened = false;
 		_semaphore = new Semaphore(0);
@@ -135,7 +135,7 @@ public abstract class AbstractUserDecider implements ILogicalStepDecider
 
 	public abstract boolean isStepByStep();
 
-	public void decideFromTimeLine(LogicalStep logicalStep)
+	public void decideFromTimeLine(Step logicalStep)
 	{
 		_selectedLogicalStep = logicalStep;
 		if (_semaphore != null)

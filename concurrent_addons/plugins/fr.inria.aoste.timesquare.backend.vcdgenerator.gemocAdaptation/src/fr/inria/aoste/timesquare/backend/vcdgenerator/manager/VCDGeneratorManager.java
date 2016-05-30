@@ -15,7 +15,8 @@ import org.eclipse.swt.widgets.Display;
 import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
-import org.gemoc.executionframework.engine.mse.LogicalStep;
+import org.gemoc.execution.engine.mse.engine.mse.helper.StepHelper;
+import org.gemoc.executionframework.engine.mse.Step;
 import org.gemoc.executionframework.engine.mse.MSEOccurrence;
 import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
 import org.gemoc.xdsmlframework.api.engine_addon.DefaultEngineAddon;
@@ -433,7 +434,7 @@ public class VCDGeneratorManager extends DefaultEngineAddon{
 	 * @since 1.0.0
 	 */
 	@Override
-	public void logicalStepExecuted(IBasicExecutionEngine engine, LogicalStep logicalStepExecuted){
+	public void stepExecuted(IBasicExecutionEngine engine, Step logicalStepExecuted){
 		if (_scoreBoard == null || logicalStepExecuted == null)
 			return;
 		
@@ -448,7 +449,7 @@ public class VCDGeneratorManager extends DefaultEngineAddon{
 		lsstep.add(sm);
 		
 		ArrayList<AbstractVCDClockBehavior> alreadyDone = new ArrayList<AbstractVCDClockBehavior>();
-		for(MSEOccurrence occ : logicalStepExecuted.getMseOccurrences()){
+		for(MSEOccurrence occ : StepHelper.collectAllMSEOccurrences(logicalStepExecuted)){
 			if(occ.getMse() instanceof FeedbackMSE){
 				Clock c = (Clock) ((FeedbackMSE)occ.getMse()).getFeedbackModelSpecificEvent().getSolverEvent();
 				for (AbstractVCDClockBehavior b : _behaviorList){

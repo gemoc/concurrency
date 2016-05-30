@@ -21,9 +21,9 @@ import org.gemoc.execution.concurrent.ccsljavaengine.eventscheduling.trace.Event
 import org.gemoc.execution.concurrent.ccsljavaengine.eventscheduling.trace.ModelExecutionTracingException;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.deciders.AbstractUserDecider;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.Branch;
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.Choice;
-import org.gemoc.executionframework.engine.mse.LogicalStep;
+import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Branch;
+import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Choice;
+import org.gemoc.executionframework.engine.mse.Step;
 import org.gemoc.executionframework.ui.views.engine.IEngineSelectionListener;
 import org.gemoc.xdsmlframework.api.core.ExecutionMode;
 import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
@@ -197,9 +197,9 @@ public class EventSchedulingTimeLineView extends AbstractTimelineView implements
 			if (selected instanceof PossibleStepEditPart) {
 				final Object o1 = ((PossibleStepEditPart) selected).getModel().getChoice2();
 				Object o2 = ((PossibleStepEditPart) selected).getModel().getPossibleStep();
-				if (o1 instanceof Choice && o2 instanceof LogicalStep) {
+				if (o1 instanceof Choice && o2 instanceof Step) {
 					Choice choice = (Choice) o1;
-					LogicalStep logicalStep = (LogicalStep) o2;
+					Step logicalStep = (Step) o2;
 					if (_currentEngine.getRunningStatus().equals(RunStatus.WaitingLogicalStepSelection)) {
 						// If this choice has never been executed, we execute
 						// the chosen logical step
@@ -225,7 +225,7 @@ public class EventSchedulingTimeLineView extends AbstractTimelineView implements
 		}
 	}
 
-	private void performExecutionStep(LogicalStep logicalStep) {
+	private void performExecutionStep(Step logicalStep) {
 		if (_currentEngine instanceof IConcurrentExecutionEngine) {
 			IConcurrentExecutionEngine engine_cast = (IConcurrentExecutionEngine) _currentEngine;
 		if (engine_cast.getLogicalStepDecider() instanceof AbstractUserDecider) {

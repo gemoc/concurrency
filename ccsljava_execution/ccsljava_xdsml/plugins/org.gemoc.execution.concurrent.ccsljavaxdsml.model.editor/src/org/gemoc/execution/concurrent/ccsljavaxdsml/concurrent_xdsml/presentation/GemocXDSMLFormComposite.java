@@ -709,7 +709,7 @@ public class GemocXDSMLFormComposite extends AbstractGemocFormComposite {
 				editingDomain.getCommandStack().execute(new RecordingCommand(teditingDomain) {
 					public void doExecute() {
 						CreateAnimatorProjectWizardContextAction action = new CreateAnimatorProjectWizardContextAction(
-								getCurrentIFile().getProject(), rootModelElement, null);
+								getCurrentIFile().getProject(), rootModelElement);
 						action.actionToExecute = CreateAnimatorProjectAction.CREATE_NEW_SIRIUS_PROJECT;
 						action.execute();
 						initControlFromWrappedObject();

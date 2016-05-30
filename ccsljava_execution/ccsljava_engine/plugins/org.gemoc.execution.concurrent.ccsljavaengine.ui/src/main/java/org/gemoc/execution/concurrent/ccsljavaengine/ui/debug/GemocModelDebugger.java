@@ -1,17 +1,20 @@
 package org.gemoc.execution.concurrent.ccsljavaengine.ui.debug;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EcorePackage;
+import org.gemoc.execution.engine.mse.engine.mse.helper.StepHelper;
 import org.gemoc.executionframework.engine.core.AbstractExecutionEngine;
 import org.gemoc.executionframework.engine.core.EngineStoppedException;
-import org.gemoc.executionframework.engine.mse.LogicalStep;
+import org.gemoc.executionframework.engine.mse.BigStep;
 import org.gemoc.executionframework.engine.mse.MSE;
 import org.gemoc.executionframework.engine.mse.MSEOccurrence;
-import org.gemoc.executionframework.engine.mse.helper.LogicalStepHelper;
+import org.gemoc.executionframework.engine.mse.SmallStep;
+import org.gemoc.executionframework.engine.mse.Step;
 import org.gemoc.executionframework.engine.ui.debug.AbstractGemocDebugger;
 import org.gemoc.executionframework.engine.ui.debug.breakpoint.GemocBreakpoint;
 import org.gemoc.executionframework.ui.utils.ViewUtils;
@@ -60,23 +63,28 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 	public boolean canStepInto(String threadName, EObject instruction) {
 		final boolean res;
 
-		if (instruction instanceof LogicalStep) {
-			boolean hasActionMSE = false;
-			for (MSEOccurrence mseOccurence : ((LogicalStep) instruction).getMseOccurrences()) {
-				if (mseOccurence.getMse().getAction() != null) {
-					hasActionMSE = true;
-					break;
+		if (instruction instanceof SmallStep) {
+			return false;
+		}else{
+			if (instruction instanceof BigStep<?>) {
+			  boolean hasActionMSE = false;
+				for (Object o : ((BigStep<?>) instruction).getSubSteps()) {
+					Step s = (Step) o;
+					if (s.getMseoccurrence().getMse().getAction() != null) {
+						hasActionMSE = true;
+						break;
+					}
 				}
+			  res = hasActionMSE;
+			} else {
+				res = false;
 			}
-			res = hasActionMSE;
-		} else {
-			res = false;
 		}
 
 		return res;
 	}
 	
-	private Map<MSEOccurrence,LogicalStep> occ2step = new HashMap<>();
+	private Map<MSEOccurrence,Step> occ2step = new HashMap<>();
 
 	@Override
 	protected void updateStack(String threadName, EObject instruction) {
@@ -88,15 +96,26 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 			popStackFrame(threadName);
 			logicalStepFrameCreated = false;
 		}
-		if (instruction instanceof LogicalStep) {
-			((LogicalStep)instruction).getMseOccurrences().forEach(m->occ2step.computeIfAbsent(m, o->(LogicalStep)instruction));
-			pushStackFrame(threadName, LogicalStepHelper.getLogicalStepName((LogicalStep) instruction), instruction,
-					instruction);
+		if (instruction instanceof SmallStep) {
+			MSEOccurrence m = ((SmallStep)instruction).getMseoccurrence();
+			occ2step.computeIfAbsent(m, o->(SmallStep)instruction);
+			pushStackFrame(threadName, StepHelper.getStepName((Step) instruction), instruction, instruction);
 			logicalStepFrameCreated = true;
-		} else if (instruction instanceof MSEOccurrence) {
+			return;
+		} 
+		if (instruction instanceof BigStep) {
+			@SuppressWarnings("unchecked")
+			List<MSEOccurrence> allMSEOccs = StepHelper.collectAllMSEOccurrences((Step)instruction);
+			
+			allMSEOccs.forEach(m->occ2step.computeIfAbsent(m, o->(BigStep<?>)instruction));
+			pushStackFrame(threadName, StepHelper.getStepName((Step) instruction), instruction, instruction);
+			logicalStepFrameCreated = true;
+			return;
+		} 
+		if (instruction instanceof MSEOccurrence) {
 			final MSEOccurrence mseOcc = (MSEOccurrence) instruction;
-			final LogicalStep logicalStep = occ2step.get(mseOcc);
-			pushStackFrame(threadName, LogicalStepHelper.getLogicalStepName(logicalStep), logicalStep, logicalStep);
+			final Step logicalStep = occ2step.get(mseOcc);
+			pushStackFrame(threadName, mseOcc.getMse().getName(), logicalStep, logicalStep);
 			logicalStepFrameCreated = true;
 			EObject caller = instruction;
 			if(mseOcc.getMse() != null && mseOcc.getMse().getCaller() != null) caller = mseOcc.getMse().getCaller();
@@ -117,8 +136,8 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 	public boolean shouldBreak(EObject instruction) {
 		boolean res = false;
 
-		if (instruction instanceof LogicalStep) {
-			res = breakNextLogicalStep || shouldBreakLogicalStep((LogicalStep) instruction);
+		if (instruction instanceof Step) {
+			res = breakNextLogicalStep || shouldBreakLogicalStep((Step) instruction);
 			breakNextLogicalStep = false;
 		} else if (instruction instanceof MSEOccurrence) {
 			res = shouldBreakMSEOccurence((MSEOccurrence) instruction);
@@ -127,7 +146,7 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 		return res;
 	}
 
-	private boolean shouldBreakLogicalStep(LogicalStep logicalStep) {
+	private boolean shouldBreakLogicalStep(Step logicalStep) {
 
 		final boolean res;
 
@@ -136,7 +155,7 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 			res = true;
 		} else {
 			boolean hasMSEBreak = false;
-			for (MSEOccurrence mseOccurrence : logicalStep.getMseOccurrences()) {
+			for (MSEOccurrence mseOccurrence : StepHelper.collectAllMSEOccurrences(logicalStep)) {
 				hasMSEBreak = (super.shouldBreak(mseOccurrence.getMse()) && Boolean
 						.valueOf((String) getBreakpointAttributes(mseOccurrence.getMse(),
 								GemocBreakpoint.BREAK_ON_LOGICAL_STEP)));
@@ -168,7 +187,7 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 								GemocBreakpoint.BREAK_ON_MSE_OCCURRENCE)))) {
 			res = true;
 		} else {
-			LogicalStep locicalStep = occ2step.get(mseOccurrence);
+			Step locicalStep = occ2step.get(mseOccurrence);
 			res = super.shouldBreak(locicalStep)
 					&& Boolean.valueOf((String) getBreakpointAttributes(locicalStep,
 							GemocBreakpoint.BREAK_ON_MSE_OCCURRENCE));
@@ -183,7 +202,7 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 		if (stepping == Stepping.STEP_RETURN && currentInstruction instanceof MSEOccurrence) {
 			res = FAKE_INSTRUCTION;
 			breakNextLogicalStep = true;
-		} else if (stepping == Stepping.STEP_OVER && currentInstruction instanceof LogicalStep) {
+		} else if (stepping == Stepping.STEP_OVER && currentInstruction instanceof Step) {
 			res = FAKE_INSTRUCTION;
 			breakNextLogicalStep = true;
 		} else {
@@ -206,23 +225,29 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 	}
 
 	@Override
-	public void aboutToExecuteLogicalStep(IBasicExecutionEngine executionEngine, LogicalStep logicalStepToApply) {
-		if (!control(((AbstractExecutionEngine) executionEngine).thread.getName(), logicalStepToApply)) {
+	public void aboutToExecuteStep(IBasicExecutionEngine engine,Step stepToExecute) {
+		if (!control(((AbstractExecutionEngine) engine).thread.getName(), stepToExecute)) {
 			throw new EngineStoppedException("Debug thread has stopped.");
 		}
 	}
 
-	@Override
-	public void aboutToExecuteMSEOccurrence(IBasicExecutionEngine executionEngine, MSEOccurrence mseOccurrence) {
-		if (!control(((AbstractExecutionEngine) executionEngine).thread.getName(), mseOccurrence)) {
-			throw new EngineStoppedException("Debug thread has stopped.");
-		}
-	}
+//	@Override
+//	public void aboutToExecuteMSEOccurrence(IBasicExecutionEngine executionEngine, MSEOccurrence mseOccurrence) {
+//		if (!control(((AbstractExecutionEngine) executionEngine).thread.getName(), mseOccurrence)) {
+//			throw new EngineStoppedException("Debug thread has stopped.");
+//		}
+//	}
 
 	@Override
 	public void terminate() {
 		super.terminate();
 		engine.stop();
+	}
+
+
+	@Override
+	public void stepExecuted(IBasicExecutionEngine engine, Step stepExecuted) {
+		// TODO Auto-generated method stub	
 	}
 
 }

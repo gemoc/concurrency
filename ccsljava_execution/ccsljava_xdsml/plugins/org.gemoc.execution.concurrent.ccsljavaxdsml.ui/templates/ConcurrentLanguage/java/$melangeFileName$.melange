@@ -3,7 +3,7 @@ package $packageName$
 language $metamodelName$ {
 	syntax "platform:/resource/$ecoreFilePath$"
 	
-$listOfAspects$
+	with $listOfAspects$
 	ecl "$eclFilePath$"
 	
 	exactType $metamodelName$MT

@@ -4,7 +4,7 @@ import org.gemoc.execution.concurrent.ccsljavaengine.ui.SharedIcons;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.deciders.AbstractUserDecider;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.ILogicalStepDecider;
-import org.gemoc.executionframework.engine.mse.LogicalStep;
+import org.gemoc.executionframework.engine.mse.Step;
 import org.gemoc.executionframework.ui.views.engine.actions.AbstractEngineAction;
 import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
 import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
@@ -77,7 +77,7 @@ public class PauseResumeEngineDeciderAction extends AbstractEngineAction
 			// relaunch the engine Ie. unlock possibly locked StepByStepDecider, for non "StepByStepDecider, simply let them run one more time
 			if(savedDecider instanceof AbstractUserDecider){
 				// get the equivalent decision from the new Decider
-				LogicalStep selectedlogicalStep;
+				Step selectedlogicalStep;
 				try {
 
 					selectedlogicalStep = engine_cast.getLogicalStepDecider().decide(engine_cast, engine_cast.getPossibleLogicalSteps());

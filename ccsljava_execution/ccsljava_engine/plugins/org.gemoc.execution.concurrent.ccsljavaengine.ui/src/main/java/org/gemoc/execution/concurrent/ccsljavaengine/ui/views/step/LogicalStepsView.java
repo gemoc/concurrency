@@ -40,18 +40,18 @@ import org.gemoc.execution.concurrent.ccsljavaengine.ui.SharedIcons;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.deciders.actions.PauseResumeEngineDeciderAction;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.deciders.actions.SwitchDeciderAction;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
-import org.gemoc.execution.engine.trace.LogicalStepHelper;
+import org.gemoc.execution.engine.mse.engine.mse.helper.StepHelper;
 import org.gemoc.executionframework.engine.core.GemocRunningEnginesRegistry;
-import org.gemoc.executionframework.engine.mse.LogicalStep;
 import org.gemoc.executionframework.engine.mse.MSE;
 import org.gemoc.executionframework.engine.mse.MSEOccurrence;
+import org.gemoc.executionframework.engine.mse.Step;
 import org.gemoc.executionframework.ui.IMSEPresenter;
 import org.gemoc.executionframework.ui.utils.ViewUtils;
 import org.gemoc.executionframework.ui.views.engine.EngineSelectionDependentViewPart;
 import org.gemoc.executionframework.ui.views.engine.actions.StopEngineAction;
+import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 import org.gemoc.xdsmlframework.api.core.ExecutionMode;
 import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
-import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 
 
 public class LogicalStepsView extends EngineSelectionDependentViewPart implements IMSEPresenter
@@ -108,10 +108,10 @@ public class LogicalStepsView extends EngineSelectionDependentViewPart implement
 			@Override
 			public String getText(Object element)
 			{
-				if (element instanceof LogicalStep)
+				if (element instanceof Step)
 				{
-					LogicalStep ls = (LogicalStep) element;
-					return LogicalStepHelper.getLogicalStepName(ls);
+					Step ls = (Step) element;
+					return StepHelper.getStepName(ls);
 				} else if (element instanceof MSEOccurrence)
 				{
 					MSEOccurrence event = (MSEOccurrence) element;
@@ -126,9 +126,9 @@ public class LogicalStepsView extends EngineSelectionDependentViewPart implement
 			@Override
 			public Image getImage(Object element)
 			{
-				if (element instanceof LogicalStep)
+				if (element instanceof Step)
 				{
-					LogicalStep ls = (LogicalStep) element;
+					Step ls = (Step) element;
 					if (_currentEngine != null && ls == _currentEngine.getSelectedLogicalStep())
 					{
 						return SharedIcons.getSharedImage(SharedIcons.LOGICALSTEP_RUNNING_ICON);
@@ -308,9 +308,9 @@ public class LogicalStepsView extends EngineSelectionDependentViewPart implement
 		_eventsToPresent.clear();
 	}
 
-	private LogicalStep _lastSelectedLogicalStep;
+	private Step _lastSelectedLogicalStep;
 
-	public LogicalStep getSelectedLogicalStep()
+	public Step getSelectedLogicalStep()
 	{
 		try
 		{
@@ -323,12 +323,12 @@ public class LogicalStepsView extends EngineSelectionDependentViewPart implement
 					{
 						TreePath path = selection.getPaths()[0];
 						_lastSelectedLogicalStep = null;
-						if (path.getLastSegment() instanceof LogicalStep)
+						if (path.getLastSegment() instanceof Step)
 						{
-							_lastSelectedLogicalStep = (LogicalStep) path.getLastSegment();
+							_lastSelectedLogicalStep = (Step) path.getLastSegment();
 						} else if (path.getLastSegment() instanceof MSEOccurrence)
 						{
-							_lastSelectedLogicalStep = (LogicalStep) path.getFirstSegment();
+							_lastSelectedLogicalStep = (Step) path.getFirstSegment();
 						}
 					}
 				}

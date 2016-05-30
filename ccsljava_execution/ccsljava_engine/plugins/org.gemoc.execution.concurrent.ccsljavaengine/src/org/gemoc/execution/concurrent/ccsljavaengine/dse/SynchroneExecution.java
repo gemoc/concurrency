@@ -26,7 +26,7 @@ public class SynchroneExecution extends OperationExecution
 	{
 		for (IEngineAddon addon : getEngine().getExecutionContext().getExecutionPlatform().getEngineAddons()) 
 		{
-			addon.aboutToExecuteMSEOccurrence(getEngine(), getMSEOccurrence());
+			addon.aboutToExecuteStep(getEngine(), getEngine().getSelectedLogicalStep());
 		}
 		Object res = callExecutor();
 		setResult(res);
@@ -37,7 +37,7 @@ public class SynchroneExecution extends OperationExecution
 		}
 		for (IEngineAddon addon : getEngine().getExecutionContext().getExecutionPlatform().getEngineAddons()) 
 		{
-			addon.mseOccurrenceExecuted(getEngine(), getMSEOccurrence());
+			addon.stepExecuted(getEngine(), getEngine().getSelectedLogicalStep());
 		}
 	}
 	

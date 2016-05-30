@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.ILogicalStepDecider;
-import org.gemoc.executionframework.engine.mse.LogicalStep;
+import org.gemoc.executionframework.engine.mse.Step;
 
 /**
  * Decider that will delegate its choice to the solver
@@ -13,7 +13,7 @@ import org.gemoc.executionframework.engine.mse.LogicalStep;
 public class CcslSolverDecider implements ILogicalStepDecider {
 
 	@Override
-	public LogicalStep decide(IConcurrentExecutionEngine engine, List<LogicalStep> possibleLogicalSteps) {
+	public Step decide(IConcurrentExecutionEngine engine, List<Step> possibleLogicalSteps) {
 		return engine.getSolver().proposeLogicalStep();
 	}
 

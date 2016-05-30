@@ -28,11 +28,14 @@ import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
 import org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.Activator;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionContext;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.utils.ccsl.QvtoTransformationPerformer;
+import org.gemoc.executionframework.engine.mse.GenericSmallStep;
 import org.gemoc.executionframework.engine.mse.MseFactory;
-import org.gemoc.executionframework.engine.mse.LogicalStep;
 import org.gemoc.executionframework.engine.mse.MSE;
 import org.gemoc.executionframework.engine.mse.MSEModel;
 import org.gemoc.executionframework.engine.mse.MSEOccurrence;
+import org.gemoc.executionframework.engine.mse.ParallelStep;
+import org.gemoc.executionframework.engine.mse.SmallStep;
+import org.gemoc.executionframework.engine.mse.Step;
 import org.gemoc.xdsmlframework.api.core.IExecutionContext;
 import org.gemoc.xdsmlframework.api.core.IExecutionWorkspace;
 import org.osgi.framework.Bundle;
@@ -60,7 +63,7 @@ public class CcslSolver implements org.gemoc.execution.concurrent.ccsljavaxdsml.
 
 	protected CCSLKernelSolverWrapper solverWrapper = null;
 	protected URI solverInputURI = null;
-	protected ArrayList<LogicalStep> _lastLogicalSteps = new ArrayList<LogicalStep>();
+	protected ArrayList<Step> _lastLogicalSteps = new ArrayList<Step>();
 	protected ActionModel _feedbackModel;
 	protected MSEModel _MSEModel;
 	
@@ -112,9 +115,9 @@ public class CcslSolver implements org.gemoc.execution.concurrent.ccsljavaxdsml.
 		}
 	}
 
-	private LogicalStep createLogicalStep(fr.inria.aoste.trace.LogicalStep res) 
+	private Step createLogicalStep(fr.inria.aoste.trace.LogicalStep res) 
 	{
-		LogicalStep ls = MseFactory.eINSTANCE.createLogicalStep();
+		ParallelStep<SmallStep> parStep = MseFactory.eINSTANCE.createParallelStep();
 		for (Event e : LogicalStepHelper.getTickedEvents(res))
 		{
 			MSEOccurrence mseOccurrence = MseFactory.eINSTANCE.createMSEOccurrence();
@@ -127,9 +130,11 @@ public class CcslSolver implements org.gemoc.execution.concurrent.ccsljavaxdsml.
 				}
 			}
 			
-			ls.getMseOccurrences().add(mseOccurrence);
+			SmallStep smallStep = MseFactory.eINSTANCE.createGenericSmallStep();
+			smallStep.setMseoccurrence(mseOccurrence);
+			parStep.getSubSteps().add(smallStep);
 		}
-		return ls;
+		return parStep;
 	}
 
 	@Override
@@ -200,17 +205,17 @@ public class CcslSolver implements org.gemoc.execution.concurrent.ccsljavaxdsml.
 	}
 
 	@Override
-	public List<LogicalStep> computeAndGetPossibleLogicalSteps() {
+	public List<Step> computeAndGetPossibleLogicalSteps() {
 		
 		try {
 			List<fr.inria.aoste.trace.LogicalStep> intermediateResult = solverWrapper.computeAndGetPossibleLogicalSteps();			
 			_lastLogicalSteps.clear();
 			for (fr.inria.aoste.trace.LogicalStep lsFromTimesquare : intermediateResult)
 			{
-				LogicalStep lsFromTrace = createLogicalStep(lsFromTimesquare);
+				Step lsFromTrace = createLogicalStep(lsFromTimesquare);
 				_lastLogicalSteps.add(lsFromTrace);
 			}
-			return new ArrayList<LogicalStep>(_lastLogicalSteps);
+			return new ArrayList<Step>(_lastLogicalSteps);
 		} catch (NoBooleanSolution e) {
 			Activator.getDefault().error(e.getMessage(), e);
 		} catch (SolverException e) {
@@ -218,21 +223,21 @@ public class CcslSolver implements org.gemoc.execution.concurrent.ccsljavaxdsml.
 		} catch (SimulationException e) {
 			Activator.getDefault().error(e.getMessage(), e);
 		}
-		return new ArrayList<LogicalStep>();
+		return new ArrayList<Step>();
 	}
 
 	@Override
-	public List<LogicalStep> updatePossibleLogicalSteps() {
+	public List<Step> updatePossibleLogicalSteps() {
 		
 		try {
 			List<fr.inria.aoste.trace.LogicalStep> intermediateResult = solverWrapper.updatePossibleLogicalSteps();			
 			_lastLogicalSteps.clear();
 			for (fr.inria.aoste.trace.LogicalStep lsFromTimesquare : intermediateResult)
 			{
-				LogicalStep lsFromTrace = createLogicalStep(lsFromTimesquare);
+				Step lsFromTrace = createLogicalStep(lsFromTimesquare);
 				_lastLogicalSteps.add(lsFromTrace);
 			}
-			return new ArrayList<LogicalStep>(_lastLogicalSteps);
+			return new ArrayList<Step>(_lastLogicalSteps);
 		} catch (NoBooleanSolution e) {
 			Activator.getDefault().error(e.getMessage(), e);
 		} catch (SolverException e) {
@@ -240,13 +245,13 @@ public class CcslSolver implements org.gemoc.execution.concurrent.ccsljavaxdsml.
 		} catch (SimulationException e) {
 			Activator.getDefault().error(e.getMessage(), e);
 		}
-		return new ArrayList<LogicalStep>();
+		return new ArrayList<Step>();
 	}
 
 	@Override
-	public LogicalStep proposeLogicalStep() {
+	public Step proposeLogicalStep() {
 		int index = solverWrapper.proposeLogicalStepByIndex();
-		LogicalStep result = null;
+		Step result = null;
 		if (_lastLogicalSteps.size() > index)
 		{
 			result = _lastLogicalSteps.get(index);			
@@ -255,7 +260,7 @@ public class CcslSolver implements org.gemoc.execution.concurrent.ccsljavaxdsml.
 	}
 
 	@Override
-	public void applyLogicalStep(LogicalStep logicalStep) {
+	public void applyLogicalStep(Step logicalStep) {
 		try {
 			int index = _lastLogicalSteps.indexOf(logicalStep);
 			solverWrapper.applyLogicalStepByIndex(index);
@@ -442,4 +447,6 @@ public class CcslSolver implements org.gemoc.execution.concurrent.ccsljavaxdsml.
 		IPath msePath= mseModelPath.removeFileExtension().addFileExtension("feedback");
 		return msePath;
 	}
+
+	
 }

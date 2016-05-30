@@ -16,13 +16,14 @@ import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.CodeExecut
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dse.IMSEStateController;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
+import org.gemoc.execution.engine.mse.engine.mse.helper.StepHelper;
 import org.gemoc.executionframework.engine.Activator;
 import org.gemoc.executionframework.engine.core.AbstractExecutionEngine;
 import org.gemoc.executionframework.engine.core.CommandExecution;
 import org.gemoc.executionframework.engine.core.EngineStoppedException;
-import org.gemoc.executionframework.engine.mse.LogicalStep;
 import org.gemoc.executionframework.engine.mse.MSE;
 import org.gemoc.executionframework.engine.mse.MSEOccurrence;
+import org.gemoc.executionframework.engine.mse.Step;
 import org.gemoc.xdsmlframework.api.core.EngineStatus;
 import org.gemoc.xdsmlframework.api.core.IDisposable;
 import org.gemoc.xdsmlframework.api.core.IExecutionContext;
@@ -134,14 +135,14 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine implement
 		notifyProposedLogicalStepsChanged();
 	}
 
-	protected List<LogicalStep> _possibleLogicalSteps = new ArrayList<>();
+	protected List<Step> _possibleLogicalSteps = new ArrayList<>();
 	
 	@Override
-	public List<LogicalStep> getPossibleLogicalSteps() 
+	public List<Step> getPossibleLogicalSteps() 
 	{
 		synchronized (this)
 		{
-			return new ArrayList<LogicalStep>(_possibleLogicalSteps);
+			return new ArrayList<Step>(_possibleLogicalSteps);
 		}
 	}
 	
@@ -165,7 +166,7 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine implement
 		for (IEngineAddon addon : getExecutionContext().getExecutionPlatform().getEngineAddons()) 
 		{
 			try {
-				addon.logicalStepSelected(this, getSelectedLogicalStep());
+				addon.stepSelected(this, getSelectedLogicalStep());
 			} catch (Exception e) {
 				Activator.getDefault().error("Exception in Addon "+addon+", "+e.getMessage(), e);
 			}
@@ -176,7 +177,7 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine implement
 		for (IEngineAddon addon : getExecutionContext().getExecutionPlatform().getEngineAddons()) 
 		{
 			try {
-				addon.aboutToSelectLogicalStep(this, getPossibleLogicalSteps());
+				addon.aboutToSelectStep(this, getPossibleLogicalSteps());
 			} catch (Exception e) {
 				Activator.getDefault().error("Exception in Addon "+addon+", "+e.getMessage(), e);
 			}
@@ -185,23 +186,24 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine implement
 
 
 	
-	protected LogicalStep _selectedLogicalStep;
+	protected Step _selectedLogicalStep;
 
 	@Override
-	public LogicalStep getSelectedLogicalStep() 
+	public Step getSelectedLogicalStep() 
 	{
 		synchronized (this) {
 			return _selectedLogicalStep;
 		}
 	}
 	
-//	public void setSelectedLogicalStep(LogicalStep ls)
-//	{
-//		synchronized (this) {
-//			_selectedLogicalStep = ls;
-//		}
-//	}
-//	
+	@Override
+	public void setSelectedLogicalStep(Step ls)
+	{
+		synchronized (this) {
+			_selectedLogicalStep = ls;
+		}
+	}
+	
 	/**
 	 * 
 	 * @return the IConcurrenExecutionContext or null if no such context is available
@@ -229,7 +231,7 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine implement
 		for (IEngineAddon addon : getExecutionContext().getExecutionPlatform().getEngineAddons()) 
 		{
 			try {
-				addon.proposedLogicalStepsChanged(this, getPossibleLogicalSteps());
+				addon.proposedStepsChanged(this, getPossibleLogicalSteps());
 			} catch (Exception e) {
 				Activator.getDefault().error("Exception in Addon "+addon+", "+e.getMessage(), e);
 			}
@@ -253,7 +255,7 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine implement
 			stop();
 		} else {
 			//Activator.getDefault().debug("\t\t ---------------- LogicalStep " + count);
-			LogicalStep selectedLogicalStep = selectAndExecuteLogicalStep();						
+			Step selectedLogicalStep = selectAndExecuteLogicalStep();						
 			// 3 - run the selected logical step
 			// inform the solver that we will run this step
 			if (selectedLogicalStep != null)
@@ -288,11 +290,11 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine implement
 
 	}
 	
-	private LogicalStep selectAndExecuteLogicalStep() throws InterruptedException 
+	private Step selectAndExecuteLogicalStep() throws InterruptedException 
 	{
 		setEngineStatus(EngineStatus.RunStatus.WaitingLogicalStepSelection);
 		notifyAboutToSelectLogicalStep();
-		LogicalStep selectedLogicalStep = getLogicalStepDecider().decide(this, getPossibleLogicalSteps());
+		Step selectedLogicalStep = getLogicalStepDecider().decide(this, getPossibleLogicalSteps());
 		if (selectedLogicalStep != null)
 		{
 			setSelectedLogicalStep(selectedLogicalStep);
@@ -322,7 +324,7 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine implement
 		// execution feedback is sent to the solver so it can take internal
 		// event into account
 		if(!_isStopped){ // execute while stopped may occur when we push the stop button when paused in the debugger
-			for (final MSEOccurrence mseOccurence : getSelectedLogicalStep().getMseOccurrences()) 
+			for (final MSEOccurrence mseOccurence : StepHelper.collectAllMSEOccurrences(getSelectedLogicalStep())) 
 			{
 				executeAssociatedActions(mseOccurence.getMse());
 				executeMSEOccurrence(mseOccurence);
@@ -494,9 +496,5 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine implement
 		return "GEMOC Concurrent Engine";
 	}
 
-	@Override
-	public void setSelectedLogicalStep(LogicalStep selectedLogicalStep) {
-		_selectedLogicalStep = selectedLogicalStep;	
-	}
 	
 }

@@ -5,13 +5,13 @@ import java.util.Collection;
 import java.util.List;
 
 import org.gemoc.execution.concurrent.ccsljavaengine.eventscheduling.trace.EventSchedulingModelExecutionTracingAddon;
-import org.gemoc.execution.engine.trace.LogicalStepHelper;
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.Branch;
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.Choice;
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.ExecutionTraceModel;
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.Gemoc_execution_traceFactory;
-import org.gemoc.executionframework.engine.mse.LogicalStep;
+import org.gemoc.execution.engine.mse.engine.mse.helper.StepHelper;
+import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Branch;
+import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Choice;
+import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.ExecutionTraceModel;
+import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Gemoc_execution_traceFactory;
 import org.gemoc.executionframework.engine.mse.MSEOccurrence;
+import org.gemoc.executionframework.engine.mse.Step;
 import org.gemoc.executionframework.ui.utils.ViewUtils;
 import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
 import org.gemoc.xdsmlframework.api.core.IDisposable;
@@ -139,10 +139,10 @@ public class EventSchedulingTimelineProvider extends AbstractTimelineProvider im
 	@Override
 	public String getTextAt(int branchIndex, int choiceIndex, int logicalStepIndex) {
 		StringBuilder builder = new StringBuilder();
-		LogicalStep ls = (LogicalStep) getAt(branchIndex, choiceIndex, logicalStepIndex);
-		builder.append(LogicalStepHelper.getLogicalStepName(ls));
+		Step ls = (Step) getAt(branchIndex, choiceIndex, logicalStepIndex);
+		builder.append(StepHelper.getStepName(ls));
 		builder.append(System.getProperty("line.separator"));
-		for (MSEOccurrence mseOccurrence : ls.getMseOccurrences()) {
+		for (MSEOccurrence mseOccurrence : StepHelper.collectAllMSEOccurrences(ls)) {
 			appendToolTipTextToBuilder(builder, mseOccurrence);
 			builder.append(System.getProperty("line.separator"));
 		}
@@ -272,13 +272,13 @@ public class EventSchedulingTimelineProvider extends AbstractTimelineProvider im
 	}
 
 	@Override
-	public void aboutToExecuteLogicalStep(IBasicExecutionEngine executionEngine, LogicalStep logicalStepToApply) {
+	public void aboutToExecuteStep(IBasicExecutionEngine executionEngine, Step logicalStepToApply) {
 		update(executionEngine);
 	}
 
-	@Override
-	public void aboutToExecuteMSEOccurrence(IBasicExecutionEngine executionEngine, MSEOccurrence mseOccurrence) {
-	}
+//	@Override
+//	public void aboutToExecuteMSEOccurrence(IBasicExecutionEngine executionEngine, MSEOccurrence mseOccurrence) {
+//	}
 
 	@Override
 	public void engineAboutToStop(IBasicExecutionEngine engine) {
@@ -293,22 +293,18 @@ public class EventSchedulingTimelineProvider extends AbstractTimelineProvider im
 	}
 
 	@Override
-	public void aboutToSelectLogicalStep(IBasicExecutionEngine engine, Collection<LogicalStep> logicalSteps) {
+	public void aboutToSelectStep(IBasicExecutionEngine engine, Collection<Step> logicalSteps) {
 		update(engine);
 	}
 
 	@Override
-	public void logicalStepSelected(IBasicExecutionEngine engine, LogicalStep selectedLogicalStep) {
+	public void stepSelected(IBasicExecutionEngine engine, Step selectedLogicalStep) {
 		update(engine);
 	}
 
-	@Override
-	public void logicalStepExecuted(IBasicExecutionEngine engine, LogicalStep logicalStepExecuted) {
-		// update(engine);
-	}
 
 	@Override
-	public void mseOccurrenceExecuted(IBasicExecutionEngine engine, MSEOccurrence mseOccurrence) {
+	public void stepExecuted(IBasicExecutionEngine engine, Step step) {
 		// update(engine);
 	}
 
@@ -316,11 +312,11 @@ public class EventSchedulingTimelineProvider extends AbstractTimelineProvider im
 	public void engineStatusChanged(IBasicExecutionEngine engine, RunStatus newStatus) {
 	}
 
-	protected void setSelectedLogicalStep(LogicalStep ls) {
+	protected void setSelectedStep(Step ls) {
 	}
 
 	@Override
-	public void proposedLogicalStepsChanged(IBasicExecutionEngine engine, Collection<LogicalStep> logicalSteps) {
+	public void proposedStepsChanged(IBasicExecutionEngine engine, Collection<Step> logicalSteps) {
 		update(engine);
 	}
 
@@ -357,4 +353,8 @@ public class EventSchedulingTimelineProvider extends AbstractTimelineProvider im
 		}
 		return -1;
 	}
+
+
+
+
 }

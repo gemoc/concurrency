@@ -28,17 +28,18 @@ import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutio
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.CodeExecutionException;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.Branch;
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.Choice;
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.ContextState;
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.ExecutionTraceModel;
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.Gemoc_execution_traceFactory;
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.ModelState;
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.SolverState;
+import org.gemoc.execution.engine.mse.engine.mse.helper.StepHelper;
+import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Branch;
+import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Choice;
+import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.ContextState;
+import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.ExecutionTraceModel;
+import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Gemoc_execution_traceFactory;
+import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.ModelState;
+import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.SolverState;
 import org.gemoc.executionframework.engine.Activator;
 import org.gemoc.executionframework.engine.core.CommandExecution;
-import org.gemoc.executionframework.engine.mse.LogicalStep;
 import org.gemoc.executionframework.engine.mse.MSEOccurrence;
+import org.gemoc.executionframework.engine.mse.Step;
 import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
 import org.gemoc.xdsmlframework.api.core.IExecutionContext;
 import org.gemoc.xdsmlframework.api.engine_addon.DefaultEngineAddon;
@@ -390,7 +391,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 		return choice;
 	}
 
-	private void updateTraceModelBeforeDeciding(final Collection<LogicalStep> possibleLogicalSteps) {
+	private void updateTraceModelBeforeDeciding(final Collection<Step> possibleLogicalSteps) {
 
 		RecordingCommand command = new RecordingCommand(getEditingDomain(), "update trace model") {
 
@@ -405,8 +406,8 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 				}
 				choice.getPossibleLogicalSteps().addAll(possibleLogicalSteps);
 				// make sure to own the MSEOccurrences referenced by the LogicalSteps
-				for(LogicalStep ls :possibleLogicalSteps){
-					choice.getOwnedMSEOccurrences().addAll(ls.getMseOccurrences());
+				for(Step ls :possibleLogicalSteps){
+					choice.getOwnedMSEOccurrences().addAll(StepHelper.collectAllMSEOccurrences(ls));
 				}
 				_lastChoice = choice;
 				storeCurrentContextState();
@@ -415,7 +416,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 		CommandExecution.execute(getEditingDomain(), command);
 	}
 
-	private void updateTraceModelAfterExecution(final LogicalStep selectedLogicalStep) {		
+	private void updateTraceModelAfterExecution(final Step selectedLogicalStep) {		
 		RecordingCommand command = new RecordingCommand(getEditingDomain(), "update trace model after deciding") {
 			@Override
 			protected void doExecute() {
@@ -444,7 +445,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 		CommandExecution.execute(getEditingDomain(), command);
 	}
 
-	private Choice findPreviousChoiceWithLogicalStep(final Choice startingChoice, final LogicalStep selectedLogicalStep){
+	private Choice findPreviousChoiceWithLogicalStep(final Choice startingChoice, final Step selectedLogicalStep){
 		if(startingChoice.getPossibleLogicalSteps().contains(selectedLogicalStep)){
 			return startingChoice;
 		}
@@ -458,27 +459,27 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 	}
 
 	@Override
-	public void aboutToSelectLogicalStep(IBasicExecutionEngine engine, Collection<LogicalStep> logicalSteps) {
+	public void aboutToSelectStep(IBasicExecutionEngine engine, Collection<Step> logicalSteps) {
 		setUp(engine);
 		updateTraceModelBeforeDeciding(logicalSteps);
 	}
 
 	@Override
-	public void aboutToExecuteLogicalStep(
+	public void aboutToExecuteStep(
 			IBasicExecutionEngine executionEngine,
-			LogicalStep logicalStepToApply) {	
+			Step logicalStepToApply) {	
 		if(_limitedMode){
 			// in limited mode the engine is not concurrent so it will not call the aboutToSelectLogicalStep method
 			// so we do it here
 			setUp(executionEngine);
-			ArrayList<LogicalStep> beforeDecing = new ArrayList<LogicalStep>();
+			ArrayList<Step> beforeDecing = new ArrayList<Step>();
 			beforeDecing.add(logicalStepToApply);
 			updateTraceModelBeforeDeciding(beforeDecing);
 		}
 	}
 	
 	@Override
-	public void logicalStepExecuted(IBasicExecutionEngine engine, LogicalStep logicalStepExecuted) {
+	public void stepExecuted(IBasicExecutionEngine engine, Step logicalStepExecuted) {
 		setUp(engine);		
 		updateTraceModelAfterExecution(logicalStepExecuted);					
 	}
@@ -517,43 +518,43 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 		}
 	}
 
-	@Override
-	public void proposedLogicalStepsChanged(IBasicExecutionEngine engine, final Collection<LogicalStep> logicalSteps) {
-		RecordingCommand command = new RecordingCommand(getEditingDomain(), "update trace model") {
+//	@Override
+//	public void proposedLogicalStepsChanged(IBasicExecutionEngine engine, final Collection<LogicalStep> logicalSteps) {
+//		RecordingCommand command = new RecordingCommand(getEditingDomain(), "update trace model") {
+//
+//			@Override
+//			protected void doExecute() {
+//				if (_lastChoice != null) {
+//					_lastChoice.getPossibleLogicalSteps().clear();
+//					_lastChoice.getPossibleLogicalSteps().addAll(logicalSteps);
+//				}
+//				storeCurrentContextState();
+////				saveTraceModel(0);
+//			}
+//		};
+//		CommandExecution.execute(getEditingDomain(), command);
+//	}
 
-			@Override
-			protected void doExecute() {
-				if (_lastChoice != null) {
-					_lastChoice.getPossibleLogicalSteps().clear();
-					_lastChoice.getPossibleLogicalSteps().addAll(logicalSteps);
-				}
-				storeCurrentContextState();
-//				saveTraceModel(0);
-			}
-		};
-		CommandExecution.execute(getEditingDomain(), command);
-	}
-
-	@Override
-	public void mseOccurrenceExecuted(IBasicExecutionEngine engine, MSEOccurrence mseOccurrence) {
-
-		if (stateChanged || currentState == null) {
-
-			modifyTrace(new Runnable() {
-
-				@Override
-				public void run() {
-
-					// We store the states when MSE ends, to be able to
-					// distinguish precisely changes made by a single MSE
-					// Not used by any tool for not
-					// Can be used with "jump" programmatically
-					addModelStateIfChanged();
-				}
-			});
-		}
-
-	}
+//	@Override
+//	public void mseOccurrenceExecuted(IBasicExecutionEngine engine, MSEOccurrence mseOccurrence) {
+//
+//		if (stateChanged || currentState == null) {
+//
+//			modifyTrace(new Runnable() {
+//
+//				@Override
+//				public void run() {
+//
+//					// We store the states when MSE ends, to be able to
+//					// distinguish precisely changes made by a single MSE
+//					// Not used by any tool for not
+//					// Can be used with "jump" programmatically
+//					addModelStateIfChanged();
+//				}
+//			});
+//		}
+//
+//	}
 
 	@Override
 	public void engineStopped(IBasicExecutionEngine engine) {

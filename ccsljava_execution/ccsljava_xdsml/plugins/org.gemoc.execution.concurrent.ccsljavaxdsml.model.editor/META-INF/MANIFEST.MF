@@ -33,5 +33,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.jdt.core,
  org.gemoc.executionframework.ui,
  org.gemoc.xdsmlframework.ide.ui,
- org.gemoc.xdsmlframework.ui.utils
+ org.gemoc.xdsmlframework.ui.utils,
+ fr.inria.diverse.melange.metamodel;bundle-version="0.1.0"
 Bundle-ActivationPolicy: lazy

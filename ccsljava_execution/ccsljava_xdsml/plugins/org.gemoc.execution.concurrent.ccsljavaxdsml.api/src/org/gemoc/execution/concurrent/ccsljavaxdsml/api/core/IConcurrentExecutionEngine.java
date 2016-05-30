@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
-import org.gemoc.executionframework.engine.mse.LogicalStep;
+import org.gemoc.executionframework.engine.mse.Step;
 import org.gemoc.xdsmlframework.api.core.IExecutionEngine;
 
 public interface IConcurrentExecutionEngine extends IExecutionEngine{
@@ -17,9 +17,9 @@ public interface IConcurrentExecutionEngine extends IExecutionEngine{
 	
 	void recomputePossibleLogicalSteps();
 
-	List<LogicalStep> getPossibleLogicalSteps();
+	List<Step> getPossibleLogicalSteps();
 	
-	LogicalStep getSelectedLogicalStep();
+	Step getSelectedLogicalStep();
 	
 	void addFutureAction(IFutureAction action);
 
@@ -39,7 +39,7 @@ public interface IConcurrentExecutionEngine extends IExecutionEngine{
 
 	void notifyAboutToSelectLogicalStep();
 
-	void setSelectedLogicalStep(LogicalStep selectedLogicalStep);
+	void setSelectedLogicalStep(Step selectedLogicalStep);
 	
 	void notifyProposedLogicalStepsChanged();
 	

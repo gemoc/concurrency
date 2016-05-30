@@ -3,7 +3,8 @@ package org.gemoc.execution.concurrent.ccsljavaengine.ui.views.step;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
-import org.gemoc.executionframework.engine.mse.LogicalStep;
+import org.gemoc.execution.engine.mse.engine.mse.helper.StepHelper;
+import org.gemoc.executionframework.engine.mse.Step;
 import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 
 public class LogicalStepsViewContentProvider implements ITreeContentProvider {
@@ -42,10 +43,10 @@ public class LogicalStepsViewContentProvider implements ITreeContentProvider {
 				}
 			}
 		}
-		else if (inputElement instanceof LogicalStep)
+		else if (inputElement instanceof Step)
 		{
-			LogicalStep ls = (LogicalStep)inputElement;
-			return ls.getMseOccurrences().toArray();
+			Step ls = (Step)inputElement;
+			return StepHelper.collectAllMSEOccurrences(ls).toArray();
 		}
 		return new Object[0];
 	}
@@ -57,10 +58,10 @@ public class LogicalStepsViewContentProvider implements ITreeContentProvider {
 			IConcurrentExecutionEngine engine = (IConcurrentExecutionEngine)parentElement;
 			return engine.getPossibleLogicalSteps().toArray();
 		}
-		else if (parentElement instanceof LogicalStep)
+		else if (parentElement instanceof Step)
 		{
-			LogicalStep ls = (LogicalStep)parentElement;
-			return ls.getMseOccurrences().toArray();
+			Step ls = (Step)parentElement;
+			return StepHelper.collectAllMSEOccurrences(ls).toArray();
 		}
 		return new Object[0];	
 	}
@@ -79,10 +80,10 @@ public class LogicalStepsViewContentProvider implements ITreeContentProvider {
 			IConcurrentExecutionEngine engine = (IConcurrentExecutionEngine)element;
 			return engine.getPossibleLogicalSteps().size() > 0;
 		}
-		else if (element instanceof LogicalStep)
+		else if (element instanceof Step)
 		{
-			LogicalStep ls = (LogicalStep)element;
-			return ls.getMseOccurrences().size() > 0;
+			Step ls = (Step)element;
+			return StepHelper.collectAllMSEOccurrences(ls).size() > 0;
 		}
 		return false;	
 	}

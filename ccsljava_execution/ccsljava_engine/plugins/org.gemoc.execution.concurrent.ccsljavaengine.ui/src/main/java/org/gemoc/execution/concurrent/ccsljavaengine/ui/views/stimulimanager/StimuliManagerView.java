@@ -60,7 +60,7 @@ import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.sce
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.scenario.ScenarioManager;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.scenario.ScenarioManagerState;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
-import org.gemoc.executionframework.engine.mse.LogicalStep;
+import org.gemoc.executionframework.engine.mse.Step;
 import org.gemoc.executionframework.engine.mse.MSEOccurrence;
 import org.gemoc.executionframework.ui.IMSEPresenter;
 import org.gemoc.executionframework.ui.views.engine.EngineSelectionDependentViewPart;
@@ -906,40 +906,13 @@ public class StimuliManagerView extends EngineSelectionDependentViewPart impleme
 	}
 
 	@Override
-	public void aboutToSelectLogicalStep(IBasicExecutionEngine engine, Collection<LogicalStep> logicalSteps) 
+	public void aboutToSelectStep(IBasicExecutionEngine engine, Collection<Step> logicalSteps) 
 	{
 		update(engine);
 	}
 
 	@Override
-	public void logicalStepSelected(IBasicExecutionEngine engine, LogicalStep selectedLogicalStep) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void aboutToExecuteLogicalStep(IBasicExecutionEngine engine,
-			LogicalStep logicalStepToExecute) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void logicalStepExecuted(IBasicExecutionEngine engine,
-			LogicalStep logicalStepExecuted) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void aboutToExecuteMSEOccurrence(IBasicExecutionEngine engine,
-			MSEOccurrence mseOccurrence) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mseOccurrenceExecuted(IBasicExecutionEngine engine, MSEOccurrence mseOccurrence) {
+	public void stepSelected(IBasicExecutionEngine engine, Step selectedLogicalStep) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -950,12 +923,6 @@ public class StimuliManagerView extends EngineSelectionDependentViewPart impleme
 		
 	}
 
-	@Override
-	public void proposedLogicalStepsChanged(IBasicExecutionEngine engine,
-			Collection<LogicalStep> logicalSteps) {
-		update(engine);
-		
-	}
 
 	@Override
 	public void engineAboutToDispose(IBasicExecutionEngine engine) {
@@ -964,5 +931,26 @@ public class StimuliManagerView extends EngineSelectionDependentViewPart impleme
 	@Override
 	public List<String> validate(List<IEngineAddon> otherAddons) {
 		return new ArrayList<String>();
+	}
+
+	@Override
+	public void proposedStepsChanged(IBasicExecutionEngine engine,
+			Collection<Step> steps) {
+		update(engine);
+	}
+
+	
+
+	@Override
+	public void aboutToExecuteStep(IBasicExecutionEngine engine,
+			Step stepToExecute) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void stepExecuted(IBasicExecutionEngine engine, Step stepExecuted) {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionContext;
-import org.gemoc.executionframework.engine.mse.LogicalStep;
+import org.gemoc.executionframework.engine.mse.Step;
 import org.gemoc.xdsmlframework.api.core.IDisposable;
 
 import fr.inria.aoste.trace.EventOccurrence;
@@ -36,25 +36,25 @@ public interface ISolver extends IDisposable {
 	 * Returns the currently possible LogicalSteps
 	 * @return a list of LogicalSteps
 	 */
-	public List<LogicalStep> computeAndGetPossibleLogicalSteps();
+	public List<Step> computeAndGetPossibleLogicalSteps();
 	
 	/**
 	 * Returns the currently possible LogicalSteps
 	 * @return a list of LogicalSteps
 	 */
-	public List<LogicalStep> updatePossibleLogicalSteps();
+	public List<Step> updatePossibleLogicalSteps();
 	
 	/**
 	 * among the currently possible LogicalStep (see {@link getPossibleLogicalSteps} ), asks the solver to choose one
 	 * @return the logical step proposed from possible LogicalSteps 
 	 */
-	public LogicalStep proposeLogicalStep();
+	public Step proposeLogicalStep();
 	
 	/**
 	 * ask the solver to apply the given LogicalStep and thus compute next step
 	 * @param the LogicalStep to apply
 	 */
-	public void applyLogicalStep(LogicalStep logicalStep);
+	public void applyLogicalStep(Step logicalStep);
 
 
 	public ArrayList<ModelElementReference> getAllDiscreteClocks();

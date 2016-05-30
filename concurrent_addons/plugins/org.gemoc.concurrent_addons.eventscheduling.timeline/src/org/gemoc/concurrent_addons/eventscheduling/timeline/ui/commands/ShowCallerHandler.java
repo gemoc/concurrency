@@ -31,8 +31,9 @@ import org.eclipse.ui.handlers.HandlerUtil;
 
 
 
-import org.gemoc.executionframework.engine.mse.LogicalStep;
+import org.gemoc.execution.engine.mse.engine.mse.helper.StepHelper;
 import org.gemoc.executionframework.engine.mse.MSEOccurrence;
+import org.gemoc.executionframework.engine.mse.Step;
 
 import fr.obeo.dsl.debug.ide.sirius.ui.DebugSiriusIdeUiPlugin;
 import fr.obeo.dsl.debug.ide.sirius.ui.SiriusEditorUtils;
@@ -61,10 +62,9 @@ public class ShowCallerHandler extends AbstractHandler {
 				final PossibleStep step = ((PossibleStepEditPart) selected)
 						.getModel();
 				Object element = step.getPossibleStep();
-				if (element instanceof LogicalStep) {
+				if (element instanceof Step) {
 					final Set<EObject> callers = new LinkedHashSet<EObject>();
-					for (MSEOccurrence mseOccurrence : ((LogicalStep) element)
-							.getMseOccurrences()) {
+					for (MSEOccurrence mseOccurrence : StepHelper.collectAllMSEOccurrences((Step)element)){
 						if (mseOccurrence.getMse().getCaller() != null) {
 							callers.add(mseOccurrence.getMse().getCaller());
 						}
