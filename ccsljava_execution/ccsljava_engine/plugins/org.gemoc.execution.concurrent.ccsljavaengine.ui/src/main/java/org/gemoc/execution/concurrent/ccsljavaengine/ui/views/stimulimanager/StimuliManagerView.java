@@ -60,8 +60,6 @@ import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.sce
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.scenario.ScenarioManager;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.scenario.ScenarioManagerState;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
-import org.gemoc.executionframework.engine.mse.Step;
-import org.gemoc.executionframework.engine.mse.MSEOccurrence;
 import org.gemoc.executionframework.ui.IMSEPresenter;
 import org.gemoc.executionframework.ui.views.engine.EngineSelectionDependentViewPart;
 import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
@@ -70,6 +68,7 @@ import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
 import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
+import fr.inria.diverse.trace.commons.model.trace.Step;
 import fr.obeo.dsl.debug.ide.DSLBreakpoint;
 import fr.obeo.dsl.debug.ide.ui.provider.DSLLabelDecorator;
 import fr.obeo.dsl.debug.ide.ui.provider.DecoratingColumLabelProvider;

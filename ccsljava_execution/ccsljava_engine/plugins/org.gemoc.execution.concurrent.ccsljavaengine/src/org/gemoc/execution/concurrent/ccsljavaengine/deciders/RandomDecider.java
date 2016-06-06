@@ -5,7 +5,8 @@ import java.util.Random;
 
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.ILogicalStepDecider;
-import org.gemoc.executionframework.engine.mse.Step;
+
+import fr.inria.diverse.trace.commons.model.trace.Step;
 
 /**
  * Decider that will choose randomly

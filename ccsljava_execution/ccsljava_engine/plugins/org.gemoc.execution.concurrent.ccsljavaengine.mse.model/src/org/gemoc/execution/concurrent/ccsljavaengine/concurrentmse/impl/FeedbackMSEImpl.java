@@ -2,8 +2,6 @@
  */
 package org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.impl;
 
-import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -12,7 +10,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.Concurrent_msePackage;
 import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
-import org.gemoc.executionframework.engine.mse.impl.MSEImpl;
+
+import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
+import fr.inria.diverse.trace.commons.model.trace.impl.MSEImpl;
 
 /**
  * <!-- begin-user-doc -->

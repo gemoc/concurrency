@@ -14,10 +14,10 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.Launcher;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.ModelSpecificEventWrapper;
-import org.gemoc.executionframework.engine.mse.MSEOccurrence;
 import org.gemoc.executionframework.engine.ui.debug.breakpoint.GemocBreakpoint;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
+import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
 import fr.obeo.dsl.debug.ide.DSLBreakpoint;
 import fr.obeo.dsl.debug.ide.sirius.ui.DSLToggleBreakpointsUtils;
 

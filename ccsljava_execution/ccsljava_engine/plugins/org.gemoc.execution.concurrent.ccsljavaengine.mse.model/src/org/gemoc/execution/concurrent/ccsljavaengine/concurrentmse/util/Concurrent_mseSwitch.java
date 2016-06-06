@@ -7,8 +7,10 @@ import org.eclipse.emf.ecore.ENamedElement;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
-import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.*;
-import org.gemoc.executionframework.engine.mse.MSE;
+import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.Concurrent_msePackage;
+import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
+
+import fr.inria.diverse.trace.commons.model.trace.MSE;
 
 /**
  * <!-- begin-user-doc -->

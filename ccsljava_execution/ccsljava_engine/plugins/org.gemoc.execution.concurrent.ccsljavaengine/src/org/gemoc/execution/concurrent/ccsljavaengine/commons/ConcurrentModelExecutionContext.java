@@ -12,12 +12,12 @@ import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.Con
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtensionPoint;
 import org.gemoc.executionframework.engine.commons.EngineContextException;
 import org.gemoc.executionframework.engine.commons.ModelExecutionContext;
-import org.gemoc.executionframework.engine.mse.MSEModel;
 import org.gemoc.xdsmlframework.api.core.ExecutionMode;
 import org.gemoc.xdsmlframework.api.core.IExecutionPlatform;
 import org.gemoc.xdsmlframework.api.extensions.languages.LanguageDefinitionExtension;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ActionModel;
+import fr.inria.diverse.trace.commons.model.trace.MSEModel;
 
 public class ConcurrentModelExecutionContext extends ModelExecutionContext implements IConcurrentExecutionContext
 {

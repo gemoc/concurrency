@@ -2,7 +2,8 @@ package org.gemoc.execution.concurrent.ccsljavaengine.dse;
 
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionContext;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
-import org.gemoc.executionframework.engine.mse.MSEOccurrence;
+
+import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
 
 public abstract class OperationExecution 
 {

@@ -15,12 +15,12 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.SharedIcons;
-import org.gemoc.execution.engine.mse.engine.mse.helper.StepHelper;
-import org.gemoc.executionframework.engine.mse.MSE;
-import org.gemoc.executionframework.engine.mse.MSEOccurrence;
-import org.gemoc.executionframework.engine.mse.Step;
 import org.gemoc.executionframework.ui.IMSEPresenter;
 
+import fr.inria.diverse.trace.commons.model.helper.StepHelper;
+import fr.inria.diverse.trace.commons.model.trace.MSE;
+import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
+import fr.inria.diverse.trace.commons.model.trace.Step;
 import fr.obeo.dsl.debug.DebugTarget;
 import fr.obeo.dsl.debug.StackFrame;
 import fr.obeo.dsl.debug.ide.adapter.DSLStackFrameAdapter;

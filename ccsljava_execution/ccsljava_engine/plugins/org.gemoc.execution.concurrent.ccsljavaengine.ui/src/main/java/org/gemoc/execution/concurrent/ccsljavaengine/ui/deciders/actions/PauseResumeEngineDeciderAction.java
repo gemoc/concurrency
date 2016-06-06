@@ -4,10 +4,11 @@ import org.gemoc.execution.concurrent.ccsljavaengine.ui.SharedIcons;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.deciders.AbstractUserDecider;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.ILogicalStepDecider;
-import org.gemoc.executionframework.engine.mse.Step;
 import org.gemoc.executionframework.ui.views.engine.actions.AbstractEngineAction;
-import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
 import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
+import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
+
+import fr.inria.diverse.trace.commons.model.trace.Step;
 
 public class PauseResumeEngineDeciderAction extends AbstractEngineAction
 {

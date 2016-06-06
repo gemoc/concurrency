@@ -2,8 +2,6 @@
  */
 package org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.impl;
 
-import fr.inria.aoste.timesquare.ecl.feedback.feedback.FeedbackPackage;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -13,7 +11,9 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.Concurrent_mseFactory;
 import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.Concurrent_msePackage;
 import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
-import org.gemoc.executionframework.engine.mse.MsePackage;
+
+import fr.inria.aoste.timesquare.ecl.feedback.feedback.FeedbackPackage;
+import fr.inria.diverse.trace.commons.model.trace.TracePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -77,7 +77,7 @@ public class Concurrent_msePackageImpl extends EPackageImpl implements Concurren
 
 		// Initialize simple dependencies
 		FeedbackPackage.eINSTANCE.eClass();
-		MsePackage.eINSTANCE.eClass();
+		TracePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theConcurrent_msePackage.createPackageContents();
@@ -188,7 +188,7 @@ public class Concurrent_msePackageImpl extends EPackageImpl implements Concurren
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		MsePackage theMsePackage = (MsePackage)EPackage.Registry.INSTANCE.getEPackage(MsePackage.eNS_URI);
+		TracePackage theMsePackage = (TracePackage)EPackage.Registry.INSTANCE.getEPackage(TracePackage.eNS_URI);
 		FeedbackPackage theFeedbackPackage = (FeedbackPackage)EPackage.Registry.INSTANCE.getEPackage(FeedbackPackage.eNS_URI);
 		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 

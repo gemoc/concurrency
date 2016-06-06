@@ -28,14 +28,6 @@ import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
 import org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.Activator;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionContext;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.utils.ccsl.QvtoTransformationPerformer;
-import org.gemoc.executionframework.engine.mse.GenericSmallStep;
-import org.gemoc.executionframework.engine.mse.MseFactory;
-import org.gemoc.executionframework.engine.mse.MSE;
-import org.gemoc.executionframework.engine.mse.MSEModel;
-import org.gemoc.executionframework.engine.mse.MSEOccurrence;
-import org.gemoc.executionframework.engine.mse.ParallelStep;
-import org.gemoc.executionframework.engine.mse.SmallStep;
-import org.gemoc.executionframework.engine.mse.Step;
 import org.gemoc.xdsmlframework.api.core.IExecutionContext;
 import org.gemoc.xdsmlframework.api.core.IExecutionWorkspace;
 import org.osgi.framework.Bundle;
@@ -51,9 +43,15 @@ import fr.inria.aoste.timesquare.ecl.feedback.feedback.ActionModel;
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
 import fr.inria.aoste.timesquare.simulationpolicy.maxcardpolicy.MaxCardSimulationPolicy;
 import fr.inria.aoste.trace.EventOccurrence;
-//import fr.inria.aoste.trace.LogicalStep;
 import fr.inria.aoste.trace.ModelElementReference;
 import fr.inria.aoste.trace.Reference;
+import fr.inria.diverse.trace.commons.model.trace.MSE;
+import fr.inria.diverse.trace.commons.model.trace.MSEModel;
+import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
+import fr.inria.diverse.trace.commons.model.trace.ParallelStep;
+import fr.inria.diverse.trace.commons.model.trace.SmallStep;
+import fr.inria.diverse.trace.commons.model.trace.Step;
+import fr.inria.diverse.trace.commons.model.trace.TraceFactory;
 
 /**
  * Implementation of the ISolver dedicated to CCSL.
@@ -117,10 +115,10 @@ public class CcslSolver implements org.gemoc.execution.concurrent.ccsljavaxdsml.
 
 	private Step createLogicalStep(fr.inria.aoste.trace.LogicalStep res) 
 	{
-		ParallelStep<SmallStep> parStep = MseFactory.eINSTANCE.createParallelStep();
+		ParallelStep<SmallStep> parStep = TraceFactory.eINSTANCE.createParallelStep();
 		for (Event e : LogicalStepHelper.getTickedEvents(res))
 		{
-			MSEOccurrence mseOccurrence = MseFactory.eINSTANCE.createMSEOccurrence();
+			MSEOccurrence mseOccurrence = TraceFactory.eINSTANCE.createMSEOccurrence();
 			for (MSE mse : _MSEModel.getOwnedMSEs())
 			{
 				if (mse.getName().replace("MSE_", "").equals(e.getName().replace("evt_", "")))
@@ -130,7 +128,7 @@ public class CcslSolver implements org.gemoc.execution.concurrent.ccsljavaxdsml.
 				}
 			}
 			
-			SmallStep smallStep = MseFactory.eINSTANCE.createGenericSmallStep();
+			SmallStep smallStep = TraceFactory.eINSTANCE.createGenericSmallStep();
 			smallStep.setMseoccurrence(mseOccurrence);
 			parStep.getSubSteps().add(smallStep);
 		}
@@ -413,7 +411,7 @@ public class CcslSolver implements org.gemoc.execution.concurrent.ccsljavaxdsml.
 				Resource feedBackRes = rs.getResource(feedbackURI, true);
 				Resource mseRes = rs.createResource(mseModelURI);
 				mseRes.getContents().clear();
-				MSEModel mseModel = org.gemoc.executionframework.engine.mse.MseFactory.eINSTANCE.createMSEModel();		
+				MSEModel mseModel = TraceFactory.eINSTANCE.createMSEModel();		
 				mseRes.getContents().add(mseModel);
 				ActionModel feedbackModel = (ActionModel)feedBackRes.getContents().get(0);
 				if(feedbackModel!= null){

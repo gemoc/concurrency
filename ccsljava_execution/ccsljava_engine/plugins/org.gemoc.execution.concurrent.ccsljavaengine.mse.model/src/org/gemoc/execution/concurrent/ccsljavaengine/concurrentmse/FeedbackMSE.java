@@ -2,11 +2,11 @@
  */
 package org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse;
 
-import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EOperation;
-import org.gemoc.executionframework.engine.mse.MSE;
+
+import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
+import fr.inria.diverse.trace.commons.model.trace.MSE;
 
 /**
  * <!-- begin-user-doc -->

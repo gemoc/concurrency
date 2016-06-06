@@ -7,7 +7,6 @@ import java.util.Map.Entry;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dse.IMSEStateController;
 import org.gemoc.executionframework.engine.Activator;
-import org.gemoc.executionframework.engine.mse.MSEOccurrence;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ActionFinishedCondition;
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ActionResultCondition;
@@ -16,6 +15,7 @@ import fr.inria.aoste.timesquare.ecl.feedback.feedback.Condition;
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.Force;
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ForceKind;
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.When;
+import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
 
 public class ASynchroneExecution extends OperationExecution
 {

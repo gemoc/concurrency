@@ -28,7 +28,8 @@ import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutio
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.CodeExecutionException;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
-import org.gemoc.execution.engine.mse.engine.mse.helper.StepHelper;
+import org.gemoc.executionframework.engine.Activator;
+import org.gemoc.executionframework.engine.core.CommandExecution;
 import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Branch;
 import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Choice;
 import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.ContextState;
@@ -36,16 +37,14 @@ import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Execut
 import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Gemoc_execution_traceFactory;
 import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.ModelState;
 import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.SolverState;
-import org.gemoc.executionframework.engine.Activator;
-import org.gemoc.executionframework.engine.core.CommandExecution;
-import org.gemoc.executionframework.engine.mse.MSEOccurrence;
-import org.gemoc.executionframework.engine.mse.Step;
 import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
 import org.gemoc.xdsmlframework.api.core.IExecutionContext;
 import org.gemoc.xdsmlframework.api.engine_addon.DefaultEngineAddon;
 import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 import org.gemoc.xdsmlframework.api.extensions.engine_addon.EngineAddonSpecificationExtensionPoint;
 
+import fr.inria.diverse.trace.commons.model.helper.StepHelper;
+import fr.inria.diverse.trace.commons.model.trace.Step;
 import fr.inria.diverse.trace.gemoc.api.IMultiDimensionalTraceAddon;
 
 /**

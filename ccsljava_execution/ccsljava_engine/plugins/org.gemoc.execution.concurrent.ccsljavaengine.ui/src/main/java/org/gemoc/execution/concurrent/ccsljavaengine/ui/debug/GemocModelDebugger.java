@@ -1,26 +1,25 @@
 package org.gemoc.execution.concurrent.ccsljavaengine.ui.debug;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EcorePackage;
-import org.gemoc.execution.engine.mse.engine.mse.helper.StepHelper;
 import org.gemoc.executionframework.engine.core.AbstractExecutionEngine;
 import org.gemoc.executionframework.engine.core.EngineStoppedException;
-import org.gemoc.executionframework.engine.mse.BigStep;
-import org.gemoc.executionframework.engine.mse.MSE;
-import org.gemoc.executionframework.engine.mse.MSEOccurrence;
-import org.gemoc.executionframework.engine.mse.SmallStep;
-import org.gemoc.executionframework.engine.mse.Step;
 import org.gemoc.executionframework.engine.ui.debug.AbstractGemocDebugger;
 import org.gemoc.executionframework.engine.ui.debug.breakpoint.GemocBreakpoint;
 import org.gemoc.executionframework.ui.utils.ViewUtils;
 import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
 import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 
+import fr.inria.diverse.trace.commons.model.helper.StepHelper;
+import fr.inria.diverse.trace.commons.model.trace.BigStep;
+import fr.inria.diverse.trace.commons.model.trace.MSE;
+import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
+import fr.inria.diverse.trace.commons.model.trace.SmallStep;
+import fr.inria.diverse.trace.commons.model.trace.Step;
 import fr.obeo.dsl.debug.ide.event.IDSLDebugEventProcessor;
 
 public class GemocModelDebugger extends AbstractGemocDebugger implements IEngineAddon {

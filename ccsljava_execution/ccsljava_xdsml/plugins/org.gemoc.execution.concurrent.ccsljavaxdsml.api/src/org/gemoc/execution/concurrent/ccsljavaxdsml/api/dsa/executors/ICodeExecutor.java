@@ -4,7 +4,7 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.List;
 
-import org.gemoc.executionframework.engine.mse.MSEOccurrence;
+import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
 
 
 /**

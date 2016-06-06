@@ -6,7 +6,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-import org.gemoc.executionframework.engine.mse.MsePackage;
+
+import fr.inria.diverse.trace.commons.model.trace.TracePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -62,7 +63,7 @@ public interface Concurrent_msePackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.impl.FeedbackMSEImpl
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.impl.Concurrent_msePackageImpl#getFeedbackMSE()
+	 * @see org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.impl.Concurrent_TracePackageImpl#getFeedbackMSE()
 	 * @generated
 	 */
 	int FEEDBACK_MSE = 0;
@@ -74,7 +75,7 @@ public interface Concurrent_msePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEEDBACK_MSE__EANNOTATIONS = MsePackage.MSE__EANNOTATIONS;
+	int FEEDBACK_MSE__EANNOTATIONS = TracePackage.MSE__EANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -83,7 +84,7 @@ public interface Concurrent_msePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEEDBACK_MSE__NAME = MsePackage.MSE__NAME;
+	int FEEDBACK_MSE__NAME = TracePackage.MSE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Feedback Model Specific Event</b></em>' reference.
@@ -92,7 +93,7 @@ public interface Concurrent_msePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEEDBACK_MSE__FEEDBACK_MODEL_SPECIFIC_EVENT = MsePackage.MSE_FEATURE_COUNT + 0;
+	int FEEDBACK_MSE__FEEDBACK_MODEL_SPECIFIC_EVENT = TracePackage.MSE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Feedback MSE</em>' class.
@@ -101,7 +102,7 @@ public interface Concurrent_msePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEEDBACK_MSE_FEATURE_COUNT = MsePackage.MSE_FEATURE_COUNT + 1;
+	int FEEDBACK_MSE_FEATURE_COUNT = TracePackage.MSE_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get EAnnotation</em>' operation.
@@ -110,7 +111,7 @@ public interface Concurrent_msePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEEDBACK_MSE___GET_EANNOTATION__STRING = MsePackage.MSE___GET_EANNOTATION__STRING;
+	int FEEDBACK_MSE___GET_EANNOTATION__STRING = TracePackage.MSE___GET_EANNOTATION__STRING;
 
 	/**
 	 * The operation id for the '<em>Get Caller</em>' operation.
@@ -119,7 +120,7 @@ public interface Concurrent_msePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEEDBACK_MSE___GET_CALLER = MsePackage.MSE_OPERATION_COUNT + 0;
+	int FEEDBACK_MSE___GET_CALLER = TracePackage.MSE_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get Action</em>' operation.
@@ -128,7 +129,7 @@ public interface Concurrent_msePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEEDBACK_MSE___GET_ACTION = MsePackage.MSE_OPERATION_COUNT + 1;
+	int FEEDBACK_MSE___GET_ACTION = TracePackage.MSE_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Feedback MSE</em>' class.
@@ -137,7 +138,7 @@ public interface Concurrent_msePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEEDBACK_MSE_OPERATION_COUNT = MsePackage.MSE_OPERATION_COUNT + 2;
+	int FEEDBACK_MSE_OPERATION_COUNT = TracePackage.MSE_OPERATION_COUNT + 2;
 
 
 	/**
@@ -209,7 +210,7 @@ public interface Concurrent_msePackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.impl.FeedbackMSEImpl
-		 * @see org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.impl.Concurrent_msePackageImpl#getFeedbackMSE()
+		 * @see org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.impl.Concurrent_TracePackageImpl#getFeedbackMSE()
 		 * @generated
 		 */
 		EClass FEEDBACK_MSE = eINSTANCE.getFeedbackMSE();
@@ -240,4 +241,4 @@ public interface Concurrent_msePackage extends EPackage {
 
 	}
 
-} //Concurrent_msePackage
+} //Concurrent_TracePackage

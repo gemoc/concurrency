@@ -10,8 +10,9 @@ import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutio
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.CodeExecutionException;
 import org.gemoc.executionframework.engine.Activator;
 import org.gemoc.executionframework.engine.core.CommandExecution;
-import org.gemoc.executionframework.engine.mse.MSEOccurrence;
 import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
+
+import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
 
 public class SynchroneExecution extends OperationExecution 
 {

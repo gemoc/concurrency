@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionContext;
-import org.gemoc.executionframework.engine.mse.Step;
 import org.gemoc.xdsmlframework.api.core.IDisposable;
 
 import fr.inria.aoste.trace.EventOccurrence;
 import fr.inria.aoste.trace.ModelElementReference;
+import fr.inria.diverse.trace.commons.model.trace.Step;
 
 /**
  * A Solver is the visible interface of any constraint solver system that runs

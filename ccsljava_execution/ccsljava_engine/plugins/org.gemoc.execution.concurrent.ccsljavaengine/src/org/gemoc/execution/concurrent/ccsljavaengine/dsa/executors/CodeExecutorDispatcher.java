@@ -7,7 +7,8 @@ import java.util.List;
 
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.CodeExecutionException;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
-import org.gemoc.executionframework.engine.mse.MSEOccurrence;
+
+import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
 
 /**
  * An aggregation of several CodeExecutors.

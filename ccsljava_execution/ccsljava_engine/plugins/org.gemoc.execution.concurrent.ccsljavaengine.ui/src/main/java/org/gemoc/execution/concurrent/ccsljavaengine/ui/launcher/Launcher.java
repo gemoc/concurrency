@@ -35,7 +35,6 @@ import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.Sti
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
 import org.gemoc.executionframework.engine.commons.EngineContextException;
-import org.gemoc.executionframework.engine.mse.MSEOccurrence;
 import org.gemoc.executionframework.engine.ui.commons.RunConfiguration;
 import org.gemoc.executionframework.engine.ui.debug.AbstractGemocDebugger;
 import org.gemoc.executionframework.engine.ui.debug.AnnotationMutableFieldExtractor;
@@ -51,6 +50,7 @@ import org.gemoc.xdsmlframework.api.core.IExecutionEngine;
 import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 
 import fr.inria.diverse.commons.messagingsystem.api.MessagingSystem;
+import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
 import fr.obeo.dsl.debug.ide.IDSLDebugger;
 import fr.obeo.dsl.debug.ide.adapter.IDSLCurrentInstructionListener;
 import fr.obeo.dsl.debug.ide.event.DSLDebugEventDispatcher;

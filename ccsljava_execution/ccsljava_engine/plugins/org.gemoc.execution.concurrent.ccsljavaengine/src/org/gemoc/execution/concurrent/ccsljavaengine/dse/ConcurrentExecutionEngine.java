@@ -16,14 +16,10 @@ import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.CodeExecut
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dse.IMSEStateController;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
-import org.gemoc.execution.engine.mse.engine.mse.helper.StepHelper;
 import org.gemoc.executionframework.engine.Activator;
 import org.gemoc.executionframework.engine.core.AbstractExecutionEngine;
 import org.gemoc.executionframework.engine.core.CommandExecution;
 import org.gemoc.executionframework.engine.core.EngineStoppedException;
-import org.gemoc.executionframework.engine.mse.MSE;
-import org.gemoc.executionframework.engine.mse.MSEOccurrence;
-import org.gemoc.executionframework.engine.mse.Step;
 import org.gemoc.xdsmlframework.api.core.EngineStatus;
 import org.gemoc.xdsmlframework.api.core.IDisposable;
 import org.gemoc.xdsmlframework.api.core.IExecutionContext;
@@ -32,6 +28,10 @@ import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ActionModel;
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.When;
+import fr.inria.diverse.trace.commons.model.helper.StepHelper;
+import fr.inria.diverse.trace.commons.model.trace.MSE;
+import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
+import fr.inria.diverse.trace.commons.model.trace.Step;
 
 /**
  * Basic abstract implementation of the ExecutionEngine, independent from the

@@ -40,11 +40,7 @@ import org.gemoc.execution.concurrent.ccsljavaengine.ui.SharedIcons;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.deciders.actions.PauseResumeEngineDeciderAction;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.deciders.actions.SwitchDeciderAction;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
-import org.gemoc.execution.engine.mse.engine.mse.helper.StepHelper;
 import org.gemoc.executionframework.engine.core.GemocRunningEnginesRegistry;
-import org.gemoc.executionframework.engine.mse.MSE;
-import org.gemoc.executionframework.engine.mse.MSEOccurrence;
-import org.gemoc.executionframework.engine.mse.Step;
 import org.gemoc.executionframework.ui.IMSEPresenter;
 import org.gemoc.executionframework.ui.utils.ViewUtils;
 import org.gemoc.executionframework.ui.views.engine.EngineSelectionDependentViewPart;
@@ -52,6 +48,11 @@ import org.gemoc.executionframework.ui.views.engine.actions.StopEngineAction;
 import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 import org.gemoc.xdsmlframework.api.core.ExecutionMode;
 import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
+
+import fr.inria.diverse.trace.commons.model.helper.StepHelper;
+import fr.inria.diverse.trace.commons.model.trace.MSE;
+import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
+import fr.inria.diverse.trace.commons.model.trace.Step;
 
 
 public class LogicalStepsView extends EngineSelectionDependentViewPart implements IMSEPresenter
