@@ -30,7 +30,7 @@
 	</modules>
 
 	<properties>
-		<xtend.version>2.8.2</xtend.version>
+		<xtend.version>2.9.1</xtend.version>
 	</properties>
 	<build>
 		<plugins>
@@ -49,6 +49,16 @@
 					</execution>
 				</executions>
 			</plugin>
+			
+			<plugin>
+	        	<groupId>org.eclipse.tycho</groupId>
+	            <artifactId>tycho-compiler-plugin</artifactId>
+	            <version>${tycho-version}</version>
+	           	<configuration> <!-- ignore -->
+	            	<compilerArgument>-warn:none</compilerArgument>     
+	            	<compilerArgument>-err:none</compilerArgument>      
+	           	</configuration>
+	        </plugin>
 		</plugins>
 	</build>
 	<profiles>
@@ -79,10 +89,10 @@
 					<url>https://ci.inria.fr/gemoc/job/gemoc-studio_commons/lastSuccessfulBuild/artifact/commons/releng/org.gemoc.commons.repository/target/repository/</url>
 				</repository>
 				<repository>
-					<id>modelanimation_executionframework on CI</id>
-					<layout>p2</layout>
-					<url>https://ci.inria.fr/gemoc/job/framework_and_trace/lastSuccessfulBuild/artifact/executionframework/releng/org.gemoc.executionframework.repository/target/repository/</url>
-				</repository>
+		            <id>modeldebugging_framework_executionframework on CI</id>
+		            <layout>p2</layout>
+		            <url>https://ci.inria.fr/gemoc/job/framework_and_trace/lastSuccessfulBuild/artifact/framework/execution_framework/releng/org.gemoc.modeldebugging.executionframework.repository/target/repository/</url>
+		        </repository>
 				<repository>
 					<id>modelanimation_siriusmodelanimation on CI</id>
 					<layout>p2</layout>
@@ -91,7 +101,7 @@
 				<repository>
 					<id>concurrency_executionengine_ccsljava on CI</id>
 					<layout>p2</layout>
-					<url>https://ci.inria.fr/gemoc/view/All/job/concurrency_executionengine_ccsljava/lastSuccessfulBuild/artifact/executionengine/ccsljava/releng/org.gemoc.executionengine.ccsljava.repository/target/repository/</url>
+					<url>https://ci.inria.fr/gemoc/job/concurrency_executionengine_ccsljava/lastSuccessfulBuild/artifact/ccsljava_execution/releng/org.gemoc.executionengine.ccsljava.repository/target/repository/</url>
 				</repository>
 				<repository>
 					<id>gemoc-studio_gemoc_commons_gexpressions on CI</id>
