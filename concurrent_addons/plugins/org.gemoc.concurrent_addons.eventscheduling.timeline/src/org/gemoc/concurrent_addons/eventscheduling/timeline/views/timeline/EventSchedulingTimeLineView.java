@@ -23,13 +23,13 @@ import org.gemoc.execution.concurrent.ccsljavaengine.ui.deciders.AbstractUserDec
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Branch;
 import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Choice;
-import org.gemoc.executionframework.engine.mse.Step;
 import org.gemoc.executionframework.ui.views.engine.IEngineSelectionListener;
+import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 import org.gemoc.xdsmlframework.api.core.ExecutionMode;
 import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
 import org.gemoc.xdsmlframework.api.core.IDisposable;
-import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 
+import fr.inria.diverse.trace.commons.model.trace.Step;
 import fr.obeo.timeline.editpart.PossibleStepEditPart;
 import fr.obeo.timeline.editpart.TimelineEditPartFactory;
 import fr.obeo.timeline.view.AbstractTimelineView;

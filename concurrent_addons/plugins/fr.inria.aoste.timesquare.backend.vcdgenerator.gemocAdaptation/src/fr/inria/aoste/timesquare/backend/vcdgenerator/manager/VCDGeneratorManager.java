@@ -15,9 +15,6 @@ import org.eclipse.swt.widgets.Display;
 import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
-import org.gemoc.execution.engine.mse.engine.mse.helper.StepHelper;
-import org.gemoc.executionframework.engine.mse.Step;
-import org.gemoc.executionframework.engine.mse.MSEOccurrence;
 import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
 import org.gemoc.xdsmlframework.api.engine_addon.DefaultEngineAddon;
 
@@ -48,6 +45,9 @@ import fr.inria.aoste.trace.FiredStateKind;
 import fr.inria.aoste.trace.ModelElementReference;
 import fr.inria.aoste.trace.PhysicalBase;
 import fr.inria.aoste.trace.TraceFactory;
+import fr.inria.diverse.trace.commons.model.helper.StepHelper;
+import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
+import fr.inria.diverse.trace.commons.model.trace.Step;
 
 /**
  * 
