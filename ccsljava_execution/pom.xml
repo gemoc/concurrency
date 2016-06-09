@@ -79,7 +79,7 @@
 		        <repository>
 		            <id>modeldebugging_framework_xdsmlframework on CI</id>
 		            <layout>p2</layout>
-		            <url>https://ci.inria.fr/gemoc/job/modeldebugging_framework_xdsmlframework/lastSuccessfulBuild/artifact/framework/xdsml_framework/releng/org.gemoc.modeldebugging.xdsmlframework.repository/target/repository/</url>
+		            <url>https://ci.inria.fr/gemoc/job/framework_and_trace/lastSuccessfulBuild/artifact/framework/xdsml_framework/releng/org.gemoc.modeldebugging.xdsmlframework.repository/target/repository/</url>
 		        </repository>
 		        <repository>
 		            <id>modeldebugging_framework_executionframework on CI</id>
