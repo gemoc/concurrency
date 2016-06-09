@@ -11,15 +11,9 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.wizards.IWizardDescriptor;
 import org.gemoc.commons.eclipse.core.resources.NewProjectWorkspaceListener;
 import org.gemoc.commons.eclipse.ui.WizardFinder;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.concurrent_xdsml.ConcurrentLanguageDefinition;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.concurrent_xdsml.DSEProject;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.concurrent_xdsml.impl.Concurrent_xdsmlFactoryImpl;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dialogs.SelectECLIFileDialog;
-import org.gemoc.executionframework.ui.xdsml.activefile.ActiveFileEcore;
-import org.gemoc.executionframework.xdsml_base.LanguageDefinition;
 import org.gemoc.xdsmlframework.ide.ui.xdsml.wizards.MelangeXDSMLProjectHelper;
-import org.gemoc.xdsmlframework.ide.ui.xdsml.wizards.XDSMLProjectHelper;
 
 import fr.inria.diverse.melange.metamodel.melange.Language;
 
@@ -34,7 +28,6 @@ public class CreateDSEWizardContextAction {
 	// one of these must be set, depending on it it will work on the file or
 	// directly in the model
 	protected IProject gemocLanguageIProject = null;
-	protected ConcurrentLanguageDefinition gemocLanguageModel = null;
 	
 	protected Language gemocMelangeLanguage = null;
 	
@@ -43,10 +36,7 @@ public class CreateDSEWizardContextAction {
 	public CreateDSEWizardContextAction(IProject updatedGemocLanguageProject) {
 		gemocLanguageIProject = updatedGemocLanguageProject;
 	}
-	public CreateDSEWizardContextAction(IProject updatedGemocLanguageProject, ConcurrentLanguageDefinition rootModelElement) {
-		gemocLanguageIProject = updatedGemocLanguageProject;
-		gemocLanguageModel = rootModelElement;
-	}
+	
 	public CreateDSEWizardContextAction(IProject updatedGemocLanguageProject, Language melangeLanguage) {
 		gemocLanguageIProject = updatedGemocLanguageProject;
 		gemocMelangeLanguage = melangeLanguage;
@@ -79,14 +69,9 @@ public class CreateDSEWizardContextAction {
 				IWorkbench workbench = PlatformUI.getWorkbench();
 				CreateNewDSEProject createNewDSEProjectWizard = (CreateNewDSEProject)wizard;
 				// fine initialization
-				ConcurrentLanguageDefinition languageDefinition = getLanguageDefinition();
-				if(languageDefinition != null){
-					initWizardFromXDSMLModel(createNewDSEProjectWizard, languageDefinition);
-				} else {
-					Language mLanguage = getMelangeLanguage();
-					if(mLanguage != null){
-						initWizardFromMelangeLanguage(createNewDSEProjectWizard, mLanguage);
-					}
+				Language mLanguage = getMelangeLanguage();
+				if(mLanguage != null){
+					initWizardFromMelangeLanguage(createNewDSEProjectWizard, mLanguage);				
 				}
 				wizard.init(workbench, null);
 				WizardDialog wd = new WizardDialog(workbench.getActiveWorkbenchWindow().getShell(), wizard);
@@ -102,7 +87,8 @@ public class CreateDSEWizardContextAction {
 						
 						eclPath = "/"+createNewDSEProjectWizard.createdProjectName+"/ecl/"+createNewDSEProjectWizard.createdTemplateECLFile+".ecl";
 						addECLFileToConf(createNewDSEProjectWizard.createdProjectName, 
-								eclPath);
+								eclPath, 
+								this.gemocLanguageIProject);
 					}
 					else{
 						Activator.error("not able to detect which project was created by wizard", null);
@@ -120,22 +106,13 @@ public class CreateDSEWizardContextAction {
 	}
 
 	protected void initWizardFromMelangeLanguage(CreateNewDSEProject createNewDSEProjectWizard, Language language){
-		createNewDSEProjectWizard._askProjectNamePage.setInitialProjectName(XDSMLProjectHelper.baseProjectName(gemocLanguageIProject)+".dse");
+		createNewDSEProjectWizard._askProjectNamePage.setInitialProjectName(MelangeXDSMLProjectHelper.baseProjectName(gemocLanguageIProject)+".dse");
 		createNewDSEProjectWizard._askDSEInfoPage.initialTemplateECLFileFieldValue = language.getName();
 		MelangeXDSMLProjectHelper.getFirstEcorePath(language);
 		createNewDSEProjectWizard._askDSEInfoPage.initialEcoreFileFieldValue =  "platform:/resource"+MelangeXDSMLProjectHelper.getFirstEcorePath(language);
 		// FIXME currently we do not know how to store the DefaultRootContainer in a melangeXDSML project 
 		//createNewDSEProjectWizard._askDSEInfoPage.initialRootContainerFieldValue = languageDefinition.getDomainModelProject().getDefaultRootEObjectQualifiedName();
 		
-	}
-	protected void initWizardFromXDSMLModel(CreateNewDSEProject createNewDSEProjectWizard, ConcurrentLanguageDefinition languageDefinition){
-		createNewDSEProjectWizard._askProjectNamePage.setInitialProjectName(XDSMLProjectHelper.baseProjectName(gemocLanguageIProject)+".dse");
-		createNewDSEProjectWizard._askDSEInfoPage.initialTemplateECLFileFieldValue = languageDefinition.getName();
-		if(languageDefinition.getDomainModelProject() != null){
-			ActiveFileEcore activeEcoreFile = new ActiveFileEcore(gemocLanguageIProject);
-			createNewDSEProjectWizard._askDSEInfoPage.initialEcoreFileFieldValue =  "platform:/resource"+activeEcoreFile.getActiveFile().getFullPath();
-			createNewDSEProjectWizard._askDSEInfoPage.initialRootContainerFieldValue = languageDefinition.getDomainModelProject().getDefaultRootEObjectQualifiedName();
-		}
 	}
 	protected void selectExistingDSEProject() {
 		/*
@@ -148,17 +125,9 @@ public class CreateDSEWizardContextAction {
 		int res = dialog.open();
 		if (res == WizardDialog.OK) {
 			// update the project model
-			addECLFileToConf(((IResource) dialog.getResult()[0]).getProject()
-					.getName(), ((IResource) dialog.getResult()[0])
-					.getFullPath().toString());
-		}
-	}
-	protected void addECLFileToConf(String projectName, String eclFileURI) {
-		
-		if(this.gemocLanguageModel != null){
-			addECLFileToConf(projectName, eclFileURI, this.gemocLanguageModel);
-		} else {
-			addECLFileToConf(projectName, eclFileURI, this.gemocLanguageIProject);
+			addECLFileToConf(((IResource) dialog.getResult()[0]).getProject().getName(), 
+					((IResource) dialog.getResult()[0]).getFullPath().toString(), 
+					this.gemocLanguageIProject);
 		}
 	}
 	protected void addECLFileToConf(String projectName, String eclFileURI, IProject gemocLanguageIProject) {
@@ -192,32 +161,7 @@ public class CreateDSEWizardContextAction {
 //		}
 	}
 	
-	protected void addECLFileToConf(String projectName, String eclFileURI, ConcurrentLanguageDefinition languageDefinition) {
-		DSEProject eclProject = Concurrent_xdsmlFactoryImpl.eINSTANCE
-				.createDSEProject();
-		eclProject.setProjectName(projectName);
-		
-//		ECLFile eclFile = confFactory.eINSTANCE.createECLFile();
-//		eclFile.setLocationURI(eclFileURI);
-//		eclProject.setEclFile(eclFile);
 
-		
-		
-		languageDefinition.setDSEProject(eclProject);
-			
-		
-	}
-
-	protected ConcurrentLanguageDefinition getLanguageDefinition(){
-
-		if(this.gemocLanguageModel != null){
-			return this.gemocLanguageModel;
-		}
-		LanguageDefinition ld = XDSMLProjectHelper.getLanguageDefinition(gemocLanguageIProject);
-		if(ld instanceof ConcurrentLanguageDefinition)
-			return (ConcurrentLanguageDefinition) ld;
-		else return null;
-	}
 	
 	protected Language getMelangeLanguage(){
 

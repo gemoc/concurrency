@@ -11,11 +11,10 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.wizards.IWizardDescriptor;
 import org.gemoc.commons.eclipse.core.resources.NewProjectWorkspaceListener;
 import org.gemoc.commons.eclipse.ui.WizardFinder;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.concurrent_xdsml.ConcurrentLanguageDefinition;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
 import org.gemoc.executionframework.ui.xdsml.activefile.ActiveFile;
 import org.gemoc.executionframework.ui.xdsml.activefile.ActiveFileEcore;
-import org.gemoc.xdsmlframework.ide.ui.xdsml.wizards.XDSMLProjectHelper;
+import org.gemoc.xdsmlframework.ide.ui.xdsml.wizards.MelangeXDSMLProjectHelper;
 
 import fr.inria.diverse.commons.eclipse.pde.wizards.pages.pde.TemplateListSelectionPage;
 import fr.inria.diverse.k3.ui.wizards.NewK3ProjectWizard;
@@ -30,9 +29,6 @@ public class CreateDSAWizardContextActionDSAK3 extends CreateDSAWizardContextBas
 		super(gemocLanguageIProject);
 	}
 	
-	public CreateDSAWizardContextActionDSAK3(IProject gemocLanguageIProject, ConcurrentLanguageDefinition rootModelElement) {
-		super(gemocLanguageIProject, rootModelElement);
-	}
 	public void createNewDSAProject() {
 		createNewDSAProject(null);
 	}
@@ -65,7 +61,7 @@ public class CreateDSAWizardContextActionDSAK3 extends CreateDSAWizardContextBas
 				
 				wd.create();
 
-				k3Wizard.getPageProject().setProjectName(XDSMLProjectHelper.baseProjectName(_gemocLanguageIProject)+".k3dsa");
+				k3Wizard.getPageProject().setProjectName(MelangeXDSMLProjectHelper.baseProjectName(_gemocLanguageIProject)+".k3dsa");
 				k3Wizard.getPageProject().setProjectKind(KindsOfProject.PLUGIN);
 				// set field as much as possible
 				

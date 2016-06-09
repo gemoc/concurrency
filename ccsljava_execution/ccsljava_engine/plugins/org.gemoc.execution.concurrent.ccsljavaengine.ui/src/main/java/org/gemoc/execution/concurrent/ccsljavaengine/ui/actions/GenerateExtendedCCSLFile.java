@@ -11,10 +11,8 @@ import org.eclipse.jface.window.Window;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.ListDialog;
-import org.gemoc.commons.eclipse.emf.EMFResource;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtension;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtensionPoint;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.concurrent_xdsml.ConcurrentLanguageDefinition;
 import org.gemoc.xdsmlframework.api.extensions.languages.LanguageDefinitionExtension;
 
 public class GenerateExtendedCCSLFile extends GenerateExtendedCCSLFileAction {
@@ -37,19 +35,10 @@ public class GenerateExtendedCCSLFile extends GenerateExtendedCCSLFileAction {
 			
 		List<ConcurrentLanguageDefinitionExtension> applicableLanguageDefinitions = new ArrayList<ConcurrentLanguageDefinitionExtension>();
 		for(ConcurrentLanguageDefinitionExtension lde : ConcurrentLanguageDefinitionExtensionPoint.getSpecifications()){
-			try{
-				String xdsmluri = lde.getXDSMLFilePath();
-				if (!xdsmluri.startsWith("platform:/plugin"))
-					xdsmluri = "platform:/plugin" + xdsmluri;
-				Object o = EMFResource.getFirstContent(xdsmluri);
-				if(o != null && o instanceof ConcurrentLanguageDefinition){
-					ConcurrentLanguageDefinition ld = (ConcurrentLanguageDefinition)o;
-					if(ld.getFileExtensions().contains(fileExtension)){
-						applicableLanguageDefinitions.add(lde);
-					}
-				}
+			// select only applicable languages for the file extension
+			if(lde.getFileExtensions().contains(fileExtension)){
+				applicableLanguageDefinitions.add(lde);
 			}
-			catch(Exception e){}
 		}
 		
 		ConcurrentLanguageDefinitionExtension selectedLanguageDefinition= null;

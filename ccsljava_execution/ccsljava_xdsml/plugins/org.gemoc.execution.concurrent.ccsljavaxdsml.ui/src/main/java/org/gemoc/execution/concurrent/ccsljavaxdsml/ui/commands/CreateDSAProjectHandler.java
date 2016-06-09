@@ -36,7 +36,7 @@ public class CreateDSAProjectHandler extends AbstractMelangeSelectHandler implem
 	public Object executeForSelectedLanguage(ExecutionEvent event, IProject updatedGemocLanguageProject, Language language) throws ExecutionException {
 		
 		CreateDSAWizardContextActionDSAK3 action = new CreateDSAWizardContextActionDSAK3(
-				updatedGemocLanguageProject, null);
+				updatedGemocLanguageProject);
 		action.createNewDSAProject(MelangeXDSMLProjectHelper.getFirstEcore(language));
 		
 		if(action.getLastCreatedProject() != null){
