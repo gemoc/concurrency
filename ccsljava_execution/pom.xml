@@ -18,8 +18,6 @@
         <module>ccsljava_xdsml/plugins/org.gemoc.execution.concurrent.ccsljavaxdsml.api</module>
         <module>ccsljava_engine/plugins/org.gemoc.execution.concurrent.ccsljavaengine</module>
         <module>ccsljava_engine/plugins/org.gemoc.execution.concurrent.ccsljavaengine.stimuli_scenario.model</module>
-        <module>ccsljava_xdsml/plugins/org.gemoc.execution.concurrent.ccsljavaxdsml.model</module>
-        <!-- <module>ccsljava_xdsml/plugins/org.gemoc.execution.concurrent.ccsljavaxdsml.model.edit</module>
         <module>ccsljava_xdsml/plugins/org.gemoc.execution.concurrent.ccsljavaxdsml.model.editor</module>
         <module>ccsljava_xdsml/plugins/org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dashboard</module>-->
         <module>ccsljava_engine/plugins/org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3</module>
