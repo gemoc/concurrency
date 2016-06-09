@@ -22,8 +22,6 @@
       <import feature="org.gemoc.modeldebugging.framework.commons.feature" version="0.1.0.0" match="greaterOrEqual"/>
       <import plugin="org.gemoc.executionframework.extensions.sirius"/>
       <import plugin="org.gemoc.xdsmlframework.extensions.sirius"/>
-      <import plugin="org.gemoc.xdsmlframework.xdsml.model"/>
-      <import plugin="org.gemoc.xdsmlframework.xdsml.model.edit"/>
    </requires>
 
    <plugin
@@ -76,13 +74,6 @@
 
    <plugin
          id="org.gemoc.execution.concurrent.ccsljavaengine.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.gemoc.execution.concurrent.ccsljavaxdsml.model"
          download-size="0"
          install-size="0"
          version="0.0.0"
