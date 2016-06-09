@@ -22,10 +22,8 @@ import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-import org.gemoc.commons.eclipse.emf.EMFResource;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtension;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtensionPoint;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.concurrent_xdsml.ConcurrentLanguageDefinition;
 import org.gemoc.xdsmlframework.api.extensions.languages.LanguageDefinitionExtension;
 import org.osgi.framework.Bundle;
 
@@ -89,18 +87,9 @@ public class CompileAndGenerationClockSystemWizard extends Wizard {
 	  	File sourceFile = null;
 	  	LanguageDefinitionExtension dfe = ConcurrentLanguageDefinitionExtensionPoint.findDefinition(selectProject.projectName);
 	  	
-	  	String xdsmluri = dfe.getXDSMLFilePath();
-		if (!xdsmluri.startsWith("platform:/plugin"))
-			xdsmluri = "platform:/plugin" + xdsmluri;
-		
 		Bundle bundle = null;
 		
-		try{
-			Object o = EMFResource.getFirstContent(xdsmluri);
-			if(o != null && o instanceof ConcurrentLanguageDefinition){
-				ConcurrentLanguageDefinition ld = (ConcurrentLanguageDefinition)o;
-				bundle = Platform.getBundle(ld.getDSEProject().getProjectName());
-			}	
+		try{	
 			if(bundle==null){
 				//ModelTypingSpace ld = (ModelTypingSpace)o;
 				ConcurrentLanguageDefinitionExtension extension =(ConcurrentLanguageDefinitionExtension)dfe;
