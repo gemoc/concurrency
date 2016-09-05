@@ -23,8 +23,23 @@
    </pluginRepositories>
    
    
-   
- <repositories>
+   <profiles>
+    <!-- Profiles are used for switching the repositories used for the build so they either use the CI update sites or local repositories -->
+    	<profile>
+	        <id>ignore_CI_repositories</id>
+	        <activation>
+	            <activeByDefault>false</activeByDefault>
+	        </activation>
+	        <repositories>
+		    </repositories>
+	    </profile>
+	    <profile>
+	        <id>use_CI_repositories</id>
+	        <activation>
+	            <activeByDefault>true</activeByDefault>
+	        </activation>
+  
+		  <repositories>
  <repository>
       <id>gemoc-studio_commons on CI</id>
       <url>https://ci.inria.fr/gemoc/job/gemoc-studio_commons/lastSuccessfulBuild/artifact/commons/releng/org.gemoc.commons.repository/target/repository/</url>
@@ -69,7 +84,10 @@
 		        </repository>
 		        -->
 		       
- </repositories>
+</repositories>
+		</profile>
+    	
+    </profiles>
 
   
   <!--  <dependencies>
