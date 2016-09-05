@@ -30,27 +30,6 @@
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-         
-   <plugin
-         id="org.gemoc.executionengine.gel.concurrent_xdsml_with_gel.model"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
 
-
-   <plugin
-         id="org.gemoc.execution.concurrent.ccsljavaxdsml.model"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.gemoc.xdsmlframework.xdsml.model"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
 
 </feature>
