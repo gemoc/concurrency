@@ -11,7 +11,7 @@ import org.gemoc.executionframework.engine.core.EngineStoppedException;
 import org.gemoc.executionframework.engine.ui.debug.AbstractGemocDebugger;
 import org.gemoc.executionframework.engine.ui.debug.breakpoint.GemocBreakpoint;
 import org.gemoc.executionframework.ui.utils.ViewUtils;
-import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
+import org.gemoc.xdsmlframework.api.core.IExecutionEngine;
 import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 
 import fr.inria.diverse.trace.commons.model.helper.StepHelper;
@@ -44,7 +44,7 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 	 */
 	private boolean breakNextLogicalStep;
 
-	public GemocModelDebugger(IDSLDebugEventProcessor target, IBasicExecutionEngine engine) {
+	public GemocModelDebugger(IDSLDebugEventProcessor target, IExecutionEngine engine) {
 		super(target, engine);
 	}
 
@@ -211,27 +211,27 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 	}
 
 	@Override
-	public void engineStarted(IBasicExecutionEngine executionEngine) {
+	public void engineStarted(IExecutionEngine executionEngine) {
 		spawnRunningThread(Thread.currentThread().getName(), engine.getExecutionContext().getResourceModel()
 				.getContents().get(0));
 	}
 
 	@Override
-	public void engineStopped(IBasicExecutionEngine engine) {
+	public void engineStopped(IExecutionEngine engine) {
 		if (!isTerminated(Thread.currentThread().getName())) {
 			terminated(Thread.currentThread().getName());
 		}
 	}
 
 	@Override
-	public void aboutToExecuteStep(IBasicExecutionEngine engine,Step stepToExecute) {
+	public void aboutToExecuteStep(IExecutionEngine engine,Step stepToExecute) {
 		if (!control(((AbstractExecutionEngine) engine).thread.getName(), stepToExecute)) {
 			throw new EngineStoppedException("Debug thread has stopped.");
 		}
 	}
 
 //	@Override
-//	public void aboutToExecuteMSEOccurrence(IBasicExecutionEngine executionEngine, MSEOccurrence mseOccurrence) {
+//	public void aboutToExecuteMSEOccurrence(IExecutionEngine executionEngine, MSEOccurrence mseOccurrence) {
 //		if (!control(((AbstractExecutionEngine) executionEngine).thread.getName(), mseOccurrence)) {
 //			throw new EngineStoppedException("Debug thread has stopped.");
 //		}
@@ -245,7 +245,7 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 
 
 	@Override
-	public void stepExecuted(IBasicExecutionEngine engine, Step stepExecuted) {
+	public void stepExecuted(IExecutionEngine engine, Step stepExecuted) {
 		// TODO Auto-generated method stub	
 	}
 

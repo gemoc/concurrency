@@ -45,4 +45,5 @@ public interface IConcurrentExecutionEngine extends IExecutionEngine{
 	void notifyProposedLogicalStepsChanged();
 	
 	void performExecutionStep() throws InterruptedException;
+
 }

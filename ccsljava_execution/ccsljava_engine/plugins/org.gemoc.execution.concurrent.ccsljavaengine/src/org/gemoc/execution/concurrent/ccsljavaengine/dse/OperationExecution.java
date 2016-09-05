@@ -1,47 +1,56 @@
 package org.gemoc.execution.concurrent.ccsljavaengine.dse;
 
+import java.util.function.Consumer;
+
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionContext;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 
-import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
+import fr.inria.diverse.trace.commons.model.trace.SmallStep;
+import fr.inria.diverse.trace.commons.model.trace.Step;
 
-public abstract class OperationExecution 
-{
+public abstract class OperationExecution {
 
-	private MSEOccurrence _mseOccurrence;
+	private SmallStep smallStep;
 	private IConcurrentExecutionEngine _engine;
 	private Object _result;
-	
-	protected OperationExecution(MSEOccurrence mseOccurrence, IConcurrentExecutionEngine engine)
-	{
-		_mseOccurrence = mseOccurrence;
+	private Consumer<Step> beforeStepCallback;
+	private Runnable afterStepCallback;
+
+	protected OperationExecution(SmallStep smallStep, IConcurrentExecutionEngine engine,
+			Consumer<Step> beforeStepCallback, Runnable afterStepCallback) {
+		this.smallStep = smallStep;
 		_engine = engine;
-	}
-	
-	abstract public void run();
-	
-	protected IConcurrentExecutionContext getExecutionContext() 
-	{
-		return _engine.getConcurrentExecutionContext();
-	}
-	
-	protected IConcurrentExecutionEngine getEngine()
-	{
-		return _engine;
-	}
-	
-	protected MSEOccurrence getMSEOccurrence()
-	{
-		return _mseOccurrence;
+		this.beforeStepCallback = beforeStepCallback;
+		this.afterStepCallback = afterStepCallback;
 	}
 
-	protected void setResult(Object result)
-	{
+	protected void beforeStepCallback(Step s) {
+		beforeStepCallback.accept(s);
+	}
+
+	protected void afterStepCallback() {
+		afterStepCallback.run();
+	}
+
+	abstract public void run();
+
+	protected IConcurrentExecutionContext getExecutionContext() {
+		return _engine.getConcurrentExecutionContext();
+	}
+
+	protected IConcurrentExecutionEngine getEngine() {
+		return _engine;
+	}
+
+	protected SmallStep getSmallStep() {
+		return smallStep;
+	}
+
+	protected void setResult(Object result) {
 		_result = result;
 	}
-	
-	protected Object getResult()
-	{
+
+	protected Object getResult() {
 		return _result;
 	}
 }

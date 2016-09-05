@@ -1,34 +1,25 @@
 package org.gemoc.execution.concurrent.ccsljavaengine.dse;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.function.Consumer;
 
-import org.eclipse.emf.transaction.RecordingCommand;
-import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.CodeExecutionException;
 import org.gemoc.executionframework.engine.Activator;
-import org.gemoc.executionframework.engine.core.CommandExecution;
-import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 
-import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
+import fr.inria.diverse.trace.commons.model.trace.SmallStep;
+import fr.inria.diverse.trace.commons.model.trace.Step;
 
-public class SynchroneExecution extends OperationExecution 
-{
+public class SynchroneExecution extends OperationExecution {
 
-	protected SynchroneExecution(MSEOccurrence mseOccurrence, IConcurrentExecutionEngine engine) 
-	{
-		super(mseOccurrence, engine);
+	protected SynchroneExecution(SmallStep smallStep, IConcurrentExecutionEngine engine, Consumer<Step> beforeStep,
+			Runnable afterStep) {
+		super(smallStep, engine, beforeStep, afterStep);
 	}
 
 	@Override
-	public void run() 
-	{
-		for (IEngineAddon addon : getEngine().getExecutionContext().getExecutionPlatform().getEngineAddons()) 
-		{
-			addon.aboutToExecuteStep(getEngine(), getEngine().getSelectedLogicalStep());
-		}
+	public void run() {
+
+		beforeStepCallback(getSmallStep());
 		Object res = callExecutor();
 		setResult(res);
 		try {
@@ -36,12 +27,9 @@ public class SynchroneExecution extends OperationExecution
 		} catch (InterruptedException e) {
 			Activator.getDefault().error("Exception received " + e.getMessage(), e);
 		}
-		for (IEngineAddon addon : getEngine().getExecutionContext().getExecutionPlatform().getEngineAddons()) 
-		{
-			addon.stepExecuted(getEngine(), getEngine().getSelectedLogicalStep());
-		}
+		afterStepCallback();
 	}
-	
+
 	/**
 	 * Calls the {@link EventExecutor} for the given
 	 * {@link EngineEventOccurence}.
@@ -50,43 +38,21 @@ public class SynchroneExecution extends OperationExecution
 	 *            the {@link EngineEventOccurence} to execute
 	 * @return the {@link FeedbackData} if any, <code>null</code> other wise
 	 */
-	private Object callExecutor() 
-	{
-		final TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Factory.INSTANCE.getEditingDomain(getExecutionContext().getResourceModel().getResourceSet());
+	private Object callExecutor() {
 		Object res = null;
-		if (editingDomain != null) {
-			final RecordingCommand command = new RecordingCommand(editingDomain, "execute engine event occurence " + getMSEOccurrence()) {
-				private List<Object> result = new ArrayList<Object>();
 
-				@Override
-				protected void doExecute() {
-					try {
-						result.add(getExecutionContext().getConcurrentExecutionPlatform().getCodeExecutor().execute(getMSEOccurrence()));
-					} catch (CodeExecutionException e) {
-						Activator.getDefault().error("Exception received " + e.getMessage(), e);
-					}
-				}
-
-				@Override
-				public Collection<?> getResult() {
-					return result;
-				}
-			};
-			res = CommandExecution.execute(editingDomain, command);
-		} else {
-			try {
-				res = getExecutionContext().getConcurrentExecutionPlatform().getCodeExecutor().execute(getMSEOccurrence());
-			} catch (CodeExecutionException e) { 
-				Activator.getDefault().error("Exception received " + e.getMessage(), e);
-			}
+		try {
+			res = getExecutionContext().getConcurrentExecutionPlatform().getCodeExecutor().execute(getSmallStep().getMseoccurrence());
+		} catch (CodeExecutionException e) {
+			Activator.getDefault().error("Exception received " + e.getMessage(), e);
 		}
+
 		return res;
 	}
-	
+
 	private void applyAnimationTime() throws InterruptedException {
-		int animationDelay = getEngine().getExecutionContext().getRunConfiguration().getAnimationDelay();								
-		if (animationDelay != 0) 
-		{
+		int animationDelay = getEngine().getExecutionContext().getRunConfiguration().getAnimationDelay();
+		if (animationDelay != 0) {
 			Thread.sleep(animationDelay);
 		}
 	}

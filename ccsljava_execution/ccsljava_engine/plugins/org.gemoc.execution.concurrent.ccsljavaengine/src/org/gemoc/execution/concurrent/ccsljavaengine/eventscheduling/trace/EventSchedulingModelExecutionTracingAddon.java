@@ -37,7 +37,7 @@ import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Execut
 import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Gemoc_execution_traceFactory;
 import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.ModelState;
 import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.SolverState;
-import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
+import org.gemoc.xdsmlframework.api.core.IExecutionEngine;
 import org.gemoc.xdsmlframework.api.core.IExecutionContext;
 import org.gemoc.xdsmlframework.api.engine_addon.DefaultEngineAddon;
 import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
@@ -59,7 +59,7 @@ import fr.inria.diverse.trace.gemoc.api.IMultiDimensionalTraceAddon;
 public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddon {
 
 	private IExecutionContext _executionContext;
-	private IBasicExecutionEngine _executionEngine;
+	private IExecutionEngine _executionEngine;
 	private ExecutionTraceModel _executionTraceModel;
 	private Choice _lastChoice;
 	private Branch _currentBranch;
@@ -332,7 +332,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 		return _lastChoice;
 	}
 
-	private void setUp(IBasicExecutionEngine engine) {
+	private void setUp(IExecutionEngine engine) {
 		if (_executionContext == null) {
 			
 			if(!(engine.getExecutionContext() instanceof IConcurrentExecutionContext)){
@@ -458,14 +458,14 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 	}
 
 	@Override
-	public void aboutToSelectStep(IBasicExecutionEngine engine, Collection<Step> logicalSteps) {
+	public void aboutToSelectStep(IExecutionEngine engine, Collection<Step> logicalSteps) {
 		setUp(engine);
 		updateTraceModelBeforeDeciding(logicalSteps);
 	}
 
 	@Override
 	public void aboutToExecuteStep(
-			IBasicExecutionEngine executionEngine,
+			IExecutionEngine executionEngine,
 			Step logicalStepToApply) {	
 		if(_limitedMode){
 			// in limited mode the engine is not concurrent so it will not call the aboutToSelectLogicalStep method
@@ -478,13 +478,13 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 	}
 	
 	@Override
-	public void stepExecuted(IBasicExecutionEngine engine, Step logicalStepExecuted) {
+	public void stepExecuted(IExecutionEngine engine, Step logicalStepExecuted) {
 		setUp(engine);		
 		updateTraceModelAfterExecution(logicalStepExecuted);					
 	}
 	
 	@Override
-	public void engineAboutToDispose(IBasicExecutionEngine engine){
+	public void engineAboutToDispose(IExecutionEngine engine){
 		
 	}
 
@@ -518,7 +518,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 	}
 
 //	@Override
-//	public void proposedLogicalStepsChanged(IBasicExecutionEngine engine, final Collection<LogicalStep> logicalSteps) {
+//	public void proposedLogicalStepsChanged(IExecutionEngine engine, final Collection<LogicalStep> logicalSteps) {
 //		RecordingCommand command = new RecordingCommand(getEditingDomain(), "update trace model") {
 //
 //			@Override
@@ -535,7 +535,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 //	}
 
 //	@Override
-//	public void mseOccurrenceExecuted(IBasicExecutionEngine engine, MSEOccurrence mseOccurrence) {
+//	public void mseOccurrenceExecuted(IExecutionEngine engine, MSEOccurrence mseOccurrence) {
 //
 //		if (stateChanged || currentState == null) {
 //
@@ -556,7 +556,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 //	}
 
 	@Override
-	public void engineStopped(IBasicExecutionEngine engine) {
+	public void engineStopped(IExecutionEngine engine) {
 		modifyTrace(new Runnable() {
 
 			@Override
@@ -580,7 +580,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 	}
 
 	@Override
-	public void engineAboutToStart(IBasicExecutionEngine engine) {
+	public void engineAboutToStart(IExecutionEngine engine) {
 		setUp(engine);
 	}
 	

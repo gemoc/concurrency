@@ -11,7 +11,7 @@ import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Execut
 import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Gemoc_execution_traceFactory;
 import org.gemoc.executionframework.ui.utils.ViewUtils;
 import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
-import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
+import org.gemoc.xdsmlframework.api.core.IExecutionEngine;
 import org.gemoc.xdsmlframework.api.core.IDisposable;
 import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 
@@ -29,10 +29,10 @@ import fr.obeo.timeline.view.AbstractTimelineProvider;
  */
 public class EventSchedulingTimelineProvider extends AbstractTimelineProvider implements IEngineAddon, IDisposable {
 
-	private IBasicExecutionEngine _engine;
+	private IExecutionEngine _engine;
 	private EventSchedulingModelExecutionTracingAddon _tracingAddon;
 
-	public EventSchedulingTimelineProvider(IBasicExecutionEngine engine) {
+	public EventSchedulingTimelineProvider(IExecutionEngine engine) {
 		_engine = engine;
 		_engine.getExecutionContext().getExecutionPlatform().addEngineAddon(this);
 	}
@@ -205,7 +205,7 @@ public class EventSchedulingTimelineProvider extends AbstractTimelineProvider im
 	private int _numberOfChoices = 0;
 	private int _numberOfSteps = 0;
 
-	private void update(IBasicExecutionEngine engine) {
+	private void update(IExecutionEngine engine) {
 		if (engine == _engine && getExecutionTrace() != null && _tracingAddon != null
 				&& _tracingAddon.getCurrentBranch() != null) {
 			Branch branch = _tracingAddon.getCurrentBranch();
@@ -263,65 +263,65 @@ public class EventSchedulingTimelineProvider extends AbstractTimelineProvider im
 	}
 
 	@Override
-	public void engineAboutToStart(IBasicExecutionEngine engine) {
+	public void engineAboutToStart(IExecutionEngine engine) {
 
 	}
 
 	@Override
-	public void engineStarted(IBasicExecutionEngine executionEngine) {
+	public void engineStarted(IExecutionEngine executionEngine) {
 	}
 
 	@Override
-	public void aboutToExecuteStep(IBasicExecutionEngine executionEngine, Step logicalStepToApply) {
+	public void aboutToExecuteStep(IExecutionEngine executionEngine, Step logicalStepToApply) {
 		update(executionEngine);
 	}
 
 //	@Override
-//	public void aboutToExecuteMSEOccurrence(IBasicExecutionEngine executionEngine, MSEOccurrence mseOccurrence) {
+//	public void aboutToExecuteMSEOccurrence(IExecutionEngine executionEngine, MSEOccurrence mseOccurrence) {
 //	}
 
 	@Override
-	public void engineAboutToStop(IBasicExecutionEngine engine) {
+	public void engineAboutToStop(IExecutionEngine engine) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void engineStopped(IBasicExecutionEngine engine) {
+	public void engineStopped(IExecutionEngine engine) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void aboutToSelectStep(IBasicExecutionEngine engine, Collection<Step> logicalSteps) {
+	public void aboutToSelectStep(IExecutionEngine engine, Collection<Step> logicalSteps) {
 		update(engine);
 	}
 
 	@Override
-	public void stepSelected(IBasicExecutionEngine engine, Step selectedLogicalStep) {
+	public void stepSelected(IExecutionEngine engine, Step selectedLogicalStep) {
 		update(engine);
 	}
 
 
 	@Override
-	public void stepExecuted(IBasicExecutionEngine engine, Step step) {
+	public void stepExecuted(IExecutionEngine engine, Step step) {
 		// update(engine);
 	}
 
 	@Override
-	public void engineStatusChanged(IBasicExecutionEngine engine, RunStatus newStatus) {
+	public void engineStatusChanged(IExecutionEngine engine, RunStatus newStatus) {
 	}
 
 	protected void setSelectedStep(Step ls) {
 	}
 
 	@Override
-	public void proposedStepsChanged(IBasicExecutionEngine engine, Collection<Step> logicalSteps) {
+	public void proposedStepsChanged(IExecutionEngine engine, Collection<Step> logicalSteps) {
 		update(engine);
 	}
 
 	@Override
-	public void engineAboutToDispose(IBasicExecutionEngine engine) {
+	public void engineAboutToDispose(IExecutionEngine engine) {
 	}
 
 	@Override

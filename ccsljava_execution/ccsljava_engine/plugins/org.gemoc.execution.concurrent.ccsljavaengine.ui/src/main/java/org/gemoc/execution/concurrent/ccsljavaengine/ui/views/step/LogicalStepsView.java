@@ -47,7 +47,7 @@ import org.gemoc.executionframework.ui.views.engine.EngineSelectionDependentView
 import org.gemoc.executionframework.ui.views.engine.actions.StopEngineAction;
 import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 import org.gemoc.xdsmlframework.api.core.ExecutionMode;
-import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
+import org.gemoc.xdsmlframework.api.core.IExecutionEngine;
 
 import fr.inria.diverse.trace.commons.model.helper.StepHelper;
 import fr.inria.diverse.trace.commons.model.trace.MSE;
@@ -267,7 +267,7 @@ public class LogicalStepsView extends EngineSelectionDependentViewPart implement
 	private IConcurrentExecutionEngine _currentEngine;
 
 	@Override
-	public void engineSelectionChanged(IBasicExecutionEngine engine)
+	public void engineSelectionChanged(IExecutionEngine engine)
 	{
 		if (engine != null && engine instanceof IConcurrentExecutionEngine && engine.getExecutionContext().getExecutionMode().equals(ExecutionMode.Animation))
 		{
@@ -284,7 +284,7 @@ public class LogicalStepsView extends EngineSelectionDependentViewPart implement
 			
 			// display engine full name in tooltip
 			GemocRunningEnginesRegistry registry = org.gemoc.executionframework.engine.Activator.getDefault().gemocRunningEngineRegistry;
-			for (Entry<String, IBasicExecutionEngine> e : registry.getRunningEngines().entrySet())
+			for (Entry<String, IExecutionEngine> e : registry.getRunningEngines().entrySet())
 			{
 				if (e.getValue() == engine)
 				{

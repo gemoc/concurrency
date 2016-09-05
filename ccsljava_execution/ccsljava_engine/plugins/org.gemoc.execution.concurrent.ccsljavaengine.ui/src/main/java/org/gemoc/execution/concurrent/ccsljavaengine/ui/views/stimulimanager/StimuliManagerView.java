@@ -64,7 +64,7 @@ import org.gemoc.executionframework.ui.IMSEPresenter;
 import org.gemoc.executionframework.ui.views.engine.EngineSelectionDependentViewPart;
 import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 import org.gemoc.xdsmlframework.api.core.ExecutionMode;
-import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
+import org.gemoc.xdsmlframework.api.core.IExecutionEngine;
 import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
@@ -624,7 +624,7 @@ public class StimuliManagerView extends EngineSelectionDependentViewPart impleme
 	/**
 	 * Listen the engine change of state.
 	 */
-	private void update(IBasicExecutionEngine engine) 
+	private void update(IExecutionEngine engine) 
 	{
 		if (engine == _currentSelectedEngine)
 		{
@@ -652,7 +652,7 @@ public class StimuliManagerView extends EngineSelectionDependentViewPart impleme
 	 * Listen the engine selection in the enginesStatusView
 	 */
 	@Override
-	public void engineSelectionChanged(IBasicExecutionEngine engine) {
+	public void engineSelectionChanged(IExecutionEngine engine) {
 		if (engine != null
 			&& engine instanceof IConcurrentExecutionEngine) 
 		{
@@ -736,7 +736,7 @@ public class StimuliManagerView extends EngineSelectionDependentViewPart impleme
 		_viewer.getTable().setFocus();
 	}
 
-	public IBasicExecutionEngine getEngine() 
+	public IExecutionEngine getEngine() 
 	{
 		return _currentSelectedEngine;
 	}
@@ -881,50 +881,50 @@ public class StimuliManagerView extends EngineSelectionDependentViewPart impleme
 	}
 
 	@Override
-	public void engineAboutToStart(IBasicExecutionEngine engine) {
+	public void engineAboutToStart(IExecutionEngine engine) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void engineStarted(IBasicExecutionEngine executionEngine) {
+	public void engineStarted(IExecutionEngine executionEngine) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void engineAboutToStop(IBasicExecutionEngine engine) {
+	public void engineAboutToStop(IExecutionEngine engine) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void engineStopped(IBasicExecutionEngine engine) {
+	public void engineStopped(IExecutionEngine engine) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void aboutToSelectStep(IBasicExecutionEngine engine, Collection<Step> logicalSteps) 
+	public void aboutToSelectStep(IExecutionEngine engine, Collection<Step> logicalSteps) 
 	{
 		update(engine);
 	}
 
 	@Override
-	public void stepSelected(IBasicExecutionEngine engine, Step selectedLogicalStep) {
+	public void stepSelected(IExecutionEngine engine, Step selectedLogicalStep) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void engineStatusChanged(IBasicExecutionEngine engine, RunStatus newStatus) {
+	public void engineStatusChanged(IExecutionEngine engine, RunStatus newStatus) {
 		// TODO Auto-generated method stub
 		
 	}
 
 
 	@Override
-	public void engineAboutToDispose(IBasicExecutionEngine engine) {
+	public void engineAboutToDispose(IExecutionEngine engine) {
 	}
 
 	@Override
@@ -933,7 +933,7 @@ public class StimuliManagerView extends EngineSelectionDependentViewPart impleme
 	}
 
 	@Override
-	public void proposedStepsChanged(IBasicExecutionEngine engine,
+	public void proposedStepsChanged(IExecutionEngine engine,
 			Collection<Step> steps) {
 		update(engine);
 	}
@@ -941,14 +941,14 @@ public class StimuliManagerView extends EngineSelectionDependentViewPart impleme
 	
 
 	@Override
-	public void aboutToExecuteStep(IBasicExecutionEngine engine,
+	public void aboutToExecuteStep(IExecutionEngine engine,
 			Step stepToExecute) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void stepExecuted(IBasicExecutionEngine engine, Step stepExecuted) {
+	public void stepExecuted(IExecutionEngine engine, Step stepExecuted) {
 		// TODO Auto-generated method stub
 		
 	}

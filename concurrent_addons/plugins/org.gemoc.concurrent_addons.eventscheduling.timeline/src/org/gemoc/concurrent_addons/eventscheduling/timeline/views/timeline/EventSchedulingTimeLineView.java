@@ -26,7 +26,7 @@ import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Choice
 import org.gemoc.executionframework.ui.views.engine.IEngineSelectionListener;
 import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 import org.gemoc.xdsmlframework.api.core.ExecutionMode;
-import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
+import org.gemoc.xdsmlframework.api.core.IExecutionEngine;
 import org.gemoc.xdsmlframework.api.core.IDisposable;
 
 import fr.inria.diverse.trace.commons.model.trace.Step;
@@ -50,9 +50,9 @@ public class EventSchedulingTimeLineView extends AbstractTimelineView implements
 	private IContentProvider _contentProvider;
 	private ILabelProvider _labelProvider;
 
-	private IBasicExecutionEngine _currentEngine;
+	private IExecutionEngine _currentEngine;
 
-	private WeakHashMap<IBasicExecutionEngine, Integer> _positions = new WeakHashMap<IBasicExecutionEngine, Integer>();
+	private WeakHashMap<IExecutionEngine, Integer> _positions = new WeakHashMap<IExecutionEngine, Integer>();
 
 	public EventSchedulingTimeLineView() {
 		_contentProvider = new AdapterFactoryContentProvider(adapterFactory);
@@ -113,7 +113,7 @@ public class EventSchedulingTimeLineView extends AbstractTimelineView implements
 	private ITimelineProvider _timelineProvider;
 	private MouseListener _mouseListener = null;
 
-	public void configure(IBasicExecutionEngine engine) {
+	public void configure(IExecutionEngine engine) {
 		if(engine == null) {
 			// TODO clear the view or leave it content set to the last engine ?
 		}
@@ -135,7 +135,7 @@ public class EventSchedulingTimeLineView extends AbstractTimelineView implements
 		}
 	}
 
-	private int getStartIndex(IBasicExecutionEngine engine) {
+	private int getStartIndex(IExecutionEngine engine) {
 		int start = 0;
 		if (_positions.containsKey(engine)) {
 			start = _positions.get(engine);
@@ -164,11 +164,11 @@ public class EventSchedulingTimeLineView extends AbstractTimelineView implements
 	}
 
 	@Override
-	public void engineSelectionChanged(IBasicExecutionEngine engine) {
+	public void engineSelectionChanged(IExecutionEngine engine) {
 		update(engine);
 	}
 
-	private boolean canDisplayTimeline(IBasicExecutionEngine engine) {
+	private boolean canDisplayTimeline(IExecutionEngine engine) {
 		if (engine.getExecutionContext().getExecutionMode().equals(ExecutionMode.Run)
 				&& engine.getRunningStatus().equals(RunStatus.Stopped)) {
 			return true;
@@ -260,7 +260,7 @@ public class EventSchedulingTimeLineView extends AbstractTimelineView implements
 		return new TimelineEditPartFactory(false);
 	}
 
-	public void update(IBasicExecutionEngine engine) {
+	public void update(IExecutionEngine engine) {
 		if (engine != null) {
 			if (canDisplayTimeline(engine)) {
 				configure(engine);

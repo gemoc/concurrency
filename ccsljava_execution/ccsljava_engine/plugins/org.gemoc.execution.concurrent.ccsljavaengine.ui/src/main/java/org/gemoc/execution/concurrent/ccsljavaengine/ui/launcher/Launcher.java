@@ -45,7 +45,7 @@ import org.gemoc.executionframework.extensions.sirius.services.AbstractGemocDebu
 import org.gemoc.executionframework.ui.views.engine.EnginesStatusView;
 import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 import org.gemoc.xdsmlframework.api.core.ExecutionMode;
-import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
+import org.gemoc.xdsmlframework.api.core.IExecutionEngine;
 import org.gemoc.xdsmlframework.api.core.IExecutionEngine;
 import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 
@@ -59,7 +59,7 @@ public class Launcher extends AbstractGemocLauncher {
 
 	public final static String TYPE_ID = Activator.PLUGIN_ID+".launcher";
 
-	private IBasicExecutionEngine _executionEngine;
+	private IExecutionEngine _executionEngine;
 
 	@Override
 	public void launch(final ILaunchConfiguration configuration, final String mode, final ILaunch launch,
@@ -174,9 +174,9 @@ public class Launcher extends AbstractGemocLauncher {
 
 	private boolean isEngineAlreadyRunning(URI launchedModelURI) throws CoreException {
 		// make sure there is no other running engine on this model
-		Collection<IBasicExecutionEngine> engines = org.gemoc.executionframework.engine.Activator.getDefault().gemocRunningEngineRegistry
+		Collection<IExecutionEngine> engines = org.gemoc.executionframework.engine.Activator.getDefault().gemocRunningEngineRegistry
 				.getRunningEngines().values();
-		for (IBasicExecutionEngine engine : engines) {
+		for (IExecutionEngine engine : engines) {
 			IExecutionEngine observable = (IExecutionEngine) engine;
 			if (observable.getRunningStatus() != RunStatus.Stopped
 					&& observable.getExecutionContext().getResourceModel().getURI().equals(launchedModelURI)) {
@@ -260,9 +260,9 @@ public class Launcher extends AbstractGemocLauncher {
 		// we add this dummy break
 		try {
 			if (configuration.getAttribute(RunConfiguration.LAUNCH_BREAK_START, false)) {
-				res.addPredicateBreak(new BiPredicate<IBasicExecutionEngine, MSEOccurrence>() {
+				res.addPredicateBreak(new BiPredicate<IExecutionEngine, MSEOccurrence>() {
 					@Override
-					public boolean test(IBasicExecutionEngine t, MSEOccurrence u) {
+					public boolean test(IExecutionEngine t, MSEOccurrence u) {
 						return true;
 					}
 				});

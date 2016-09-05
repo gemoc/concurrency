@@ -6,7 +6,7 @@ import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutio
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.ILogicalStepDecider;
 import org.gemoc.executionframework.ui.views.engine.actions.AbstractEngineAction;
 import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
-import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
+import org.gemoc.xdsmlframework.api.core.IExecutionEngine;
 
 import fr.inria.diverse.trace.commons.model.trace.Step;
 
@@ -90,7 +90,7 @@ public class PauseResumeEngineDeciderAction extends AbstractEngineAction
 	}
 
 	@Override
-	public void engineSelectionChanged(IBasicExecutionEngine engine) {
+	public void engineSelectionChanged(IExecutionEngine engine) {
 		super.engineSelectionChanged(engine);
 		if(engine != null){
 			if (engine instanceof IConcurrentExecutionEngine)

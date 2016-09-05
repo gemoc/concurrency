@@ -15,7 +15,7 @@ import org.eclipse.swt.widgets.Display;
 import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
-import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
+import org.gemoc.xdsmlframework.api.core.IExecutionEngine;
 import org.gemoc.xdsmlframework.api.engine_addon.DefaultEngineAddon;
 
 import fr.inria.aoste.timesquare.backend.manager.visible.ClockEntity;
@@ -141,7 +141,7 @@ public class VCDGeneratorManager extends DefaultEngineAddon{
 	private ISolver _solver = null;
 	
 	@Override
-	public void engineAboutToStart(IBasicExecutionEngine engine) {
+	public void engineAboutToStart(IExecutionEngine engine) {
 		if(engine instanceof IConcurrentExecutionEngine){
 			_solver = ((IConcurrentExecutionEngine)engine).getSolver();	
 		}
@@ -311,7 +311,7 @@ public class VCDGeneratorManager extends DefaultEngineAddon{
 	 * @since 1.0.0
 	 */
 	@Override
-	public void engineStarted(IBasicExecutionEngine executionEngine) {
+	public void engineStarted(IExecutionEngine executionEngine) {
 		
 		IPath fin = executionEngine.getExecutionContext().getWorkspace().getExecutionPath();
 		IFolder folder = ResourcesPlugin.getWorkspace().getRoot().getFolder(fin);
@@ -387,7 +387,7 @@ public class VCDGeneratorManager extends DefaultEngineAddon{
 	 * @since 1.0.0
 	 */
 	@Override
-	public void engineAboutToStop(IBasicExecutionEngine engine) {
+	public void engineAboutToStop(IExecutionEngine engine) {
 		_currentStep++;
 		if (_scoreBoard != null)
 		{
@@ -434,7 +434,7 @@ public class VCDGeneratorManager extends DefaultEngineAddon{
 	 * @since 1.0.0
 	 */
 	@Override
-	public void stepExecuted(IBasicExecutionEngine engine, Step logicalStepExecuted){
+	public void stepExecuted(IExecutionEngine engine, Step logicalStepExecuted){
 		if (_scoreBoard == null || logicalStepExecuted == null)
 			return;
 		
@@ -590,7 +590,7 @@ public class VCDGeneratorManager extends DefaultEngineAddon{
 	 * @since 1.0.0
 	 */
 	@Override
-	public void engineStopped(IBasicExecutionEngine engine) {
+	public void engineStopped(IExecutionEngine engine) {
 		// System.out.println("Finalize VCDGeneratorManager");
 		engineAboutToStop(engine);
 		if (_scoreBoard != null)
@@ -601,7 +601,7 @@ public class VCDGeneratorManager extends DefaultEngineAddon{
 	
 	
 	@Override
-	public void engineAboutToDispose(IBasicExecutionEngine engine) {
+	public void engineAboutToDispose(IExecutionEngine engine) {
 		super.engineAboutToDispose(engine);
 		if (_vcdEditor != null){
 			_vcdEditor.getEditorSite().getPage().closeEditor(_vcdEditor, true);		
