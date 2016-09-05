@@ -13,10 +13,6 @@
 	</parent>
     <modules>
         <!-- plugins -->
-        
-        <module>plugins/org.gemoc.executionengine.gel.concurrent_xdsml_with_gel.model</module>
-        <module>plugins/org.gemoc.executionengine.gel.concurrent_xdsml_with_gel.model.edit</module>
-        <module>plugins/org.gemoc.executionengine.gel.concurrent_xdsml_with_gel.model.editor</module>
         <module>plugins/org.gemoc.executionengine.gel.api</module>
         <module>plugins/org.gemoc.executionengine.gel.engine</module>
         <module>plugins/org.gemoc.executionengine.gel.engine.ui</module>
