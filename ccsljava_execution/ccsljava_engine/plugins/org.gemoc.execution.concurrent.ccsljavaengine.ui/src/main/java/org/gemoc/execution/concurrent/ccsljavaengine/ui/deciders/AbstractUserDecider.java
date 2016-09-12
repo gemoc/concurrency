@@ -107,6 +107,7 @@ public abstract class AbstractUserDecider implements ILogicalStepDecider
 	public void dispose() {
 		if (_semaphore != null)
 			_semaphore.release();
+		decisionView.refresh();
 	}
 
 	private boolean _preemptionHappened = false;
