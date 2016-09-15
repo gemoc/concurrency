@@ -4,9 +4,9 @@
 
   <parent>
     <relativePath>../../pom.xml</relativePath>
-    <groupId>org.gemoc.concurrent_addons</groupId>
+    <groupId>org.gemoc.execution.concurrent.ccsljava</groupId>
     <version>0.1.0-SNAPSHOT</version>
-    <artifactId>org.gemoc.concurrent_addons.root</artifactId>
+    <artifactId>org.gemoc.execution.concurrent.ccsljava.root</artifactId>
   </parent>
 
   <artifactId>org.gemoc.concurrent_addons.repository</artifactId>

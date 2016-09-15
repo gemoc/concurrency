@@ -23,12 +23,15 @@
         <module>ccsljava_xdsml/plugins/org.gemoc.execution.concurrent.ccsljavaxdsml.ui</module>
         <module>ccsljava_xdsml/plugins/org.gemoc.execution.concurrent.ccsljavaxdsml.utils</module>
         <module>ccsljava_engine/plugins/org.gemoc.execution.concurrent.ccsljavaengine.ui</module>
+        <module>concurrent_addons/plugins/fr.inria.aoste.timesquare.backend.vcdgenerator.gemocAdaptation</module>
+        <module>concurrent_addons/plugins/org.gemoc.concurrent_addons.eventscheduling.timeline</module>
         
         
         <!-- feature and update site -->
         <module>releng/org.gemoc.executionengine.ccsljava.feature</module>
         <module>releng/org.gemoc.executionengine.ccsljava.runtime.feature</module>
         <module>releng/org.gemoc.executionengine.ccsljava.runtime.ui.feature</module>
+        <module>releng/org.gemoc.concurrent_addons.feature</module>
         <module>releng/org.gemoc.executionengine.ccsljava.repository</module>
         
         
