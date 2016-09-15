@@ -46,11 +46,6 @@
       <layout>p2</layout>
     </repository>
     <repository>
-      <id>gemoc-studio_gemoc_commons on CI</id>
-      <url>https://ci.inria.fr/gemoc/job/gemoc-studio_gemoc_commons/lastSuccessfulBuild/artifact/gemoc_commons/releng/org.gemoc.gemoc_commons.repository/target/repository/</url>
-      <layout>p2</layout>
-    </repository>
-    <repository>
       <id>modeldebugging_trace_commons on CI</id>
       <url>https://ci.inria.fr/gemoc/job/modeldebugging_trace_commons/lastSuccessfulBuild/artifact/trace/commons/releng/fr.inria.diverse.trace.commons.updatesite/target/repository/</url>
       <layout>p2</layout>
