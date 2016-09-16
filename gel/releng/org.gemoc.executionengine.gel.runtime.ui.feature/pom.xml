@@ -4,12 +4,12 @@
 
   <parent>
     <relativePath>../../pom.xml</relativePath>
-    <groupId>org.gemoc.executionengine.gel</groupId>
-    <artifactId>org.gemoc.executionengine.gel.root</artifactId>
+    <groupId>org.gemoc.gel</groupId>
+    <artifactId>org.gemoc.gel.root</artifactId>
     <version>0.1.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>org.gemoc.executionengine.gel.runtime.feature</artifactId>
+  <artifactId>org.gemoc.executionengine.gel.runtime.ui.feature</artifactId>
   <packaging>eclipse-feature</packaging>
 
 </project> 

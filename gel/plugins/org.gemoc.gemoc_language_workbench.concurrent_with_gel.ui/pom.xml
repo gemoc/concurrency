@@ -4,12 +4,11 @@
 
   <parent>
     <relativePath>../..</relativePath>
-    <groupId>org.gemoc.executionengine.gel</groupId>
-    <artifactId>org.gemoc.executionengine.gel.root</artifactId>
+    <groupId>org.gemoc.gel</groupId>
+    <artifactId>org.gemoc.gel.root</artifactId>
     <version>0.1.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>org.gemoc.executionengine.gel.engine</artifactId>
+  <artifactId>org.gemoc.gemoc_language_workbench.concurrent_with_gel.ui</artifactId>
   <packaging>eclipse-plugin</packaging>
-  <version>1.0.0-SNAPSHOT</version>
 </project>
