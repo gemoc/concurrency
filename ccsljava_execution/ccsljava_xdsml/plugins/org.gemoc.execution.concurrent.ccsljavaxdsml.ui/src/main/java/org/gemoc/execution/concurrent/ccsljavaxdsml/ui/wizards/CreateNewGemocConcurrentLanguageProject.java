@@ -24,7 +24,7 @@ public class CreateNewGemocConcurrentLanguageProject extends NewMelangeProjectWi
 		NewMelangeProjectWizardPage firstPage = (NewMelangeProjectWizardPage) getPage("wizardPage"); 
 		firstPage.setTitle("Project");
 		firstPage.setDescription("Create a new Gemoc Concurrent Language Project");
-		firstPage.updateNameProject("org.company.my_concurrent_language.xdsml");
+		firstPage.updateNameProject("org.company.my_concurrent_language");
 	}
 
 	@Override
