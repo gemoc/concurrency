@@ -11,9 +11,8 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.swt.SWT;
@@ -41,13 +40,9 @@ import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.deciders.Deci
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.deciders.DeciderSpecificationExtensionPoint;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtension;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtensionPoint;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.ConcurrentRunConfiguration;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.Activator;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.LauncherMessages;
 import org.gemoc.executionframework.engine.commons.MelangeHelper;
 import org.gemoc.executionframework.engine.ui.commons.RunConfiguration;
 import org.gemoc.xdsmlframework.ui.utils.dialogs.SelectAIRDIFileDialog;
-import org.osgi.framework.Bundle;
 
 import fr.obeo.dsl.debug.ide.launch.AbstractDSLLaunchConfigurationDelegate;
 import fr.obeo.dsl.debug.ide.sirius.ui.launch.AbstractDSLLaunchConfigurationDelegateUI;
@@ -345,6 +340,10 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 			parameters.clear();
 			parameters.add(new ArrayList<String>());
 			methods.addAll(codeExecutor.findCompatibleMethodsWithAnnotation(caller, parameters, fr.inria.diverse.k3.al.annotationprocessor.InitializeModel.class));
+			// try with EList<String>
+			parameters.clear();
+			parameters.add(new BasicEList<String>());
+			methods.addAll(codeExecutor.findCompatibleMethodsWithAnnotation(caller, parameters, fr.inria.diverse.k3.al.annotationprocessor.InitializeModel.class));
 			
 			if(!methods.isEmpty()){
 			
@@ -353,8 +352,7 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 				
 			}
 		} catch (CoreException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Activator.warn(e.getMessage(), e);
 		}
 		return "";
 	}

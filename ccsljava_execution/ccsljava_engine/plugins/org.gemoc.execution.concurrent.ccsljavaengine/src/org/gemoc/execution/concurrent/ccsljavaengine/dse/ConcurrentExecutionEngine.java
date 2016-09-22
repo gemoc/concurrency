@@ -1,11 +1,13 @@
 package org.gemoc.execution.concurrent.ccsljavaengine.dse;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.function.Consumer;
 
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
@@ -398,12 +400,45 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine
 					.substring(modelInitializationMethodQName.lastIndexOf(".") + 1);
 			Activator.getDefault()
 					.debug("*** Calling Model initialization method " + modelInitializationMethodName + "(). ***");
+			
+
 			final ArrayList<Object> modelInitializationParameters = new ArrayList<>();
-			ArrayList<String> modelInitializationArgs = new ArrayList<>();
-			for (String s : executionContext.getRunConfiguration().getModelInitializationArguments().split("\\r?\\n")) {
-				modelInitializationArgs.add(s);
+			ICodeExecutor codeExecutor = getConcurrentExecutionContext().getConcurrentExecutionPlatform().getCodeExecutor(); 
+			ArrayList<Object> parameters = new ArrayList<Object>();
+			// try with String[] args			
+			parameters.add(new String[1]);
+			List<Method> methods = codeExecutor.findCompatibleMethodsWithAnnotation(target, parameters, fr.inria.diverse.k3.al.annotationprocessor.InitializeModel.class);
+			if(!methods.isEmpty()){
+				modelInitializationParameters.add(executionContext.getRunConfiguration().getModelInitializationArguments().split("\\r?\\n"));
+			} else {
+				// try with List<String>
+				parameters.clear();
+				parameters.add(new ArrayList<String>());
+				methods.addAll(codeExecutor.findCompatibleMethodsWithAnnotation(target, parameters, fr.inria.diverse.k3.al.annotationprocessor.InitializeModel.class));
+				if(!methods.isEmpty()){
+					ArrayList<String> modelInitializationArgs = new ArrayList<>();
+					for (String s : executionContext.getRunConfiguration().getModelInitializationArguments().split("\\r?\\n")) {
+						modelInitializationArgs.add(s);
+					}
+					modelInitializationParameters.add(modelInitializationArgs);
+				} else {
+					// try with EList<String>
+					parameters.clear();
+					parameters.add(new BasicEList<String>());
+					methods.addAll(codeExecutor.findCompatibleMethodsWithAnnotation(target, parameters, fr.inria.diverse.k3.al.annotationprocessor.InitializeModel.class));
+					if(!methods.isEmpty()){
+						BasicEList<String> modelInitializationArgs = new BasicEList<>();
+						for (String s : executionContext.getRunConfiguration().getModelInitializationArguments().split("\\r?\\n")) {
+							modelInitializationArgs.add(s);
+						}
+						modelInitializationParameters.add(modelInitializationArgs);
+					}	
+				}
 			}
-			modelInitializationParameters.add(modelInitializationArgs);
+			
+			
+			
+			
 
 			final TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Factory.INSTANCE
 					.getEditingDomain(getExecutionContext().getResourceModel().getResourceSet());
@@ -415,9 +450,7 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine
 					@Override
 					protected void doExecute() {
 						try {
-							result.add(getConcurrentExecutionContext().getConcurrentExecutionPlatform()
-									.getCodeExecutor()
-									.execute(target, modelInitializationMethodName, modelInitializationParameters));
+							result.add(codeExecutor.execute(target, modelInitializationMethodName, modelInitializationParameters));
 							Activator.getDefault().debug("*** Model initialization done. ***");
 						} catch (CodeExecutionException e) {
 							Activator.getDefault().error("Exception while initializing model " + e.getMessage(), e);
@@ -432,7 +465,7 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine
 				CommandExecution.execute(editingDomain, command);
 			} else {
 				try {
-					getConcurrentExecutionContext().getConcurrentExecutionPlatform().getCodeExecutor().execute(target,
+					codeExecutor.execute(target,
 							modelInitializationMethodName, modelInitializationParameters);
 					Activator.getDefault().debug("*** Model initialization done. ***");
 				} catch (CodeExecutionException e) {
