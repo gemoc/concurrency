@@ -1,9 +1,5 @@
 package org.gemoc.execution.concurrent.ccsljavaxdsml.utils.ccsl;
 
-import java.io.IOException;
-import java.util.HashMap;
-
-import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -13,8 +9,6 @@ import org.eclipse.m2m.qvt.oml.ExecutionDiagnostic;
 import org.eclipse.m2m.qvt.oml.ModelExtent;
 import org.eclipse.m2m.qvt.oml.TransformationExecutor;
 import org.eclipse.xtext.resource.IResourceServiceProvider;
-import org.eclipse.xtext.resource.SaveOptions;
-import org.eclipse.xtext.resource.SaveOptions.Builder;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.utils.Activator;
@@ -23,7 +17,6 @@ import com.google.inject.Injector;
 
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.ImportStatement;
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockConstraintSystem;
-import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.impl.ClockConstraintSystemImpl;
 import fr.inria.aoste.timesquare.ccslkernel.parser.xtext.ExtendedCCSLStandaloneSetup;
 import fr.inria.diverse.commons.eclipse.messagingsystem.api.MessagingSystemManager;
 import fr.inria.diverse.commons.messagingsystem.api.MessagingSystem;

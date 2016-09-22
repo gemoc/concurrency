@@ -37,13 +37,12 @@ import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Execut
 import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Gemoc_execution_traceFactory;
 import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.ModelState;
 import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.SolverState;
-import org.gemoc.xdsmlframework.api.core.IExecutionEngine;
 import org.gemoc.xdsmlframework.api.core.IExecutionContext;
+import org.gemoc.xdsmlframework.api.core.IExecutionEngine;
 import org.gemoc.xdsmlframework.api.engine_addon.DefaultEngineAddon;
 import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 import org.gemoc.xdsmlframework.api.extensions.engine_addon.EngineAddonSpecificationExtensionPoint;
 
-import fr.inria.diverse.trace.commons.model.helper.StepHelper;
 import fr.inria.diverse.trace.commons.model.trace.Step;
 import fr.inria.diverse.trace.gemoc.api.IMultiDimensionalTraceAddon;
 

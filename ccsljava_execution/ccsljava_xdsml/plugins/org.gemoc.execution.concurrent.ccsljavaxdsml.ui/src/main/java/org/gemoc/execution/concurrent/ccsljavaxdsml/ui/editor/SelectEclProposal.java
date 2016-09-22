@@ -2,7 +2,6 @@ package org.gemoc.execution.concurrent.ccsljavaxdsml.ui.editor;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.dialogs.Dialog;
 import org.gemoc.commons.eclipse.core.resources.FileFinderVisitor;
