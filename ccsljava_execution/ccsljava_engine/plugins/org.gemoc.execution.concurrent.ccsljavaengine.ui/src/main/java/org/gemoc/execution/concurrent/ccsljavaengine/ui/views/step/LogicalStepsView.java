@@ -28,10 +28,18 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Menu;
+import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeColumn;
+import org.eclipse.swt.widgets.TreeItem;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IWorkbenchActionConstants;
 import org.gemoc.commons.eclipse.ui.TreeViewerHelper;
@@ -69,6 +77,7 @@ public class LogicalStepsView extends EngineSelectionDependentViewPart implement
 	private List<URI> _eventsToPresent = new ArrayList<URI>();
 
 	public LogicalStepsView() {
+		super();
 	}
 
 	private LogicalStepsViewContentProvider _contentProvider;
@@ -78,6 +87,11 @@ public class LogicalStepsView extends EngineSelectionDependentViewPart implement
 	@Override
 	public void createPartControl(Composite parent) {
 		_representedEventColor = new Color(parent.getDisplay(), 255, 235, 174);
+		// The main parent will be made of a single column
+		GridLayout layout = new GridLayout();
+		parent.setLayout(layout);
+		parent.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false));
+		
 		createTreeViewer(parent);
 		createMenuManager();
 		buildActionToolbar();
@@ -87,7 +101,8 @@ public class LogicalStepsView extends EngineSelectionDependentViewPart implement
 	public void refresh() {
 		runInDisplayThread(() -> {
 			_viewer.refresh();
-		});
+			TreeViewerHelper.resizeColumns(_viewer);
+		}); 
 	}
 
 	private void createTreeViewer(Composite parent) {
@@ -98,11 +113,34 @@ public class LogicalStepsView extends EngineSelectionDependentViewPart implement
 		Font mono = JFaceResources.getFont(JFaceResources.TEXT_FONT);
 		_viewer.getTree().setFont(mono);
 		createColumns();
+		// The table will take all the horizontal and vertical excess space
+		GridData grid = new GridData(SWT.FILL, SWT.FILL, true, true);
+		_viewer.getControl().setLayoutData(grid);
+		_viewer.getTree().setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+		
+		
+		// invoke the columns pack, in order to let a column fit to it’s contents width
+		Tree tree = (Tree) _viewer.getControl();
+		tree.setHeaderVisible(true);
+		Listener listener = new Listener() {
+		   @Override
+		   public void handleEvent(Event event) {
+		      Display.getDefault().asyncExec(new Runnable() {
+		         @Override
+		         public void run() {
+		        	 TreeViewerHelper.resizeColumns(_viewer); 
+		         }
+		      });
+		   }
+		};
+
+		tree.addListener(SWT.Expand, listener);
+		// adjust the table when expanding
 	}
 
 	private void createColumns() {
 		TreeColumn column1 = new TreeColumn(_viewer.getTree(), SWT.LEFT);
-		column1.setText("Logical Steps");
+		column1.setText("Logical Steps/MSEs");
 		TreeViewerColumn viewerColumn1 = new TreeViewerColumn(_viewer, column1);
 		_column1LabelProvider = new ColumnLabelProvider() {
 
@@ -158,7 +196,7 @@ public class LogicalStepsView extends EngineSelectionDependentViewPart implement
 		viewerColumn1.setLabelProvider(_column1LabelProvider);
 
 		TreeColumn column2 = new TreeColumn(_viewer.getTree(), SWT.LEFT);
-		column1.setText("Logical Steps");
+		column2.setText("DSA");
 		TreeViewerColumn viewerColumn2 = new TreeViewerColumn(_viewer, column2);
 		_column2LabelProvider = new ColumnLabelProvider() {
 
