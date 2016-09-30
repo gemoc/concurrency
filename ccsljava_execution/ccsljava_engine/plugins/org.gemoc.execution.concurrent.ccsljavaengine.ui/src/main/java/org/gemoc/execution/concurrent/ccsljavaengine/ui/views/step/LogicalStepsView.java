@@ -102,6 +102,7 @@ public class LogicalStepsView extends EngineSelectionDependentViewPart implement
 		runInDisplayThread(() -> {
 			_viewer.refresh();
 			TreeViewerHelper.resizeColumns(_viewer);
+			_viewer.expandAll();
 		}); 
 	}
 
@@ -119,7 +120,7 @@ public class LogicalStepsView extends EngineSelectionDependentViewPart implement
 		_viewer.getTree().setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 		
 		
-		// invoke the columns pack, in order to let a column fit to it’s contents width
+		// invoke the columns pack, in order to let a column fit to itï¿½s contents width
 		Tree tree = (Tree) _viewer.getControl();
 		tree.setHeaderVisible(true);
 		Listener listener = new Listener() {
@@ -289,8 +290,8 @@ public class LogicalStepsView extends EngineSelectionDependentViewPart implement
 			_currentEngine = (IConcurrentExecutionEngine) engine;
 			_viewer.setInput(_currentEngine);
 			if (_currentEngine != null && !_currentEngine.getRunningStatus().equals(RunStatus.Stopped)) {
-				_viewer.expandAll();
 				TreeViewerHelper.resizeColumns(_viewer);
+				_viewer.expandAll();
 			} else {
 				_viewer.setInput(null);
 			}
