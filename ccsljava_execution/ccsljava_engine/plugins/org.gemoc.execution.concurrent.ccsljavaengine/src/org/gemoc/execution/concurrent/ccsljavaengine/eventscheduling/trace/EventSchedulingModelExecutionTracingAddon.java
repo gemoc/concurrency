@@ -128,6 +128,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 					try {
 						restoreModelState(choice);
 						restoreSolverState(choice);
+						//TODO: here we should notify the addons !
 					} catch (Exception e) {
 						org.gemoc.execution.concurrent.ccsljavaengine.Activator.getDefault().error("Error while creating branch", e);
 						
