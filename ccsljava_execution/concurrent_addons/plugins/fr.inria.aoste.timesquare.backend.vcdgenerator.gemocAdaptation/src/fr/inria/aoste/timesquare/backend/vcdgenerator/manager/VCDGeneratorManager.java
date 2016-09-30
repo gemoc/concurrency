@@ -47,6 +47,7 @@ import fr.inria.aoste.trace.PhysicalBase;
 import fr.inria.aoste.trace.TraceFactory;
 import fr.inria.diverse.trace.commons.model.helper.StepHelper;
 import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
+import fr.inria.diverse.trace.commons.model.trace.SmallStep;
 import fr.inria.diverse.trace.commons.model.trace.Step;
 
 /**
@@ -437,7 +438,9 @@ public class VCDGeneratorManager extends DefaultEngineAddon{
 	public void stepExecuted(IExecutionEngine engine, Step logicalStepExecuted){
 		if (_scoreBoard == null || logicalStepExecuted == null)
 			return;
-		
+		if(logicalStepExecuted instanceof SmallStep){
+			return;
+		}
 		_currentStep++;
 		int instant = _currentStep * 10;
 
