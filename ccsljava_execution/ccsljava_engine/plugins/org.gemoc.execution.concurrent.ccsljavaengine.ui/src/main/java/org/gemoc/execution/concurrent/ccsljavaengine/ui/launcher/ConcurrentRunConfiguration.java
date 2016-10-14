@@ -11,6 +11,7 @@ public class ConcurrentRunConfiguration extends RunConfiguration implements ICon
 	public static final String LAUNCH_SELECTED_DECIDER = "GEMOC_LAUNCH_SELECTED_DECIDER";
 	public static final String DECIDER_SOLVER = "Solver decider";
 	public static final String DECIDER_ASKUSER_STEP_BY_STEP = "Step by step user decider";
+	public static final String EXTRA_TIMEMODEL_PATH = "TIMEMODEL_PATH";
 	
 	public ConcurrentRunConfiguration(ILaunchConfiguration launchConfiguration)
 			throws CoreException {
@@ -22,14 +23,20 @@ public class ConcurrentRunConfiguration extends RunConfiguration implements ICon
 		super.extractInformation();
 		
 		_deciderName = getAttribute(LAUNCH_SELECTED_DECIDER, "");
-
+		_executionModelPath = getAttribute(EXTRA_TIMEMODEL_PATH, "");
 	}
 	
 	protected String _deciderName;
-
+	protected String _executionModelPath;
+	
 	@Override
 	public String getDeciderName() {
 		return _deciderName;
+	}
+	
+	@Override
+	public String getExecutionModelPath() {
+		return _executionModelPath;
 	}
 
 }

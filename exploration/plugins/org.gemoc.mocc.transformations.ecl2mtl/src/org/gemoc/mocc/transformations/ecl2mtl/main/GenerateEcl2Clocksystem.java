@@ -35,7 +35,7 @@ public class GenerateEcl2Clocksystem extends AbstractAcceleoGenerator {
      *
      * @generated
      */
-    public static final String MODULE_FILE_NAME = "generateEcl2Clocksystem";
+    public static final String MODULE_FILE_NAME = "/org/gemoc/mocc/transformations/ecl2mtl/main/generateEcl2Clocksystem";
     
     /**
      * The name of the templates that are to be generated.
@@ -342,9 +342,6 @@ public class GenerateEcl2Clocksystem extends AbstractAcceleoGenerator {
         super.registerPackages(resourceSet);
         if (!isInWorkspace(fr.inria.aoste.timesquare.ECL.ECLPackage.class)) {
             resourceSet.getPackageRegistry().put(fr.inria.aoste.timesquare.ECL.ECLPackage.eINSTANCE.getNsURI(), fr.inria.aoste.timesquare.ECL.ECLPackage.eINSTANCE);
-        }
-        if (!isInWorkspace(org.gemoc.mocc.ccslmoc.model.moccml.CcslmoccPackage.class)) {
-            resourceSet.getPackageRegistry().put(org.gemoc.mocc.ccslmoc.model.moccml.CcslmoccPackage.eINSTANCE.getNsURI(), org.gemoc.mocc.ccslmoc.model.moccml.CcslmoccPackage.eINSTANCE);
         }
         if (!isInWorkspace(org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.CompleteOCLCSPackage.class)) {
             resourceSet.getPackageRegistry().put(org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.CompleteOCLCSPackage.eINSTANCE.getNsURI(), org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.CompleteOCLCSPackage.eINSTANCE);

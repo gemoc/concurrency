@@ -7,6 +7,6 @@ public interface IConcurrentRunConfiguration extends IRunConfiguration{
 	
 
 	String getDeciderName();
-		
+	String getExecutionModelPath();
 	
 }

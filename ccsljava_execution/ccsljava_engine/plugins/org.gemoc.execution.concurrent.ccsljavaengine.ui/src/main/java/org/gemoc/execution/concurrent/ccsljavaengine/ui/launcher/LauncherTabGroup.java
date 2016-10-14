@@ -4,6 +4,7 @@ import org.eclipse.debug.ui.AbstractLaunchConfigurationTabGroup;
 import org.eclipse.debug.ui.CommonTab;
 import org.eclipse.debug.ui.ILaunchConfigurationDialog;
 import org.eclipse.debug.ui.ILaunchConfigurationTab;
+import org.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.tabs.LaunchConfigurationAdvancedTab;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.tabs.LaunchConfigurationBackendsTab;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.tabs.LaunchConfigurationMainTab;
 
@@ -19,7 +20,8 @@ public class LauncherTabGroup extends
 		ILaunchConfigurationTab[] tabs = new ILaunchConfigurationTab[] { 
 				new LaunchConfigurationMainTab(),
                 new LaunchConfigurationBackendsTab(),
-                new CommonTab()
+                new CommonTab(),
+                new LaunchConfigurationAdvancedTab()
 		};
 		setTabs(tabs);
 	}

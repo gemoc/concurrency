@@ -65,8 +65,14 @@ public class CcslSolver implements org.gemoc.execution.concurrent.ccsljavaxdsml.
 	protected ActionModel _feedbackModel;
 	protected MSEModel _MSEModel;
 	
+	protected String _alternativeExecutionModelPath =null;
+	
 	public CcslSolver() 
 	{
+	}
+
+	public CcslSolver(String specificTilmeModel){
+		_alternativeExecutionModelPath = specificTilmeModel;
 	}
 
 	public CCSLKernelSolverWrapper getSolverWrapper() {
@@ -92,7 +98,7 @@ public class CcslSolver implements org.gemoc.execution.concurrent.ccsljavaxdsml.
 	}
 
 	/**
-	 * Returns the ModelElementReference refered by this eventOccurrence (as
+	 * Returns the ModelElementReference referred by this eventOccurrence (as
 	 * originally sent by the CCSL Solver).
 	 * 
 	 * @param eventOccurrence
@@ -143,7 +149,12 @@ public class CcslSolver implements org.gemoc.execution.concurrent.ccsljavaxdsml.
 
 	private void createSolver(IExecutionContext context) 
 	{
-		this.solverInputURI = URI.createPlatformResourceURI(context.getWorkspace().getMoCPath().toString(), true);
+		//in the advanced tab of the launch config we can force a timemodel... risky but useful
+		if(_alternativeExecutionModelPath == null || _alternativeExecutionModelPath.length() == 0){
+			this.solverInputURI = URI.createPlatformResourceURI(context.getWorkspace().getMoCPath().toString(), true);
+		}else{
+			this.solverInputURI = URI.createPlatformResourceURI(_alternativeExecutionModelPath, true);
+		}
 		URI feedbackURI = URI.createPlatformResourceURI(getFeedbackPathFromMSEModelPath(context.getWorkspace().getMSEModelPath()).toString(), true);
 		URI mseModelURI = URI.createPlatformResourceURI(context.getWorkspace().getMSEModelPath().toString(), true);
 		
@@ -315,6 +326,9 @@ public class CcslSolver implements org.gemoc.execution.concurrent.ccsljavaxdsml.
 	@Override
 	public void initialize(IConcurrentExecutionContext context) 
 	{
+		if (context instanceof org.gemoc.execution.concurrent.ccsljavaengine.commons.ConcurrentModelExecutionContext){
+			_alternativeExecutionModelPath = ((org.gemoc.execution.concurrent.ccsljavaengine.commons.ConcurrentModelExecutionContext)context).alternativeExecutionModelPath;
+		}
 		createSolver(context);
 	}
 	

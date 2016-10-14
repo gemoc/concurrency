@@ -22,7 +22,7 @@ import fr.inria.diverse.trace.commons.model.trace.MSEModel;
 public class ConcurrentModelExecutionContext extends ModelExecutionContext implements IConcurrentExecutionContext
 {
 
-	
+	public String alternativeExecutionModelPath = null;
 	public ConcurrentModelExecutionContext(IConcurrentRunConfiguration runConfiguration, ExecutionMode executionMode)
 			throws EngineContextException
 	{

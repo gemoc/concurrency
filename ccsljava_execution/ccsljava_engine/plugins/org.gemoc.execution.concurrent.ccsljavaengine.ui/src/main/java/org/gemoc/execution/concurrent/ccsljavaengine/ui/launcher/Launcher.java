@@ -94,38 +94,20 @@ public class Launcher extends AbstractGemocLauncher {
 				return;
 			}
 
-			// Depending on the parsed launch conf and the mode, we create the
-			// execution context
-			// Then we see if we have a solver in the language def by trying to
-			// create a concurrent context
 
-			ISolver solver = null;
-			ConcurrentModelExecutionContext concurrentexecutionContext = null;
+			ConcurrentModelExecutionContext	concurrentexecutionContext = new ConcurrentModelExecutionContext(runConfiguration, executionMode);
+			concurrentexecutionContext.initializeResourceModel();
+			ISolver _solver = null;
 			try {
-				concurrentexecutionContext = new ConcurrentModelExecutionContext(runConfiguration, executionMode);
-				solver = concurrentexecutionContext.getConcurrentLanguageDefinitionExtension().instanciateSolver();
+				_solver  = concurrentexecutionContext.getConcurrentLanguageDefinitionExtension().instanciateSolver();
+				_solver.prepareBeforeModelLoading(concurrentexecutionContext);
+				_solver.initialize(concurrentexecutionContext);
 			} catch (CoreException e) {
 				throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID, "Cannot instanciate solver from language definition", e));
-			} catch (EngineContextException e) {
-				throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID, "Cannot instanciate solver from language definition", e));
 			}
-
-			// This allows us to decide which kind of engine to create
-			// Eventually, this would either be decided in the launch conf... or
-			// in the xDSML file? not clear
-			// Or we would automatically find the appropriate engine...
-			if (solver != null) {
-				// do what we need before the model is loaded
-					// prepare files for the solver 
-				solver.prepareBeforeModelLoading(concurrentexecutionContext);
-				// load the model
-				concurrentexecutionContext.initializeResourceModel();
-				// create and we initialize the engine
-				_executionEngine = new ConcurrentExecutionEngine();
-				_executionEngine.initialize(concurrentexecutionContext);
-			} else {
-				throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID, "Cannot instanciate solver from language definition", null));
-			}
+			
+			_executionEngine = new ConcurrentExecutionEngine(concurrentexecutionContext, _solver);
+			
 
 			openViewsRecommandedByAddons(runConfiguration);
 
