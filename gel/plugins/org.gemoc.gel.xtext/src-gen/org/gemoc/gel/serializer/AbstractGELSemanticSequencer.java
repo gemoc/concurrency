@@ -342,7 +342,7 @@ public abstract class AbstractGELSemanticSequencer extends GExpressionsSemanticS
 				   context == grammarAccess.getGXorExpressionRule() ||
 				   context == grammarAccess.getGXorExpressionAccess().getGXorExpressionLeftOperandAction_1_0()) {
 					sequence_GAdditionExpression((ISerializationContext) context, (GAdditionExpression) semanticObject); 
-					return; 
+					return;
 				}
 				else break;
 			case GexpressionsPackage.GAND_EXPRESSION:

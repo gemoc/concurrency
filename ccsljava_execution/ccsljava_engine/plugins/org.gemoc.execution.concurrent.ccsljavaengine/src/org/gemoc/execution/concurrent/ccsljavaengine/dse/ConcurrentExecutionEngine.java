@@ -239,7 +239,7 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine
 			if (selectedLogicalStep != null) {
 				getSolver().applyLogicalStep(selectedLogicalStep);
 
-//only for testing purpose
+// only for testing purpose
 //				List<fr.inria.aoste.timesquare.instantrelation.CCSLRelationModel.OccurrenceRelation> res = getSolver().getLastOccurrenceRelations();
 //				System.out.println("/********************DEBUG OCCURRENCE RELATIONS****************\n*  "
 //						+res
