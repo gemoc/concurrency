@@ -63,7 +63,11 @@ public class GemocInstantRelationModelGenerator extends InstantRelationModelGene
 
 	public ArrayList<OccurrenceRelation> getLastOccurrenceRelations() {
 		ArrayList<OccurrenceRelation> res = new ArrayList<OccurrenceRelation>();
-		((RelationModelListener)irml).lrelation.forEach(e -> res.add((OccurrenceRelation) e));
+		
+		for(OccurrenceRelation or : ((RelationModelListener)irml).lrelation){
+                    res.add(or);
+                }
+// 		((RelationModelListener)irml).lrelation.forEach(e -> res.add((OccurrenceRelation) e));
 		return res;
 	}
 
