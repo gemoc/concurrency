@@ -341,7 +341,7 @@ public abstract class AbstractGELSemanticSequencer extends GExpressionsSemanticS
 				   context == grammarAccess.getGRelationExpressionAccess().getGRelationExpressionLeftOperandAction_1_0() ||
 				   context == grammarAccess.getGXorExpressionRule() ||
 				   context == grammarAccess.getGXorExpressionAccess().getGXorExpressionLeftOperandAction_1_0()) {
-					sequence_GAdditionExpression((ISerializationContext) context, (GAdditionExpression) semanticObject); 
+					sequence_GAdditionExpression(context, (GAdditionExpression) semanticObject); 
 					return; 
 				}
 				else break;
@@ -353,7 +353,7 @@ public abstract class AbstractGELSemanticSequencer extends GExpressionsSemanticS
 				   context == grammarAccess.getGOrExpressionAccess().getGOrExpressionLeftOperandAction_1_0() ||
 				   context == grammarAccess.getGXorExpressionRule() ||
 				   context == grammarAccess.getGXorExpressionAccess().getGXorExpressionLeftOperandAction_1_0()) {
-					sequence_GAndExpression((ISerializationContext) context, (GAndExpression) semanticObject); 
+					sequence_GAndExpression(context, (GAndExpression) semanticObject); 
 					return; 
 				}
 				else break;
@@ -379,7 +379,7 @@ public abstract class AbstractGELSemanticSequencer extends GExpressionsSemanticS
 				   context == grammarAccess.getGRelationExpressionAccess().getGRelationExpressionLeftOperandAction_1_0() ||
 				   context == grammarAccess.getGXorExpressionRule() ||
 				   context == grammarAccess.getGXorExpressionAccess().getGXorExpressionLeftOperandAction_1_0()) {
-					sequence_GBooleanExpression((ISerializationContext) context, (GBooleanExpression) semanticObject); 
+					sequence_GBooleanExpression( context, (GBooleanExpression) semanticObject); 
 					return; 
 				}
 				else break;
@@ -405,7 +405,7 @@ public abstract class AbstractGELSemanticSequencer extends GExpressionsSemanticS
 				   context == grammarAccess.getGRelationExpressionAccess().getGRelationExpressionLeftOperandAction_1_0() ||
 				   context == grammarAccess.getGXorExpressionRule() ||
 				   context == grammarAccess.getGXorExpressionAccess().getGXorExpressionLeftOperandAction_1_0()) {
-					sequence_GBraceExpression((ISerializationContext) context, (GBraceExpression) semanticObject); 
+					sequence_GBraceExpression( context, (GBraceExpression) semanticObject); 
 					return; 
 				}
 				else break;
@@ -432,7 +432,7 @@ public abstract class AbstractGELSemanticSequencer extends GExpressionsSemanticS
 				   context == grammarAccess.getGRelationExpressionAccess().getGRelationExpressionLeftOperandAction_1_0() ||
 				   context == grammarAccess.getGXorExpressionRule() ||
 				   context == grammarAccess.getGXorExpressionAccess().getGXorExpressionLeftOperandAction_1_0()) {
-					sequence_GDoubleExpression((ISerializationContext) context, (GDoubleExpression) semanticObject); 
+					sequence_GDoubleExpression( context, (GDoubleExpression) semanticObject); 
 					return; 
 				}
 				else break;
@@ -458,7 +458,7 @@ public abstract class AbstractGELSemanticSequencer extends GExpressionsSemanticS
 				   context == grammarAccess.getGRelationExpressionAccess().getGRelationExpressionLeftOperandAction_1_0() ||
 				   context == grammarAccess.getGXorExpressionRule() ||
 				   context == grammarAccess.getGXorExpressionAccess().getGXorExpressionLeftOperandAction_1_0()) {
-					sequence_GEnumLiteralExpression((ISerializationContext) context, (GEnumLiteralExpression) semanticObject); 
+					sequence_GEnumLiteralExpression(context, (GEnumLiteralExpression) semanticObject); 
 					return; 
 				}
 				else break;
@@ -472,7 +472,7 @@ public abstract class AbstractGELSemanticSequencer extends GExpressionsSemanticS
 				   context == grammarAccess.getGOrExpressionAccess().getGOrExpressionLeftOperandAction_1_0() ||
 				   context == grammarAccess.getGXorExpressionRule() ||
 				   context == grammarAccess.getGXorExpressionAccess().getGXorExpressionLeftOperandAction_1_0()) {
-					sequence_GEqualityExpression((ISerializationContext) context, (GEqualityExpression) semanticObject); 
+					sequence_GEqualityExpression( context, (GEqualityExpression) semanticObject); 
 					return; 
 				}
 				else break;
@@ -498,13 +498,13 @@ public abstract class AbstractGELSemanticSequencer extends GExpressionsSemanticS
 				   context == grammarAccess.getGRelationExpressionAccess().getGRelationExpressionLeftOperandAction_1_0() ||
 				   context == grammarAccess.getGXorExpressionRule() ||
 				   context == grammarAccess.getGXorExpressionAccess().getGXorExpressionLeftOperandAction_1_0()) {
-					sequence_GIfExpression((ISerializationContext) context, (GIfExpression) semanticObject); 
+					sequence_GIfExpression( context, (GIfExpression) semanticObject); 
 					return; 
 				}
 				else break;
 			case GexpressionsPackage.GIMPORT_STATEMENT:
 				if(context == grammarAccess.getGImportStatementRule()) {
-					sequence_GImportStatement((ISerializationContext) context, (GImportStatement) semanticObject); 
+					sequence_GImportStatement( context, (GImportStatement) semanticObject); 
 					return; 
 				}
 				else break;
@@ -531,7 +531,7 @@ public abstract class AbstractGELSemanticSequencer extends GExpressionsSemanticS
 				   context == grammarAccess.getGRelationExpressionAccess().getGRelationExpressionLeftOperandAction_1_0() ||
 				   context == grammarAccess.getGXorExpressionRule() ||
 				   context == grammarAccess.getGXorExpressionAccess().getGXorExpressionLeftOperandAction_1_0()) {
-					sequence_GIntegerExpression((ISerializationContext) context, (GIntegerExpression) semanticObject); 
+					sequence_GIntegerExpression(context, (GIntegerExpression) semanticObject); 
 					return; 
 				}
 				else break;
@@ -551,7 +551,7 @@ public abstract class AbstractGELSemanticSequencer extends GExpressionsSemanticS
 				   context == grammarAccess.getGRelationExpressionAccess().getGRelationExpressionLeftOperandAction_1_0() ||
 				   context == grammarAccess.getGXorExpressionRule() ||
 				   context == grammarAccess.getGXorExpressionAccess().getGXorExpressionLeftOperandAction_1_0()) {
-					sequence_GMultiplicationExpression((ISerializationContext) context, (GMultiplicationExpression) semanticObject); 
+					sequence_GMultiplicationExpression( context, (GMultiplicationExpression) semanticObject); 
 					return; 
 				}
 				else break;
@@ -574,7 +574,7 @@ public abstract class AbstractGELSemanticSequencer extends GExpressionsSemanticS
 				   context == grammarAccess.getGRelationExpressionAccess().getGRelationExpressionLeftOperandAction_1_0() ||
 				   context == grammarAccess.getGXorExpressionRule() ||
 				   context == grammarAccess.getGXorExpressionAccess().getGXorExpressionLeftOperandAction_1_0()) {
-					sequence_GNavigationExpression((ISerializationContext) context, (GNavigationExpression) semanticObject); 
+					sequence_GNavigationExpression( context, (GNavigationExpression) semanticObject); 
 					return; 
 				}
 				else break;
@@ -595,7 +595,7 @@ public abstract class AbstractGELSemanticSequencer extends GExpressionsSemanticS
 				   context == grammarAccess.getGRelationExpressionAccess().getGRelationExpressionLeftOperandAction_1_0() ||
 				   context == grammarAccess.getGXorExpressionRule() ||
 				   context == grammarAccess.getGXorExpressionAccess().getGXorExpressionLeftOperandAction_1_0()) {
-					sequence_GNegationExpression((ISerializationContext) context, (GNegationExpression) semanticObject); 
+					sequence_GNegationExpression( context, (GNegationExpression) semanticObject); 
 					return; 
 				}
 				else break;
@@ -603,13 +603,13 @@ public abstract class AbstractGELSemanticSequencer extends GExpressionsSemanticS
 				if(context == grammarAccess.getGExpressionRule() ||
 				   context == grammarAccess.getGOrExpressionRule() ||
 				   context == grammarAccess.getGOrExpressionAccess().getGOrExpressionLeftOperandAction_1_0()) {
-					sequence_GOrExpression((ISerializationContext) context, (GOrExpression) semanticObject); 
+					sequence_GOrExpression( context, (GOrExpression) semanticObject); 
 					return; 
 				}
 				else break;
 			case GexpressionsPackage.GPROGRAM:
 				if(context == grammarAccess.getGProgramRule()) {
-					sequence_GProgram((ISerializationContext) context, (GProgram) semanticObject); 
+					sequence_GProgram(context, (GProgram) semanticObject); 
 					return; 
 				}
 				else break;
@@ -633,7 +633,7 @@ public abstract class AbstractGELSemanticSequencer extends GExpressionsSemanticS
 				   context == grammarAccess.getGRelationExpressionAccess().getGRelationExpressionLeftOperandAction_1_0() ||
 				   context == grammarAccess.getGXorExpressionRule() ||
 				   context == grammarAccess.getGXorExpressionAccess().getGXorExpressionLeftOperandAction_1_0()) {
-					sequence_GReferenceExpression((ISerializationContext) context, (GReferenceExpression) semanticObject); 
+					sequence_GReferenceExpression( context, (GReferenceExpression) semanticObject); 
 					return; 
 				}
 				else break;
@@ -649,7 +649,7 @@ public abstract class AbstractGELSemanticSequencer extends GExpressionsSemanticS
 				   context == grammarAccess.getGRelationExpressionAccess().getGRelationExpressionLeftOperandAction_1_0() ||
 				   context == grammarAccess.getGXorExpressionRule() ||
 				   context == grammarAccess.getGXorExpressionAccess().getGXorExpressionLeftOperandAction_1_0()) {
-					sequence_GRelationExpression((ISerializationContext) context, (GRelationExpression) semanticObject); 
+					sequence_GRelationExpression( context, (GRelationExpression) semanticObject); 
 					return; 
 				}
 				else break;
@@ -675,7 +675,7 @@ public abstract class AbstractGELSemanticSequencer extends GExpressionsSemanticS
 				   context == grammarAccess.getGStringExpressionRule() ||
 				   context == grammarAccess.getGXorExpressionRule() ||
 				   context == grammarAccess.getGXorExpressionAccess().getGXorExpressionLeftOperandAction_1_0()) {
-					sequence_GStringExpression((ISerializationContext) context, (GStringExpression) semanticObject); 
+					sequence_GStringExpression( context, (GStringExpression) semanticObject); 
 					return; 
 				}
 				else break;
@@ -685,7 +685,7 @@ public abstract class AbstractGELSemanticSequencer extends GExpressionsSemanticS
 				   context == grammarAccess.getGOrExpressionAccess().getGOrExpressionLeftOperandAction_1_0() ||
 				   context == grammarAccess.getGXorExpressionRule() ||
 				   context == grammarAccess.getGXorExpressionAccess().getGXorExpressionLeftOperandAction_1_0()) {
-					sequence_GXorExpression((ISerializationContext) context, (GXorExpression) semanticObject); 
+					sequence_GXorExpression( context, (GXorExpression) semanticObject); 
 					return; 
 				}
 				else break;
