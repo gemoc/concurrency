@@ -2,10 +2,10 @@
 [module generate( 
 	'http://fr.inria.aoste.timesquare.ecl',
 	'http://org.gemoc.moccml/1.0',
-	'http://www.eclipse.org/ocl/3.1.0/CompleteOCLCST',
-	'http://www.eclipse.org/ocl/3.1.0/BaseCST',
-	'http://www.eclipse.org/ocl/3.1.0/Pivot',
-	'http://www.eclipse.org/ocl/3.1.0/EssentialOCLCST')]
+	'http://www.eclipse.org/ocl/2015/CompleteOCLCS',
+	'http://www.eclipse.org/ocl/2015/BaseCS',
+	'http://www.eclipse.org/ocl/2015/Pivot',
+	'http://www.eclipse.org/ocl/2015/EssentialOCLCS')]
 
 [import org::gemoc::mocc::transformations::ecl2mtl::libLoader::loadLibrary /] 
 [import org::gemoc::mocc::transformations::ecl2mtl::main::generateCCSLLibraries /] 
@@ -138,7 +138,7 @@ SimpleSDF example1 system
 [ '[' /]comment @main/[ ']' /]
 [ '[' /]file (a[rootElementName.deleteSpecialCharacters()/].name+'_FiacreProcess.fcr', false, 'UTF-8')[ ']' /]
 // *********************** Type Declaration ******************************/
-[for (pck : PackageDeclarationCS | anECLDocument.packages)]
+[for (pck : PackageDeclarationCS | anECLDocument.ownedPackages)]
 [pck.getModelConstantsDeclaration(rootElementName)/]
 [pck.getTypeArrayIDDeclaration(rootElementName)/]
 [comment pck.getBasicTypesDeclaration(rootElementName)/]
@@ -147,48 +147,48 @@ SimpleSDF example1 system
 
 [for (ct : ClassifierContextDeclCS  | pck.getContextsFromPack())]
 /*********************************************************************
-Defining the Functions for : [ct.classifier.name/]
+Defining the Functions for : [ct.referredClass.name/]
 **********************************************************************/
 [if (anECLDocument.imports.importURI.endsWith('.xtend')->size()<>0)]
 [for (importS : ImportStatement | anECLDocument.imports)]
 [if (importS.importURI.endsWith('.xtend'))]
-[importS.loadXtendFile().generateXtend(ct.classifier.name)/]
+[importS.loadXtendFile().generateXtend(ct.referredClass.name)/]
 [/if]
 [/for]
 [/if]
 [/for]
 [for (ct : ClassifierContextDeclCS  | pck.getContextsFromPack())]
-[if (ct.classifier.ownedOperation->size()<>0)]
+[if (ct.referredClass.ownedOperations->size()<>0)]
 [if (ct.getEvents()->size()<>0)]
-/************************* [ct.classifier.name/] Process Instances***************************/
-[ '[' /]for (element : [ct.classifier.name/]| a[rootElementName.deleteSpecialCharacters()/].eAllContents([ct.classifier.name/]))[ ']' /]
-process p[ '[' /]element.name/[ ']' /] [ct.lSquareBracket()/][getEventParameters(pck, 'element.name', ct.classifier.name)/][ct.rSquareBracket()/]([getGlobalParameters(ct)/]) is
+/************************* [ct.referredClass.name/] Process Instances***************************/
+[ '[' /]for (element : [ct.referredClass.name/]| a[rootElementName.deleteSpecialCharacters()/].eAllContents([ct.referredClass.name/]))[ ']' /]
+process p[ '[' /]element.name/[ ']' /] [ct.lSquareBracket()/][getEventParameters(pck, 'element.name', ct.referredClass.name)/][ct.rSquareBracket()/]([getGlobalParameters(ct)/]) is
 	states s0
-	var _self:[ct.classifier.name/]
-[getProcTransitions(pck, 'element.name', ct.classifier.name)/]
+	var _self:[ct.referredClass.name/]
+[getProcTransitions(pck, 'element.name', ct.referredClass.name)/]
 [ '[' /]/for[ ']' /]
 [/if][/if][/for]
 [comment This coming part can be further deleted. It is used only for Test /]
 process pUnConstrainedSemantics[pck.lSquareBracket()/][for (ct : ClassifierContextDeclCS  | pck.getContextsFromPack())]
-[ '[' /]for (element : [ct.classifier.name/]| a[rootElementName.deleteSpecialCharacters()/].eAllContents([ct.classifier.name/]))[ ']' /]
-[getEventParametersOUT(pck, 'element.name', ct.classifier.name)/][ '[' /]/for[ ']' /][/for][pck.rSquareBracket()/] is
+[ '[' /]for (element : [ct.referredClass.name/]| a[rootElementName.deleteSpecialCharacters()/].eAllContents([ct.referredClass.name/]))[ ']' /]
+[getEventParametersOUT(pck, 'element.name', ct.referredClass.name)/][ '[' /]/for[ ']' /][/for][pck.rSquareBracket()/] is
 	states s0
 [for (ct : ClassifierContextDeclCS  | pck.getContextsFromPack())]
-[ '[' /]for (element : [ct.classifier.name/]| a[rootElementName.deleteSpecialCharacters()/].eAllContents([ct.classifier.name/]))[ ']' /]
-[getProcTransitionsOUT(pck, 'element.name', ct.classifier.name)/]
+[ '[' /]for (element : [ct.referredClass.name/]| a[rootElementName.deleteSpecialCharacters()/].eAllContents([ct.referredClass.name/]))[ ']' /]
+[getProcTransitionsOUT(pck, 'element.name', ct.referredClass.name)/]
 [ '[' /]/for[ ']' /]
 [/for]
 
 [ '[' /]file ('pUnConstrainedSemantics.fcr', false, 'UTF-8')[ ']' /]
 [comment This coming part can be further deleted. It is used only for Test /]
 process pUnConstrainedSemantics[pck.lSquareBracket()/][for (ct : ClassifierContextDeclCS  | pck.getContextsFromPack())]
-[ '[' /]for (element : [ct.classifier.name/]| a[rootElementName.deleteSpecialCharacters()/].eAllContents([ct.classifier.name/]))[ ']' /]
-[getEventParametersOUT(pck, 'element.name', ct.classifier.name)/][ '[' /]/for[ ']' /][/for][pck.rSquareBracket()/] is
+[ '[' /]for (element : [ct.referredClass.name/]| a[rootElementName.deleteSpecialCharacters()/].eAllContents([ct.referredClass.name/]))[ ']' /]
+[getEventParametersOUT(pck, 'element.name', ct.referredClass.name)/][ '[' /]/for[ ']' /][/for][pck.rSquareBracket()/] is
 	
 	states s0
 [for (ct : ClassifierContextDeclCS  | pck.getContextsFromPack())]
-[ '[' /]for (element : [ct.classifier.name/]| a[rootElementName.deleteSpecialCharacters()/].eAllContents([ct.classifier.name/]))[ ']' /]
-[getProcTransitionsOUT(pck, 'element.name', ct.classifier.name)/]
+[ '[' /]for (element : [ct.referredClass.name/]| a[rootElementName.deleteSpecialCharacters()/].eAllContents([ct.referredClass.name/]))[ ']' /]
+[getProcTransitionsOUT(pck, 'element.name', ct.referredClass.name)/]
 [ '[' /]/for[ ']' /]
 [/for]
 [ '[' /]/file[ ']' /]
@@ -203,19 +203,19 @@ var
 
 port
 [for (ct : ClassifierContextDeclCS  | pck.getContextsFromPack())]
-[ '[' /]for (element : [ct.classifier.name/]| a[rootElementName.deleteSpecialCharacters()/].eAllContents([ct.classifier.name/]))[ ']' /]
-[getPortDeclaration(pck, 'element.name', ct.classifier.name)/][ '[' /]/for[ ']' /][/for]
+[ '[' /]for (element : [ct.referredClass.name/]| a[rootElementName.deleteSpecialCharacters()/].eAllContents([ct.referredClass.name/]))[ ']' /]
+[getPortDeclaration(pck, 'element.name', ct.referredClass.name)/][ '[' /]/for[ ']' /][/for]
 
 
 par
 [comment This coming part can be further deleted. It is used only for Test /]
 
 pUnConstrainedSemantics[pck.lSquareBracket()/][for (ct : ClassifierContextDeclCS  | pck.getContextsFromPack())]
-[ '[' /]for (element : [ct.classifier.name/]| a[rootElementName.deleteSpecialCharacters()/].eAllContents([ct.classifier.name/]))[ ']' /]
-[getEventParameterParDefinition(pck, 'element.name', ct.classifier.name)/],[ '[' /]/for[ ']' /][/for][pck.rSquareBracket()/]
+[ '[' /]for (element : [ct.referredClass.name/]| a[rootElementName.deleteSpecialCharacters()/].eAllContents([ct.referredClass.name/]))[ ']' /]
+[getEventParameterParDefinition(pck, 'element.name', ct.referredClass.name)/],[ '[' /]/for[ ']' /][/for][pck.rSquareBracket()/]
 [for (ct : ClassifierContextDeclCS  | pck.getContextsFromPack())]
-[ '[' /]for (element : [ct.classifier.name/]| a[rootElementName.deleteSpecialCharacters()/].eAllContents([ct.classifier.name/]))[ ']' /]
-|| p[ '[' /]element.name/[ ']' /] [ct.lSquareBracket()/][getEventParameterParDefinition(pck, 'element.name', ct.classifier.name)/][ct.rSquareBracket()/] ([getGlobalParametersInit(ct)/])
+[ '[' /]for (element : [ct.referredClass.name/]| a[rootElementName.deleteSpecialCharacters()/].eAllContents([ct.referredClass.name/]))[ ']' /]
+|| p[ '[' /]element.name/[ ']' /] [ct.lSquareBracket()/][getEventParameterParDefinition(pck, 'element.name', ct.referredClass.name)/][ct.rSquareBracket()/] ([getGlobalParametersInit(ct)/])
 [ '[' /]/for[ ']' /]
 [/for]
 end par

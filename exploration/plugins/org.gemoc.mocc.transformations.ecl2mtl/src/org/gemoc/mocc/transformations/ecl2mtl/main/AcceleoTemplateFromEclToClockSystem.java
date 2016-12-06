@@ -24,6 +24,7 @@ import org.eclipse.emf.common.util.Monitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+
 import fr.inria.aoste.timesquare.ecl.xtext.EclStandaloneSetup;
 
 
@@ -343,23 +344,23 @@ public class AcceleoTemplateFromEclToClockSystem extends AbstractAcceleoGenerato
     @Override
     public void registerPackages(ResourceSet resourceSet) {
         super.registerPackages(resourceSet);
-        if (!isInWorkspace(fr.inria.aoste.timesquare.ECL.ECLPackage.class)) {
-            resourceSet.getPackageRegistry().put(fr.inria.aoste.timesquare.ECL.ECLPackage.eINSTANCE.getNsURI(), fr.inria.aoste.timesquare.ECL.ECLPackage.eINSTANCE);
+        if (!isInWorkspace(fr.inria.aoste.timesquare.ecl.ecl.ECLPackage.class)) {
+            resourceSet.getPackageRegistry().put(fr.inria.aoste.timesquare.ecl.ecl.ECLPackage.eINSTANCE.getNsURI(), fr.inria.aoste.timesquare.ecl.ecl.ECLPackage.eINSTANCE);
         }
         if (!isInWorkspace(org.gemoc.mocc.ccslmoc.model.moccml.CcslmoccPackage.class)) {
             resourceSet.getPackageRegistry().put(org.gemoc.mocc.ccslmoc.model.moccml.CcslmoccPackage.eINSTANCE.getNsURI(), org.gemoc.mocc.ccslmoc.model.moccml.CcslmoccPackage.eINSTANCE);
         }
-        if (!isInWorkspace(org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.CompleteOCLCSPackage.class)) {
-            resourceSet.getPackageRegistry().put(org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.CompleteOCLCSPackage.eINSTANCE.getNsURI(), org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.CompleteOCLCSPackage.eINSTANCE);
+        if (!isInWorkspace(org.eclipse.ocl.xtext.completeoclcs.CompleteOCLCSPackage.class)) {
+            resourceSet.getPackageRegistry().put(org.eclipse.ocl.xtext.completeoclcs.CompleteOCLCSPackage.eINSTANCE.getNsURI(), org.eclipse.ocl.xtext.completeoclcs.CompleteOCLCSPackage.eINSTANCE);
         }
-        if (!isInWorkspace(org.eclipse.ocl.examples.xtext.base.basecs.BaseCSPackage.class)) {
-            resourceSet.getPackageRegistry().put(org.eclipse.ocl.examples.xtext.base.basecs.BaseCSPackage.eINSTANCE.getNsURI(), org.eclipse.ocl.examples.xtext.base.basecs.BaseCSPackage.eINSTANCE);
+        if (!isInWorkspace(org.eclipse.ocl.xtext.basecs.BaseCSPackage.class)) {
+            resourceSet.getPackageRegistry().put(org.eclipse.ocl.xtext.basecs.BaseCSPackage.eINSTANCE.getNsURI(), org.eclipse.ocl.xtext.basecs.BaseCSPackage.eINSTANCE);
         }
-        if (!isInWorkspace(org.eclipse.ocl.examples.pivot.PivotPackage.class)) {
-            resourceSet.getPackageRegistry().put(org.eclipse.ocl.examples.pivot.PivotPackage.eINSTANCE.getNsURI(), org.eclipse.ocl.examples.pivot.PivotPackage.eINSTANCE);
+        if (!isInWorkspace(org.eclipse.ocl.pivot.PivotPackage.class)) {
+            resourceSet.getPackageRegistry().put(org.eclipse.ocl.pivot.PivotPackage.eINSTANCE.getNsURI(), org.eclipse.ocl.pivot.PivotPackage.eINSTANCE);
         }
-        if (!isInWorkspace(org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.EssentialOCLCSPackage.class)) {
-            resourceSet.getPackageRegistry().put(org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.EssentialOCLCSPackage.eINSTANCE.getNsURI(), org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.EssentialOCLCSPackage.eINSTANCE);
+        if (!isInWorkspace(org.eclipse.ocl.xtext.essentialoclcs.EssentialOCLCSPackage.class)) {
+            resourceSet.getPackageRegistry().put(org.eclipse.ocl.xtext.essentialoclcs.EssentialOCLCSPackage.eINSTANCE.getNsURI(), org.eclipse.ocl.xtext.essentialoclcs.EssentialOCLCSPackage.eINSTANCE);
         }
         
         if (!isInWorkspace(org.eclipse.xtend.core.xtend.XtendPackage.class)) {

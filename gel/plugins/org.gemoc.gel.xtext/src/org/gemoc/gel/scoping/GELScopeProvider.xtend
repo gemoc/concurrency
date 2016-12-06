@@ -4,7 +4,7 @@
 package org.gemoc.gel.scoping
 
 import com.google.common.base.Predicate
-import fr.inria.aoste.timesquare.ECL.ECLDefCS
+import fr.inria.aoste.timesquare.ecl.ecl.ECLDefCS
 import java.util.ArrayList
 import java.util.Collections
 import org.eclipse.emf.ecore.EClass
@@ -63,7 +63,7 @@ class GELScopeProvider extends GExpressionsScopeProvider {
 
 				override public boolean apply(IEObjectDescription input) {
 					if (input.EClass.name.equals("ECLDefCS")) {
-						if (GELHelper.parseContextName((input.EObjectOrProxy as ECLDefCS).classifierContextDecl).
+						if (GELHelper.parseContextName((input.EObjectOrProxy as ECLDefCS).owningClassifierContextDecl).
 							equals(eClass.name)) {
 							return true
 						}
@@ -131,7 +131,7 @@ class GELScopeProvider extends GExpressionsScopeProvider {
 				// Expression for a Feedback Consequence.
 				val dse = EcoreUtil2.getContainerOfType(exp, AtomicDomainSpecificEvent)
 				val contextName = GELHelper.parseContextName(
-					(dse.uponMoccEvent as EclEvent).eventReference.classifierContextDecl)
+					(dse.uponMoccEvent as EclEvent).eventReference.owningClassifierContextDecl)
 				val eclassesWithTheRightName = super.delegateGetScope(exp, ref).allElements.filter [ description |
 					if (description.EObjectOrProxy instanceof EClass) {
 						(description.EObjectOrProxy as EClass).name.equals(contextName)
@@ -154,7 +154,7 @@ class GELScopeProvider extends GExpressionsScopeProvider {
 			// Expression to designate the EOperation
 			val dse = EcoreUtil2.getContainerOfType(exp, AtomicDomainSpecificEvent)
 			val contextName = GELHelper.parseContextName(
-				(dse.uponMoccEvent as EclEvent).eventReference.classifierContextDecl)
+				(dse.uponMoccEvent as EclEvent).eventReference.owningClassifierContextDecl)
 			val eclassesWithTheRightName = super.delegateGetScope(exp, ref).allElements.filter [ description |
 				if (description.EObjectOrProxy instanceof EClass) {
 					(description.EObjectOrProxy as EClass).name.equals(contextName)

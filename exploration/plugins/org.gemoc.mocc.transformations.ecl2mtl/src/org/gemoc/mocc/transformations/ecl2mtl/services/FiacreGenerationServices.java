@@ -5,10 +5,10 @@ import java.util.Iterator;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.ocl.examples.pivot.Property;
-import org.eclipse.ocl.examples.pivot.Type;
-import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.ClassifierContextDeclCS;
-import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.PackageDeclarationCS;
+import org.eclipse.ocl.pivot.Property;
+import org.eclipse.ocl.pivot.Type;
+import org.eclipse.ocl.xtext.completeoclcs.ClassifierContextDeclCS;
+import org.eclipse.ocl.xtext.completeoclcs.PackageDeclarationCS;
 
 
 /**
@@ -34,7 +34,7 @@ public class FiacreGenerationServices {
 		ClassifierContextDeclCS cct = (ClassifierContextDeclCS)EclServices.getContextsFromPack(pck).get(0);
 		
 		// TODO add conditions on the contents of the Package to be only MetaClasses, NOT Enums, Not else
-		listOfconstants.addAll(getMaxNumberOfElementForEachType(cct.getClassifier().getPackage().eContents(),root));
+		listOfconstants.addAll(getMaxNumberOfElementForEachType(cct.getReferredClass().getOwningPackage().eContents(),root));
 		
 		for (Iterator<String> iterator = listOfconstants.iterator(); iterator.hasNext();) {
 			String string = (String) iterator.next();
@@ -101,8 +101,8 @@ public class FiacreGenerationServices {
 		EList <Type> listOfType = new BasicEList<Type>();
 		
 		ClassifierContextDeclCS cct = (ClassifierContextDeclCS) EclServices.getContextsFromPack(pck).get(0);
-		for (EObject eo : cct.getClassifier().getPackage().eContents()) {
-			listOfType.add((org.eclipse.ocl.examples.pivot.Type)eo);
+		for (EObject eo : cct.getReferredClass().getOwningPackage().eContents()) {
+			listOfType.add((Type)eo);
 		}
 		
 		EList <TypeAndAttribute> list_attr = new BasicEList<TypeAndAttribute>();
@@ -111,9 +111,9 @@ public class FiacreGenerationServices {
 		System.out.println("============================================================");
 		for (TypeAndAttribute atp : list_attr) 
 		{
-			// listIDArray.add(getAttributeArrayDefinition(attr,cct.getClassifier(),root));
-			if(!getAttributeArrayDefinition(atp,cct.getClassifier(),root).equals("empty"))
-				listIDArray.add(getAttributeArrayDefinition(atp,cct.getClassifier(),root));
+			// listIDArray.add(getAttributeArrayDefinition(attr,cct.getReferredClass(),root));
+			if(!getAttributeArrayDefinition(atp,cct.getReferredClass(),root).equals("empty"))
+				listIDArray.add(getAttributeArrayDefinition(atp,cct.getReferredClass(),root));
 		}
 		System.out.println("============================================================");
 		
@@ -138,15 +138,17 @@ public class FiacreGenerationServices {
 		System.out.println("cct = " +type.getName() + "/ attrType = " + atp.prop.getType().getName());
 		if (atp.prop.getType().getName().equalsIgnoreCase("OrderedSet")) 
 		{
-			if(atp.prop.getType().toString().contains(type.getPackage().toString())==true)
-			{
-				leftsideMetaClass = "OrderedSet"+"\\("+type.getPackage().toString()+"::";
-			}
 			
-			else
-			{
-				leftsideMetaClass = "OrderedSet\\(ecore::";
-			}
+			//TODO: fix this !!
+//			if(atp.prop.getType().toString().contains(type.getPackage().toString())==true)
+//			{
+//				leftsideMetaClass = "OrderedSet"+"\\("+type.getPackage().toString()+"::";
+//			}
+//			
+//			else
+//			{
+//				leftsideMetaClass = "OrderedSet\\(ecore::";
+//			}
 			
 			rightsideMetaClass = "\\)";
 			String ff = atp.prop.getType().toString();
@@ -159,16 +161,18 @@ public class FiacreGenerationServices {
 			arraytoAdd = "type " +elt.arrayname + " is array "+ elt.arraysize+" of "+ "int" +"\n";
 		}
 		
+		
 		if (atp.prop.getType().getName().equalsIgnoreCase("ArrayList")) 
 		{
-			if(atp.prop.getType().toString().contains(type.getPackage().toString())==true)
-			{
-				leftsideMetaClass = "ArrayList"+"\\("+type.getPackage().toString()+"::";
-			}
-			else
-			{
-				leftsideMetaClass = "ArrayList\\(ecore::";
-			}
+			//TODO: fix this !!
+//			if(atp.prop.getType().toString().contains(type.getPackage().toString())==true)
+//			{
+//				leftsideMetaClass = "ArrayList"+"\\("+type.getPackage().toString()+"::";
+//			}
+//			else
+//			{
+//				leftsideMetaClass = "ArrayList\\(ecore::";
+//			}
 			rightsideMetaClass = "\\)";
 			String ff = atp.prop.getType().toString();
 			elt.conceptname = ff.replaceAll(leftsideMetaClass, "").replaceAll(rightsideMetaClass, "").replace("[+]","");
@@ -187,18 +191,19 @@ public class FiacreGenerationServices {
 	/**
 	 * This Method gets the list of attributes of all the Types given
 	 * **/
-	public void getListofAllOwnedAttributes(EList <org.eclipse.ocl.examples.pivot.Type> lst, EList <TypeAndAttribute> listAtrr)
+	public void getListofAllOwnedAttributes(EList <Type> lst, EList <TypeAndAttribute> listAtrr)
 	{
-		for (org.eclipse.ocl.examples.pivot.Type t : lst) 
+		for (Type t : lst) 
 		{
-			for (Property property : t.getOwnedAttribute()) 
-			{
-				if(!(property.getName().equals(t.getName())))
-				{
-					TypeAndAttribute aTP = new TypeAndAttribute(t, property);
-					listAtrr.add(aTP);
-				}
-			}
+			//TODO: fix this !!
+//			for (Property property : t.getOwnedAttribute()) 
+//			{
+//				if(!(property.getName().equals(t.getName())))
+//				{
+//					TypeAndAttribute aTP = new TypeAndAttribute(t, property);
+//					listAtrr.add(aTP);
+//				}
+//			}
 		}
 	}
 }

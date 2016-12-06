@@ -2,10 +2,10 @@
 [module generateEcl2Clocksystem( 
 	'http://fr.inria.aoste.timesquare.ecl',
 	'http://org.gemoc.moccml/1.0',
-	'http://www.eclipse.org/ocl/3.1.0/CompleteOCLCST',
-	'http://www.eclipse.org/ocl/3.1.0/BaseCST',
-	'http://www.eclipse.org/ocl/3.1.0/Pivot',
-	'http://www.eclipse.org/ocl/3.1.0/EssentialOCLCST')]
+	'http://www.eclipse.org/ocl/2015/CompleteOCLCS',
+	'http://www.eclipse.org/ocl/2015/BaseCS',
+	'http://www.eclipse.org/ocl/2015/Pivot',
+	'http://www.eclipse.org/ocl/2015/EssentialOCLCS')]
 
 [import org::gemoc::mocc::transformations::ecl2mtl::libLoader::loadLibrary /] 
 [import org::gemoc::mocc::transformations::ecl2mtl::main::generateCCSLLibraries /] 

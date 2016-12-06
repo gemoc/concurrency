@@ -2,7 +2,7 @@
  */
 package org.gemoc.gel;
 
-import fr.inria.aoste.timesquare.ECL.ECLDefCS;
+import fr.inria.aoste.timesquare.ecl.ecl.ECLDefCS;
 
 /**
  * <!-- begin-user-doc -->

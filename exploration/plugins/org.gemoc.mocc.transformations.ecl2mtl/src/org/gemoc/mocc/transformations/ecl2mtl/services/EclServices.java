@@ -21,44 +21,33 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.StringTokenizer;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.ocl.examples.pivot.Operation;
-import org.eclipse.ocl.examples.pivot.Package;
-import org.eclipse.ocl.examples.pivot.Property;
-import org.eclipse.ocl.examples.pivot.Type;
-import org.eclipse.ocl.examples.xtext.base.basecs.ConstraintCS;
-import org.eclipse.ocl.examples.xtext.base.basecs.PrimitiveTypeRefCS;
-import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.ClassifierContextDeclCS;
-import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.ContextDeclCS;
-import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.DefCS;
-import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.PackageDeclarationCS;
-import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.AbstractNameExpCS;
-import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.BinaryOperatorCS;
-import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.ExpCS;
-import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.ExpSpecificationCS;
-import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.InfixExpCS;
-import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.InvocationExpCS;
-import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.LetExpCS;
-import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.LetVariableCS;
-import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.NameExpCS;
-import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.NavigatingArgCS;
-import org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.NestedExpCS;
+import org.eclipse.ocl.pivot.Class;
+import org.eclipse.ocl.pivot.Operation;
+import org.eclipse.ocl.pivot.Property;
+import org.eclipse.ocl.pivot.Type;
+import org.eclipse.ocl.xtext.basecs.ConstraintCS;
+import org.eclipse.ocl.xtext.basecs.PrimitiveTypeRefCS;
+import org.eclipse.ocl.xtext.completeoclcs.ClassifierContextDeclCS;
+import org.eclipse.ocl.xtext.completeoclcs.ContextDeclCS;
+import org.eclipse.ocl.xtext.completeoclcs.DefCS;
+import org.eclipse.ocl.xtext.completeoclcs.PackageDeclarationCS;
+import org.eclipse.ocl.xtext.essentialoclcs.CallExpCS;
+import org.eclipse.ocl.xtext.essentialoclcs.ExpCS;
+import org.eclipse.ocl.xtext.essentialoclcs.ExpSpecificationCS;
+import org.eclipse.ocl.xtext.essentialoclcs.InfixExpCS;
+import org.eclipse.ocl.xtext.essentialoclcs.LetExpCS;
+import org.eclipse.ocl.xtext.essentialoclcs.LetVariableCS;
+import org.eclipse.ocl.xtext.essentialoclcs.NestedExpCS;
 import org.gemoc.mocc.ccslmoc.model.moccml.StateMachineRelationDefinition;
 import org.gemoc.mocc.ccslmoc.model.moccml.StateRelationBasedLibrary;
 import org.gemoc.mocc.transformations.ecl2mtl.libLoader.LibLoader;
 
-import fr.inria.aoste.timesquare.ECL.ECLDefCS;
-import fr.inria.aoste.timesquare.ECL.ECLDocument;
-import fr.inria.aoste.timesquare.ECL.ECLExpression;
-import fr.inria.aoste.timesquare.ECL.ECLRelation;
-import fr.inria.aoste.timesquare.ECL.EventType;
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.BasicType.IntegerElement;
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.ConcreteEntity;
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.ExpressionLibrary;
@@ -66,6 +55,12 @@ import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpre
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.RelationDeclaration;
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.RelationDefinition;
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.RelationLibrary;
+import fr.inria.aoste.timesquare.ecl.ecl.ECLDefCS;
+import fr.inria.aoste.timesquare.ecl.ecl.ECLDocument;
+import fr.inria.aoste.timesquare.ecl.ecl.ECLExpression;
+import fr.inria.aoste.timesquare.ecl.ecl.ECLRelation;
+import fr.inria.aoste.timesquare.ecl.ecl.EventType;
+import fr.inria.aoste.timesquare.ecl.ecltoqvto.helper.helperNsURI;
 
 /**
  * Services to go through the ECL models
@@ -76,12 +71,13 @@ import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpre
  *
  */
 public class EclServices {
+	private helperNsURI theHelper = new helperNsURI();
 	
 	public String getMoCIDFromFirstLib(ECLDocument document){
 		
 		//StateRelationBasedLibrary lib = null;
 		
-		for (fr.inria.aoste.timesquare.ECL.ImportStatement st : document.getImports())
+		for (fr.inria.aoste.timesquare.ecl.ecl.ImportStatement st : document.getImports())
 		{
 			if(st.toString().contains("moccml"))
 			{
@@ -100,7 +96,7 @@ public class EclServices {
 		EList<String> result = new BasicEList<String>();	
 		for (Iterator<ContextDeclCS> iterator = getContexts(document).iterator(); iterator.hasNext();) {
 			ContextDeclCS c = iterator.next();
-			String cLabel = ((Package)((PackageDeclarationCS)c.eContainer()).getPivot()).getName()+"::"+((org.eclipse.ocl.examples.pivot.Class)c.getPivot()).getName();
+			String cLabel = ((Package)((PackageDeclarationCS)c.eContainer()).getPivot()).getName()+"::"+((org.eclipse.ocl.pivot.Class)c.getPivot()).getName();
 			if (!result.contains(cLabel)) {
 				result.add(cLabel);
 			}
@@ -123,7 +119,7 @@ public class EclServices {
 //		EList<String> result = new BasicEList<>();
 //		for (Iterator<ContextDeclCS> iterator = getAllContextOccurences(document).iterator(); iterator.hasNext();) {
 //			ContextDeclCS contextDeclCS = iterator.next();
-//			String name = ((org.eclipse.ocl.examples.pivot.Class)contextDeclCS.getPivot()).getName();
+//			String name = ((org.eclipse.ocl.pivot.Class)contextDeclCS.getPivot()).getName();
 //			if (!result.contains(name)) {
 //			result.add(name);
 //			}	
@@ -140,10 +136,10 @@ public class EclServices {
 			ContextDeclCS contextDeclCS = iterator.next();
 			ClassifierContextDeclCS _contextDeclCS = (ClassifierContextDeclCS) contextDeclCS;
 			if(tab.length>1)
-				name = tab[0] + "::"+_contextDeclCS.getClassifier().getName();
+				name = tab[0] + "::"+_contextDeclCS.getReferredClass().getName();
 			else
-				//name = ((org.eclipse.ocl.examples.pivot.Class)contextDeclCS.getPivot()).getName();
-				name = ((org.eclipse.ocl.examples.pivot.Class)contextDeclCS.getPivot()).toString();
+				//name = ((org.eclipse.ocl.pivot.Class)contextDeclCS.getPivot()).getName();
+				name = ((org.eclipse.ocl.pivot.Class)contextDeclCS.getPivot()).toString();
 			if (!result.contains(name)) {
 				result.add(name);
 			}	
@@ -153,9 +149,9 @@ public class EclServices {
 	
 	public EList<ContextDeclCS> getAllContextOccurences(ECLDocument document){
 		EList<ContextDeclCS> result = new BasicEList<>();
-		for (Iterator<PackageDeclarationCS> iterator = document.getPackages().iterator(); iterator.hasNext();) {
+		for (Iterator<PackageDeclarationCS> iterator = document.getOwnedPackages().iterator(); iterator.hasNext();) {
 			PackageDeclarationCS p = iterator.next();
-			for (Iterator<ContextDeclCS> iterator2 = p.getContexts().iterator(); iterator2.hasNext();) {
+			for (Iterator<ContextDeclCS> iterator2 = p.getOwnedContexts().iterator(); iterator2.hasNext();) {
 				ContextDeclCS c = iterator2.next();
 				result.add(c);
 			}
@@ -176,7 +172,7 @@ public class EclServices {
 		StringBuilder sb = new StringBuilder();
 		if (context instanceof ClassifierContextDeclCS) {
 			ClassifierContextDeclCS cCls = (ClassifierContextDeclCS) context;
-			for (Iterator<DefCS> iterator2 = cCls.getDefinitions().iterator(); iterator2
+			for (Iterator<DefCS> iterator2 = cCls.getOwnedDefinitions().iterator(); iterator2
 						.hasNext();) {
 				DefCS def = iterator2.next();
 				if (def.getOwnedType() instanceof EventType) {	
@@ -204,14 +200,14 @@ public class EclServices {
 	}
 	
 	public String getLabel(ContextDeclCS context){
-		return ((org.eclipse.ocl.examples.pivot.Class)context.getPivot()).getName();
+		return ((org.eclipse.ocl.pivot.Class)context.getPivot()).getName();
 	}
 	
 	public EList<String> getEvents(ContextDeclCS context){
 		EList<String> result = new BasicEList<>();
 		if (context instanceof ClassifierContextDeclCS) {
 			ClassifierContextDeclCS cCls = (ClassifierContextDeclCS) context;
-			for (Iterator<DefCS> iterator2 = cCls.getDefinitions().iterator(); iterator2
+			for (Iterator<DefCS> iterator2 = cCls.getOwnedDefinitions().iterator(); iterator2
 					.hasNext();) {
 				DefCS def = iterator2.next();
 				if (def.getOwnedType() instanceof EventType) {
@@ -226,11 +222,11 @@ public class EclServices {
 		EList<String> result = new BasicEList<>();
 		if (context instanceof ClassifierContextDeclCS) {
 			ClassifierContextDeclCS cCls = (ClassifierContextDeclCS) context;
-			for (Iterator<DefCS> iterator2 = cCls.getDefinitions().iterator(); iterator2
+			for (Iterator<DefCS> iterator2 = cCls.getOwnedDefinitions().iterator(); iterator2
 					.hasNext();) {
 				DefCS def = iterator2.next();
 				if (def.getOwnedType() instanceof EventType) {
-					if(def.getSpecification().toString().equals("self")==false)
+					if(def.getOwnedSpecification().toString().equals("self")==false)
 					result.add(def.getName());
 				}				
 			}	
@@ -242,11 +238,11 @@ public class EclServices {
 		EList<String> result = new BasicEList<>();
 		if (context instanceof ClassifierContextDeclCS) {
 			ClassifierContextDeclCS cCls = (ClassifierContextDeclCS) context;
-			for (Iterator<DefCS> iterator2 = cCls.getDefinitions().iterator(); iterator2
+			for (Iterator<DefCS> iterator2 = cCls.getOwnedDefinitions().iterator(); iterator2
 					.hasNext();) {
 				DefCS def = iterator2.next();
 				if (def.getOwnedType() instanceof EventType) {
-					if(def.getSpecification().toString().equals("self")==true)
+					if(def.getOwnedSpecification().toString().equals("self")==true)
 					result.add(def.getName());
 				}				
 			}	
@@ -263,16 +259,16 @@ public class EclServices {
 	
 	public String getExpressionName(ECLDocument document, String contextName, String eventName){
 		for (ContextDeclCS contextDeclCS : getAllContextOccurences(document)) {
-			if (((org.eclipse.ocl.examples.pivot.Class)contextDeclCS.getPivot()).toString().equals(contextName)) {
+			if (((org.eclipse.ocl.pivot.Class)contextDeclCS.getPivot()).toString().equals(contextName)) {
 				EList<ConstraintCS> invList = getInvariants(contextDeclCS);
 				for (ConstraintCS constraintCS : invList) {
 					EList<LetExpCS> lst = new BasicEList<>();
-					getLetRelation(((ExpSpecificationCS)constraintCS.getSpecification()).getOwnedExpression(), lst);
+					getLetRelation(((ExpSpecificationCS)constraintCS.getOwnedSpecification()).getOwnedExpression(), lst);
 					for (LetExpCS letExpCS : lst) {
-						for(LetVariableCS letVariableCS :letExpCS.getVariable()){
+						for(LetVariableCS letVariableCS :letExpCS.getOwnedVariables()){
 							if (letVariableCS.getOwnedType() instanceof EventType) {
 								if (letVariableCS.getName().equalsIgnoreCase(eventName)) {
-									return ((ECLExpression)letVariableCS.getInitExpression()).getType().getName();
+									return ((ECLExpression)letVariableCS.getOwnedInitExpression()).getType().getName();
 								}
 							} 
 						}
@@ -286,13 +282,13 @@ public class EclServices {
 	
 	public String printListedClockParameters(ECLDocument document, String contextName, String eventName){
 		for (ContextDeclCS contextDeclCS : getAllContextOccurences(document)) {
-			if (((org.eclipse.ocl.examples.pivot.Class)contextDeclCS.getPivot()).toString().equals(contextName)) {
+			if (((org.eclipse.ocl.pivot.Class)contextDeclCS.getPivot()).toString().equals(contextName)) {
 				EList<ConstraintCS> invList = getInvariants(contextDeclCS);
 				for (ConstraintCS constraintCS : invList) {
 					EList<LetExpCS> lst = new BasicEList<>();
-					getLetRelation(((ExpSpecificationCS)constraintCS.getSpecification()).getOwnedExpression(), lst);
+					getLetRelation(((ExpSpecificationCS)constraintCS.getOwnedSpecification()).getOwnedExpression(), lst);
 					for (LetExpCS letExpCS : lst) {
-						for(LetVariableCS letVariableCS :letExpCS.getVariable()){
+						for(LetVariableCS letVariableCS :letExpCS.getOwnedVariables()){
 							if (letVariableCS.getOwnedType() instanceof EventType) {
 								if (letVariableCS.getName().equalsIgnoreCase(eventName)) {
 									return getClockNamesListedAndSepBySpace(letVariableCS);
@@ -308,13 +304,13 @@ public class EclServices {
 	
 	public String printListedClockParametersSepByDot(ECLDocument document, String contextName, String eventName){
 		for (ContextDeclCS contextDeclCS : getAllContextOccurences(document)) {
-			if (((org.eclipse.ocl.examples.pivot.Class)contextDeclCS.getPivot()).getName().equals(contextName)) {
+			if (((org.eclipse.ocl.pivot.Class)contextDeclCS.getPivot()).getName().equals(contextName)) {
 				EList<ConstraintCS> invList = getInvariants(contextDeclCS);
 				for (ConstraintCS constraintCS : invList) {
 					EList<LetExpCS> lst = new BasicEList<>();
-					getLetRelation(((ExpSpecificationCS)constraintCS.getSpecification()).getOwnedExpression(), lst);
+					getLetRelation(((ExpSpecificationCS)constraintCS.getOwnedSpecification()).getOwnedExpression(), lst);
 					for (LetExpCS letExpCS : lst) {
-						for(LetVariableCS letVariableCS :letExpCS.getVariable()){
+						for(LetVariableCS letVariableCS :letExpCS.getOwnedVariables()){
 							if (letVariableCS.getOwnedType() instanceof EventType) {
 								if (letVariableCS.getName().equalsIgnoreCase(eventName)) {
 									return getClockNamesListedAndSepByDot(letVariableCS);
@@ -362,13 +358,13 @@ public class EclServices {
 		EList<LetVariableCS> result = new BasicEList<>();
 		//add internal events from let expression
 		for (ContextDeclCS contextDeclCS : getAllContextOccurences(document)) {
-			if (((org.eclipse.ocl.examples.pivot.Class)contextDeclCS.getPivot()).toString().equals(contextName)) {
+			if (((org.eclipse.ocl.pivot.Class)contextDeclCS.getPivot()).toString().equals(contextName)) {
 				EList<ConstraintCS> invList = getInvariants(contextDeclCS);
 				for (ConstraintCS constraintCS : invList) {
 					EList<LetExpCS> lst = new BasicEList<>();
-					getLetRelation(((ExpSpecificationCS)constraintCS.getSpecification()).getOwnedExpression(), lst);
+					getLetRelation(((ExpSpecificationCS)constraintCS.getOwnedSpecification()).getOwnedExpression(), lst);
 					for (LetExpCS letExpCS : lst) {
-						for(LetVariableCS letVariableCS :letExpCS.getVariable()){
+						for(LetVariableCS letVariableCS :letExpCS.getOwnedVariables()){
 							if (letVariableCS.getOwnedType() instanceof EventType) {
 								result.add(letVariableCS);
 							}
@@ -389,13 +385,13 @@ public class EclServices {
 	public boolean hasInternalEvents(ECLDocument document, String contextName){
 		//add internal events from let expression
 		for (ContextDeclCS contextDeclCS : getAllContextOccurences(document)) {
-			if (((org.eclipse.ocl.examples.pivot.Class)contextDeclCS.getPivot()).toString().equals(contextName)) {
+			if (((org.eclipse.ocl.pivot.Class)contextDeclCS.getPivot()).toString().equals(contextName)) {
 				EList<ConstraintCS> invList = getInvariants(contextDeclCS);
 				for (ConstraintCS constraintCS : invList) {
 					EList<LetExpCS> lst = new BasicEList<>();
-					getLetRelation(((ExpSpecificationCS)constraintCS.getSpecification()).getOwnedExpression(), lst);
+					getLetRelation(((ExpSpecificationCS)constraintCS.getOwnedSpecification()).getOwnedExpression(), lst);
 					for (LetExpCS letExpCS : lst) {
-						for(LetVariableCS letVariableCS :letExpCS.getVariable()){
+						for(LetVariableCS letVariableCS :letExpCS.getOwnedVariables()){
 							if (letVariableCS.getOwnedType() instanceof EventType) {
 								return true;
 							}
@@ -413,7 +409,7 @@ public class EclServices {
 		
 		for (Iterator<ContextDeclCS> iterator = getAllContextOccurences(document).iterator(); iterator.hasNext();) {
 			ContextDeclCS c = iterator.next();
-			if (((org.eclipse.ocl.examples.pivot.Class)c.getPivot()).getName().equals(((org.eclipse.ocl.examples.pivot.Class)context.getPivot()).getName())) {
+			if (((org.eclipse.ocl.pivot.Class)c.getPivot()).getName().equals(((org.eclipse.ocl.pivot.Class)context.getPivot()).getName())) {
 				result.addAll(getEvents(c));
 			}
 		}
@@ -425,7 +421,7 @@ public class EclServices {
 		
 		for (Iterator<ContextDeclCS> iterator = getAllContextOccurences(document).iterator(); iterator.hasNext();) {
 			ContextDeclCS c = iterator.next();
-			if (((org.eclipse.ocl.examples.pivot.Class)c.getPivot()).getName().equals(contextName)) {
+			if (((org.eclipse.ocl.pivot.Class)c.getPivot()).getName().equals(contextName)) {
 				result.addAll(getEvents(c)); 
 				//result.addAll(getEventsWithDSA(c)); 
 			}
@@ -437,7 +433,7 @@ public class EclServices {
 	public boolean hasEventsDSA(ECLDocument document, String contextName){
 		for (Iterator<ContextDeclCS> iterator = getAllContextOccurences(document).iterator(); iterator.hasNext();) {
 			ContextDeclCS c = iterator.next();
-			if (isPivotClassKindOf(((org.eclipse.ocl.examples.pivot.Class)c.getPivot()),contextName)) {
+			if (isPivotClassKindOf(((org.eclipse.ocl.pivot.Class)c.getPivot()),contextName)) {
 				if(getEvents(c).size()>0)
 					return true;
 			}
@@ -450,7 +446,7 @@ public class EclServices {
 		
 		for (Iterator<ContextDeclCS> iterator = getAllContextOccurences(document).iterator(); iterator.hasNext();) {
 			ContextDeclCS c = iterator.next();
-			if (isPivotClassKindOf(((org.eclipse.ocl.examples.pivot.Class)c.getPivot()),contextName)) {
+			if (isPivotClassKindOf(((org.eclipse.ocl.pivot.Class)c.getPivot()),contextName)) {
 				result.add(getDeclaredEvents(c)); 
 				//result.addAll(getEventsWithDSA(c)); // Used when we want to have only the events with DSA 
 			}
@@ -458,8 +454,8 @@ public class EclServices {
 		return result;
 	}
 	
-	private boolean isPivotClassKindOf(org.eclipse.ocl.examples.pivot.Class pivot, String contextName){
-		if ((pivot.getPackage() + "::" + pivot.getName()).equals(contextName)) {
+	private boolean isPivotClassKindOf(org.eclipse.ocl.pivot.Class pivot, String contextName){
+		if ((pivot.getOwningPackage() + "::" + pivot.getName()).equals(contextName)) {
 			return true;
 		}
 		if (pivot.getName().equals(contextName)) {
@@ -475,7 +471,7 @@ public class EclServices {
 		
 		for (Iterator<ContextDeclCS> iterator = getAllContextOccurences(document).iterator(); iterator.hasNext();) {
 			ContextDeclCS c = iterator.next();
-			if (((org.eclipse.ocl.examples.pivot.Class)c.getPivot()).getName().equals(contextName)) { 
+			if (((org.eclipse.ocl.pivot.Class)c.getPivot()).getName().equals(contextName)) { 
 				result.addAll(getEventsWithoutDSA(c)); 
 			}
 		}
@@ -497,7 +493,7 @@ public class EclServices {
 	public EList<ConstraintCS> getInvariants(ContextDeclCS context){
 		if (context instanceof ClassifierContextDeclCS) {
 			ClassifierContextDeclCS cCls = (ClassifierContextDeclCS) context;
-			return cCls.getInvariants();	
+			return cCls.getOwnedInvariants();	
 		}
 		return null;
 	}
@@ -513,7 +509,7 @@ public class EclServices {
 			cname = contextName;
 		for (Iterator<ContextDeclCS> iterator = getAllContextOccurences(document).iterator(); iterator.hasNext();) {
 			ContextDeclCS c = iterator.next();
-			if (((org.eclipse.ocl.examples.pivot.Class)c.getPivot()).getName().equals(cname)) {
+			if (((org.eclipse.ocl.pivot.Class)c.getPivot()).getName().equals(cname)) {
 				result.addAll(getInvariants(c));
 			}
 		}
@@ -522,27 +518,27 @@ public class EclServices {
 	
 	public String getLibraryName(ConstraintCS inv){
 		
-		if (inv.getSpecification()!=null) {
-			if (!(inv.getSpecification() instanceof ExpSpecificationCS)) {
+		if (inv.getOwnedSpecification()!=null) {
+			if (!(inv.getOwnedSpecification() instanceof ExpSpecificationCS)) {
 				return "TODO";
 			}
-			ECLRelation rel = getECLRelation(((ExpSpecificationCS)inv.getSpecification()).getOwnedExpression());
+			ECLRelation rel = getECLRelation(((ExpSpecificationCS)inv.getOwnedSpecification()).getOwnedExpression());
 			
 			if (rel!=null) {
 				return ((Library)((RelationLibrary)rel.getType().eContainer()).eContainer()).getName();
 			}
-			return "TODO: complete EclServices.java, ConstraintCS.getLibraryName() for expression type " +((ExpSpecificationCS)inv.getSpecification()).getOwnedExpression().eClass().getName();
+			return "TODO: complete EclServices.java, ConstraintCS.getLibraryName() for expression type " +((ExpSpecificationCS)inv.getOwnedSpecification()).getOwnedExpression().eClass().getName();
 
 		}
 		return "TODO";
 	}
 	
 	public String getLibraryName(LetVariableCS var){
-		return ((Library)((ExpressionLibrary)((ECLExpression)var.getInitExpression()).getType().eContainer()).eContainer()).getName();
+		return ((Library)((ExpressionLibrary)((ECLExpression)var.getOwnedInitExpression()).getType().eContainer()).eContainer()).getName();
 	}
 	
 	public String getRelationName(LetVariableCS var){
-		return ((ECLExpression)var.getInitExpression()).getType().getName().toString();
+		return ((ECLExpression)var.getOwnedInitExpression()).getType().getName().toString();
 	}
 	
 	public String getClockNamesListedAndSepByDot(LetVariableCS var){
@@ -556,13 +552,13 @@ public class EclServices {
 	public String getClockIterator(ECLDocument document, String contextName, String eventName){
 		
 		for (ContextDeclCS contextDeclCS : getAllContextOccurences(document)) {
-			if (((org.eclipse.ocl.examples.pivot.Class)contextDeclCS.getPivot()).toString().equals(contextName)) {
+			if (((org.eclipse.ocl.pivot.Class)contextDeclCS.getPivot()).toString().equals(contextName)) {
 				EList<ConstraintCS> invList = getInvariants(contextDeclCS);
 				for (ConstraintCS constraintCS : invList) {
 					EList<LetExpCS> lst = new BasicEList<>();
-					getLetRelation(((ExpSpecificationCS)constraintCS.getSpecification()).getOwnedExpression(), lst);
+					getLetRelation(((ExpSpecificationCS)constraintCS.getOwnedSpecification()).getOwnedExpression(), lst);
 					for (LetExpCS letExpCS : lst) {
-						for(LetVariableCS letVariableCS :letExpCS.getVariable()){
+						for(LetVariableCS letVariableCS :letExpCS.getOwnedVariables()){
 							if (letVariableCS.getOwnedType() instanceof EventType) {
 								if (letVariableCS.getName().equalsIgnoreCase(eventName)) {
 									return extractMultipleClockConditionFromClockExpression(letVariableCS);
@@ -578,7 +574,7 @@ public class EclServices {
 	}
 	
 	private String extractMultipleClockConditionFromClockExpression(LetVariableCS letVariableCS){
-		ECLExpression exp = (ECLExpression)letVariableCS.getInitExpression();
+		ECLExpression exp = (ECLExpression)letVariableCS.getOwnedInitExpression();
 		if(exp.getParameters().size()>1){
 			return "true";
 		}else{
@@ -594,7 +590,7 @@ public class EclServices {
 	 */
 	private String processVariableExpression(LetVariableCS variable){
 		StringBuilder sb = new StringBuilder(16);
-		ECLExpression exp = (ECLExpression)variable.getInitExpression();
+		ECLExpression exp = (ECLExpression)variable.getOwnedInitExpression();
 		for (int i = 0; i < exp.getParameters().size(); i++) {
 			ExpCS e = exp.getParameters().get(i);
 			//e.
@@ -657,7 +653,7 @@ public class EclServices {
 	 * @param variable
 	 * @return
 	 */
-	public LetVariableCS getVariableFromSetOfClock(String clockName){
+	public LetVariableCS getOwnedVariablesFromSetOfClock(String clockName){
 		for(LetVariableCS existingVar : setOfClocks){
 			if(existingVar.getName().equals(clockName)){
 				return existingVar;
@@ -674,13 +670,14 @@ public class EclServices {
 	private ExpCS getLastParameter(ExpCS exp){
 		if(exp instanceof InfixExpCS){
 			InfixExpCS infixExp = (InfixExpCS)exp;
-			return infixExp.getOwnedExpression().get(infixExp.getOwnedExpression().size()-1);
+			//TODO: here one should iterate over all left and right expressions
+		return theHelper.getAllContainedExpression(infixExp).get(theHelper.getAllContainedExpression(infixExp).size()-1);
 		}else if (exp instanceof ECLExpression){
 			ECLExpression eclExp = (ECLExpression)exp;
 			return getLastParameter(eclExp.getParameters().get(0));
 		}else if (exp instanceof LetVariableCS){
 			LetVariableCS varExp = (LetVariableCS)exp;
-			return getLastParameter(varExp.getInitExpression());
+			return getLastParameter(varExp.getOwnedInitExpression());
 		}else
 			return null;
 	}
@@ -688,7 +685,7 @@ public class EclServices {
 	
 	public String getClockNamesListedAndSepBySep(LetVariableCS var, String sep){
 		StringBuilder sb = new StringBuilder(16);
-		ECLExpression exp = (ECLExpression)var.getInitExpression();
+		ECLExpression exp = (ECLExpression)var.getOwnedInitExpression();
 		for (int i = 0; i < exp.getParameters().size(); i++) {
 			ExpCS e = exp.getParameters().get(i);
 			//e.
@@ -722,7 +719,7 @@ public class EclServices {
 	
 	public String getConstantsOrLinkersListedAndSepByDot(LetVariableCS var){
 		StringBuilder sb = new StringBuilder(16);
-		ECLExpression exp = (ECLExpression)var.getInitExpression();
+		ECLExpression exp = (ECLExpression)var.getOwnedInitExpression();
 		for (int i = 0; i < exp.getParameters().size(); i++) {
 			ExpCS e = exp.getParameters().get(i);
 			String pivotValue = e.getPivot().toString();
@@ -736,20 +733,20 @@ public class EclServices {
 				} while (!(eo instanceof ConstraintCS));
 				ConstraintCS c = (ConstraintCS)eo;
 				EList<LetExpCS> lst = new BasicEList<>();
-				getLetRelation(((ExpSpecificationCS)c.getSpecification()).getOwnedExpression(), lst);
+				getLetRelation(((ExpSpecificationCS)c.getOwnedSpecification()).getOwnedExpression(), lst);
 				for (LetExpCS letExpCS : lst) {
-					for (LetVariableCS letVarCS : letExpCS.getVariable()) {
+					for (LetVariableCS letVarCS : letExpCS.getOwnedVariables()) {
 						if (letVarCS.getName().equals(e.toString())) {
-							if (letVarCS.getInitExpression().toString().contains("self.")) {
-								if (letVarCS.getInitExpression().toString().replace("self.", "").contains(".")) {
+							if (letVarCS.getOwnedInitExpression().toString().contains("self.")) {
+								if (letVarCS.getOwnedInitExpression().toString().replace("self.", "").contains(".")) {
 									//complex navigation TODO
-									sb.append("["+letVarCS.getInitExpression().toString().replace("self.", "element.")+"/]"); //FIXME
+									sb.append("["+letVarCS.getOwnedInitExpression().toString().replace("self.", "element.")+"/]"); //FIXME
 									
 								}else {
-									sb.append("[element."+letVarCS.getInitExpression().toString().replace("self.", "")+"/]");
+									sb.append("[element."+letVarCS.getOwnedInitExpression().toString().replace("self.", "")+"/]");
 								}
 							}else {
-								sb.append(letVarCS.getInitExpression().toString());
+								sb.append(letVarCS.getOwnedInitExpression().toString());
 							}
 						}
 					}
@@ -766,7 +763,7 @@ public class EclServices {
 	
 	private LetVariableCS getVarInLetExpression(ConstraintCS inv,String name){
 		for(LetExpCS letExp : getLetExpressions(inv)){
-			for(LetVariableCS var : letExp.getVariable()){
+			for(LetVariableCS var : letExp.getOwnedVariables()){
 				if(var.getName().equals(name)){
 					return var;
 				}
@@ -778,11 +775,11 @@ public class EclServices {
 	
 	public String getClockNamesListedAndSepBySep(ConstraintCS inv, String sep){
 		StringBuilder sb = new StringBuilder();
-		if (inv.getSpecification()!=null) {
-			if (!(inv.getSpecification() instanceof ExpSpecificationCS)) {
+		if (inv.getOwnedSpecification()!=null) {
+			if (!(inv.getOwnedSpecification() instanceof ExpSpecificationCS)) {
 				return "TODO: complete EclServices.java, ConstraintCS.getClockNamesListedAndSepBySep()";
 			}
-			ECLRelation rel = getECLRelation(((ExpSpecificationCS)inv.getSpecification()).getOwnedExpression());
+			ECLRelation rel = getECLRelation(((ExpSpecificationCS)inv.getOwnedSpecification()).getOwnedExpression());
 			
 			if (rel!=null) {
 				for (int i = 0; i < rel.getParameters().size(); i++) {
@@ -814,11 +811,11 @@ public class EclServices {
 							if (pivotValue.startsWith("(")) { //clock in let
 								String letID = pivotValue.substring(e.toString().indexOf("(")+1, pivotValue.lastIndexOf(")"));
 								EList<LetExpCS> lst = new BasicEList<>();
-								getLetRelation(((ExpSpecificationCS)inv.getSpecification()).getOwnedExpression(), lst);
+								getLetRelation(((ExpSpecificationCS)inv.getOwnedSpecification()).getOwnedExpression(), lst);
 								for (LetExpCS letExpCS : lst) {
-									for (LetVariableCS letVariableCS : letExpCS.getVariable()) {
+									for (LetVariableCS letVariableCS : letExpCS.getOwnedVariables()) {
 										if (letVariableCS.getName().equals(letID)) {
-											String str = letVariableCS.getInitExpression().toString().replace("self", "element");//FIXME
+											String str = letVariableCS.getOwnedInitExpression().toString().replace("self", "element");//FIXME
 											sb.append(pivotValue.substring(pivotValue.lastIndexOf(".")+1, pivotValue.length())).append("[").append(str).append(".name/]");
 										}
 									}
@@ -831,13 +828,13 @@ public class EclServices {
 								} while (!(eo instanceof ConstraintCS));
 								ConstraintCS c = (ConstraintCS)eo;
 								EList<LetExpCS> lst = new BasicEList<>();
-								getLetRelation(((ExpSpecificationCS)c.getSpecification()).getOwnedExpression(), lst);
+								getLetRelation(((ExpSpecificationCS)c.getOwnedSpecification()).getOwnedExpression(), lst);
 								String variableString =pivotValue;
 								for (LetExpCS letExpCS : lst) {
-									for (LetVariableCS letVarCS : letExpCS.getVariable()) {
+									for (LetVariableCS letVarCS : letExpCS.getOwnedVariables()) {
 										if (e.toString().contains(letVarCS.getName())) {
 											if(letVarCS.getOwnedType() instanceof PrimitiveTypeRefCS){
-												variableString = pivotValue.replace(letVarCS.getName(), letVarCS.getInitExpression().toString());
+												variableString = pivotValue.replace(letVarCS.getName(), letVarCS.getOwnedInitExpression().toString());
 											}
 											
 											if (letVarCS.getOwnedType() instanceof EventType) {
@@ -853,17 +850,17 @@ public class EclServices {
 													if (sb.length()!=0) {
 														sb.append(sep);
 													}
-													if(getVariableFromSetOfClock(pivotValue)!=null ){
-														String varExp = processVariableExpression(getVariableFromSetOfClock(pivotValue));
-														if(!processVariableExpression(getVariableFromSetOfClock(pivotValue)).equals("")){
+													if(getOwnedVariablesFromSetOfClock(pivotValue)!=null ){
+														String varExp = processVariableExpression(getOwnedVariablesFromSetOfClock(pivotValue));
+														if(!processVariableExpression(getOwnedVariablesFromSetOfClock(pivotValue)).equals("")){
 															sb.append("[if ( ");
-															sb.append(processVariableExpression(getVariableFromSetOfClock(pivotValue)));
+															sb.append(processVariableExpression(getOwnedVariablesFromSetOfClock(pivotValue)));
 															sb.append("->size()<2) ]");
-															sb.append(getLastParameter(getVariableFromSetOfClock(pivotValue)).toString());
-															sb.append("[" + processFirstVariableExpression(getVariableFromSetOfClock(pivotValue))+ "/]" );
+															sb.append(getLastParameter(getOwnedVariablesFromSetOfClock(pivotValue)).toString());
+															sb.append("[" + processFirstVariableExpression(getOwnedVariablesFromSetOfClock(pivotValue))+ "/]" );
 															sb.append("[/if]");
 															sb.append("[if ( ");
-															sb.append(processVariableExpression(getVariableFromSetOfClock(pivotValue)));
+															sb.append(processVariableExpression(getOwnedVariablesFromSetOfClock(pivotValue)));
 															sb.append("->size()>1) ]");
 															sb.append(pivotValue+ "[element.name/]");
 															sb.append("[/if]");
@@ -942,28 +939,44 @@ public class EclServices {
 		StringBuilder sb = new StringBuilder();
 		if(e instanceof InfixExpCS){
 			InfixExpCS infix = (InfixExpCS)e;
-			for(ExpCS exp : infix.getOwnedExpression()){
-				if(exp instanceof InvocationExpCS){
-					InvocationExpCS invok = (InvocationExpCS) exp;
-					sb.append(substituteNonAcceleoOperation(invok.getNameExp().toString()));
+			for(ExpCS exp : theHelper.getAllContainedExpression(infix)){
+				//TODO: check cast correctness, was InvocationExpCS
+				if(exp instanceof CallExpCS){
+					CallExpCS invok = (CallExpCS) exp;
+					sb.append(substituteNonAcceleoOperation(invok.getOwnedPathName().toString()));
 					sb.append("(");
-					for(NavigatingArgCS arg : invok.getArgument()){
-						//String replaced = invok.toString();
-						//replaced = replaced.replace(arg.toString(), invok.getSourceType().toString());
-						//returned = returned.replace(invok.toString(), replaced);
-						sb.append(arg.getPrefix() != null ? arg.getPrefix() : "");  
-						sb.append(arg.getPivot() ==null || arg.getPivot().toString().contains("OclInvalid[?]") ? arg.getName() : arg.getPivot());
-						/*if(invok.getArgument().indexOf(arg) > invok.getArgument().size()-1){
-							sb.append(",");
-						}*/
-					}
+					
+					//TODO: correct this ! 
+					
+					
+					
+					
+//					for(NavigatingArgCS arg : invok.getArguments()){
+//						//String replaced = invok.toString();
+//						//replaced = replaced.replace(arg.toString(), invok.getSourceType().toString());
+//						//returned = returned.replace(invok.toString(), replaced);
+//						sb.append(arg.getPrefix() != null ? arg.getPrefix() : "");  
+//						sb.append(arg.getPivot() ==null || arg.getPivot().toString().contains("OclInvalid[?]") ? arg.getName() : arg.getPivot());
+//						/*if(invok.getArgument().indexOf(arg) > invok.getArgument().size()-1){
+//							sb.append(",");
+//						}*/
+//					}
+					
+					
+					
+					
 					sb.append(")");
 				}else{
 					sb.append(exp.toString());
 				}
-				int index = infix.getOwnedExpression().indexOf(exp);
-				if(index<infix.getOwnedOperator().size())
-					sb.append(infix.getOwnedOperator().get(index).toString());
+				int index = theHelper.getAllContainedExpression(infix).indexOf(exp);
+				
+//				TODO: correct the following !
+				
+//				if(index<infix.getOwnedOperator().size())
+//					sb.append(infix.getOwnedOperator().get(index).toString());
+				
+				
 			}
 		}
 		return sb.toString();
@@ -990,19 +1003,19 @@ public class EclServices {
 	public List<LetVariableCS> getConstantsOrLinker(ConstraintCS inv){
 		List<LetVariableCS> constants = new ArrayList<LetVariableCS>();
 		EList<LetExpCS> lst = new BasicEList<>();
-		getLetRelation(((ExpSpecificationCS)inv.getSpecification()).getOwnedExpression(), lst);
+		getLetRelation(((ExpSpecificationCS)inv.getOwnedSpecification()).getOwnedExpression(), lst);
 		for (Iterator<LetExpCS> iterator = lst.iterator(); iterator.hasNext();) {
 			LetExpCS expCS = iterator.next();
-			EList<LetVariableCS> listVar = expCS.getVariable();
+			EList<LetVariableCS> listVar = expCS.getOwnedVariables();
 			boolean isIn = false;
 			for (int i = 0; i < listVar.size(); i++) {
 				LetVariableCS letVariableCS = listVar.get(i);
 				if (letVariableCS.getOwnedType() instanceof  PrimitiveTypeRefCS) {
 					if (((PrimitiveTypeRefCS)letVariableCS.getOwnedType()).getName().equalsIgnoreCase("Integer")) {
 						isIn = false;
-						ECLRelation rel = getECLRelation(((ExpSpecificationCS)inv.getSpecification()).getOwnedExpression());
+						ECLRelation rel = getECLRelation(((ExpSpecificationCS)inv.getOwnedSpecification()).getOwnedExpression());
 						for (ExpCS e : rel.getParameters()) {
-							if (e.toString().contains(expCS.getVariable().get(0).getName())) {
+							if (e.toString().contains(expCS.getOwnedVariables().get(0).getName())) {
 								isIn=true;
 							};
 						}
@@ -1019,8 +1032,8 @@ public class EclServices {
 	
 	public List<IntegerElement> getIntegerVariables(ConstraintCS inv){
 		List<IntegerElement> integers= new ArrayList<IntegerElement>();
-		if (inv.getSpecification()!=null) {
-			ECLRelation rel = getECLRelation(((ExpSpecificationCS)inv.getSpecification()).getOwnedExpression());
+		if (inv.getOwnedSpecification()!=null) {
+			ECLRelation rel = getECLRelation(((ExpSpecificationCS)inv.getOwnedSpecification()).getOwnedExpression());
 			if (rel!=null && !(((RelationLibrary)rel.getType().eContainer()).getName().equalsIgnoreCase("kernelRelations"))) {
 				RelationDefinition rd = getCorrespondingRelationDefinition(((RelationLibrary)rel.getType().eContainer()), rel.getType());
 			
@@ -1043,15 +1056,15 @@ public class EclServices {
 		return getClockNamesListedAndSepBySep(inv, ". ");
 	}
 	
-	public String getVariablesListedAndSepByDot(ConstraintCS inv){
+	public String getOwnedVariablessListedAndSepByDot(ConstraintCS inv){
 		StringBuilder sb = new StringBuilder();
-		if (inv.getSpecification()!=null) {
-			if (!(inv.getSpecification() instanceof ExpSpecificationCS)) {
+		if (inv.getOwnedSpecification()!=null) {
+			if (!(inv.getOwnedSpecification() instanceof ExpSpecificationCS)) {
 				return "TODO";
 			}
-			ECLRelation rel = getECLRelation(((ExpSpecificationCS)inv.getSpecification()).getOwnedExpression());
+			ECLRelation rel = getECLRelation(((ExpSpecificationCS)inv.getOwnedSpecification()).getOwnedExpression());
 			if (rel==null) {
-				return "TODO: complete EclServices.java, ConstraintCS.getVariablesListedAndSepByDot() for expression type " +((ExpSpecificationCS)inv.getSpecification()).getOwnedExpression().eClass().getName();
+				return "TODO: complete EclServices.java, ConstraintCS.getOwnedVariablessListedAndSepByDot() for expression type " +((ExpSpecificationCS)inv.getOwnedSpecification()).getOwnedExpression().eClass().getName();
 			}
 			if (((RelationLibrary)rel.getType().eContainer()).getName().equalsIgnoreCase("kernelRelations")) {
 				return "";
@@ -1059,7 +1072,7 @@ public class EclServices {
 			
 			RelationDefinition rd = getCorrespondingRelationDefinition(((RelationLibrary)rel.getType().eContainer()), rel.getType());
 			if (rd==null) {
-				return "TODO: complete EclServices.java, ConstraintCS.getVariablesListedAndSepByDot() for expression type " +((ExpSpecificationCS)inv.getSpecification()).getOwnedExpression().eClass().getName();
+				return "TODO: complete EclServices.java, ConstraintCS.getOwnedVariablessListedAndSepByDot() for expression type " +((ExpSpecificationCS)inv.getOwnedSpecification()).getOwnedExpression().eClass().getName();
 			}
 			if (rd instanceof StateMachineRelationDefinition) {
 				if(((StateMachineRelationDefinition)rd).getDeclarationBlock()!=null){
@@ -1071,7 +1084,7 @@ public class EclServices {
 							}
 							sb.append(((IntegerElement)ce).getValue());
 						}else {
-							return "TODO: complete EclServices.java, ConstraintCS.getVariablesListedAndSepByDot() for expression type " +((ExpSpecificationCS)inv.getSpecification()).getOwnedExpression().eClass().getName();
+							return "TODO: complete EclServices.java, ConstraintCS.getOwnedVariablessListedAndSepByDot() for expression type " +((ExpSpecificationCS)inv.getOwnedSpecification()).getOwnedExpression().eClass().getName();
 						}
 					}
 				}
@@ -1092,40 +1105,40 @@ public class EclServices {
 	
 	public List<LetExpCS> getLetExpressions(ConstraintCS inv){
 		EList<LetExpCS> lst = new BasicEList<>();
-		getLetRelation(((ExpSpecificationCS)inv.getSpecification()).getOwnedExpression(), lst);
+		getLetRelation(((ExpSpecificationCS)inv.getOwnedSpecification()).getOwnedExpression(), lst);
 		return lst;
 	}
 	
 	public String getConstantsOrLinkersListedAndSepByDot(ConstraintCS inv){
 		StringBuilder sb = new StringBuilder(16);
 		EList<LetExpCS> lst = new BasicEList<>();
-		getLetRelation(((ExpSpecificationCS)inv.getSpecification()).getOwnedExpression(), lst);
+		getLetRelation(((ExpSpecificationCS)inv.getOwnedSpecification()).getOwnedExpression(), lst);
 		for (Iterator<LetExpCS> iterator = lst.iterator(); iterator.hasNext();) {
 			LetExpCS expCS = iterator.next();
-			EList<LetVariableCS> listVar = expCS.getVariable();
+			EList<LetVariableCS> listVar = expCS.getOwnedVariables();
 			boolean isIn = false;
 			for (int i = 0; i < listVar.size(); i++) {
 				LetVariableCS letVariableCS = listVar.get(i);
 				if (letVariableCS.getOwnedType() instanceof  PrimitiveTypeRefCS) {
 					if (((PrimitiveTypeRefCS)letVariableCS.getOwnedType()).getName().equalsIgnoreCase("Integer")) {
 						isIn = false;
-						ECLRelation rel = getECLRelation(((ExpSpecificationCS)inv.getSpecification()).getOwnedExpression());
+						ECLRelation rel = getECLRelation(((ExpSpecificationCS)inv.getOwnedSpecification()).getOwnedExpression());
 						for (ExpCS e : rel.getParameters()) {
-							if (e.toString().contains(expCS.getVariable().get(0).getName())) {
+							if (e.toString().contains(expCS.getOwnedVariables().get(0).getName())) {
 								isIn=true;
 							};
 						}
 						if (isIn) {//if in relation
-							if (letVariableCS.getInitExpression().toString().contains("self.")) {
-								if (letVariableCS.getInitExpression().toString().replace("self.", "").contains(".")) {
+							if (letVariableCS.getOwnedInitExpression().toString().contains("self.")) {
+								if (letVariableCS.getOwnedInitExpression().toString().replace("self.", "").contains(".")) {
 									//complex navigation TODO
-									sb.append("["+letVariableCS.getInitExpression().getPivot().toString().replace("self.", "element.")+"/]"); //FIXME
+									sb.append("["+letVariableCS.getOwnedInitExpression().getPivot().toString().replace("self.", "element.")+"/]"); //FIXME
 									
 								}else {
-									sb.append("[element."+letVariableCS.getInitExpression().getPivot().toString().replace("self.", "")+"/]");
+									sb.append("[element."+letVariableCS.getOwnedInitExpression().getPivot().toString().replace("self.", "")+"/]");
 								}
 							}else {
-								sb.append(letVariableCS.getInitExpression().getPivot().toString());
+								sb.append(letVariableCS.getOwnedInitExpression().getPivot().toString());
 							}
 							if (i<listVar.size()-1) {
 								sb.append(". ");
@@ -1148,42 +1161,42 @@ public class EclServices {
 		}
 		if (exp instanceof LetExpCS) {
 			lst.add((LetExpCS)exp);
-			return getLetRelation(((LetExpCS)exp).getIn(),lst);
+			return getLetRelation(((LetExpCS)exp).getOwnedInExpression(),lst);
 		}
 		if (exp instanceof InfixExpCS) {
-			return getLetRelation(((InfixExpCS)exp).getOwnedExpression().get(1),lst);
+			return getLetRelation(theHelper.getAllContainedExpression(exp).get(1),lst);
 		}
 		return null;
 	}
 	
 	public String getRelationName(ConstraintCS inv){
-		if (inv.getSpecification()!=null) {
-			if (!(inv.getSpecification() instanceof ExpSpecificationCS)) {
+		if (inv.getOwnedSpecification()!=null) {
+			if (!(inv.getOwnedSpecification() instanceof ExpSpecificationCS)) {
 				return "TODO";
 			}
-			ECLRelation rel = getECLRelation(((ExpSpecificationCS)inv.getSpecification()).getOwnedExpression());
+			ECLRelation rel = getECLRelation(((ExpSpecificationCS)inv.getOwnedSpecification()).getOwnedExpression());
 			
 			if (rel!=null) {
 				RelationDefinition rd = getCorrespondingRelationDefinition((RelationLibrary)rel.getType().eContainer(), rel.getType());
 				return rd.getName();
 			}
-			return "TODO: complete EclServices.java, ConstraintCS.getRelationName() for expression type " +((ExpSpecificationCS)inv.getSpecification()).getOwnedExpression().eClass().getName();
+			return "TODO: complete EclServices.java, ConstraintCS.getRelationName() for expression type " +((ExpSpecificationCS)inv.getOwnedSpecification()).getOwnedExpression().eClass().getName();
 
 		}
 		return "TODO";
 	}
 	
 	public String getRelationDeclName(ConstraintCS inv){
-		if (inv.getSpecification()!=null) {
-			if (!(inv.getSpecification() instanceof ExpSpecificationCS)) {
+		if (inv.getOwnedSpecification()!=null) {
+			if (!(inv.getOwnedSpecification() instanceof ExpSpecificationCS)) {
 				return "TODO";
 			}
-			ECLRelation rel = getECLRelation(((ExpSpecificationCS)inv.getSpecification()).getOwnedExpression());
+			ECLRelation rel = getECLRelation(((ExpSpecificationCS)inv.getOwnedSpecification()).getOwnedExpression());
 			
 			if (rel!=null) {
 				return rel.getType().getName();
 			}
-			return "TODO: complete EclServices.java, ConstraintCS.getRelationName() for expression type " +((ExpSpecificationCS)inv.getSpecification()).getOwnedExpression().eClass().getName();
+			return "TODO: complete EclServices.java, ConstraintCS.getRelationName() for expression type " +((ExpSpecificationCS)inv.getOwnedSpecification()).getOwnedExpression().eClass().getName();
 
 		}
 		return "TODO";
@@ -1197,16 +1210,22 @@ public class EclServices {
 	}
 	
 	public String getRelationCondition(ConstraintCS inv){
-		if (inv.getSpecification()!=null) {
-			if (!(inv.getSpecification() instanceof ExpSpecificationCS)) {
+		if (inv.getOwnedSpecification()!=null) {
+			if (!(inv.getOwnedSpecification() instanceof ExpSpecificationCS)) {
 				return "TODO";
 			}
-			List<ExpCS> exps = getECLCondition(((ExpSpecificationCS)inv.getSpecification()).getOwnedExpression());
+			List<ExpCS> exps = getECLCondition(((ExpSpecificationCS)inv.getOwnedSpecification()).getOwnedExpression());
 			StringBuilder sb = new StringBuilder();
 			for(ExpCS expCS : exps){
-				sb.append((expCS instanceof BinaryOperatorCS) ? " " : "( ");	
-				sb.append(substituteNonAcceleoOperation(expCS.toString()));
-				sb.append((expCS instanceof BinaryOperatorCS) ? " " : ") ");	
+//				TODO: correct this !
+				
+				
+//				sb.append((expCS instanceof BinaryOperatorCS) ? " " : "( ");	
+//				sb.append(substituteNonAcceleoOperation(expCS.toString()));
+//				sb.append((expCS instanceof BinaryOperatorCS) ? " " : ") ");	
+				
+				
+				
 			}
 			if(sb.toString().equals("")){
 				return "true";
@@ -1222,14 +1241,14 @@ public class EclServices {
 			return (ECLRelation) exp;
 		}
 		if (exp instanceof NestedExpCS) {
-			return getECLRelation(((NestedExpCS) exp).getSource());
+			return getECLRelation(((NestedExpCS) exp).getOwnedExpression());
 		}
 		if (exp instanceof LetExpCS) {
-			return getECLRelation(((LetExpCS)exp).getIn());
+			return getECLRelation(((LetExpCS)exp).getOwnedInExpression());
 		}
 		if (exp instanceof InfixExpCS) {
 			ECLRelation relation = null;
-			for(ExpCS ownExp : ((InfixExpCS)exp).getOwnedExpression()){
+			for(ExpCS ownExp : theHelper.getAllContainedExpression(exp)){
 				if(getECLRelation(ownExp)!=null){
 					relation = getECLRelation(ownExp);
 				}
@@ -1241,18 +1260,20 @@ public class EclServices {
 	
 	private List<ExpCS> getECLCondition(ExpCS exp){
 		List<ExpCS> exps = new ArrayList<ExpCS>();
-		if (exp instanceof NestedExpCS && !(((NestedExpCS)exp).getSource() instanceof ECLRelation)) {
-			exps.add(((NestedExpCS) exp).getSource());
+		if (exp instanceof NestedExpCS && !(((NestedExpCS)exp).getOwnedExpression() instanceof ECLRelation)) {
+			exps.add(((NestedExpCS) exp).getOwnedExpression());
 			return exps;
 		}
 		if (exp instanceof InfixExpCS) {
-			for(int i =0;i<((InfixExpCS)exp).getOwnedExpression().size(); i++){
-				ExpCS ownedExp = ((InfixExpCS)exp).getOwnedExpression().get(i);
+			for(int i =0;i<theHelper.getAllContainedExpression(exp).size(); i++){
+				ExpCS ownedExp = theHelper.getAllContainedExpression(exp).get(i);
 				exps.addAll(getECLCondition(ownedExp));
-				if(((InfixExpCS)exp).getOwnedOperator().size()>=(i+1) && 
-						!((InfixExpCS)exp).getOwnedOperator().get(i).getName().equals("implies")){
-					exps.add(((InfixExpCS)exp).getOwnedOperator().get(i));
-				}
+				
+//				TODO: fix the following !!
+//				if(((InfixExpCS)exp).getOwnedOperator().size()>=(i+1) && 
+//						!((InfixExpCS)exp).getOwnedOperator().get(i).getName().equals("implies")){
+//					exps.add(((InfixExpCS)exp).getOwnedOperator().get(i));
+//				}
 				
 			}
 		}
@@ -1262,13 +1283,14 @@ public class EclServices {
 	
 	public String getNsURIToDeclare(ECLDocument document){
 		StringBuilder sb = new StringBuilder(48);
-		for (Iterator<PackageDeclarationCS> iterator = document.getPackages().iterator(); iterator.hasNext();) {
+		for (Iterator<PackageDeclarationCS> iterator = document.getOwnedPackages().iterator(); iterator.hasNext();) {
 			PackageDeclarationCS p = iterator.next();
-			String uri = ((Package)p.getPivot()).getNsURI().toString().replace("/extended", "");
-			sb.append("'").append(uri).append("'");
-			if (iterator.hasNext()) {
-				sb.append(",");
-			}
+			//TODO: fix the following !!
+//			String uri = ((Package)p.getPivot()).getNsURI().toString().replace("/extended", "");
+//			sb.append("'").append(uri).append("'");
+//			if (iterator.hasNext()) {
+//				sb.append(",");
+//			}
 		}
 		return sb.toString();
 	}
@@ -1286,9 +1308,9 @@ public class EclServices {
 	
 	public boolean hasInternalClocks(ConstraintCS constraintCS){
 		EList<LetExpCS> lst = new BasicEList<>();
-		getLetRelation(((ExpSpecificationCS)constraintCS.getSpecification()).getOwnedExpression(), lst);
+		getLetRelation(((ExpSpecificationCS)constraintCS.getOwnedSpecification()).getOwnedExpression(), lst);
 		for (LetExpCS letExpCS : lst) {
-			for(LetVariableCS letVariableCS :letExpCS.getVariable()){
+			for(LetVariableCS letVariableCS :letExpCS.getOwnedVariables()){
 				if (letVariableCS.getOwnedType() instanceof EventType) {
 					return true;
 				}
@@ -1300,9 +1322,9 @@ public class EclServices {
 	public EList<String> getInternalClocks(ConstraintCS constraintCS){
 		EList<String> result = new BasicEList<String>();
 		EList<LetExpCS> lst = new BasicEList<>();
-		getLetRelation(((ExpSpecificationCS)constraintCS.getSpecification()).getOwnedExpression(), lst);
+		getLetRelation(((ExpSpecificationCS)constraintCS.getOwnedSpecification()).getOwnedExpression(), lst);
 		for (LetExpCS letExpCS : lst) {
-			for(LetVariableCS letVariableCS :letExpCS.getVariable()){
+			for(LetVariableCS letVariableCS :letExpCS.getOwnedVariables()){
 				if (letVariableCS.getOwnedType() instanceof EventType) {
 					result.add(letVariableCS.getName());
 				}
@@ -1314,9 +1336,9 @@ public class EclServices {
 	public EList<LetVariableCS> getInternalClockExps(ConstraintCS constraintCS){
 		EList<LetVariableCS> result = new BasicEList<LetVariableCS>();
 		EList<LetExpCS> lst = new BasicEList<>();
-		getLetRelation(((ExpSpecificationCS)constraintCS.getSpecification()).getOwnedExpression(), lst);
+		getLetRelation(((ExpSpecificationCS)constraintCS.getOwnedSpecification()).getOwnedExpression(), lst);
 		for (LetExpCS letExpCS : lst) {
-			for(LetVariableCS letVariableCS :letExpCS.getVariable()){
+			for(LetVariableCS letVariableCS :letExpCS.getOwnedVariables()){
 				if (letVariableCS.getOwnedType() instanceof EventType) {
 					result.add(letVariableCS);
 				}
@@ -1347,14 +1369,14 @@ public class EclServices {
 		EList<ContextDeclCS> result = new BasicEList<>();
 		EList<ContextDeclCS> tmp = new BasicEList<>();
 		EList<String> ctmp = new BasicEList<>();
-		tmp = pack.getContexts();
+		tmp = pack.getOwnedContexts();
 		
 		for (ContextDeclCS c : tmp) 
 		{			
 			ClassifierContextDeclCS clc = (ClassifierContextDeclCS) c;
-			if(ctmp.contains(clc.getClassifier().getName())==false)
+			if(ctmp.contains(clc.getReferredClass().getName())==false)
 			{
-				ctmp.add(clc.getClassifier().getName());
+				ctmp.add(clc.getReferredClass().getName());
 				result.add(clc);
 			}
 		}	
@@ -1365,17 +1387,17 @@ public class EclServices {
 	{
 		StringBuilder bresult = new StringBuilder();
 		EList<ContextDeclCS> contexts = new BasicEList<>();
-		contexts = pack.getContexts();
+		contexts = pack.getOwnedContexts();
 		
 		for(ContextDeclCS c: contexts)
 		{
 			if (c instanceof ClassifierContextDeclCS)
 			{
 				ClassifierContextDeclCS clc = (ClassifierContextDeclCS) c;
-				if(clc.getClassifier().getName().equalsIgnoreCase(ct)==true)
+				if(clc.getReferredClass().getName().equalsIgnoreCase(ct)==true)
 				{
 					EList<DefCS> listdef = new BasicEList<>();
-					listdef = clc.getDefinitions();
+					listdef = clc.getOwnedDefinitions();
 					for (Iterator<DefCS> iterator = listdef.iterator(); iterator
 							.hasNext();) {
 						DefCS def = (DefCS) iterator.next();
@@ -1401,17 +1423,17 @@ public class EclServices {
 	{
 		StringBuilder bresult = new StringBuilder();
 		EList<ContextDeclCS> contexts = new BasicEList<>();
-		contexts = pack.getContexts();
+		contexts = pack.getOwnedContexts();
 		
 		for(ContextDeclCS c: contexts)
 		{
 			if (c instanceof ClassifierContextDeclCS)
 			{
 				ClassifierContextDeclCS clc = (ClassifierContextDeclCS) c;
-				if(clc.getClassifier().getName().equalsIgnoreCase(ct)==true)
+				if(clc.getReferredClass().getName().equalsIgnoreCase(ct)==true)
 				{
 					EList<DefCS> listdef = new BasicEList<>();
-					listdef = clc.getDefinitions();
+					listdef = clc.getOwnedDefinitions();
 					for(DefCS def:listdef)
 					{
 						if (def.getOwnedType() instanceof EventType)
@@ -1429,18 +1451,18 @@ public class EclServices {
 		StringBuilder bresult = new StringBuilder();
 		EList<ContextDeclCS> contexts = new BasicEList<>();
 		String spacing = "   ";
-		contexts = pack.getContexts();
+		contexts = pack.getOwnedContexts();
 		
 		for(ContextDeclCS c: contexts)
 		{
 			if (c instanceof ClassifierContextDeclCS)
 			{
 				ClassifierContextDeclCS clc = (ClassifierContextDeclCS) c;
-				if(clc.getClassifier().getName().equalsIgnoreCase(ct)==true)
+				if(clc.getReferredClass().getName().equalsIgnoreCase(ct)==true)
 				{
 					EList<String> lst_evt = new BasicEList<>();
 					EList<DefCS> listdef = new BasicEList<>();
-					listdef = clc.getDefinitions();
+					listdef = clc.getOwnedDefinitions();
 					for(DefCS def:listdef)
 					{
 						if (def.getOwnedType() instanceof EventType)
@@ -1464,17 +1486,17 @@ public class EclServices {
 	{
 		StringBuilder bresult = new StringBuilder();
 		EList<ContextDeclCS> contexts = new BasicEList<>();
-		contexts = pack.getContexts();
+		contexts = pack.getOwnedContexts();
 		
 		for(ContextDeclCS c: contexts)
 		{
 			if (c instanceof ClassifierContextDeclCS)
 			{
 				ClassifierContextDeclCS clc = (ClassifierContextDeclCS) c;
-				if(clc.getClassifier().getName().equalsIgnoreCase(ct)==true)
+				if(clc.getReferredClass().getName().equalsIgnoreCase(ct)==true)
 				{
 					EList<DefCS> listdef = new BasicEList<>();
-					listdef = clc.getDefinitions();
+					listdef = clc.getOwnedDefinitions();
 					for (Iterator<DefCS> iterator = listdef.iterator(); iterator
 							.hasNext();) {
 						DefCS def = (DefCS) iterator.next();
@@ -1500,17 +1522,17 @@ public class EclServices {
 	{
 		StringBuilder bresult = new StringBuilder();
 		EList<ContextDeclCS> contexts = new BasicEList<>();
-		contexts = pack.getContexts();
+		contexts = pack.getOwnedContexts();
 		
 		for (Iterator<ContextDeclCS> iterator = contexts.iterator(); iterator.hasNext();) 
 		{
 			ContextDeclCS c = (ContextDeclCS) iterator.next();
 			ClassifierContextDeclCS clc = (ClassifierContextDeclCS) c;
-				if(clc.getClassifier().getName().equalsIgnoreCase(ct)==true)
+				if(clc.getReferredClass().getName().equalsIgnoreCase(ct)==true)
 				{
 					EList<String> lst_port = new BasicEList<>();
 					EList<DefCS> listdef = new BasicEList<>();
-					listdef = clc.getDefinitions();
+					listdef = clc.getOwnedDefinitions();
 			
 					if(iterator.hasNext())
 					{
@@ -1559,18 +1581,18 @@ public class EclServices {
 		StringBuilder bresult = new StringBuilder();
 		EList<ContextDeclCS> contexts = new BasicEList<>();
 		String spacing = "   ";
-		contexts = pack.getContexts();
+		contexts = pack.getOwnedContexts();
 		
 		for(ContextDeclCS c: contexts)
 		{
 			if (c instanceof ClassifierContextDeclCS)
 			{
 				ClassifierContextDeclCS clc = (ClassifierContextDeclCS) c;
-				if(clc.getClassifier().getName().equalsIgnoreCase(ct)==true)
+				if(clc.getReferredClass().getName().equalsIgnoreCase(ct)==true)
 				{
 					EList<String> lst_port = new BasicEList<>();
 					EList<DefCS> listdef = new BasicEList<>();
-					listdef = clc.getDefinitions();
+					listdef = clc.getOwnedDefinitions();
 					for(DefCS def:listdef)
 					{
 						if (def.getOwnedType() instanceof EventType)
@@ -1603,22 +1625,22 @@ public class EclServices {
 			if (c instanceof ClassifierContextDeclCS)
 			{
 				ClassifierContextDeclCS clc = (ClassifierContextDeclCS) c;
-				if(clc.getClassifier().getName().equalsIgnoreCase(ct)==true)
+				if(clc.getReferredClass().getName().equalsIgnoreCase(ct)==true)
 				{
 					EList<DefCS> listdef = new BasicEList<>();
-					listdef = clc.getDefinitions();
+					listdef = clc.getOwnedDefinitions();
 					for(DefCS def:listdef)
 					{
 						if (def.getOwnedType() instanceof EventType)
 						{
-							if(def.getSpecification().toString().equals("self"))
+							if(def.getOwnedSpecification().toString().equals("self"))
 							{
 								bresult.append("    from s0  " +"["+elt+ "/]_"+def.getName()+";" + "  to s0" + "\n");
 							}
 							else
 							{
-								String methodname = def.getSpecification().toString().substring(5, def.getSpecification().toString().length()-2);
-								for(Operation op: clc.getClassifier().getOwnedOperation())
+								String methodname = def.getOwnedSpecification().toString().substring(5, def.getOwnedSpecification().toString().length()-2);
+								for(Operation op: clc.getReferredClass().getOwnedOperations())
 								{
 									if(op.getName().equalsIgnoreCase(methodname))
 									{
@@ -1629,7 +1651,7 @@ public class EclServices {
 										}
 									}
 								}
-								String func = "global:="+clc.getClassifier().getName()+"_"+methodname+"( "+"global , " +"global.refToElement_id)"; 
+								String func = "global:="+clc.getReferredClass().getName()+"_"+methodname+"( "+"global , " +"global.refToElement_id)"; 
 								bresult.append("    from s0  " +"["+elt+ "/]_"+def.getName()+";" + " " + func +" "+ ";" + "  to s0" + "\n");
 							}
 						}
@@ -1653,10 +1675,10 @@ public class EclServices {
 			if (c instanceof ClassifierContextDeclCS)
 			{
 				ClassifierContextDeclCS clc = (ClassifierContextDeclCS) c;
-				if(clc.getClassifier().getName().equalsIgnoreCase(ct)==true)
+				if(clc.getReferredClass().getName().equalsIgnoreCase(ct)==true)
 				{
 					EList<DefCS> listdef = new BasicEList<>();
-					listdef = clc.getDefinitions();
+					listdef = clc.getOwnedDefinitions();
 					for(DefCS def:listdef)
 					{
 						if (def.getOwnedType() instanceof EventType)
@@ -1678,7 +1700,7 @@ public class EclServices {
 	{
 		StringBuilder bresult = new StringBuilder();
 		EList<Property> attrs = new BasicEList<>();
-		attrs = (EList<Property>) cdecl.getClassifier().getOwnedAttribute();
+		attrs = (EList<Property>) cdecl.getReferredClass().getOwnedAttribute();
 		
 		for (Property attr:attrs)
 		{
@@ -1695,7 +1717,7 @@ public class EclServices {
 	/*public String getGlobalParameters(ClassifierContextDeclCS cs)
 	{
 		StringBuilder bresult = new StringBuilder();
-		for(Property attr : cs.getClassifier().getOwnedAttribute())
+		for(Property attr : cs.getReferredClass().getOwnedAttribute())
 		{
 			if(attr.getName().startsWith("nonED"))
 			{
@@ -1720,13 +1742,13 @@ public class EclServices {
 	{
 		StringBuilder bresult = new StringBuilder();
 		EList<Property> attrs = new BasicEList<>();
-		attrs = (EList<Property>) cdecl.getClassifier().getOwnedAttribute();
+		attrs = (EList<Property>) cdecl.getReferredClass().getOwnedAttribute();
 		
 		for (Property attr:attrs)
 		{
 			if(attr.getType().getName().contains("EIn"))
 			{
-				String param ="p"+cdecl.getClassifier().getName().substring(0, 2)+ attr.getName().substring(0, 4);
+				String param ="p"+cdecl.getReferredClass().getName().substring(0, 2)+ attr.getName().substring(0, 4);
 				bresult.append("&" +param+ ",");
 			}
 		}
@@ -1750,13 +1772,13 @@ public class EclServices {
 		for(ContextDeclCS decl:decls)
 		{
 			ClassifierContextDeclCS cdecl = (ClassifierContextDeclCS)decl;
-			attrs = (EList<Property>) cdecl.getClassifier().getOwnedAttribute();
+			attrs = (EList<Property>) cdecl.getReferredClass().getOwnedProperties();
 		
 			for (Property attr:attrs)
 			{
 				if(attr.getType().getName().contains("EIn"))
 				{
-					String param ="p"+cdecl.getClassifier().getName().substring(0, 2)+ attr.getName().substring(0, 4);
+					String param ="p"+cdecl.getReferredClass().getName().substring(0, 2)+ attr.getName().substring(0, 4);
 					bresult.append(param+ ":int"+ ",");
 				}
 			}
@@ -1792,7 +1814,7 @@ public class EclServices {
 			String leftsideMetaClass = "";
 			String rightsideMetaClass = "";
 			
-			for(Property attr : cct.getClassifier().getOwnedAttribute())
+			for(Property attr : cct.getReferredClass().getOwnedAttribute())
 			{	
 					if(attr.getName().startsWith("nonED")==false)
 					{
@@ -1802,9 +1824,9 @@ public class EclServices {
 						}
 						if (attr.getType().getName().equalsIgnoreCase("OrderedSet")) 
 						{
-							if(attr.getType().toString().contains(cct.getClassifier().getPackage().toString())==true)
+							if(attr.getType().toString().contains(cct.getReferredClass().getOwningPackage().toString())==true)
 							{
-								leftsideMetaClass = "OrderedSet"+"\\("+cct.getClassifier().getPackage().toString()+"::";
+								leftsideMetaClass = "OrderedSet"+"\\("+cct.getReferredClass().getOwningPackage().toString()+"::";
 							}
 							else
 							{
@@ -1822,9 +1844,9 @@ public class EclServices {
 						}
 						if (attr.getType().getName().equalsIgnoreCase("ArrayList")) 
 						{
-							if(attr.getType().toString().contains(cct.getClassifier().getPackage().toString())==true)
+							if(attr.getType().toString().contains(cct.getReferredClass().getOwningPackage().toString())==true)
 							{
-								leftsideMetaClass = "ArrayList"+"\\("+cct.getClassifier().getPackage().toString()+"::";
+								leftsideMetaClass = "ArrayList"+"\\("+cct.getReferredClass().getOwningPackage().toString()+"::";
 							}
 							else
 							{
@@ -1840,9 +1862,9 @@ public class EclServices {
 						}
 						if (attr.getType().getName().equalsIgnoreCase("Bag")) 
 						{
-							if(attr.getType().toString().contains(cct.getClassifier().getPackage().toString())==true)
+							if(attr.getType().toString().contains(cct.getReferredClass().getOwningPackage().toString())==true)
 							{
-								leftsideMetaClass = "Bag"+"\\("+cct.getClassifier().getPackage().toString()+"::";
+								leftsideMetaClass = "Bag"+"\\("+cct.getReferredClass().getOwningPackage().toString()+"::";
 							}
 							else
 							{
@@ -1859,7 +1881,7 @@ public class EclServices {
 					}
 			}
 			
-			for(org.eclipse.ocl.examples.pivot.Type supt: cct.getClassifier().getSuperClass())
+			for(org.eclipse.ocl.pivot.Type supt: cct.getReferredClass().getSuperClass())
 			{
 				for(Property attr : supt.getOwnedAttribute())
 				{
@@ -1872,9 +1894,9 @@ public class EclServices {
 						if (attr.getType().getName().equalsIgnoreCase("OrderedSet")) 
 						{
 							
-							if(attr.getType().toString().contains(supt.getPackage().toString())==true)
+							if(attr.getType().toString().contains(supt.getOwningPackage().toString())==true)
 							{
-								leftsideMetaClass = "OrderedSet"+"\\("+supt.getPackage().toString()+"::";
+								leftsideMetaClass = "OrderedSet"+"\\("+supt.getOwningPackage().toString()+"::";
 							}
 							else
 							{
@@ -1891,9 +1913,9 @@ public class EclServices {
 						
 						if (attr.getType().getName().equalsIgnoreCase("ArrayList")) 
 						{
-							if(attr.getType().toString().contains(supt.getPackage().toString())==true)
+							if(attr.getType().toString().contains(supt.getOwningPackage().toString())==true)
 							{
-								leftsideMetaClass = "ArrayList"+"\\("+supt.getPackage().toString()+"::";
+								leftsideMetaClass = "ArrayList"+"\\("+supt.getOwningPackage().toString()+"::";
 							}
 							else
 							{
@@ -1909,9 +1931,9 @@ public class EclServices {
 						}
 						if (attr.getType().getName().equalsIgnoreCase("Bag")) 
 						{
-							if(attr.getType().toString().contains(supt.getPackage().toString())==true)
+							if(attr.getType().toString().contains(supt.getOwningPackage().toString())==true)
 							{
-								leftsideMetaClass = "Bag"+"\\("+supt.getPackage().toString()+"::";
+								leftsideMetaClass = "Bag"+"\\("+supt.getOwningPackage().toString()+"::";
 							}
 							else
 							{
@@ -1959,7 +1981,7 @@ public class EclServices {
 		for (ContextDeclCS c:listContexts)
 		{
 			ClassifierContextDeclCS cc = (ClassifierContextDeclCS) c;
-			listContextsNames.add(cc.getClassifier().getName()); 
+			listContextsNames.add(cc.getReferredClass().getName()); 
 		}
 		
 		// For Each Context <ct>, get its SuperClass that has the same name (inheritance relation btw MM_Extended & MM)
@@ -1967,14 +1989,16 @@ public class EclServices {
 		ClassifierContextDeclCS cct = (ClassifierContextDeclCS) ct;
 		EList <String> listAttrType = new BasicEList<String>();
 		
-		for ( org.eclipse.ocl.examples.pivot.Type supt: cct.getClassifier().getSuperClass())
+		for ( org.eclipse.ocl.pivot.Type supt: cct.getReferredClass().getSuperClasses())
 		{
-			if(supt.toString().contains(cct.getClassifier().getName()))
+			if(supt.toString().contains(cct.getReferredClass().getName()))
 			{
-				for(Property attr : supt.getOwnedAttribute())
-				{	
-					listAttrType.add(attr.getType().getName());
-				}
+				
+				//TODO: fix the following !!
+//				for(Property attr : supt.getOwnedAttribute())
+//				{	
+//					listAttrType.add(attr.getType().getName());
+//				}
 					
 			}
 		}
@@ -1983,15 +2007,15 @@ public class EclServices {
 	}
 	
 	
-	public org.eclipse.ocl.examples.pivot.Type getParentClass(ClassifierContextDeclCS ccd)
+	public org.eclipse.ocl.pivot.Type getParentClass(ClassifierContextDeclCS ccd)
 	{
-		org.eclipse.ocl.examples.pivot.Type ctr = null;
-		EList <org.eclipse.ocl.examples.pivot.Type> typelist = new BasicEList<org.eclipse.ocl.examples.pivot.Type>();
+		org.eclipse.ocl.pivot.Type ctr = null;
+		EList<org.eclipse.ocl.pivot.Class> typelist = new BasicEList<org.eclipse.ocl.pivot.Class>();
 		
-		typelist = (EList<Type>) ccd.getClassifier().getSuperClass();
+		typelist = (EList<org.eclipse.ocl.pivot.Class>) ccd.getReferredClass().getSuperClasses();
 		
 		for (Type type : typelist) {
-			if(type.getName().equalsIgnoreCase(ccd.getClassifier().getName()))
+			if(type.getName().equalsIgnoreCase(ccd.getReferredClass().getName()))
 				{
 					ctr = type;
 				}
@@ -1999,44 +2023,46 @@ public class EclServices {
 		return ctr;
 	}
 	
-	public EList<org.eclipse.ocl.examples.pivot.Type> getSuperTypesOfParent (org.eclipse.ocl.examples.pivot.Type t, EList<ContextDeclCS> lst){
+	public EList<org.eclipse.ocl.pivot.Type> getSuperTypesOfParent (org.eclipse.ocl.pivot.Type t, EList<ContextDeclCS> lst){
 		
-		EList<org.eclipse.ocl.examples.pivot.Type> lst2 =  new BasicEList<Type>();
+		EList<org.eclipse.ocl.pivot.Type> lst2 =  new BasicEList<Type>();
 		
 		for (ContextDeclCS ct : lst) 
 		{
 			ClassifierContextDeclCS cct = (ClassifierContextDeclCS) ct;
 			
-			for (Type type : t.getSuperClass()) {
-				if(type.getName().equalsIgnoreCase(cct.getClassifier().getName()))
+			for (Type type : ((Class) t).getSuperClasses()) {
+				if(type.getName().equalsIgnoreCase(cct.getReferredClass().getName()))
 				{
-					lst2.add(cct.getClassifier());
+					lst2.add(cct.getReferredClass());
 					lst2.add(getParentClass(cct));
 				}
 			}
-			//System.out.println("################### = " + t.getName() + " : " + t.getSuperClass() + " / " + cct.getClassifier().getName());
+			//System.out.println("################### = " + t.getName() + " : " + t.getSuperClass() + " / " + cct.getReferredClass().getName());
 		}
 		return lst2;
 	}
 	
-	public void getListofAllOwnedAttributes(EList <org.eclipse.ocl.examples.pivot.Type> lst, EList <Property> listAtrr)
+	public void getListofAllOwnedAttributes(EList <org.eclipse.ocl.pivot.Type> lst, EList <Property> listAtrr)
 	{
-		for (org.eclipse.ocl.examples.pivot.Type t : lst) {
-			for (Property property : t.getOwnedAttribute()) 
-			{
-				if(!(property.getName().equals(t.getName())))
-					listAtrr.add(property);
-			}
+		for (org.eclipse.ocl.pivot.Type t : lst) {
+			//TODO: fix this !!
+//			for (Property property : t.getOwnedAttributes()) 
+//			{
+//				if(!(property.getName().equals(t.getName())))
+//					listAtrr.add(property);
+//			}
 		}
 	}
 	
-	public void getListofOwnedAttributes(org.eclipse.ocl.examples.pivot.Type t, EList <Property> listAtrr)
+	public void getListofOwnedAttributes(org.eclipse.ocl.pivot.Type t, EList <Property> listAtrr)
 	{
-		for (Property property : t.getOwnedAttribute()) 
-		{
-			if(!(property.getName().equals(t.getName())))
-			listAtrr.add(property);
-		}
+		//TODO: fix this !!
+//		for (Property property : t.getOwnedAttribute()) 
+//		{
+//			if(!(property.getName().equals(t.getName())))
+//			listAtrr.add(property);
+//		}
 	}
 	
 	// Building the different Array and ID arrays
@@ -2052,14 +2078,14 @@ public class EclServices {
 			
 		EList <Type> ltype = new BasicEList<Type>();
 			
-		for (EObject eo : cct.getClassifier().getPackage().eContents()) {
-				ltype.add((org.eclipse.ocl.examples.pivot.Type)eo);
+		for (EObject eo : cct.getReferredClass().getOwningPackage().eContents()) {
+				ltype.add((org.eclipse.ocl.pivot.Type)eo);
 		}
 		
 		EList <Property> list_attr = new BasicEList<Property>();
 		getListofAllOwnedAttributes(ltype,list_attr); // Get the List of attributes at the MM Level
 			
-		System.out.println("################### = " + cct.getClassifier().getName() + " --> " + list_attr);
+		System.out.println("################### = " + cct.getReferredClass().getName() + " --> " + list_attr);
 		for (Property property : list_attr) {
 				System.out.println("                  ################### = " + property.getName() + " : " + property.getType().getName() + " //  " + property.getType());
 		}
@@ -2071,9 +2097,9 @@ public class EclServices {
 					attrname = attr.getName();
 					if(attr.getName().equalsIgnoreCase("type")) {attrname = "_"+attr.getName();}
 
-					if(attr.getType().toString().contains(cct.getClassifier().getPackage().toString())==true)
+					if(attr.getType().toString().contains(cct.getReferredClass().getOwningPackage().toString())==true)
 					{
-						leftsideMetaClass = "OrderedSet"+"\\("+cct.getClassifier().getPackage().toString()+"::";
+						leftsideMetaClass = "OrderedSet"+"\\("+cct.getReferredClass().getOwningPackage().toString()+"::";
 					}
 					else
 					{
@@ -2094,9 +2120,9 @@ public class EclServices {
 					attrname = attr.getName();
 					if(attr.getName().equalsIgnoreCase("type")) {attrname = "_"+attr.getName();}
 					
-					if(attr.getType().toString().contains(cct.getClassifier().getPackage().toString())==true)
+					if(attr.getType().toString().contains(cct.getReferredClass().getOwningPackage().toString())==true)
 					{
-						leftsideMetaClass = "ArrayList"+"\\("+cct.getClassifier().getPackage().toString()+"::";
+						leftsideMetaClass = "ArrayList"+"\\("+cct.getReferredClass().getOwningPackage().toString()+"::";
 					}
 					else
 					{
@@ -2130,11 +2156,11 @@ public class EclServices {
 			
 			EList <Type> ltype = new BasicEList<Type>();
 			
-			for (EObject eo : cct.getClassifier().getPackage().eContents()) {
-				ltype.add((org.eclipse.ocl.examples.pivot.Type)eo);
+			for (EObject eo : cct.getReferredClass().getOwningPackage().eContents()) {
+				ltype.add((org.eclipse.ocl.pivot.Type)eo);
 			}
 			
-			for(org.eclipse.ocl.examples.pivot.Type ct : ltype)
+			for(org.eclipse.ocl.pivot.Type ct : ltype)
 			{
 			//	ClassifierContextDeclCS cct = (ClassifierContextDeclCS) ct;
 				EList <String> listsubElt = new BasicEList<String>();
@@ -2145,7 +2171,7 @@ public class EclServices {
 				String rightsideMetaClass = "";
 				String attrname = "";
 				
-				System.out.println("################### = " + cct.getClassifier().getName() + " --> " + ltype);
+				System.out.println("################### = " + cct.getReferredClass().getName() + " --> " + ltype);
 				
 				EList <Property> list_attr = new BasicEList<Property>();
 				getListofOwnedAttributes(ct,list_attr); // Get the List of attributes at the MM Level
@@ -2182,9 +2208,9 @@ public class EclServices {
 						attrname = attr.getName();
 						if(attr.getName().equalsIgnoreCase("type")) {attrname = "_"+attr.getName();}
 
-						if(attr.getType().toString().contains(cct.getClassifier().getPackage().toString())==true)
+						if(attr.getType().toString().contains(cct.getReferredClass().getOwningPackage().toString())==true)
 						{
-							leftsideMetaClass = "OrderedSet"+"\\("+cct.getClassifier().getPackage().toString()+"::";
+							leftsideMetaClass = "OrderedSet"+"\\("+cct.getReferredClass().getOwningPackage().toString()+"::";
 						}
 						else
 						{
@@ -2204,9 +2230,9 @@ public class EclServices {
 						attrname = attr.getName();
 						if(attr.getName().equalsIgnoreCase("type")) {attrname = "_"+attr.getName();}
 						
-						if(attr.getType().toString().contains(cct.getClassifier().getPackage().toString())==true)
+						if(attr.getType().toString().contains(cct.getReferredClass().getOwningPackage().toString())==true)
 						{
-							leftsideMetaClass = "ArrayList"+"\\("+cct.getClassifier().getPackage().toString()+"::";
+							leftsideMetaClass = "ArrayList"+"\\("+cct.getReferredClass().getOwningPackage().toString()+"::";
 						}
 						else
 						{
@@ -2228,9 +2254,9 @@ public class EclServices {
 						attrname = attr.getName();
 						if(attr.getName().equalsIgnoreCase("type")) {attrname = "_"+attr.getName();}
 						
-						if(attr.getType().toString().contains(cct.getClassifier().getPackage().toString())==true)
+						if(attr.getType().toString().contains(cct.getReferredClass().getOwningPackage().toString())==true)
 						{
-							leftsideMetaClass = "Bag"+"\\("+cct.getClassifier().getPackage().toString()+"::";
+							leftsideMetaClass = "Bag"+"\\("+cct.getReferredClass().getOwningPackage().toString()+"::";
 						}
 						else
 						{
@@ -2270,8 +2296,8 @@ public class EclServices {
 		
 		EList <Type> lst_metaclass = new BasicEList<Type>();
 		
-		for (EObject eo : cct.getClassifier().getPackage().eContents()) {
-			lst_metaclass.add((org.eclipse.ocl.examples.pivot.Type)eo);
+		for (EObject eo : cct.getReferredClass().getOwningPackage().eContents()) {
+			lst_metaclass.add((org.eclipse.ocl.pivot.Type)eo);
 		}
 		
 		
@@ -2282,8 +2308,8 @@ public class EclServices {
 		{
 			
 				ref = "rootRefTo";
-				ref = ref + cct.getClassifier().getName();
-				String sprefix = ".eAllContents(" + cct.getClassifier().getName()+")";
+				ref = ref + cct.getReferredClass().getName();
+				String sprefix = ".eAllContents(" + cct.getReferredClass().getName()+")";
 				createEntryInRootList(ct,lst_metaclass,ref,root,lst_arrays,lst_recordElt,sprefix);
 				parseOwnedAttributes(ct,lst_metaclass,ref,root,lst_arrays,lst_recordElt,sprefix);
 		}
@@ -2306,31 +2332,32 @@ public class EclServices {
 		return sb.toString();
 	}
 	
-	public void parseOwnedAttributes(org.eclipse.ocl.examples.pivot.Type t, EList<Type> lst, String refname,String root, EList<FiacreArrayElement> lst1, EList<RootRecordElement> lst2, String cref)
+	public void parseOwnedAttributes(org.eclipse.ocl.pivot.Type t, EList<Type> lst, String refname,String root, EList<FiacreArrayElement> lst1, EList<RootRecordElement> lst2, String cref)
 	{
 		if(!(classInTypeDeclaration(t,lst).equalsIgnoreCase("none")))
 		{
 			//String conceptname = classInTypeDeclaration(t,lst);
 			
-			for(Property attr : t.getOwnedAttribute())
-			{
-				if(attr.getType().getName().equalsIgnoreCase("OrderedSet"))
-				{
-					String attrType = "" ;
-					if(!(classInTypeDeclaration(attr.getType(),lst).equalsIgnoreCase("none")))
-						attrType = classInTypeDeclaration(attr.getType(),lst);
-					refname = refname + attr.getName()+attrType;
-					// cref = cref +"."+attr.getName()+".eContents(" + attrType+")";
-					String sprefix = ".eAllContents(" +attrType +")";
-					createEntryInRootList(t,lst,refname,root,lst1,lst2,sprefix); // replace "sprefix" with "cref"
-					org.eclipse.ocl.examples.pivot.Type nextT = attr.getType();
-					parseOwnedAttributes(nextT,lst,refname,root,lst1,lst2,sprefix);
-				}
-			}
+//TODO: fix this !
+//			for(Property attr : t.getOwnedAttribute())
+//			{
+//				if(attr.getType().getName().equalsIgnoreCase("OrderedSet"))
+//				{
+//					String attrType = "" ;
+//					if(!(classInTypeDeclaration(attr.getType(),lst).equalsIgnoreCase("none")))
+//						attrType = classInTypeDeclaration(attr.getType(),lst);
+//					refname = refname + attr.getName()+attrType;
+//					// cref = cref +"."+attr.getName()+".eContents(" + attrType+")";
+//					String sprefix = ".eAllContents(" +attrType +")";
+//					createEntryInRootList(t,lst,refname,root,lst1,lst2,sprefix); // replace "sprefix" with "cref"
+//					org.eclipse.ocl.pivot.Type nextT = attr.getType();
+//					parseOwnedAttributes(nextT,lst,refname,root,lst1,lst2,sprefix);
+//				}
+//			}
 		}
 	}
 	
-	public void createEntryInRootList(org.eclipse.ocl.examples.pivot.Type t, EList<Type> lst, String refname,String root, EList<FiacreArrayElement> lst1, EList<RootRecordElement> lst2, String sizePrefix)
+	public void createEntryInRootList(org.eclipse.ocl.pivot.Type t, EList<Type> lst, String refname,String root, EList<FiacreArrayElement> lst1, EList<RootRecordElement> lst2, String sizePrefix)
 	{
 			
 			String conceptname = classInTypeDeclaration(t,lst);
@@ -2342,7 +2369,7 @@ public class EclServices {
 			lst2.add(new RootRecordElement(arrname, recordname));
 	}
 	
-	public String classInTypeDeclaration(org.eclipse.ocl.examples.pivot.Type t, EList<Type> lst)
+	public String classInTypeDeclaration(org.eclipse.ocl.pivot.Type t, EList<Type> lst)
 	{
 		String concept = "none";
 		
@@ -2366,7 +2393,7 @@ public class EclServices {
 		for(ContextDeclCS ct : getContextsFromPack(pck))
 		{
 			ClassifierContextDeclCS cct = (ClassifierContextDeclCS) ct;
-			for(Operation op : cct.getClassifier().getOwnedOperation())
+			for(Operation op : cct.getReferredClass().getOwnedOperations())
 			{
 
 				boolean coreChange = getCoreChangesValue(cct, op); 
@@ -2374,7 +2401,7 @@ public class EclServices {
 				{
 					String returnType = getReturnType(cct,op);
 					String params = getParamList(cct, op);
-					sb.append("function " + cct.getClassifier().getName()+"_"+op.getName() + " (" + params + ") :" + returnType +" is"+"\n");
+					sb.append("function " + cct.getReferredClass().getName()+"_"+op.getName() + " (" + params + ") :" + returnType +" is"+"\n");
 					sb.append("begin"+ "\n");
 					String coreBody = getExecutionFunctionBody(op);
 					sb.append(coreBody + "\n");
@@ -2397,15 +2424,15 @@ public class EclServices {
 		for(ContextDeclCS ct : getContextsFromPack(pck))
 		{
 			ClassifierContextDeclCS cct = (ClassifierContextDeclCS) ct;
-			for(Operation op : cct.getClassifier().getOwnedOperation())
+			for(Operation op : cct.getReferredClass().getOwnedOperations())
 			{
 				boolean coreChange = getCoreChangesValue(cct, op); 
 				if(coreChange==true)
 				{
 					String returnType = getReturnType(cct,op);
 					String params = getParamList(cct, op);
-					sb.append("[for (element : "+cct.getClassifier().getName()+"| a"+root+".eAllContents("+cct.getClassifier().getName()+"))]");
-					sb.append("function " + cct.getClassifier().getName()+"_"+op.getName()+"_"+"[element.name/]" + " (" + params + ") :" + returnType +" is"+"\n");
+					sb.append("[for (element : "+cct.getReferredClass().getName()+"| a"+root+".eAllContents("+cct.getReferredClass().getName()+"))]");
+					sb.append("function " + cct.getReferredClass().getName()+"_"+op.getName()+"_"+"[element.name/]" + " (" + params + ") :" + returnType +" is"+"\n");
 					sb.append("begin"+ "\n");
 					String coreBody = getExecutionFunctionBody(op);
 					sb.append(coreBody + "\n");
@@ -2429,22 +2456,24 @@ public class EclServices {
 	{
 		StringBuilder sb = new StringBuilder();
 		//System.out.println("=======================================");
-		for(Property attr : cs.getClassifier().getOwnedAttribute())
-		{
-			//System.out.println(attr.getName());	
-			if(attr.getName().startsWith("nonED"))
-			{
-				if(attr.getName().contains(op.getName()))
-				{
-					if(attr.getName().contains("freturn"))
-					{
-						//System.out.println("============"+attr.getDefaultExpression());
-						String value = attr.getDefault().toString();
-						sb.append(value);
-					}
-				}
-			}
-		}
+		
+		//TODO: fix this !!
+//		for(Property attr : cs.getReferredClass().getOwnedAttribute())
+//		{
+//			//System.out.println(attr.getName());	
+//			if(attr.getName().startsWith("nonED"))
+//			{
+//				if(attr.getName().contains(op.getName()))
+//				{
+//					if(attr.getName().contains("freturn"))
+//					{
+//						//System.out.println("============"+attr.getDefaultExpression());
+//						String value = attr.getDefault().toString();
+//						sb.append(value);
+//					}
+//				}
+//			}
+//		}
 		//System.out.println("=======================================");
 		return sb.toString();
 	}
@@ -2453,7 +2482,7 @@ public class EclServices {
 	{
 		StringBuilder sb = new StringBuilder();
 		System.out.println("=======================================");
-		for(Property attr : cs.getClassifier().getOwnedAttribute())
+		for(Property attr : cs.getReferredClass().getOwnedAttribute())
 		{
 			System.out.println(attr.getName());	
 			if(attr.getName().startsWith("nonED"))
@@ -2473,40 +2502,42 @@ public class EclServices {
 	public String getParamList(ClassifierContextDeclCS cs, Operation op)
 	{
 		StringBuilder sb = new StringBuilder();
-		for(Property attr : cs.getClassifier().getOwnedAttribute())
-		{
-			if(attr.getName().startsWith("nonED"))
-			{
-				if(attr.getName().contains(op.getName()))
-				{
-					if(attr.getName().contains("lparam"))
-					{
-						String value = attr.getDefault().toString();
-						sb.append(value);
-					}
-				}
-			}
-		}
+		//TODO: fix this !!
+//		for(Property attr : cs.getReferredClass().getOwnedAttribute())
+//		{
+//			if(attr.getName().startsWith("nonED"))
+//			{
+//				if(attr.getName().contains(op.getName()))
+//				{
+//					if(attr.getName().contains("lparam"))
+//					{
+//						String value = attr.getDefault().toString();
+//						sb.append(value);
+//					}
+//				}
+//			}
+//		}
 		return sb.toString();
 	}
 	
 	public boolean getCoreChangesValue(ClassifierContextDeclCS cs, Operation op)
 	{
 		boolean change = false;
-		for(Property attr : cs.getClassifier().getOwnedAttribute())
-		{
-			if(attr.getName().startsWith("nonED"))
-			{
-				if(attr.getName().contains(op.getName()))
-				{
-					if(attr.getName().contains("fcore"))
-					{
-						String value = attr.getDefault().toString();
-						if(value.equals("Y")) change = true;
-					}
-				}
-			}
-		}
+		//TODO: fix this !!
+//		for(Property attr : cs.getReferredClass().getOwnedAttribute())
+//		{
+//			if(attr.getName().startsWith("nonED"))
+//			{
+//				if(attr.getName().contains(op.getName()))
+//				{
+//					if(attr.getName().contains("fcore"))
+//					{
+//						String value = attr.getDefault().toString();
+//						if(value.equals("Y")) change = true;
+//					}
+//				}
+//			}
+//		}
 		return change;
 	}
 	

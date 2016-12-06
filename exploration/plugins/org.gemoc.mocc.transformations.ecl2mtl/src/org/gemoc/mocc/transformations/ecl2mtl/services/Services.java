@@ -26,7 +26,6 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
-
 import org.gemoc.mocc.ccslmoc.model.moccml.StateMachineRelationDefinition;
 import org.gemoc.mocc.fsmkernel.model.FSMModel.AbstractAction;
 import org.gemoc.mocc.fsmkernel.model.FSMModel.Guard;

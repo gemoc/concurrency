@@ -17,20 +17,18 @@
 package org.gemoc.mocc.transformations.ecl2mtl.libLoader;
 
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtend.core.xtend.XtendFile;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
 import org.gemoc.mocc.ccslmoc.model.moccml.StateRelationBasedLibrary;
-import org.gemoc.mocc.ccslmoc.model.moccml.impl.StateRelationBasedLibraryImpl;
 import org.gemoc.mocc.ccslmocc.model.xtext.ui.internal.MoCDslActivator;
 
 import com.google.inject.Injector;
 
-import fr.inria.aoste.timesquare.ECL.ImportStatement;
 import fr.inria.aoste.timesquare.ccslkernel.library.xtext.ui.internal.CCSLLibraryActivator;
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.Library;
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.impl.LibraryImpl;
+import fr.inria.aoste.timesquare.ecl.ecl.ImportStatement;
 
 /**
  * @author Stfun

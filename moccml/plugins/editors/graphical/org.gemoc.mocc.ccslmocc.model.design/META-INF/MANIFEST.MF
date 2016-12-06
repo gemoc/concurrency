@@ -6,7 +6,6 @@ Bundle-Activator: org.gemoc.mocc.ccslmocc.model.design.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.sirius,
- org.eclipse.sirius.common.acceleo.mtl,
  org.gemoc.mocc.ccslmocc.model;bundle-version="0.0.1",
  org.gemoc.mocc.ccslmocc.model.xtext.mocdsl;bundle-version="0.0.1",
  org.gemoc.mocc.ccslmocc.model.xtext.mocdsl.ui;bundle-version="0.0.1",
@@ -16,7 +15,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.xtext.ecore;bundle-version="2.4.3",
  org.gemoc.mocc.fsmkernel.model.design;bundle-version="0.0.1",
  org.eclipse.sirius.common;bundle-version="1.0.0",
- org.eclipse.xtext
+ org.eclipse.xtext,
+ org.eclipse.sirius.common.acceleo.aql;bundle-version="4.0.1"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-Vendor: %Bundle-Vendor

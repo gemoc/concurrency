@@ -17,8 +17,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.ClassifierContextDeclCS;
-import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.PackageDeclarationCS;
+import org.eclipse.ocl.xtext.completeoclcs.ClassifierContextDeclCS;
+import org.eclipse.ocl.xtext.completeoclcs.PackageDeclarationCS;
 import org.eclipse.xtext.EcoreUtil2;
 import org.gemoc.gel.AtomicDomainSpecificEvent;
 import org.gemoc.gel.CompositeDomainSpecificEvent;
@@ -37,7 +37,7 @@ import org.gemoc.gexpressions.utils.EClassByEObjectReplacerAndEOperationRemover;
 import org.gemoc.gexpressions.utils.GExpressionsInterpreter;
 import org.gemoc.gexpressions.utils.GReferenceExpressionFinder;
 
-import fr.inria.aoste.timesquare.ECL.ECLDefCS;
+import fr.inria.aoste.timesquare.ecl.ecl.ECLDefCS;
 
 public class GELHelper {
 
@@ -320,7 +320,7 @@ public class GELHelper {
 	private static EClassifier determineContextEClassOfEclEvent(
 			EclEvent eclEvent) {
 		String contextName = parseContextName(eclEvent.getEventReference()
-				.getClassifierContextDecl());
+				.getOwningClassifierContextDecl());
 
 		// Get all classifiers of all the resources of the resource set
 		// containing the GEL Specification
@@ -342,7 +342,7 @@ public class GELHelper {
 		// And by package
 		String packageName = EcoreUtil2
 				.getContainerOfType(eclEvent.getEventReference(),
-						PackageDeclarationCS.class).getPackage().getName();
+						PackageDeclarationCS.class).getReferredPackage().getName();
 		Collection<EClassifier> possibleClassifiers = new ArrayList<>();
 		for (EClassifier classifier : candidateClassifiers) {
 			if (packageName.equals(classifier.getEPackage().getName())) {

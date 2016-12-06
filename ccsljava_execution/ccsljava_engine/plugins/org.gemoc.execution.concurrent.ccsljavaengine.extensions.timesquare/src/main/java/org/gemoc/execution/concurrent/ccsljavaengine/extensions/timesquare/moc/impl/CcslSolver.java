@@ -9,6 +9,7 @@ import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -41,10 +42,15 @@ import fr.inria.aoste.timesquare.ccslkernel.solver.exception.SolverException;
 import fr.inria.aoste.timesquare.ccslkernel.solver.launch.CCSLKernelSolverWrapper;
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ActionModel;
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
+import fr.inria.aoste.timesquare.instantrelation.CCSLRelationModel.OccurrenceRelation;
+import fr.inria.aoste.timesquare.instantrelation.listener.RelationModelListener;
 import fr.inria.aoste.timesquare.simulationpolicy.maxcardpolicy.MaxCardSimulationPolicy;
+import fr.inria.aoste.timesquare.trace.util.adapter.AdapterRegistry;
 import fr.inria.aoste.trace.EventOccurrence;
+import fr.inria.aoste.trace.LogicalStep;
 import fr.inria.aoste.trace.ModelElementReference;
 import fr.inria.aoste.trace.Reference;
+import fr.inria.aoste.trace.relation.IDescription;
 import fr.inria.diverse.trace.commons.model.trace.MSE;
 import fr.inria.diverse.trace.commons.model.trace.MSEModel;
 import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
@@ -64,6 +70,8 @@ public class CcslSolver implements org.gemoc.execution.concurrent.ccsljavaxdsml.
 	protected ArrayList<Step> _lastLogicalSteps = new ArrayList<Step>();
 	protected ActionModel _feedbackModel;
 	protected MSEModel _MSEModel;
+	protected List<fr.inria.aoste.trace.LogicalStep> _intermediateResult;
+	
 	
 	protected String _alternativeExecutionModelPath =null;
 	
@@ -194,6 +202,9 @@ public class CcslSolver implements org.gemoc.execution.concurrent.ccsljavaxdsml.
 			Activator.getDefault().error(errorMessage);
 			Activator.getDefault().error(errorMessage, e);
 		}
+
+		
+		initRelationModel();		
 	}
 
 	private void traceUnresolvedProxies(ResourceSet resourceSet,
@@ -217,9 +228,9 @@ public class CcslSolver implements org.gemoc.execution.concurrent.ccsljavaxdsml.
 	public List<Step> computeAndGetPossibleLogicalSteps() {
 		
 		try {
-			List<fr.inria.aoste.trace.LogicalStep> intermediateResult = solverWrapper.computeAndGetPossibleLogicalSteps();			
+			_intermediateResult = solverWrapper.computeAndGetPossibleLogicalSteps();			
 			_lastLogicalSteps.clear();
-			for (fr.inria.aoste.trace.LogicalStep lsFromTimesquare : intermediateResult)
+			for (fr.inria.aoste.trace.LogicalStep lsFromTimesquare : _intermediateResult)
 			{
 				Step lsFromTrace = createLogicalStep(lsFromTimesquare);
 				_lastLogicalSteps.add(lsFromTrace);
@@ -273,6 +284,7 @@ public class CcslSolver implements org.gemoc.execution.concurrent.ccsljavaxdsml.
 		try {
 			int index = _lastLogicalSteps.indexOf(logicalStep);
 			solverWrapper.applyLogicalStepByIndex(index);
+			resolveOccurrenceRelations(_intermediateResult.get(index));
 		} catch (SolverException e) {
 			Activator.getDefault().error(e.getMessage(), e);
 		} catch (SimulationException e) {
@@ -459,6 +471,102 @@ public class CcslSolver implements org.gemoc.execution.concurrent.ccsljavaxdsml.
 		IPath msePath= mseModelPath.removeFileExtension().addFileExtension("feedback");
 		return msePath;
 	}
+
+	
+	protected GemocInstantRelationModelGenerator relationModelGenerator = null;
+	protected List<ModelElementReference> listofclock;
+	protected List<ModelElementReference> listofconstraint;
+	protected List<EObject> listReferencedObject = new ArrayList<EObject>();
+	protected List<Resource> listressource = new ArrayList<Resource>();
+	protected  ArrayList<OccurrenceRelation> lastOccurrenceRelations = new ArrayList<OccurrenceRelation>(); // Relation
+	public List<ModelElementReference> listofassert;
+	public List<IDescription> listofrelation;
+
+	
+	private List<IDescription> getRelationDescription() {
+		List<IDescription> lst = new ArrayList<IDescription>();
+		try {
+			EObject eo = solverWrapper.getResourceSet().getResources().get(0).getContents().get(0);
+			relationModelGenerator = new GemocInstantRelationModelGenerator();
+			if (relationModelGenerator == null)
+				return lst; // relation ;
+			relationModelGenerator.setListClock(listofclock);
+			relationModelGenerator.setListRelation(listofconstraint);
+			relationModelGenerator.extract(eo);
+			lst = relationModelGenerator.getDescription();
+		} catch (Throwable e) {
+			System.err.println(e);
+		}
+		return lst;
+	}
+	
+	public void initRelationModel() {
+		relationModelGenerator = null;
+		CCSLKernelSolverWrapper isolver = solverWrapper;
+		if (isolver == null) {
+			throw new RuntimeException("in CCSLSolver::resolveOccurrenceRelations, the solver has not been instantiated yet");
+		}
+		listofclock = Collections.unmodifiableList(isolver.getClockList());
+		listofassert = Collections.unmodifiableList(isolver.getAssertList());
+		listofconstraint = Collections.unmodifiableList(isolver.getConstraint());
+		listofrelation = Collections.unmodifiableList(getRelationDescription());
+		/***** Collect all reference Object *****/
+		listReferencedObject = new ArrayList<EObject>();
+		for (ModelElementReference r : listofclock) {
+			AdapterRegistry.getAdapter(r).fillWithReferencedElements(r, listReferencedObject);
+		}
+		listReferencedObject = Collections.unmodifiableList(listReferencedObject);
+		/****** Collect Resource of all reference Object ***/
+		listressource = new ArrayList<Resource>();
+		for (EObject el : listReferencedObject) {
+			Resource rs = el.eResource();
+			if (rs != null)
+				if (!listressource.contains(rs)) {
+					listressource.add(rs);
+				}
+		}
+		listressource = Collections.unmodifiableList(listressource);
+//		mappingURI = new HashMap<URI, Resource>();
+//		/********/
+//		for (Resource r : listressource) {
+//			System.out.println("URI :" + r.getURI());
+//			mappingURI.put(r.getURI(), r);
+//		}
+//		mappingURI = Collections.unmodifiableMap(mappingURI);
+//		/**********/
+//		for (IOutputOption ioo : cachedtable.values()) {
+//			try {
+//				if (ioo.isActivable())
+//					ioo.updateModel();
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//		}
+
+	}
+
+	public List<OccurrenceRelation> resolveOccurrenceRelations(LogicalStep step) {
+		try {
+			if (((RelationModelListener) relationModelGenerator.irml).lrelation.size() == 0){
+				relationModelGenerator.addClockConstraint(step);
+				System.out.println("initialization of the occurrence relation model: done");
+			}
+				relationModelGenerator.resolve(step);
+				lastOccurrenceRelations.addAll(relationModelGenerator.getLastOccurrenceRelations());
+		} catch (Throwable e) {
+
+			System.err.println("****************\nErreur Relation Model\n*****************\n");
+			throw e;
+		}
+		
+		return null;
+	}
+
+	@Override
+	public List<OccurrenceRelation> getLastOccurrenceRelations() {
+		return lastOccurrenceRelations;
+	}
+
 
 	
 }

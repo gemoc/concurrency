@@ -32,6 +32,7 @@ import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ActionModel;
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.When;
+import fr.inria.aoste.timesquare.instantrelation.CCSLRelationModel.OccurrenceRelation;
 import fr.inria.diverse.trace.commons.model.trace.MSE;
 import fr.inria.diverse.trace.commons.model.trace.ParallelStep;
 import fr.inria.diverse.trace.commons.model.trace.SmallStep;
@@ -237,6 +238,12 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine
 			// inform the solver that we will run this step
 			if (selectedLogicalStep != null) {
 				getSolver().applyLogicalStep(selectedLogicalStep);
+				
+				List<fr.inria.aoste.timesquare.instantrelation.CCSLRelationModel.OccurrenceRelation> res = getSolver().getLastOccurrenceRelations();
+				System.out.println("/********************DEBUG OCCURRENCE RELATIONS****************\n*  "
+						+res
+						+"\n**********************************************************/");
+				
 				engineStatus.incrementNbLogicalStepRun();
 			} else {
 				// no logical step was selected, this is most probably due to a

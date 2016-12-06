@@ -6,6 +6,7 @@ import java.util.List;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionContext;
 import org.gemoc.xdsmlframework.api.core.IDisposable;
 
+import fr.inria.aoste.timesquare.instantrelation.CCSLRelationModel.OccurrenceRelation;
 import fr.inria.aoste.trace.EventOccurrence;
 import fr.inria.aoste.trace.ModelElementReference;
 import fr.inria.diverse.trace.commons.model.trace.Step;
@@ -18,6 +19,7 @@ import fr.inria.diverse.trace.commons.model.trace.Step;
  * The steps it returns are based on the trace metamodel fr.inria.aoste.trace.
  * 
  * @author flatombe
+ * @author Julien Deantoni
  */
 public interface ISolver extends IDisposable {
 	/**
@@ -87,4 +89,9 @@ public interface ISolver extends IDisposable {
 	 */
 	public void initialize(IConcurrentExecutionContext context);
 	
+	/**
+	 * Compute the occurrence relations according to the logical step and the specification
+	 * @param the current #LogicalStep 
+	 **/
+	List<OccurrenceRelation> getLastOccurrenceRelations();
 }

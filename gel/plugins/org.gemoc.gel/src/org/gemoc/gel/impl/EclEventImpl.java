@@ -9,7 +9,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.gemoc.gel.EclEvent;
 import org.gemoc.gel.GelPackage;
 
-import fr.inria.aoste.timesquare.ECL.ECLDefCS;
+import fr.inria.aoste.timesquare.ecl.ecl.ECLDefCS;
 
 /**
  * <!-- begin-user-doc -->

@@ -47,7 +47,7 @@ import org.gemoc.gel.Visibility;
 import org.gemoc.gel.XorPattern;
 import org.gemoc.gexpressions.GexpressionsPackage;
 
-import fr.inria.aoste.timesquare.ECL.ECLPackage;
+import fr.inria.aoste.timesquare.ecl.ecl.ECLPackage;
 
 /**
  * <!-- begin-user-doc -->

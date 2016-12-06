@@ -41,7 +41,7 @@ class GELProposalProvider extends AbstractGELProposalProvider {
 				// Expression to designate the MoccEvent
 				val dse = EcoreUtil2.getContainerOfType(model, AtomicDomainSpecificEvent)
 				val proposal = GELHelper.parseContextName(
-					(dse.uponMoccEvent as EclEvent).eventReference.classifierContextDecl)
+					(dse.uponMoccEvent as EclEvent).eventReference.owningClassifierContextDecl)
 				acceptor.accept(createCompletionProposal(proposal, context))
 			} else {
 
@@ -55,7 +55,7 @@ class GELProposalProvider extends AbstractGELProposalProvider {
 			// Expression to designate the EOperation
 			val dse = EcoreUtil2.getContainerOfType(model, AtomicDomainSpecificEvent)
 			val proposal = GELHelper.parseContextName(
-				(dse.uponMoccEvent as EclEvent).eventReference.classifierContextDecl)
+				(dse.uponMoccEvent as EclEvent).eventReference.owningClassifierContextDecl)
 			acceptor.accept(createCompletionProposal(proposal, context))
 		}
 	}

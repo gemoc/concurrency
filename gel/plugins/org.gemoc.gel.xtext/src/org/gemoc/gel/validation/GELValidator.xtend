@@ -3,7 +3,7 @@
  */
 package org.gemoc.gel.validation
 
-import fr.inria.aoste.timesquare.ECL.ECLDefCS
+import fr.inria.aoste.timesquare.ecl.ecl.ECLDefCS
 import java.util.ArrayList
 import java.util.Collection
 import java.util.List

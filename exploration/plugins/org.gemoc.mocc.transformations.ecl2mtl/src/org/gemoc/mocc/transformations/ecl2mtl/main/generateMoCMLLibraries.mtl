@@ -95,7 +95,7 @@ moccmllibs:={ #[aStateRelationBasedLibrary.oclAsType(Library).name/] -> {
 	[comment # [rl.name -> {/]
 		[for (rd : RelationDefinition | rl.relationDefinitions)]
 			[if (rd.oclIsTypeOf(StateMachineRelationDefinition))]
-		#[rd.oclAsType(NamedElement).name/] -> [ '[' /] :s [rd.oclAsType(StateMachineRelationDefinition).getVariables()/] [rd.declaration.getConstants()/] [rd.oclAsType(StateMachineRelationDefinition).getListedClocks()/]|
+		#[rd.oclAsType(NamedElement).name/] -> [ '[' /] :s [rd.oclAsType(StateMachineRelationDefinition).getVariables()/] [rd.declaration.getConstants()/] [rd.oclAsType(RelationDefinition).getListedClocks()/]|
 	
 				s caseOf: {
 					[comment initial state is mandatory (mm conformance) - no additional checking /]
