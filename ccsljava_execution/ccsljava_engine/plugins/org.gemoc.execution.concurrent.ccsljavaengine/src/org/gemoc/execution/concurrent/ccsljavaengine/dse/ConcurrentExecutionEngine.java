@@ -238,11 +238,12 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine
 			// inform the solver that we will run this step
 			if (selectedLogicalStep != null) {
 				getSolver().applyLogicalStep(selectedLogicalStep);
-				
-				List<fr.inria.aoste.timesquare.instantrelation.CCSLRelationModel.OccurrenceRelation> res = getSolver().getLastOccurrenceRelations();
-				System.out.println("/********************DEBUG OCCURRENCE RELATIONS****************\n*  "
-						+res
-						+"\n**********************************************************/");
+
+//only for testing purpose
+//				List<fr.inria.aoste.timesquare.instantrelation.CCSLRelationModel.OccurrenceRelation> res = getSolver().getLastOccurrenceRelations();
+//				System.out.println("/********************DEBUG OCCURRENCE RELATIONS****************\n*  "
+//						+res
+//						+"\n**********************************************************/");
 				
 				engineStatus.incrementNbLogicalStepRun();
 			} else {
