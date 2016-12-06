@@ -279,7 +279,7 @@ public class Launcher extends AbstractGemocLauncher {
 	}
 
 	@Override
-	protected String getModelIdentifier() {
+	public String getModelIdentifier() {
 		if (_executionEngine instanceof ConcurrentExecutionEngine)
 			return Activator.PLUGIN_ID+".debugModel";
 		else
