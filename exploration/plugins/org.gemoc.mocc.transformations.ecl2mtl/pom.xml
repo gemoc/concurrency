@@ -132,11 +132,11 @@
          <packagesToRegister>
          	<packageToRegister>org.eclipse.emf.ecore.EcorePackage</packageToRegister>
          	<packageToRegister>org.eclipse.xtend.core.xtend.XtendPackage</packageToRegister>  
-         	<packageToRegister>fr.inria.aoste.timesquare.ECL.ECLPackage</packageToRegister>
+         	<packageToRegister>fr.inria.aoste.timesquare.ecl.ecl.ECLPackage</packageToRegister>
          	<packageToRegister>fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.ClockExpressionAndRelationPackage</packageToRegister>
-		 	<packageToRegister>org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.CompleteOCLCSPackage</packageToRegister>
-		 	<packageToRegister>org.eclipse.ocl.examples.pivot.PivotPackage</packageToRegister>
-			<packageToRegister>org.eclipse.ocl.examples.xtext.base.basecs.BaseCSPackage</packageToRegister>
+		 	<packageToRegister>org.eclipse.ocl.xtext.completeoclcs.CompleteOCLCSPackage</packageToRegister>
+		 	<packageToRegister>org.eclipse.ocl.pivot.PivotPackage</packageToRegister>
+			<packageToRegister>org.eclipse.ocl.xtext.basecs.BaseCSPackage</packageToRegister>
            	<packageToRegister>org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.EssentialOCLCSPackage</packageToRegister>
            	<packageToRegister>fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.TimeModelPackage</packageToRegister>
            	<packageToRegister>org.eclipse.xtext.xbase.XbasePackage</packageToRegister>  
