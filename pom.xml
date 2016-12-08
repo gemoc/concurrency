@@ -58,13 +58,13 @@
         <repository>
             <id>Sirius</id>
             <layout>p2</layout>
-            <url>http://download.eclipse.org/sirius/updates/releases/3.1.4/mars</url>
+            <url>http://download.eclipse.org/sirius/updates/releases/4.1.2/neon/</url>
         </repository>
-        <repository>
+  <!--      <repository>
             <id>umldesigner</id>
             <layout>p2</layout>
             <url>http://releases.umldesigner.org/5.0.1/repository/</url>
-        </repository>
+        </repository> -->
         <repository>
             <id>nebula</id>
             <layout>p2</layout>
