@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: CCSLJava Engine
 Bundle-SymbolicName: org.gemoc.execution.concurrent.ccsljavaengine;singleton:=true
-Bundle-Version: 2.2.0.qualifier
+Bundle-Version: 2.3.0.qualifier
 Bundle-Activator: org.gemoc.execution.concurrent.ccsljavaengine.Activator
 Require-Bundle: org.eclipse.core.runtime,
  org.gemoc.execution.concurrent.ccsljavaxdsml.api;bundle-version="1.0.0",

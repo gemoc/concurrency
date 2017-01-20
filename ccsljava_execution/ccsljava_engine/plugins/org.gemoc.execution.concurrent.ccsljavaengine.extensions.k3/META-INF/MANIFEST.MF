@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Gemoc extension for K3
 Bundle-SymbolicName: org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3
-Bundle-Version: 2.2.0.qualifier
+Bundle-Version: 2.3.0.qualifier
 Bundle-Activator: org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.Activator
 Require-Bundle: org.eclipse.core.runtime,
  org.gemoc.xdsmlframework.api,
