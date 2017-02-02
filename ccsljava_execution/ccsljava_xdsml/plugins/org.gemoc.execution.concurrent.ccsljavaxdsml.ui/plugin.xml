@@ -69,10 +69,43 @@
   </extension>
   <!-- expression definitions for simplifying the filtering of command and menu contributions -->
   <extension point="org.eclipse.ui.newWizards">
-    <category id="org.gemoc.execution.concurrent.ccsljavaxdsml.ui" name="GEMOC Concurrent"/>
-    <wizard category="org.gemoc.execution.concurrent.ccsljavaxdsml.ui" class="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateNewGemocConcurrentLanguageProject" finalPerspective="org.gemoc.xdsmlframework.ide.ui.xdsml.perspective" icon="icons/IconeGemocLanguage-16.png" id="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateNewGemocLanguageProject" name="GEMOC Concurrent xDSML Project" project="true"/>
-    <wizard category="org.gemoc.execution.concurrent.ccsljavaxdsml.ui" class="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateNewDSEProject" finalPerspective="org.gemoc.xdsmlframework.ide.ui.xdsml.perspective" icon="icons/IconeGemocLanguage-16.png" id="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateNewDSEProject" name="DSE Project" project="true"/>
-    <wizard category="org.gemoc.execution.concurrent.ccsljavaxdsml.ui" class="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateNewMoCProject" finalPerspective="org.gemoc.xdsmlframework.ide.ui.xdsml.perspective" icon="icons/IconeGemocLanguage-16.png" id="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateNewMoCProject" name="MoCCML Project" project="true"/>
+    <category id="org.gemoc.gemoc_language_workbench.ui" name="GEMOC"/>
+    <wizard
+          category="org.gemoc.gemoc_language_workbench.ui"
+          class="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateNewGemocConcurrentLanguageProject"
+          finalPerspective="org.gemoc.xdsmlframework.ide.ui.xdsml.perspective"
+          icon="icons/IconeGemocLanguage-16.png"
+          id="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateNewGemocLanguageProject"
+          name="GEMOC Concurrent xDSML Project"
+          project="true">
+       <description>
+          Create a new xDSML project to specify an executable language that will run using the GEMOC ccsl java concurrent engine.
+       </description>
+    </wizard>
+    <wizard
+          category="org.gemoc.gemoc_language_workbench.ui"
+          class="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateNewDSEProject"
+          finalPerspective="org.gemoc.xdsmlframework.ide.ui.xdsml.perspective"
+          icon="icons/IconeGemocLanguage-16.png"
+          id="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateNewDSEProject"
+          name="DSE Project"
+          project="true">
+       <description>
+          Create a new DSE project to specify the domain specific events of  executable languages running the GEMOC ccsl java concurent engine.
+       </description>
+    </wizard>
+    <wizard
+          category="org.gemoc.gemoc_language_workbench.ui"
+          class="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateNewMoCProject"
+          finalPerspective="org.gemoc.xdsmlframework.ide.ui.xdsml.perspective"
+          icon="icons/IconeGemocLanguage-16.png"
+          id="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateNewMoCProject"
+          name="MoCCML Project"
+          project="true">
+       <description>
+          Create a new MoCCML project to specify the Model of Concurrency and Communication of  executable languages running the GEMOC ccsl java concurent engine.
+       </description>
+    </wizard>
   </extension>
   <extension point="org.eclipse.ui.perspectiveExtensions">
     <perspectiveExtension targetID="org.gemoc.xdsmlframework.ide.ui.xdsml.perspective">

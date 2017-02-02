@@ -149,22 +149,6 @@
          </contextualLaunch>
       </shortcut>
    </extension>
-
-<!-- <extension
-       point="org.eclipse.ui.newWizards">
-    <category
-          id="org.gemoc.gemoc_modeling_workbench.ui.category"
-          name="GEMOC">
-    </category>
-    <wizard
-          category="org.gemoc.execution.concurrent.ccsljavaxdsml.ui"
-          class="org.gemoc.gemoc_modeling_workbench.ui.wizards.CreateNewGemocModelingProject"
-          icon="icons/IconeGemocModel-16.png"
-          id="org.gemoc.gemoc_modeling_workbench.concurrent.ui.wizards.CreateNewGemocModelingProject"
-          name="GEMOC Concurrent Modeling Project"
-          project="true">
-    </wizard>
- </extension>-->
    <extension
          point="org.eclipse.sirius.externalJavaAction">
       <javaActions
