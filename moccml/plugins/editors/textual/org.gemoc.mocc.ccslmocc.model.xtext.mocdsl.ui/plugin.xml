@@ -327,5 +327,19 @@
             </attribute>
         </markerResolutionGenerator>
     </extension>
+    <extension
+          point="org.eclipse.ui.newWizards">
+       <category
+             id="org.gemoc.mocc.ccslmocc.model.xtext.mocdsl.ui"
+             name="MoCCML Wizards">
+       </category>
+       <wizard
+             category="org.gemoc.mocc.ccslmocc.model.xtext.mocdsl.ui"
+             class="org.gemoc.mocc.ccslmocc.model.xtext.mocdsl.ui.wizards.MoCCMLFileNewWizard"
+             icon="icons/IconeGemocMoC_16x16x32.png"
+             id="org.gemoc.mocc.ccslmocc.model.xtext.mocdsl.ui.wizards.MoCCMLFileNewWizard"
+             name="MoCCML File">
+       </wizard>
+    </extension>
 
 </plugin>
