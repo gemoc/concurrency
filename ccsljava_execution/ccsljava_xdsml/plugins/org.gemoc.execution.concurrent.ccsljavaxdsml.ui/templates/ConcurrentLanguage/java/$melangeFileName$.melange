@@ -6,5 +6,4 @@ language $metamodelName$ {
 	with $listOfAspects$
 	ecl "$eclFilePath$"
 	
-	exactType $metamodelName$MT
 }
