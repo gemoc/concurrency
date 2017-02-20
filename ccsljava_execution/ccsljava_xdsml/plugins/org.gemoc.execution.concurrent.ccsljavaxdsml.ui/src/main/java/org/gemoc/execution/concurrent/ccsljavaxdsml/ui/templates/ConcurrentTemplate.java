@@ -46,7 +46,7 @@ public class ConcurrentTemplate extends SimpleMTTemplate{
 	
 	public ConcurrentTemplate() {
 		super();
-		TemplateOption eclLocationOption  = new AbstractStringWithButtonOption(this, KEY_ECLFILE_PATH, "ECL path") {
+		TemplateOption eclLocationOption  = new AbstractStringWithButtonOption(this, KEY_ECLFILE_PATH, "ECL path", "ECL file containing the events definition for the language") {
 			@Override
 			public String doSelectButton() {
 				final IWorkbenchWindow workbenchWindow = PlatformUI
@@ -91,7 +91,7 @@ public class ConcurrentTemplate extends SimpleMTTemplate{
 			}
 		};
 		
-		dsaProjectLocationOption  = new AbstractStringWithButtonOption(this, KEY_ASPECTS, "DSA project") {
+		dsaProjectLocationOption  = new AbstractStringWithButtonOption(this, KEY_ASPECTS, "DSA project", "Project containing the K3 aspects that extends the domain model and will be part of the new language") {
 
 			@Override
 			public String doSelectButton() {
