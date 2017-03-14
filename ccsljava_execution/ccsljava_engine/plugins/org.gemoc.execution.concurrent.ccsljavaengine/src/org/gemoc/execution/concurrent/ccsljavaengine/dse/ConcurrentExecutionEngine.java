@@ -287,7 +287,7 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine
 		if (!_isStopped) { // execute while stopped may occur when we push the
 							// stop button when paused in the debugger
 			beforeExecutionStep(_selectedLogicalStep);
-			for (final Step step : ((ParallelStep<Step>) _selectedLogicalStep).getSubSteps()) {
+			for (final Step step : ((ParallelStep<Step,?>) _selectedLogicalStep).getSubSteps()) {
 				SmallStep sstep = (SmallStep) step;
 				executeAssociatedActions(sstep.getMseoccurrence().getMse());
 				executeSmallStep(sstep);

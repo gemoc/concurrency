@@ -65,9 +65,9 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 		if (instruction instanceof SmallStep) {
 			return false;
 		}else{
-			if (instruction instanceof BigStep<?>) {
+			if (instruction instanceof BigStep<?,?>) {
 			  boolean hasActionMSE = false;
-				for (Object o : ((BigStep<?>) instruction).getSubSteps()) {
+				for (Object o : ((BigStep<?,?>) instruction).getSubSteps()) {
 					Step s = (Step) o;
 					if (s.getMseoccurrence().getMse().getAction() != null) {
 						hasActionMSE = true;
@@ -106,7 +106,7 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 			@SuppressWarnings("unchecked")
 			List<MSEOccurrence> allMSEOccs = StepHelper.collectAllMSEOccurrences((Step)instruction);
 			
-			allMSEOccs.forEach(m->occ2step.computeIfAbsent(m, o->(BigStep<?>)instruction));
+			allMSEOccs.forEach(m->occ2step.computeIfAbsent(m, o->(BigStep<?,?>)instruction));
 			pushStackFrame(threadName, StepHelper.getStepName((Step) instruction), instruction, instruction);
 			logicalStepFrameCreated = true;
 			return;

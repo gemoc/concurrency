@@ -51,6 +51,9 @@ import fr.inria.aoste.trace.LogicalStep;
 import fr.inria.aoste.trace.ModelElementReference;
 import fr.inria.aoste.trace.Reference;
 import fr.inria.aoste.trace.relation.IDescription;
+import fr.inria.diverse.trace.commons.model.generictrace.GenericParallelStep;
+import fr.inria.diverse.trace.commons.model.generictrace.GenericSmallStep;
+import fr.inria.diverse.trace.commons.model.generictrace.GenerictraceFactory;
 import fr.inria.diverse.trace.commons.model.trace.MSE;
 import fr.inria.diverse.trace.commons.model.trace.MSEModel;
 import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
@@ -129,7 +132,7 @@ public class CcslSolver implements org.gemoc.execution.concurrent.ccsljavaxdsml.
 
 	private Step createLogicalStep(fr.inria.aoste.trace.LogicalStep res) 
 	{
-		ParallelStep<SmallStep> parStep = TraceFactory.eINSTANCE.createParallelStep();
+		GenericParallelStep parStep = GenerictraceFactory.eINSTANCE.createGenericParallelStep();
 		for (Event e : LogicalStepHelper.getTickedEvents(res))
 		{
 			MSEOccurrence mseOccurrence = TraceFactory.eINSTANCE.createMSEOccurrence();
@@ -142,7 +145,7 @@ public class CcslSolver implements org.gemoc.execution.concurrent.ccsljavaxdsml.
 				}
 			}
 			
-			SmallStep smallStep = TraceFactory.eINSTANCE.createGenericSmallStep();
+			GenericSmallStep smallStep = GenerictraceFactory.eINSTANCE.createGenericSmallStep();
 			smallStep.setMseoccurrence(mseOccurrence);
 			parStep.getSubSteps().add(smallStep);
 		}

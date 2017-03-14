@@ -1,6 +1,10 @@
 package org.gemoc.execution.concurrent.ccsljavaengine.eventscheduling.trace;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -36,7 +40,6 @@ import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Contex
 import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.ExecutionTraceModel;
 import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Gemoc_execution_traceFactory;
 import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.ModelState;
-import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.SolverState;
 import org.gemoc.xdsmlframework.api.core.IExecutionContext;
 import org.gemoc.xdsmlframework.api.core.IExecutionEngine;
 import org.gemoc.xdsmlframework.api.engine_addon.DefaultEngineAddon;
@@ -65,7 +68,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 	private ModelState currentState = null;
 	byte[] _lastRestoredSolverState;
 	private EContentAdapter adapter;
-	private boolean shouldSave = true;
+	private boolean shouldSave = false;
 	private boolean stateChanged = false;
 	private boolean _backToPastHappened = false;
 	private boolean _cannotSaveTrace = false;
@@ -75,13 +78,11 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 
 	private void modifyTrace(final Runnable r) {
 		RecordingCommand command = new RecordingCommand(getEditingDomain(), "update trace model") {
-
 			@Override
 			protected void doExecute() {
 				r.run();
 			}
 		};
-
 		CommandExecution.execute(getEditingDomain(), command);
 	}
 
@@ -138,24 +139,68 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 			CommandExecution.execute(getEditingDomain(), command);
 		}
 	}
-
+	
 	private void restoreModelState(Choice choice) {
 		ModelState state = choice.getContextState().getModelState();
 		restoreModelState(state, true);
 	}
-
-	public void jump(final ModelState state) {
-		if(_limitedMode){
-			// Cannot jump in limited mode
+	
+	private FileOutputStream getFileOutputStream(File f) {
+		FileOutputStream res = null;
+		try {
+			res = new FileOutputStream(f);
+		} catch (FileNotFoundException e) {}
+		return res;
+	}
+	
+	private String tmpRestoreFilePath;
+	private File outputRestoreTmp = null;
+	private FileOutputStream outputRestoreTmpStream = null;
+	private PrintWriter outputRestoreTmpWriter = null;
+	
+	@Override
+	public void engineAboutToStop(IExecutionEngine engine) {
+		tmpRestoreFilePath = System.getProperty("tmpRestoreFileProperty");
+		outputRestoreTmp = tmpRestoreFilePath != null && tmpRestoreFilePath.length() > 0 ? new File(tmpRestoreFilePath) : null;
+		outputRestoreTmpStream = outputRestoreTmp != null ? getFileOutputStream(outputRestoreTmp) : null;
+		outputRestoreTmpWriter = outputRestoreTmpStream != null ? new PrintWriter(outputRestoreTmpStream, true) : null;
+		if (outputRestoreTmpWriter != null) {
+			for (int i = 0; i < _executionTraceModel.getReachedStates().size(); i++) {
+				jump(_executionTraceModel.getReachedStates().get(i));
+			}
+			try {
+				outputRestoreTmpStream.close();
+				outputAddTmpStream.close();
+				outputRestoreTmpWriter.close();
+				outputAddTmpWriter.close();
+				outputRestoreTmpStream = null;
+				outputAddTmpStream = null;
+				outputRestoreTmpWriter = null;
+				outputAddTmpWriter = null;
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
-		else{
+	}
+	
+	public void jump(final ModelState state) {
+//		if(_limitedMode){
+//			// Cannot jump in limited mode
+//		}
+//		else{
 			modifyTrace(new Runnable() {
 				@Override
 				public void run() {
+					long t1 = System.nanoTime();
 					restoreModelState(state, false);
+					long t2 = System.nanoTime();
+					System.out.println("MEASURED TIME: " + (t2 - t1));
+					if (outputRestoreTmpWriter != null) {
+						outputRestoreTmpWriter.println(t2 - t1);
+					}
 				}
 			});
-		}
+//		}
 	}
 
 	
@@ -165,9 +210,9 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 	 * @param restoreAspects
 	 */
 	private void restoreModelState(ModelState state, boolean restoreAspects) {
-		if(_limitedMode){
-			Activator.getDefault().error("incorrect call, restoreModelState of this addon doesn't work with Engine that aren't concurrent");
-		}
+//		if(_limitedMode){
+//			Activator.getDefault().error("incorrect call, restoreModelState of this addon doesn't work with Engine that aren't concurrent");
+//		}
 		EObject left = state.getModel();
 		EObject right = _executionContext.getResourceModel().getContents().get(0);
 
@@ -185,12 +230,12 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 				// if attribute, modify value on the aspect side that will
 				// modify the model in return.
 				AttributeChangeSpec asc = (AttributeChangeSpec) diff;
-				ICodeExecutor codeExecutor = ((IConcurrentExecutionContext)_executionContext).getConcurrentExecutionPlatform().getCodeExecutor();
 				EObject target = diff.getMatch().getRight();
 				String methodName = asc.getAttribute().getName();
 				ArrayList<Object> parameters = new ArrayList<Object>();
 				parameters.add(asc.getValue());
 				if (restoreAspects) {
+					ICodeExecutor codeExecutor = ((IConcurrentExecutionContext)_executionContext).getConcurrentExecutionPlatform().getCodeExecutor();
 					try {
 						System.out.println("Begin setting " + target.toString() + "." + methodName + " = "
 								+ asc.getValue());
@@ -278,7 +323,8 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 		if (traceResource.getContents().size() > 0) {
 
 			ExecutionTraceModel traceModel = (ExecutionTraceModel) traceResource.getContents().get(0);
-			if (traceModel.getChoices().size() > 0) {
+			List<Choice> choices = traceModel.getChoices();
+			if (choices.size() > 0) {
 
 				addModelStateIfChanged();
 
@@ -286,15 +332,15 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 				ModelState modelState = currentState;
 				contextState.setModelState(modelState);
 
-				if (_executionEngine instanceof IConcurrentExecutionEngine) {
-					IConcurrentExecutionEngine engine_cast = (IConcurrentExecutionEngine) _executionEngine;
-					SolverState solverState = Gemoc_execution_traceFactory.eINSTANCE.createSolverState();
-					solverState.setSerializableModel(engine_cast.getSolver().getState());
-					contextState.setSolverState(solverState);
-				}
+//				if (_executionEngine instanceof IConcurrentExecutionEngine) {
+//					IConcurrentExecutionEngine engine_cast = (IConcurrentExecutionEngine) _executionEngine;
+//					SolverState solverState = Gemoc_execution_traceFactory.eINSTANCE.createSolverState();
+//					solverState.setSerializableModel(engine_cast.getSolver().getState());
+//					contextState.setSolverState(solverState);
+//				}
 
-				traceModel.getChoices().get(traceModel.getChoices().size() - 1).setContextState(contextState);
-				contextState.setChoice(traceModel.getChoices().get(traceModel.getChoices().size() - 1));
+				choices.get(choices.size() - 1).setContextState(contextState);
+				contextState.setChoice(choices.get(choices.size() - 1));
 			
 			}
 		}
@@ -310,6 +356,10 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 		if (traceResource.getContents().size() > 0) {
 			if (!_cannotSaveTrace && shouldSave) {
 				try {
+//					String path = System.getProperty("saveTracePath");
+//					if (path != null && path.length() > 0) {
+//						traceResource.setURI(URI.createFileURI(path));
+//					}
 					traceResource.save(null);
 					Activator.getDefault().debug(String.format("[trace-%10s] %d states saved to %s",
 							getCurrentEngineShortName(),
@@ -390,6 +440,11 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 		return choice;
 	}
 
+	private String tmpAddFilePath;
+	private File outputAddTmp;
+	private FileOutputStream outputAddTmpStream;
+	private PrintWriter outputAddTmpWriter;
+
 	private void updateTraceModelBeforeDeciding(final Collection<Step> possibleLogicalSteps) {
 
 		RecordingCommand command = new RecordingCommand(getEditingDomain(), "update trace model") {
@@ -405,7 +460,13 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 				}
 				choice.getPossibleLogicalSteps().addAll(possibleLogicalSteps);
 				_lastChoice = choice;
+				
+				long t1 = System.nanoTime();
 				storeCurrentContextState();
+				long t2 = System.nanoTime();
+				if (outputAddTmpWriter != null) {
+					outputAddTmpWriter.println(t2 - t1);
+				}
 			}
 		};
 		CommandExecution.execute(getEditingDomain(), command);
@@ -434,6 +495,13 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 					if(choiceFullyExecuted != null){
 						choiceFullyExecuted.setChosenLogicalStep(selectedLogicalStep);						
 					}
+				}
+				
+				long t1 = System.nanoTime();
+				storeCurrentContextState();
+				long t2 = System.nanoTime();
+				if (outputAddTmpWriter != null) {
+					outputAddTmpWriter.println(t2 - t1);
 				}
 			}
 		};
@@ -468,6 +536,11 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 			// so we do it here
 			setUp(executionEngine);
 			ArrayList<Step> beforeDecing = new ArrayList<Step>();
+			
+			if (logicalStepToApply.getMseoccurrence().getMse().eContainer() == null) {
+				System.out.println("MSE CONTAINER NULL");
+			}
+			
 			beforeDecing.add(logicalStepToApply);
 			updateTraceModelBeforeDeciding(beforeDecing);
 		}
@@ -566,18 +639,30 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 				
 			}
 		});
-		RecordingCommand command = new RecordingCommand(getEditingDomain(), "Save trace model") {
-			@Override
-			protected void doExecute() {
-				saveTraceModel(0);
-			}
-		};
-		CommandExecution.execute(getEditingDomain(), command);
+//		RecordingCommand command = new RecordingCommand(getEditingDomain(), "Save trace model") {
+//			@Override
+//			protected void doExecute() {
+//				_executionTraceModel.getChoices().forEach(c -> c.getPossibleLogicalSteps()
+//						.forEach(s -> s.getMseoccurrence().setMse(null)));
+//				_executionTraceModel.getChoices().forEach(c -> {
+//					ContextState s = c.getContextState();
+//					if (s.eContainer() == null) {
+//						c.setContextState(null);
+//					}
+//				});
+//				saveTraceModel(0);
+//			}
+//		};
+//		CommandExecution.execute(getEditingDomain(), command);
 	}
 
 	@Override
 	public void engineAboutToStart(IExecutionEngine engine) {
 		setUp(engine);
+		tmpAddFilePath = System.getProperty("tmpAddFileProperty");
+		outputAddTmp = tmpAddFilePath != null && tmpAddFilePath.length() > 0 ? new File(tmpAddFilePath) : null;
+		outputAddTmpStream = outputAddTmp != null ? getFileOutputStream(outputAddTmp) : null;
+		outputAddTmpWriter = outputAddTmpStream != null ? new PrintWriter(outputAddTmpStream, true) : null;
 	}
 	
 	@Override
@@ -593,7 +678,6 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 				break;
 			}
 		}
-		
 		
 		if(found){
 			String thisName = EngineAddonSpecificationExtensionPoint.getName(this);
