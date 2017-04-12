@@ -293,7 +293,7 @@ public class EventSchedulingTimelineProvider extends AbstractTimelineProvider im
 	}
 
 	@Override
-	public void aboutToSelectStep(IExecutionEngine engine, Collection<Step> logicalSteps) {
+	public void aboutToSelectStep(IExecutionEngine engine, Collection<Step<?>> logicalSteps) {
 		update(engine);
 	}
 
@@ -316,7 +316,7 @@ public class EventSchedulingTimelineProvider extends AbstractTimelineProvider im
 	}
 
 	@Override
-	public void proposedStepsChanged(IExecutionEngine engine, Collection<Step> logicalSteps) {
+	public void proposedStepsChanged(IExecutionEngine engine, Collection<Step<?>> logicalSteps) {
 		update(engine);
 	}
 
