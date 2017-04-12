@@ -11,7 +11,7 @@ import fr.inria.diverse.trace.commons.model.trace.Step;
 
 public class SynchroneExecution extends OperationExecution {
 
-	protected SynchroneExecution(SmallStep smallStep, IConcurrentExecutionEngine engine, Consumer<Step> beforeStep,
+	protected SynchroneExecution(SmallStep<?> smallStep, IConcurrentExecutionEngine engine, Consumer<Step<?>> beforeStep,
 			Runnable afterStep) {
 		super(smallStep, engine, beforeStep, afterStep);
 	}

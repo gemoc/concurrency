@@ -29,7 +29,7 @@ public abstract class AbstractUserDecider implements ILogicalStepDecider
 	private Semaphore _semaphore = null;
 
 	@Override
-	public Step decide(final IConcurrentExecutionEngine engine, final List<Step> possibleLogicalSteps)
+	public Step decide(final IConcurrentExecutionEngine engine, final List<Step<?>> possibleLogicalSteps)
 			throws InterruptedException {
 		_preemptionHappened = false;
 		_semaphore = new Semaphore(0);

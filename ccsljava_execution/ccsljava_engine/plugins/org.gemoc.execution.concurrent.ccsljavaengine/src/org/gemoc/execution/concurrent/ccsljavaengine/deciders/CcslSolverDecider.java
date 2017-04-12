@@ -14,7 +14,7 @@ import fr.inria.diverse.trace.commons.model.trace.Step;
 public class CcslSolverDecider implements ILogicalStepDecider {
 
 	@Override
-	public Step decide(IConcurrentExecutionEngine engine, List<Step> possibleLogicalSteps) {
+	public Step<?> decide(IConcurrentExecutionEngine engine, List<Step<?>> possibleLogicalSteps) {
 		return engine.getSolver().proposeLogicalStep();
 	}
 

@@ -905,7 +905,7 @@ public class StimuliManagerView extends EngineSelectionDependentViewPart impleme
 	}
 
 	@Override
-	public void aboutToSelectStep(IExecutionEngine engine, Collection<Step> logicalSteps) 
+	public void aboutToSelectStep(IExecutionEngine engine, Collection<Step<?>> logicalSteps) 
 	{
 		update(engine);
 	}
@@ -934,7 +934,7 @@ public class StimuliManagerView extends EngineSelectionDependentViewPart impleme
 
 	@Override
 	public void proposedStepsChanged(IExecutionEngine engine,
-			Collection<Step> steps) {
+			Collection<Step<?>> steps) {
 		update(engine);
 	}
 

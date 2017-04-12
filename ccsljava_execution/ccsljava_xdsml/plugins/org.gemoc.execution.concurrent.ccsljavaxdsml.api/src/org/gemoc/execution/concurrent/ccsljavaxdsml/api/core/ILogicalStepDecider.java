@@ -19,7 +19,7 @@ public interface ILogicalStepDecider extends IDisposable
 	 * @param possibleLogicalSteps
 	 * @return The index of the selected logical step, -1 if no logical step selected.
 	 */
-	Step decide(IConcurrentExecutionEngine engine, List<Step> possibleLogicalSteps)  throws InterruptedException;
+	Step<?> decide(IConcurrentExecutionEngine engine, List<Step<?>> possibleLogicalSteps)  throws InterruptedException;
 	
 	/**
 	 * Stop the decision making in progress.

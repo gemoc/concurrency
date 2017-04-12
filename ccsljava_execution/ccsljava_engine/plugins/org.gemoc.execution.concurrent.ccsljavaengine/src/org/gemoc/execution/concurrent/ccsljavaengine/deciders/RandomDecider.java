@@ -21,7 +21,7 @@ public class RandomDecider implements ILogicalStepDecider {
 	}
 
 	@Override
-	public Step decide(IConcurrentExecutionEngine engine, List<Step> possibleLogicalSteps) {
+	public Step<?> decide(IConcurrentExecutionEngine engine, List<Step<?>> possibleLogicalSteps) {
 		int index = -1;
 		if (possibleLogicalSteps.size() < 2)
 		{

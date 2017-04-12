@@ -10,21 +10,21 @@ import fr.inria.diverse.trace.commons.model.trace.Step;
 
 public abstract class OperationExecution {
 
-	private SmallStep smallStep;
+	private SmallStep<?> smallStep;
 	private IConcurrentExecutionEngine _engine;
 	private Object _result;
-	private Consumer<Step> beforeStepCallback;
+	private Consumer<Step<?>> beforeStepCallback;
 	private Runnable afterStepCallback;
 
-	protected OperationExecution(SmallStep smallStep, IConcurrentExecutionEngine engine,
-			Consumer<Step> beforeStepCallback, Runnable afterStepCallback) {
+	protected OperationExecution(SmallStep<?> smallStep, IConcurrentExecutionEngine engine,
+			Consumer<Step<?>> beforeStepCallback, Runnable afterStepCallback) {
 		this.smallStep = smallStep;
 		_engine = engine;
 		this.beforeStepCallback = beforeStepCallback;
 		this.afterStepCallback = afterStepCallback;
 	}
 
-	protected void beforeStepCallback(Step s) {
+	protected void beforeStepCallback(Step<?> s) {
 		beforeStepCallback.accept(s);
 	}
 
@@ -42,7 +42,7 @@ public abstract class OperationExecution {
 		return _engine;
 	}
 
-	protected SmallStep getSmallStep() {
+	protected SmallStep<?> getSmallStep() {
 		return smallStep;
 	}
 

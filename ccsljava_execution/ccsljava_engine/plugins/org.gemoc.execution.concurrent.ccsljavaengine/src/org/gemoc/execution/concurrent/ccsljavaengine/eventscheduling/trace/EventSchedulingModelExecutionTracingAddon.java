@@ -445,7 +445,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 	private FileOutputStream outputAddTmpStream;
 	private PrintWriter outputAddTmpWriter;
 
-	private void updateTraceModelBeforeDeciding(final Collection<Step> possibleLogicalSteps) {
+	private void updateTraceModelBeforeDeciding(final Collection<Step<?>> possibleLogicalSteps) {
 
 		RecordingCommand command = new RecordingCommand(getEditingDomain(), "update trace model") {
 
@@ -522,7 +522,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 	}
 
 	@Override
-	public void aboutToSelectStep(IExecutionEngine engine, Collection<Step> logicalSteps) {
+	public void aboutToSelectStep(IExecutionEngine engine, Collection<Step<?>> logicalSteps) {
 		setUp(engine);
 		updateTraceModelBeforeDeciding(logicalSteps);
 	}
@@ -530,12 +530,12 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 	@Override
 	public void aboutToExecuteStep(
 			IExecutionEngine executionEngine,
-			Step logicalStepToApply) {	
+			Step<?> logicalStepToApply) {	
 		if(_limitedMode){
 			// in limited mode the engine is not concurrent so it will not call the aboutToSelectLogicalStep method
 			// so we do it here
 			setUp(executionEngine);
-			ArrayList<Step> beforeDecing = new ArrayList<Step>();
+			ArrayList<Step<?>> beforeDecing = new ArrayList<Step<?>>();
 			
 			if (logicalStepToApply.getMseoccurrence().getMse().eContainer() == null) {
 				System.out.println("MSE CONTAINER NULL");

@@ -32,7 +32,6 @@ import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ActionModel;
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.When;
-import fr.inria.aoste.timesquare.instantrelation.CCSLRelationModel.OccurrenceRelation;
 import fr.inria.diverse.trace.commons.model.trace.MSE;
 import fr.inria.diverse.trace.commons.model.trace.ParallelStep;
 import fr.inria.diverse.trace.commons.model.trace.SmallStep;
@@ -129,12 +128,12 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine
 		notifyProposedLogicalStepsChanged();
 	}
 
-	protected List<Step> _possibleLogicalSteps = new ArrayList<>();
+	protected List<Step<?>> _possibleLogicalSteps = new ArrayList<>();
 
 	@Override
-	public List<Step> getPossibleLogicalSteps() {
+	public List<Step<?>> getPossibleLogicalSteps() {
 		synchronized (this) {
-			return new ArrayList<Step>(_possibleLogicalSteps);
+			return new ArrayList<Step<?>>(_possibleLogicalSteps);
 		}
 	}
 
@@ -168,17 +167,17 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine
 		}
 	}
 
-	protected Step _selectedLogicalStep;
+	protected Step<?> _selectedLogicalStep;
 
 	@Override
-	public Step getSelectedLogicalStep() {
+	public Step<?> getSelectedLogicalStep() {
 		synchronized (this) {
 			return _selectedLogicalStep;
 		}
 	}
 
 	@Override
-	public void setSelectedLogicalStep(Step ls) {
+	public void setSelectedLogicalStep(Step<?> ls) {
 		synchronized (this) {
 			_selectedLogicalStep = ls;
 		}
@@ -233,7 +232,7 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine
 		} else {
 			// Activator.getDefault().debug("\t\t ---------------- LogicalStep "
 			// + count);
-			Step selectedLogicalStep = selectAndExecuteLogicalStep();
+			Step<?> selectedLogicalStep = selectAndExecuteLogicalStep();
 			// 3 - run the selected logical step
 			// inform the solver that we will run this step
 			if (selectedLogicalStep != null) {
@@ -255,10 +254,10 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine
 		}
 	}
 
-	private Step selectAndExecuteLogicalStep() throws InterruptedException {
+	private Step<?> selectAndExecuteLogicalStep() throws InterruptedException {
 		setEngineStatus(EngineStatus.RunStatus.WaitingLogicalStepSelection);
 		notifyAboutToSelectLogicalStep();
-		Step selectedLogicalStep = getLogicalStepDecider().decide(this, getPossibleLogicalSteps());
+		Step<?> selectedLogicalStep = getLogicalStepDecider().decide(this, getPossibleLogicalSteps());
 		if (selectedLogicalStep != null) {
 			setSelectedLogicalStep(selectedLogicalStep);
 			setEngineStatus(EngineStatus.RunStatus.Running);
@@ -287,8 +286,8 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine
 		if (!_isStopped) { // execute while stopped may occur when we push the
 							// stop button when paused in the debugger
 			beforeExecutionStep(_selectedLogicalStep);
-			for (final Step step : ((ParallelStep<Step,?>) _selectedLogicalStep).getSubSteps()) {
-				SmallStep sstep = (SmallStep) step;
+			for (final Step<?> step : ((ParallelStep<Step<?>,?>) _selectedLogicalStep).getSubSteps()) {
+				SmallStep<?> sstep = (SmallStep<?>) step;
 				executeAssociatedActions(sstep.getMseoccurrence().getMse());
 				executeSmallStep(sstep);
 			}
@@ -309,7 +308,7 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine
 		}
 	}
 
-	private void executeSmallStep(SmallStep smallStep) {
+	private void executeSmallStep(SmallStep<?> smallStep) {
 		MSE mse = smallStep.getMseoccurrence().getMse();
 		if (mse.getAction() != null) {
 			ArrayList<When> whenStatements = new ArrayList<When>();
@@ -323,7 +322,7 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine
 				}
 			}
 			OperationExecution execution = null;
-			Consumer<Step> beforeStep = s -> {
+			Consumer<Step<?>> beforeStep = s -> {
 				beforeExecutionStep(s);
 			};
 			Runnable afterStep = () -> {

@@ -24,11 +24,11 @@ public class ASynchroneExecution extends OperationExecution {
 	private Collection<When> _whenStatements;
 	private IMSEStateController _clockController;
 	private HashMap<Force, When> _forces;
-	private Consumer<Step> beforeStep;
+	private Consumer<Step<?>> beforeStep;
 	private Runnable afterStep;
 
-	public ASynchroneExecution(SmallStep smallStep, Collection<When> whenStatements,
-			IMSEStateController clockController, IConcurrentExecutionEngine engine, Consumer<Step> beforeStep,
+	public ASynchroneExecution(SmallStep<?> smallStep, Collection<When> whenStatements,
+			IMSEStateController clockController, IConcurrentExecutionEngine engine, Consumer<Step<?>> beforeStep,
 			Runnable afterStep) {
 		super(smallStep, engine, beforeStep, afterStep);
 		this.beforeStep = beforeStep;

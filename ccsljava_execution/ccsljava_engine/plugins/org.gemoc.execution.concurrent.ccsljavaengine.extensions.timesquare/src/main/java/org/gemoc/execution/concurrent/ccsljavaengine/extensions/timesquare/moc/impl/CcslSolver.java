@@ -70,7 +70,7 @@ public class CcslSolver implements org.gemoc.execution.concurrent.ccsljavaxdsml.
 
 	protected CCSLKernelSolverWrapper solverWrapper = null;
 	protected URI solverInputURI = null;
-	protected ArrayList<Step> _lastLogicalSteps = new ArrayList<Step>();
+	protected ArrayList<Step<?>> _lastLogicalSteps = new ArrayList<Step<?>>();
 	protected ActionModel _feedbackModel;
 	protected MSEModel _MSEModel;
 	protected List<fr.inria.aoste.trace.LogicalStep> _intermediateResult;
@@ -228,17 +228,17 @@ public class CcslSolver implements org.gemoc.execution.concurrent.ccsljavaxdsml.
 	}
 
 	@Override
-	public List<Step> computeAndGetPossibleLogicalSteps() {
+	public List<Step<?>> computeAndGetPossibleLogicalSteps() {
 		
 		try {
 			_intermediateResult = solverWrapper.computeAndGetPossibleLogicalSteps();			
 			_lastLogicalSteps.clear();
 			for (fr.inria.aoste.trace.LogicalStep lsFromTimesquare : _intermediateResult)
 			{
-				Step lsFromTrace = createLogicalStep(lsFromTimesquare);
+				Step<?> lsFromTrace = createLogicalStep(lsFromTimesquare);
 				_lastLogicalSteps.add(lsFromTrace);
 			}
-			return new ArrayList<Step>(_lastLogicalSteps);
+			return new ArrayList<Step<?>>(_lastLogicalSteps);
 		} catch (NoBooleanSolution e) {
 			Activator.getDefault().error(e.getMessage(), e);
 		} catch (SolverException e) {
@@ -246,11 +246,11 @@ public class CcslSolver implements org.gemoc.execution.concurrent.ccsljavaxdsml.
 		} catch (SimulationException e) {
 			Activator.getDefault().error(e.getMessage(), e);
 		}
-		return new ArrayList<Step>();
+		return new ArrayList<Step<?>>();
 	}
 
 	@Override
-	public List<Step> updatePossibleLogicalSteps() {
+	public List<Step<?>> updatePossibleLogicalSteps() {
 		
 		try {
 			List<fr.inria.aoste.trace.LogicalStep> intermediateResult = solverWrapper.updatePossibleLogicalSteps();			
@@ -260,7 +260,7 @@ public class CcslSolver implements org.gemoc.execution.concurrent.ccsljavaxdsml.
 				Step lsFromTrace = createLogicalStep(lsFromTimesquare);
 				_lastLogicalSteps.add(lsFromTrace);
 			}
-			return new ArrayList<Step>(_lastLogicalSteps);
+			return new ArrayList<Step<?>>(_lastLogicalSteps);
 		} catch (NoBooleanSolution e) {
 			Activator.getDefault().error(e.getMessage(), e);
 		} catch (SolverException e) {
@@ -268,7 +268,7 @@ public class CcslSolver implements org.gemoc.execution.concurrent.ccsljavaxdsml.
 		} catch (SimulationException e) {
 			Activator.getDefault().error(e.getMessage(), e);
 		}
-		return new ArrayList<Step>();
+		return new ArrayList<Step<?>>();
 	}
 
 	@Override

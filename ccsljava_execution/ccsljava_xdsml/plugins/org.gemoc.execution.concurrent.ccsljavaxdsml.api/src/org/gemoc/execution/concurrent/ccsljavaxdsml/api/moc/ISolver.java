@@ -38,25 +38,25 @@ public interface ISolver extends IDisposable {
 	 * Returns the currently possible LogicalSteps
 	 * @return a list of LogicalSteps
 	 */
-	public List<Step> computeAndGetPossibleLogicalSteps();
+	public List<Step<?>> computeAndGetPossibleLogicalSteps();
 	
 	/**
 	 * Returns the currently possible LogicalSteps
 	 * @return a list of LogicalSteps
 	 */
-	public List<Step> updatePossibleLogicalSteps();
+	public List<Step<?>> updatePossibleLogicalSteps();
 	
 	/**
 	 * among the currently possible LogicalStep (see {@link getPossibleLogicalSteps} ), asks the solver to choose one
 	 * @return the logical step proposed from possible LogicalSteps 
 	 */
-	public Step proposeLogicalStep();
+	public Step<?> proposeLogicalStep();
 	
 	/**
 	 * ask the solver to apply the given LogicalStep and thus compute next step
 	 * @param the LogicalStep to apply
 	 */
-	public void applyLogicalStep(Step logicalStep);
+	public void applyLogicalStep(Step<?> logicalStep);
 
 
 	public ArrayList<ModelElementReference> getAllDiscreteClocks();

@@ -18,9 +18,9 @@ public interface IConcurrentExecutionEngine extends IExecutionEngine{
 	
 	void recomputePossibleLogicalSteps();
 
-	List<Step> getPossibleLogicalSteps();
+	List<Step<?>> getPossibleLogicalSteps();
 	
-	Step getSelectedLogicalStep();
+	Step<?> getSelectedLogicalStep();
 	
 	void addFutureAction(IFutureAction action);
 
@@ -40,7 +40,7 @@ public interface IConcurrentExecutionEngine extends IExecutionEngine{
 
 	void notifyAboutToSelectLogicalStep();
 
-	void setSelectedLogicalStep(Step selectedLogicalStep);
+	void setSelectedLogicalStep(Step<?> selectedLogicalStep);
 	
 	void notifyProposedLogicalStepsChanged();
 	
