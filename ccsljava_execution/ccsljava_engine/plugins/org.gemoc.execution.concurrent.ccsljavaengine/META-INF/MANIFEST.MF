@@ -20,7 +20,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.gemoc.commons.eclipse,
  fr.inria.diverse.commons.eclipse.messagingsystem.api,
  fr.inria.diverse.trace.commons;bundle-version="1.0.0",
- fr.inria.diverse.k3.al.annotationprocessor.plugin;bundle-version="3.2.0",
+ fr.inria.diverse.k3.al.annotationprocessor.plugin,
  fr.inria.aoste.timesquare.instantrelation
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
