@@ -32,6 +32,7 @@ import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ActionModel;
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.When;
+import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel;
 import fr.inria.diverse.trace.commons.model.trace.MSE;
 import fr.inria.diverse.trace.commons.model.trace.ParallelStep;
 import fr.inria.diverse.trace.commons.model.trace.SmallStep;
@@ -423,14 +424,14 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine
 			ArrayList<Object> parameters = new ArrayList<Object>();
 			// try with String[] args			
 			parameters.add(new String[1]);
-			List<Method> methods = codeExecutor.findCompatibleMethodsWithAnnotation(target, parameters, fr.inria.diverse.k3.al.annotationprocessor.InitializeModel.class);
+			List<Method> methods = codeExecutor.findCompatibleMethodsWithAnnotation(target, parameters, InitializeModel.class);
 			if(!methods.isEmpty()){
 				modelInitializationParameters.add(executionContext.getRunConfiguration().getModelInitializationArguments().split("\\r?\\n"));
 			} else {
 				// try with List<String>
 				parameters.clear();
 				parameters.add(new ArrayList<String>());
-				methods.addAll(codeExecutor.findCompatibleMethodsWithAnnotation(target, parameters, fr.inria.diverse.k3.al.annotationprocessor.InitializeModel.class));
+				methods.addAll(codeExecutor.findCompatibleMethodsWithAnnotation(target, parameters, InitializeModel.class));
 				if(!methods.isEmpty()){
 					ArrayList<String> modelInitializationArgs = new ArrayList<>();
 					for (String s : executionContext.getRunConfiguration().getModelInitializationArguments().split("\\r?\\n")) {
@@ -441,7 +442,7 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine
 					// try with EList<String>
 					parameters.clear();
 					parameters.add(new BasicEList<String>());
-					methods.addAll(codeExecutor.findCompatibleMethodsWithAnnotation(target, parameters, fr.inria.diverse.k3.al.annotationprocessor.InitializeModel.class));
+					methods.addAll(codeExecutor.findCompatibleMethodsWithAnnotation(target, parameters, InitializeModel.class));
 					if(!methods.isEmpty()){
 						BasicEList<String> modelInitializationArgs = new BasicEList<>();
 						for (String s : executionContext.getRunConfiguration().getModelInitializationArguments().split("\\r?\\n")) {
