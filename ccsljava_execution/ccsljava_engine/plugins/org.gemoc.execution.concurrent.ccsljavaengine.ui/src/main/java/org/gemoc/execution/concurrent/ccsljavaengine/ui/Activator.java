@@ -16,7 +16,12 @@ public class Activator extends AbstractUIPlugin {
 
 	// The plug-in ID
 	public static final String PLUGIN_ID = "org.gemoc.execution.concurrent.ccsljavaengine.ui"; //$NON-NLS-1$
-
+	
+	/** 
+	 * The debugModelId to be used by odesign services (see org.gemoc.executionframework.extensions.sirius.services.AbstractGemocDebuggerServices )
+	 * that targets this concurrent.ccsljavaengine
+	 */
+	public static final String DEBUG_MODEL_ID = PLUGIN_ID + ".debugModel"; //$NON-NLS-1$
 	
 	// The shared instance
 	private static Activator plugin;
