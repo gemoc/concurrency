@@ -44,7 +44,8 @@ Require-Bundle: org.eclipse.ui,
  org.gemoc.executionframework.engine.ui;bundle-version="0.1.0",
  org.gemoc.executionframework.extensions.sirius,
  org.gemoc.xdsmlframework.ui.utils,
- org.eclipse.jface
+ org.eclipse.jface,
+ org.gemoc.execution.concurrent.ccsljavaengine.mse.model
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: org.gemoc.execution.concurrent.ccsljavaengine.ui,

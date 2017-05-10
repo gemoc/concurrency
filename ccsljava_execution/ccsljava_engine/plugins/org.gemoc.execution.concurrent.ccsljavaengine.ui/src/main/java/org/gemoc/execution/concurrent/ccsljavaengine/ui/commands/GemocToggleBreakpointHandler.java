@@ -7,16 +7,20 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.ISelectionService;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.Launcher;
+import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.ModelSpecificEventWrapper;
 import org.gemoc.executionframework.engine.ui.debug.breakpoint.GemocBreakpoint;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
+import fr.inria.diverse.trace.commons.model.trace.MSE;
+import fr.inria.diverse.trace.commons.model.trace.MSEModel;
 import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
 import fr.obeo.dsl.debug.ide.DSLBreakpoint;
 import fr.obeo.dsl.debug.ide.sirius.ui.DSLToggleBreakpointsUtils;
@@ -27,39 +31,59 @@ public class GemocToggleBreakpointHandler extends AbstractHandler {
 	 * The {@link DSLToggleBreakpointsUtils}.
 	 */
 	protected final DSLToggleBreakpointsUtils breakpointUtils;
-	 org.eclipse.ui.ide.IGotoMarker f;
+	org.eclipse.ui.ide.IGotoMarker f;
+
 	/**
 	 * Constructor.
 	 */
 	public GemocToggleBreakpointHandler() {
-		breakpointUtils = new DSLToggleBreakpointsUtils(Launcher.MODEL_ID) {
-			
+		breakpointUtils = new DSLToggleBreakpointsUtils("Cx5uWJBfcV6a-kJNBGdUSV-d4") {
+
 			@Override
 			protected EObject getInstruction(Object selected) {
 				final EObject res;
-				
-				if (selected instanceof ModelSpecificEventWrapper) 
-				{
-					res = ((ModelSpecificEventWrapper) selected).getMSE();
-				} 
-				else if (selected instanceof MSEOccurrence)
-				{
-					res = ((MSEOccurrence) selected).getMse();				
-				} 
-				else 
-				{
+
+				if (selected instanceof ModelSpecificEventWrapper) {
+					ModelSpecificEvent ccslMSE = ((ModelSpecificEventWrapper) selected).getMSE();
+					ResourceSet rs = ccslMSE.eResource().getResourceSet();
+					MSEModel gemocMSEModel = null;
+					for (Resource r : rs.getResources()) {
+						if (r.getContents().size() > 0) {
+							EObject firstElement = r.getContents().get(0);
+							if (firstElement instanceof MSEModel) {
+								gemocMSEModel = (MSEModel) firstElement;
+								break;
+							}
+						}
+					}
+
+					FeedbackMSE correspondingGemocMSE = null;
+					for (MSE gemocMSE : gemocMSEModel.getOwnedMSEs()) {
+						if (gemocMSE instanceof FeedbackMSE) {
+							FeedbackMSE feedbackMSE = (FeedbackMSE) gemocMSE;
+							if (feedbackMSE.getFeedbackModelSpecificEvent() == ccslMSE) {
+								correspondingGemocMSE = feedbackMSE;
+								break;
+							}
+						}
+					}
+
+					res = correspondingGemocMSE;
+
+				} else if (selected instanceof MSEOccurrence) {
+					res = ((MSEOccurrence) selected).getMse();
+				} else {
 					res = super.getInstruction(selected);
 				}
 
 				return res;
 			}
-			
+
 			@Override
-			protected DSLBreakpoint createBreakpoint(Object selected,
-					EObject instruction) throws CoreException {
+			protected DSLBreakpoint createBreakpoint(Object selected, EObject instruction) throws CoreException {
 				return new GemocBreakpoint(identifier, instruction, true);
 			}
-			
+
 		};
 	}
 
@@ -69,8 +93,7 @@ public class GemocToggleBreakpointHandler extends AbstractHandler {
 	 * @see org.eclipse.core.commands.AbstractHandler#execute(org.eclipse.core.commands.ExecutionEvent)
 	 */
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		final ISelection selection = HandlerUtil
-				.getCurrentSelectionChecked(event);
+		final ISelection selection = HandlerUtil.getCurrentSelectionChecked(event);
 		try {
 			breakpointUtils.toggleBreakpoints(selection);
 		} catch (CoreException e) {
@@ -79,12 +102,13 @@ public class GemocToggleBreakpointHandler extends AbstractHandler {
 
 		return null;
 	}
-	
+
 	@Override
 	public boolean isEnabled() {
 		final boolean res;
-		
-		ISelectionService service = (ISelectionService) PlatformUI.getWorkbench().getActiveWorkbenchWindow().getService(ISelectionService.class);
+
+		ISelectionService service = (ISelectionService) PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+				.getService(ISelectionService.class);
 		if (service != null) {
 			final ISelection selection = service.getSelection();
 			if (selection instanceof IStructuredSelection) {
@@ -95,7 +119,8 @@ public class GemocToggleBreakpointHandler extends AbstractHandler {
 					if (current instanceof ModelSpecificEventWrapper) {
 						current = ((ModelSpecificEventWrapper) current).getMSE();
 					}
-					allMSE = current instanceof ModelSpecificEvent && ((ModelSpecificEvent) current).getAction() != null;
+					allMSE = current instanceof ModelSpecificEvent
+							&& ((ModelSpecificEvent) current).getAction() != null;
 				}
 				res = allMSE;
 			} else {
@@ -104,8 +129,8 @@ public class GemocToggleBreakpointHandler extends AbstractHandler {
 		} else {
 			res = false;
 		}
-		
+
 		return res;
 	}
-	
+
 }

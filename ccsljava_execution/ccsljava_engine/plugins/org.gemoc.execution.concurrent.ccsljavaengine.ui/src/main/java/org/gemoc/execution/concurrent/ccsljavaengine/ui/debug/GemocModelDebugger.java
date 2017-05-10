@@ -30,7 +30,7 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 	private static final EObject FAKE_INSTRUCTION = EcorePackage.eINSTANCE;
 
 	/**
-	 * Tells if the logical step level stack frame is created.
+	 * Tells if the logical Step<?> level stack frame is created.
 	 */
 	private boolean logicalStepFrameCreated;
 
@@ -64,17 +64,17 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 
 		if (instruction instanceof SmallStep) {
 			return false;
-		}else{
-			if (instruction instanceof BigStep<?,?>) {
-			  boolean hasActionMSE = false;
-				for (Object o : ((BigStep<?,?>) instruction).getSubSteps()) {
-					Step s = (Step) o;
+		} else {
+			if (instruction instanceof BigStep<?, ?>) {
+				boolean hasActionMSE = false;
+				for (Object o : ((BigStep<?, ?>) instruction).getSubSteps()) {
+					Step<?> s = (Step<?>) o;
 					if (s.getMseoccurrence().getMse().getAction() != null) {
 						hasActionMSE = true;
 						break;
 					}
 				}
-			  res = hasActionMSE;
+				res = hasActionMSE;
 			} else {
 				res = false;
 			}
@@ -82,8 +82,8 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 
 		return res;
 	}
-	
-	private Map<MSEOccurrence,Step> occ2step = new HashMap<>();
+
+	private Map<MSEOccurrence, Step<?>> occ2step = new HashMap<>();
 
 	@Override
 	protected void updateStack(String threadName, EObject instruction) {
@@ -96,73 +96,72 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 			logicalStepFrameCreated = false;
 		}
 		if (instruction instanceof SmallStep) {
-			MSEOccurrence m = ((SmallStep)instruction).getMseoccurrence();
-			occ2step.computeIfAbsent(m, o->(SmallStep)instruction);
-			pushStackFrame(threadName, StepHelper.getStepName((Step) instruction), instruction, instruction);
+			MSEOccurrence m = ((SmallStep<?>) instruction).getMseoccurrence();
+			occ2step.computeIfAbsent(m, o -> (SmallStep<?>) instruction);
+			pushStackFrame(threadName, StepHelper.getStepName((Step<?>) instruction), instruction, instruction);
 			logicalStepFrameCreated = true;
 			return;
-		} 
+		}
 		if (instruction instanceof BigStep) {
-			@SuppressWarnings("unchecked")
-			List<MSEOccurrence> allMSEOccs = StepHelper.collectAllMSEOccurrences((Step)instruction);
-			
-			allMSEOccs.forEach(m->occ2step.computeIfAbsent(m, o->(BigStep<?,?>)instruction));
-			pushStackFrame(threadName, StepHelper.getStepName((Step) instruction), instruction, instruction);
+			List<MSEOccurrence> allMSEOccs = StepHelper.collectAllMSEOccurrences((Step<?>) instruction);
+
+			allMSEOccs.forEach(m -> occ2step.computeIfAbsent(m, o -> (BigStep<?, ?>) instruction));
+			pushStackFrame(threadName, StepHelper.getStepName((Step<?>) instruction), instruction, instruction);
 			logicalStepFrameCreated = true;
 			return;
-		} 
+		}
 		if (instruction instanceof MSEOccurrence) {
 			final MSEOccurrence mseOcc = (MSEOccurrence) instruction;
-			final Step logicalStep = occ2step.get(mseOcc);
+			final Step<?> logicalStep = occ2step.get(mseOcc);
 			pushStackFrame(threadName, mseOcc.getMse().getName(), logicalStep, logicalStep);
 			logicalStepFrameCreated = true;
 			EObject caller = instruction;
-			if(mseOcc.getMse() != null && mseOcc.getMse().getCaller() != null) caller = mseOcc.getMse().getCaller();
+			if (mseOcc.getMse() != null && mseOcc.getMse().getCaller() != null)
+				caller = mseOcc.getMse().getCaller();
 			pushStackFrame(threadName, mseOccurrenceText(mseOcc), caller, instruction);
 			mseFrameCreated = true;
 		}
 	}
 
-	private String mseOccurrenceText(MSEOccurrence mseOcc){
+	private String mseOccurrenceText(MSEOccurrence mseOcc) {
 		MSE mse = mseOcc.getMse();
 		if (mse != null)
-			return mse.getName() +"   " + ViewUtils.eventToString(mse);
+			return mse.getName() + "   " + ViewUtils.eventToString(mse);
 		else
 			return mseOcc.toString();
 	}
-	
+
 	@Override
 	public boolean shouldBreak(EObject instruction) {
-		boolean res = false;
-
 		if (instruction instanceof Step) {
-			res = breakNextLogicalStep || shouldBreakLogicalStep((Step) instruction);
+			boolean res = breakNextLogicalStep || shouldBreakLogicalStep((Step<?>) instruction);
 			breakNextLogicalStep = false;
-		} else if (instruction instanceof MSEOccurrence) {
-			res = shouldBreakMSEOccurence((MSEOccurrence) instruction);
-		}
-
-		return res;
+			return res;
+		} 
+		return false;
 	}
 
-	private boolean shouldBreakLogicalStep(Step logicalStep) {
+	private boolean shouldBreakLogicalStep(Step<?> logicalStep) {
+
+		if (logicalStep.getMseoccurrence() != null) {
+			return shouldBreakMSEOccurence(logicalStep.getMseoccurrence());
+		}
 
 		final boolean res;
 
-		if ((super.shouldBreak(logicalStep) && Boolean.valueOf((String) getBreakpointAttributes(logicalStep,
-				GemocBreakpoint.BREAK_ON_LOGICAL_STEP)))) {
+		if ((super.shouldBreak(logicalStep) && Boolean
+				.valueOf((String) getBreakpointAttributes(logicalStep, GemocBreakpoint.BREAK_ON_LOGICAL_STEP)))) {
 			res = true;
 		} else {
 			boolean hasMSEBreak = false;
 			for (MSEOccurrence mseOccurrence : StepHelper.collectAllMSEOccurrences(logicalStep)) {
-				hasMSEBreak = (super.shouldBreak(mseOccurrence.getMse()) && Boolean
-						.valueOf((String) getBreakpointAttributes(mseOccurrence.getMse(),
+				hasMSEBreak = (super.shouldBreak(mseOccurrence.getMse())
+						&& Boolean.valueOf((String) getBreakpointAttributes(mseOccurrence.getMse(),
 								GemocBreakpoint.BREAK_ON_LOGICAL_STEP)));
-				hasMSEBreak = hasMSEBreak
-						|| (mseOccurrence.getMse().getCaller() != null
-								&& super.shouldBreak(mseOccurrence.getMse().getCaller()) && Boolean
-									.valueOf((String) getBreakpointAttributes(mseOccurrence.getMse().getCaller(),
-											GemocBreakpoint.BREAK_ON_LOGICAL_STEP)));
+				hasMSEBreak = hasMSEBreak || (mseOccurrence.getMse().getCaller() != null
+						&& super.shouldBreak(mseOccurrence.getMse().getCaller())
+						&& Boolean.valueOf((String) getBreakpointAttributes(mseOccurrence.getMse().getCaller(),
+								GemocBreakpoint.BREAK_ON_LOGICAL_STEP)));
 				hasMSEBreak = hasMSEBreak || shouldBreakPredicates(engine, mseOccurrence);
 				if (hasMSEBreak) {
 					break;
@@ -176,22 +175,27 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 
 	private boolean shouldBreakMSEOccurence(MSEOccurrence mseOccurrence) {
 		final boolean res;
-
-		if (shouldBreakPredicates(engine, mseOccurrence))
-			res = true;
-		else if ((super.shouldBreak(mseOccurrence.getMse()) && Boolean.valueOf((String) getBreakpointAttributes(
-				mseOccurrence.getMse(), GemocBreakpoint.BREAK_ON_MSE_OCCURRENCE)))
-				|| (mseOccurrence.getMse().getCaller() != null && super.shouldBreak(mseOccurrence.getMse().getCaller()) && Boolean
-						.valueOf((String) getBreakpointAttributes(mseOccurrence.getMse().getCaller(),
-								GemocBreakpoint.BREAK_ON_MSE_OCCURRENCE)))) {
+		if (shouldBreakPredicates(engine, mseOccurrence)) {
 			res = true;
 		} else {
-			Step locicalStep = occ2step.get(mseOccurrence);
-			res = super.shouldBreak(locicalStep)
-					&& Boolean.valueOf((String) getBreakpointAttributes(locicalStep,
+			boolean shouldBreakMSE = super.shouldBreak(mseOccurrence.getMse());
+			boolean breakpointAttMSE = Boolean.valueOf(
+					(String) getBreakpointAttributes(mseOccurrence.getMse(), GemocBreakpoint.BREAK_ON_MSE_OCCURRENCE));
+			EObject caller = mseOccurrence.getMse().getCaller();
+			boolean shouldBreakCaller = super.shouldBreak(mseOccurrence.getMse().getCaller());
+			boolean breakpointAttCaller = Boolean
+					.valueOf((String) getBreakpointAttributes(mseOccurrence.getMse().getCaller(),
 							GemocBreakpoint.BREAK_ON_MSE_OCCURRENCE));
+			if ((shouldBreakMSE && breakpointAttMSE) || (caller != null && shouldBreakCaller && breakpointAttCaller)) {
+				res = true;
+			} else {
+				Step<?> locicalStep = occ2step.get(mseOccurrence);
+				boolean shouldBreakStep = super.shouldBreak(locicalStep);
+				boolean breakpointAttStep = Boolean.valueOf(
+						(String) getBreakpointAttributes(locicalStep, GemocBreakpoint.BREAK_ON_MSE_OCCURRENCE));
+				res = shouldBreakStep && breakpointAttStep;
+			}
 		}
-
 		return res;
 	}
 
@@ -212,8 +216,8 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 
 	@Override
 	public void engineStarted(IExecutionEngine executionEngine) {
-		spawnRunningThread(Thread.currentThread().getName(), engine.getExecutionContext().getResourceModel()
-				.getContents().get(0));
+		spawnRunningThread(Thread.currentThread().getName(),
+				engine.getExecutionContext().getResourceModel().getContents().get(0));
 	}
 
 	@Override
@@ -224,18 +228,14 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 	}
 
 	@Override
-	public void aboutToExecuteStep(IExecutionEngine engine,Step stepToExecute) {
+	public void aboutToExecuteStep(IExecutionEngine engine, Step<?> stepToExecute) {
+		if (stepToExecute.getMseoccurrence() != null) {
+			occ2step.put(stepToExecute.getMseoccurrence(), stepToExecute);
+		}
 		if (!control(((AbstractExecutionEngine) engine).thread.getName(), stepToExecute)) {
 			throw new EngineStoppedException("Debug thread has stopped.");
 		}
 	}
-
-//	@Override
-//	public void aboutToExecuteMSEOccurrence(IExecutionEngine executionEngine, MSEOccurrence mseOccurrence) {
-//		if (!control(((AbstractExecutionEngine) executionEngine).thread.getName(), mseOccurrence)) {
-//			throw new EngineStoppedException("Debug thread has stopped.");
-//		}
-//	}
 
 	@Override
 	public void terminate() {
@@ -243,10 +243,9 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 		engine.stop();
 	}
 
-
 	@Override
-	public void stepExecuted(IExecutionEngine engine, Step stepExecuted) {
-		// TODO Auto-generated method stub	
+	public void stepExecuted(IExecutionEngine engine, Step<?> stepExecuted) {
+		// TODO Auto-generated method stub
 	}
 
 }
