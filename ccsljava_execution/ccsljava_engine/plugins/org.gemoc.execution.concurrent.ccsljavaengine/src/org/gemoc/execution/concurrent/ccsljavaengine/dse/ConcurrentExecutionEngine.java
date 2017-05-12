@@ -83,7 +83,7 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine
 	private IMSEStateController _mseStateController;
 	
 	
-	public ConcurrentExecutionEngine(ConcurrentModelExecutionContext concurrentexecutionContext, ISolver s) throws CoreException 
+	public ConcurrentExecutionEngine(IConcurrentExecutionContext concurrentexecutionContext, ISolver s) throws CoreException 
 	{
 		super();
 		_solver = s;
