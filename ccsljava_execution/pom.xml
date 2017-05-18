@@ -14,15 +14,15 @@
     <modules>
     
         <!-- plugins -->
-        <module>ccsljava_engine/plugins/org.gemoc.execution.concurrent.ccsljavaengine.mse.model</module>
-        <module>ccsljava_xdsml/plugins/org.gemoc.execution.concurrent.ccsljavaxdsml.api</module>
         <module>ccsljava_engine/plugins/org.gemoc.execution.concurrent.ccsljavaengine</module>
-        <module>ccsljava_engine/plugins/org.gemoc.execution.concurrent.ccsljavaengine.stimuli_scenario.model</module>
         <module>ccsljava_engine/plugins/org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3</module>
         <module>ccsljava_engine/plugins/org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare</module>
+        <module>ccsljava_engine/plugins/org.gemoc.execution.concurrent.ccsljavaengine.mse.model</module>
+        <module>ccsljava_engine/plugins/org.gemoc.execution.concurrent.ccsljavaengine.stimuli_scenario.model</module>
+        <module>ccsljava_engine/plugins/org.gemoc.execution.concurrent.ccsljavaengine.ui</module>
+        <module>ccsljava_xdsml/plugins/org.gemoc.execution.concurrent.ccsljavaxdsml.api</module>
         <module>ccsljava_xdsml/plugins/org.gemoc.execution.concurrent.ccsljavaxdsml.ui</module>
         <module>ccsljava_xdsml/plugins/org.gemoc.execution.concurrent.ccsljavaxdsml.utils</module>
-        <module>ccsljava_engine/plugins/org.gemoc.execution.concurrent.ccsljavaengine.ui</module>
         <module>concurrent_addons/plugins/fr.inria.aoste.timesquare.backend.vcdgenerator.gemocAdaptation</module>
         <module>concurrent_addons/plugins/org.gemoc.concurrent_addons.eventscheduling.timeline</module>
         
