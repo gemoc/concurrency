@@ -36,9 +36,9 @@ import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutio
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
 import org.gemoc.executionframework.engine.commons.EngineContextException;
 import org.gemoc.executionframework.engine.ui.commons.RunConfiguration;
-import org.gemoc.executionframework.engine.ui.debug.AbstractGemocDebugger;
-import org.gemoc.executionframework.engine.ui.debug.AnnotationMutableFieldExtractor;
-import org.gemoc.executionframework.engine.ui.debug.IMutableFieldExtractor;
+import org.gemoc.executionframework.debugger.AbstractGemocDebugger;
+import org.gemoc.executionframework.debugger.AnnotationMutableFieldExtractor;
+import org.gemoc.executionframework.debugger.IMutableFieldExtractor;
 import org.gemoc.executionframework.engine.ui.launcher.AbstractGemocLauncher;
 import org.gemoc.executionframework.extensions.sirius.services.AbstractGemocAnimatorServices;
 import org.gemoc.executionframework.extensions.sirius.services.AbstractGemocDebuggerServices;
