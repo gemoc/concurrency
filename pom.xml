@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.gemoc</groupId>
 	<artifactId>org.gemoc.concurrent.root</artifactId>
@@ -53,15 +54,27 @@
             <layout>p2</layout>
             <url>http://download.eclipse.org/sirius/updates/releases/4.1.2/neon/</url>
         </repository>
-  <!--      <repository>
-            <id>umldesigner</id>
-            <layout>p2</layout>
-            <url>http://releases.umldesigner.org/5.0.1/repository/</url>
-        </repository> -->
         <repository>
             <id>nebula</id>
             <layout>p2</layout>
             <url>http://archive.eclipse.org/nebula/Q22016/incubation</url>
+        </repository>
+        
+        <repository> <!-- indirectly, required by the test that indirectly grabs sequential_addon.stategraph that depends on it -->
+            <id>elk</id>
+            <layout>p2</layout>
+            <url>http://download.eclipse.org/elk/updates/releases/0.1.0/</url>
+        </repository>
+		<repository> <!-- used in some tests -->
+            <id>Groovy4Eclipse</id>
+            <layout>p2</layout>
+            <url>http://dist.springsource.org/snapshot/GRECLIPSE/e4.6/</url>
+        </repository>
+        
+        <repository> <!-- used in some tests -->
+            <id>AspectJ</id>
+            <layout>p2</layout>
+            <url>http://download.eclipse.org/tools/ajdt/46/dev/update</url>
         </repository>
     </repositories>
 
@@ -201,5 +214,18 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-clean-plugin</artifactId>
+		    		<version>3.0.0</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-antrun-plugin</artifactId>
+					<version>1.8</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 	</build>
 </project>

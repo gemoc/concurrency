@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.gemoc.execution.concurrent.ccsljava</groupId>
     <artifactId>org.gemoc.execution.concurrent.ccsljava.root</artifactId>
@@ -34,9 +35,9 @@
         <module>releng/org.gemoc.concurrent_addons.feature</module>
         <module>releng/org.gemoc.executionengine.ccsljava.repository</module>
         
-        
+        <!-- tests -->
+        <module>ccsljava_xdsml/tests/org.gemoc.execution.concurrent.ccsljavaxdsml.tests</module>
     </modules>
-
 
  
 	<profiles>
@@ -63,6 +64,11 @@
 		            <id>modelanimation_siriusmodelanimation on CI</id>
 		            <layout>p2</layout>
 		            <url>http://obeo-siriuslab-nightly.s3-website-eu-west-1.amazonaws.com/SiriusAnimator/master/repository/</url>
+		        </repository>
+		        <repository>
+		            <id>concurrency_moccml on CI</id>
+		            <layout>p2</layout>
+		            <url>https://ci.inria.fr/gemoc/view/All/job/concurrency_moccml/lastSuccessfulBuild/artifact/moccml/releng/org.gemoc.mocc.p2updatesite/target/repository/</url>
 		        </repository>
 		    </repositories>
 	    </profile>
