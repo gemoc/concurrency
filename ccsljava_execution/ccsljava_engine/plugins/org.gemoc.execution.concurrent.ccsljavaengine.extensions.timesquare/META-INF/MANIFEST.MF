@@ -39,3 +39,4 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.7,
  JavaSE-1.8
 Export-Package: org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare,
  org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.moc.impl
+Bundle-Vendor: Inria Aoste/I3S

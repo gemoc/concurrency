@@ -24,4 +24,4 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: fr.inria.aoste.timesquare.backend.vcdgenerator,
  fr.inria.aoste.timesquare.backend.vcdgenerator.behaviors,
  fr.inria.aoste.timesquare.backend.vcdgenerator.manager
-Bundle-Vendor: Aoste INRIA/I3S
+Bundle-Vendor: Inria Aoste/I3S

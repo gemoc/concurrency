@@ -27,4 +27,5 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.gemoc.concurrent_addons.eventscheduling.timeline,
  org.gemoc.concurrent_addons.eventscheduling.timeline.ui.commands,
  org.gemoc.concurrent_addons.eventscheduling.timeline.views.timeline
+Bundle-Vendor: Inria
 

@@ -31,3 +31,4 @@ Export-Package: org.gemoc.execution.concurrent.ccsljavaengine,
  org.gemoc.execution.concurrent.ccsljavaengine.dse,
  org.gemoc.execution.concurrent.ccsljavaengine.eventscheduling.trace,
  org.gemoc.execution.concurrent.ccsljavaengine.ui
+Bundle-Vendor: Inria

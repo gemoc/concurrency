@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Utils
+Bundle-Name: CCSLJavaxdsml Utils
 Bundle-SymbolicName: org.gemoc.execution.concurrent.ccsljavaxdsml.utils;singleton:=true
 Bundle-Version: 2.3.0.qualifier
 Bundle-Activator: org.gemoc.execution.concurrent.ccsljavaxdsml.utils.Activator
@@ -19,3 +19,4 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.gemoc.execution.concurrent.ccsljavaxdsml.utils,
  org.gemoc.execution.concurrent.ccsljavaxdsml.utils.ccsl
 Bundle-ClassPath: .
+Bundle-Vendor: Inria
