@@ -1,6 +1,6 @@
 package org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dialogs;
 
-import org.gemoc.commons.eclipse.core.resources.FileFinderVisitor;
+import org.eclipse.gemoc.commons.eclipse.core.resources.FileFinderVisitor;
 import org.eclipse.gemoc.commons.eclipse.ui.dialogs.SelectSpecificFileDialog;
 
 

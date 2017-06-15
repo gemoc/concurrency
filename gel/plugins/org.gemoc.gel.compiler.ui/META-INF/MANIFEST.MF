@@ -9,7 +9,7 @@ Require-Bundle: org.eclipse.ui,
  org.gemoc.gel.compiler,
  org.gemoc.gel,
  org.gemoc.gel.microgel,
- org.gemoc.commons.eclipse,
+ org.eclipse.gemoc.commons.eclipse,
  fr.inria.diverse.commons.eclipse,
  fr.inria.diverse.commons.eclipse.messagingsystem.api,
  org.gemoc.gel.xtext.ui

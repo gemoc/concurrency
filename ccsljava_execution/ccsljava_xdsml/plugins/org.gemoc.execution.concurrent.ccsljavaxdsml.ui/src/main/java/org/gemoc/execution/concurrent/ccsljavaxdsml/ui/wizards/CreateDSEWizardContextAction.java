@@ -9,7 +9,7 @@ import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchWizard;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.wizards.IWizardDescriptor;
-import org.gemoc.commons.eclipse.core.resources.NewProjectWorkspaceListener;
+import org.eclipse.gemoc.commons.eclipse.core.resources.NewProjectWorkspaceListener;
 import org.eclipse.gemoc.commons.eclipse.ui.WizardFinder;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dialogs.SelectECLIFileDialog;

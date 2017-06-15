@@ -1,7 +1,7 @@
 package org.gemoc.execution.concurrent.ccsljavaxdsml.ui.builder;
 
 import org.eclipse.core.runtime.CoreException;
-import org.gemoc.commons.eclipse.core.resources.AbstractProjectNature;
+import org.eclipse.gemoc.commons.eclipse.core.resources.AbstractProjectNature;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
 
 public class GemocLanguageDesignerNature extends AbstractProjectNature {

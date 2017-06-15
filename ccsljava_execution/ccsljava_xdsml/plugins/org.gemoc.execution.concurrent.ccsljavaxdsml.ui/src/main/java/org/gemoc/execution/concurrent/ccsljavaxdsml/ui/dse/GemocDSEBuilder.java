@@ -26,8 +26,8 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.SafeRunner;
 import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.common.util.URI;
-import org.gemoc.commons.eclipse.core.resources.Marker;
-import org.gemoc.commons.eclipse.core.resources.Project;
+import org.eclipse.gemoc.commons.eclipse.core.resources.Marker;
+import org.eclipse.gemoc.commons.eclipse.core.resources.Project;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
 
 import toools.io.file.RegularFile;
