@@ -3,7 +3,7 @@
 */
 package org.gemoc.gel.ui.outline
 
-import org.gemoc.gexpressions.xtext.ui.outline.GExpressionsOutlineTreeProvider
+import org.eclipse.gemoc.gexpressions.xtext.ui.outline.GExpressionsOutlineTreeProvider
 
 /**
  * Customization of the default outline structure.

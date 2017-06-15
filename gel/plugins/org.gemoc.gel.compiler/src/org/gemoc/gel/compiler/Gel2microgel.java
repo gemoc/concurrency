@@ -37,10 +37,10 @@ import org.gemoc.gel.microgel.ModelSpecificEventsSpecification;
 import org.gemoc.gel.utils.CompositeDseArgumentCollector;
 import org.gemoc.gel.utils.GELHelper;
 import org.gemoc.gel.utils.UnfoldingStrategyInterpreter;
-import org.gemoc.gexpressions.GExpression;
-import org.gemoc.gexpressions.GReferenceExpression;
-import org.gemoc.gexpressions.utils.GExpressionsHelper;
-import org.gemoc.gexpressions.utils.GReferenceExpressionFinder;
+import org.eclipse.gemoc.gexpressions.GExpression;
+import org.eclipse.gemoc.gexpressions.GReferenceExpression;
+import org.eclipse.gemoc.gexpressions.utils.GExpressionsHelper;
+import org.eclipse.gemoc.gexpressions.utils.GReferenceExpressionFinder;
 
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.Clock;
 

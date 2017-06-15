@@ -21,5 +21,5 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ocl.pivot;bundle-version="1.1.1";visibility:=reexport,
  fr.inria.aoste.timesquare.ccslkernel.model;visibility:=reexport,
  org.eclipse.ocl,
- org.gemoc.gexpressions
+ org.eclipse.gemoc.gexpressions
 Bundle-ActivationPolicy: lazy

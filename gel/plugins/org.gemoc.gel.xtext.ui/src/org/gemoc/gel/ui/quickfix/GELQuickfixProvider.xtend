@@ -7,7 +7,7 @@ import org.eclipse.xtext.ui.editor.quickfix.Fix
 import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor
 import org.eclipse.xtext.validation.Issue
 import org.gemoc.gel.validation.GELValidator
-import org.gemoc.gexpressions.xtext.ui.quickfix.GExpressionsQuickfixProvider
+import org.eclipse.gemoc.gexpressions.xtext.ui.quickfix.GExpressionsQuickfixProvider
 
 //import org.eclipse.xtext.ui.editor.quickfix.Fix
 //import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor

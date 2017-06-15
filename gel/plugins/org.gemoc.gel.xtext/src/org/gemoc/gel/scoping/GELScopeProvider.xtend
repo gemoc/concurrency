@@ -29,9 +29,9 @@ import org.gemoc.gel.MultipleArguments
 import org.gemoc.gel.SingleArgument
 import org.gemoc.gel.UnfoldingStrategy
 import org.gemoc.gel.utils.GELHelper
-import org.gemoc.gexpressions.GExpression
-import org.gemoc.gexpressions.GReferenceExpression
-import org.gemoc.gexpressions.xtext.scoping.GExpressionsScopeProvider
+import org.eclipse.gemoc.gexpressions.GExpression
+import org.eclipse.gemoc.gexpressions.GReferenceExpression
+import org.eclipse.gemoc.gexpressions.xtext.scoping.GExpressionsScopeProvider
 
 /**
  * This class contains custom scoping description.

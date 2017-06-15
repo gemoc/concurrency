@@ -16,7 +16,7 @@ import com.google.inject.Injector;
 public class GELStandaloneSetupGenerated implements ISetup {
 
 	public Injector createInjectorAndDoEMFRegistration() {
-		org.gemoc.gexpressions.xtext.GExpressionsStandaloneSetup.doSetup();
+		org.eclipse.gemoc.gexpressions.xtext.GExpressionsStandaloneSetup.doSetup();
 
 		Injector injector = createInjector();
 		register(injector);

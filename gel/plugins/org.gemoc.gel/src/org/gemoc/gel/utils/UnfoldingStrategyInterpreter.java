@@ -10,8 +10,8 @@ import org.gemoc.gel.InstantiationPredicate;
 import org.gemoc.gel.LocalVariable;
 import org.gemoc.gel.UnfoldingStrategy;
 import org.gemoc.gel.util.GelSwitch;
-import org.gemoc.gexpressions.GExpression;
-import org.gemoc.gexpressions.utils.GExpressionsInterpreter;
+import org.eclipse.gemoc.gexpressions.GExpression;
+import org.eclipse.gemoc.gexpressions.utils.GExpressionsInterpreter;
 
 /**
  * Interprets the UnfoldingStrategy of a CompositeDSE. Given a list of EObjects,

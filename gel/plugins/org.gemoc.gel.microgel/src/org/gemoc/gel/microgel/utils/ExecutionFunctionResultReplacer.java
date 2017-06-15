@@ -2,9 +2,9 @@ package org.gemoc.gel.microgel.utils;
 
 import org.eclipse.emf.ecore.EObject;
 import org.gemoc.gel.microgel.ExecutionFunctionResult;
-import org.gemoc.gexpressions.GExpression;
-import org.gemoc.gexpressions.GReferenceExpression;
-import org.gemoc.gexpressions.util.GexpressionsSwitch;
+import org.eclipse.gemoc.gexpressions.GExpression;
+import org.eclipse.gemoc.gexpressions.GReferenceExpression;
+import org.eclipse.gemoc.gexpressions.util.GexpressionsSwitch;
 
 public class ExecutionFunctionResultReplacer extends
 		GexpressionsSwitch<GExpression> {

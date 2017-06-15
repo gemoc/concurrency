@@ -119,7 +119,7 @@ import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 import org.gemoc.gel.microgel.provider.MicrogelItemProviderAdapterFactory;
-import org.gemoc.gexpressions.provider.GexpressionsItemProviderAdapterFactory;
+import org.eclipse.gemoc.gexpressions.provider.GexpressionsItemProviderAdapterFactory;
 
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.BasicType.provider.BasicTypeItemProviderAdapterFactory;
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClassicalExpression.provider.ClassicalExpressionItemProviderAdapterFactory;

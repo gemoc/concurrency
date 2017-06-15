@@ -22,7 +22,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.gemoc.gexpressions.GexpressionsFactory;
+import org.eclipse.gemoc.gexpressions.GexpressionsFactory;
 
 import org.gemoc.gel.microgel.FeedbackFilter;
 import org.gemoc.gel.microgel.MicrogelPackage;

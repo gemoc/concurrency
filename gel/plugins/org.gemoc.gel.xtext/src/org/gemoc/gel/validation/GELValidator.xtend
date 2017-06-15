@@ -27,7 +27,7 @@ import org.gemoc.gel.utils.CompositeDseDseReferencesCollector
 import org.gemoc.gel.utils.GELHelper
 import org.gemoc.gel.utils.GELPredicateValidator
 import org.gemoc.gel.utils.LocalVariableArgumentsCollector
-import org.gemoc.gexpressions.GNavigationExpression
+import org.eclipse.gemoc.gexpressions.GNavigationExpression
 
 //import org.eclipse.xtext.validation.Check
 /**

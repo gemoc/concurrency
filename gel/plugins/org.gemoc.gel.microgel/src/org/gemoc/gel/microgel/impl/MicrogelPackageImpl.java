@@ -38,7 +38,7 @@ import org.gemoc.gel.microgel.PlusPattern;
 import org.gemoc.gel.microgel.UnaryPattern;
 import org.gemoc.gel.microgel.Visibility;
 import org.gemoc.gel.microgel.XorPattern;
-import org.gemoc.gexpressions.GexpressionsPackage;
+import org.eclipse.gemoc.gexpressions.GexpressionsPackage;
 
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.TimeModelPackage;
 

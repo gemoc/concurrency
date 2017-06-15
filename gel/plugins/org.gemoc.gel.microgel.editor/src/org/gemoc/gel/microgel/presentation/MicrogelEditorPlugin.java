@@ -6,7 +6,7 @@ import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
-import org.gemoc.gexpressions.provider.GexpressionsEditPlugin;
+import org.eclipse.gemoc.gexpressions.provider.GexpressionsEditPlugin;
 
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.provider.TimeModelEditPlugin;
 

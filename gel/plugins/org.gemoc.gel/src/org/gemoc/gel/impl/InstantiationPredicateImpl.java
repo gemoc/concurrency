@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.gemoc.gel.GelPackage;
 import org.gemoc.gel.InstantiationPredicate;
-import org.gemoc.gexpressions.GExpression;
+import org.eclipse.gemoc.gexpressions.GExpression;
 
 /**
  * <!-- begin-user-doc -->

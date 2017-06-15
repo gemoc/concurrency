@@ -3,7 +3,7 @@
 package org.gemoc.gel;
 
 import org.eclipse.emf.ecore.EObject;
-import org.gemoc.gexpressions.GExpression;
+import org.eclipse.gemoc.gexpressions.GExpression;
 
 /**
  * <!-- begin-user-doc -->

@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 
-import org.gemoc.gexpressions.provider.GexpressionsEditPlugin;
+import org.eclipse.gemoc.gexpressions.provider.GexpressionsEditPlugin;
 
 /**
  * This is the central singleton for the Microgel edit plugin.

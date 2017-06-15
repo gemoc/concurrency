@@ -4,14 +4,14 @@ import java.util.Map;
 
 import org.eclipse.emf.ecore.EObject;
 import org.gemoc.gel.LocalVariable;
-import org.gemoc.gexpressions.GBinaryOperatorExpression;
-import org.gemoc.gexpressions.GBraceExpression;
-import org.gemoc.gexpressions.GExpression;
-import org.gemoc.gexpressions.GIfExpression;
-import org.gemoc.gexpressions.GNavigationExpression;
-import org.gemoc.gexpressions.GReferenceExpression;
-import org.gemoc.gexpressions.GUnaryOperatorExpression;
-import org.gemoc.gexpressions.util.GexpressionsSwitch;
+import org.eclipse.gemoc.gexpressions.GBinaryOperatorExpression;
+import org.eclipse.gemoc.gexpressions.GBraceExpression;
+import org.eclipse.gemoc.gexpressions.GExpression;
+import org.eclipse.gemoc.gexpressions.GIfExpression;
+import org.eclipse.gemoc.gexpressions.GNavigationExpression;
+import org.eclipse.gemoc.gexpressions.GReferenceExpression;
+import org.eclipse.gemoc.gexpressions.GUnaryOperatorExpression;
+import org.eclipse.gemoc.gexpressions.util.GexpressionsSwitch;
 
 /**
  * Navigates a GExpression to replace LocalVariable with the corresponding

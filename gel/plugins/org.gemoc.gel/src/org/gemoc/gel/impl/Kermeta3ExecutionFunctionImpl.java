@@ -9,7 +9,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.gemoc.gel.GelPackage;
 import org.gemoc.gel.Kermeta3ExecutionFunction;
-import org.gemoc.gexpressions.GExpression;
+import org.eclipse.gemoc.gexpressions.GExpression;
 
 /**
  * <!-- begin-user-doc -->

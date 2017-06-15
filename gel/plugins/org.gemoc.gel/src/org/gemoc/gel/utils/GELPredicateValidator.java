@@ -4,8 +4,8 @@ import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.gemoc.gel.ExecutionFunctionResult;
-import org.gemoc.gexpressions.GReferenceExpression;
-import org.gemoc.gexpressions.utils.GExpressionsPredicateValidator;
+import org.eclipse.gemoc.gexpressions.GReferenceExpression;
+import org.eclipse.gemoc.gexpressions.utils.GExpressionsPredicateValidator;
 
 public class GELPredicateValidator extends GExpressionsPredicateValidator {
 	@Override

@@ -45,7 +45,7 @@ import org.gemoc.gel.UnaryPattern;
 import org.gemoc.gel.UnfoldingStrategy;
 import org.gemoc.gel.Visibility;
 import org.gemoc.gel.XorPattern;
-import org.gemoc.gexpressions.GexpressionsPackage;
+import org.eclipse.gemoc.gexpressions.GexpressionsPackage;
 
 import fr.inria.aoste.timesquare.ecl.ecl.ECLPackage;
 

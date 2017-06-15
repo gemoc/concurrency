@@ -5,7 +5,7 @@ package org.gemoc.gel.ui.labeling
 
 import com.google.inject.Inject
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
-import org.gemoc.gexpressions.xtext.ui.labeling.GExpressionsLabelProvider
+import org.eclipse.gemoc.gexpressions.xtext.ui.labeling.GExpressionsLabelProvider
 
 /**
  * Provides labels for a EObjects.

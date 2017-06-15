@@ -2,7 +2,7 @@
  */
 package org.gemoc.gel;
 
-import org.gemoc.gexpressions.GExpression;
+import org.eclipse.gemoc.gexpressions.GExpression;
 
 /**
  * <!-- begin-user-doc -->

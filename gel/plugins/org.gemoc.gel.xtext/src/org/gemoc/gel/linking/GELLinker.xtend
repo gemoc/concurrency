@@ -1,6 +1,6 @@
 package org.gemoc.gel.linking
 
-import org.gemoc.gexpressions.xtext.linking.GExpressionsLinker
+import org.eclipse.gemoc.gexpressions.xtext.linking.GExpressionsLinker
 
 class GELLinker extends GExpressionsLinker {
 

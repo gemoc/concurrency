@@ -31,11 +31,11 @@ import org.gemoc.gel.Kermeta3ExecutionFunction;
 import org.gemoc.gel.LocalVariable;
 import org.gemoc.gel.MoccEvent;
 import org.gemoc.gel.UnfoldingStrategy;
-import org.gemoc.gexpressions.GExpression;
-import org.gemoc.gexpressions.GReferenceExpression;
-import org.gemoc.gexpressions.utils.EClassByEObjectReplacerAndEOperationRemover;
-import org.gemoc.gexpressions.utils.GExpressionsInterpreter;
-import org.gemoc.gexpressions.utils.GReferenceExpressionFinder;
+import org.eclipse.gemoc.gexpressions.GExpression;
+import org.eclipse.gemoc.gexpressions.GReferenceExpression;
+import org.eclipse.gemoc.gexpressions.utils.EClassByEObjectReplacerAndEOperationRemover;
+import org.eclipse.gemoc.gexpressions.utils.GExpressionsInterpreter;
+import org.eclipse.gemoc.gexpressions.utils.GReferenceExpressionFinder;
 
 import fr.inria.aoste.timesquare.ecl.ecl.ECLDefCS;
 

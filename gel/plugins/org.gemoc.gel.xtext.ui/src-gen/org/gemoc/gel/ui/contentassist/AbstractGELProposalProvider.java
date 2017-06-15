@@ -16,7 +16,7 @@ import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
  * with a more concrete subtype. 
  */
 @SuppressWarnings("all")
-public class AbstractGELProposalProvider extends org.gemoc.gexpressions.xtext.ui.contentassist.GExpressionsProposalProvider {
+public class AbstractGELProposalProvider extends org.eclipse.gemoc.gexpressions.xtext.ui.contentassist.GExpressionsProposalProvider {
 		
 	public void completeDomainSpecificEventsSpecification_Imports(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
