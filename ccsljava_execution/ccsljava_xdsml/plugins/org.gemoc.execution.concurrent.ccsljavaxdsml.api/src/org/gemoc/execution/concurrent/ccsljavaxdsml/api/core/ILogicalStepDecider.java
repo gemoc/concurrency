@@ -2,7 +2,7 @@ package org.gemoc.execution.concurrent.ccsljavaxdsml.api.core;
 
 import java.util.List;
 
-import org.gemoc.xdsmlframework.api.core.IDisposable;
+import org.eclipse.gemoc.xdsmlframework.api.core.IDisposable;
 
 import fr.inria.diverse.trace.commons.model.trace.Step;
 

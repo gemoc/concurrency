@@ -24,11 +24,11 @@ import org.gemoc.executionframework.engine.Activator;
 import org.gemoc.executionframework.engine.core.AbstractExecutionEngine;
 import org.gemoc.executionframework.engine.core.CommandExecution;
 import org.gemoc.executionframework.engine.core.EngineStoppedException;
-import org.gemoc.xdsmlframework.api.core.EngineStatus;
-import org.gemoc.xdsmlframework.api.core.IDisposable;
-import org.gemoc.xdsmlframework.api.core.IExecutionContext;
-import org.gemoc.xdsmlframework.api.core.IExecutionEngine;
-import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
+import org.eclipse.gemoc.xdsmlframework.api.core.EngineStatus;
+import org.eclipse.gemoc.xdsmlframework.api.core.IDisposable;
+import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionContext;
+import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine;
+import org.eclipse.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ActionModel;
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.When;

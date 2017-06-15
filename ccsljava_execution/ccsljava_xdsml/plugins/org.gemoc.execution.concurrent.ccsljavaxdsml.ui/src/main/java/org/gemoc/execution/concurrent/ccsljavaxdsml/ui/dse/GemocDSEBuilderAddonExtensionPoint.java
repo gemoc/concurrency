@@ -2,7 +2,7 @@ package org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse;
 
 import java.util.ArrayList;
 
-import org.gemoc.xdsmlframework.api.extensions.ExtensionPoint;
+import org.eclipse.gemoc.xdsmlframework.api.extensions.ExtensionPoint;
 
 public class GemocDSEBuilderAddonExtensionPoint extends ExtensionPoint<GemocDSEBuilderAddonExtension>
 {

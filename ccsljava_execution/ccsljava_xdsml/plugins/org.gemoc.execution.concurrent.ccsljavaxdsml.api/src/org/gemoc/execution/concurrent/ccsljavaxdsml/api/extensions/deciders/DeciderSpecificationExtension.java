@@ -5,7 +5,7 @@ import java.net.URL;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Platform;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.ILogicalStepDecider;
-import org.gemoc.xdsmlframework.api.extensions.Extension;
+import org.eclipse.gemoc.xdsmlframework.api.extensions.Extension;
 import org.osgi.framework.Bundle;
 
 public class DeciderSpecificationExtension extends Extension

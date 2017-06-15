@@ -2,7 +2,7 @@ package org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.deciders;
 
 import java.util.Collection;
 
-import org.gemoc.xdsmlframework.api.extensions.ExtensionPoint;
+import org.eclipse.gemoc.xdsmlframework.api.extensions.ExtensionPoint;
 
 public class DeciderSpecificationExtensionPoint extends ExtensionPoint<DeciderSpecificationExtension>
 {

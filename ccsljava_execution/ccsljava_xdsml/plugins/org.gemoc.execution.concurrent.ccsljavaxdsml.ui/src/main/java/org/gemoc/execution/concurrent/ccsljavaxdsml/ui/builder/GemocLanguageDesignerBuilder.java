@@ -26,7 +26,7 @@ import org.eclipse.gemoc.commons.eclipse.core.resources.IFileUtils;
 import org.eclipse.gemoc.commons.eclipse.pde.manifest.ManifestChanger;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtensionPoint;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
-import org.gemoc.xdsmlframework.api.extensions.languages.LanguageDefinitionExtensionPoint;
+import org.eclipse.gemoc.xdsmlframework.api.extensions.languages.LanguageDefinitionExtensionPoint;
 import org.gemoc.xdsmlframework.ide.ui.builder.pde.PluginXMLHelper;
 import org.jdom2.Element;
 import org.osgi.framework.BundleException;

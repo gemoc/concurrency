@@ -5,7 +5,7 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.gemoc.commons.eclipse.ui.ViewHelper;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.Activator;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.StimuliManagerView;
-import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
+import org.eclipse.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 
 public class RecordScenarioAction extends Action {
 

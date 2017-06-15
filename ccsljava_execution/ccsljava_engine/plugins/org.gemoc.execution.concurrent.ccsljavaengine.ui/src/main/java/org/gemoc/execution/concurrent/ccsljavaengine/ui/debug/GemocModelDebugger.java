@@ -11,8 +11,8 @@ import org.gemoc.executionframework.engine.core.EngineStoppedException;
 import org.gemoc.executionframework.debugger.AbstractGemocDebugger;
 import org.gemoc.executionframework.debugger.GemocBreakpoint;
 import org.gemoc.executionframework.ui.utils.ViewUtils;
-import org.gemoc.xdsmlframework.api.core.IExecutionEngine;
-import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
+import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine;
+import org.eclipse.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 
 import fr.inria.diverse.trace.commons.model.helper.StepHelper;
 import fr.inria.diverse.trace.commons.model.trace.BigStep;

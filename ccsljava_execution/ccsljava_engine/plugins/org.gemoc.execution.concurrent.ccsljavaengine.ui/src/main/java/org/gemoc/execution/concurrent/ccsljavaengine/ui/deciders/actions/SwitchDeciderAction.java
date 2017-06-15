@@ -10,7 +10,7 @@ import org.eclipse.gemoc.commons.eclipse.ui.ViewHelper;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 import org.gemoc.executionframework.ui.views.engine.EnginesStatusView;
 import org.gemoc.executionframework.ui.views.engine.actions.AbstractEngineAction;
-import org.gemoc.xdsmlframework.api.core.IExecutionEngine;
+import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine;
 
 public class SwitchDeciderAction extends AbstractEngineAction
 {

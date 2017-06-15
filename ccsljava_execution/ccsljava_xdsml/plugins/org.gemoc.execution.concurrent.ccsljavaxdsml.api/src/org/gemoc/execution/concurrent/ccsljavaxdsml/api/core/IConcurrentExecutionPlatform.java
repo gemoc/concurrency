@@ -4,7 +4,7 @@ import java.util.Collection;
 
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dse.IMSEStateController;
-import org.gemoc.xdsmlframework.api.core.IExecutionPlatform;
+import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionPlatform;
 
 public interface IConcurrentExecutionPlatform extends IExecutionPlatform
 {

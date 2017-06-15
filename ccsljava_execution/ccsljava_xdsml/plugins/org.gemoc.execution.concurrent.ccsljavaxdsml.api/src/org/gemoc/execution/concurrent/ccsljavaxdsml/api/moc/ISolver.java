@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionContext;
-import org.gemoc.xdsmlframework.api.core.IDisposable;
+import org.eclipse.gemoc.xdsmlframework.api.core.IDisposable;
 
 import fr.inria.aoste.timesquare.instantrelation.CCSLRelationModel.OccurrenceRelation;
 import fr.inria.aoste.trace.EventOccurrence;

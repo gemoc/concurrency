@@ -24,10 +24,10 @@ import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutio
 import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Branch;
 import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Choice;
 import org.gemoc.executionframework.ui.views.engine.IEngineSelectionListener;
-import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
-import org.gemoc.xdsmlframework.api.core.ExecutionMode;
-import org.gemoc.xdsmlframework.api.core.IExecutionEngine;
-import org.gemoc.xdsmlframework.api.core.IDisposable;
+import org.eclipse.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
+import org.eclipse.gemoc.xdsmlframework.api.core.ExecutionMode;
+import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine;
+import org.eclipse.gemoc.xdsmlframework.api.core.IDisposable;
 
 import fr.inria.diverse.trace.commons.model.trace.Step;
 import org.eclipse.gemoc.timeline.editpart.PossibleStepEditPart;

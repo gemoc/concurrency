@@ -8,7 +8,7 @@ import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecu
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dse.IMSEStateController;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtension;
 import org.gemoc.executionframework.engine.commons.DefaultExecutionPlatform;
-import org.gemoc.xdsmlframework.api.core.IRunConfiguration;
+import org.eclipse.gemoc.xdsmlframework.api.core.IRunConfiguration;
 
 public class DefaultConcurrentExecutionPlatform extends DefaultExecutionPlatform implements IConcurrentExecutionPlatform  {
 	

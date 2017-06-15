@@ -12,7 +12,7 @@ import org.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver
 import org.gemoc.executionframework.test.lib.IEngineWrapper
 import org.gemoc.executionframework.test.lib.IExecutableModel
 import org.gemoc.executionframework.test.lib.ILanguageWrapper
-import org.gemoc.xdsmlframework.api.core.ExecutionMode
+import org.eclipse.gemoc.xdsmlframework.api.core.ExecutionMode
 
 class JavaCCSLEngineWrapper implements IEngineWrapper {
 

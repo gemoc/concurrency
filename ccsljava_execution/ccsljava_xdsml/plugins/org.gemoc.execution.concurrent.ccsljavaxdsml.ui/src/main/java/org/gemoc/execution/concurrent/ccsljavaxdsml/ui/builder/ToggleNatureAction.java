@@ -152,9 +152,9 @@ public class ToggleNatureAction implements IObjectActionDelegate {
 		// complement manifest
 		ManifestChanger changer = new ManifestChanger(project);
 		try {
-			changer.addPluginDependency(org.gemoc.xdsmlframework.api.Activator.PLUGIN_ID, "0.1.0", true, true);
+			changer.addPluginDependency(org.eclipse.gemoc.xdsmlframework.api.Activator.PLUGIN_ID, "0.1.0", true, true);
 			changer.addPluginDependency("org.eclipse.emf.ecore.xmi", "2.8.0", true, true);				
-			changer.addPluginDependency("org.gemoc.xdsmlframework.api");				
+			changer.addPluginDependency("org.eclipse.gemoc.xdsmlframework.api");				
 			changer.addPluginDependency("org.gemoc.execution.concurrent.ccsljavaxdsml.api");				
 			changer.addPluginDependency("org.gemoc.execution.concurrent.ccsljavaengine");
 			changer.addPluginDependency("org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3");
