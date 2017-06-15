@@ -19,7 +19,7 @@
 
    <requires>
       <import feature="org.gemoc.modeldebugging.xdsmlframework.feature" version="0.1.0.0" match="greaterOrEqual"/>
-      <import feature="org.gemoc.modeldebugging.framework.commons.feature" version="0.1.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.gemoc.modeldebugging.framework.commons.feature" version="0.1.0.0" match="greaterOrEqual"/>
       <import plugin="org.gemoc.executionframework.extensions.sirius"/>
       <import plugin="org.gemoc.xdsmlframework.extensions.sirius"/>
    </requires>
