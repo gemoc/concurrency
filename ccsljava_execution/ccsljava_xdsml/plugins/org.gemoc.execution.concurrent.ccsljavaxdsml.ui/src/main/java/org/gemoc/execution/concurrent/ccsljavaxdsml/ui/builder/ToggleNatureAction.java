@@ -27,7 +27,7 @@ import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 import org.gemoc.commons.eclipse.core.resources.NatureToggling;
 import org.gemoc.commons.eclipse.core.resources.Project;
-import org.eclipse.gemoc.commons.eclipse.pde.JavaProject;
+import org.eclipse.gemoc.commons.eclipse.jdt.JavaProject;
 import org.eclipse.gemoc.commons.eclipse.pde.manifest.ManifestChanger;
 import org.eclipse.gemoc.commons.eclipse.pde.ui.PluginConverter;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
