@@ -47,7 +47,7 @@ import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.ISelectionListener;
 import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.IWorkbenchPart;
-import org.gemoc.commons.eclipse.ui.ViewHelper;
+import org.eclipse.gemoc.commons.eclipse.ui.ViewHelper;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.SharedIcons;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.step.LogicalStepsView;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.actions.PlayScenarioAction;

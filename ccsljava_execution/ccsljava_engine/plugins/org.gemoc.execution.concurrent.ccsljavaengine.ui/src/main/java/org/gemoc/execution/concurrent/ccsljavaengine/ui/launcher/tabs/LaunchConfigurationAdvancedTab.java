@@ -32,7 +32,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.gemoc.commons.eclipse.emf.EMFResource;
 import org.gemoc.commons.eclipse.emf.URIHelper;
-import org.gemoc.commons.eclipse.ui.dialogs.SelectAnyIFileDialog;
+import org.eclipse.gemoc.commons.eclipse.ui.dialogs.SelectAnyIFileDialog;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.Activator;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.ConcurrentRunConfiguration;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.LauncherMessages;

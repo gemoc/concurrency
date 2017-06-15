@@ -6,7 +6,7 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.gemoc.commons.eclipse.ui.ViewHelper;
+import org.eclipse.gemoc.commons.eclipse.ui.ViewHelper;
 import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.EventState;
 import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ExecutionStep;
 import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Future;

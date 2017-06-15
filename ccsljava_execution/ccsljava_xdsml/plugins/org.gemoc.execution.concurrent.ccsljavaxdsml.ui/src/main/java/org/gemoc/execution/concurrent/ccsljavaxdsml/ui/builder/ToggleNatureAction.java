@@ -29,7 +29,7 @@ import org.gemoc.commons.eclipse.core.resources.NatureToggling;
 import org.gemoc.commons.eclipse.core.resources.Project;
 import org.gemoc.commons.eclipse.pde.JavaProject;
 import org.gemoc.commons.eclipse.pde.manifest.ManifestChanger;
-import org.gemoc.commons.eclipse.pde.ui.PluginConverter;
+import org.eclipse.gemoc.commons.eclipse.pde.ui.PluginConverter;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
 import org.gemoc.xdsmlframework.ide.ui.builder.pde.PluginXMLHelper;
 import org.osgi.framework.BundleException;

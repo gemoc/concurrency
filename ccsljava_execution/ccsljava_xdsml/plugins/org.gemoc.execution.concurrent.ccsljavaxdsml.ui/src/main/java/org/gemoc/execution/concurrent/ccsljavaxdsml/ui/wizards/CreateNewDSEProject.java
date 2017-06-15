@@ -18,7 +18,7 @@ import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
 import org.gemoc.commons.eclipse.core.resources.Project;
-import org.gemoc.commons.eclipse.pde.ui.PluginConverter;
+import org.eclipse.gemoc.commons.eclipse.pde.ui.PluginConverter;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse.AddRemoveGemocDSENatureHandler;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.pages.AskDSEInfoWizardPage;

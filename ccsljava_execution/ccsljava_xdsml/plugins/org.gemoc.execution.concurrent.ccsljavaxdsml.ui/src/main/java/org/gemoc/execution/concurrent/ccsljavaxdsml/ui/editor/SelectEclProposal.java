@@ -5,7 +5,7 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.dialogs.Dialog;
 import org.gemoc.commons.eclipse.core.resources.FileFinderVisitor;
-import org.gemoc.commons.eclipse.ui.dialogs.SelectSpecificFileDialog;
+import org.eclipse.gemoc.commons.eclipse.ui.dialogs.SelectSpecificFileDialog;
 
 import fr.inria.diverse.melange.ui.contentassist.IProposal;
 
