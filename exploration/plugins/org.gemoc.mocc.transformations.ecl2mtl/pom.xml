@@ -42,7 +42,7 @@
 		  <repositories>
  <repository>
       <id>gemoc-studio_commons on CI</id>
-      <url>https://ci.inria.fr/gemoc/job/gemoc-studio_commons/lastSuccessfulBuild/artifact/commons/releng/org.gemoc.commons.repository/target/repository/</url>
+      <url>https://ci.inria.fr/gemoc/job/gemoc-studio_commons/lastSuccessfulBuild/artifact/commons/releng/org.eclipse.gemoc.commons.repository/target/repository/</url>
       <layout>p2</layout>
     </repository>
     <repository>
