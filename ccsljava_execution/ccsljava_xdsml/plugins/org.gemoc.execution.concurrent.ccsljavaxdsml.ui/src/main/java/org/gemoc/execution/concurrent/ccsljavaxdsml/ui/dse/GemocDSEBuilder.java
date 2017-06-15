@@ -28,7 +28,7 @@ import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.gemoc.commons.eclipse.core.resources.IFileUtils;
 import org.eclipse.gemoc.commons.eclipse.core.resources.Marker;
-import org.eclipse.gemoc.commons.eclipse.core.resources.Project;
+import org.eclipse.gemoc.commons.eclipse.core.resources.IProjectUtils;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
 
 import com.google.common.base.Charsets;
@@ -239,8 +239,8 @@ public class GemocDSEBuilder extends IncrementalProjectBuilder {
 			    final URI uri = URI.createFileURI(uristring);
 			    
 			    String genFolder = QVTO_GEN_FOLDER;
-			    final IFolder modelingFolder = Project.createFolder(project, genFolder + "/modeling");			    	
-			    final IFolder languageFolder = Project.createFolder(project, genFolder + "/language");			    	
+			    final IFolder modelingFolder = IProjectUtils.createFolder(project, genFolder + "/modeling");			    	
+			    final IFolder languageFolder = IProjectUtils.createFolder(project, genFolder + "/language");			    	
 
 			    final String qvtoFileName = eclFile.getFullPath()
 			    					.removeFileExtension()

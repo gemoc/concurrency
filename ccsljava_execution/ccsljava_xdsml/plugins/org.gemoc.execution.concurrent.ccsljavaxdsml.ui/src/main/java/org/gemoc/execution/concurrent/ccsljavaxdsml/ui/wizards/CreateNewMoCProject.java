@@ -17,7 +17,7 @@ import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
-import org.eclipse.gemoc.commons.eclipse.core.resources.Project;
+import org.eclipse.gemoc.commons.eclipse.core.resources.IProjectUtils;
 import org.eclipse.gemoc.commons.eclipse.pde.ui.PluginConverter;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.pages.AskMoCInfoWizardPage;
@@ -105,7 +105,7 @@ public class CreateNewMoCProject extends Wizard implements INewWizard {
 					 }
 					
 					 String filePath = "mocc/" + _askMoCInfoPage.getTemplateMoCFileNameFile() + ".moccml";
-					 Project.createFile(createdProject, filePath, "AutomataConstraintLibrary "+_askMoCInfoPage.getTemplateMoCFileNameFile().toString()+"{ \n\n}", monitor);
+					 IProjectUtils.createFile(createdProject, filePath, "AutomataConstraintLibrary "+_askMoCInfoPage.getTemplateMoCFileNameFile().toString()+"{ \n\n}", monitor);
 //						
 					
 					 // save some result for embedding this wizard in a process

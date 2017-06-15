@@ -10,7 +10,7 @@ import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.handlers.HandlerUtil;
-import org.eclipse.gemoc.commons.eclipse.core.resources.Project;
+import org.eclipse.gemoc.commons.eclipse.core.resources.IProjectUtils;
 
 public class AddRemoveGemocDSENatureHandler extends AbstractHandler {
 
@@ -75,7 +75,7 @@ public class AddRemoveGemocDSENatureHandler extends AbstractHandler {
 		
 		if(!project.getFile("moc2as.properties").exists()){
 			String content = "rootElement = ";
-		 Project.createFile(project, "moc2as.properties", content, null);
+		 IProjectUtils.createFile(project, "moc2as.properties", content, null);
 		}
 
 	}

@@ -17,7 +17,7 @@ import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
-import org.eclipse.gemoc.commons.eclipse.core.resources.Project;
+import org.eclipse.gemoc.commons.eclipse.core.resources.IProjectUtils;
 import org.eclipse.gemoc.commons.eclipse.pde.ui.PluginConverter;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse.AddRemoveGemocDSENatureHandler;
@@ -101,11 +101,11 @@ public class CreateNewDSEProject extends Wizard implements INewWizard {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					 }
-					 Project.createFolder(createdProject, "ecl", monitor);
+					 IProjectUtils.createFolder(createdProject, "ecl", monitor);
 
 					 String content = "rootElement = "
 								+ _askDSEInfoPage.getRootContainerModelElement();
-					 Project.createFile(createdProject, "moc2as.properties", content, monitor);
+					 IProjectUtils.createFile(createdProject, "moc2as.properties", content, monitor);
 					 String filePath = "ecl/" + _askDSEInfoPage.getTemplateECLFileNameFile() + ".ecl";
 					 
 					 StringBuilder eclfilecontent = new StringBuilder();
@@ -117,10 +117,10 @@ public class CreateNewDSEProject extends Wizard implements INewWizard {
 					 }
 					 
 					 
-					 Project.createFile(createdProject, filePath, eclfilecontent.toString(), monitor);
+					 IProjectUtils.createFile(createdProject, filePath, eclfilecontent.toString(), monitor);
 //						
 					 String buildFileContent = "bin.includes = META-INF/,\\\r\n\tqvto-gen/modeling/";
-					 Project.setFileContent(createdProject, "build.properties", buildFileContent);
+					 IProjectUtils.setFileContent(createdProject, "build.properties", buildFileContent);
 					 
 					 
 					 addDSEProjectNature(createdProject);
