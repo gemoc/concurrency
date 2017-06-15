@@ -26,11 +26,10 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.SafeRunner;
 import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.gemoc.commons.eclipse.core.resources.IFileUtils;
 import org.eclipse.gemoc.commons.eclipse.core.resources.Marker;
 import org.eclipse.gemoc.commons.eclipse.core.resources.Project;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
-
-import toools.io.file.RegularFile;
 
 import com.google.common.base.Charsets;
 
@@ -294,13 +293,10 @@ public class GemocDSEBuilder extends IncrementalProjectBuilder {
 							checkQVTOContent(qvtoFileForLanguage);
 
 							IFile qvtoFileForModeling = modelingFolder.getFile(qvtoFileName);
-									
-							RegularFile reg_qvtoFileForLanguage = new RegularFile(qvtoFileForLanguage.getLocation().toOSString());
-							RegularFile reg_qvtoFileForModeling = new RegularFile(qvtoFileForModeling.getLocation().toOSString());
-							
-							String qvtoLanguageContent = new String(reg_qvtoFileForLanguage.getContent());
+															
+							String qvtoLanguageContent = IFileUtils.getStringContent(qvtoFileForLanguage);
 							String qvtoModelingContent = qvtoLanguageContent.replaceAll("platform:/resource", "platform:/plugin");
-							reg_qvtoFileForModeling.setContent(qvtoModelingContent.getBytes());
+							IFileUtils.writeInFileIfDifferent(qvtoFileForModeling, qvtoModelingContent, new NullProgressMonitor());
 								
 							qvtoFileForModeling.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 							checkQVTOContent(qvtoFileForModeling);

@@ -16,12 +16,13 @@ import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.gemoc.commons.eclipse.core.resources.FileFinderVisitor;
-import org.eclipse.gemoc.commons.eclipse.core.resources.GFile;
+import org.eclipse.gemoc.commons.eclipse.core.resources.IFileUtils;
 import org.eclipse.gemoc.commons.eclipse.pde.manifest.ManifestChanger;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtensionPoint;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
@@ -322,8 +323,8 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 
 	public static void writeFile(IFile file, String fileContent) {
 		try {
-			GFile.writeFile(file, fileContent);
-		} catch (CoreException e) {
+			IFileUtils.writeInFile(file, fileContent, new NullProgressMonitor());
+		} catch (CoreException | IOException e) {
 			Activator.error(e.getMessage(), e);
 		}
 	}
