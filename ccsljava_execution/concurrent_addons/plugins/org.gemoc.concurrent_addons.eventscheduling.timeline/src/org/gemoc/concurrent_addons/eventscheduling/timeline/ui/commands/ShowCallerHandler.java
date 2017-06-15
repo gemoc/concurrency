@@ -38,8 +38,8 @@ import fr.obeo.dsl.debug.ide.ui.EMFEditorUtils;
 //import fr.obeo.dsl.debug.ide.sirius.ui.DebugSiriusIdeUiPlugin;
 //import fr.obeo.dsl.debug.ide.sirius.ui.SiriusEditorUtils;
 //import fr.obeo.dsl.debug.ide.ui.EMFEditorUtils;
-import fr.obeo.timeline.editpart.PossibleStepEditPart;
-import fr.obeo.timeline.model.PossibleStep;
+import org.eclipse.gemoc.timeline.editpart.PossibleStepEditPart;
+import org.eclipse.gemoc.timeline.model.PossibleStep;
 
 public class ShowCallerHandler extends AbstractHandler {
 

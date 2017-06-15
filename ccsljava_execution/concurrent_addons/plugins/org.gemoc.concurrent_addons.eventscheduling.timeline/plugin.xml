@@ -32,7 +32,7 @@
    <extension
          point="org.eclipse.ui.commands">
       <command
-            defaultHandler="fr.obeo.timeline.command.FollowHandler"
+            defaultHandler="org.eclipse.gemoc.timeline.command.FollowHandler"
             id="org.gemoc.concurrent_addons.eventscheduling.timeline.views.timeline.Follow"
             name="Follow">
          <state
@@ -72,7 +72,7 @@
                         </count>
                         <iterate>
                            <instanceof
-                                 value="fr.obeo.timeline.editpart.PossibleStepEditPart">
+                                 value="org.eclipse.gemoc.timeline.editpart.PossibleStepEditPart">
                            </instanceof>
                         </iterate>
                      </and>

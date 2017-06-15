@@ -18,7 +18,7 @@ import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 import fr.inria.diverse.trace.commons.model.helper.StepHelper;
 import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
 import fr.inria.diverse.trace.commons.model.trace.Step;
-import fr.obeo.timeline.view.AbstractTimelineProvider;
+import org.eclipse.gemoc.timeline.view.AbstractTimelineProvider;
 
 /**
  * This class is registered either as an addon on the launch config or via the view itself as it listen to engine

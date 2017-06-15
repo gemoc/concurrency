@@ -30,10 +30,10 @@ import org.gemoc.xdsmlframework.api.core.IExecutionEngine;
 import org.gemoc.xdsmlframework.api.core.IDisposable;
 
 import fr.inria.diverse.trace.commons.model.trace.Step;
-import fr.obeo.timeline.editpart.PossibleStepEditPart;
-import fr.obeo.timeline.editpart.TimelineEditPartFactory;
-import fr.obeo.timeline.view.AbstractTimelineView;
-import fr.obeo.timeline.view.ITimelineProvider;
+import org.eclipse.gemoc.timeline.editpart.PossibleStepEditPart;
+import org.eclipse.gemoc.timeline.editpart.TimelineEditPartFactory;
+import org.eclipse.gemoc.timeline.view.AbstractTimelineView;
+import org.eclipse.gemoc.timeline.view.ITimelineProvider;
 
 public class EventSchedulingTimeLineView extends AbstractTimelineView implements IEngineSelectionListener {
 
