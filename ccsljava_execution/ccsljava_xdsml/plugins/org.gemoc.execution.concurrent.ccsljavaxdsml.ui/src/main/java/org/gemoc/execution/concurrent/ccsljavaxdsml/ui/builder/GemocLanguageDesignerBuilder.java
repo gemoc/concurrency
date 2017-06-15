@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.gemoc.commons.eclipse.core.resources.FileFinderVisitor;
 import org.gemoc.commons.eclipse.core.resources.GFile;
+import org.gemoc.commons.eclipse.pde.manifest.ManifestChanger;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtensionPoint;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
 import org.gemoc.xdsmlframework.api.extensions.languages.LanguageDefinitionExtensionPoint;
@@ -29,7 +30,6 @@ import org.gemoc.xdsmlframework.ide.ui.builder.pde.PluginXMLHelper;
 import org.jdom2.Element;
 import org.osgi.framework.BundleException;
 
-import fr.inria.diverse.commons.eclipse.pde.manifest.ManifestChanger;
 import fr.inria.diverse.melange.metamodel.melange.Language;
 import fr.inria.diverse.melange.metamodel.melange.ModelTypingSpace;
 

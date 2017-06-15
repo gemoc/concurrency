@@ -21,13 +21,13 @@ import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.gemoc.commons.eclipse.core.resources.FileFinderVisitor;
+import org.gemoc.commons.eclipse.pde.manifest.ManifestChanger;
+import org.gemoc.commons.eclipse.pde.wizards.pages.pde.ui.templates.AbstractStringWithButtonOption;
+import org.gemoc.commons.eclipse.pde.wizards.pages.pde.ui.templates.TemplateOption;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dialogs.SelectDSAIProjectDialog;
 import org.osgi.framework.BundleException;
 
-import fr.inria.diverse.commons.eclipse.pde.manifest.ManifestChanger;
-import fr.inria.diverse.commons.eclipse.pde.wizards.pages.pde.ui.templates.AbstractStringWithButtonOption;
-import fr.inria.diverse.commons.eclipse.pde.wizards.pages.pde.ui.templates.TemplateOption;
 import fr.inria.diverse.melange.ui.templates.melange.SimpleMTTemplate;
 
 public class ConcurrentTemplate extends SimpleMTTemplate{

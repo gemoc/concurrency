@@ -1,11 +1,11 @@
 package org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare;
 
+import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystem;
+import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystemManager;
 import org.gemoc.commons.eclipse.logging.backends.DefaultLoggingBackend;
 import org.gemoc.commons.eclipse.pde.GemocPlugin;
 import org.osgi.framework.BundleContext;
 
-import fr.inria.diverse.commons.eclipse.messagingsystem.api.MessagingSystemManager;
-import fr.inria.diverse.commons.messagingsystem.api.MessagingSystem;
 
 public class Activator extends GemocPlugin {
 
