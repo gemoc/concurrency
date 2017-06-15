@@ -2,7 +2,7 @@ package org.gemoc.mocc.transformations.instance2clocksystem.handler;
 
 import org.eclipse.core.resources.IResource;
 import org.eclipse.jface.dialogs.Dialog;
-import org.gemoc.commons.eclipse.ui.dialogs.SelectAnyIFileDialog;
+import org.eclipse.gemoc.commons.eclipse.ui.dialogs.SelectAnyIFileDialog;
 
 public class XtendFileChooserSelectAnyIFileDialog {
 

@@ -2,7 +2,7 @@ package org.gemoc.execution.concurrent.ccsljavaengine;
 
 import org.osgi.framework.BundleContext;
 import org.gemoc.commons.eclipse.logging.backends.DefaultLoggingBackend;
-import org.gemoc.commons.eclipse.pde.GemocPlugin;
+import org.eclipse.gemoc.commons.eclipse.pde.GemocPlugin;
 
 import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystemManager;
 import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystem;

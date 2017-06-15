@@ -1,7 +1,7 @@
 package org.gemoc.execution.concurrent.ccsljavaxdsml.ui.templates;
 
-import org.gemoc.commons.eclipse.pde.wizards.pages.pde.ui.BaseProjectWizardFields;
-import org.gemoc.commons.eclipse.pde.wizards.pages.pde.ui.templates.ITemplateSection;
+import org.eclipse.gemoc.commons.eclipse.pde.wizards.pages.pde.ui.BaseProjectWizardFields;
+import org.eclipse.gemoc.commons.eclipse.pde.wizards.pages.pde.ui.templates.ITemplateSection;
 
 import fr.inria.diverse.melange.ui.templates.melange.SimpleMTNewWizard;
 

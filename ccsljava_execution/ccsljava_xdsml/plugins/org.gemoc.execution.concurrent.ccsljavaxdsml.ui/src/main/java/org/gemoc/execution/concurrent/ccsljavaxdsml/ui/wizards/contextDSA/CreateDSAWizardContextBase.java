@@ -1,7 +1,7 @@
 package org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.contextDSA;
 
 import org.eclipse.core.resources.IProject;
-import org.gemoc.commons.eclipse.pde.manifest.ManifestChanger;
+import org.eclipse.gemoc.commons.eclipse.pde.manifest.ManifestChanger;
 
 public class CreateDSAWizardContextBase {
 
