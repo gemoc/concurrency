@@ -5,10 +5,10 @@ import java.util.Collection;
 import java.util.List;
 
 import org.gemoc.execution.concurrent.ccsljavaengine.eventscheduling.trace.EventSchedulingModelExecutionTracingAddon;
-import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Branch;
-import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Choice;
-import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.ExecutionTraceModel;
-import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Gemoc_execution_traceFactory;
+import org.eclipse.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Branch;
+import org.eclipse.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Choice;
+import org.eclipse.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.ExecutionTraceModel;
+import org.eclipse.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Gemoc_execution_traceFactory;
 import org.gemoc.executionframework.ui.utils.ViewUtils;
 import org.eclipse.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine;

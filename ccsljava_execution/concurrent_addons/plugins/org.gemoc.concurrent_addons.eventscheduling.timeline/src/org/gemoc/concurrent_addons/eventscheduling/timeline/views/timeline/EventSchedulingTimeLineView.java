@@ -21,8 +21,8 @@ import org.gemoc.execution.concurrent.ccsljavaengine.eventscheduling.trace.Event
 import org.gemoc.execution.concurrent.ccsljavaengine.eventscheduling.trace.ModelExecutionTracingException;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.deciders.AbstractUserDecider;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
-import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Branch;
-import org.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Choice;
+import org.eclipse.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Branch;
+import org.eclipse.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Choice;
 import org.gemoc.executionframework.ui.views.engine.IEngineSelectionListener;
 import org.eclipse.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 import org.eclipse.gemoc.xdsmlframework.api.core.ExecutionMode;
