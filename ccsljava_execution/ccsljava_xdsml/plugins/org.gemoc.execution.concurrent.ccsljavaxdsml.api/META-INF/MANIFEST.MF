@@ -7,7 +7,7 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.gemoc.xdsmlframework.api;bundle-version="0.1.0",
  fr.inria.aoste.trace,
- org.gemoc.executionframework.reflectivetrace.model,
+ org.eclipse.gemoc.executionframework.reflectivetrace.model,
  fr.inria.aoste.timesquare.ecl.feedback.model,
  fr.inria.diverse.trace.commons;bundle-version="1.0.0",
  fr.inria.aoste.timesquare.instantrelation;bundle-version="1.3.0"

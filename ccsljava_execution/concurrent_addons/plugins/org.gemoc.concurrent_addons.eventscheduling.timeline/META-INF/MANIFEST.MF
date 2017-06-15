@@ -20,7 +20,7 @@ Require-Bundle: org.eclipse.gemoc.xdsmlframework.api,
  org.eclipse.ui.ide;bundle-version="3.10.2",
  fr.obeo.dsl.debug.ide.ui,
  fr.obeo.dsl.debug.ide.sirius.ui,
- org.gemoc.executionframework.reflectivetrace.model,
+ org.eclipse.gemoc.executionframework.reflectivetrace.model,
  fr.inria.diverse.trace.commons;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
