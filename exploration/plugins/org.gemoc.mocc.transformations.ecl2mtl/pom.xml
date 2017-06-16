@@ -52,7 +52,7 @@
     </repository>
     <repository>
       <id>modeldebugging_trace_generator on CI</id>
-      <url>https://ci.inria.fr/gemoc/job/modeldebugging_trace_generator/lastSuccessfulBuild/artifact/trace/generator/releng/org.gemoc.modeldebugging.trace.generator.updatesite/target/repository/</url>
+      <url>https://ci.inria.fr/gemoc/job/modeldebugging_trace_generator/lastSuccessfulBuild/artifact/trace/generator/releng/org.eclipse.gemoc.trace.generator.updatesite/target/repository/</url>
       <layout>p2</layout>
     </repository>
     <repository>
