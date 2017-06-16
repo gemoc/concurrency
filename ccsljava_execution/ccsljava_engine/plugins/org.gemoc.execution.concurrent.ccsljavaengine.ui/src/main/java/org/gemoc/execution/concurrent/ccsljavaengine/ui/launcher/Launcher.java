@@ -50,9 +50,9 @@ import org.eclipse.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 
 import fr.inria.diverse.commons.messagingsystem.api.MessagingSystem;
 import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
-import fr.obeo.dsl.debug.ide.IDSLDebugger;
-import fr.obeo.dsl.debug.ide.adapter.IDSLCurrentInstructionListener;
-import fr.obeo.dsl.debug.ide.event.DSLDebugEventDispatcher;
+import org.eclipse.gemoc.dsl.debug.ide.IDSLDebugger;
+import org.eclipse.gemoc.dsl.debug.ide.adapter.IDSLCurrentInstructionListener;
+import org.eclipse.gemoc.dsl.debug.ide.event.DSLDebugEventDispatcher;
 
 public class Launcher extends AbstractGemocLauncher {
 

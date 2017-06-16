@@ -44,8 +44,8 @@ import org.eclipse.gemoc.executionframework.engine.commons.MelangeHelper;
 import org.eclipse.gemoc.executionframework.engine.ui.commons.RunConfiguration;
 import org.eclipse.gemoc.xdsmlframework.ui.utils.dialogs.SelectAIRDIFileDialog;
 
-import fr.obeo.dsl.debug.ide.launch.AbstractDSLLaunchConfigurationDelegate;
-import fr.obeo.dsl.debug.ide.sirius.ui.launch.AbstractDSLLaunchConfigurationDelegateUI;
+import org.eclipse.gemoc.dsl.debug.ide.launch.AbstractDSLLaunchConfigurationDelegate;
+import org.eclipse.gemoc.dsl.debug.ide.sirius.ui.launch.AbstractDSLLaunchConfigurationDelegateUI;
 
 public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 

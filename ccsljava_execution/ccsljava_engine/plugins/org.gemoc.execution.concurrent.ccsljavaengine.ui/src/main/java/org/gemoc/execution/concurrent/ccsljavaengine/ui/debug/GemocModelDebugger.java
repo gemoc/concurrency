@@ -20,7 +20,7 @@ import fr.inria.diverse.trace.commons.model.trace.MSE;
 import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
 import fr.inria.diverse.trace.commons.model.trace.SmallStep;
 import fr.inria.diverse.trace.commons.model.trace.Step;
-import fr.obeo.dsl.debug.ide.event.IDSLDebugEventProcessor;
+import org.eclipse.gemoc.dsl.debug.ide.event.IDSLDebugEventProcessor;
 
 public class GemocModelDebugger extends AbstractGemocDebugger implements IEngineAddon {
 

@@ -21,11 +21,11 @@ import fr.inria.diverse.trace.commons.model.helper.StepHelper;
 import fr.inria.diverse.trace.commons.model.trace.MSE;
 import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
 import fr.inria.diverse.trace.commons.model.trace.Step;
-import fr.obeo.dsl.debug.DebugTarget;
-import fr.obeo.dsl.debug.StackFrame;
-import fr.obeo.dsl.debug.ide.adapter.DSLStackFrameAdapter;
-import fr.obeo.dsl.debug.ide.sirius.ui.DSLDebugModelPresentation;
-import fr.obeo.dsl.debug.ide.sirius.ui.SiriusEditorUtils;
+import org.eclipse.gemoc.dsl.debug.DebugTarget;
+import org.eclipse.gemoc.dsl.debug.StackFrame;
+import org.eclipse.gemoc.dsl.debug.ide.adapter.DSLStackFrameAdapter;
+import org.eclipse.gemoc.dsl.debug.ide.sirius.ui.DSLDebugModelPresentation;
+import org.eclipse.gemoc.dsl.debug.ide.sirius.ui.SiriusEditorUtils;
 
 public class GemocDebugModelPresentation extends DSLDebugModelPresentation {
 
@@ -113,8 +113,8 @@ public class GemocDebugModelPresentation extends DSLDebugModelPresentation {
 			if(target instanceof DebugTarget) {
 				return ((DebugTarget)target).getName();
 				
-			} else if(target instanceof fr.obeo.dsl.debug.Thread) {
-				return ((fr.obeo.dsl.debug.Thread)target).getName();
+			} else if(target instanceof org.eclipse.gemoc.dsl.debug.Thread) {
+				return ((org.eclipse.gemoc.dsl.debug.Thread)target).getName();
 				
 			} else if(target instanceof StackFrame) {
 				return ((StackFrame) target).getName();
