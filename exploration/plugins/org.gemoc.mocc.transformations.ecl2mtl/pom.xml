@@ -23,67 +23,6 @@
    </pluginRepositories>
    
    
-   <profiles>
-    <!-- Profiles are used for switching the repositories used for the build so they either use the CI update sites or local repositories -->
-    	<profile>
-	        <id>ignore_CI_repositories</id>
-	        <activation>
-	            <activeByDefault>false</activeByDefault>
-	        </activation>
-	        <repositories>
-		    </repositories>
-	    </profile>
-	    <profile>
-	        <id>use_CI_repositories</id>
-	        <activation>
-	            <activeByDefault>true</activeByDefault>
-	        </activation>
-  
-		  <repositories>
- <repository>
-      <id>gemoc-studio_commons on CI</id>
-      <url>https://ci.inria.fr/gemoc/job/gemoc-studio_commons/lastSuccessfulBuild/artifact/commons/releng/org.eclipse.gemoc.commons.repository/target/repository/</url>
-      <layout>p2</layout>
-    </repository>
-    <repository>
-      <id>modeldebugging_trace_commons on CI</id>
-      <url>https://ci.inria.fr/gemoc/job/modeldebugging_trace_commons/lastSuccessfulBuild/artifact/trace/commons/releng/org.eclipse.gemoc.trace.commons.updatesite/target/repository/</url>
-      <layout>p2</layout>
-    </repository>
-    <repository>
-      <id>modeldebugging_trace_generator on CI</id>
-      <url>https://ci.inria.fr/gemoc/job/modeldebugging_trace_generator/lastSuccessfulBuild/artifact/trace/generator/releng/org.eclipse.gemoc.trace.generator.updatesite/target/repository/</url>
-      <layout>p2</layout>
-    </repository>
-    <repository>
-      <id>modeldebugging_framework_frameworkcommons on CI</id>
-      <url>https://ci.inria.fr/gemoc/job/modeldebugging_framework_framework_commons/lastSuccessfulBuild/artifact/framework/framework_commons/releng/org.gemoc.modeldebugging.framework.commons.repository/target/repository/</url>
-      <layout>p2</layout>
-    </repository>
-    <repository>
-      <id>modeldebugging_framework_xdsmlframework on CI</id>
-      <url>https://ci.inria.fr/gemoc/job/modeldebugging_framework_xdsmlframework/lastSuccessfulBuild/artifact/framework/xdsml_framework/releng/org.gemoc.modeldebugging.xdsmlframework.repository/target/repository/</url>
-      <layout>p2</layout>
-    </repository>
-    <repository>
-      <id>modeldebugging_framework_executionframework on CI</id>
-      <url>https://ci.inria.fr/gemoc/job/modeldebugging_framework_executionframework/lastSuccessfulBuild/artifact/framework/execution_framework/releng/org.gemoc.modeldebugging.executionframework.repository/target/repository/</url>
-      <layout>p2</layout>
-    </repository>
-    	
-		      <!-- 
-		        <repository>
-		            <id>modelanimation_siriusmodelanimation on CI</id>
-		            <layout>p2</layout>
-		            <url>http://obeo-siriuslab-nightly.s3-website-eu-west-1.amazonaws.com/SiriusAnimator/master/repository/</url>
-		        </repository>
-		        -->
-		       
-</repositories>
-		</profile>
-    	
-    </profiles>
-
   
   <!--  <dependencies>
      <dependency>
