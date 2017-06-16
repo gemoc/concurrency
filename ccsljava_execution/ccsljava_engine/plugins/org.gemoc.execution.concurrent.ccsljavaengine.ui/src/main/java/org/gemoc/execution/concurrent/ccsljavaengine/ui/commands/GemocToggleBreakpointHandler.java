@@ -14,7 +14,7 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.Launcher;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.ModelSpecificEventWrapper;
-import org.gemoc.executionframework.debugger.GemocBreakpoint;
+import org.eclipse.gemoc.executionframework.debugger.GemocBreakpoint;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
 import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;

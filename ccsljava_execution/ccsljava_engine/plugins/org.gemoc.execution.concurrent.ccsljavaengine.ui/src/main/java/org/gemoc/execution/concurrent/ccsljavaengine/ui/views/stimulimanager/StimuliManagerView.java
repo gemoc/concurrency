@@ -60,8 +60,8 @@ import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.sce
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.scenario.ScenarioManager;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.scenario.ScenarioManagerState;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
-import org.gemoc.executionframework.ui.IMSEPresenter;
-import org.gemoc.executionframework.ui.views.engine.EngineSelectionDependentViewPart;
+import org.eclipse.gemoc.executionframework.ui.IMSEPresenter;
+import org.eclipse.gemoc.executionframework.ui.views.engine.EngineSelectionDependentViewPart;
 import org.eclipse.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 import org.eclipse.gemoc.xdsmlframework.api.core.ExecutionMode;
 import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine;
@@ -230,7 +230,7 @@ public class StimuliManagerView extends EngineSelectionDependentViewPart impleme
 		
 		updateView();
 		createMenuManager();
-		org.gemoc.executionframework.ui.Activator.getDefault().getEventPresenters().add(this);
+		org.eclipse.gemoc.executionframework.ui.Activator.getDefault().getEventPresenters().add(this);
 	}
 
 	
@@ -710,7 +710,7 @@ public class StimuliManagerView extends EngineSelectionDependentViewPart impleme
 	@Override
 	public void dispose() 
 	{
-		org.gemoc.executionframework.ui.Activator.getDefault().getEventPresenters().remove(this);
+		org.eclipse.gemoc.executionframework.ui.Activator.getDefault().getEventPresenters().remove(this);
 		super.dispose();
 		// remove DecisionView listeners
 		getSite().getWorkbenchWindow().getSelectionService().removeSelectionListener(LogicalStepsView.ID, _decisionViewListener);

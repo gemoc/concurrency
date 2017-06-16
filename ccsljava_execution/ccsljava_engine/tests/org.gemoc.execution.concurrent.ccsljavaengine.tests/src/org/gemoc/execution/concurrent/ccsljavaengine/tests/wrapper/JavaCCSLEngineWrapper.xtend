@@ -9,9 +9,9 @@ import org.gemoc.execution.concurrent.ccsljavaengine.dse.ConcurrentExecutionEngi
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionContext
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentRunConfiguration
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver
-import org.gemoc.executionframework.test.lib.IEngineWrapper
-import org.gemoc.executionframework.test.lib.IExecutableModel
-import org.gemoc.executionframework.test.lib.ILanguageWrapper
+import org.eclipse.gemoc.executionframework.test.lib.IEngineWrapper
+import org.eclipse.gemoc.executionframework.test.lib.IExecutableModel
+import org.eclipse.gemoc.executionframework.test.lib.ILanguageWrapper
 import org.eclipse.gemoc.xdsmlframework.api.core.ExecutionMode
 
 class JavaCCSLEngineWrapper implements IEngineWrapper {

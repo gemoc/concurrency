@@ -3,7 +3,7 @@ package org.gemoc.execution.concurrent.ccsljavaengine.ui.launcher;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentRunConfiguration;
-import org.gemoc.executionframework.engine.ui.commons.RunConfiguration;
+import org.eclipse.gemoc.executionframework.engine.ui.commons.RunConfiguration;
 
 public class ConcurrentRunConfiguration extends RunConfiguration implements IConcurrentRunConfiguration{
 

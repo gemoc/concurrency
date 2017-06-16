@@ -148,13 +148,13 @@ public class Concurrent_mseAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.gemoc.executionframework.engine.mse.MSE <em>MSE</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.gemoc.executionframework.engine.mse.MSE <em>MSE</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.gemoc.executionframework.engine.mse.MSE
+	 * @see org.eclipse.gemoc.executionframework.engine.mse.MSE
 	 * @generated
 	 */
 	public Adapter createMSEAdapter() {

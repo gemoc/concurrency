@@ -1,10 +1,10 @@
 package org.gemoc.execution.concurrent.ccsljavaengine.tests.wrapper
 
-import org.gemoc.executionframework.test.lib.impl.TestRunConfiguration
+import org.eclipse.gemoc.executionframework.test.lib.impl.TestRunConfiguration
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentRunConfiguration
-import org.gemoc.executionframework.test.lib.IExecutableModel
+import org.eclipse.gemoc.executionframework.test.lib.IExecutableModel
 import org.eclipse.emf.common.util.URI
-import org.gemoc.executionframework.test.lib.ILanguageWrapper
+import org.eclipse.gemoc.executionframework.test.lib.ILanguageWrapper
 import java.util.Set
 import org.eclipse.xtend.lib.annotations.Delegate
 

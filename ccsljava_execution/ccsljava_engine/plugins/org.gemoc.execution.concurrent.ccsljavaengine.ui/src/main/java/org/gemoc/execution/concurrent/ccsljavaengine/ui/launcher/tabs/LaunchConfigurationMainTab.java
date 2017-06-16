@@ -40,8 +40,8 @@ import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.deciders.Deci
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.deciders.DeciderSpecificationExtensionPoint;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtension;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtensionPoint;
-import org.gemoc.executionframework.engine.commons.MelangeHelper;
-import org.gemoc.executionframework.engine.ui.commons.RunConfiguration;
+import org.eclipse.gemoc.executionframework.engine.commons.MelangeHelper;
+import org.eclipse.gemoc.executionframework.engine.ui.commons.RunConfiguration;
 import org.eclipse.gemoc.xdsmlframework.ui.utils.dialogs.SelectAIRDIFileDialog;
 
 import fr.obeo.dsl.debug.ide.launch.AbstractDSLLaunchConfigurationDelegate;

@@ -34,15 +34,15 @@ import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.step.LogicalStepsV
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.StimuliManagerView;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
-import org.gemoc.executionframework.engine.commons.EngineContextException;
-import org.gemoc.executionframework.engine.ui.commons.RunConfiguration;
-import org.gemoc.executionframework.debugger.AbstractGemocDebugger;
-import org.gemoc.executionframework.debugger.AnnotationMutableFieldExtractor;
-import org.gemoc.executionframework.debugger.IMutableFieldExtractor;
-import org.gemoc.executionframework.engine.ui.launcher.AbstractGemocLauncher;
-import org.gemoc.executionframework.extensions.sirius.services.AbstractGemocAnimatorServices;
-import org.gemoc.executionframework.extensions.sirius.services.AbstractGemocDebuggerServices;
-import org.gemoc.executionframework.ui.views.engine.EnginesStatusView;
+import org.eclipse.gemoc.executionframework.engine.commons.EngineContextException;
+import org.eclipse.gemoc.executionframework.engine.ui.commons.RunConfiguration;
+import org.eclipse.gemoc.executionframework.debugger.AbstractGemocDebugger;
+import org.eclipse.gemoc.executionframework.debugger.AnnotationMutableFieldExtractor;
+import org.eclipse.gemoc.executionframework.debugger.IMutableFieldExtractor;
+import org.eclipse.gemoc.executionframework.engine.ui.launcher.AbstractGemocLauncher;
+import org.eclipse.gemoc.executionframework.extensions.sirius.services.AbstractGemocAnimatorServices;
+import org.eclipse.gemoc.executionframework.extensions.sirius.services.AbstractGemocDebuggerServices;
+import org.eclipse.gemoc.executionframework.ui.views.engine.EnginesStatusView;
 import org.eclipse.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 import org.eclipse.gemoc.xdsmlframework.api.core.ExecutionMode;
 import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine;
@@ -155,7 +155,7 @@ public class Launcher extends AbstractGemocLauncher {
 
 	private boolean isEngineAlreadyRunning(URI launchedModelURI) throws CoreException {
 		// make sure there is no other running engine on this model
-		Collection<IExecutionEngine> engines = org.gemoc.executionframework.engine.Activator.getDefault().gemocRunningEngineRegistry
+		Collection<IExecutionEngine> engines = org.eclipse.gemoc.executionframework.engine.Activator.getDefault().gemocRunningEngineRegistry
 				.getRunningEngines().values();
 		for (IExecutionEngine engine : engines) {
 			IExecutionEngine observable = (IExecutionEngine) engine;

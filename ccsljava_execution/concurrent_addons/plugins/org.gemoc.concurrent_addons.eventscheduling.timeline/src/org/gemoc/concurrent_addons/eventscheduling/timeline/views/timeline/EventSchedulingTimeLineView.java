@@ -23,7 +23,7 @@ import org.gemoc.execution.concurrent.ccsljavaengine.ui.deciders.AbstractUserDec
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 import org.eclipse.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Branch;
 import org.eclipse.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Choice;
-import org.gemoc.executionframework.ui.views.engine.IEngineSelectionListener;
+import org.eclipse.gemoc.executionframework.ui.views.engine.IEngineSelectionListener;
 import org.eclipse.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 import org.eclipse.gemoc.xdsmlframework.api.core.ExecutionMode;
 import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine;
@@ -64,7 +64,7 @@ public class EventSchedulingTimeLineView extends AbstractTimelineView implements
 		super.init(site);
 		startListeningToEngineSelectionChange();
 		// initialize the view with the currently selected engine (stored by the EngineRegistry)
-		configure(org.gemoc.executionframework.ui.Activator.getDefault().getEngineSelectionManager().get_lastSelectedEngine());
+		configure(org.eclipse.gemoc.executionframework.ui.Activator.getDefault().getEngineSelectionManager().get_lastSelectedEngine());
 	}
 
 	@Override
@@ -103,11 +103,11 @@ public class EventSchedulingTimeLineView extends AbstractTimelineView implements
 
 
 	private void startListeningToEngineSelectionChange() {
-		org.gemoc.executionframework.ui.Activator.getDefault().getEngineSelectionManager().addEngineSelectionListener(this);
+		org.eclipse.gemoc.executionframework.ui.Activator.getDefault().getEngineSelectionManager().addEngineSelectionListener(this);
 	}
 
 	private void stopListeningToEngineSelectionChange() {
-		org.gemoc.executionframework.ui.Activator.getDefault().getEngineSelectionManager().removeEngineSelectionListener(this);
+		org.eclipse.gemoc.executionframework.ui.Activator.getDefault().getEngineSelectionManager().removeEngineSelectionListener(this);
 	}
 
 	private ITimelineProvider _timelineProvider;

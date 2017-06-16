@@ -10,8 +10,8 @@ import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentRunConfi
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.ILogicalStepDecider;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtension;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtensionPoint;
-import org.gemoc.executionframework.engine.commons.EngineContextException;
-import org.gemoc.executionframework.engine.commons.ModelExecutionContext;
+import org.eclipse.gemoc.executionframework.engine.commons.EngineContextException;
+import org.eclipse.gemoc.executionframework.engine.commons.ModelExecutionContext;
 import org.eclipse.gemoc.xdsmlframework.api.core.ExecutionMode;
 import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionPlatform;
 import org.eclipse.gemoc.xdsmlframework.api.extensions.languages.LanguageDefinitionExtension;

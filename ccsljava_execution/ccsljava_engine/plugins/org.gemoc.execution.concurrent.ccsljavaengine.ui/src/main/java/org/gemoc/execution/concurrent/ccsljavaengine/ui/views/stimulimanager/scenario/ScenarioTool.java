@@ -9,7 +9,7 @@ import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Scenario;
 import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ScenarioFactory;
 import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioFactoryImpl;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.ModelSpecificEventContext;
-import org.gemoc.executionframework.engine.core.CommandExecution;
+import org.eclipse.gemoc.executionframework.engine.core.CommandExecution;
 
 public class ScenarioTool 
 {

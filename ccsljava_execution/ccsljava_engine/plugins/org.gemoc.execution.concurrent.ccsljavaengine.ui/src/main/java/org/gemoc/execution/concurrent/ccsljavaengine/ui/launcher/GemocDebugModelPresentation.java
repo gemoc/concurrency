@@ -15,7 +15,7 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.SharedIcons;
-import org.gemoc.executionframework.ui.IMSEPresenter;
+import org.eclipse.gemoc.executionframework.ui.IMSEPresenter;
 
 import fr.inria.diverse.trace.commons.model.helper.StepHelper;
 import fr.inria.diverse.trace.commons.model.trace.MSE;
@@ -98,7 +98,7 @@ public class GemocDebugModelPresentation extends DSLDebugModelPresentation {
 		for (MSE event : events) {
 			uris.add(EcoreUtil.getURI(event));
 		}
-		for (IMSEPresenter presenter : org.gemoc.executionframework.ui.Activator
+		for (IMSEPresenter presenter : org.eclipse.gemoc.executionframework.ui.Activator
 				.getDefault().getEventPresenters()) {
 			presenter.present(uris);
 		}

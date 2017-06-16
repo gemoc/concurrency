@@ -1,7 +1,7 @@
 package org.gemoc.execution.concurrent.ccsljavaengine.ui.debug.sirius.action;
 
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.Activator;
-import org.gemoc.executionframework.debugger.ui.breakpoints.GemocToggleBreakpointAction;
+import org.eclipse.gemoc.executionframework.debugger.ui.breakpoints.GemocToggleBreakpointAction;
 
 /**
  * commons class for all Gemoc based models
@@ -12,7 +12,7 @@ public class GemocConcurrentToggleBreakpointAction extends GemocToggleBreakpoint
 
 	@Override
 	protected String getModelIdentifier() {
-		//return org.gemoc.executionframework.engine.ui.launcher.AbstractGemocLauncher.MODEL_ID;
+		//return org.eclipse.gemoc.executionframework.engine.ui.launcher.AbstractGemocLauncher.MODEL_ID;
 		return Activator.PLUGIN_ID+".debugModel";
 	}
 

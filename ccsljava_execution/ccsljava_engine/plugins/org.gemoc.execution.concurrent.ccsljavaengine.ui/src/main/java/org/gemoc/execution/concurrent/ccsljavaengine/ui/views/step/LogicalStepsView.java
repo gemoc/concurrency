@@ -48,11 +48,11 @@ import org.gemoc.execution.concurrent.ccsljavaengine.ui.SharedIcons;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.deciders.actions.PauseResumeEngineDeciderAction;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.deciders.actions.SwitchDeciderAction;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
-import org.gemoc.executionframework.engine.core.GemocRunningEnginesRegistry;
-import org.gemoc.executionframework.ui.IMSEPresenter;
-import org.gemoc.executionframework.ui.utils.ViewUtils;
-import org.gemoc.executionframework.ui.views.engine.EngineSelectionDependentViewPart;
-import org.gemoc.executionframework.ui.views.engine.actions.StopEngineAction;
+import org.eclipse.gemoc.executionframework.engine.core.GemocRunningEnginesRegistry;
+import org.eclipse.gemoc.executionframework.ui.IMSEPresenter;
+import org.eclipse.gemoc.executionframework.ui.utils.ViewUtils;
+import org.eclipse.gemoc.executionframework.ui.views.engine.EngineSelectionDependentViewPart;
+import org.eclipse.gemoc.executionframework.ui.views.engine.actions.StopEngineAction;
 import org.eclipse.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 import org.eclipse.gemoc.xdsmlframework.api.core.ExecutionMode;
 import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine;
@@ -64,7 +64,7 @@ import fr.inria.diverse.trace.commons.model.trace.Step;
 
 public class LogicalStepsView extends EngineSelectionDependentViewPart implements IMSEPresenter {
 
-	public static final String ID = "org.gemoc.executionframework.engine.io.views.steps.LogicalStepsView";
+	public static final String ID = "org.eclipse.gemoc.executionframework.engine.io.views.steps.LogicalStepsView";
 
 	private Color _representedEventColor;
 
@@ -95,7 +95,7 @@ public class LogicalStepsView extends EngineSelectionDependentViewPart implement
 		createTreeViewer(parent);
 		createMenuManager();
 		buildActionToolbar();
-		org.gemoc.executionframework.ui.Activator.getDefault().getEventPresenters().add(this);
+		org.eclipse.gemoc.executionframework.ui.Activator.getDefault().getEventPresenters().add(this);
 	}
 
 	public void refresh() {
@@ -297,7 +297,7 @@ public class LogicalStepsView extends EngineSelectionDependentViewPart implement
 			}
 
 			// display engine full name in tooltip
-			GemocRunningEnginesRegistry registry = org.gemoc.executionframework.engine.Activator
+			GemocRunningEnginesRegistry registry = org.eclipse.gemoc.executionframework.engine.Activator
 					.getDefault().gemocRunningEngineRegistry;
 			for (Entry<String, IExecutionEngine> e : registry.getRunningEngines().entrySet()) {
 				if (e.getValue() == engine) {
@@ -312,7 +312,7 @@ public class LogicalStepsView extends EngineSelectionDependentViewPart implement
 
 	@Override
 	public void dispose() {
-		org.gemoc.executionframework.ui.Activator.getDefault().getEventPresenters().remove(this);
+		org.eclipse.gemoc.executionframework.ui.Activator.getDefault().getEventPresenters().remove(this);
 		super.dispose();
 		_column1LabelProvider.dispose();
 		_column2LabelProvider.dispose();

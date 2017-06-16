@@ -3,7 +3,7 @@ package org.gemoc.execution.concurrent.ccsljavaengine.ui;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
-import org.gemoc.executionframework.extensions.sirius.services.AbstractGemocDebuggerServices;
+import org.eclipse.gemoc.executionframework.extensions.sirius.services.AbstractGemocDebuggerServices;
 import org.osgi.framework.BundleContext;
 
 import fr.inria.diverse.commons.eclipse.messagingsystem.api.MessagingSystemManager;
@@ -18,7 +18,7 @@ public class Activator extends AbstractUIPlugin {
 	public static final String PLUGIN_ID = "org.gemoc.execution.concurrent.ccsljavaengine.ui"; //$NON-NLS-1$
 	
 	/** 
-	 * The debugModelId to be used by sirius debug services (see org.gemoc.executionframework.extensions.sirius.services.AbstractGemocDebuggerServices )
+	 * The debugModelId to be used by sirius debug services (see org.eclipse.gemoc.executionframework.extensions.sirius.services.AbstractGemocDebuggerServices )
 	 * that targets this concurrent.ccsljavaengine
 	 */
 	public static final String DEBUG_MODEL_ID = PLUGIN_ID + ".debugModel"; //$NON-NLS-1$
@@ -92,7 +92,7 @@ public class Activator extends AbstractUIPlugin {
 		if (messaggingSystem ==  null)
 		{
 			MessagingSystemManager msm = new MessagingSystemManager();
-			messaggingSystem  = msm.createBestPlatformMessagingSystem(org.gemoc.executionframework.engine.Activator.PLUGIN_ID, "Modeling Workbench Console");
+			messaggingSystem  = msm.createBestPlatformMessagingSystem(org.eclipse.gemoc.executionframework.engine.Activator.PLUGIN_ID, "Modeling Workbench Console");
 		}
 		return messaggingSystem;
 	}

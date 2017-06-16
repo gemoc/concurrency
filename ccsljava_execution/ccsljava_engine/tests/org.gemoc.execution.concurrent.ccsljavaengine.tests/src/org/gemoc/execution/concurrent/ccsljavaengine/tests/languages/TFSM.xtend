@@ -1,6 +1,6 @@
 package org.gemoc.execution.concurrent.ccsljavaengine.tests.languages
 
-import org.gemoc.executionframework.test.lib.ILanguageWrapper
+import org.eclipse.gemoc.executionframework.test.lib.ILanguageWrapper
 
 class TFSM implements ILanguageWrapper {
 

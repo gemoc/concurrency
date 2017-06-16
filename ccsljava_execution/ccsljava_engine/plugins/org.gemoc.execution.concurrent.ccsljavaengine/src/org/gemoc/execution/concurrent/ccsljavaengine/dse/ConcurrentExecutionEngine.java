@@ -20,10 +20,10 @@ import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.CodeExecut
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dse.IMSEStateController;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
-import org.gemoc.executionframework.engine.Activator;
-import org.gemoc.executionframework.engine.core.AbstractExecutionEngine;
-import org.gemoc.executionframework.engine.core.CommandExecution;
-import org.gemoc.executionframework.engine.core.EngineStoppedException;
+import org.eclipse.gemoc.executionframework.engine.Activator;
+import org.eclipse.gemoc.executionframework.engine.core.AbstractExecutionEngine;
+import org.eclipse.gemoc.executionframework.engine.core.CommandExecution;
+import org.eclipse.gemoc.executionframework.engine.core.EngineStoppedException;
 import org.eclipse.gemoc.xdsmlframework.api.core.EngineStatus;
 import org.eclipse.gemoc.xdsmlframework.api.core.IDisposable;
 import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionContext;

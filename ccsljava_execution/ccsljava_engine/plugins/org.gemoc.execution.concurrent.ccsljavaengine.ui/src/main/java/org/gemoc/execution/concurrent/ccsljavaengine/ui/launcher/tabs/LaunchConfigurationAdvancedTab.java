@@ -44,8 +44,8 @@ import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.Con
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.ConcurrentRunConfiguration;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.Activator;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.LauncherMessages;
-import org.gemoc.executionframework.engine.commons.MelangeHelper;
-import org.gemoc.executionframework.engine.ui.commons.RunConfiguration;
+import org.eclipse.gemoc.executionframework.engine.commons.MelangeHelper;
+import org.eclipse.gemoc.executionframework.engine.ui.commons.RunConfiguration;
 import org.eclipse.gemoc.xdsmlframework.ui.utils.dialogs.SelectAIRDIFileDialog;
 import org.osgi.framework.Bundle;
 

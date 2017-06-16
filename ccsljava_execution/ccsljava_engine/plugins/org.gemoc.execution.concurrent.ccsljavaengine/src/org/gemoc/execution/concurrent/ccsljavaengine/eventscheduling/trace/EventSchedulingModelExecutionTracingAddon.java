@@ -32,8 +32,8 @@ import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutio
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.CodeExecutionException;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
-import org.gemoc.executionframework.engine.Activator;
-import org.gemoc.executionframework.engine.core.CommandExecution;
+import org.eclipse.gemoc.executionframework.engine.Activator;
+import org.eclipse.gemoc.executionframework.engine.core.CommandExecution;
 import org.eclipse.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Branch;
 import org.eclipse.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Choice;
 import org.eclipse.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.ContextState;

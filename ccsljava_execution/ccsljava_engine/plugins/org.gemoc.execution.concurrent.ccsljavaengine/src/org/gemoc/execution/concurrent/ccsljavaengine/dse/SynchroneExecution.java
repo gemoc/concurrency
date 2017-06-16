@@ -4,7 +4,7 @@ import java.util.function.Consumer;
 
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.CodeExecutionException;
-import org.gemoc.executionframework.engine.Activator;
+import org.eclipse.gemoc.executionframework.engine.Activator;
 
 import fr.inria.diverse.trace.commons.model.trace.SmallStep;
 import fr.inria.diverse.trace.commons.model.trace.Step;
