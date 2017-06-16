@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaxdsml.ui.commands;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.commands;
 
 import java.io.IOException;
 import java.nio.file.Files;

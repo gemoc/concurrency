@@ -2,7 +2,7 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
-         point="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse.builder_addon">
+         point="org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse.builder_addon">
       <Addon
             Class="org.gemoc.mocc.transformations.ecl2mtl.builder.GemocDSEBuilderAddonExploration"
             Name="org.gemoc.mocc.transformations.ecl2mtl.builder"

@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.pages;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.pages;
 
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.util.BidiUtils;

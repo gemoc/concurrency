@@ -1,10 +1,10 @@
-package org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.contextDSA;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.contextDSA;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.ui.PlatformUI;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dialogs.SelectDSAIProjectDialog;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.dialogs.SelectDSAIProjectDialog;
 
 public class CreateDSAWizardContextActionDSA extends CreateDSAWizardContextBase {
 

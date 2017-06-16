@@ -1,9 +1,9 @@
-package org.gemoc.execution.concurrent.ccsljavaxdsml.api.moc;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.moc;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionContext;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionContext;
 import org.eclipse.gemoc.xdsmlframework.api.core.IDisposable;
 
 import fr.inria.aoste.timesquare.instantrelation.CCSLRelationModel.OccurrenceRelation;

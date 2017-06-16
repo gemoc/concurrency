@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaxdsml.api.core;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core;
 
 import org.eclipse.gemoc.xdsmlframework.api.core.IRunConfiguration;
 

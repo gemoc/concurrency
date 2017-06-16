@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.pages;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.pages;
 
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
@@ -9,8 +9,8 @@ import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.ui.PlatformUI;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateMOCCWizardContextAction;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateMOCCWizardContextAction.CreateMOCCAction;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateMOCCWizardContextAction;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateMOCCWizardContextAction.CreateMOCCAction;
 
 public class CreateMOCCWizardPage extends WizardPage {
 

@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -11,7 +11,7 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.wizards.IWizardDescriptor;
 import org.eclipse.gemoc.commons.eclipse.core.resources.NewProjectWorkspaceListener;
 import org.eclipse.gemoc.commons.eclipse.ui.WizardFinder;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
 import org.eclipse.gemoc.xdsmlframework.ide.ui.xdsml.wizards.MelangeXDSMLProjectHelper;
 
 import fr.inria.diverse.melange.metamodel.melange.Language;

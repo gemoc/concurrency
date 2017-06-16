@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse;
 
 import org.eclipse.acceleo.common.preference.AcceleoPreferences;
 import org.eclipse.core.runtime.CoreException;

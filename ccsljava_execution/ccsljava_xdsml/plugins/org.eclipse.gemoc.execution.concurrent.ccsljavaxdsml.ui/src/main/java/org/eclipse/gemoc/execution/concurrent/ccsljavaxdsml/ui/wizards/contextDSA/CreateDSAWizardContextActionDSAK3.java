@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.contextDSA;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.contextDSA;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
@@ -12,7 +12,7 @@ import org.eclipse.ui.wizards.IWizardDescriptor;
 import org.eclipse.gemoc.commons.eclipse.core.resources.NewProjectWorkspaceListener;
 import org.eclipse.gemoc.commons.eclipse.pde.wizards.pages.pde.TemplateListSelectionPage;
 import org.eclipse.gemoc.commons.eclipse.ui.WizardFinder;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
 import org.eclipse.gemoc.executionframework.ui.xdsml.activefile.ActiveFile;
 import org.eclipse.gemoc.executionframework.ui.xdsml.activefile.ActiveFileEcore;
 import org.eclipse.gemoc.xdsmlframework.ide.ui.xdsml.wizards.MelangeXDSMLProjectHelper;

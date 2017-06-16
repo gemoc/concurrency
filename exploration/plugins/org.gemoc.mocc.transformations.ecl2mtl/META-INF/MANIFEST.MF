@@ -29,7 +29,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.xtend.core,
  org.gemoc.mocc.fsmkernel.model.xtext.fsmdsl.ui,
  org.eclipse.acceleo.parser,
- org.gemoc.execution.concurrent.ccsljavaxdsml.ui,
+ org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui,
  fr.inria.aoste.timesquare.ecl.ecltoqvto,
  fr.inria.aoste.timesquare.ecl.qvto.helper
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

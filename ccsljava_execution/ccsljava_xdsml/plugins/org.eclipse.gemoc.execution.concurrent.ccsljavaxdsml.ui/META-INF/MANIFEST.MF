@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Gemoc Language Workbench UI
-Bundle-SymbolicName: org.gemoc.execution.concurrent.ccsljavaxdsml.ui;singleton:=true
+Bundle-SymbolicName: org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui;singleton:=true
 Bundle-Version: 2.3.0.qualifier
-Bundle-Activator: org.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator
+Bundle-Activator: org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator
 Bundle-Vendor: Inria
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
@@ -13,7 +13,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.ecore.xmi;bundle-version="2.8.1",
  org.eclipse.emf.importer.ecore;bundle-version="2.6.0",
  org.eclipse.emf.codegen.ecore.ui;bundle-version="2.8.0",
- org.gemoc.execution.concurrent.ccsljavaxdsml.utils;bundle-version="0.1.0",
+ org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.utils;bundle-version="0.1.0",
  org.eclipse.jdt.core,
  org.eclipse.pde.ui,
  fr.inria.aoste.timesquare.ecl.ecltoqvto;bundle-version="1.0.0",
@@ -35,7 +35,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.ecore.editor,
  org.eclipse.sirius.editor,
  org.eclipse.ui.navigator,
- org.gemoc.execution.concurrent.ccsljavaxdsml.api,
+ org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api,
  org.eclipse.gemoc.xdsmlframework.ide.ui;bundle-version="0.1.0",
  org.eclipse.gemoc.xdsmlframework.ui.utils,
  fr.inria.diverse.melange.metamodel,
@@ -47,11 +47,11 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.core.filesystem
 Bundle-ClassPath: .
-Export-Package: org.gemoc.execution.concurrent.ccsljavaxdsml.ui,
- org.gemoc.execution.concurrent.ccsljavaxdsml.ui.builder,
- org.gemoc.execution.concurrent.ccsljavaxdsml.ui.commands,
- org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dialogs,
- org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse,
- org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards,
- org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.contextDSA,
- org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.pages
+Export-Package: org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui,
+ org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.builder,
+ org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.commands,
+ org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.dialogs,
+ org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse,
+ org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards,
+ org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.contextDSA,
+ org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.pages

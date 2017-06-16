@@ -1,6 +1,6 @@
-package org.gemoc.execution.concurrent.ccsljavaxdsml.api.dse;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.dse;
 
-import org.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
 

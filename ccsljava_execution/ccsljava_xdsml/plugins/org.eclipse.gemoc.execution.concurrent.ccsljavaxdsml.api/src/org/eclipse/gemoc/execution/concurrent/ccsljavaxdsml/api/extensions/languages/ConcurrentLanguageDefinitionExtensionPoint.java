@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages;
 
 import java.util.Collection;
 

@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaxdsml.ui.builder;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.builder;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ import org.eclipse.gemoc.commons.eclipse.core.resources.IProjectUtils;
 import org.eclipse.gemoc.commons.eclipse.jdt.JavaProject;
 import org.eclipse.gemoc.commons.eclipse.pde.manifest.ManifestChanger;
 import org.eclipse.gemoc.commons.eclipse.pde.ui.PluginConverter;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
 import org.eclipse.gemoc.xdsmlframework.ide.ui.builder.pde.PluginXMLHelper;
 import org.osgi.framework.BundleException;
 
@@ -155,7 +155,7 @@ public class ToggleNatureAction implements IObjectActionDelegate {
 			changer.addPluginDependency(org.eclipse.gemoc.xdsmlframework.api.Activator.PLUGIN_ID, "0.1.0", true, true);
 			changer.addPluginDependency("org.eclipse.emf.ecore.xmi", "2.8.0", true, true);				
 			changer.addPluginDependency("org.eclipse.gemoc.xdsmlframework.api");				
-			changer.addPluginDependency("org.gemoc.execution.concurrent.ccsljavaxdsml.api");				
+			changer.addPluginDependency("org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api");				
 			changer.addPluginDependency("org.eclipse.gemoc.execution.concurrent.ccsljavaengine");
 			changer.addPluginDependency("org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.k3");
 			changer.addPluginDependency("org.eclipse.gemoc.executionframework.engine");

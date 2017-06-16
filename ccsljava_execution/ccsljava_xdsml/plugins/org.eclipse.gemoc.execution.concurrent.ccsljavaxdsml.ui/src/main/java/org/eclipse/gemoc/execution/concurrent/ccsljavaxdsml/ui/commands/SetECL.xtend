@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaxdsml.ui.commands
+package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.commands
 
 import fr.inria.diverse.melange.metamodel.melange.Language
 import java.util.List

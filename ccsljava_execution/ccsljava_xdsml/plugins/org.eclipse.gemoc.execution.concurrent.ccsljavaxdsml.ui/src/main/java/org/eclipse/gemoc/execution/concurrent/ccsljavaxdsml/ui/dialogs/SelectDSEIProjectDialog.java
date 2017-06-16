@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dialogs;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.dialogs;
 
 import java.util.Arrays;
 

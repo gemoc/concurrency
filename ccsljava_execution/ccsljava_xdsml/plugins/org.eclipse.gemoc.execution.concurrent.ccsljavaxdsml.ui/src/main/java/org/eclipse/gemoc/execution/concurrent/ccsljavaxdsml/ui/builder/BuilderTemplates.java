@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaxdsml.ui.builder;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.builder;
 
 public class BuilderTemplates {
 

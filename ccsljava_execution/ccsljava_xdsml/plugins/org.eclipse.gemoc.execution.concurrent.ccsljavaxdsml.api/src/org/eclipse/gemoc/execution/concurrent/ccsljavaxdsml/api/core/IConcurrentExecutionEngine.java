@@ -1,9 +1,9 @@
-package org.gemoc.execution.concurrent.ccsljavaxdsml.api.core;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core;
 
 import java.util.List;
 
-import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
 import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine;
 
 import org.eclipse.gemoc.trace.commons.model.trace.Step;

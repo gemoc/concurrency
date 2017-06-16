@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaxdsml.ui.templates;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.templates;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -24,8 +24,8 @@ import org.eclipse.gemoc.commons.eclipse.core.resources.FileFinderVisitor;
 import org.eclipse.gemoc.commons.eclipse.pde.manifest.ManifestChanger;
 import org.eclipse.gemoc.commons.eclipse.pde.wizards.pages.pde.ui.templates.AbstractStringWithButtonOption;
 import org.eclipse.gemoc.commons.eclipse.pde.wizards.pages.pde.ui.templates.TemplateOption;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dialogs.SelectDSAIProjectDialog;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.dialogs.SelectDSAIProjectDialog;
 import org.osgi.framework.BundleException;
 
 import fr.inria.diverse.melange.ui.templates.melange.SimpleMTTemplate;

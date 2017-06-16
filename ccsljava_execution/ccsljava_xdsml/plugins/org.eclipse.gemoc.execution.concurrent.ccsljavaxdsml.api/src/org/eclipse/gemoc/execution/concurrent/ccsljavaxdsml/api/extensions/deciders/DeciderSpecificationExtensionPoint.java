@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.deciders;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.deciders;
 
 import java.util.Collection;
 

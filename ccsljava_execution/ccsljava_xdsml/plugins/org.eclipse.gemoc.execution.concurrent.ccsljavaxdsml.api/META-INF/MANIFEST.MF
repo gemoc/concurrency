@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: CCSLJavaXDSML API
-Bundle-SymbolicName: org.gemoc.execution.concurrent.ccsljavaxdsml.api;singleton:=true
+Bundle-SymbolicName: org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api;singleton:=true
 Bundle-Version: 2.3.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.eclipse.core.runtime,
@@ -11,11 +11,11 @@ Require-Bundle: org.eclipse.core.runtime,
  fr.inria.aoste.timesquare.ecl.feedback.model,
  org.eclipse.gemoc.trace.commons;bundle-version="1.0.0",
  fr.inria.aoste.timesquare.instantrelation;bundle-version="1.3.0"
-Export-Package: org.gemoc.execution.concurrent.ccsljavaxdsml.api.core,
- org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors,
- org.gemoc.execution.concurrent.ccsljavaxdsml.api.dse,
- org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.deciders,
- org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages,
- org.gemoc.execution.concurrent.ccsljavaxdsml.api.moc
+Export-Package: org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core,
+ org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors,
+ org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.dse,
+ org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.deciders,
+ org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages,
+ org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.moc
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: Inria

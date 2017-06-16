@@ -6,9 +6,9 @@ import org.eclipse.core.runtime.Status
 import org.eclipse.emf.common.util.URI
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.commons.ConcurrentModelExecutionContext
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.dse.ConcurrentExecutionEngine
-import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionContext
-import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentRunConfiguration
-import org.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionContext
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentRunConfiguration
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver
 import org.eclipse.gemoc.executionframework.test.lib.IEngineWrapper
 import org.eclipse.gemoc.executionframework.test.lib.IExecutableModel
 import org.eclipse.gemoc.executionframework.test.lib.ILanguageWrapper

@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -29,7 +29,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.gemoc.commons.eclipse.core.resources.IFileUtils;
 import org.eclipse.gemoc.commons.eclipse.core.resources.Marker;
 import org.eclipse.gemoc.commons.eclipse.core.resources.IProjectUtils;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
 
 import com.google.common.base.Charsets;
 

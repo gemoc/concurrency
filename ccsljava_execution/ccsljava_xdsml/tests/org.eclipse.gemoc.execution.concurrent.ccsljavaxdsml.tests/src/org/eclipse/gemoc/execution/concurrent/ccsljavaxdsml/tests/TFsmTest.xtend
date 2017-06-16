@@ -8,7 +8,7 @@
  * Contributors:
  *     Inria - initial API and implementation
  *******************************************************************************/
-package org.gemoc.execution.concurrent.ccsljavaxdsml.tests
+package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.tests
 
 import com.google.inject.Inject
 import org.eclipse.core.resources.IProject

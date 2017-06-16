@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -19,8 +19,8 @@ import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
 import org.eclipse.gemoc.commons.eclipse.core.resources.IProjectUtils;
 import org.eclipse.gemoc.commons.eclipse.pde.ui.PluginConverter;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.pages.AskMoCInfoWizardPage;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.pages.AskMoCInfoWizardPage;
 //import org.gemoc.gemoc_language_workbench.ui.dse.AddRemoveGemocDSENatureHandler;
 
 public class CreateNewMoCProject extends Wizard implements INewWizard {

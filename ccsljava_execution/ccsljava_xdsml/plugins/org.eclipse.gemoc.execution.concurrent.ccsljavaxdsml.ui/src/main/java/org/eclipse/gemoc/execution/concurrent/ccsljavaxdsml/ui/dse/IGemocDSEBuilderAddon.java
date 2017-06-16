@@ -1,7 +1,7 @@
-package org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse;
 
 import org.eclipse.core.resources.IResource;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
 
 public interface IGemocDSEBuilderAddon {
 	

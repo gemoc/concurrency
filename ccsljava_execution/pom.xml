@@ -21,9 +21,9 @@
         <module>ccsljava_engine/plugins/org.eclipse.gemoc.execution.concurrent.ccsljavaengine.mse.model</module>
         <module>ccsljava_engine/plugins/org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuli_scenario.model</module>
         <module>ccsljava_engine/plugins/org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui</module>
-        <module>ccsljava_xdsml/plugins/org.gemoc.execution.concurrent.ccsljavaxdsml.api</module>
-        <module>ccsljava_xdsml/plugins/org.gemoc.execution.concurrent.ccsljavaxdsml.ui</module>
-        <module>ccsljava_xdsml/plugins/org.gemoc.execution.concurrent.ccsljavaxdsml.utils</module>
+        <module>ccsljava_xdsml/plugins/org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api</module>
+        <module>ccsljava_xdsml/plugins/org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui</module>
+        <module>ccsljava_xdsml/plugins/org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.utils</module>
         <module>concurrent_addons/plugins/fr.inria.aoste.timesquare.backend.vcdgenerator.gemocAdaptation</module>
         <module>concurrent_addons/plugins/org.gemoc.concurrent_addons.eventscheduling.timeline</module>
         
@@ -36,7 +36,7 @@
         <module>releng/org.gemoc.executionengine.ccsljava.repository</module>
         
         <!-- tests -->
-        <module>ccsljava_xdsml/tests/org.gemoc.execution.concurrent.ccsljavaxdsml.tests</module>
+        <module>ccsljava_xdsml/tests/org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.tests</module>
     </modules>
 
  

@@ -1,10 +1,10 @@
-package org.gemoc.execution.concurrent.ccsljavaxdsml.ui.commands;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.commands;
 
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandler;
 import org.eclipse.core.resources.IProject;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateMOCCWizardContextAction;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateMOCCWizardContextAction;
 import org.eclipse.gemoc.xdsmlframework.ide.ui.commands.AbstractMelangeSelectHandler;
 
 import fr.inria.diverse.melange.metamodel.melange.Language;

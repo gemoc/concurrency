@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaxdsml.utils.ccsl;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.utils.ccsl;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -11,7 +11,7 @@ import org.eclipse.m2m.qvt.oml.TransformationExecutor;
 import org.eclipse.xtext.resource.IResourceServiceProvider;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.utils.Activator;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.utils.Activator;
 
 import com.google.inject.Injector;
 

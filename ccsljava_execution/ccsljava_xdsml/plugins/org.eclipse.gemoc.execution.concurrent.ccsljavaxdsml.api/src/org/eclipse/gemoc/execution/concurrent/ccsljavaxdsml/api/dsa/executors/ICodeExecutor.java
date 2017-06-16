@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;

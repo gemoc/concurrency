@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.pages;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.pages;
 
 import org.eclipse.core.resources.IResource;
 import org.eclipse.emf.common.util.URI;

@@ -3,8 +3,8 @@ package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.deciders;
 import java.util.List;
 import java.util.Random;
 
-import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.ILogicalStepDecider;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.ILogicalStepDecider;
 
 import org.eclipse.gemoc.trace.commons.model.trace.Step;
 

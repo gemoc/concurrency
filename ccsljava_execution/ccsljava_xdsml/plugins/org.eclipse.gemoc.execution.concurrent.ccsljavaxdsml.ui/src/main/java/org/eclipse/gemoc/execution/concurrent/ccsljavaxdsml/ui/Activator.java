@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaxdsml.ui;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui;
 
 import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.resource.ImageDescriptor;
@@ -11,7 +11,7 @@ import org.osgi.framework.BundleContext;
 public class Activator extends AbstractUIPlugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "org.gemoc.execution.concurrent.ccsljavaxdsml.ui"; //$NON-NLS-1$
+	public static final String PLUGIN_ID = "org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui"; //$NON-NLS-1$
 
 	// extension point constants
 	

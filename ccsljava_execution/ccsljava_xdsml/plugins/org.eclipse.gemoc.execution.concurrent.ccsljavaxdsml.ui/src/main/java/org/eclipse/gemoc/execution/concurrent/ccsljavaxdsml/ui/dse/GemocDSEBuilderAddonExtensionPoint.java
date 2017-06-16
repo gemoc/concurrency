@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse;
 
 import java.util.ArrayList;
 
@@ -7,7 +7,7 @@ import org.eclipse.gemoc.xdsmlframework.api.extensions.ExtensionPoint;
 public class GemocDSEBuilderAddonExtensionPoint extends ExtensionPoint<GemocDSEBuilderAddonExtension>
 {
 
-	public static final String GEMOC_DSE_BUILDER_ADDON_EXTENSION_POINT = "org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse.builder_addon";
+	public static final String GEMOC_DSE_BUILDER_ADDON_EXTENSION_POINT = "org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse.builder_addon";
 	public static final String GEMOC_DSE_BUILDER_ADDON_EXTENSION_POINT_ID = "id";
 	public static final String GEMOC_DSE_BUILDER_ADDON_EXTENSION_POINT_NAME = "Name";
 	public static final String GEMOC_DSE_BUILDER_ADDON_EXTENSION_POINT_SHORTDESCRIPTION = "ShortDescription";

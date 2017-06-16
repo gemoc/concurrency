@@ -16,8 +16,8 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.SafeRunner;
 import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.common.util.URI;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse.IGemocDSEBuilderAddon;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse.IGemocDSEBuilderAddon;
 import org.gemoc.mocc.transformations.ecl2mtl.main.AcceleoTemplateFromEclToClockSystem;
 import org.gemoc.mocc.transformations.ecl2mtl.main.AcceleoTemplateFromEclToMTL;
 

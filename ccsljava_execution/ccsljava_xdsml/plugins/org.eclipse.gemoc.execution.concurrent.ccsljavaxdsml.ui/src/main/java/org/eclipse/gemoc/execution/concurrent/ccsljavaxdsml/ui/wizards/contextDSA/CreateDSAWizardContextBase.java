@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.contextDSA;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.contextDSA;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.gemoc.commons.eclipse.pde.manifest.ManifestChanger;
