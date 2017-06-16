@@ -7,7 +7,7 @@ import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
-import fr.inria.diverse.trace.commons.model.trace.TracePackage;
+import org.eclipse.gemoc.trace.commons.model.trace.TracePackage;
 
 /**
  * <!-- begin-user-doc -->

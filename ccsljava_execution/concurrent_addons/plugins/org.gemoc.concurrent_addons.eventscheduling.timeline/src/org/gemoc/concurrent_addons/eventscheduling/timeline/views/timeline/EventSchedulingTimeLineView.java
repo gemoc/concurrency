@@ -29,7 +29,7 @@ import org.eclipse.gemoc.xdsmlframework.api.core.ExecutionMode;
 import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine;
 import org.eclipse.gemoc.xdsmlframework.api.core.IDisposable;
 
-import fr.inria.diverse.trace.commons.model.trace.Step;
+import org.eclipse.gemoc.trace.commons.model.trace.Step;
 import org.eclipse.gemoc.timeline.editpart.PossibleStepEditPart;
 import org.eclipse.gemoc.timeline.editpart.TimelineEditPartFactory;
 import org.eclipse.gemoc.timeline.view.AbstractTimelineView;

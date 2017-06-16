@@ -33,10 +33,10 @@ import org.eclipse.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ActionModel;
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.When;
 import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel;
-import fr.inria.diverse.trace.commons.model.trace.MSE;
-import fr.inria.diverse.trace.commons.model.trace.ParallelStep;
-import fr.inria.diverse.trace.commons.model.trace.SmallStep;
-import fr.inria.diverse.trace.commons.model.trace.Step;
+import org.eclipse.gemoc.trace.commons.model.trace.MSE;
+import org.eclipse.gemoc.trace.commons.model.trace.ParallelStep;
+import org.eclipse.gemoc.trace.commons.model.trace.SmallStep;
+import org.eclipse.gemoc.trace.commons.model.trace.Step;
 
 /**
  * Basic abstract implementation of the ExecutionEngine, independent from the technologies used for the solver, the

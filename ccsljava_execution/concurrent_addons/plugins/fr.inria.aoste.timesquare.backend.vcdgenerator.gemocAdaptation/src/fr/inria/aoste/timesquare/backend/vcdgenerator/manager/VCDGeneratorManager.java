@@ -45,10 +45,10 @@ import fr.inria.aoste.trace.FiredStateKind;
 import fr.inria.aoste.trace.ModelElementReference;
 import fr.inria.aoste.trace.PhysicalBase;
 import fr.inria.aoste.trace.TraceFactory;
-import fr.inria.diverse.trace.commons.model.helper.StepHelper;
-import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
-import fr.inria.diverse.trace.commons.model.trace.SmallStep;
-import fr.inria.diverse.trace.commons.model.trace.Step;
+import org.eclipse.gemoc.trace.commons.model.helper.StepHelper;
+import org.eclipse.gemoc.trace.commons.model.trace.MSEOccurrence;
+import org.eclipse.gemoc.trace.commons.model.trace.SmallStep;
+import org.eclipse.gemoc.trace.commons.model.trace.Step;
 
 /**
  * 

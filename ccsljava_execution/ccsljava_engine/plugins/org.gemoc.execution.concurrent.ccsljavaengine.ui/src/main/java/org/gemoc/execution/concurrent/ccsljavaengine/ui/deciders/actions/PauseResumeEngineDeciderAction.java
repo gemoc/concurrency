@@ -8,7 +8,7 @@ import org.eclipse.gemoc.executionframework.ui.views.engine.actions.AbstractEngi
 import org.eclipse.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine;
 
-import fr.inria.diverse.trace.commons.model.trace.Step;
+import org.eclipse.gemoc.trace.commons.model.trace.Step;
 
 public class PauseResumeEngineDeciderAction extends AbstractEngineAction
 {

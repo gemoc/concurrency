@@ -5,8 +5,8 @@ import java.util.function.Consumer;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionContext;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 
-import fr.inria.diverse.trace.commons.model.trace.SmallStep;
-import fr.inria.diverse.trace.commons.model.trace.Step;
+import org.eclipse.gemoc.trace.commons.model.trace.SmallStep;
+import org.eclipse.gemoc.trace.commons.model.trace.Step;
 
 public abstract class OperationExecution {
 

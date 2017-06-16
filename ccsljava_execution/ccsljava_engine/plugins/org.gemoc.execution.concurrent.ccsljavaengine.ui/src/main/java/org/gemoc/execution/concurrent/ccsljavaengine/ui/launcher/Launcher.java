@@ -49,7 +49,7 @@ import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine;
 import org.eclipse.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 
 import fr.inria.diverse.commons.messagingsystem.api.MessagingSystem;
-import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
+import org.eclipse.gemoc.trace.commons.model.trace.MSEOccurrence;
 import org.eclipse.gemoc.dsl.debug.ide.IDSLDebugger;
 import org.eclipse.gemoc.dsl.debug.ide.adapter.IDSLCurrentInstructionListener;
 import org.eclipse.gemoc.dsl.debug.ide.event.DSLDebugEventDispatcher;

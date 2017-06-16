@@ -6,8 +6,8 @@ import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutio
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.CodeExecutionException;
 import org.eclipse.gemoc.executionframework.engine.Activator;
 
-import fr.inria.diverse.trace.commons.model.trace.SmallStep;
-import fr.inria.diverse.trace.commons.model.trace.Step;
+import org.eclipse.gemoc.trace.commons.model.trace.SmallStep;
+import org.eclipse.gemoc.trace.commons.model.trace.Step;
 
 public class SynchroneExecution extends OperationExecution {
 

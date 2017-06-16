@@ -1,6 +1,6 @@
 package org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors;
 
-import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
+import org.eclipse.gemoc.trace.commons.model.trace.MSEOccurrence;
 
 
 public class CodeExecutionException extends Exception

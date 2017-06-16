@@ -18,7 +18,7 @@ import org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.dsa.api.IK3DS
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.CodeExecutionException;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
 
-import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
+import org.eclipse.gemoc.trace.commons.model.trace.MSEOccurrence;
 
 /**
  * Executor that is able to find the helper class associated with a given object

@@ -10,7 +10,7 @@ import java.util.List;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.CodeExecutionException;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
 
-import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
+import org.eclipse.gemoc.trace.commons.model.trace.MSEOccurrence;
 
 public class JavaCodeExecutor implements ICodeExecutor {
 

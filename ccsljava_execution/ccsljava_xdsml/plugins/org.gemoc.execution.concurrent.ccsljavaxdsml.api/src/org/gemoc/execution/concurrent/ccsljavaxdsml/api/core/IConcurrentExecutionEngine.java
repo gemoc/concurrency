@@ -6,7 +6,7 @@ import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecu
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
 import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine;
 
-import fr.inria.diverse.trace.commons.model.trace.Step;
+import org.eclipse.gemoc.trace.commons.model.trace.Step;
 
 public interface IConcurrentExecutionEngine extends IExecutionEngine{
 

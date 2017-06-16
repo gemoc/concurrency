@@ -5,7 +5,7 @@ import java.util.List;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.ILogicalStepDecider;
 
-import fr.inria.diverse.trace.commons.model.trace.Step;
+import org.eclipse.gemoc.trace.commons.model.trace.Step;
 
 /**
  * Decider that will delegate its choice to the solver

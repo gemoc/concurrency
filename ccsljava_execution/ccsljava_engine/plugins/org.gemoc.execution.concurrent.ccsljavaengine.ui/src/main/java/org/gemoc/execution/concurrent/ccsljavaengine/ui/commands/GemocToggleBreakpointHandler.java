@@ -17,7 +17,7 @@ import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.Mod
 import org.eclipse.gemoc.executionframework.debugger.GemocBreakpoint;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
-import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
+import org.eclipse.gemoc.trace.commons.model.trace.MSEOccurrence;
 import org.eclipse.gemoc.dsl.debug.ide.DSLBreakpoint;
 import org.eclipse.gemoc.dsl.debug.ide.sirius.ui.DSLToggleBreakpointsUtils;
 

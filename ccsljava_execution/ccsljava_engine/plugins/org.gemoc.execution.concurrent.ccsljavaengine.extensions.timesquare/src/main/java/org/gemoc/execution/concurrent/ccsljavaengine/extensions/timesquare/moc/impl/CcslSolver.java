@@ -51,16 +51,16 @@ import fr.inria.aoste.trace.LogicalStep;
 import fr.inria.aoste.trace.ModelElementReference;
 import fr.inria.aoste.trace.Reference;
 import fr.inria.aoste.trace.relation.IDescription;
-import fr.inria.diverse.trace.commons.model.generictrace.GenericParallelStep;
-import fr.inria.diverse.trace.commons.model.generictrace.GenericSmallStep;
-import fr.inria.diverse.trace.commons.model.generictrace.GenerictraceFactory;
-import fr.inria.diverse.trace.commons.model.trace.MSE;
-import fr.inria.diverse.trace.commons.model.trace.MSEModel;
-import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
-import fr.inria.diverse.trace.commons.model.trace.ParallelStep;
-import fr.inria.diverse.trace.commons.model.trace.SmallStep;
-import fr.inria.diverse.trace.commons.model.trace.Step;
-import fr.inria.diverse.trace.commons.model.trace.TraceFactory;
+import org.eclipse.gemoc.trace.commons.model.generictrace.GenericParallelStep;
+import org.eclipse.gemoc.trace.commons.model.generictrace.GenericSmallStep;
+import org.eclipse.gemoc.trace.commons.model.generictrace.GenerictraceFactory;
+import org.eclipse.gemoc.trace.commons.model.trace.MSE;
+import org.eclipse.gemoc.trace.commons.model.trace.MSEModel;
+import org.eclipse.gemoc.trace.commons.model.trace.MSEOccurrence;
+import org.eclipse.gemoc.trace.commons.model.trace.ParallelStep;
+import org.eclipse.gemoc.trace.commons.model.trace.SmallStep;
+import org.eclipse.gemoc.trace.commons.model.trace.Step;
+import org.eclipse.gemoc.trace.commons.model.trace.TraceFactory;
 
 /**
  * Implementation of the ISolver dedicated to CCSL.

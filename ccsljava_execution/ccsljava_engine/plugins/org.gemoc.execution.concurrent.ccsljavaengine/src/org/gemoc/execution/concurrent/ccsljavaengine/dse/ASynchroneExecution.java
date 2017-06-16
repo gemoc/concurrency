@@ -16,8 +16,8 @@ import fr.inria.aoste.timesquare.ecl.feedback.feedback.Condition;
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.Force;
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ForceKind;
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.When;
-import fr.inria.diverse.trace.commons.model.trace.SmallStep;
-import fr.inria.diverse.trace.commons.model.trace.Step;
+import org.eclipse.gemoc.trace.commons.model.trace.SmallStep;
+import org.eclipse.gemoc.trace.commons.model.trace.Step;
 
 public class ASynchroneExecution extends OperationExecution {
 

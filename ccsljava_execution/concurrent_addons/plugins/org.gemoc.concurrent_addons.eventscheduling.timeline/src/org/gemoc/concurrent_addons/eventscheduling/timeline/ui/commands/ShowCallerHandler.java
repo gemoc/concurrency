@@ -28,9 +28,9 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
 
-import fr.inria.diverse.trace.commons.model.helper.StepHelper;
-import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
-import fr.inria.diverse.trace.commons.model.trace.Step;
+import org.eclipse.gemoc.trace.commons.model.helper.StepHelper;
+import org.eclipse.gemoc.trace.commons.model.trace.MSEOccurrence;
+import org.eclipse.gemoc.trace.commons.model.trace.Step;
 import org.eclipse.gemoc.dsl.debug.ide.sirius.ui.DebugSiriusIdeUiPlugin;
 import org.eclipse.gemoc.dsl.debug.ide.sirius.ui.SiriusEditorUtils;
 import org.eclipse.gemoc.dsl.debug.ide.ui.EMFEditorUtils;

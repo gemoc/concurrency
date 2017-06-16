@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.Concurrent_msePackage;
 import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
 
-import fr.inria.diverse.trace.commons.model.trace.MSE;
+import org.eclipse.gemoc.trace.commons.model.trace.MSE;
 
 /**
  * <!-- begin-user-doc -->

@@ -15,7 +15,7 @@ import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.CodeExecut
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
 import org.eclipse.gemoc.executionframework.engine.commons.MelangeHelper;
 
-import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
+import org.eclipse.gemoc.trace.commons.model.trace.MSEOccurrence;
 
 //TODO: extends Kermeta3AspectsCodeExecutor?
 public class MelangeCodeExecutor extends AbstractAspectsCodeExecutor implements ICodeExecutor {

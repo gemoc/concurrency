@@ -13,7 +13,7 @@ import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.Concurrent_ms
 import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.FeedbackPackage;
-import fr.inria.diverse.trace.commons.model.trace.TracePackage;
+import org.eclipse.gemoc.trace.commons.model.trace.TracePackage;
 
 /**
  * <!-- begin-user-doc -->

@@ -68,7 +68,7 @@ import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine;
 import org.eclipse.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
-import fr.inria.diverse.trace.commons.model.trace.Step;
+import org.eclipse.gemoc.trace.commons.model.trace.Step;
 import org.eclipse.gemoc.dsl.debug.ide.DSLBreakpoint;
 import org.eclipse.gemoc.dsl.debug.ide.ui.provider.DSLLabelDecorator;
 import org.eclipse.gemoc.dsl.debug.ide.ui.provider.DecoratingColumLabelProvider;

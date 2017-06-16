@@ -17,10 +17,10 @@ import org.eclipse.ui.IEditorPart;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.SharedIcons;
 import org.eclipse.gemoc.executionframework.ui.IMSEPresenter;
 
-import fr.inria.diverse.trace.commons.model.helper.StepHelper;
-import fr.inria.diverse.trace.commons.model.trace.MSE;
-import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
-import fr.inria.diverse.trace.commons.model.trace.Step;
+import org.eclipse.gemoc.trace.commons.model.helper.StepHelper;
+import org.eclipse.gemoc.trace.commons.model.trace.MSE;
+import org.eclipse.gemoc.trace.commons.model.trace.MSEOccurrence;
+import org.eclipse.gemoc.trace.commons.model.trace.Step;
 import org.eclipse.gemoc.dsl.debug.DebugTarget;
 import org.eclipse.gemoc.dsl.debug.StackFrame;
 import org.eclipse.gemoc.dsl.debug.ide.adapter.DSLStackFrameAdapter;

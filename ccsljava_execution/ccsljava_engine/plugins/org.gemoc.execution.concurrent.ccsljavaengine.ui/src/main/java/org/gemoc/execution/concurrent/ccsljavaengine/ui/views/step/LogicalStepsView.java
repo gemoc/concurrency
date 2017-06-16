@@ -57,10 +57,10 @@ import org.eclipse.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 import org.eclipse.gemoc.xdsmlframework.api.core.ExecutionMode;
 import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine;
 
-import fr.inria.diverse.trace.commons.model.helper.StepHelper;
-import fr.inria.diverse.trace.commons.model.trace.MSE;
-import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
-import fr.inria.diverse.trace.commons.model.trace.Step;
+import org.eclipse.gemoc.trace.commons.model.helper.StepHelper;
+import org.eclipse.gemoc.trace.commons.model.trace.MSE;
+import org.eclipse.gemoc.trace.commons.model.trace.MSEOccurrence;
+import org.eclipse.gemoc.trace.commons.model.trace.Step;
 
 public class LogicalStepsView extends EngineSelectionDependentViewPart implements IMSEPresenter {
 
