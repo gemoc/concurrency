@@ -330,12 +330,12 @@
     <extension
           point="org.eclipse.ui.newWizards">
        <category
-             id="org.gemoc.xdsmlframework.fragment.category"
+             id="org.eclipse.gemoc.xdsmlframework.fragment.category"
              name="GEMOC Specific Language Fragment"
-             parentCategory="org.gemoc.xdsmlframework.category">
+             parentCategory="org.eclipse.gemoc.xdsmlframework.category">
        </category>
        <wizard
-             category="org.gemoc.xdsmlframework.category/org.gemoc.xdsmlframework.fragment.category"
+             category="org.eclipse.gemoc.xdsmlframework.category/org.eclipse.gemoc.xdsmlframework.fragment.category"
              class="org.gemoc.mocc.ccslmocc.model.xtext.mocdsl.ui.wizards.MoCCMLFileNewWizard"
              icon="icons/IconeGemocMoC_16x16x32.png"
              id="org.gemoc.mocc.ccslmocc.model.xtext.mocdsl.ui.wizards.MoCCMLFileNewWizard"

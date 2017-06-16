@@ -31,7 +31,7 @@ import org.eclipse.gemoc.commons.eclipse.jdt.JavaProject;
 import org.eclipse.gemoc.commons.eclipse.pde.manifest.ManifestChanger;
 import org.eclipse.gemoc.commons.eclipse.pde.ui.PluginConverter;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
-import org.gemoc.xdsmlframework.ide.ui.builder.pde.PluginXMLHelper;
+import org.eclipse.gemoc.xdsmlframework.ide.ui.builder.pde.PluginXMLHelper;
 import org.osgi.framework.BundleException;
 
 public class ToggleNatureAction implements IObjectActionDelegate {

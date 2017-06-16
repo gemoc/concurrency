@@ -42,7 +42,7 @@ import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.Con
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtensionPoint;
 import org.gemoc.executionframework.engine.commons.MelangeHelper;
 import org.gemoc.executionframework.engine.ui.commons.RunConfiguration;
-import org.gemoc.xdsmlframework.ui.utils.dialogs.SelectAIRDIFileDialog;
+import org.eclipse.gemoc.xdsmlframework.ui.utils.dialogs.SelectAIRDIFileDialog;
 
 import fr.obeo.dsl.debug.ide.launch.AbstractDSLLaunchConfigurationDelegate;
 import fr.obeo.dsl.debug.ide.sirius.ui.launch.AbstractDSLLaunchConfigurationDelegateUI;
