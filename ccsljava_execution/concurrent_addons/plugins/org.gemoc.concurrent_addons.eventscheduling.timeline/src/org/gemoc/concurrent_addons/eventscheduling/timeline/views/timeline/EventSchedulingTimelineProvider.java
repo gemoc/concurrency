@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.gemoc.execution.concurrent.ccsljavaengine.eventscheduling.trace.EventSchedulingModelExecutionTracingAddon;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.eventscheduling.trace.EventSchedulingModelExecutionTracingAddon;
 import org.eclipse.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Branch;
 import org.eclipse.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Choice;
 import org.eclipse.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.ExecutionTraceModel;

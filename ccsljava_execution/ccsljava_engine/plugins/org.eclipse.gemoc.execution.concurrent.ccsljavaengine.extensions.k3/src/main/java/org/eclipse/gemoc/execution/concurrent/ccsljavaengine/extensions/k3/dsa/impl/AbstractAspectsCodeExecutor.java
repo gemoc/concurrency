@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.dsa.impl;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.dsa.impl;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;

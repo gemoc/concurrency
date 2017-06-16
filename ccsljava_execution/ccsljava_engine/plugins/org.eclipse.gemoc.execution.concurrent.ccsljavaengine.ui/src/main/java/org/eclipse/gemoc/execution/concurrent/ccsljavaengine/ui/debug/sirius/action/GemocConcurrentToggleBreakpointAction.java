@@ -1,6 +1,6 @@
-package org.gemoc.execution.concurrent.ccsljavaengine.ui.debug.sirius.action;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.debug.sirius.action;
 
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.Activator;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.Activator;
 import org.eclipse.gemoc.executionframework.debugger.ui.breakpoints.GemocToggleBreakpointAction;
 
 /**

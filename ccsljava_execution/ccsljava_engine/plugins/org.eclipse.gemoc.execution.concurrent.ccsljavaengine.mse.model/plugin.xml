@@ -11,7 +11,7 @@
       <!-- @generated ConcurrentMSE -->
       <package
             uri="http://www.gemoc.org/gemoc_execution_engine_concurrent_mse"
-            class="org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.Concurrent_msePackage"
+            class="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.Concurrent_msePackage"
             genModel="model/ConcurrentMSE.genmodel"/>
    </extension>
 

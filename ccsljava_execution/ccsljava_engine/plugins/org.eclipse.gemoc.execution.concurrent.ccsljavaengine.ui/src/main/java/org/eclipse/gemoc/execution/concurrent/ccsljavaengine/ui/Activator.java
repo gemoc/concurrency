@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaengine.ui;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui;
 
 import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.resource.ImageDescriptor;
@@ -15,7 +15,7 @@ import fr.inria.diverse.commons.messagingsystem.api.MessagingSystem;
 public class Activator extends AbstractUIPlugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "org.gemoc.execution.concurrent.ccsljavaengine.ui"; //$NON-NLS-1$
+	public static final String PLUGIN_ID = "org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui"; //$NON-NLS-1$
 	
 	/** 
 	 * The debugModelId to be used by sirius debug services (see org.eclipse.gemoc.executionframework.extensions.sirius.services.AbstractGemocDebuggerServices )

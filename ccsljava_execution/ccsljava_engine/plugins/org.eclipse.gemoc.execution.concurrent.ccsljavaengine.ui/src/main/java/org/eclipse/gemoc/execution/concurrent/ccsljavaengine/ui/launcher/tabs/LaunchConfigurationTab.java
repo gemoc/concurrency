@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.tabs;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.tabs;
 
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
 import org.eclipse.swt.SWT;

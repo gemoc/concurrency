@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaengine.dsa.executors;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.dsa.executors;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationTargetException;

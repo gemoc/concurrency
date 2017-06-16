@@ -1,15 +1,15 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
-Bundle-SymbolicName: org.gemoc.execution.concurrent.ccsljavaengine.stimuli_scenario.model;singleton:=true
+Bundle-SymbolicName: org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuli_scenario.model;singleton:=true
 Bundle-Version: 2.3.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario,
- org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl,
- org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.util
+Export-Package: org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario,
+ org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl,
+ org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  fr.inria.aoste.timesquare.ecl.feedback.model;visibility:=reexport,

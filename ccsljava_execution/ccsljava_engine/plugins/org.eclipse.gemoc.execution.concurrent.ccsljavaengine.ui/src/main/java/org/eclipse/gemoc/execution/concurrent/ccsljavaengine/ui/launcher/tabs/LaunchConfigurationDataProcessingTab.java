@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.tabs;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.tabs;
 
 import java.util.ArrayList;
 import java.util.Collection;

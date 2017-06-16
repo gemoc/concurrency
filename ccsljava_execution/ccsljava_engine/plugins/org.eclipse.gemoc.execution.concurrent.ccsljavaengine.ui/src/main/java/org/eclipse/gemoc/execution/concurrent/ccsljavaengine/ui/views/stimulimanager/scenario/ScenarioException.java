@@ -1,9 +1,9 @@
-package org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.scenario;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.scenario;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.Activator;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.Activator;
 
 public class ScenarioException extends CoreException {
 

@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.k3;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
@@ -14,7 +14,7 @@ public class Activator implements BundleActivator {
 		return context;
 	}
 	
-	public static final String PLUGIN_ID = "org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3"; //$NON-NLS-1$
+	public static final String PLUGIN_ID = "org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.k3"; //$NON-NLS-1$
 
 
 	protected static MessagingSystem messagingSystem = null;

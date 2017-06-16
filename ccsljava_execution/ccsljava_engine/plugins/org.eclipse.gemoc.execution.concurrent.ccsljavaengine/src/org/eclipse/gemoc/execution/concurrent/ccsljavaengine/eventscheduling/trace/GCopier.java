@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaengine.eventscheduling.trace;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.eventscheduling.trace;
 
 import java.util.ArrayList;
 import java.util.List;

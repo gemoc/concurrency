@@ -1,6 +1,6 @@
 /**
  */
-package org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl;
 
 import java.util.Collection;
 
@@ -11,9 +11,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.EventState;
-import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ExecutionStep;
-import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ScenarioPackage;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.EventState;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ExecutionStep;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ScenarioPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +23,7 @@ import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ScenarioPac
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ExecutionStepImpl#getEventList <em>Event List</em>}</li>
+ *   <li>{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ExecutionStepImpl#getEventList <em>Event List</em>}</li>
  * </ul>
  *
  * @generated

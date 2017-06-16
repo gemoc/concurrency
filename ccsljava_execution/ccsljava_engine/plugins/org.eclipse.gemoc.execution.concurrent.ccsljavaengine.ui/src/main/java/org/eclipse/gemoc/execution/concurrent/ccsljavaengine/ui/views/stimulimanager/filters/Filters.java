@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.filters;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.filters;
 
 /**
  * Store a "mapping" of all declared filters with a name

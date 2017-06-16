@@ -9,7 +9,7 @@
     <version>2.3.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>org.gemoc.execution.concurrent.ccsljavaengine.mse.model</artifactId>
+  <artifactId>org.eclipse.gemoc.execution.concurrent.ccsljavaengine.mse.model</artifactId>
   <packaging>eclipse-plugin</packaging>
   <version>2.3.0-SNAPSHOT</version>
 </project>

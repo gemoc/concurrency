@@ -1,5 +1,5 @@
 
-package org.gemoc.execution.concurrent.ccsljavaengine.ui.propertytesters;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.propertytesters;
 
 import org.eclipse.core.expressions.PropertyTester;
 import org.eclipse.core.resources.IFile;

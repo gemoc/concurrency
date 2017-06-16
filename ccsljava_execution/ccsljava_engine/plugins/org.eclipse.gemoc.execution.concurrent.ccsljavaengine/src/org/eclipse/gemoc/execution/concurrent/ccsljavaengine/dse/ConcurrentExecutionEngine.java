@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaengine.dse;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.dse;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -10,8 +10,8 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.gemoc.execution.concurrent.ccsljavaengine.commons.ConcurrentModelExecutionContext;
-import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.commons.ConcurrentModelExecutionContext;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionContext;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IFutureAction;

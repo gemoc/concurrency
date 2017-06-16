@@ -1,6 +1,6 @@
 /**
  */
-package org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.impl;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
@@ -8,8 +8,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.Concurrent_msePackage;
-import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.Concurrent_msePackage;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
 import org.eclipse.gemoc.trace.commons.model.trace.impl.MSEImpl;
@@ -21,7 +21,7 @@ import org.eclipse.gemoc.trace.commons.model.trace.impl.MSEImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.impl.FeedbackMSEImpl#getFeedbackModelSpecificEvent <em>Feedback Model Specific Event</em>}</li>
+ *   <li>{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.impl.FeedbackMSEImpl#getFeedbackModelSpecificEvent <em>Feedback Model Specific Event</em>}</li>
  * </ul>
  * </p>
  *

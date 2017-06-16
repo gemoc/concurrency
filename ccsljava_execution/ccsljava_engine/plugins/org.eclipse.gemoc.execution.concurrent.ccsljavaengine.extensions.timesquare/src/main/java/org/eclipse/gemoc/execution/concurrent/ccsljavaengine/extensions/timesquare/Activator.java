@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare;
 
 import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystem;
 import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystemManager;
@@ -15,7 +15,7 @@ public class Activator extends GemocPlugin {
 		return context;
 	}
 	
-	public static final String PLUGIN_ID = "org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare"; //$NON-NLS-1$
+	public static final String PLUGIN_ID = "org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare"; //$NON-NLS-1$
 
 	// The shared instance
 	private static Activator plugin;

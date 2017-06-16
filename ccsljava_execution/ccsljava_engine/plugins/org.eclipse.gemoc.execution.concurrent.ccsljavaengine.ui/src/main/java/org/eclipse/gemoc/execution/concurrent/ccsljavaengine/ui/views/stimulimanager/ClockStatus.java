@@ -1,6 +1,6 @@
-package org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager;
 
-import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Future;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Future;
 
 
 

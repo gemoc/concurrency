@@ -1,6 +1,6 @@
 /**
  */
-package org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.impl;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.impl;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
@@ -8,9 +8,9 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.Concurrent_mseFactory;
-import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.Concurrent_msePackage;
-import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.Concurrent_mseFactory;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.Concurrent_msePackage;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.FeedbackPackage;
 import org.eclipse.gemoc.trace.commons.model.trace.TracePackage;
@@ -40,7 +40,7 @@ public class Concurrent_msePackageImpl extends EPackageImpl implements Concurren
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.Concurrent_msePackage#eNS_URI
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.Concurrent_msePackage#eNS_URI
 	 * @see #init()
 	 * @generated
 	 */

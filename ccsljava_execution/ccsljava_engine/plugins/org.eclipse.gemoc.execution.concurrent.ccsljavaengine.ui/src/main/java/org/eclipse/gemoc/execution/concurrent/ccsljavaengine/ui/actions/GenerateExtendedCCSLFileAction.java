@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaengine.ui.actions;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.actions;
 
 import java.util.Iterator;
 

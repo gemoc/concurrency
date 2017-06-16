@@ -1,6 +1,6 @@
 /**
  */
-package org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario;
 
 import org.eclipse.emf.ecore.EFactory;
 
@@ -9,7 +9,7 @@ import org.eclipse.emf.ecore.EFactory;
  * The <b>Factory</b> for the model.
  * It provides a create method for each non-abstract class of the model.
  * <!-- end-user-doc -->
- * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ScenarioPackage
+ * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ScenarioPackage
  * @generated
  */
 public interface ScenarioFactory extends EFactory {
@@ -19,7 +19,7 @@ public interface ScenarioFactory extends EFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	ScenarioFactory eINSTANCE = org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioFactoryImpl.init();
+	ScenarioFactory eINSTANCE = org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioFactoryImpl.init();
 
 	/**
 	 * Returns a new object of class '<em>Scenario</em>'.

@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaengine.ui.deciders.actions;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.deciders.actions;
 
 import java.util.ArrayList;
 import java.util.List;

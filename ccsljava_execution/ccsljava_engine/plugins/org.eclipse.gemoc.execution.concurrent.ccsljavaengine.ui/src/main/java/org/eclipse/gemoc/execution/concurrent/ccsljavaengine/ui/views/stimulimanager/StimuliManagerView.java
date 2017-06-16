@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager;
 
 
 import java.util.ArrayList;
@@ -48,17 +48,17 @@ import org.eclipse.ui.ISelectionListener;
 import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.gemoc.commons.eclipse.ui.ViewHelper;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.SharedIcons;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.step.LogicalStepsView;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.actions.PlayScenarioAction;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.actions.RecordScenarioAction;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.actions.StopAction;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.filters.Filter;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.filters.Filters;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.filters.NoFilter;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.scenario.ScenarioException;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.scenario.ScenarioManager;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.scenario.ScenarioManagerState;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.SharedIcons;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.step.LogicalStepsView;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.actions.PlayScenarioAction;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.actions.RecordScenarioAction;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.actions.StopAction;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.filters.Filter;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.filters.Filters;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.filters.NoFilter;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.scenario.ScenarioException;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.scenario.ScenarioManager;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.scenario.ScenarioManagerState;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 import org.eclipse.gemoc.executionframework.ui.IMSEPresenter;
 import org.eclipse.gemoc.executionframework.ui.views.engine.EngineSelectionDependentViewPart;

@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaengine.ui.actions;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.actions;
 
 
 public class GenerateTimeModelFile extends GenerateExtendedCCSLFile

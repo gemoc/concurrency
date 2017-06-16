@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaengine.tests.languages
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.tests.languages
 
 import org.eclipse.gemoc.executionframework.test.lib.ILanguageWrapper
 

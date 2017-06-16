@@ -10,10 +10,10 @@
  *  BEA - Daniel R Somerfield - Bug 88939
  *  Remy Chi Jian Suen - Bug 221973
  *******************************************************************************/
-package org.gemoc.execution.concurrent.ccsljavaengine.ui.launcher;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.launcher;
 
 import org.eclipse.osgi.util.NLS;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.Activator;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.Activator;
 
 public class LauncherMessages extends NLS {
 	private static final String BUNDLE_NAME = Activator.PLUGIN_ID+".launcher.LauncherMessages";//$NON-NLS-1$

@@ -197,10 +197,10 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 			
 			
 		sbContent.append("// add Melange or K3 DSA specific executors\n");
-		sbContent.append("\t\taddExecutor(new org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.dsa.impl.MelangeCodeExecutor(this,\n");
+		sbContent.append("\t\taddExecutor(new org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.dsa.impl.MelangeCodeExecutor(this,\n");
 		sbContent.append("\t\t\t\""+fullLanguageName+"\"));\n");
 		
-		sbImplementContent.append("\n\t\timplements org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.dsa.api.IK3DSAExecutorClassLoader ");
+		sbImplementContent.append("\n\t\timplements org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.dsa.api.IK3DSAExecutorClassLoader ");
 		
 		sbAdditionalOperations.append("@Override\n"+
 "	public Class<?> getClassForName(String className) throws ClassNotFoundException {\n"+
@@ -213,7 +213,7 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 "	}");
 			
 		sbContent.append("\t\t// fall back executor : search classic java method\n");
-		sbContent.append("\t\taddExecutor(new org.gemoc.execution.concurrent.ccsljavaengine.dsa.executors.JavaCodeExecutor());");
+		sbContent.append("\t\taddExecutor(new org.eclipse.gemoc.execution.concurrent.ccsljavaengine.dsa.executors.JavaCodeExecutor());");
 		fileContent = fileContent.replaceAll(
 				Pattern.quote("${constructor.content}"), sbContent.toString());
 		
@@ -273,7 +273,7 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 //		updateDependenciesWithProject(connection, dsaPoject.getProjectName());
 //		if (dsaPoject.getCodeExecutorClass() == null || dsaPoject.getCodeExecutorClass().isEmpty()) {
 //			// a k3 code executor has been generated so add the required dependency 
-//			connection.addPluginDependency(org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.Activator.PLUGIN_ID);
+//			connection.addPluginDependency(org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.Activator.PLUGIN_ID);
 //		}
 //	}
 //	protected void updateDependenciesWithDSEProject(ManifestChanger connection, DSEProject dsePoject) throws BundleException, IOException, CoreException {
@@ -282,7 +282,7 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 //			updateDependenciesWithProject(connection, dsePoject.getProjectName());
 //			String solverClassName = dsePoject.getSolverClass();
 //			if(solverClassName == null || solverClassName.isEmpty()){
-//				connection.addPluginDependency(org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.Activator.PLUGIN_ID);
+//				connection.addPluginDependency(org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.Activator.PLUGIN_ID);
 //			}
 //		}
 //	}
@@ -339,7 +339,7 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 	protected void updateSolverClass(IProject project, String languageName, String solverClassName) {
 		String computedSolverClassName = "";
 		if(solverClassName == null || solverClassName.isEmpty()){
-			computedSolverClassName = "org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.moc.impl.CcslSolver";
+			computedSolverClassName = "org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.moc.impl.CcslSolver";
 		}
 		else{
 			computedSolverClassName = solverClassName;

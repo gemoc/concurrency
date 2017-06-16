@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.moc.impl;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.moc.impl;
 
 import java.io.IOException;
 import java.util.ArrayList;

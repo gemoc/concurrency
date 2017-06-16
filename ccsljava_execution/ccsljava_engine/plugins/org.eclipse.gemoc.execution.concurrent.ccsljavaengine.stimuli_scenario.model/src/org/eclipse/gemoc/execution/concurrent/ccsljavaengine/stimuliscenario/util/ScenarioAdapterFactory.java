@@ -1,19 +1,19 @@
 /**
  */
-package org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.util;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
-import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.*;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.*;
 
 /**
  * <!-- begin-user-doc -->
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ScenarioPackage
+ * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ScenarioPackage
  * @generated
  */
 public class ScenarioAdapterFactory extends AdapterFactoryImpl {
@@ -105,13 +105,13 @@ public class ScenarioAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Scenario <em>Scenario</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Scenario <em>Scenario</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Scenario
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Scenario
 	 * @generated
 	 */
 	public Adapter createScenarioAdapter() {
@@ -119,13 +119,13 @@ public class ScenarioAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Reference <em>Reference</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Reference <em>Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Reference
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Reference
 	 * @generated
 	 */
 	public Adapter createReferenceAdapter() {
@@ -133,13 +133,13 @@ public class ScenarioAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Fragment <em>Fragment</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Fragment <em>Fragment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Fragment
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Fragment
 	 * @generated
 	 */
 	public Adapter createFragmentAdapter() {
@@ -147,13 +147,13 @@ public class ScenarioAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ExecutionStep <em>Execution Step</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ExecutionStep <em>Execution Step</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ExecutionStep
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ExecutionStep
 	 * @generated
 	 */
 	public Adapter createExecutionStepAdapter() {
@@ -161,13 +161,13 @@ public class ScenarioAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.EventState <em>Event State</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.EventState <em>Event State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.EventState
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.EventState
 	 * @generated
 	 */
 	public Adapter createEventStateAdapter() {

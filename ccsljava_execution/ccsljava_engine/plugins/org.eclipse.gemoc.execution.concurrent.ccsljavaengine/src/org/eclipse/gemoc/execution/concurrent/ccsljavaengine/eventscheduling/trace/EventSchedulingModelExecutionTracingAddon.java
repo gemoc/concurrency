@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaengine.eventscheduling.trace;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.eventscheduling.trace;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -131,7 +131,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 						restoreSolverState(choice);
 						//TODO: here we should notify the addons !
 					} catch (Exception e) {
-						org.gemoc.execution.concurrent.ccsljavaengine.Activator.getDefault().error("Error while creating branch", e);
+						org.eclipse.gemoc.execution.concurrent.ccsljavaengine.Activator.getDefault().error("Error while creating branch", e);
 						
 					}
 				}
@@ -366,7 +366,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 							_executionTraceModel.getReachedStates().size(), 
 							_executionTraceModel.eResource().getURI()));
 				} catch (IOException e) {
-					org.gemoc.execution.concurrent.ccsljavaengine.Activator.getDefault().error("Error while saving trace to disk", e);
+					org.eclipse.gemoc.execution.concurrent.ccsljavaengine.Activator.getDefault().error("Error while saving trace to disk", e);
 					_cannotSaveTrace = true;
 				}
 			}
@@ -578,7 +578,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 							((IConcurrentExecutionEngine) _executionEngine).getLogicalStepDecider().preempt();
 						}
 					} catch (Exception e) {
-						org.gemoc.execution.concurrent.ccsljavaengine.Activator.getDefault().error("Error while reintegrating branch", e);
+						org.eclipse.gemoc.execution.concurrent.ccsljavaengine.Activator.getDefault().error("Error while reintegrating branch", e);
 					}
 				}
 			};

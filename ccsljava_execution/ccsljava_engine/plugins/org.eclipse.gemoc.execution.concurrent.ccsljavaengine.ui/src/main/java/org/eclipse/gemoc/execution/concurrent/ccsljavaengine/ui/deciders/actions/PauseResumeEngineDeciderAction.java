@@ -1,7 +1,7 @@
-package org.gemoc.execution.concurrent.ccsljavaengine.ui.deciders.actions;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.deciders.actions;
 
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.SharedIcons;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.deciders.AbstractUserDecider;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.SharedIcons;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.deciders.AbstractUserDecider;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.ILogicalStepDecider;
 import org.eclipse.gemoc.executionframework.ui.views.engine.actions.AbstractEngineAction;

@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaengine.ui.launcher;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.launcher;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -14,7 +14,7 @@ import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.SharedIcons;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.SharedIcons;
 import org.eclipse.gemoc.executionframework.ui.IMSEPresenter;
 
 import org.eclipse.gemoc.trace.commons.model.helper.StepHelper;

@@ -1,6 +1,6 @@
 /**
  */
-package org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EReference;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ScenarioFactory
+ * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ScenarioFactory
  * @model kind="package"
  * @generated
  */
@@ -55,14 +55,14 @@ public interface ScenarioPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	ScenarioPackage eINSTANCE = org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioPackageImpl.init();
+	ScenarioPackage eINSTANCE = org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioImpl <em>Scenario</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioImpl <em>Scenario</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioImpl
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioPackageImpl#getScenario()
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioImpl
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioPackageImpl#getScenario()
 	 * @generated
 	 */
 	int SCENARIO = 0;
@@ -95,11 +95,11 @@ public interface ScenarioPackage extends EPackage {
 	int SCENARIO_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ReferenceImpl <em>Reference</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ReferenceImpl <em>Reference</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ReferenceImpl
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioPackageImpl#getReference()
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ReferenceImpl
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioPackageImpl#getReference()
 	 * @generated
 	 */
 	int REFERENCE = 1;
@@ -141,11 +141,11 @@ public interface ScenarioPackage extends EPackage {
 	int REFERENCE_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.FragmentImpl <em>Fragment</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.FragmentImpl <em>Fragment</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.FragmentImpl
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioPackageImpl#getFragment()
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.FragmentImpl
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioPackageImpl#getFragment()
 	 * @generated
 	 */
 	int FRAGMENT = 2;
@@ -178,11 +178,11 @@ public interface ScenarioPackage extends EPackage {
 	int FRAGMENT_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ExecutionStepImpl <em>Execution Step</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ExecutionStepImpl <em>Execution Step</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ExecutionStepImpl
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioPackageImpl#getExecutionStep()
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ExecutionStepImpl
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioPackageImpl#getExecutionStep()
 	 * @generated
 	 */
 	int EXECUTION_STEP = 3;
@@ -215,11 +215,11 @@ public interface ScenarioPackage extends EPackage {
 	int EXECUTION_STEP_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.EventStateImpl <em>Event State</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.EventStateImpl <em>Event State</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.EventStateImpl
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioPackageImpl#getEventState()
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.EventStateImpl
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioPackageImpl#getEventState()
 	 * @generated
 	 */
 	int EVENT_STATE = 4;
@@ -261,149 +261,149 @@ public interface ScenarioPackage extends EPackage {
 	int EVENT_STATE_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Future <em>Future</em>}' enum.
+	 * The meta object id for the '{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Future <em>Future</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Future
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioPackageImpl#getFuture()
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Future
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioPackageImpl#getFuture()
 	 * @generated
 	 */
 	int FUTURE = 5;
 
 
 	/**
-	 * Returns the meta object for class '{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Scenario <em>Scenario</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Scenario <em>Scenario</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Scenario</em>'.
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Scenario
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Scenario
 	 * @generated
 	 */
 	EClass getScenario();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Scenario#getRefList <em>Ref List</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Scenario#getRefList <em>Ref List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Ref List</em>'.
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Scenario#getRefList()
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Scenario#getRefList()
 	 * @see #getScenario()
 	 * @generated
 	 */
 	EReference getScenario_RefList();
 
 	/**
-	 * Returns the meta object for class '{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Reference <em>Reference</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Reference <em>Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Reference</em>'.
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Reference
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Reference
 	 * @generated
 	 */
 	EClass getReference();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Reference#getFragment <em>Fragment</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Reference#getFragment <em>Fragment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Fragment</em>'.
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Reference#getFragment()
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Reference#getFragment()
 	 * @see #getReference()
 	 * @generated
 	 */
 	EReference getReference_Fragment();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Reference#getStartStep <em>Start Step</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Reference#getStartStep <em>Start Step</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Start Step</em>'.
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Reference#getStartStep()
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Reference#getStartStep()
 	 * @see #getReference()
 	 * @generated
 	 */
 	EAttribute getReference_StartStep();
 
 	/**
-	 * Returns the meta object for class '{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Fragment <em>Fragment</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Fragment <em>Fragment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Fragment</em>'.
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Fragment
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Fragment
 	 * @generated
 	 */
 	EClass getFragment();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Fragment#getStepList <em>Step List</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Fragment#getStepList <em>Step List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Step List</em>'.
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Fragment#getStepList()
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Fragment#getStepList()
 	 * @see #getFragment()
 	 * @generated
 	 */
 	EReference getFragment_StepList();
 
 	/**
-	 * Returns the meta object for class '{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ExecutionStep <em>Execution Step</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ExecutionStep <em>Execution Step</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Execution Step</em>'.
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ExecutionStep
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ExecutionStep
 	 * @generated
 	 */
 	EClass getExecutionStep();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ExecutionStep#getEventList <em>Event List</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ExecutionStep#getEventList <em>Event List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Event List</em>'.
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ExecutionStep#getEventList()
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ExecutionStep#getEventList()
 	 * @see #getExecutionStep()
 	 * @generated
 	 */
 	EReference getExecutionStep_EventList();
 
 	/**
-	 * Returns the meta object for class '{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.EventState <em>Event State</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.EventState <em>Event State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Event State</em>'.
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.EventState
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.EventState
 	 * @generated
 	 */
 	EClass getEventState();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.EventState#getState <em>State</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.EventState#getState <em>State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>State</em>'.
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.EventState#getState()
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.EventState#getState()
 	 * @see #getEventState()
 	 * @generated
 	 */
 	EAttribute getEventState_State();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.EventState#getMse <em>Mse</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.EventState#getMse <em>Mse</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Mse</em>'.
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.EventState#getMse()
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.EventState#getMse()
 	 * @see #getEventState()
 	 * @generated
 	 */
 	EReference getEventState_Mse();
 
 	/**
-	 * Returns the meta object for enum '{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Future <em>Future</em>}'.
+	 * Returns the meta object for enum '{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Future <em>Future</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for enum '<em>Future</em>'.
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Future
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Future
 	 * @generated
 	 */
 	EEnum getFuture();
@@ -432,11 +432,11 @@ public interface ScenarioPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioImpl <em>Scenario</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioImpl <em>Scenario</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioImpl
-		 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioPackageImpl#getScenario()
+		 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioImpl
+		 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioPackageImpl#getScenario()
 		 * @generated
 		 */
 		EClass SCENARIO = eINSTANCE.getScenario();
@@ -450,11 +450,11 @@ public interface ScenarioPackage extends EPackage {
 		EReference SCENARIO__REF_LIST = eINSTANCE.getScenario_RefList();
 
 		/**
-		 * The meta object literal for the '{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ReferenceImpl <em>Reference</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ReferenceImpl <em>Reference</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ReferenceImpl
-		 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioPackageImpl#getReference()
+		 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ReferenceImpl
+		 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioPackageImpl#getReference()
 		 * @generated
 		 */
 		EClass REFERENCE = eINSTANCE.getReference();
@@ -476,11 +476,11 @@ public interface ScenarioPackage extends EPackage {
 		EAttribute REFERENCE__START_STEP = eINSTANCE.getReference_StartStep();
 
 		/**
-		 * The meta object literal for the '{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.FragmentImpl <em>Fragment</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.FragmentImpl <em>Fragment</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.FragmentImpl
-		 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioPackageImpl#getFragment()
+		 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.FragmentImpl
+		 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioPackageImpl#getFragment()
 		 * @generated
 		 */
 		EClass FRAGMENT = eINSTANCE.getFragment();
@@ -494,11 +494,11 @@ public interface ScenarioPackage extends EPackage {
 		EReference FRAGMENT__STEP_LIST = eINSTANCE.getFragment_StepList();
 
 		/**
-		 * The meta object literal for the '{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ExecutionStepImpl <em>Execution Step</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ExecutionStepImpl <em>Execution Step</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ExecutionStepImpl
-		 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioPackageImpl#getExecutionStep()
+		 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ExecutionStepImpl
+		 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioPackageImpl#getExecutionStep()
 		 * @generated
 		 */
 		EClass EXECUTION_STEP = eINSTANCE.getExecutionStep();
@@ -512,11 +512,11 @@ public interface ScenarioPackage extends EPackage {
 		EReference EXECUTION_STEP__EVENT_LIST = eINSTANCE.getExecutionStep_EventList();
 
 		/**
-		 * The meta object literal for the '{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.EventStateImpl <em>Event State</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.EventStateImpl <em>Event State</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.EventStateImpl
-		 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioPackageImpl#getEventState()
+		 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.EventStateImpl
+		 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioPackageImpl#getEventState()
 		 * @generated
 		 */
 		EClass EVENT_STATE = eINSTANCE.getEventState();
@@ -538,11 +538,11 @@ public interface ScenarioPackage extends EPackage {
 		EReference EVENT_STATE__MSE = eINSTANCE.getEventState_Mse();
 
 		/**
-		 * The meta object literal for the '{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Future <em>Future</em>}' enum.
+		 * The meta object literal for the '{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Future <em>Future</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Future
-		 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioPackageImpl#getFuture()
+		 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Future
+		 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.ScenarioPackageImpl#getFuture()
 		 * @generated
 		 */
 		EEnum FUTURE = eINSTANCE.getFuture();

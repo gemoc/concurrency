@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaengine;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine;
 
 import org.osgi.framework.BundleContext;
 import org.eclipse.gemoc.commons.eclipse.logging.backends.DefaultLoggingBackend;
@@ -10,7 +10,7 @@ import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystem;
 public class Activator extends GemocPlugin {
 
 	// The plug-in ID
-		public static final String PLUGIN_ID = "org.gemoc.execution.concurrent.ccsljavaengine"; //$NON-NLS-1$
+		public static final String PLUGIN_ID = "org.eclipse.gemoc.execution.concurrent.ccsljavaengine"; //$NON-NLS-1$
 		
 		// The shared instance
 		private static Activator plugin;

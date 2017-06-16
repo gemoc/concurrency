@@ -9,6 +9,6 @@
     <version>2.3.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare</artifactId>
+  <artifactId>org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare</artifactId>
   <packaging>eclipse-plugin</packaging>
 </project>

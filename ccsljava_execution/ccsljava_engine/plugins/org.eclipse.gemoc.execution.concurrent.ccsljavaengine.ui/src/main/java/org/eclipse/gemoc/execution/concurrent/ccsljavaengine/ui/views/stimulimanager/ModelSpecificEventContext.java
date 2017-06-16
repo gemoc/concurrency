@@ -1,11 +1,11 @@
-package org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
-import org.gemoc.execution.concurrent.ccsljavaengine.dse.DefaultMSEStateController;
-import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Future;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.scenario.ScenarioManager;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.dse.DefaultMSEStateController;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Future;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.scenario.ScenarioManager;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 
 public class ModelSpecificEventContext 

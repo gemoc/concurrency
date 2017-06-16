@@ -1,6 +1,6 @@
 /**
  */
-package org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
@@ -21,7 +21,7 @@ import org.eclipse.gemoc.trace.commons.model.trace.TracePackage;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * @see org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.Concurrent_mseFactory
+ * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.Concurrent_mseFactory
  * @model kind="package"
  * @generated
  */
@@ -56,14 +56,14 @@ public interface Concurrent_msePackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	Concurrent_msePackage eINSTANCE = org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.impl.Concurrent_msePackageImpl.init();
+	Concurrent_msePackage eINSTANCE = org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.impl.Concurrent_msePackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.impl.FeedbackMSEImpl <em>Feedback MSE</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.impl.FeedbackMSEImpl <em>Feedback MSE</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.impl.FeedbackMSEImpl
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.impl.Concurrent_TracePackageImpl#getFeedbackMSE()
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.impl.FeedbackMSEImpl
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.impl.Concurrent_TracePackageImpl#getFeedbackMSE()
 	 * @generated
 	 */
 	int FEEDBACK_MSE = 0;
@@ -142,42 +142,42 @@ public interface Concurrent_msePackage extends EPackage {
 
 
 	/**
-	 * Returns the meta object for class '{@link org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE <em>Feedback MSE</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE <em>Feedback MSE</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Feedback MSE</em>'.
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE
 	 * @generated
 	 */
 	EClass getFeedbackMSE();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE#getFeedbackModelSpecificEvent <em>Feedback Model Specific Event</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE#getFeedbackModelSpecificEvent <em>Feedback Model Specific Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Feedback Model Specific Event</em>'.
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE#getFeedbackModelSpecificEvent()
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE#getFeedbackModelSpecificEvent()
 	 * @see #getFeedbackMSE()
 	 * @generated
 	 */
 	EReference getFeedbackMSE_FeedbackModelSpecificEvent();
 
 	/**
-	 * Returns the meta object for the '{@link org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE#getCaller() <em>Get Caller</em>}' operation.
+	 * Returns the meta object for the '{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE#getCaller() <em>Get Caller</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Caller</em>' operation.
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE#getCaller()
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE#getCaller()
 	 * @generated
 	 */
 	EOperation getFeedbackMSE__GetCaller();
 
 	/**
-	 * Returns the meta object for the '{@link org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE#getAction() <em>Get Action</em>}' operation.
+	 * Returns the meta object for the '{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE#getAction() <em>Get Action</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Action</em>' operation.
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE#getAction()
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE#getAction()
 	 * @generated
 	 */
 	EOperation getFeedbackMSE__GetAction();
@@ -206,11 +206,11 @@ public interface Concurrent_msePackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.impl.FeedbackMSEImpl <em>Feedback MSE</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.impl.FeedbackMSEImpl <em>Feedback MSE</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.impl.FeedbackMSEImpl
-		 * @see org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.impl.Concurrent_TracePackageImpl#getFeedbackMSE()
+		 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.impl.FeedbackMSEImpl
+		 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.impl.Concurrent_TracePackageImpl#getFeedbackMSE()
 		 * @generated
 		 */
 		EClass FEEDBACK_MSE = eINSTANCE.getFeedbackMSE();

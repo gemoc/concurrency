@@ -1,6 +1,6 @@
 /**
  */
-package org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -15,17 +15,17 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ExecutionStep#getEventList <em>Event List</em>}</li>
+ *   <li>{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ExecutionStep#getEventList <em>Event List</em>}</li>
  * </ul>
  *
- * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ScenarioPackage#getExecutionStep()
+ * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ScenarioPackage#getExecutionStep()
  * @model
  * @generated
  */
 public interface ExecutionStep extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Event List</b></em>' containment reference list.
-	 * The list contents are of type {@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.EventState}.
+	 * The list contents are of type {@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.EventState}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Event List</em>' containment reference list isn't clear,
@@ -33,7 +33,7 @@ public interface ExecutionStep extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Event List</em>' containment reference list.
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ScenarioPackage#getExecutionStep_EventList()
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ScenarioPackage#getExecutionStep_EventList()
 	 * @model containment="true"
 	 * @generated
 	 */

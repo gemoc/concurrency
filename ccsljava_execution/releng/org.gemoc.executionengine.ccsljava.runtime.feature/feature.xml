@@ -18,14 +18,14 @@
    </license>
 
    <plugin
-         id="org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3"
+         id="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.k3"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare"
+         id="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -46,21 +46,21 @@
          unpack="false"/>
 
    <plugin
-         id="org.gemoc.execution.concurrent.ccsljavaengine"
+         id="org.eclipse.gemoc.execution.concurrent.ccsljavaengine"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.gemoc.execution.concurrent.ccsljavaengine.stimuli_scenario.model"
+         id="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuli_scenario.model"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.gemoc.execution.concurrent.ccsljavaengine.mse.model"
+         id="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.mse.model"
          download-size="0"
          install-size="0"
          version="0.0.0"

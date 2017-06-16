@@ -1,6 +1,6 @@
 /**
  */
-package org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.util;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -8,8 +8,8 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EModelElement;
 import org.eclipse.emf.ecore.ENamedElement;
 import org.eclipse.emf.ecore.EObject;
-import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.Concurrent_msePackage;
-import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.Concurrent_msePackage;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
 
 import org.eclipse.gemoc.trace.commons.model.trace.MSE;
 
@@ -18,7 +18,7 @@ import org.eclipse.gemoc.trace.commons.model.trace.MSE;
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.Concurrent_msePackage
+ * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.Concurrent_msePackage
  * @generated
  */
 public class Concurrent_mseAdapterFactory extends AdapterFactoryImpl {
@@ -106,13 +106,13 @@ public class Concurrent_mseAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE <em>Feedback MSE</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE <em>Feedback MSE</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE
+	 * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE
 	 * @generated
 	 */
 	public Adapter createFeedbackMSEAdapter() {

@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Gemoc extension for TimeSquare
-Bundle-SymbolicName: org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare
+Bundle-SymbolicName: org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare
 Bundle-Version: 2.3.0.qualifier
-Bundle-Activator: org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.Activator
+Bundle-Activator: org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.Activator
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.gemoc.xdsmlframework.api,
  org.eclipse.emf.ecore,
@@ -23,11 +23,11 @@ Require-Bundle: org.eclipse.core.runtime,
  fr.inria.aoste.timesquare.launcher.core;bundle-version="1.4.1",
  org.eclipse.gemoc.commons.eclipse.pde,
  org.gemoc.execution.concurrent.ccsljavaxdsml.api,
- org.gemoc.execution.concurrent.ccsljavaengine.mse.model;bundle-version="0.1.0",
+ org.eclipse.gemoc.execution.concurrent.ccsljavaengine.mse.model;bundle-version="0.1.0",
  org.eclipse.emf.transaction;bundle-version="1.8.0",
  org.eclipse.gemoc.executionframework.engine,
  org.eclipse.gemoc.trace.commons;bundle-version="1.0.0",
- org.gemoc.execution.concurrent.ccsljavaengine,
+ org.eclipse.gemoc.execution.concurrent.ccsljavaengine,
  fr.inria.aoste.timesquare.instantrelation,
  fr.inria.aoste.timesquare.instantrelation.trace.relation;bundle-version="1.0.0",
  fr.inria.aoste.timesquare.utils.pluginhelpers,
@@ -36,6 +36,6 @@ Require-Bundle: org.eclipse.core.runtime,
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7,
  JavaSE-1.8
-Export-Package: org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare,
- org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.moc.impl
+Export-Package: org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare,
+ org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.moc.impl
 Bundle-Vendor: Inria Aoste/I3S

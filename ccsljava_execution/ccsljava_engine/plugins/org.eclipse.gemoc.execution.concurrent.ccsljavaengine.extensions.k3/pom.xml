@@ -9,6 +9,6 @@
     <version>2.3.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3</artifactId>
+  <artifactId>org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.k3</artifactId>
   <packaging>eclipse-plugin</packaging>
 </project>

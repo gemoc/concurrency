@@ -1,14 +1,14 @@
-package org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.actions;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.actions;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.gemoc.commons.eclipse.ui.ViewHelper;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.Activator;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.SelectScenarioFileDialog;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.StimuliManagerView;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.scenario.ScenarioException;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.Activator;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.SelectScenarioFileDialog;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.StimuliManagerView;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.scenario.ScenarioException;
 
 public class PlayScenarioAction extends Action 
 {

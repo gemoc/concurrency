@@ -1,6 +1,6 @@
 /**
  */
-package org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>Future</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ScenarioPackage#getFuture()
+ * @see org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ScenarioPackage#getFuture()
  * @model
  * @generated
  */

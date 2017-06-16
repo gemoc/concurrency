@@ -1,13 +1,13 @@
 /**
  */
-package org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.impl;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.impl;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.*;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.*;
 
 /**
  * <!-- begin-user-doc -->

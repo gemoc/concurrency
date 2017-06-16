@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.scenario;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.scenario;
 
 import java.util.List;
 
@@ -7,14 +7,14 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.gemoc.commons.eclipse.ui.ViewHelper;
-import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.EventState;
-import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ExecutionStep;
-import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Future;
-import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Scenario;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.ClockStatus;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.ModelSpecificEventContext;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.ModelSpecificEventWrapper;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.StimuliManagerView;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.EventState;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ExecutionStep;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Future;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Scenario;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.ClockStatus;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.ModelSpecificEventContext;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.ModelSpecificEventWrapper;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.StimuliManagerView;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;

@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Gemoc Concurrent Executable Modeling Workbench UI
-Bundle-SymbolicName: org.gemoc.execution.concurrent.ccsljavaengine.ui;singleton:=true
+Bundle-SymbolicName: org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui;singleton:=true
 Bundle-Version: 2.3.0.qualifier
-Bundle-Activator: org.gemoc.execution.concurrent.ccsljavaengine.ui.Activator
+Bundle-Activator: org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.Activator
 Bundle-Vendor: Inria
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
@@ -32,15 +32,15 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.gemoc.executionframework.engine;bundle-version="0.1.0",
  org.eclipse.sirius.diagram.ui;bundle-version="1.0.0",
  org.eclipse.gemoc.xdsmlframework.extensions.sirius;bundle-version="0.1.0",
- org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3;bundle-version="0.1.0",
+ org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.k3;bundle-version="0.1.0",
  org.eclipse.emf.edit.ui,
  org.eclipse.sirius.ext.base;bundle-version="2.0.4",
  org.eclipse.ui.navigator,
  org.eclipse.gemoc.executionframework.reflectivetrace.model,
  org.gemoc.execution.concurrent.ccsljavaxdsml.api;bundle-version="1.0.0",
- org.gemoc.execution.concurrent.ccsljavaengine;bundle-version="1.0.0",
+ org.eclipse.gemoc.execution.concurrent.ccsljavaengine;bundle-version="1.0.0",
  org.eclipse.gemoc.executionframework.ui,
- org.gemoc.execution.concurrent.ccsljavaengine.stimuli_scenario.model;bundle-version="0.1.0",
+ org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuli_scenario.model;bundle-version="0.1.0",
  org.eclipse.gemoc.executionframework.engine.ui;bundle-version="0.1.0",
  org.eclipse.gemoc.executionframework.extensions.sirius,
  org.eclipse.gemoc.xdsmlframework.ui.utils,
@@ -49,19 +49,19 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.gemoc.executionframework.debugger.ui
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
-Export-Package: org.gemoc.execution.concurrent.ccsljavaengine.ui,
- org.gemoc.execution.concurrent.ccsljavaengine.ui.actions,
- org.gemoc.execution.concurrent.ccsljavaengine.ui.commands,
- org.gemoc.execution.concurrent.ccsljavaengine.ui.debug,
- org.gemoc.execution.concurrent.ccsljavaengine.ui.debug.sirius.action,
- org.gemoc.execution.concurrent.ccsljavaengine.ui.deciders,
- org.gemoc.execution.concurrent.ccsljavaengine.ui.deciders.actions,
- org.gemoc.execution.concurrent.ccsljavaengine.ui.launcher,
- org.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.tabs,
- org.gemoc.execution.concurrent.ccsljavaengine.ui.propertytesters,
- org.gemoc.execution.concurrent.ccsljavaengine.ui.views.step,
- org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager,
- org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.actions,
- org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.filters,
- org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.scenario,
- org.gemoc.execution.concurrent.ccsljavaengine.ui.wizards
+Export-Package: org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui,
+ org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.actions,
+ org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.commands,
+ org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.debug,
+ org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.debug.sirius.action,
+ org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.deciders,
+ org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.deciders.actions,
+ org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.launcher,
+ org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.tabs,
+ org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.propertytesters,
+ org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.step,
+ org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager,
+ org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.actions,
+ org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.filters,
+ org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.scenario,
+ org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.wizards

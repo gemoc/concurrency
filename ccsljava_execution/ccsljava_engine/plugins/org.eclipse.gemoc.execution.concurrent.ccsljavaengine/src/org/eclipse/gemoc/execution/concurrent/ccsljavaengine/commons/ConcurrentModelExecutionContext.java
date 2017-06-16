@@ -1,9 +1,9 @@
-package org.gemoc.execution.concurrent.ccsljavaengine.commons;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.commons;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.LogicalStepDeciderFactory;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.LogicalStepDeciderFactory;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionContext;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionPlatform;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentRunConfiguration;

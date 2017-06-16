@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaengine.ui.commands;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.commands;
 
 import java.util.Iterator;
 
@@ -12,8 +12,8 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.ISelectionService;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.Launcher;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.ModelSpecificEventWrapper;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.Launcher;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.ModelSpecificEventWrapper;
 import org.eclipse.gemoc.executionframework.debugger.GemocBreakpoint;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;

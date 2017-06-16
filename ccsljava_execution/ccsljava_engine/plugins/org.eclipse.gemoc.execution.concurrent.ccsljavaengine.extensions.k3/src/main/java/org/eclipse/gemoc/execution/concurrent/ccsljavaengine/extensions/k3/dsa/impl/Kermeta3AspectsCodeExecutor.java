@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.dsa.impl;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.dsa.impl;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,8 +13,8 @@ import java.util.Properties;
 import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
-import org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.Activator;
-import org.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.dsa.api.IK3DSAExecutorClassLoader;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.Activator;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.dsa.api.IK3DSAExecutorClassLoader;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.CodeExecutionException;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
 

@@ -1,7 +1,7 @@
-package org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.scenario;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.scenario;
 
 import org.eclipse.core.runtime.IPath;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.ModelSpecificEventContext;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.ModelSpecificEventContext;
 
 public class ScenarioManager 
 {

@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.tabs;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.tabs;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -32,9 +32,9 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.gemoc.commons.eclipse.emf.EMFResource;
 import org.eclipse.gemoc.commons.eclipse.emf.URIHelper;
 import org.eclipse.gemoc.commons.eclipse.ui.dialogs.SelectAnyIFileDialog;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.Activator;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.ConcurrentRunConfiguration;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.LauncherMessages;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.Activator;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.ConcurrentRunConfiguration;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.LauncherMessages;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.deciders.DeciderSpecificationExtension;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.deciders.DeciderSpecificationExtensionPoint;

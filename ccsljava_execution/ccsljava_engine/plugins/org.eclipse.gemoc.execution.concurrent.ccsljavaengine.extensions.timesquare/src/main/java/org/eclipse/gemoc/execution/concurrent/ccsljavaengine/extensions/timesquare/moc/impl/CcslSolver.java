@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.moc.impl;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.moc.impl;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -25,8 +25,8 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
-import org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.Activator;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.Activator;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionContext;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.utils.ccsl.QvtoTransformationPerformer;
 import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionContext;
@@ -341,8 +341,8 @@ public class CcslSolver implements org.gemoc.execution.concurrent.ccsljavaxdsml.
 	@Override
 	public void initialize(IConcurrentExecutionContext context) 
 	{
-		if (context instanceof org.gemoc.execution.concurrent.ccsljavaengine.commons.ConcurrentModelExecutionContext){
-			_alternativeExecutionModelPath = ((org.gemoc.execution.concurrent.ccsljavaengine.commons.ConcurrentModelExecutionContext)context).alternativeExecutionModelPath;
+		if (context instanceof org.eclipse.gemoc.execution.concurrent.ccsljavaengine.commons.ConcurrentModelExecutionContext){
+			_alternativeExecutionModelPath = ((org.eclipse.gemoc.execution.concurrent.ccsljavaengine.commons.ConcurrentModelExecutionContext)context).alternativeExecutionModelPath;
 		}
 		createSolver(context);
 	}
@@ -445,7 +445,7 @@ public class CcslSolver implements org.gemoc.execution.concurrent.ccsljavaxdsml.
 				ActionModel feedbackModel = (ActionModel)feedBackRes.getContents().get(0);
 				if(feedbackModel!= null){
 					for(ModelSpecificEvent feedbackModelSpecificEvent : feedbackModel.getEvents()){
-						FeedbackMSE feedbackMSE = org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.Concurrent_mseFactory.eINSTANCE.createFeedbackMSE();
+						FeedbackMSE feedbackMSE = org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.Concurrent_mseFactory.eINSTANCE.createFeedbackMSE();
 						feedbackMSE.setFeedbackModelSpecificEvent(feedbackModelSpecificEvent);
 						feedbackMSE.setName(feedbackModelSpecificEvent.getName());
 						mseModel.getOwnedMSEs().add(feedbackMSE);

@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaengine.tests.wrapper
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.tests.wrapper
 
 import org.eclipse.gemoc.executionframework.test.lib.impl.TestRunConfiguration
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentRunConfiguration

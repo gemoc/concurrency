@@ -1,7 +1,7 @@
-package org.gemoc.execution.concurrent.ccsljavaengine.tests
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.tests
 
-import org.gemoc.execution.concurrent.ccsljavaengine.tests.languages.TFSM
-import org.gemoc.execution.concurrent.ccsljavaengine.tests.wrapper.JavaCCSLEngineWrapper
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.tests.languages.TFSM
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.tests.wrapper.JavaCCSLEngineWrapper
 import org.eclipse.gemoc.executionframework.test.lib.impl.TestHelper
 import org.eclipse.gemoc.executionframework.test.lib.impl.TestModel
 import org.junit.Test

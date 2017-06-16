@@ -1,4 +1,4 @@
-package org.gemoc.execution.concurrent.ccsljavaengine.dse;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.dse;
 
 import java.util.HashMap;
 import java.util.Map;

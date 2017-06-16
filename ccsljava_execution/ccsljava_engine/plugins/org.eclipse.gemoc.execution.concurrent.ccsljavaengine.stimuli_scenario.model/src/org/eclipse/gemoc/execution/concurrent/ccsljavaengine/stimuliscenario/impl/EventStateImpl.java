@@ -1,6 +1,6 @@
 /**
  */
-package org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
 
@@ -9,9 +9,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.EventState;
-import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Future;
-import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ScenarioPackage;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.EventState;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Future;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ScenarioPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,8 +21,8 @@ import org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ScenarioPac
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.EventStateImpl#getState <em>State</em>}</li>
- *   <li>{@link org.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.EventStateImpl#getMse <em>Mse</em>}</li>
+ *   <li>{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.EventStateImpl#getState <em>State</em>}</li>
+ *   <li>{@link org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl.EventStateImpl#getMse <em>Mse</em>}</li>
  * </ul>
  *
  * @generated

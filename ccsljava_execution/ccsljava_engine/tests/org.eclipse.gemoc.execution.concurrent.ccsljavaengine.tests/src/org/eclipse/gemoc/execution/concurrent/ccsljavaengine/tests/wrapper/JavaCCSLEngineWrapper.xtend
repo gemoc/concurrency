@@ -1,11 +1,11 @@
-package org.gemoc.execution.concurrent.ccsljavaengine.tests.wrapper
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.tests.wrapper
 
 import java.util.Set
 import org.eclipse.core.runtime.CoreException
 import org.eclipse.core.runtime.Status
 import org.eclipse.emf.common.util.URI
-import org.gemoc.execution.concurrent.ccsljavaengine.commons.ConcurrentModelExecutionContext
-import org.gemoc.execution.concurrent.ccsljavaengine.dse.ConcurrentExecutionEngine
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.commons.ConcurrentModelExecutionContext
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.dse.ConcurrentExecutionEngine
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionContext
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentRunConfiguration
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver
