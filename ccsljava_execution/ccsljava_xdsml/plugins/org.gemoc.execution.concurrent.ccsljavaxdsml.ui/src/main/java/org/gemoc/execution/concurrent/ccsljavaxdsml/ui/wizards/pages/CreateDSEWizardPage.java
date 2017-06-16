@@ -29,7 +29,7 @@ public class CreateDSEWizardPage extends WizardPage {
 	@Override
 	public void performHelp(){
 		//PlatformUI.getWorkbench().getHelpSystem().displayHelp();
-		PlatformUI.getWorkbench().getHelpSystem().displayHelpResource("/org.gemoc.gemoc_language_workbench.documentation/html/DSEProject.html");
+		PlatformUI.getWorkbench().getHelpSystem().displayHelpResource("/org.eclipse.gemoc.language_workbench.documentation/html/DSEProject.html");
 	}
 
 	@Override
