@@ -13,7 +13,7 @@
  *   
  * $Id$
  */
-package org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.edit.provider;
+package org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.edit.provider;
 
 
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClassicalExpression.ClassicalExpressionPackage;
@@ -24,13 +24,13 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.FSMModelFactory;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.edit.provider.FSMModelEditPlugin;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.EditionExtensionFactory;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.IntSelfMultiplyAssignement;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.FSMModelFactory;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.edit.provider.FSMModelEditPlugin;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.EditionExtensionFactory;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.IntSelfMultiplyAssignement;
 
 /**
- * This is the item provider adapter for a {@link org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.IntSelfMultiplyAssignement} object.
+ * This is the item provider adapter for a {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.IntSelfMultiplyAssignement} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated

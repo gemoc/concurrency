@@ -1,4 +1,4 @@
-package org.gemoc.mocc.fsmkernel.model.xtext.ui.wizard;
+package org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui.wizard;
 
 import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
 import org.eclipse.xtext.ui.wizard.IProjectInfo;
@@ -31,7 +31,7 @@ public class FSMDslNewProjectWizard extends org.eclipse.xtext.ui.wizard.XtextNew
 	 */
 	@Override
 	protected IProjectInfo getProjectInfo() {
-		org.gemoc.mocc.fsmkernel.model.xtext.ui.wizard.FSMDslProjectInfo projectInfo = new org.gemoc.mocc.fsmkernel.model.xtext.ui.wizard.FSMDslProjectInfo();
+		org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui.wizard.FSMDslProjectInfo projectInfo = new org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui.wizard.FSMDslProjectInfo();
 		projectInfo.setProjectName(mainPage.getProjectName());
 		return projectInfo;
 	}

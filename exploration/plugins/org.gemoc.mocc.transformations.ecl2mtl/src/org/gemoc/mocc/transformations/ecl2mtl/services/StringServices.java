@@ -18,8 +18,8 @@ package org.gemoc.mocc.transformations.ecl2mtl.services;
 import java.util.Iterator;
 
 import org.eclipse.emf.ecore.EObject;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.Transition;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.Trigger;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.Transition;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.Trigger;
 
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.BindableEntity;
 

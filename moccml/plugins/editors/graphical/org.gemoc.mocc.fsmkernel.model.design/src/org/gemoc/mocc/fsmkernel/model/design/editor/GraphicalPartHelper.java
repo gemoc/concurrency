@@ -13,7 +13,7 @@
  *   
  * $Id$
  */
-package org.gemoc.mocc.fsmkernel.model.design.editor;
+package org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design.editor;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.emf.ecore.EObject;

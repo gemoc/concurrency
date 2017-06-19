@@ -13,7 +13,7 @@
  *   
  * $Id$
  */
-package org.gemoc.mocc.fsmkernel.model.FSMModel.edit.provider;
+package org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.edit.provider;
 
 
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.provider.NamedElementItemProvider;
@@ -26,12 +26,12 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.FSMModelFactory;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.FSMModelPackage;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.StateMachineDefinition;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.FSMModelFactory;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.FSMModelPackage;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.StateMachineDefinition;
 
 /**
- * This is the item provider adapter for a {@link org.gemoc.mocc.fsmkernel.model.FSMModel.StateMachineDefinition} object.
+ * This is the item provider adapter for a {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.StateMachineDefinition} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated

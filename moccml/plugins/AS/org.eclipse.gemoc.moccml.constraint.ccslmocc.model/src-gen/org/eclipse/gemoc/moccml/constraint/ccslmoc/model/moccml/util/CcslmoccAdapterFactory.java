@@ -30,8 +30,8 @@ import org.eclipse.emf.ecore.EObject;
 
 import org.gemoc.mocc.ccslmoc.model.moccml.*;
 
-import org.gemoc.mocc.fsmkernel.model.FSMModel.AbstractAction;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.StateMachineDefinition;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.AbstractAction;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.StateMachineDefinition;
 
 /**
  * <!-- begin-user-doc -->
@@ -262,13 +262,13 @@ public class CcslmoccAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.gemoc.mocc.fsmkernel.model.FSMModel.StateMachineDefinition <em>State Machine Definition</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.StateMachineDefinition <em>State Machine Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.gemoc.mocc.fsmkernel.model.FSMModel.StateMachineDefinition
+	 * @see org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.StateMachineDefinition
 	 * @generated
 	 */
 	public Adapter createStateMachineDefinitionAdapter() {
@@ -276,13 +276,13 @@ public class CcslmoccAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.gemoc.mocc.fsmkernel.model.FSMModel.AbstractAction <em>Abstract Action</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.AbstractAction <em>Abstract Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.gemoc.mocc.fsmkernel.model.FSMModel.AbstractAction
+	 * @see org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.AbstractAction
 	 * @generated
 	 */
 	public Adapter createAbstractActionAdapter() {

@@ -13,14 +13,14 @@
  *   
  * $Id$
  */
-package org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.tests;
+package org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.tests;
 
 import junit.textui.TestRunner;
 
-import org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.EditionExtensionFactory;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.IntegerAssignementBlock;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.EditionExtensionFactory;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.IntegerAssignementBlock;
 
-import org.gemoc.mocc.fsmkernel.model.FSMModel.tests.AbstractActionTest;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.tests.AbstractActionTest;
 
 /**
  * <!-- begin-user-doc -->

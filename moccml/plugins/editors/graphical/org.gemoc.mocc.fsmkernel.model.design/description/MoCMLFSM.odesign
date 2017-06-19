@@ -2,7 +2,7 @@
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/tree/description/1.0.0" xmlns:filter="http://www.eclipse.org/sirius/description/filter/1.1.0" xmlns:style="http://www.eclipse.org/sirius/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" name="MoCMLFSM" version="7.0.0">
   <ownedViewpoints name="MoCMLFSM" modelFileExtension="fsmmodel xmi fsmdsl">
     <ownedRepresentations xsi:type="description:DiagramDescription" name="FSMBehaviorDiagram" label="FSM Behavior Diagram" domainClass="FSMModel.StateMachineDefinition">
-      <metamodel href="platform:/plugin/org.gemoc.mocc.fsmkernel.model/model/FSMModel.ecore#/"/>
+      <metamodel href="platform:/plugin/org.eclipse.gemoc.moccml.constraint.fsmkernel.model/model/FSMModel.ecore#/"/>
       <metamodel href="http://fr.inria.aoste.timemodel#/"/>
       <metamodel href="http://fr.inria.aoste.timemodel#//BasicType"/>
       <metamodel href="http://fr.inria.aoste.timemodel#//CCSLModel"/>
@@ -67,7 +67,7 @@
           </conditionnalStyles>
         </edgeMappings>
         <toolSections name="FSMTools" label="Basic FSM Tools">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="FSMStateCreation" label="New State" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='MoCMLFSM']/@ownedRepresentations[name='FSMBehaviorDiagram']/@defaultLayer/@nodeMappings[name='FSMState']" iconPath="/org.gemoc.mocc.fsmkernel.model.design/images/CreateState.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="FSMStateCreation" label="New State" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='MoCMLFSM']/@ownedRepresentations[name='FSMBehaviorDiagram']/@defaultLayer/@nodeMappings[name='FSMState']" iconPath="/org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design/images/CreateState.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -78,7 +78,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="FSMInitialStateCreation" label="New Initial State" precondition="[container.oclAsType(StateMachineDefinition).initialState = null/]" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='MoCMLFSM']/@ownedRepresentations[name='FSMBehaviorDiagram']/@defaultLayer/@nodeMappings[name='FSMState']" iconPath="/org.gemoc.mocc.fsmkernel.model.design/images/CreateInitialState.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="FSMInitialStateCreation" label="New Initial State" precondition="[container.oclAsType(StateMachineDefinition).initialState = null/]" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='MoCMLFSM']/@ownedRepresentations[name='FSMBehaviorDiagram']/@defaultLayer/@nodeMappings[name='FSMState']" iconPath="/org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design/images/CreateInitialState.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -92,7 +92,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="FSMFinalStateCreation" label="New Final State" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='MoCMLFSM']/@ownedRepresentations[name='FSMBehaviorDiagram']/@defaultLayer/@nodeMappings[name='FSMState']" iconPath="/org.gemoc.mocc.fsmkernel.model.design/images/CreateFinalNode.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="FSMFinalStateCreation" label="New Final State" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='MoCMLFSM']/@ownedRepresentations[name='FSMBehaviorDiagram']/@defaultLayer/@nodeMappings[name='FSMState']" iconPath="/org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design/images/CreateFinalNode.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -112,7 +112,7 @@
               <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:arg0"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="FSMTransitionCreation" label="New Transition" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='MoCMLFSM']/@ownedRepresentations[name='FSMBehaviorDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']" iconPath="/org.gemoc.mocc.fsmkernel.model.design/images/CreateTransition.gif">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="FSMTransitionCreation" label="New Transition" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='MoCMLFSM']/@ownedRepresentations[name='FSMBehaviorDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']" iconPath="/org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design/images/CreateTransition.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -175,19 +175,19 @@
       </defaultLayer>
       <additionalLayers name="TransitionDetails" label="Transition Details">
         <nodeMappings name="Trigger" semanticCandidatesExpression="[eAllContents()/]" doubleClickDescription="//@ownedViewpoints[name='MoCMLFSM']/@ownedRepresentations[name='FSMBehaviorDiagram']/@additionalLayers[name='TransitionDetails']/@toolSections.0/@ownedTools[name='OpenXtextEditor']" domainClass="FSMModel.Trigger">
-          <style xsi:type="style:WorkspaceImageDescription" labelFormat="italic" showIcon="false" labelExpression="[trueTriggers.oclAsType(BindableEntity).name->sep(', ')/]" sizeComputationExpression="-1" workspacePath="/org.gemoc.mocc.fsmkernel.model.design/images/Trigger.gif">
+          <style xsi:type="style:WorkspaceImageDescription" labelFormat="italic" showIcon="false" labelExpression="[trueTriggers.oclAsType(BindableEntity).name->sep(', ')/]" sizeComputationExpression="-1" workspacePath="/org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design/images/Trigger.gif">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="IntAssignAction" labelDirectEdit="//@ownedViewpoints[name='MoCMLFSM']/@ownedRepresentations[name='FSMBehaviorDiagram']/@additionalLayers[name='TransitionDetails']/@toolSections.0/@ownedTools[name='EditLabelAction']" semanticCandidatesExpression="[transitions.actions/]" doubleClickDescription="//@ownedViewpoints[name='MoCMLFSM']/@ownedRepresentations[name='FSMBehaviorDiagram']/@additionalLayers[name='TransitionDetails']/@toolSections.0/@ownedTools[name='OpenXtextEditor']" domainClass="FSMModel.IntegerAssignement">
-          <style xsi:type="style:WorkspaceImageDescription" labelFormat="italic" showIcon="false" labelExpression="[name/]" sizeComputationExpression="-1" workspacePath="/org.gemoc.mocc.fsmkernel.model.design/images/Action.gif">
+          <style xsi:type="style:WorkspaceImageDescription" labelFormat="italic" showIcon="false" labelExpression="[name/]" sizeComputationExpression="-1" workspacePath="/org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design/images/Action.gif">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="Guard" semanticCandidatesExpression="[transitions.guard/]" doubleClickDescription="//@ownedViewpoints[name='MoCMLFSM']/@ownedRepresentations[name='FSMBehaviorDiagram']/@additionalLayers[name='TransitionDetails']/@toolSections.0/@ownedTools[name='OpenXtextEditor']" domainClass="FSMModel.Guard">
-          <style xsi:type="style:WorkspaceImageDescription" labelFormat="italic" showIcon="false" labelExpression="[value/]" sizeComputationExpression="-1" workspacePath="/org.gemoc.mocc.fsmkernel.model.design/images/Guard.gif">
+          <style xsi:type="style:WorkspaceImageDescription" labelFormat="italic" showIcon="false" labelExpression="[value/]" sizeComputationExpression="-1" workspacePath="/org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design/images/Guard.gif">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
@@ -217,7 +217,7 @@
           </style>
         </edgeMappings>
         <toolSections name="TransitionTooling" label="Transition Tools">
-          <ownedTools xsi:type="tool:ToolDescription" name="IntAssignActionCreation" label="New Action" precondition="[self.oclIsKindOf(Transition)/]" forceRefresh="true" iconPath="/org.gemoc.mocc.fsmkernel.model.design/images/CreateAction.gif">
+          <ownedTools xsi:type="tool:ToolDescription" name="IntAssignActionCreation" label="New Action" precondition="[self.oclIsKindOf(Transition)/]" forceRefresh="true" iconPath="/org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design/images/CreateAction.gif">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -234,7 +234,7 @@
               <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:arg0"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ToolDescription" name="GuardCreation" label="New Guard" precondition="[self.oclIsTypeOf(Transition)/]" forceRefresh="true" iconPath="/org.gemoc.mocc.fsmkernel.model.design/images/CreateGuard.gif">
+          <ownedTools xsi:type="tool:ToolDescription" name="GuardCreation" label="New Guard" precondition="[self.oclIsTypeOf(Transition)/]" forceRefresh="true" iconPath="/org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design/images/CreateGuard.gif">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -243,7 +243,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ToolDescription" name="TriggerCreation" label="New Trigger" precondition="[self.oclIsTypeOf(Transition)/]" forceRefresh="true" iconPath="/org.gemoc.mocc.fsmkernel.model.design/images/Trigger.gif">
+          <ownedTools xsi:type="tool:ToolDescription" name="TriggerCreation" label="New Trigger" precondition="[self.oclIsTypeOf(Transition)/]" forceRefresh="true" iconPath="/org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design/images/Trigger.gif">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -256,29 +256,29 @@
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ExternalJavaActionCall" name="org.gemoc.mocc.fsmkernel.model.design.OpenEditorActionCallID" action="//@ownedViewpoints[name='MoCMLFSM']/@ownedRepresentations[name='FSMBehaviorDiagram']/@additionalLayers[name='TransitionDetails']/@toolSections.0/@ownedTools[name='OpenEmbeddedEditorAction']"/>
+              <firstModelOperations xsi:type="tool:ExternalJavaActionCall" name="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design.OpenEditorActionCallID" action="//@ownedViewpoints[name='MoCMLFSM']/@ownedRepresentations[name='FSMBehaviorDiagram']/@additionalLayers[name='TransitionDetails']/@toolSections.0/@ownedTools[name='OpenEmbeddedEditorAction']"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ExternalJavaAction" name="OpenEmbeddedEditorAction" forceRefresh="true" id="org.gemoc.mocc.fsmkernel.model.design.OpenEmbeddedEditorID"/>
+          <ownedTools xsi:type="tool:ExternalJavaAction" name="OpenEmbeddedEditorAction" forceRefresh="true" id="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design.OpenEmbeddedEditorID"/>
         </toolSections>
       </additionalLayers>
       <additionalLayers name="Declarations">
         <containerMappings name="DeclarationBlockID" semanticCandidatesExpression="[declarationBlock/]" doubleClickDescription="//@ownedViewpoints[name='MoCMLFSM']/@ownedRepresentations[name='FSMBehaviorDiagram']/@additionalLayers[name='Declarations']/@toolSections.0/@ownedTools[name='OpenXtextEditor']" domainClass="FSMModel.DeclarationBlock" childrenPresentation="List">
           <subNodeMappings name="ConcreteEntityID" labelDirectEdit="//@ownedViewpoints[name='MoCMLFSM']/@ownedRepresentations[name='FSMBehaviorDiagram']/@additionalLayers[name='Declarations']/@toolSections.0/@ownedTools[name='EditCE']" semanticCandidatesExpression="[concreteEntities/]" doubleClickDescription="//@ownedViewpoints[name='MoCMLFSM']/@ownedRepresentations[name='FSMBehaviorDiagram']/@additionalLayers[name='Declarations']/@toolSections.0/@ownedTools[name='OpenXtextEditor']" domainClass="ClockExpressionAndRelation.ConcreteEntity">
-            <style xsi:type="style:SquareDescription" iconPath="/org.gemoc.mocc.fsmkernel.model.design/images/QualifierValue.gif" labelAlignment="LEFT" resizeKind="NSEW">
+            <style xsi:type="style:SquareDescription" iconPath="/org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design/images/QualifierValue.gif" labelAlignment="LEFT" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
           <subNodeMappings name="ClassicalExpressionID" semanticCandidatesExpression="[classicalExpressions/]" doubleClickDescription="//@ownedViewpoints[name='MoCMLFSM']/@ownedRepresentations[name='FSMBehaviorDiagram']/@additionalLayers[name='Declarations']/@toolSections.0/@ownedTools[name='OpenXtextEditor']" domainClass="ClassicalExpression.ClassicalExpression">
-            <style xsi:type="style:SquareDescription" iconPath="/org.gemoc.mocc.fsmkernel.model.design/images/Attribute.gif" labelAlignment="LEFT" resizeKind="NSEW">
+            <style xsi:type="style:SquareDescription" iconPath="/org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design/images/Attribute.gif" labelAlignment="LEFT" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="10" arcHeight="10" labelFormat="italic" labelExpression="Declaration Bloc" iconPath="/org.gemoc.mocc.fsmkernel.model.design/images/DeclarationBloc.gif" roundedCorner="true" backgroundStyle="Liquid">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="10" arcHeight="10" labelFormat="italic" labelExpression="Declaration Bloc" iconPath="/org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design/images/DeclarationBloc.gif" roundedCorner="true" backgroundStyle="Liquid">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -286,14 +286,14 @@
           </style>
         </containerMappings>
         <toolSections name="DeclarationsTooling" label="Declarations Tooling">
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="DeclarationBlocCreation" label="New Declaration Bloc" precondition="[container.oclAsType(FSMModel::StateMachineDefinition).declarationBlock&lt;>null/]" containerMappings="//@ownedViewpoints[name='MoCMLFSM']/@ownedRepresentations[name='FSMBehaviorDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='DeclarationBlockID']" iconPath="/org.gemoc.mocc.fsmkernel.model.design/images/DeclarationBloc.gif">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="DeclarationBlocCreation" label="New Declaration Bloc" precondition="[container.oclAsType(FSMModel::StateMachineDefinition).declarationBlock&lt;>null/]" containerMappings="//@ownedViewpoints[name='MoCMLFSM']/@ownedRepresentations[name='FSMBehaviorDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='DeclarationBlockID']" iconPath="/org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design/images/DeclarationBloc.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:CreateInstance" typeName="FSMModel.DeclarationBlock" referenceName="declarationBlock"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateConcreteEntity" label="New Concrete Entity" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='MoCMLFSM']/@ownedRepresentations[name='FSMBehaviorDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='DeclarationBlockID']/@subNodeMappings[name='ConcreteEntityID']" iconPath="/org.gemoc.mocc.fsmkernel.model.design/images/QualifierValue.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateConcreteEntity" label="New Concrete Entity" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='MoCMLFSM']/@ownedRepresentations[name='FSMBehaviorDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='DeclarationBlockID']/@subNodeMappings[name='ConcreteEntityID']" iconPath="/org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design/images/QualifierValue.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -309,7 +309,7 @@
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:ToolGroup" name="ClassicalExpressionGroup">
-            <tools xsi:type="tool:NodeCreationDescription" name="CreateNot" label="New Not" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='MoCMLFSM']/@ownedRepresentations[name='FSMBehaviorDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='DeclarationBlockID']/@subNodeMappings[name='ClassicalExpressionID']" iconPath="/org.gemoc.mocc.fsmkernel.model.design/images/Attribute.gif">
+            <tools xsi:type="tool:NodeCreationDescription" name="CreateNot" label="New Not" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='MoCMLFSM']/@ownedRepresentations[name='FSMBehaviorDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='DeclarationBlockID']/@subNodeMappings[name='ClassicalExpressionID']" iconPath="/org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design/images/Attribute.gif">
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
@@ -318,7 +318,7 @@
                 </firstModelOperations>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool:NodeCreationDescription" name="CreateAnd" label="New And" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='MoCMLFSM']/@ownedRepresentations[name='FSMBehaviorDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='DeclarationBlockID']/@subNodeMappings[name='ClassicalExpressionID']" iconPath="/org.gemoc.mocc.fsmkernel.model.design/images/Attribute.gif">
+            <tools xsi:type="tool:NodeCreationDescription" name="CreateAnd" label="New And" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='MoCMLFSM']/@ownedRepresentations[name='FSMBehaviorDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='DeclarationBlockID']/@subNodeMappings[name='ClassicalExpressionID']" iconPath="/org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design/images/Attribute.gif">
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
@@ -332,13 +332,13 @@
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ExternalJavaActionCall" name="org.gemoc.mocc.fsmkernel.model.design.OpenEditorActionCallID" action="//@ownedViewpoints[name='MoCMLFSM']/@ownedRepresentations[name='FSMBehaviorDiagram']/@additionalLayers[name='TransitionDetails']/@toolSections.0/@ownedTools[name='OpenEmbeddedEditorAction']"/>
+              <firstModelOperations xsi:type="tool:ExternalJavaActionCall" name="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design.OpenEditorActionCallID" action="//@ownedViewpoints[name='MoCMLFSM']/@ownedRepresentations[name='FSMBehaviorDiagram']/@additionalLayers[name='TransitionDetails']/@toolSections.0/@ownedTools[name='OpenEmbeddedEditorAction']"/>
             </initialOperation>
           </ownedTools>
         </toolSections>
       </additionalLayers>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:TreeDescription"/>
-    <ownedJavaExtensions qualifiedClassName="org.gemoc.mocc.fsmkernel.model.design.services.MoCMLServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design.services.MoCMLServices"/>
   </ownedViewpoints>
 </description:Group>

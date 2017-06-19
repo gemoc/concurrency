@@ -13,7 +13,7 @@
  *   
  * $Id$
  */
-package org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.edit.provider;
+package org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.edit.provider;
 
 
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClassicalExpression.ClassicalExpressionFactory;
@@ -26,13 +26,13 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.edit.provider.FSMModelEditPlugin;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.EditionExtensionFactory;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.EditionExtensionPackage;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.RealSupEqual;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.edit.provider.FSMModelEditPlugin;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.EditionExtensionFactory;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.EditionExtensionPackage;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.RealSupEqual;
 
 /**
- * This is the item provider adapter for a {@link org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.RealSupEqual} object.
+ * This is the item provider adapter for a {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.RealSupEqual} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated

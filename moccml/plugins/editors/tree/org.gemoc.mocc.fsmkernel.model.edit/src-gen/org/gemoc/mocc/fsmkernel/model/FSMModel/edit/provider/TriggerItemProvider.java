@@ -13,7 +13,7 @@
  *   
  * $Id$
  */
-package org.gemoc.mocc.fsmkernel.model.FSMModel.edit.provider;
+package org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.edit.provider;
 
 
 import java.util.Collection;
@@ -22,10 +22,10 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.FSMModelPackage;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.FSMModelPackage;
 
 /**
- * This is the item provider adapter for a {@link org.gemoc.mocc.fsmkernel.model.FSMModel.Trigger} object.
+ * This is the item provider adapter for a {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.Trigger} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated

@@ -13,7 +13,7 @@
  *   
  * $Id$
  */
-package org.gemoc.mocc.fsmkernel.model.FSMModel.editor.presentation;
+package org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editor.presentation;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -191,7 +191,7 @@ public class FSMModelActionBarContributor
 	public void contributeToMenu(IMenuManager menuManager) {
 		super.contributeToMenu(menuManager);
 
-		IMenuManager submenuManager = new MenuManager(FSMModelEditorPlugin.INSTANCE.getString("_UI_FSMModelEditor_menu"), "org.gemoc.mocc.fsmkernel.model.FSMModelMenuID");
+		IMenuManager submenuManager = new MenuManager(FSMModelEditorPlugin.INSTANCE.getString("_UI_FSMModelEditor_menu"), "org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModelMenuID");
 		menuManager.insertAfter("additions", submenuManager);
 		submenuManager.add(new Separator("settings"));
 		submenuManager.add(new Separator("actions"));

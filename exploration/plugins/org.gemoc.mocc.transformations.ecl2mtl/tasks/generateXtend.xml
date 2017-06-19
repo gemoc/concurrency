@@ -50,7 +50,7 @@
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.xtext.essentialocl_3.4.2.v20140819-1601.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.xtext.completeocl_3.4.2.v20140819-1601.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.gemoc.moccml.constraint.ccslmocc.model_0.1.1.201503020941.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.gemoc.mocc.fsmkernel.model_0.1.1.201503020941.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.gemoc.moccml.constraint.fsmkernel.model_0.1.1.201503020941.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl_3.4.2.v20140725-2242.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/lpg.runtime.java_2.0.17.v201004271640.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.ecore_3.3.100.v20140610-0641.jar"/>
@@ -66,7 +66,7 @@
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.xtend.lib_2.7.3.v201411190455.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.xtext.xbase.lib_2.7.3.v201411190455.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.xtend.lib.macro_2.7.3.v201411190455.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.gemoc.mocc.fsmkernel.model.xtext.fsmdsl_0.1.1.201503020941.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.fsmdsl_0.1.1.201503020941.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/fr.inria.aoste.timesquare.ccslkernel.library.xtext_1.0.0.201502181326.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/fr.inria.aoste.timesquare.ccslkernel.xtext.util_1.0.0.201502181326.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/fr.inria.aoste.timesquare.ccslkernel.parser.xtext_1.0.0.201502181326.jar"/>

@@ -25,9 +25,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="org.gemoc.mocc.fsmkernel.model.FSMModel.editor.presentation.FSMModelModelWizardID"
+            id="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editor.presentation.FSMModelModelWizardID"
             name="%_UI_FSMModelModelWizard_label"
-            class="org.gemoc.mocc.fsmkernel.model.FSMModel.editor.presentation.FSMModelModelWizard"
+            class="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editor.presentation.FSMModelModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/FSMModelModelFile.gif">
          <description>%_UI_FSMModelModelWizard_description</description>
@@ -38,24 +38,24 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated FSMModel -->
       <editor
-            id="org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.editor.presentation.EditionExtensionEditorID"
+            id="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.editor.presentation.EditionExtensionEditorID"
             name="%_UI_EditionExtensionEditor_label"
             icon="icons/full/obj16/EditionExtensionModelFile.gif"
             extensions="editionextension"
-            class="org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.editor.presentation.EditionExtensionEditor"
-            contributorClass="org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.editor.presentation.EditionExtensionActionBarContributor">
+            class="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.editor.presentation.EditionExtensionEditor"
+            contributorClass="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.editor.presentation.EditionExtensionActionBarContributor">
       </editor>
    </extension>
 
    <extension point="org.eclipse.ui.editors">
       <!-- @generated FSMModel -->
       <editor
-            id="org.gemoc.mocc.fsmkernel.model.FSMModel.editor.presentation.FSMModelEditorID"
+            id="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editor.presentation.FSMModelEditorID"
             name="%_UI_FSMModelEditor_label"
             icon="icons/full/obj16/FSMModelModelFile.gif"
             extensions="fsmmodel"
-            class="org.gemoc.mocc.fsmkernel.model.FSMModel.editor.presentation.FSMModelEditor"
-            contributorClass="org.gemoc.mocc.fsmkernel.model.FSMModel.editor.presentation.FSMModelActionBarContributor">
+            class="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editor.presentation.FSMModelEditor"
+            contributorClass="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editor.presentation.FSMModelActionBarContributor">
       </editor>
    </extension>
 
@@ -65,9 +65,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.editor.presentation.EditionExtensionModelWizardID"
+            id="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.editor.presentation.EditionExtensionModelWizardID"
             name="%_UI_EditionExtensionModelWizard_label"
-            class="org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.editor.presentation.EditionExtensionModelWizard"
+            class="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.editor.presentation.EditionExtensionModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/EditionExtensionModelFile.gif">
          <description>%_UI_EditionExtensionModelWizard_description</description>

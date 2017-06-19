@@ -13,7 +13,7 @@
  *   
  * $Id$
  */
-package org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.tests;
+package org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.tests;
 
 import java.io.File;
 import java.io.IOException;
@@ -32,9 +32,9 @@ import org.eclipse.emf.ecore.util.Diagnostician;
 
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
-import org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.EditionExtensionFactory;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.EditionExtensionPackage;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.IntegerAssignementBlock;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.EditionExtensionFactory;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.EditionExtensionPackage;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.IntegerAssignementBlock;
 
 /**
  * <!-- begin-user-doc -->

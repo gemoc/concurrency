@@ -13,7 +13,7 @@
  *   
  * $Id$
  */
-package org.gemoc.mocc.fsmkernel.model.FSMModel.editor.presentation;
+package org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editor.presentation;
 
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.provider.TimeModelEditPlugin;
 

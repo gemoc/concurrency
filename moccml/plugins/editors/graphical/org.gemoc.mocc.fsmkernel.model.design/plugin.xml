@@ -19,16 +19,16 @@
 
 <plugin>
   <extension point="org.eclipse.sirius.componentization">
-    <component class="org.gemoc.mocc.fsmkernel.model.design.Activator"
-               id="org.gemoc.mocc.fsmkernel.model.design"
+    <component class="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design.Activator"
+               id="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design"
 	       name="MoCMLFSM">
     </component>
   </extension>
   <extension
         point="org.eclipse.sirius.externalJavaAction">
      <javaActions
-           actionClass="org.gemoc.mocc.fsmkernel.model.design.actions.OpenEmbeddedEditor"
-           id="org.gemoc.mocc.fsmkernel.model.design.OpenEmbeddedEditorID">
+           actionClass="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design.actions.OpenEmbeddedEditor"
+           id="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design.OpenEmbeddedEditorID">
      </javaActions>
   </extension>
 </plugin>

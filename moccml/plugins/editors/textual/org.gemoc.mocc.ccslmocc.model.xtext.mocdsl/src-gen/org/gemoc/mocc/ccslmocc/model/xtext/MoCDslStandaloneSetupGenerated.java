@@ -17,7 +17,7 @@ import com.google.inject.Injector;
 public class MoCDslStandaloneSetupGenerated implements ISetup {
 
 	public Injector createInjectorAndDoEMFRegistration() {
-		org.gemoc.mocc.fsmkernel.model.xtext.FSMDslStandaloneSetup.doSetup();
+		org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDslStandaloneSetup.doSetup();
 
 		Injector injector = createInjector();
 		register(injector);

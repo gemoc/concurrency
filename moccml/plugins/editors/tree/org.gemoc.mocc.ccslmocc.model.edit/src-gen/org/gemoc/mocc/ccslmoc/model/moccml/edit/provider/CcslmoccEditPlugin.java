@@ -21,7 +21,7 @@ import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.gemoc.mocc.fsmkernel.model.FSMModel.edit.provider.FSMModelEditPlugin;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.edit.provider.FSMModelEditPlugin;
 
 /**
  * This is the central singleton for the Ccslmocc edit plugin.

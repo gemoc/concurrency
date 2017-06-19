@@ -13,7 +13,7 @@
  *   
  * $Id$
  */
-package org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.edit.provider;
+package org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.edit.provider;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -34,7 +34,7 @@ import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
-import org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.util.EditionExtensionAdapterFactory;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.util.EditionExtensionAdapterFactory;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.
@@ -85,7 +85,7 @@ public class EditionExtensionItemProviderAdapterFactory extends EditionExtension
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.IntegerAssignementBlock} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.IntegerAssignementBlock} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -93,7 +93,7 @@ public class EditionExtensionItemProviderAdapterFactory extends EditionExtension
 	protected IntegerAssignementBlockItemProvider integerAssignementBlockItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.IntegerAssignementBlock}.
+	 * This creates an adapter for a {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.IntegerAssignementBlock}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -108,7 +108,7 @@ public class EditionExtensionItemProviderAdapterFactory extends EditionExtension
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.IntInfEqual} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.IntInfEqual} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -116,7 +116,7 @@ public class EditionExtensionItemProviderAdapterFactory extends EditionExtension
 	protected IntInfEqualItemProvider intInfEqualItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.IntInfEqual}.
+	 * This creates an adapter for a {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.IntInfEqual}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -131,7 +131,7 @@ public class EditionExtensionItemProviderAdapterFactory extends EditionExtension
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.IntSupEqual} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.IntSupEqual} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -139,7 +139,7 @@ public class EditionExtensionItemProviderAdapterFactory extends EditionExtension
 	protected IntSupEqualItemProvider intSupEqualItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.IntSupEqual}.
+	 * This creates an adapter for a {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.IntSupEqual}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -154,7 +154,7 @@ public class EditionExtensionItemProviderAdapterFactory extends EditionExtension
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.RealInfEqual} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.RealInfEqual} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -162,7 +162,7 @@ public class EditionExtensionItemProviderAdapterFactory extends EditionExtension
 	protected RealInfEqualItemProvider realInfEqualItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.RealInfEqual}.
+	 * This creates an adapter for a {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.RealInfEqual}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -177,7 +177,7 @@ public class EditionExtensionItemProviderAdapterFactory extends EditionExtension
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.RealSupEqual} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.RealSupEqual} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -185,7 +185,7 @@ public class EditionExtensionItemProviderAdapterFactory extends EditionExtension
 	protected RealSupEqualItemProvider realSupEqualItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.RealSupEqual}.
+	 * This creates an adapter for a {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.RealSupEqual}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -200,7 +200,7 @@ public class EditionExtensionItemProviderAdapterFactory extends EditionExtension
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.IntSelfPlusAssignement} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.IntSelfPlusAssignement} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -208,7 +208,7 @@ public class EditionExtensionItemProviderAdapterFactory extends EditionExtension
 	protected IntSelfPlusAssignementItemProvider intSelfPlusAssignementItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.IntSelfPlusAssignement}.
+	 * This creates an adapter for a {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.IntSelfPlusAssignement}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -223,7 +223,7 @@ public class EditionExtensionItemProviderAdapterFactory extends EditionExtension
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.IntSelfMinusAssignement} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.IntSelfMinusAssignement} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -231,7 +231,7 @@ public class EditionExtensionItemProviderAdapterFactory extends EditionExtension
 	protected IntSelfMinusAssignementItemProvider intSelfMinusAssignementItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.IntSelfMinusAssignement}.
+	 * This creates an adapter for a {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.IntSelfMinusAssignement}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -246,7 +246,7 @@ public class EditionExtensionItemProviderAdapterFactory extends EditionExtension
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.IntSelfMultiplyAssignement} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.IntSelfMultiplyAssignement} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -254,7 +254,7 @@ public class EditionExtensionItemProviderAdapterFactory extends EditionExtension
 	protected IntSelfMultiplyAssignementItemProvider intSelfMultiplyAssignementItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.IntSelfMultiplyAssignement}.
+	 * This creates an adapter for a {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.IntSelfMultiplyAssignement}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -269,7 +269,7 @@ public class EditionExtensionItemProviderAdapterFactory extends EditionExtension
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.IntSelfDivideAssignement} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.IntSelfDivideAssignement} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -277,7 +277,7 @@ public class EditionExtensionItemProviderAdapterFactory extends EditionExtension
 	protected IntSelfDivideAssignementItemProvider intSelfDivideAssignementItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.IntSelfDivideAssignement}.
+	 * This creates an adapter for a {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.IntSelfDivideAssignement}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -292,7 +292,7 @@ public class EditionExtensionItemProviderAdapterFactory extends EditionExtension
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.RealSelfPlusAssignement} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.RealSelfPlusAssignement} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -300,7 +300,7 @@ public class EditionExtensionItemProviderAdapterFactory extends EditionExtension
 	protected RealSelfPlusAssignementItemProvider realSelfPlusAssignementItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.RealSelfPlusAssignement}.
+	 * This creates an adapter for a {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.RealSelfPlusAssignement}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -315,7 +315,7 @@ public class EditionExtensionItemProviderAdapterFactory extends EditionExtension
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.RealSelfMinusAssignement} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.RealSelfMinusAssignement} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -323,7 +323,7 @@ public class EditionExtensionItemProviderAdapterFactory extends EditionExtension
 	protected RealSelfMinusAssignementItemProvider realSelfMinusAssignementItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.RealSelfMinusAssignement}.
+	 * This creates an adapter for a {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.RealSelfMinusAssignement}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -338,7 +338,7 @@ public class EditionExtensionItemProviderAdapterFactory extends EditionExtension
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.RealSelfMultiplyAssignement} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.RealSelfMultiplyAssignement} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -346,7 +346,7 @@ public class EditionExtensionItemProviderAdapterFactory extends EditionExtension
 	protected RealSelfMultiplyAssignementItemProvider realSelfMultiplyAssignementItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.RealSelfMultiplyAssignement}.
+	 * This creates an adapter for a {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.RealSelfMultiplyAssignement}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

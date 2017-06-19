@@ -1,4 +1,4 @@
-package org.gemoc.mocc.fsmkernel.model.design.edit;
+package org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design.edit;
 
 import org.eclipse.core.commands.operations.IOperationHistoryListener;
 import org.eclipse.core.commands.operations.IUndoContext;

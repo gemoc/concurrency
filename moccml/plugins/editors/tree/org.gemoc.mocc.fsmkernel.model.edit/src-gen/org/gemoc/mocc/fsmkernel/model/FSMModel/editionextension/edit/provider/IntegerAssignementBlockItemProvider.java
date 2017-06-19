@@ -13,7 +13,7 @@
  *   
  * $Id$
  */
-package org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.edit.provider;
+package org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.edit.provider;
 
 
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.TimeModelPackage;
@@ -27,14 +27,14 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.FSMModelFactory;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.edit.provider.AbstractActionItemProvider;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.edit.provider.FSMModelEditPlugin;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.EditionExtensionPackage;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.IntegerAssignementBlock;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.FSMModelFactory;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.edit.provider.AbstractActionItemProvider;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.edit.provider.FSMModelEditPlugin;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.EditionExtensionPackage;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.IntegerAssignementBlock;
 
 /**
- * This is the item provider adapter for a {@link org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.IntegerAssignementBlock} object.
+ * This is the item provider adapter for a {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.IntegerAssignementBlock} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated

@@ -13,7 +13,7 @@
  *   
  * $Id$
  */
-package org.gemoc.mocc.fsmkernel.model.xtext;
+package org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;

@@ -1,5 +1,5 @@
 // Hand-made customization
-grammar org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.MoCDsl with org.gemoc.mocc.fsmkernel.model.xtext.FSMDsl//fr.inria.aoste.timesquare.ccslkernel.library.xtext.CCSLLibrary//org.gemoc.mocc.fsmmodel.model.xtext.FSMDsl
+grammar org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.MoCDsl with org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl//fr.inria.aoste.timesquare.ccslkernel.library.xtext.CCSLLibrary//org.gemoc.mocc.fsmmodel.model.xtext.FSMDsl
 
 import "http://org.gemoc.moccml/1.0" as ccslmoc
 import "http://fr.inria.aoste.timemodel.primitivetypes" as PrimitivesTypeValue

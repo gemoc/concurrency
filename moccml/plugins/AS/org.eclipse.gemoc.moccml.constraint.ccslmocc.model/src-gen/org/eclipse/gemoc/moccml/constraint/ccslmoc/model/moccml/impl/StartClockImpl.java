@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.gemoc.mocc.ccslmoc.model.moccml.CcslmoccPackage;
 import org.gemoc.mocc.ccslmoc.model.moccml.StartClock;
 
-import org.gemoc.mocc.fsmkernel.model.FSMModel.impl.AbstractActionImpl;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.impl.AbstractActionImpl;
 
 /**
  * <!-- begin-user-doc -->

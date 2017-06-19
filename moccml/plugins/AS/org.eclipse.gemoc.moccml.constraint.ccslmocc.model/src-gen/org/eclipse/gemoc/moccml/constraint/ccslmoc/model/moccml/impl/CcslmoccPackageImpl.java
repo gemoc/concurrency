@@ -32,7 +32,7 @@ import org.gemoc.mocc.ccslmoc.model.moccml.StartClock;
 import org.gemoc.mocc.ccslmoc.model.moccml.StateMachineRelationDefinition;
 import org.gemoc.mocc.ccslmoc.model.moccml.StateRelationBasedLibrary;
 
-import org.gemoc.mocc.fsmkernel.model.FSMModel.FSMModelPackage;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.FSMModelPackage;
 
 /**
  * <!-- begin-user-doc -->

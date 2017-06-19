@@ -9,13 +9,13 @@ import net.javabdd.BDD;
 
 import org.gemoc.mocc.ccslmoc.model.moccml.FinishClock;
 import org.gemoc.mocc.ccslmoc.model.moccml.StateMachineRelationDefinition;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.AbstractAction;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.Guard;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.IntegerAssignement;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.Transition;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.Trigger;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.IntInfEqual;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.IntSupEqual;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.AbstractAction;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.Guard;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.IntegerAssignement;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.Transition;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.Trigger;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.IntInfEqual;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.IntSupEqual;
 
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.BasicType.BasicTypeFactory;
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.BasicType.DiscreteClockType;
@@ -52,7 +52,7 @@ import fr.inria.aoste.timesquare.ccslkernel.solver.relation.AbstractWrappedRelat
 public class StateMachineRelationDefinitionSemantics extends AbstractWrappedRelation {
 
 
-	private org.gemoc.mocc.fsmkernel.model.FSMModel.State _currentState=null;
+	private org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.State _currentState=null;
 	private AbstractConcreteMapping<ISolverElement> _abstract2concreteMap=null;
 	private StateMachineRelationDefinition _modelSTS=null;
 	

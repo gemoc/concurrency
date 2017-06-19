@@ -13,7 +13,7 @@
  *   
  * $Id$
  */
-package org.gemoc.mocc.fsmkernel.model.xtext;
+package org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext;
 
 import org.eclipse.xtext.linking.ILinkingDiagnosticMessageProvider;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
@@ -30,7 +30,7 @@ import fr.inria.aoste.timesquare.ccslkernel.xtext.util.SimpleNamedElementProvide
  * @generated NOT
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
-public class FSMDslRuntimeModule extends org.gemoc.mocc.fsmkernel.model.xtext.AbstractFSMDslRuntimeModule {
+public class FSMDslRuntimeModule extends org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.AbstractFSMDslRuntimeModule {
 	@Override
 	public Class<? extends IQualifiedNameProvider> bindIQualifiedNameProvider() {
 	

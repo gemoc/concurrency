@@ -22,48 +22,48 @@
     <extension
             point="org.eclipse.ui.editors">
         <editor
-            class="org.gemoc.mocc.fsmkernel.model.xtext.ui.FSMDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
+            class="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui.FSMDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
             contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
             default="true"
             extensions="fsmdsl"
-            id="org.gemoc.mocc.fsmkernel.model.xtext.FSMDsl"
+            id="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl"
             name="%editor.name">
         </editor>
     </extension>
     <extension
         point="org.eclipse.ui.handlers">
         <handler
-            class="org.gemoc.mocc.fsmkernel.model.xtext.ui.FSMDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
+            class="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui.FSMDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
             commandId="org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclaration">
             <activeWhen>
                 <reference
-                    definitionId="org.gemoc.mocc.fsmkernel.model.xtext.FSMDsl.Editor.opened">
+                    definitionId="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl.Editor.opened">
                 </reference>
             </activeWhen>
         </handler>
         <handler
-            class="org.gemoc.mocc.fsmkernel.model.xtext.ui.FSMDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
-            commandId="org.gemoc.mocc.fsmkernel.model.xtext.FSMDsl.validate">
+            class="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui.FSMDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
+            commandId="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl.validate">
          <activeWhen>
             <reference
-                    definitionId="org.gemoc.mocc.fsmkernel.model.xtext.FSMDsl.Editor.opened">
+                    definitionId="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl.Editor.opened">
             </reference>
          </activeWhen>
       	</handler>
       	<!-- copy qualified name -->
         <handler
-            class="org.gemoc.mocc.fsmkernel.model.xtext.ui.FSMDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedNameHandler"
+            class="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui.FSMDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedNameHandler"
             commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName">
             <activeWhen>
-				<reference definitionId="org.gemoc.mocc.fsmkernel.model.xtext.FSMDsl.Editor.opened" />
+				<reference definitionId="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl.Editor.opened" />
             </activeWhen>
         </handler>
         <handler
-            class="org.gemoc.mocc.fsmkernel.model.xtext.ui.FSMDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedNameHandler"
+            class="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui.FSMDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedNameHandler"
             commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedName">
             <activeWhen>
             	<and>
-            		<reference definitionId="org.gemoc.mocc.fsmkernel.model.xtext.FSMDsl.XtextEditor.opened" />
+            		<reference definitionId="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl.XtextEditor.opened" />
 	                <iterate>
 						<adapt type="org.eclipse.xtext.ui.editor.outline.IOutlineNode" />
 					</iterate>
@@ -72,22 +72,22 @@
         </handler>
     </extension>
     <extension point="org.eclipse.core.expressions.definitions">
-        <definition id="org.gemoc.mocc.fsmkernel.model.xtext.FSMDsl.Editor.opened">
+        <definition id="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl.Editor.opened">
             <and>
                 <reference definitionId="isActiveEditorAnInstanceOfXtextEditor"/>
                 <with variable="activeEditor">
                     <test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName" 
-                        value="org.gemoc.mocc.fsmkernel.model.xtext.FSMDsl" 
+                        value="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl" 
                         forcePluginActivation="true"/>
                 </with>        
             </and>
         </definition>
-        <definition id="org.gemoc.mocc.fsmkernel.model.xtext.FSMDsl.XtextEditor.opened">
+        <definition id="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl.XtextEditor.opened">
             <and>
                 <reference definitionId="isXtextEditorActive"/>
                 <with variable="activeEditor">
                     <test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName" 
-                        value="org.gemoc.mocc.fsmkernel.model.xtext.FSMDsl" 
+                        value="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl" 
                         forcePluginActivation="true"/>
                 </with>        
             </and>
@@ -96,33 +96,33 @@
     <extension
             point="org.eclipse.ui.preferencePages">
         <page
-            class="org.gemoc.mocc.fsmkernel.model.xtext.ui.FSMDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
-            id="org.gemoc.mocc.fsmkernel.model.xtext.FSMDsl"
+            class="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui.FSMDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+            id="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl"
             name="FSMDsl">
-            <keywordReference id="org.gemoc.mocc.fsmkernel.model.xtext.ui.keyword_FSMDsl"/>
+            <keywordReference id="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui.keyword_FSMDsl"/>
         </page>
         <page
-            category="org.gemoc.mocc.fsmkernel.model.xtext.FSMDsl"
-            class="org.gemoc.mocc.fsmkernel.model.xtext.ui.FSMDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
-            id="org.gemoc.mocc.fsmkernel.model.xtext.FSMDsl.coloring"
+            category="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl"
+            class="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui.FSMDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
+            id="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl.coloring"
             name="Syntax Coloring">
-            <keywordReference id="org.gemoc.mocc.fsmkernel.model.xtext.ui.keyword_FSMDsl"/>
+            <keywordReference id="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui.keyword_FSMDsl"/>
         </page>
         <page
-            category="org.gemoc.mocc.fsmkernel.model.xtext.FSMDsl"
-            class="org.gemoc.mocc.fsmkernel.model.xtext.ui.FSMDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
-            id="org.gemoc.mocc.fsmkernel.model.xtext.FSMDsl.templates"
+            category="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl"
+            class="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui.FSMDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
+            id="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl.templates"
             name="Templates">
-            <keywordReference id="org.gemoc.mocc.fsmkernel.model.xtext.ui.keyword_FSMDsl"/>
+            <keywordReference id="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui.keyword_FSMDsl"/>
         </page>
     </extension>
     <extension
             point="org.eclipse.ui.propertyPages">
         <page
-            class="org.gemoc.mocc.fsmkernel.model.xtext.ui.FSMDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
-            id="org.gemoc.mocc.fsmkernel.model.xtext.FSMDsl"
+            class="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui.FSMDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+            id="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl"
             name="FSMDsl">
-            <keywordReference id="org.gemoc.mocc.fsmkernel.model.xtext.ui.keyword_FSMDsl"/>
+            <keywordReference id="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui.keyword_FSMDsl"/>
             <enabledWhen>
 	            <adapt type="org.eclipse.core.resources.IProject"/>
 			</enabledWhen>
@@ -132,14 +132,14 @@
     <extension
         point="org.eclipse.ui.keywords">
         <keyword
-            id="org.gemoc.mocc.fsmkernel.model.xtext.ui.keyword_FSMDsl"
+            id="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui.keyword_FSMDsl"
             label="FSMDsl"/>
     </extension>
     <extension
          point="org.eclipse.ui.commands">
       <command
             description="Trigger expensive validation"
-            id="org.gemoc.mocc.fsmkernel.model.xtext.FSMDsl.validate"
+            id="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl.validate"
             name="Validate">
       </command>
       <!-- copy qualified name -->
@@ -160,12 +160,12 @@
         <menuContribution
             locationURI="popup:#TextEditorContext?after=group.edit">
              <command
-                 commandId="org.gemoc.mocc.fsmkernel.model.xtext.FSMDsl.validate"
+                 commandId="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl.validate"
                  style="push"
                  tooltip="Trigger expensive validation">
             <visibleWhen checkEnabled="false">
                 <reference
-                    definitionId="org.gemoc.mocc.fsmkernel.model.xtext.FSMDsl.Editor.opened">
+                    definitionId="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl.Editor.opened">
                 </reference>
             </visibleWhen>
          </command>  
@@ -175,7 +175,7 @@
          	<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName" 
          		style="push" tooltip="Copy Qualified Name">
             	<visibleWhen checkEnabled="false">
-                	<reference definitionId="org.gemoc.mocc.fsmkernel.model.xtext.FSMDsl.Editor.opened" />
+                	<reference definitionId="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl.Editor.opened" />
             	</visibleWhen>
          	</command>  
          </menuContribution>
@@ -183,7 +183,7 @@
          	<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
             	style="push" tooltip="Copy Qualified Name">
             	<visibleWhen checkEnabled="false">
-                	<reference definitionId="org.gemoc.mocc.fsmkernel.model.xtext.FSMDsl.Editor.opened" />
+                	<reference definitionId="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl.Editor.opened" />
             	</visibleWhen>
          	</command>  
          </menuContribution>
@@ -192,7 +192,7 @@
 				style="push" tooltip="Copy Qualified Name">
          		<visibleWhen checkEnabled="false">
 	            	<and>
-	            		<reference definitionId="org.gemoc.mocc.fsmkernel.model.xtext.FSMDsl.XtextEditor.opened" />
+	            		<reference definitionId="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl.XtextEditor.opened" />
 						<iterate>
 							<adapt type="org.eclipse.xtext.ui.editor.outline.IOutlineNode" />
 						</iterate>
@@ -205,7 +205,7 @@
 		<menuContribution locationURI="popup:#TextEditorContext?endof=group.find">
 			<command commandId="org.eclipse.xtext.ui.editor.FindReferences">
 				<visibleWhen checkEnabled="false">
-                	<reference definitionId="org.gemoc.mocc.fsmkernel.model.xtext.FSMDsl.Editor.opened">
+                	<reference definitionId="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl.Editor.opened">
                 	</reference>
             	</visibleWhen>
 			</command>
@@ -213,11 +213,11 @@
 	</extension>
 	<extension point="org.eclipse.ui.handlers">
 	    <handler
-            class="org.gemoc.mocc.fsmkernel.model.xtext.ui.FSMDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
+            class="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui.FSMDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
             commandId="org.eclipse.xtext.ui.editor.FindReferences">
             <activeWhen>
                 <reference
-                    definitionId="org.gemoc.mocc.fsmkernel.model.xtext.FSMDsl.Editor.opened">
+                    definitionId="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl.Editor.opened">
                 </reference>
             </activeWhen>
         </handler>
@@ -228,19 +228,19 @@
 	<extension
 		point="org.eclipse.emf.ecore.extension_parser">
 		<parser
-			class="org.gemoc.mocc.fsmkernel.model.xtext.ui.FSMDslExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
+			class="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui.FSMDslExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
 			type="fsmdsl">
 		</parser>
 	</extension>
 	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
         <resourceServiceProvider
-            class="org.gemoc.mocc.fsmkernel.model.xtext.ui.FSMDslExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
+            class="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui.FSMDslExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
             uriExtension="fsmdsl">
         </resourceServiceProvider>
     </extension>
 
 
-    <!-- marker definitions for org.gemoc.mocc.fsmkernel.model.xtext.FSMDsl -->
+    <!-- marker definitions for org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl -->
     <extension
             id="fsmdsl.check.fast"
             name="FSMDsl Problem"
@@ -267,11 +267,11 @@
 	<extension
 		point="org.eclipse.ui.handlers">
 		<handler 
-			class="org.gemoc.mocc.fsmkernel.model.xtext.ui.FSMDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.outline.quickoutline.ShowQuickOutlineActionHandler"
+			class="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui.FSMDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.outline.quickoutline.ShowQuickOutlineActionHandler"
 			commandId="org.eclipse.xtext.ui.editor.outline.QuickOutline">
 			<activeWhen>
 				<reference
-					definitionId="org.gemoc.mocc.fsmkernel.model.xtext.FSMDsl.Editor.opened">
+					definitionId="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl.Editor.opened">
 				</reference>
 			</activeWhen>
 		</handler>
@@ -291,33 +291,33 @@
 				style="push"
 				tooltip="Open Quick Outline">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="org.gemoc.mocc.fsmkernel.model.xtext.FSMDsl.Editor.opened"/>
+					<reference definitionId="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl.Editor.opened"/>
 				</visibleWhen>
 			</command>
 		</menuContribution>
 	</extension>
-    <!-- quickfix marker resolution generator for org.gemoc.mocc.fsmkernel.model.xtext.FSMDsl -->
+    <!-- quickfix marker resolution generator for org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl -->
     <extension
             point="org.eclipse.ui.ide.markerResolution">
         <markerResolutionGenerator
-            class="org.gemoc.mocc.fsmkernel.model.xtext.ui.FSMDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-            markerType="org.gemoc.mocc.fsmkernel.model.xtext.fsmdsl.ui.fsmdsl.check.fast">
+            class="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui.FSMDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.fsmdsl.ui.fsmdsl.check.fast">
             <attribute
                 name="FIXABLE_KEY"
                 value="true">
             </attribute>
         </markerResolutionGenerator>
         <markerResolutionGenerator
-            class="org.gemoc.mocc.fsmkernel.model.xtext.ui.FSMDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-            markerType="org.gemoc.mocc.fsmkernel.model.xtext.fsmdsl.ui.fsmdsl.check.normal">
+            class="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui.FSMDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.fsmdsl.ui.fsmdsl.check.normal">
             <attribute
                 name="FIXABLE_KEY"
                 value="true">
             </attribute>
         </markerResolutionGenerator>
         <markerResolutionGenerator
-            class="org.gemoc.mocc.fsmkernel.model.xtext.ui.FSMDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-            markerType="org.gemoc.mocc.fsmkernel.model.xtext.fsmdsl.ui.fsmdsl.check.expensive">
+            class="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui.FSMDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.fsmdsl.ui.fsmdsl.check.expensive">
             <attribute
                 name="FIXABLE_KEY"
                 value="true">

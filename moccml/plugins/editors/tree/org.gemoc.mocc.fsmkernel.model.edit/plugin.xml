@@ -24,7 +24,7 @@
       <!-- @generated FSMModel -->
       <factory
             uri="http://org.gemoc.moccml.fsmmodel/1.0"
-            class="org.gemoc.mocc.fsmkernel.model.FSMModel.edit.provider.FSMModelItemProviderAdapterFactory"
+            class="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.edit.provider.FSMModelItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -37,7 +37,7 @@
       <!-- @generated FSMModel -->
       <factory
             uri="http://org.gemoc.mocc.fsmmodel/editionextension/1.0"
-            class="org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.edit.provider.EditionExtensionItemProviderAdapterFactory"
+            class="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.edit.provider.EditionExtensionItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

@@ -5,7 +5,7 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package org.gemoc.mocc.fsmkernel.model.design.services;
+package org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design.services;
 
 /**
  * @author koehnlein

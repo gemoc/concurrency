@@ -80,7 +80,7 @@
            	<packageToRegister>fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.TimeModelPackage</packageToRegister>
            	<packageToRegister>org.eclipse.xtext.xbase.XbasePackage</packageToRegister>  
            	<packageToRegister>org.gemoc.mocc.ccslmoc.model.moccml.CcslmoccPackage</packageToRegister> 
-           	<packageToRegister>org.gemoc.mocc.fsmkernel.model.FSMModel.FSMModelPackage</packageToRegister>
+           	<packageToRegister>org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.FSMModelPackage</packageToRegister>
     	        <packageToRegister>org.eclipse.xtend.core.xtend.XtendPackage</packageToRegister>
            <!--<packageToRegister>fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.BasicType.BasicTypePackage</packageToRegister>  -->	
            <!-- <packageToRegister>fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.ClockExpressionAndRelationPackage</packageToRegister>

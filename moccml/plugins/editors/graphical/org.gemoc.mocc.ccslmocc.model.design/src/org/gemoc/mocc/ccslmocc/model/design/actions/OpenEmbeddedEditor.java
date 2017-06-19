@@ -16,7 +16,7 @@
 package org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design.actions;
 
 import org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.ui.internal.MoCDslActivator;
-import org.gemoc.mocc.fsmkernel.model.design.actions.OpenXtextEmbeddedEditor;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design.actions.OpenXtextEmbeddedEditor;
 
 
 //import org.obeonetwork.dsl.viewpoint.xtext.support.action.OpenXtextEmbeddedEditor;

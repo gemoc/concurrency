@@ -13,10 +13,10 @@
  *   
  * $Id$
  */
-package org.gemoc.mocc.fsmkernel.model.design.services;
+package org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design.services;
 
 
-import org.gemoc.mocc.fsmkernel.model.FSMModel.Transition;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.Transition;
 
 
 /**

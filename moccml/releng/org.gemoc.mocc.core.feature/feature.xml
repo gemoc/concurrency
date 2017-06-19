@@ -34,7 +34,7 @@ which accompanies this distribution, and is available at http://www.eclipse.org/
    </license>
 
    <plugin
-         id="org.gemoc.mocc.fsmkernel.model"
+         id="org.eclipse.gemoc.moccml.constraint.fsmkernel.model"
          download-size="0"
          install-size="0"
          version="0.0.0"

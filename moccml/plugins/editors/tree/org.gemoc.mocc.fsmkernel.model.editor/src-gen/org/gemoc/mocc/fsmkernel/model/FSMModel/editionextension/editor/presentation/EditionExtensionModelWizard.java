@@ -13,7 +13,7 @@
  *   
  * $Id$
  */
-package org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.editor.presentation;
+package org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.editor.presentation;
 
 
 import java.util.ArrayList;
@@ -82,9 +82,9 @@ import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
 
-import org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.EditionExtensionFactory;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.EditionExtensionPackage;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.edit.provider.FSMModelEditPlugin;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.EditionExtensionFactory;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.EditionExtensionPackage;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.edit.provider.FSMModelEditPlugin;
 
 
 import org.eclipse.core.runtime.Path;
@@ -97,7 +97,7 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
 
-import org.gemoc.mocc.fsmkernel.model.FSMModel.editor.presentation.FSMModelEditorPlugin;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editor.presentation.FSMModelEditorPlugin;
 
 
 /**

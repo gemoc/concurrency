@@ -13,11 +13,11 @@
  *   
  * $Id$
  */
-package org.gemoc.mocc.fsmkernel.model.FSMModel.tests;
+package org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.tests;
 
 import junit.framework.TestCase;
 
-import org.gemoc.mocc.fsmkernel.model.FSMModel.AbstractTrigger;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.AbstractTrigger;
 
 /**
  * <!-- begin-user-doc -->

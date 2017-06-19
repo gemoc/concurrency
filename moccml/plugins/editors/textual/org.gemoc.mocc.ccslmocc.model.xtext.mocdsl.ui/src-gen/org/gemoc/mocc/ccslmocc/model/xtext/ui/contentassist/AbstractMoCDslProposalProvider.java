@@ -9,12 +9,12 @@ import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
 
 /**
- * Represents a generated, default implementation of superclass {@link org.gemoc.mocc.fsmkernel.model.xtext.ui.contentassist.FSMDslProposalProvider}.
+ * Represents a generated, default implementation of superclass {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui.contentassist.FSMDslProposalProvider}.
  * Methods are dynamically dispatched on the first parameter, i.e., you can override them 
  * with a more concrete subtype. 
  */
 @SuppressWarnings("all")
-public class AbstractMoCDslProposalProvider extends org.gemoc.mocc.fsmkernel.model.xtext.ui.contentassist.FSMDslProposalProvider {
+public class AbstractMoCDslProposalProvider extends org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui.contentassist.FSMDslProposalProvider {
 		
 	public void completeStateRelationBasedLibrary_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);

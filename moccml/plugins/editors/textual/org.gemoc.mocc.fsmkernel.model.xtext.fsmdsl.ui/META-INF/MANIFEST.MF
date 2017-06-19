@@ -3,9 +3,9 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name
 Bundle-Vendor: %Bundle-Vendor
 Bundle-Version: 0.1.1.qualifier
-Bundle-SymbolicName: org.gemoc.mocc.fsmkernel.model.xtext.fsmdsl.ui;singleton:=true
+Bundle-SymbolicName: org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.fsmdsl.ui;singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: org.gemoc.mocc.fsmkernel.model.xtext.fsmdsl,
+Require-Bundle: org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.fsmdsl,
  org.eclipse.xtext.ui,
  org.eclipse.ui.editors;bundle-version="3.5.0",
  org.eclipse.ui.ide;bundle-version="3.5.0",
@@ -25,13 +25,13 @@ Require-Bundle: org.gemoc.mocc.fsmkernel.model.xtext.fsmdsl,
 Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Bundle-Activator: org.gemoc.mocc.fsmkernel.model.xtext.ui.internal.FSMDslActivator
-Export-Package: org.gemoc.mocc.fsmkernel.model.xtext.ui,
- org.gemoc.mocc.fsmkernel.model.xtext.ui.contentassist,
- org.gemoc.mocc.fsmkernel.model.xtext.ui.contentassist.antlr,
- org.gemoc.mocc.fsmkernel.model.xtext.ui.contentassist.antlr.internal,
- org.gemoc.mocc.fsmkernel.model.xtext.ui.internal,
- org.gemoc.mocc.fsmkernel.model.xtext.ui.labeling,
- org.gemoc.mocc.fsmkernel.model.xtext.ui.outline,
- org.gemoc.mocc.fsmkernel.model.xtext.ui.quickfix,
- org.gemoc.mocc.fsmkernel.model.xtext.ui.wizard
+Bundle-Activator: org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui.internal.FSMDslActivator
+Export-Package: org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui,
+ org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui.contentassist,
+ org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui.contentassist.antlr,
+ org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui.contentassist.antlr.internal,
+ org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui.internal,
+ org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui.labeling,
+ org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui.outline,
+ org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui.quickfix,
+ org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui.wizard

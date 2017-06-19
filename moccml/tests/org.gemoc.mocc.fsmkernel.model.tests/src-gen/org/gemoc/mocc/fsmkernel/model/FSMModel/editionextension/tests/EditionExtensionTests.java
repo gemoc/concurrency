@@ -13,7 +13,7 @@
  *   
  * $Id$
  */
-package org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.tests;
+package org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.tests;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;

@@ -13,7 +13,7 @@
  *   
  * $Id$
  */
-package org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.editor.presentation;
+package org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.editor.presentation;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -52,7 +52,7 @@ import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
 
-import org.gemoc.mocc.fsmkernel.model.FSMModel.editor.presentation.FSMModelEditorPlugin;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editor.presentation.FSMModelEditorPlugin;
 
 /**
  * This is the action bar contributor for the EditionExtension model editor.
@@ -193,7 +193,7 @@ public class EditionExtensionActionBarContributor
 	public void contributeToMenu(IMenuManager menuManager) {
 		super.contributeToMenu(menuManager);
 
-		IMenuManager submenuManager = new MenuManager(FSMModelEditorPlugin.INSTANCE.getString("_UI_EditionExtensionEditor_menu"), "org.gemoc.mocc.fsmkernel.model.FSMModel.editionextensionMenuID");
+		IMenuManager submenuManager = new MenuManager(FSMModelEditorPlugin.INSTANCE.getString("_UI_EditionExtensionEditor_menu"), "org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextensionMenuID");
 		menuManager.insertAfter("additions", submenuManager);
 		submenuManager.add(new Separator("settings"));
 		submenuManager.add(new Separator("actions"));

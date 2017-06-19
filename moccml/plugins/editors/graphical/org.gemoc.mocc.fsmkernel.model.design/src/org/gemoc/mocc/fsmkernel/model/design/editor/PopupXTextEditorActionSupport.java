@@ -13,7 +13,7 @@
  *   
  * $Id$
  */
-package org.gemoc.mocc.fsmkernel.model.design.editor;
+package org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design.editor;
 
 import java.util.List;
 import java.util.Map;
@@ -42,7 +42,7 @@ import org.eclipse.ui.texteditor.ITextEditorActionConstants;
 import org.eclipse.ui.texteditor.ITextEditorActionDefinitionIds;
 import org.eclipse.ui.texteditor.IUpdate;
 import org.eclipse.xtext.ui.editor.XtextSourceViewer;
-import org.gemoc.mocc.fsmkernel.model.design.edit.OperationHistoryListener;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design.edit.OperationHistoryListener;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;

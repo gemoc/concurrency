@@ -10,7 +10,7 @@
  * 
  ****************************************************************************/
 
-package org.gemoc.mocc.fsmkernel.model.design.actions;
+package org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design.actions;
 
 import java.util.Collection;
 import java.util.Map;
@@ -27,7 +27,7 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PlatformUI;
-import org.gemoc.mocc.fsmkernel.model.design.editor.PopupXTextEditorHelper;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design.editor.PopupXTextEditorHelper;
 
 import com.google.inject.Injector;
 

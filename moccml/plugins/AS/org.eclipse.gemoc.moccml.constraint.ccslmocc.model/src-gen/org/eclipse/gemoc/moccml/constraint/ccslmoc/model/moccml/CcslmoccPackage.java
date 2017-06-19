@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
-import org.gemoc.mocc.fsmkernel.model.FSMModel.FSMModelPackage;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.FSMModelPackage;
 
 /**
  * <!-- begin-user-doc -->

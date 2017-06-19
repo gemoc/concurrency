@@ -35,8 +35,8 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.gemoc.mocc.ccslmoc.model.moccml.CcslmoccPackage;
 import org.gemoc.mocc.ccslmoc.model.moccml.StateMachineRelationDefinition;
 
-import org.gemoc.mocc.fsmkernel.model.FSMModel.FSMModelFactory;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.FSMModelPackage;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.FSMModelFactory;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.FSMModelPackage;
 
 /**
  * This is the item provider adapter for a {@link org.gemoc.mocc.ccslmoc.model.moccml.StateMachineRelationDefinition} object.

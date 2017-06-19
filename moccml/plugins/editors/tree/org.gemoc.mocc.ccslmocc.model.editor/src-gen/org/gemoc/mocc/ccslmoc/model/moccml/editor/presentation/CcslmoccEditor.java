@@ -185,7 +185,7 @@ import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.provider.TimeModelIt
 
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
-import org.gemoc.mocc.fsmkernel.model.FSMModel.edit.provider.FSMModelItemProviderAdapterFactory;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.edit.provider.FSMModelItemProviderAdapterFactory;
 
 
 /**

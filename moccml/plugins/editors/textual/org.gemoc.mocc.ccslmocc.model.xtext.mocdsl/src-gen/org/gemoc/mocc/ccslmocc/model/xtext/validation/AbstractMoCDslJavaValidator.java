@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.xtext.validation.ComposedChecks;
 
 @ComposedChecks(validators= {org.eclipse.xtext.validation.ImportUriValidator.class, org.eclipse.xtext.validation.NamesAreUniqueValidator.class})
-public class AbstractMoCDslJavaValidator extends org.gemoc.mocc.fsmkernel.model.xtext.validation.FSMDslJavaValidator {
+public class AbstractMoCDslJavaValidator extends org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.validation.FSMDslJavaValidator {
 
 	@Override
 	protected List<EPackage> getEPackages() {

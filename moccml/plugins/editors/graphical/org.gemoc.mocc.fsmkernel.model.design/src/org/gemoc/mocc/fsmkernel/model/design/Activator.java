@@ -13,7 +13,7 @@
  *   
  * $Id$
  */
-package org.gemoc.mocc.fsmkernel.model.design;
+package org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -32,7 +32,7 @@ import org.osgi.framework.BundleContext;
  */
 public class Activator extends AbstractUIPlugin {
     // The plug-in ID
-    public static final String PLUGIN_ID = "org.gemoc.mocc.fsmkernel.model.design";
+    public static final String PLUGIN_ID = "org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design";
 
     // The shared instance
     private static Activator plugin;

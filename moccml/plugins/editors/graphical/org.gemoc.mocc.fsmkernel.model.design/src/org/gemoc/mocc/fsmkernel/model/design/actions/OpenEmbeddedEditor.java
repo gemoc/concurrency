@@ -13,9 +13,9 @@
  *   
  * $Id$
  */
-package org.gemoc.mocc.fsmkernel.model.design.actions;
+package org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design.actions;
 
-import org.gemoc.mocc.fsmkernel.model.xtext.ui.internal.FSMDslActivator;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui.internal.FSMDslActivator;
 
 import com.google.inject.Injector;
 

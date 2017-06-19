@@ -12,7 +12,7 @@ import org.eclipse.xtext.*;
 import org.eclipse.xtext.service.GrammarProvider;
 import org.eclipse.xtext.service.AbstractElementFinder.*;
 
-import org.gemoc.mocc.fsmkernel.model.xtext.services.FSMDslGrammarAccess;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.services.FSMDslGrammarAccess;
 import fr.inria.aoste.timesquare.ccslkernel.library.xtext.services.CCSLLibraryGrammarAccess;
 
 @Singleton

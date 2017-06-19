@@ -13,12 +13,12 @@
  *   
  * $Id$
  */
-package org.gemoc.mocc.fsmkernel.model.FSMModel.tests;
+package org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.tests;
 
 import junit.textui.TestRunner;
 
-import org.gemoc.mocc.fsmkernel.model.FSMModel.FSMModelFactory;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.Trigger;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.FSMModelFactory;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.Trigger;
 
 /**
  * <!-- begin-user-doc -->

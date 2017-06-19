@@ -13,7 +13,7 @@
  *   
  * $Id$
  */
-package org.gemoc.mocc.fsmkernel.model.FSMModel.editor.presentation;
+package org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editor.presentation;
 
 
 import java.io.IOException;
@@ -167,7 +167,7 @@ import org.eclipse.emf.edit.ui.util.EditUIUtil;
 
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
-import org.gemoc.mocc.fsmkernel.model.FSMModel.edit.provider.FSMModelItemProviderAdapterFactory;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.edit.provider.FSMModelItemProviderAdapterFactory;
 
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.BasicType.provider.BasicTypeItemProviderAdapterFactory;
 
@@ -184,7 +184,7 @@ import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.provider.C
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.provider.TimeModelItemProviderAdapterFactory;
 
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.edit.provider.EditionExtensionItemProviderAdapterFactory;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.edit.provider.EditionExtensionItemProviderAdapterFactory;
 
 
 /**
@@ -646,7 +646,7 @@ public class FSMModelEditor
 			BasicDiagnostic diagnostic =
 				new BasicDiagnostic
 					(Diagnostic.OK,
-					 "org.gemoc.mocc.fsmkernel.model.editor",
+					 "org.eclipse.gemoc.moccml.constraint.fsmkernel.model.editor",
 					 0,
 					 null,
 					 new Object [] { editingDomain.getResourceSet() });
@@ -1017,7 +1017,7 @@ public class FSMModelEditor
 			BasicDiagnostic basicDiagnostic =
 				new BasicDiagnostic
 					(Diagnostic.ERROR,
-					 "org.gemoc.mocc.fsmkernel.model.editor",
+					 "org.eclipse.gemoc.moccml.constraint.fsmkernel.model.editor",
 					 0,
 					 getString("_UI_CreateModelError_message", resource.getURI()),
 					 new Object [] { exception == null ? (Object)resource : exception });
@@ -1028,7 +1028,7 @@ public class FSMModelEditor
 			return
 				new BasicDiagnostic
 					(Diagnostic.ERROR,
-					 "org.gemoc.mocc.fsmkernel.model.editor",
+					 "org.eclipse.gemoc.moccml.constraint.fsmkernel.model.editor",
 					 0,
 					 getString("_UI_CreateModelError_message", resource.getURI()),
 					 new Object[] { exception });

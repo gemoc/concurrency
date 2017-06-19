@@ -13,7 +13,7 @@
  *   
  * $Id$
  */
-package org.gemoc.mocc.fsmkernel.model.FSMModel.edit.provider;
+package org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.edit.provider;
 
 
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.provider.NamedElementItemProvider;
@@ -24,11 +24,11 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.FSMModelPackage;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.State;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.FSMModelPackage;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.State;
 
 /**
- * This is the item provider adapter for a {@link org.gemoc.mocc.fsmkernel.model.FSMModel.State} object.
+ * This is the item provider adapter for a {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.State} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated

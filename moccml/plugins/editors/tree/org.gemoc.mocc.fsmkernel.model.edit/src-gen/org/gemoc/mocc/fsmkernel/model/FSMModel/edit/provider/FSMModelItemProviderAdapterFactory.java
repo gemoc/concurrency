@@ -13,7 +13,7 @@
  *   
  * $Id$
  */
-package org.gemoc.mocc.fsmkernel.model.FSMModel.edit.provider;
+package org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.edit.provider;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -34,7 +34,7 @@ import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
-import org.gemoc.mocc.fsmkernel.model.FSMModel.util.FSMModelAdapterFactory;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.util.FSMModelAdapterFactory;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.
@@ -85,7 +85,7 @@ public class FSMModelItemProviderAdapterFactory extends FSMModelAdapterFactory i
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.gemoc.mocc.fsmkernel.model.FSMModel.State} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.State} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -93,7 +93,7 @@ public class FSMModelItemProviderAdapterFactory extends FSMModelAdapterFactory i
 	protected StateItemProvider stateItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.gemoc.mocc.fsmkernel.model.FSMModel.State}.
+	 * This creates an adapter for a {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.State}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -108,7 +108,7 @@ public class FSMModelItemProviderAdapterFactory extends FSMModelAdapterFactory i
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.gemoc.mocc.fsmkernel.model.FSMModel.Transition} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.Transition} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -116,7 +116,7 @@ public class FSMModelItemProviderAdapterFactory extends FSMModelAdapterFactory i
 	protected TransitionItemProvider transitionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.gemoc.mocc.fsmkernel.model.FSMModel.Transition}.
+	 * This creates an adapter for a {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.Transition}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -131,7 +131,7 @@ public class FSMModelItemProviderAdapterFactory extends FSMModelAdapterFactory i
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.gemoc.mocc.fsmkernel.model.FSMModel.StateMachineDefinition} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.StateMachineDefinition} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -139,7 +139,7 @@ public class FSMModelItemProviderAdapterFactory extends FSMModelAdapterFactory i
 	protected StateMachineDefinitionItemProvider stateMachineDefinitionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.gemoc.mocc.fsmkernel.model.FSMModel.StateMachineDefinition}.
+	 * This creates an adapter for a {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.StateMachineDefinition}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -154,7 +154,7 @@ public class FSMModelItemProviderAdapterFactory extends FSMModelAdapterFactory i
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.gemoc.mocc.fsmkernel.model.FSMModel.Guard} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.Guard} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -162,7 +162,7 @@ public class FSMModelItemProviderAdapterFactory extends FSMModelAdapterFactory i
 	protected GuardItemProvider guardItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.gemoc.mocc.fsmkernel.model.FSMModel.Guard}.
+	 * This creates an adapter for a {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.Guard}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -177,7 +177,7 @@ public class FSMModelItemProviderAdapterFactory extends FSMModelAdapterFactory i
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.gemoc.mocc.fsmkernel.model.FSMModel.Trigger} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.Trigger} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -185,7 +185,7 @@ public class FSMModelItemProviderAdapterFactory extends FSMModelAdapterFactory i
 	protected TriggerItemProvider triggerItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.gemoc.mocc.fsmkernel.model.FSMModel.Trigger}.
+	 * This creates an adapter for a {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.Trigger}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -200,7 +200,7 @@ public class FSMModelItemProviderAdapterFactory extends FSMModelAdapterFactory i
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.gemoc.mocc.fsmkernel.model.FSMModel.IntegerAssignement} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.IntegerAssignement} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -208,7 +208,7 @@ public class FSMModelItemProviderAdapterFactory extends FSMModelAdapterFactory i
 	protected IntegerAssignementItemProvider integerAssignementItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.gemoc.mocc.fsmkernel.model.FSMModel.IntegerAssignement}.
+	 * This creates an adapter for a {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.IntegerAssignement}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -223,7 +223,7 @@ public class FSMModelItemProviderAdapterFactory extends FSMModelAdapterFactory i
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.gemoc.mocc.fsmkernel.model.FSMModel.DeclarationBlock} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.DeclarationBlock} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -231,7 +231,7 @@ public class FSMModelItemProviderAdapterFactory extends FSMModelAdapterFactory i
 	protected DeclarationBlockItemProvider declarationBlockItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.gemoc.mocc.fsmkernel.model.FSMModel.DeclarationBlock}.
+	 * This creates an adapter for a {@link org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.DeclarationBlock}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

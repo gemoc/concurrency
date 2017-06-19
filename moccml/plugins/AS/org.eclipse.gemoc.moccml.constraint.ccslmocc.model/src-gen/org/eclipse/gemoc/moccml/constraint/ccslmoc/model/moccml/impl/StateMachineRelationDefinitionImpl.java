@@ -36,11 +36,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.gemoc.mocc.ccslmoc.model.moccml.CcslmoccPackage;
 import org.gemoc.mocc.ccslmoc.model.moccml.StateMachineRelationDefinition;
 
-import org.gemoc.mocc.fsmkernel.model.FSMModel.DeclarationBlock;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.FSMModelPackage;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.State;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.StateMachineDefinition;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.Transition;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.DeclarationBlock;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.FSMModelPackage;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.State;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.StateMachineDefinition;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.Transition;
 
 /**
  * <!-- begin-user-doc -->

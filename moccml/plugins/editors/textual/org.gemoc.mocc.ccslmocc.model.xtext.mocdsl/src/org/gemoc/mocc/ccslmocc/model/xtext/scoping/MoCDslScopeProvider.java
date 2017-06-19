@@ -10,6 +10,6 @@ package org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.scoping;
  * on how and when to use it 
  *
  */
-public class MoCDslScopeProvider extends org.gemoc.mocc.fsmkernel.model.xtext.scoping.FSMDslScopeProvider {
+public class MoCDslScopeProvider extends org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.scoping.FSMDslScopeProvider {
 
 }

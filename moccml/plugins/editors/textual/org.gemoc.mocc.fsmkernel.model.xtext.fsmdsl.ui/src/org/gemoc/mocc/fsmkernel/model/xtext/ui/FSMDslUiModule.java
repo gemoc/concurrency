@@ -13,7 +13,7 @@
  *   
  * $Id$
  */
-package org.gemoc.mocc.fsmkernel.model.xtext.ui;
+package org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui;
 
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -40,7 +40,7 @@ import fr.inria.aoste.timesquare.ccslkernel.xtext.util.CCSLSemanticHighlightingC
  * @author Stfun
  * @generated NOT 
  */
-public class FSMDslUiModule extends org.gemoc.mocc.fsmkernel.model.xtext.ui.AbstractFSMDslUiModule {
+public class FSMDslUiModule extends org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.ui.AbstractFSMDslUiModule {
 	public FSMDslUiModule(AbstractUIPlugin plugin) {
 		super(plugin);
 	}

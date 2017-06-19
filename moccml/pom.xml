@@ -17,19 +17,19 @@
         <!-- plugins -->
         <module>plugins/solver/fr.inria.aoste.timesquare.ccslkernel.solver.extension.statemachine</module>
 
-        <module>plugins/AS/org.gemoc.mocc.fsmkernel.model</module>
-        <module>plugins/editors/tree/org.gemoc.mocc.fsmkernel.model.edit</module>
-        <module>plugins/editors/tree/org.gemoc.mocc.fsmkernel.model.editor</module>
+        <module>plugins/AS/org.eclipse.gemoc.moccml.constraint.fsmkernel.model</module>
+        <module>plugins/editors/tree/org.eclipse.gemoc.moccml.constraint.fsmkernel.model.edit</module>
+        <module>plugins/editors/tree/org.eclipse.gemoc.moccml.constraint.fsmkernel.model.editor</module>
         <module>plugins/AS/org.eclipse.gemoc.moccml.constraint.ccslmocc.model</module>
         <module>plugins/editors/tree/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.edit</module>
         <module>plugins/editors/tree/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.editor</module>
         
-        <module>plugins/editors/textual/org.gemoc.mocc.fsmkernel.model.xtext.fsmdsl</module>
-        <module>plugins/editors/textual/org.gemoc.mocc.fsmkernel.model.xtext.fsmdsl.ui</module>
+        <module>plugins/editors/textual/org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.fsmdsl</module>
+        <module>plugins/editors/textual/org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.fsmdsl.ui</module>
         <module>plugins/editors/textual/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl</module>
         <module>plugins/editors/textual/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl.ui</module>
         
-        <module>plugins/editors/graphical/org.gemoc.mocc.fsmkernel.model.design</module>
+        <module>plugins/editors/graphical/org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design</module>
         <module>plugins/editors/graphical/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design</module>
 
         <!-- feature and update site -->

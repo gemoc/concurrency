@@ -10,7 +10,7 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.gemoc.mocc.ccslmoc.model.moccml.tests
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.gemoc.moccml.constraint.ccslmocc.model;visibility:=reexport,
- org.gemoc.mocc.fsmkernel.model;visibility:=reexport,
+ org.eclipse.gemoc.moccml.constraint.fsmkernel.model;visibility:=reexport,
  fr.inria.aoste.timesquare.ccslkernel.model;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.junit;visibility:=reexport

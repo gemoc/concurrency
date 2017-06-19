@@ -12,8 +12,8 @@ Export-Package: org.gemoc.mocc.ccslmoc.model.moccml.edit.provider
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.gemoc.moccml.constraint.ccslmocc.model;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport,
- org.gemoc.mocc.fsmkernel.model;visibility:=reexport,
- org.gemoc.mocc.fsmkernel.model.edit;visibility:=reexport,
+ org.eclipse.gemoc.moccml.constraint.fsmkernel.model;visibility:=reexport,
+ org.eclipse.gemoc.moccml.constraint.fsmkernel.model.edit;visibility:=reexport,
  fr.inria.aoste.timesquare.ccslkernel.model;visibility:=reexport,
  fr.inria.aoste.timesquare.ccslkernel.model.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy

@@ -14,7 +14,7 @@
  *   
  * $Id$
  */
-package org.gemoc.mocc.fsmkernel.model.design.editor;
+package org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design.editor;
 
 
 import java.io.IOException;
@@ -56,10 +56,10 @@ import org.eclipse.xtext.ui.editor.XtextSourceViewer;
 import org.eclipse.xtext.ui.editor.info.ResourceWorkingCopyFileEditorInput;
 import org.eclipse.xtext.ui.editor.model.IXtextDocument;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.Transition;
-import org.gemoc.mocc.fsmkernel.model.design.Activator;
-import org.gemoc.mocc.fsmkernel.model.design.services.ResourceHelper;
-import org.gemoc.mocc.fsmkernel.model.design.services.StringUtil;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.Transition;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design.Activator;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design.services.ResourceHelper;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design.services.StringUtil;
 
 import com.google.inject.Binder;
 import com.google.inject.Guice;

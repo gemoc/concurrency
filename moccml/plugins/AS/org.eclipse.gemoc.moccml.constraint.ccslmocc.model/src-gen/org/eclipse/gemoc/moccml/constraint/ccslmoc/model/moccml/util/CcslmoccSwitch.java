@@ -28,8 +28,8 @@ import org.eclipse.emf.ecore.util.Switch;
 
 import org.gemoc.mocc.ccslmoc.model.moccml.*;
 
-import org.gemoc.mocc.fsmkernel.model.FSMModel.AbstractAction;
-import org.gemoc.mocc.fsmkernel.model.FSMModel.StateMachineDefinition;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.AbstractAction;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.StateMachineDefinition;
 
 /**
  * <!-- begin-user-doc -->

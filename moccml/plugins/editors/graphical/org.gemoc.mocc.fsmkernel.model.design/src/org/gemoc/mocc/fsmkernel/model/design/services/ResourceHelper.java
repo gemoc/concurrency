@@ -13,7 +13,7 @@
  *   
  * $Id$
  */
-package org.gemoc.mocc.fsmkernel.model.design.services;
+package org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design.services;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -45,7 +45,7 @@ import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.resource.IResourceFactory;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
-import org.gemoc.mocc.fsmkernel.model.design.editor.GraphicalPartHelper;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.design.editor.GraphicalPartHelper;
 
 import com.google.inject.Injector;
 

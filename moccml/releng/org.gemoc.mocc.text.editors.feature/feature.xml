@@ -33,14 +33,14 @@ which accompanies this distribution, and is available at http://www.eclipse.org/
    </license>
 
    <plugin
-         id="org.gemoc.mocc.fsmkernel.model.xtext.fsmdsl"
+         id="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.fsmdsl"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.gemoc.mocc.fsmkernel.model.xtext.fsmdsl.ui"
+         id="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.fsmdsl.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"

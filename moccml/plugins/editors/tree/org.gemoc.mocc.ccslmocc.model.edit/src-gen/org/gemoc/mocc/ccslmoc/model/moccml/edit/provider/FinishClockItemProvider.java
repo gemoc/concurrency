@@ -29,7 +29,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 import org.gemoc.mocc.ccslmoc.model.moccml.CcslmoccPackage;
 
-import org.gemoc.mocc.fsmkernel.model.FSMModel.edit.provider.AbstractActionItemProvider;
+import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.edit.provider.AbstractActionItemProvider;
 
 /**
  * This is the item provider adapter for a {@link org.gemoc.mocc.ccslmoc.model.moccml.FinishClock} object.
