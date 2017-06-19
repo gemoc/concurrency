@@ -12,7 +12,7 @@
  $Id$
 -->
 <feature
-      id="org.gemoc.mocc.feature"
+      id="org.eclipse.gemoc.moccml.constraint.feature"
       label="Gemoc MoCC"
       version="0.1.1.qualifier"
       provider-name="ENSTA Bretagne">
@@ -33,19 +33,19 @@ which accompanies this distribution, and is available at http://www.eclipse.org/
    </license>
 
    <includes
-         id="org.gemoc.mocc.core.feature"
+         id="org.eclipse.gemoc.moccml.constraint.core.feature"
          version="0.0.0"/>
 
    <includes
-         id="org.gemoc.mocc.graphical.editors.feature"
+         id="org.eclipse.gemoc.moccml.constraint.graphical.editors.feature"
          version="0.0.0"/>
 
    <includes
-         id="org.gemoc.mocc.text.editors.feature"
+         id="org.eclipse.gemoc.moccml.constraint.text.editors.feature"
          version="0.0.0"/>
 
    <includes
-         id="org.gemoc.mocc.timesquare.ccsl.solver.extension.automata.feature"
+         id="org.eclipse.gemoc.moccml.constraint.ccsl.solver.extension.automata.feature"
          version="0.0.0"/>
 
 </feature>

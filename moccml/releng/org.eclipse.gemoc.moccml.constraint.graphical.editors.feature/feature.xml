@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.gemoc.mocc.graphical.editors.feature"
+      id="org.eclipse.gemoc.moccml.constraint.graphical.editors.feature"
       label="Gemoc MoCC Graphical Concrete Syntax Editors"
       version="0.1.1.qualifier"
       provider-name="ENSTA Bretagne">

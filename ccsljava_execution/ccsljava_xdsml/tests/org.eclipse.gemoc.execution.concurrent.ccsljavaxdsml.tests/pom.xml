@@ -173,17 +173,17 @@
 			            </requirement>
 			            <requirement>
 			               <type>eclipse-feature</type>
-			               <id>org.gemoc.mocc.feature</id>
+			               <id>org.eclipse.gemoc.moccml.constraint.feature</id>
 			               <versionRange>0.0.1</versionRange>
 			            </requirement>
 			            <requirement>
 			               <type>eclipse-feature</type>
-			               <id>org.gemoc.mocc.core.feature</id>
+			               <id>org.eclipse.gemoc.moccml.constraint.core.feature</id>
 			               <versionRange>0.0.1</versionRange>
 			            </requirement>
 			            <requirement>
 			               <type>eclipse-feature</type>
-			               <id>org.gemoc.mocc.timesquare.ccsl.solver.extension.automata.feature</id>
+			               <id>org.eclipse.gemoc.moccml.constraint.ccsl.solver.extension.automata.feature</id>
 			               <versionRange>0.0.1</versionRange>
 			            </requirement>
 			            <requirement>

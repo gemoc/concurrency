@@ -12,7 +12,7 @@
  $Id$
 -->
 <feature
-      id="org.gemoc.mocc.text.editors.feature"
+      id="org.eclipse.gemoc.moccml.constraint.text.editors.feature"
       label="Gemoc MoCC Text Editors"
       version="0.1.1.qualifier"
       provider-name="ENSTA Bretagne">

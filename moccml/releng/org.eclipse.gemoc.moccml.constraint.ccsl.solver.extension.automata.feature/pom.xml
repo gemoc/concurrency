@@ -9,7 +9,7 @@
     <version>0.1.1-SNAPSHOT</version>
   </parent>
 
-  <artifactId>org.gemoc.mocc.text.editors.feature</artifactId>
+  <artifactId>org.eclipse.gemoc.moccml.constraint.ccsl.solver.extension.automata.feature</artifactId>
   <packaging>eclipse-feature</packaging>
 
 </project> 

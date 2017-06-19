@@ -33,11 +33,11 @@
         <module>plugins/editors/graphical/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design</module>
 
         <!-- feature and update site -->
-        <module>releng/org.gemoc.mocc.feature</module>
-        <module>releng/org.gemoc.mocc.core.feature</module>
-        <module>releng/org.gemoc.mocc.graphical.editors.feature</module>
-        <module>releng/org.gemoc.mocc.text.editors.feature</module>
-        <module>releng/org.gemoc.mocc.timesquare.ccsl.solver.extension.automata.feature</module>
+        <module>releng/org.eclipse.gemoc.moccml.constraint.feature</module>
+        <module>releng/org.eclipse.gemoc.moccml.constraint.core.feature</module>
+        <module>releng/org.eclipse.gemoc.moccml.constraint.graphical.editors.feature</module>
+        <module>releng/org.eclipse.gemoc.moccml.constraint.text.editors.feature</module>
+        <module>releng/org.eclipse.gemoc.moccml.constraint.ccsl.solver.extension.automata.feature</module>
         <module>releng/org.gemoc.mocc.p2updatesite</module>
     </modules>
 
