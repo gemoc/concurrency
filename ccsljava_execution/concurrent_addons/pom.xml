@@ -14,7 +14,7 @@
     <modules>
         <!-- plugins -->
         <module>plugins/org.eclipse.gemoc.addon.vcdgenerator</module>
-        <module>plugins/org.gemoc.concurrent_addons.eventscheduling.timeline</module>
+        <module>plugins/org.eclipse.gemoc.addon.eventscheduling.timeline</module>
         
         <!-- feature and update site -->
         <module>releng/org.gemoc.concurrent_addons.feature</module>

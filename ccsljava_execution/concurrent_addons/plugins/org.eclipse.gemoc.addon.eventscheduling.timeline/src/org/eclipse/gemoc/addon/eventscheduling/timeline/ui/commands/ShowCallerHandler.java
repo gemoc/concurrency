@@ -1,4 +1,4 @@
-package org.gemoc.concurrent_addons.eventscheduling.timeline.ui.commands;
+package org.eclipse.gemoc.addon.eventscheduling.timeline.ui.commands;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

@@ -25,7 +25,7 @@
         <module>ccsljava_xdsml/plugins/org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui</module>
         <module>ccsljava_xdsml/plugins/org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.utils</module>
         <module>concurrent_addons/plugins/org.eclipse.gemoc.addon.vcdgenerator</module>
-        <module>concurrent_addons/plugins/org.gemoc.concurrent_addons.eventscheduling.timeline</module>
+        <module>concurrent_addons/plugins/org.eclipse.gemoc.addon.eventscheduling.timeline</module>
         
         
         <!-- feature and update site -->

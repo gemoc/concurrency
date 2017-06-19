@@ -9,9 +9,9 @@
       </category>
       <view
             category="org.eclipse.gemoc.executionframework.ui.category"
-            class="org.gemoc.concurrent_addons.eventscheduling.timeline.views.timeline.EventSchedulingTimeLineView"
+            class="org.eclipse.gemoc.addon.eventscheduling.timeline.views.timeline.EventSchedulingTimeLineView"
             icon="icons/IconeGemocModel-16.png"
-            id="org.gemoc.concurrent_addons.eventscheduling.timeline.views.timeline.EventSchedulingTimeLineView"
+            id="org.eclipse.gemoc.addon.eventscheduling.timeline.views.timeline.EventSchedulingTimeLineView"
             name="MultiBranch Timeline">
       </view>
    </extension>
@@ -19,9 +19,9 @@
          point="org.eclipse.ui.menus">
       <menuContribution
             allPopups="false"
-            locationURI="toolbar:org.gemoc.concurrent_addons.eventscheduling.timeline.views.timeline.EventSchedulingTimeLineView">
+            locationURI="toolbar:org.eclipse.gemoc.addon.eventscheduling.timeline.views.timeline.EventSchedulingTimeLineView">
          <command
-               commandId="org.gemoc.concurrent_addons.eventscheduling.timeline.views.timeline.Follow"
+               commandId="org.eclipse.gemoc.addon.eventscheduling.timeline.views.timeline.Follow"
                icon="icons/play-4-16.png"
                label="Follow"
                style="toggle"
@@ -33,7 +33,7 @@
          point="org.eclipse.ui.commands">
       <command
             defaultHandler="org.eclipse.gemoc.timeline.command.FollowHandler"
-            id="org.gemoc.concurrent_addons.eventscheduling.timeline.views.timeline.Follow"
+            id="org.eclipse.gemoc.addon.eventscheduling.timeline.views.timeline.Follow"
             name="Follow">
          <state
                class="org.eclipse.ui.handlers.RegistryToggleState:true"
@@ -47,8 +47,8 @@
 	<extension
             point="org.eclipse.ui.commands">
          <command
-               defaultHandler="org.gemoc.concurrent_addons.eventscheduling.timeline.ui.commands.ShowCallerHandler"
-               id="org.gemoc.concurrent_addons.eventscheduling.timeline.ui.commands.ShowCallerCommand"
+               defaultHandler="org.eclipse.gemoc.addon.eventscheduling.timeline.ui.commands.ShowCallerHandler"
+               id="org.eclipse.gemoc.addon.eventscheduling.timeline.ui.commands.ShowCallerCommand"
                name="Show Caller">
          </command>
       </extension>
@@ -56,9 +56,9 @@
             point="org.eclipse.ui.menus">
          <menuContribution
                allPopups="false"
-               locationURI="popup:org.gemoc.concurrent_addons.eventscheduling.timeline.views.timeline.EventSchedulingTimeLineView">
+               locationURI="popup:org.eclipse.gemoc.addon.eventscheduling.timeline.views.timeline.EventSchedulingTimeLineView">
             <command
-                  commandId="org.gemoc.concurrent_addons.eventscheduling.timeline.ui.commands.ShowCallerCommand"
+                  commandId="org.eclipse.gemoc.addon.eventscheduling.timeline.ui.commands.ShowCallerCommand"
                   icon="icons/showCaller.png"
                   label="Show Caller"
                   style="toggle">
@@ -86,7 +86,7 @@
          <perspectiveExtension
                targetID="org.eclipse.sirius.ui.tools.perspective.modeling">
             <viewShortcut
-                  id="org.gemoc.concurrent_addons.eventscheduling.timeline.views.timeline.EventSchedulingTimeLineView">
+                  id="org.eclipse.gemoc.addon.eventscheduling.timeline.views.timeline.EventSchedulingTimeLineView">
             </viewShortcut>
          </perspectiveExtension>
       </extension>
@@ -95,7 +95,7 @@
          <perspectiveExtension
                targetID="org.eclipse.debug.ui.DebugPerspective">
             <viewShortcut
-                  id="org.gemoc.concurrent_addons.eventscheduling.timeline.views.timeline.EventSchedulingTimeLineView">
+                  id="org.eclipse.gemoc.addon.eventscheduling.timeline.views.timeline.EventSchedulingTimeLineView">
             </viewShortcut>
          </perspectiveExtension>
       </extension>

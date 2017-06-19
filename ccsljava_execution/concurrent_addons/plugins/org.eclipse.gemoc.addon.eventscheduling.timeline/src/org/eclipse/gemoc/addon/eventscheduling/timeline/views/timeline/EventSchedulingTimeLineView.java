@@ -1,4 +1,4 @@
-package org.gemoc.concurrent_addons.eventscheduling.timeline.views.timeline;
+package org.eclipse.gemoc.addon.eventscheduling.timeline.views.timeline;
 
 import java.util.WeakHashMap;
 
@@ -37,9 +37,9 @@ import org.eclipse.gemoc.timeline.view.ITimelineProvider;
 
 public class EventSchedulingTimeLineView extends AbstractTimelineView implements IEngineSelectionListener {
 
-	public static final String ID = "org.gemoc.concurrent_addons.eventscheduling.timeline.views.timeline.EventSchedulingTimeLineView";
+	public static final String ID = "org.eclipse.gemoc.addon.eventscheduling.timeline.views.timeline.EventSchedulingTimeLineView";
 
-	public static final String FOLLOW_COMMAND_ID = "org.gemoc.concurrent_addons.eventscheduling.timeline.views.timeline.Follow";
+	public static final String FOLLOW_COMMAND_ID = "org.eclipse.gemoc.addon.eventscheduling.timeline.views.timeline.Follow";
 
 	/**
 	 * The {@link AdapterFactory} created from the EMF registry.

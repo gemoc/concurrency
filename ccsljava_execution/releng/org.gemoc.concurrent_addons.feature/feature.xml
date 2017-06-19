@@ -25,7 +25,7 @@
          unpack="false"/>
 
    <plugin
-         id="org.gemoc.concurrent_addons.eventscheduling.timeline"
+         id="org.eclipse.gemoc.addon.eventscheduling.timeline"
          download-size="0"
          install-size="0"
          version="0.0.0"

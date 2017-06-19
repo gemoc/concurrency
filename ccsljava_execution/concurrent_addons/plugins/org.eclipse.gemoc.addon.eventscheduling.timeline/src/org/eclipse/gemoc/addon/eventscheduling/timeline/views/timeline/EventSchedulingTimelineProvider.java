@@ -1,4 +1,4 @@
-package org.gemoc.concurrent_addons.eventscheduling.timeline.views.timeline;
+package org.eclipse.gemoc.addon.eventscheduling.timeline.views.timeline;
 
 import java.util.ArrayList;
 import java.util.Collection;
