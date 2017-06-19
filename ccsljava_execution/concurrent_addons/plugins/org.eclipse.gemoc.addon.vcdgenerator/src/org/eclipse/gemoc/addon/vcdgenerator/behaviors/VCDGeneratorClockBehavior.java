@@ -1,7 +1,7 @@
-package org.eclipse.gemoc.timesquare.backend.vcdgenerator.behaviors;
+package org.eclipse.gemoc.addon.vcdgenerator.behaviors;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.gemoc.timesquare.backend.vcdgenerator.ScoreBoard;
+import org.eclipse.gemoc.addon.vcdgenerator.ScoreBoard;
 
 import fr.inria.aoste.timesquare.backend.manager.visible.ClockEntity;
 import fr.inria.aoste.timesquare.backend.manager.visible.TraceHelper;

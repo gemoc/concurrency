@@ -1,4 +1,4 @@
-package org.eclipse.gemoc.timesquare.backend.vcdgenerator;
+package org.eclipse.gemoc.addon.vcdgenerator;
 
 import org.eclipse.emf.ecore.EObject;
 

@@ -1,4 +1,4 @@
-package org.eclipse.gemoc.timesquare.backend.vcdgenerator.manager;
+package org.eclipse.gemoc.addon.vcdgenerator.manager;
 
 import fr.inria.aoste.timesquare.backend.manager.visible.ClockEntity;
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.Clock;

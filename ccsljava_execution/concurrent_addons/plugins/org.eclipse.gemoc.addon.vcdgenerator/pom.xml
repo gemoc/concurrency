@@ -9,7 +9,7 @@
     <version>2.3.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>org.eclipse.gemoc.timesquare.backend.vcdgenerator</artifactId>
+  <artifactId>org.eclipse.gemoc.addon.vcdgenerator</artifactId>
   <packaging>eclipse-plugin</packaging>
   <version>2.3.0-SNAPSHOT</version>
 </project>

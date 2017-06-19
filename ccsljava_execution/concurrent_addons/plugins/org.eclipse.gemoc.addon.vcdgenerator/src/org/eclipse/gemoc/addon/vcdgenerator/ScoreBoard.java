@@ -4,7 +4,7 @@
  * INRIA/I3S Aoste 
  * Copyright  2007-2008
  */
-package org.eclipse.gemoc.timesquare.backend.vcdgenerator;
+package org.eclipse.gemoc.addon.vcdgenerator;
 
 //package fr.inria.signal.capture;
 

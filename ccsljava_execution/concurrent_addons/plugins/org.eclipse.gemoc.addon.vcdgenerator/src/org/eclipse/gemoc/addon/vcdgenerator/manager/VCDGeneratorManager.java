@@ -1,4 +1,4 @@
-package org.eclipse.gemoc.timesquare.backend.vcdgenerator.manager;
+package org.eclipse.gemoc.addon.vcdgenerator.manager;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -15,9 +15,9 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
-import org.eclipse.gemoc.timesquare.backend.vcdgenerator.ScoreBoard;
-import org.eclipse.gemoc.timesquare.backend.vcdgenerator.behaviors.AbstractVCDClockBehavior;
-import org.eclipse.gemoc.timesquare.backend.vcdgenerator.behaviors.VCDGeneratorClockBehavior;
+import org.eclipse.gemoc.addon.vcdgenerator.ScoreBoard;
+import org.eclipse.gemoc.addon.vcdgenerator.behaviors.AbstractVCDClockBehavior;
+import org.eclipse.gemoc.addon.vcdgenerator.behaviors.VCDGeneratorClockBehavior;
 import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine;
 import org.eclipse.gemoc.xdsmlframework.api.engine_addon.DefaultEngineAddon;
 
@@ -205,7 +205,7 @@ public class VCDGeneratorManager extends DefaultEngineAddon{
 	 * @param clockEntity
 	 *            The Clock chosen by the user in the GUI, see ClockEntity for
 	 *            more details about the types that this includes.
-	 * @see org.eclipse.gemoc.timesquare.backend.vcdgenerator.behaviors.VCDGeneratorClockBehavior
+	 * @see org.eclipse.gemoc.addon.vcdgenerator.behaviors.VCDGeneratorClockBehavior
 	 * @since 1.0.0
 	 */
 	private void addVCDGeneratorBehavior(VCDGeneratorClockBehavior behavior,
@@ -229,7 +229,7 @@ public class VCDGeneratorManager extends DefaultEngineAddon{
 	 * 
 	 * @param behavior
 	 *            The behavior that is going to be added.
-	 * @see org.eclipse.gemoc.timesquare.backend.vcdgenerator.behaviors.VCDGeneratorClockBehavior
+	 * @see org.eclipse.gemoc.addon.vcdgenerator.behaviors.VCDGeneratorClockBehavior
 	 * @since 1.0.0
 	 */
 	private void addVCDGeneratorBehavior(VCDGeneratorClockBehavior behavior) {

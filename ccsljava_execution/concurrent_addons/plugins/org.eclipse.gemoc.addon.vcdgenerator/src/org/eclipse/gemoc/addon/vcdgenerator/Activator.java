@@ -1,4 +1,4 @@
-package org.eclipse.gemoc.timesquare.backend.vcdgenerator;
+package org.eclipse.gemoc.addon.vcdgenerator;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
