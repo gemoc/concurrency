@@ -19,7 +19,7 @@ http://www.gemoc.org
    </license>
 
    <plugin
-         id="fr.inria.aoste.timesquare.ccslkernel.solver.extension.statemachine"
+         id="org.eclipse.gemoc.moccml.constraint.ccslkernel.solver.extension.statemachine"
          download-size="0"
          install-size="0"
          version="0.0.0"

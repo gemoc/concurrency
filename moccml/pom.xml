@@ -15,7 +15,7 @@
 	
     <modules>
         <!-- plugins -->
-        <module>plugins/solver/fr.inria.aoste.timesquare.ccslkernel.solver.extension.statemachine</module>
+        <module>plugins/solver/org.eclipse.gemoc.moccml.constraint.ccslkernel.solver.extension.statemachine</module>
 
         <module>plugins/AS/org.eclipse.gemoc.moccml.constraint.fsmkernel.model</module>
         <module>plugins/editors/tree/org.eclipse.gemoc.moccml.constraint.fsmkernel.model.edit</module>

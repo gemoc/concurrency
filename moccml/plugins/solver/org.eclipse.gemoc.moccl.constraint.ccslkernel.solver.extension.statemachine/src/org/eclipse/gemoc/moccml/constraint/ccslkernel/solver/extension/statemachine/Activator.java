@@ -1,4 +1,4 @@
-package fr.inria.aoste.timesquare.ccslkernel.solver.extension.statemachine;
+package org.eclipse.gemoc.moccml.constraint.ccslkernel.solver.extension.statemachine;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;

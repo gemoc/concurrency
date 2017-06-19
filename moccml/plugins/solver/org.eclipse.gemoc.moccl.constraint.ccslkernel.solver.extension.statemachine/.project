@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>fr.inria.aoste.timesquare.ccslkernel.solver.extension.statemachine</name>
+	<name>org.eclipse.gemoc.moccml.constraint.ccslkernel.solver.extension.statemachine</name>
 	<comment></comment>
 	<projects>
 	</projects>
