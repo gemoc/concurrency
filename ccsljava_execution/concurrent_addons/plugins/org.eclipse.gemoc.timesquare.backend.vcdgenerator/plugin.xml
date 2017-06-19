@@ -6,7 +6,7 @@
          point="org.gemoc.gemoc_language_workbench.engine_addon">
       <Addon
             AddonGroupId="Concurrent.AddonGroup"
-            Class="fr.inria.aoste.timesquare.backend.vcdgenerator.manager.VCDGeneratorManager"
+            Class="org.eclipse.gemoc.timesquare.backend.vcdgenerator.manager.VCDGeneratorManager"
             Default="false"
             Name="VCD visualization"
             ShortDescription="Open a Value Change Dump view that displays when the MSE are triggered."

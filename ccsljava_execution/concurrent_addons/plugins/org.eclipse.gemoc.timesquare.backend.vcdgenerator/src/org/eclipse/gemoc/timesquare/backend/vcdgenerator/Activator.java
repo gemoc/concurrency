@@ -1,4 +1,4 @@
-package fr.inria.aoste.timesquare.backend.vcdgenerator;
+package org.eclipse.gemoc.timesquare.backend.vcdgenerator;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;

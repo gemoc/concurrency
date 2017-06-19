@@ -1,8 +1,9 @@
-package fr.inria.aoste.timesquare.backend.vcdgenerator.behaviors;
+package org.eclipse.gemoc.timesquare.backend.vcdgenerator.behaviors;
+
+import org.eclipse.gemoc.timesquare.backend.vcdgenerator.ScoreBoard;
 
 import fr.inria.aoste.timesquare.backend.manager.visible.Behavior;
 import fr.inria.aoste.timesquare.backend.manager.visible.ClockBehavior;
-import fr.inria.aoste.timesquare.backend.vcdgenerator.ScoreBoard;
 
 /**
  * 

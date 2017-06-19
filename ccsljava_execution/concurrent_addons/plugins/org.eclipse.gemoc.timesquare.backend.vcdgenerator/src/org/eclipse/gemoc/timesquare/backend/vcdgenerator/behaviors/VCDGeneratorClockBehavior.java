@@ -1,10 +1,10 @@
-package fr.inria.aoste.timesquare.backend.vcdgenerator.behaviors;
+package org.eclipse.gemoc.timesquare.backend.vcdgenerator.behaviors;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.gemoc.timesquare.backend.vcdgenerator.ScoreBoard;
 
 import fr.inria.aoste.timesquare.backend.manager.visible.ClockEntity;
 import fr.inria.aoste.timesquare.backend.manager.visible.TraceHelper;
-import fr.inria.aoste.timesquare.backend.vcdgenerator.ScoreBoard;
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.Clock;
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.Block;
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.Expression;

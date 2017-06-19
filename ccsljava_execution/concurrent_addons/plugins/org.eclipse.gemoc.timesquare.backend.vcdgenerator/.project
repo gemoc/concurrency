@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>fr.inria.aoste.timesquare.backend.vcdgenerator.gemocAdaptation</name>
+	<name>org.eclipse.gemoc.timesquare.backend.vcdgenerator</name>
 	<comment></comment>
 	<projects>
 	</projects>
