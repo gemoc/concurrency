@@ -13,7 +13,7 @@
  *   
  * $Id$
  */
-package org.gemoc.mocc.ccslmocc.model.xtext;
+package org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext;
  
 
 

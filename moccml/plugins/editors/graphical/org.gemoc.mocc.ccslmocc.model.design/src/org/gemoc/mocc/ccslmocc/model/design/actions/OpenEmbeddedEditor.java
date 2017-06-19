@@ -13,9 +13,9 @@
  *   
  * $Id$
  */
-package org.gemoc.mocc.ccslmocc.model.design.actions;
+package org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design.actions;
 
-import org.gemoc.mocc.ccslmocc.model.xtext.ui.internal.MoCDslActivator;
+import org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.ui.internal.MoCDslActivator;
 import org.gemoc.mocc.fsmkernel.model.design.actions.OpenXtextEmbeddedEditor;
 
 

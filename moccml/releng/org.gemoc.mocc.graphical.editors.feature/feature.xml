@@ -22,7 +22,7 @@ which accompanies this distribution, and is available at http://www.eclipse.org/
    </license>
 
    <plugin
-         id="org.gemoc.mocc.ccslmocc.model.design"
+         id="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design"
          download-size="0"
          install-size="0"
          version="0.0.0"

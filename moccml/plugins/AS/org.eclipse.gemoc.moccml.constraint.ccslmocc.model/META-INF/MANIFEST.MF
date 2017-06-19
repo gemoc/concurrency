@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
-Bundle-SymbolicName: org.gemoc.mocc.ccslmocc.model;singleton:=true
+Bundle-SymbolicName: org.eclipse.gemoc.moccml.constraint.ccslmocc.model;singleton:=true
 Bundle-Version: 0.1.1.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: org.gemoc.mocc.ccslmocc.model.PluginActivator
+Bundle-Activator: org.eclipse.gemoc.moccml.constraint.ccslmocc.model.PluginActivator
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.core.runtime,
@@ -15,5 +15,5 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.gemoc.mocc.ccslmoc.model.moccml,
  org.gemoc.mocc.ccslmoc.model.moccml.impl,
  org.gemoc.mocc.ccslmoc.model.moccml.util,
- org.gemoc.mocc.ccslmocc.model
+ org.eclipse.gemoc.moccml.constraint.ccslmocc.model
 Bundle-ActivationPolicy: lazy

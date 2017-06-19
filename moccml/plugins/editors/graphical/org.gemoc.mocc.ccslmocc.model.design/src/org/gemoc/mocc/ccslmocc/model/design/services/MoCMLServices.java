@@ -13,7 +13,7 @@
  *   
  * $Id$
  */
-package org.gemoc.mocc.ccslmocc.model.design.services;
+package org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design.services;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.serializer.impl.Serializer;
 import org.gemoc.mocc.ccslmoc.model.moccml.StateMachineRelationDefinition;
 import org.gemoc.mocc.ccslmoc.model.moccml.StateRelationBasedLibrary;
-import org.gemoc.mocc.ccslmocc.model.xtext.MoCDslRuntimeModule;
+import org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.MoCDslRuntimeModule;
 import org.gemoc.mocc.fsmkernel.model.FSMModel.AbstractAction;
 import org.gemoc.mocc.fsmkernel.model.FSMModel.Guard;
 import org.gemoc.mocc.fsmkernel.model.FSMModel.IntegerAssignement;

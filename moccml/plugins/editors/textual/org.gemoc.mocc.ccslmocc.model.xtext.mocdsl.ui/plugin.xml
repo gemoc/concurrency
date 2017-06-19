@@ -23,49 +23,49 @@
     <extension
             point="org.eclipse.ui.editors">
         <editor
-              class="org.gemoc.mocc.ccslmocc.model.xtext.ui.MoCDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
+              class="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.ui.MoCDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
               contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
               default="true"
               extensions="moccml"
               icon="icons/IconeGemocMoC_16x16x32.png"
-              id="org.gemoc.mocc.ccslmocc.model.xtext.MoCDsl"
+              id="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.MoCDsl"
               name="%editor.name">
         </editor>
     </extension>
     <extension
         point="org.eclipse.ui.handlers">
         <handler
-            class="org.gemoc.mocc.ccslmocc.model.xtext.ui.MoCDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
+            class="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.ui.MoCDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
             commandId="org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclaration">
             <activeWhen>
                 <reference
-                    definitionId="org.gemoc.mocc.ccslmocc.model.xtext.MoCDsl.Editor.opened">
+                    definitionId="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.MoCDsl.Editor.opened">
                 </reference>
             </activeWhen>
         </handler>
         <handler
-            class="org.gemoc.mocc.ccslmocc.model.xtext.ui.MoCDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
-            commandId="org.gemoc.mocc.ccslmocc.model.xtext.MoCDsl.validate">
+            class="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.ui.MoCDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
+            commandId="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.MoCDsl.validate">
          <activeWhen>
             <reference
-                    definitionId="org.gemoc.mocc.ccslmocc.model.xtext.MoCDsl.Editor.opened">
+                    definitionId="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.MoCDsl.Editor.opened">
             </reference>
          </activeWhen>
       	</handler>
       	<!-- copy qualified name -->
         <handler
-            class="org.gemoc.mocc.ccslmocc.model.xtext.ui.MoCDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedNameHandler"
+            class="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.ui.MoCDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedNameHandler"
             commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName">
             <activeWhen>
-				<reference definitionId="org.gemoc.mocc.ccslmocc.model.xtext.MoCDsl.Editor.opened" />
+				<reference definitionId="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.MoCDsl.Editor.opened" />
             </activeWhen>
         </handler>
         <handler
-            class="org.gemoc.mocc.ccslmocc.model.xtext.ui.MoCDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedNameHandler"
+            class="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.ui.MoCDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedNameHandler"
             commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedName">
             <activeWhen>
             	<and>
-            		<reference definitionId="org.gemoc.mocc.ccslmocc.model.xtext.MoCDsl.XtextEditor.opened" />
+            		<reference definitionId="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.MoCDsl.XtextEditor.opened" />
 	                <iterate>
 						<adapt type="org.eclipse.xtext.ui.editor.outline.IOutlineNode" />
 					</iterate>
@@ -74,22 +74,22 @@
         </handler>
     </extension>
     <extension point="org.eclipse.core.expressions.definitions">
-        <definition id="org.gemoc.mocc.ccslmocc.model.xtext.MoCDsl.Editor.opened">
+        <definition id="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.MoCDsl.Editor.opened">
             <and>
                 <reference definitionId="isActiveEditorAnInstanceOfXtextEditor"/>
                 <with variable="activeEditor">
                     <test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName" 
-                        value="org.gemoc.mocc.ccslmocc.model.xtext.MoCDsl" 
+                        value="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.MoCDsl" 
                         forcePluginActivation="true"/>
                 </with>        
             </and>
         </definition>
-        <definition id="org.gemoc.mocc.ccslmocc.model.xtext.MoCDsl.XtextEditor.opened">
+        <definition id="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.MoCDsl.XtextEditor.opened">
             <and>
                 <reference definitionId="isXtextEditorActive"/>
                 <with variable="activeEditor">
                     <test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName" 
-                        value="org.gemoc.mocc.ccslmocc.model.xtext.MoCDsl" 
+                        value="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.MoCDsl" 
                         forcePluginActivation="true"/>
                 </with>        
             </and>
@@ -98,33 +98,33 @@
     <extension
             point="org.eclipse.ui.preferencePages">
         <page
-            class="org.gemoc.mocc.ccslmocc.model.xtext.ui.MoCDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
-            id="org.gemoc.mocc.ccslmocc.model.xtext.MoCDsl"
+            class="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.ui.MoCDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+            id="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.MoCDsl"
             name="MoCDsl">
-            <keywordReference id="org.gemoc.mocc.ccslmocc.model.xtext.ui.keyword_MoCDsl"/>
+            <keywordReference id="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.ui.keyword_MoCDsl"/>
         </page>
         <page
-            category="org.gemoc.mocc.ccslmocc.model.xtext.MoCDsl"
-            class="org.gemoc.mocc.ccslmocc.model.xtext.ui.MoCDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
-            id="org.gemoc.mocc.ccslmocc.model.xtext.MoCDsl.coloring"
+            category="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.MoCDsl"
+            class="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.ui.MoCDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
+            id="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.MoCDsl.coloring"
             name="Syntax Coloring">
-            <keywordReference id="org.gemoc.mocc.ccslmocc.model.xtext.ui.keyword_MoCDsl"/>
+            <keywordReference id="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.ui.keyword_MoCDsl"/>
         </page>
         <page
-            category="org.gemoc.mocc.ccslmocc.model.xtext.MoCDsl"
-            class="org.gemoc.mocc.ccslmocc.model.xtext.ui.MoCDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
-            id="org.gemoc.mocc.ccslmocc.model.xtext.MoCDsl.templates"
+            category="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.MoCDsl"
+            class="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.ui.MoCDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
+            id="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.MoCDsl.templates"
             name="Templates">
-            <keywordReference id="org.gemoc.mocc.ccslmocc.model.xtext.ui.keyword_MoCDsl"/>
+            <keywordReference id="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.ui.keyword_MoCDsl"/>
         </page>
     </extension>
     <extension
             point="org.eclipse.ui.propertyPages">
         <page
-            class="org.gemoc.mocc.ccslmocc.model.xtext.ui.MoCDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
-            id="org.gemoc.mocc.ccslmocc.model.xtext.MoCDsl"
+            class="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.ui.MoCDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+            id="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.MoCDsl"
             name="MoCDsl">
-            <keywordReference id="org.gemoc.mocc.ccslmocc.model.xtext.ui.keyword_MoCDsl"/>
+            <keywordReference id="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.ui.keyword_MoCDsl"/>
             <enabledWhen>
 	            <adapt type="org.eclipse.core.resources.IProject"/>
 			</enabledWhen>
@@ -134,14 +134,14 @@
     <extension
         point="org.eclipse.ui.keywords">
         <keyword
-            id="org.gemoc.mocc.ccslmocc.model.xtext.ui.keyword_MoCDsl"
+            id="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.ui.keyword_MoCDsl"
             label="MoCDsl"/>
     </extension>
     <extension
          point="org.eclipse.ui.commands">
       <command
             description="Trigger expensive validation"
-            id="org.gemoc.mocc.ccslmocc.model.xtext.MoCDsl.validate"
+            id="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.MoCDsl.validate"
             name="Validate">
       </command>
       <!-- copy qualified name -->
@@ -162,12 +162,12 @@
         <menuContribution
             locationURI="popup:#TextEditorContext?after=group.edit">
              <command
-                 commandId="org.gemoc.mocc.ccslmocc.model.xtext.MoCDsl.validate"
+                 commandId="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.MoCDsl.validate"
                  style="push"
                  tooltip="Trigger expensive validation">
             <visibleWhen checkEnabled="false">
                 <reference
-                    definitionId="org.gemoc.mocc.ccslmocc.model.xtext.MoCDsl.Editor.opened">
+                    definitionId="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.MoCDsl.Editor.opened">
                 </reference>
             </visibleWhen>
          </command>  
@@ -177,7 +177,7 @@
          	<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName" 
          		style="push" tooltip="Copy Qualified Name">
             	<visibleWhen checkEnabled="false">
-                	<reference definitionId="org.gemoc.mocc.ccslmocc.model.xtext.MoCDsl.Editor.opened" />
+                	<reference definitionId="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.MoCDsl.Editor.opened" />
             	</visibleWhen>
          	</command>  
          </menuContribution>
@@ -185,7 +185,7 @@
          	<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
             	style="push" tooltip="Copy Qualified Name">
             	<visibleWhen checkEnabled="false">
-                	<reference definitionId="org.gemoc.mocc.ccslmocc.model.xtext.MoCDsl.Editor.opened" />
+                	<reference definitionId="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.MoCDsl.Editor.opened" />
             	</visibleWhen>
          	</command>  
          </menuContribution>
@@ -194,7 +194,7 @@
 				style="push" tooltip="Copy Qualified Name">
          		<visibleWhen checkEnabled="false">
 	            	<and>
-	            		<reference definitionId="org.gemoc.mocc.ccslmocc.model.xtext.MoCDsl.XtextEditor.opened" />
+	            		<reference definitionId="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.MoCDsl.XtextEditor.opened" />
 						<iterate>
 							<adapt type="org.eclipse.xtext.ui.editor.outline.IOutlineNode" />
 						</iterate>
@@ -207,7 +207,7 @@
 		<menuContribution locationURI="popup:#TextEditorContext?endof=group.find">
 			<command commandId="org.eclipse.xtext.ui.editor.FindReferences">
 				<visibleWhen checkEnabled="false">
-                	<reference definitionId="org.gemoc.mocc.ccslmocc.model.xtext.MoCDsl.Editor.opened">
+                	<reference definitionId="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.MoCDsl.Editor.opened">
                 	</reference>
             	</visibleWhen>
 			</command>
@@ -215,11 +215,11 @@
 	</extension>
 	<extension point="org.eclipse.ui.handlers">
 	    <handler
-            class="org.gemoc.mocc.ccslmocc.model.xtext.ui.MoCDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
+            class="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.ui.MoCDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
             commandId="org.eclipse.xtext.ui.editor.FindReferences">
             <activeWhen>
                 <reference
-                    definitionId="org.gemoc.mocc.ccslmocc.model.xtext.MoCDsl.Editor.opened">
+                    definitionId="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.MoCDsl.Editor.opened">
                 </reference>
             </activeWhen>
         </handler>
@@ -230,19 +230,19 @@
 	<extension
 		point="org.eclipse.emf.ecore.extension_parser">
 		<parser
-			class="org.gemoc.mocc.ccslmocc.model.xtext.ui.MoCDslExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
+			class="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.ui.MoCDslExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
 			type="moccml">
 		</parser>
 	</extension>
 	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
         <resourceServiceProvider
-            class="org.gemoc.mocc.ccslmocc.model.xtext.ui.MoCDslExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
+            class="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.ui.MoCDslExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
             uriExtension="moccml">
         </resourceServiceProvider>
     </extension>
 
 
-    <!-- marker definitions for org.gemoc.mocc.ccslmocc.model.xtext.MoCDsl -->
+    <!-- marker definitions for org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.MoCDsl -->
     <extension
             id="mocdsl.check.fast"
             name="MoCDsl Problem"
@@ -269,11 +269,11 @@
 	<extension
 		point="org.eclipse.ui.handlers">
 		<handler 
-			class="org.gemoc.mocc.ccslmocc.model.xtext.ui.MoCDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.outline.quickoutline.ShowQuickOutlineActionHandler"
+			class="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.ui.MoCDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.outline.quickoutline.ShowQuickOutlineActionHandler"
 			commandId="org.eclipse.xtext.ui.editor.outline.QuickOutline">
 			<activeWhen>
 				<reference
-					definitionId="org.gemoc.mocc.ccslmocc.model.xtext.MoCDsl.Editor.opened">
+					definitionId="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.MoCDsl.Editor.opened">
 				</reference>
 			</activeWhen>
 		</handler>
@@ -293,34 +293,34 @@
 				style="push"
 				tooltip="Open Quick Outline">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="org.gemoc.mocc.ccslmocc.model.xtext.MoCDsl.Editor.opened"/>
+					<reference definitionId="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.MoCDsl.Editor.opened"/>
 				</visibleWhen>
 			</command>
 		</menuContribution>
 	</extension>
    
-    <!-- quickfix marker resolution generator for org.gemoc.mocc.ccslmocc.model.xtext.MoCDsl -->
+    <!-- quickfix marker resolution generator for org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.MoCDsl -->
     <extension
             point="org.eclipse.ui.ide.markerResolution">
         <markerResolutionGenerator
-            class="org.gemoc.mocc.ccslmocc.model.xtext.ui.MoCDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-            markerType="org.gemoc.mocc.ccslmocc.model.xtext.mocdsl.ui.mocdsl.check.fast">
+            class="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.ui.MoCDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl.ui.mocdsl.check.fast">
             <attribute
                 name="FIXABLE_KEY"
                 value="true">
             </attribute>
         </markerResolutionGenerator>
         <markerResolutionGenerator
-            class="org.gemoc.mocc.ccslmocc.model.xtext.ui.MoCDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-            markerType="org.gemoc.mocc.ccslmocc.model.xtext.mocdsl.ui.mocdsl.check.normal">
+            class="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.ui.MoCDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl.ui.mocdsl.check.normal">
             <attribute
                 name="FIXABLE_KEY"
                 value="true">
             </attribute>
         </markerResolutionGenerator>
         <markerResolutionGenerator
-            class="org.gemoc.mocc.ccslmocc.model.xtext.ui.MoCDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-            markerType="org.gemoc.mocc.ccslmocc.model.xtext.mocdsl.ui.mocdsl.check.expensive">
+            class="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.ui.MoCDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl.ui.mocdsl.check.expensive">
             <attribute
                 name="FIXABLE_KEY"
                 value="true">
@@ -336,9 +336,9 @@
        </category>
        <wizard
              category="org.eclipse.gemoc.xdsmlframework.category/org.eclipse.gemoc.xdsmlframework.fragment.category"
-             class="org.gemoc.mocc.ccslmocc.model.xtext.mocdsl.ui.wizards.MoCCMLFileNewWizard"
+             class="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl.ui.wizards.MoCCMLFileNewWizard"
              icon="icons/IconeGemocMoC_16x16x32.png"
-             id="org.gemoc.mocc.ccslmocc.model.xtext.mocdsl.ui.wizards.MoCCMLFileNewWizard"
+             id="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl.ui.wizards.MoCCMLFileNewWizard"
              name="MoCCML File">
        </wizard>
     </extension>

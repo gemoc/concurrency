@@ -1,14 +1,14 @@
 Manifest-Version: 1.0
 Bundle-Name: %Bundle-Name
-Bundle-SymbolicName: org.gemoc.mocc.ccslmocc.model.design;singleton:=true
+Bundle-SymbolicName: org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design;singleton:=true
 Bundle-Version: 0.1.1.qualifier
-Bundle-Activator: org.gemoc.mocc.ccslmocc.model.design.Activator
+Bundle-Activator: org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.sirius,
- org.gemoc.mocc.ccslmocc.model;bundle-version="0.0.1",
- org.gemoc.mocc.ccslmocc.model.xtext.mocdsl;bundle-version="0.0.1",
- org.gemoc.mocc.ccslmocc.model.xtext.mocdsl.ui;bundle-version="0.0.1",
+ org.eclipse.gemoc.moccml.constraint.ccslmocc.model;bundle-version="0.0.1",
+ org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl;bundle-version="0.0.1",
+ org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl.ui;bundle-version="0.0.1",
  org.eclipse.gmf.runtime.diagram.ui;bundle-version="1.6.0",
  org.eclipse.xtext.ui;bundle-version="2.4.3",
  org.eclipse.ui.ide;bundle-version="3.8.2",
@@ -21,7 +21,7 @@ Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-Vendor: %Bundle-Vendor
 Bundle-ManifestVersion: 2
-Export-Package: org.gemoc.mocc.ccslmocc.model.design,
- org.gemoc.mocc.ccslmocc.model.design.actions,
- org.gemoc.mocc.ccslmocc.model.design.actions.dialog,
- org.gemoc.mocc.ccslmocc.model.design.services
+Export-Package: org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design,
+ org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design.actions,
+ org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design.actions.dialog,
+ org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design.services

@@ -13,7 +13,7 @@
  *   
  * $Id$
  */
-package org.gemoc.mocc.ccslmocc.model.xtext.ui.wizard;
+package org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.ui.wizard;
 
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
@@ -150,7 +150,7 @@ public class NewMoCMLWizard extends Wizard implements INewWizard {
 
 	private void throwCoreException(String message) throws CoreException {
 		IStatus status =
-			new Status(IStatus.ERROR, "org.gemoc.mocc.ccslmocc.model.xtext.mocdsl.ui2", IStatus.OK, message, null);
+			new Status(IStatus.ERROR, "org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl.ui2", IStatus.OK, message, null);
 		throw new CoreException(status);
 	}
 

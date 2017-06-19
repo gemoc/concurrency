@@ -3,10 +3,10 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name
 Bundle-Vendor: %Bundle-Vendor
 Bundle-Version: 0.1.1.qualifier
-Bundle-SymbolicName: org.gemoc.mocc.ccslmocc.model.xtext.mocdsl.tests; singleton:=true
+Bundle-SymbolicName: org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl.tests; singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: org.gemoc.mocc.ccslmocc.model.xtext.mocdsl,
- org.gemoc.mocc.ccslmocc.model.xtext.mocdsl.ui,
+Require-Bundle: org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl,
+ org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl.ui,
  org.eclipse.core.runtime,
  org.eclipse.xtext.junit4,
  org.eclipse.ui.workbench;resolution:=optional
@@ -19,4 +19,4 @@ Import-Package: org.apache.log4j,
  org.junit.runners.model;version="4.5.0",
  org.hamcrest.core
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: org.gemoc.mocc.ccslmocc.model.xtext
+Export-Package: org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext

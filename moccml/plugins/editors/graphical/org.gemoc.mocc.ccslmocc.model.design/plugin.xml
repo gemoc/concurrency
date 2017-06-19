@@ -19,20 +19,20 @@
 
 <plugin>
   <extension point="org.eclipse.sirius.componentization">
-    <component class="org.gemoc.mocc.ccslmocc.model.design.Activator"
-               id="org.gemoc.mocc.ccslmocc.model.design"
+    <component class="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design.Activator"
+               id="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design"
 	       name="CCSLMoCC">
     </component>
   </extension>
   <extension
         point="org.eclipse.sirius.externalJavaAction">
      <javaActions
-           actionClass="org.gemoc.mocc.ccslmocc.model.design.actions.OpenEmbeddedEditor"
-           id="org.gemoc.mocc.ccslmocc.model.design.OpenEmbeddedEditorID">
+           actionClass="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design.actions.OpenEmbeddedEditor"
+           id="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design.OpenEmbeddedEditorID">
      </javaActions>
      <javaActions
-           actionClass="org.gemoc.mocc.ccslmocc.model.design.actions.DeleteNotAllowed"
-           id="org.gemoc.mocc.ccslmocc.model.design.actions.DeleteNotAllowedID">
+           actionClass="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design.actions.DeleteNotAllowed"
+           id="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design.actions.DeleteNotAllowedID">
      </javaActions>
   </extension>
 </plugin>

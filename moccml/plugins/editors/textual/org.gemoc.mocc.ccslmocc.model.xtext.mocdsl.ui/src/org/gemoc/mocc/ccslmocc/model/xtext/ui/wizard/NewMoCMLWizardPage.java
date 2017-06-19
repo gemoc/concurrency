@@ -13,7 +13,7 @@
  *   
  * $Id$
  */
-package org.gemoc.mocc.ccslmocc.model.xtext.ui.wizard;
+package org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.ui.wizard;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IResource;

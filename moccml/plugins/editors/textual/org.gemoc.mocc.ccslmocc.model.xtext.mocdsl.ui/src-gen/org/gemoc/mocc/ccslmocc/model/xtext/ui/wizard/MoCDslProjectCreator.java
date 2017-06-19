@@ -1,4 +1,4 @@
-package org.gemoc.mocc.ccslmocc.model.xtext.ui.wizard;
+package org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.ui.wizard;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ import com.google.common.collect.Lists;
 
 public class MoCDslProjectCreator extends org.eclipse.xtext.ui.wizard.AbstractPluginProjectCreator {
 
-	protected static final String DSL_GENERATOR_PROJECT_NAME = "org.gemoc.mocc.ccslmocc.model.xtext.mocdsl.generator";
+	protected static final String DSL_GENERATOR_PROJECT_NAME = "org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl.generator";
 
 	protected static final String SRC_ROOT = "src";
 	protected static final String SRC_GEN_ROOT = "src-gen";

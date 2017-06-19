@@ -647,7 +647,7 @@ public class CcslmoccEditor
 			BasicDiagnostic diagnostic =
 				new BasicDiagnostic
 					(Diagnostic.OK,
-					 "org.gemoc.mocc.ccslmocc.model.editor",
+					 "org.eclipse.gemoc.moccml.constraint.ccslmocc.model.editor",
 					 0,
 					 null,
 					 new Object [] { editingDomain.getResourceSet() });
@@ -1018,7 +1018,7 @@ public class CcslmoccEditor
 			BasicDiagnostic basicDiagnostic =
 				new BasicDiagnostic
 					(Diagnostic.ERROR,
-					 "org.gemoc.mocc.ccslmocc.model.editor",
+					 "org.eclipse.gemoc.moccml.constraint.ccslmocc.model.editor",
 					 0,
 					 getString("_UI_CreateModelError_message", resource.getURI()),
 					 new Object [] { exception == null ? (Object)resource : exception });
@@ -1029,7 +1029,7 @@ public class CcslmoccEditor
 			return
 				new BasicDiagnostic
 					(Diagnostic.ERROR,
-					 "org.gemoc.mocc.ccslmocc.model.editor",
+					 "org.eclipse.gemoc.moccml.constraint.ccslmocc.model.editor",
 					 0,
 					 getString("_UI_CreateModelError_message", resource.getURI()),
 					 new Object[] { exception });

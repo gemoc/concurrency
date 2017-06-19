@@ -1,4 +1,4 @@
-package org.gemoc.mocc.ccslmocc.model.design.actions.dialog;
+package org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design.actions.dialog;
 
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.TitleAreaDialog;

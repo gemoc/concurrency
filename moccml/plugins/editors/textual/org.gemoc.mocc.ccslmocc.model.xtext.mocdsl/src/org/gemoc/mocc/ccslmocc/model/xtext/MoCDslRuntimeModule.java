@@ -13,7 +13,7 @@
  *   
  * $Id$
  */
-package org.gemoc.mocc.ccslmocc.model.xtext;
+package org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext;
 
 
 import org.eclipse.xtext.linking.ILinkingDiagnosticMessageProvider;
@@ -35,7 +35,7 @@ import fr.inria.aoste.timesquare.ccslkernel.xtext.util.SimpleNamedElementProvide
  * @generated NOT
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
-public class MoCDslRuntimeModule extends org.gemoc.mocc.ccslmocc.model.xtext.AbstractMoCDslRuntimeModule {
+public class MoCDslRuntimeModule extends org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.AbstractMoCDslRuntimeModule {
 	
 	
 	@Override

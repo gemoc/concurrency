@@ -21,7 +21,7 @@ import org.eclipse.xtend.core.xtend.XtendFile;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
 import org.gemoc.mocc.ccslmoc.model.moccml.StateRelationBasedLibrary;
-import org.gemoc.mocc.ccslmocc.model.xtext.ui.internal.MoCDslActivator;
+import org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.ui.internal.MoCDslActivator;
 
 import com.google.inject.Injector;
 

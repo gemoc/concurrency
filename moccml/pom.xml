@@ -20,17 +20,17 @@
         <module>plugins/AS/org.gemoc.mocc.fsmkernel.model</module>
         <module>plugins/editors/tree/org.gemoc.mocc.fsmkernel.model.edit</module>
         <module>plugins/editors/tree/org.gemoc.mocc.fsmkernel.model.editor</module>
-        <module>plugins/AS/org.gemoc.mocc.ccslmocc.model</module>
-        <module>plugins/editors/tree/org.gemoc.mocc.ccslmocc.model.edit</module>
-        <module>plugins/editors/tree/org.gemoc.mocc.ccslmocc.model.editor</module>
+        <module>plugins/AS/org.eclipse.gemoc.moccml.constraint.ccslmocc.model</module>
+        <module>plugins/editors/tree/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.edit</module>
+        <module>plugins/editors/tree/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.editor</module>
         
         <module>plugins/editors/textual/org.gemoc.mocc.fsmkernel.model.xtext.fsmdsl</module>
         <module>plugins/editors/textual/org.gemoc.mocc.fsmkernel.model.xtext.fsmdsl.ui</module>
-        <module>plugins/editors/textual/org.gemoc.mocc.ccslmocc.model.xtext.mocdsl</module>
-        <module>plugins/editors/textual/org.gemoc.mocc.ccslmocc.model.xtext.mocdsl.ui</module>
+        <module>plugins/editors/textual/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl</module>
+        <module>plugins/editors/textual/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl.ui</module>
         
         <module>plugins/editors/graphical/org.gemoc.mocc.fsmkernel.model.design</module>
-        <module>plugins/editors/graphical/org.gemoc.mocc.ccslmocc.model.design</module>
+        <module>plugins/editors/graphical/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design</module>
 
         <!-- feature and update site -->
         <module>releng/org.gemoc.mocc.feature</module>

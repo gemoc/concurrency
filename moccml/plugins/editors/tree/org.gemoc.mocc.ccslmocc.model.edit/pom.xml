@@ -9,6 +9,6 @@
     <version>0.1.1-SNAPSHOT</version>
   </parent>
 
-  <artifactId>org.gemoc.mocc.ccslmocc.model.edit</artifactId>
+  <artifactId>org.eclipse.gemoc.moccml.constraint.ccslmocc.model.edit</artifactId>
   <packaging>eclipse-plugin</packaging>
 </project>

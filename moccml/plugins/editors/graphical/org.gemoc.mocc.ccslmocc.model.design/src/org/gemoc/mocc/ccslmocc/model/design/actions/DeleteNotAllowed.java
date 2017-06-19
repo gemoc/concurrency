@@ -13,7 +13,7 @@
  *   
  * $Id$
  */
-package org.gemoc.mocc.ccslmocc.model.design.actions;
+package org.eclipse.gemoc.moccml.constraint.ccslmocc.model.design.actions;
 
 import java.util.Collection;
 import java.util.Map;

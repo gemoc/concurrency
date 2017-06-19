@@ -49,7 +49,7 @@
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.xtext.common.types_2.7.3.v201411190455.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.xtext.essentialocl_3.4.2.v20140819-1601.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.xtext.completeocl_3.4.2.v20140819-1601.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.gemoc.mocc.ccslmocc.model_0.1.1.201503020941.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.gemoc.moccml.constraint.ccslmocc.model_0.1.1.201503020941.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.gemoc.mocc.fsmkernel.model_0.1.1.201503020941.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl_3.4.2.v20140725-2242.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/lpg.runtime.java_2.0.17.v201004271640.jar"/>
@@ -60,8 +60,8 @@
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.engine_3.5.1.201409021433.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.codegen.ecore_2.10.2.v20150123-0452.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.codegen_2.10.0.v20150123-0452.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.gemoc.mocc.ccslmocc.model.xtext.mocdsl.ui_0.1.1.201503020941.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.gemoc.mocc.ccslmocc.model.xtext.mocdsl_0.1.1.201503020941.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl.ui_0.1.1.201503020941.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl_0.1.1.201503020941.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.xtext.xbase_2.7.3.v201411190455.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.xtend.lib_2.7.3.v201411190455.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.xtext.xbase.lib_2.7.3.v201411190455.jar"/>

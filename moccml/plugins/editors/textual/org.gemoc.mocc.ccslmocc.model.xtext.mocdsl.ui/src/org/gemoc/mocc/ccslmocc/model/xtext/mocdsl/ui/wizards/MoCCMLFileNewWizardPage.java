@@ -1,4 +1,4 @@
-package org.gemoc.mocc.ccslmocc.model.xtext.mocdsl.ui.wizards;
+package org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl.ui.wizards;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IResource;

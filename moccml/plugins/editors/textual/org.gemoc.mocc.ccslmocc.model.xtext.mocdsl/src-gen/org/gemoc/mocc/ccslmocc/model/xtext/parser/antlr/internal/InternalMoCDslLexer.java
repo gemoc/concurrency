@@ -1,4 +1,4 @@
-package org.gemoc.mocc.ccslmocc.model.xtext.parser.antlr.internal;
+package org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.parser.antlr.internal;
 
 // Hack: Use our own Lexer superclass by means of import. 
 // Currently there is no other way to specify the superclass for the lexer.
@@ -205,15 +205,15 @@ public class InternalMoCDslLexer extends Lexer {
         super(input,state);
 
     }
-    public String getGrammarFileName() { return "../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g"; }
+    public String getGrammarFileName() { return "../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g"; }
 
     // $ANTLR start "T__12"
     public final void mT__12() throws RecognitionException {
         try {
             int _type = T__12;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:11:7: ( 'AutomataConstraintLibrary' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:11:9: 'AutomataConstraintLibrary'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:11:7: ( 'AutomataConstraintLibrary' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:11:9: 'AutomataConstraintLibrary'
             {
             match("AutomataConstraintLibrary"); 
 
@@ -233,8 +233,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__13;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:12:7: ( '{' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:12:9: '{'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:12:7: ( '{' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:12:9: '{'
             {
             match('{'); 
 
@@ -253,8 +253,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__14;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13:7: ( '}' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13:9: '}'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13:7: ( '}' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13:9: '}'
             {
             match('}'); 
 
@@ -273,8 +273,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__15;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:14:7: ( 'import' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:14:9: 'import'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:14:7: ( 'import' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:14:9: 'import'
             {
             match("import"); 
 
@@ -294,8 +294,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__16;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:15:7: ( 'as' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:15:9: 'as'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:15:7: ( 'as' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:15:9: 'as'
             {
             match("as"); 
 
@@ -315,8 +315,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__17;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:16:7: ( ';' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:16:9: ';'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:16:7: ( ';' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:16:9: ';'
             {
             match(';'); 
 
@@ -335,8 +335,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__18;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:17:7: ( 'AutomataRelationDefinition' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:17:9: 'AutomataRelationDefinition'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:17:7: ( 'AutomataRelationDefinition' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:17:9: 'AutomataRelationDefinition'
             {
             match("AutomataRelationDefinition"); 
 
@@ -356,8 +356,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__19;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:18:7: ( '[' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:18:9: '['
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:18:7: ( '[' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:18:9: '['
             {
             match('['); 
 
@@ -376,8 +376,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__20;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:19:7: ( ']' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:19:9: ']'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:19:7: ( ']' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:19:9: ']'
             {
             match(']'); 
 
@@ -396,8 +396,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__21;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:20:7: ( 'init: ' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:20:9: 'init: '
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:20:7: ( 'init: ' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:20:9: 'init: '
             {
             match("init: "); 
 
@@ -417,8 +417,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__22;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:21:7: ( ',' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:21:9: ','
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:21:7: ( ',' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:21:9: ','
             {
             match(','); 
 
@@ -437,8 +437,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__23;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:22:7: ( 'finals: ' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:22:9: 'finals: '
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:22:7: ( 'finals: ' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:22:9: 'finals: '
             {
             match("finals: "); 
 
@@ -458,8 +458,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__24;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:23:7: ( 'from' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:23:9: 'from'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:23:7: ( 'from' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:23:9: 'from'
             {
             match("from"); 
 
@@ -479,8 +479,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__25;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:24:7: ( 'to' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:24:9: 'to'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:24:7: ( 'to' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:24:9: 'to'
             {
             match("to"); 
 
@@ -500,8 +500,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__26;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:25:7: ( ':' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:25:9: ':'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:25:7: ( ':' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:25:9: ':'
             {
             match(':'); 
 
@@ -520,8 +520,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__27;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:26:7: ( '->' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:26:9: '->'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:26:7: ( '->' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:26:9: '->'
             {
             match("->"); 
 
@@ -541,8 +541,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__28;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:27:7: ( '(' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:27:9: '('
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:27:7: ( '(' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:27:9: '('
             {
             match('('); 
 
@@ -561,8 +561,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__29;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:28:7: ( 'when' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:28:9: 'when'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:28:7: ( 'when' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:28:9: 'when'
             {
             match("when"); 
 
@@ -582,8 +582,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__30;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:29:7: ( 'if' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:29:9: 'if'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:29:7: ( 'if' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:29:9: 'if'
             {
             match("if"); 
 
@@ -603,8 +603,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__31;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:30:7: ( 'do' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:30:9: 'do'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:30:7: ( 'do' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:30:9: 'do'
             {
             match("do"); 
 
@@ -624,8 +624,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__32;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:31:7: ( ')' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:31:9: ')'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:31:7: ( ')' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:31:9: ')'
             {
             match(')'); 
 
@@ -644,8 +644,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__33;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:32:7: ( 'not' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:32:9: 'not'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:32:7: ( 'not' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:32:9: 'not'
             {
             match("not"); 
 
@@ -665,8 +665,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__34;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:33:7: ( 'kill' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:33:9: 'kill'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:33:7: ( 'kill' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:33:9: 'kill'
             {
             match("kill"); 
 
@@ -686,8 +686,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__35;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:34:7: ( 'start' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:34:9: 'start'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:34:7: ( 'start' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:34:9: 'start'
             {
             match("start"); 
 
@@ -707,8 +707,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__36;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:35:7: ( 'variables {' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:35:9: 'variables {'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:35:7: ( 'variables {' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:35:9: 'variables {'
             {
             match("variables {"); 
 
@@ -728,8 +728,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__37;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:36:7: ( '#ref' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:36:9: '#ref'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:36:7: ( '#ref' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:36:9: '#ref'
             {
             match("#ref"); 
 
@@ -749,8 +749,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__38;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:37:7: ( 'State' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:37:9: 'State'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:37:7: ( 'State' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:37:9: 'State'
             {
             match("State"); 
 
@@ -770,8 +770,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__39;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:38:7: ( 'in' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:38:9: 'in'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:38:7: ( 'in' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:38:9: 'in'
             {
             match("in"); 
 
@@ -791,8 +791,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__40;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:39:7: ( 'out' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:39:9: 'out'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:39:7: ( 'out' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:39:9: 'out'
             {
             match("out"); 
 
@@ -812,8 +812,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__41;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:40:7: ( '=' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:40:9: '='
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:40:7: ( '=' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:40:9: '='
             {
             match('='); 
 
@@ -832,8 +832,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__42;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:41:7: ( '+=' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:41:9: '+='
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:41:7: ( '+=' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:41:9: '+='
             {
             match("+="); 
 
@@ -853,8 +853,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__43;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:42:7: ( '-=' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:42:9: '-='
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:42:7: ( '-=' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:42:9: '-='
             {
             match("-="); 
 
@@ -874,8 +874,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__44;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:43:7: ( '*=' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:43:9: '*='
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:43:7: ( '*=' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:43:9: '*='
             {
             match("*="); 
 
@@ -895,8 +895,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__45;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:44:7: ( '/=' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:44:9: '/='
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:44:7: ( '/=' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:44:9: '/='
             {
             match("/="); 
 
@@ -916,8 +916,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__46;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:45:7: ( '.value' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:45:9: '.value'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:45:7: ( '.value' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:45:9: '.value'
             {
             match(".value"); 
 
@@ -937,8 +937,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__47;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:46:7: ( 'get(' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:46:9: 'get('
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:46:7: ( 'get(' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:46:9: 'get('
             {
             match("get("); 
 
@@ -958,8 +958,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__48;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:47:7: ( 'IntegerVariableRef' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:47:9: 'IntegerVariableRef'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:47:7: ( 'IntegerVariableRef' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:47:9: 'IntegerVariableRef'
             {
             match("IntegerVariableRef"); 
 
@@ -979,8 +979,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__49;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:48:7: ( '==' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:48:9: '=='
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:48:7: ( '==' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:48:9: '=='
             {
             match("=="); 
 
@@ -1000,8 +1000,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__50;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:49:7: ( '::' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:49:9: '::'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:49:7: ( '::' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:49:9: '::'
             {
             match("::"); 
 
@@ -1021,8 +1021,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__51;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:50:7: ( 'b[' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:50:9: 'b['
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:50:7: ( 'b[' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:50:9: 'b['
             {
             match("b["); 
 
@@ -1042,8 +1042,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__52;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:51:7: ( 'b#ref' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:51:9: 'b#ref'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:51:7: ( 'b#ref' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:51:9: 'b#ref'
             {
             match("b#ref"); 
 
@@ -1063,8 +1063,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__53;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:52:7: ( 'i.' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:52:9: 'i.'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:52:7: ( 'i.' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:52:9: 'i.'
             {
             match("i."); 
 
@@ -1084,8 +1084,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__54;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:53:7: ( 'i#ref' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:53:9: 'i#ref'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:53:7: ( 'i#ref' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:53:9: 'i#ref'
             {
             match("i#ref"); 
 
@@ -1105,8 +1105,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__55;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:54:7: ( '+' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:54:9: '+'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:54:7: ( '+' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:54:9: '+'
             {
             match('+'); 
 
@@ -1125,8 +1125,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__56;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:55:7: ( 'value' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:55:9: 'value'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:55:7: ( 'value' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:55:9: 'value'
             {
             match("value"); 
 
@@ -1146,8 +1146,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__57;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:56:7: ( 'operand' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:56:9: 'operand'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:56:7: ( 'operand' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:56:9: 'operand'
             {
             match("operand"); 
 
@@ -1167,8 +1167,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__58;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:57:7: ( '(+' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:57:9: '(+'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:57:7: ( '(+' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:57:9: '(+'
             {
             match("(+"); 
 
@@ -1188,8 +1188,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__59;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:58:7: ( '})' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:58:9: '})'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:58:7: ( '})' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:58:9: '})'
             {
             match("})"); 
 
@@ -1209,8 +1209,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__60;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:59:7: ( '-' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:59:9: '-'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:59:7: ( '-' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:59:9: '-'
             {
             match('-'); 
 
@@ -1229,8 +1229,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__61;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:60:7: ( '(-' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:60:9: '(-'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:60:7: ( '(-' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:60:9: '(-'
             {
             match("(-"); 
 
@@ -1250,8 +1250,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__62;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:61:7: ( '*' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:61:9: '*'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:61:7: ( '*' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:61:9: '*'
             {
             match('*'); 
 
@@ -1270,8 +1270,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__63;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:62:7: ( '/' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:62:9: '/'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:62:7: ( '/' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:62:9: '/'
             {
             match('/'); 
 
@@ -1290,8 +1290,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__64;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:63:7: ( '!' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:63:9: '!'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:63:7: ( '!' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:63:9: '!'
             {
             match('!'); 
 
@@ -1310,8 +1310,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__65;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:64:7: ( '!(' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:64:9: '!('
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:64:7: ( '!(' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:64:9: '!('
             {
             match("!("); 
 
@@ -1331,8 +1331,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__66;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:65:7: ( 'and (' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:65:9: 'and ('
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:65:7: ( 'and (' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:65:9: 'and ('
             {
             match("and ("); 
 
@@ -1352,8 +1352,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__67;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:66:7: ( '^' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:66:9: '^'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:66:7: ( '^' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:66:9: '^'
             {
             match('^'); 
 
@@ -1372,8 +1372,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__68;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:67:7: ( 'or (' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:67:9: 'or ('
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:67:7: ( 'or (' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:67:9: 'or ('
             {
             match("or ("); 
 
@@ -1393,8 +1393,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__69;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:68:7: ( 'v' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:68:9: 'v'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:68:7: ( 'v' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:68:9: 'v'
             {
             match('v'); 
 
@@ -1413,8 +1413,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__70;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:69:7: ( 'xor (' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:69:9: 'xor ('
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:69:7: ( 'xor (' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:69:9: 'xor ('
             {
             match("xor ("); 
 
@@ -1434,8 +1434,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__71;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:70:7: ( 'v_' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:70:9: 'v_'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:70:7: ( 'v_' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:70:9: 'v_'
             {
             match("v_"); 
 
@@ -1455,8 +1455,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__72;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:71:7: ( '<' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:71:9: '<'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:71:7: ( '<' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:71:9: '<'
             {
             match('<'); 
 
@@ -1475,8 +1475,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__73;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:72:7: ( '>' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:72:9: '>'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:72:7: ( '>' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:72:9: '>'
             {
             match('>'); 
 
@@ -1495,8 +1495,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__74;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:73:7: ( 'SeqIsEmpty' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:73:9: 'SeqIsEmpty'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:73:7: ( 'SeqIsEmpty' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:73:9: 'SeqIsEmpty'
             {
             match("SeqIsEmpty"); 
 
@@ -1516,8 +1516,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__75;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:74:7: ( 'Seq->Tail' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:74:9: 'Seq->Tail'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:74:7: ( 'Seq->Tail' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:74:9: 'Seq->Tail'
             {
             match("Seq->Tail"); 
 
@@ -1537,8 +1537,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__76;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:75:7: ( 'Seq->Head' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:75:9: 'Seq->Head'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:75:7: ( 'Seq->Head' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:75:9: 'Seq->Head'
             {
             match("Seq->Head"); 
 
@@ -1558,8 +1558,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__77;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:76:7: ( 'Seq--' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:76:9: 'Seq--'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:76:7: ( 'Seq--' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:76:9: 'Seq--'
             {
             match("Seq--"); 
 
@@ -1579,8 +1579,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__78;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:77:7: ( 'Seq++' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:77:9: 'Seq++'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:77:7: ( 'Seq++' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:77:9: 'Seq++'
             {
             match("Seq++"); 
 
@@ -1600,8 +1600,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__79;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:78:7: ( '>=' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:78:9: '>='
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:78:7: ( '>=' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:78:9: '>='
             {
             match(">="); 
 
@@ -1621,8 +1621,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__80;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:79:7: ( '<=' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:79:9: '<='
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:79:7: ( '<=' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:79:9: '<='
             {
             match("<="); 
 
@@ -1642,8 +1642,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__81;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:80:7: ( 'ExpressionLibrary' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:80:9: 'ExpressionLibrary'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:80:7: ( 'ExpressionLibrary' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:80:9: 'ExpressionLibrary'
             {
             match("ExpressionLibrary"); 
 
@@ -1663,8 +1663,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__82;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:81:7: ( 'RelationLibrary' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:81:9: 'RelationLibrary'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:81:7: ( 'RelationLibrary' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:81:9: 'RelationLibrary'
             {
             match("RelationLibrary"); 
 
@@ -1684,8 +1684,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__83;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:82:7: ( 'ExpressionDeclaration' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:82:9: 'ExpressionDeclaration'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:82:7: ( 'ExpressionDeclaration' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:82:9: 'ExpressionDeclaration'
             {
             match("ExpressionDeclaration"); 
 
@@ -1705,8 +1705,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__84;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:83:7: ( 'RelationDeclaration' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:83:9: 'RelationDeclaration'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:83:7: ( 'RelationDeclaration' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:83:9: 'RelationDeclaration'
             {
             match("RelationDeclaration"); 
 
@@ -1726,8 +1726,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__85;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:84:7: ( 'ExpressionDefinition' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:84:9: 'ExpressionDefinition'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:84:7: ( 'ExpressionDefinition' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:84:9: 'ExpressionDefinition'
             {
             match("ExpressionDefinition"); 
 
@@ -1747,8 +1747,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__86;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:85:7: ( 'root' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:85:9: 'root'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:85:7: ( 'root' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:85:9: 'root'
             {
             match("root"); 
 
@@ -1768,8 +1768,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__87;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:86:7: ( 'ConditionalExpressionDefinition' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:86:9: 'ConditionalExpressionDefinition'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:86:7: ( 'ConditionalExpressionDefinition' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:86:9: 'ConditionalExpressionDefinition'
             {
             match("ConditionalExpressionDefinition"); 
 
@@ -1789,8 +1789,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__88;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:87:7: ( 'switch' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:87:9: 'switch'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:87:7: ( 'switch' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:87:9: 'switch'
             {
             match("switch"); 
 
@@ -1810,8 +1810,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__89;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:88:7: ( 'default' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:88:9: 'default'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:88:7: ( 'default' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:88:9: 'default'
             {
             match("default"); 
 
@@ -1831,8 +1831,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__90;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:89:7: ( 'Extern' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:89:9: 'Extern'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:89:7: ( 'Extern' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:89:9: 'Extern'
             {
             match("Extern"); 
 
@@ -1852,8 +1852,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__91;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:90:7: ( 'External' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:90:9: 'External'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:90:7: ( 'External' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:90:9: 'External'
             {
             match("External"); 
 
@@ -1873,8 +1873,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__92;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:91:7: ( 'ConditionalRelationDefinition' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:91:9: 'ConditionalRelationDefinition'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:91:7: ( 'ConditionalRelationDefinition' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:91:9: 'ConditionalRelationDefinition'
             {
             match("ConditionalRelationDefinition"); 
 
@@ -1894,8 +1894,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__93;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:92:7: ( 'RelationDefinition' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:92:9: 'RelationDefinition'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:92:7: ( 'RelationDefinition' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:92:9: 'RelationDefinition'
             {
             match("RelationDefinition"); 
 
@@ -1915,8 +1915,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__94;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:93:7: ( 'assert' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:93:9: 'assert'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:93:7: ( 'assert' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:93:9: 'assert'
             {
             match("assert"); 
 
@@ -1936,8 +1936,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__95;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:94:7: ( 'Relation' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:94:9: 'Relation'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:94:7: ( 'Relation' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:94:9: 'Relation'
             {
             match("Relation"); 
 
@@ -1957,8 +1957,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__96;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:95:7: ( 'Expression' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:95:9: 'Expression'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:95:7: ( 'Expression' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:95:9: 'Expression'
             {
             match("Expression"); 
 
@@ -1978,8 +1978,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__97;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:96:7: ( 'Clock' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:96:9: 'Clock'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:96:7: ( 'Clock' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:96:9: 'Clock'
             {
             match("Clock"); 
 
@@ -1999,8 +1999,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__98;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:97:7: ( 'case' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:97:9: 'case'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:97:7: ( 'case' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:97:9: 'case'
             {
             match("case"); 
 
@@ -2020,8 +2020,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__99;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:98:7: ( 'String' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:98:9: 'String'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:98:7: ( 'String' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:98:9: 'String'
             {
             match("String"); 
 
@@ -2041,8 +2041,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__100;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:99:8: ( 'True' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:99:10: 'True'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:99:8: ( 'True' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:99:10: 'True'
             {
             match("True"); 
 
@@ -2062,8 +2062,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__101;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:100:8: ( 'False' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:100:10: 'False'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:100:8: ( 'False' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:100:10: 'False'
             {
             match("False"); 
 
@@ -2083,8 +2083,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__102;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:101:8: ( 'RealRef' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:101:10: 'RealRef'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:101:8: ( 'RealRef' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:101:10: 'RealRef'
             {
             match("RealRef"); 
 
@@ -2104,8 +2104,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__103;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:102:8: ( 'name' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:102:10: 'name'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:102:8: ( 'name' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:102:10: 'name'
             {
             match("name"); 
 
@@ -2125,8 +2125,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__104;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:103:8: ( 'realElem' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:103:10: 'realElem'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:103:8: ( 'realElem' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:103:10: 'realElem'
             {
             match("realElem"); 
 
@@ -2146,8 +2146,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__105;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:104:8: ( 'UnaryRealPlus' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:104:10: 'UnaryRealPlus'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:104:8: ( 'UnaryRealPlus' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:104:10: 'UnaryRealPlus'
             {
             match("UnaryRealPlus"); 
 
@@ -2167,8 +2167,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__106;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:105:8: ( 'UnaryRealMinus' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:105:10: 'UnaryRealMinus'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:105:8: ( 'UnaryRealMinus' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:105:10: 'UnaryRealMinus'
             {
             match("UnaryRealMinus"); 
 
@@ -2188,8 +2188,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__107;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:106:8: ( 'RealPlus' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:106:10: 'RealPlus'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:106:8: ( 'RealPlus' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:106:10: 'RealPlus'
             {
             match("RealPlus"); 
 
@@ -2209,8 +2209,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__108;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:107:8: ( 'leftValue' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:107:10: 'leftValue'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:107:8: ( 'leftValue' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:107:10: 'leftValue'
             {
             match("leftValue"); 
 
@@ -2230,8 +2230,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__109;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:108:8: ( 'rightValue' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:108:10: 'rightValue'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:108:8: ( 'rightValue' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:108:10: 'rightValue'
             {
             match("rightValue"); 
 
@@ -2251,8 +2251,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__110;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:109:8: ( 'RealMinus' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:109:10: 'RealMinus'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:109:8: ( 'RealMinus' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:109:10: 'RealMinus'
             {
             match("RealMinus"); 
 
@@ -2272,8 +2272,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__111;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:110:8: ( 'RealMultiply' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:110:10: 'RealMultiply'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:110:8: ( 'RealMultiply' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:110:10: 'RealMultiply'
             {
             match("RealMultiply"); 
 
@@ -2293,8 +2293,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__112;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:111:8: ( 'BooleanVariableRef' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:111:10: 'BooleanVariableRef'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:111:8: ( 'BooleanVariableRef' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:111:10: 'BooleanVariableRef'
             {
             match("BooleanVariableRef"); 
 
@@ -2314,8 +2314,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__113;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:112:8: ( 'RealVariableRef' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:112:10: 'RealVariableRef'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:112:8: ( 'RealVariableRef' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:112:10: 'RealVariableRef'
             {
             match("RealVariableRef"); 
 
@@ -2335,8 +2335,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__114;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:113:8: ( 'SeqRef' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:113:10: 'SeqRef'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:113:8: ( 'SeqRef' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:113:10: 'SeqRef'
             {
             match("SeqRef"); 
 
@@ -2356,8 +2356,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__115;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:114:8: ( 'SeqVarRef' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:114:10: 'SeqVarRef'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:114:8: ( 'SeqVarRef' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:114:10: 'SeqVarRef'
             {
             match("SeqVarRef"); 
 
@@ -2377,8 +2377,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__116;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:115:8: ( 'Real' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:115:10: 'Real'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:115:8: ( 'Real' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:115:10: 'Real'
             {
             match("Real"); 
 
@@ -2398,8 +2398,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__117;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:116:8: ( 'Integer' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:116:10: 'Integer'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:116:8: ( 'Integer' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:116:10: 'Integer'
             {
             match("Integer"); 
 
@@ -2419,8 +2419,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__118;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:117:8: ( 'BooleanElement' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:117:10: 'BooleanElement'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:117:8: ( 'BooleanElement' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:117:10: 'BooleanElement'
             {
             match("BooleanElement"); 
 
@@ -2440,8 +2440,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__119;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:118:8: ( 'Sequence' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:118:10: 'Sequence'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:118:8: ( 'Sequence' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:118:10: 'Sequence'
             {
             match("Sequence"); 
 
@@ -2461,8 +2461,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__120;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:119:8: ( 'RecordElement' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:119:10: 'RecordElement'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:119:8: ( 'RecordElement' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:119:10: 'RecordElement'
             {
             match("RecordElement"); 
 
@@ -2482,8 +2482,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__121;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:120:8: ( 'type' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:120:10: 'type'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:120:8: ( 'type' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:120:10: 'type'
             {
             match("type"); 
 
@@ -2503,8 +2503,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__122;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:121:8: ( 'box' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:121:10: 'box'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:121:8: ( 'box' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:121:10: 'box'
             {
             match("box"); 
 
@@ -2524,8 +2524,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__123;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:122:8: ( 'Box' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:122:10: 'Box'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:122:8: ( 'Box' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:122:10: 'Box'
             {
             match("Box"); 
 
@@ -2545,8 +2545,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__124;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:123:8: ( 'containment' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:123:10: 'containment'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:123:8: ( 'containment' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:123:10: 'containment'
             {
             match("containment"); 
 
@@ -2566,8 +2566,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__125;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:124:8: ( 'StringType' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:124:10: 'StringType'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:124:8: ( 'StringType' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:124:10: 'StringType'
             {
             match("StringType"); 
 
@@ -2587,8 +2587,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__126;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:125:8: ( 'BooleanType' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:125:10: 'BooleanType'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:125:8: ( 'BooleanType' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:125:10: 'BooleanType'
             {
             match("BooleanType"); 
 
@@ -2608,8 +2608,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__127;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:126:8: ( 'IntegerType' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:126:10: 'IntegerType'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:126:8: ( 'IntegerType' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:126:10: 'IntegerType'
             {
             match("IntegerType"); 
 
@@ -2629,8 +2629,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__128;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:127:8: ( 'RealType' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:127:10: 'RealType'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:127:8: ( 'RealType' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:127:10: 'RealType'
             {
             match("RealType"); 
 
@@ -2650,8 +2650,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__129;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:128:8: ( 'CharType' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:128:10: 'CharType'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:128:8: ( 'CharType' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:128:10: 'CharType'
             {
             match("CharType"); 
 
@@ -2671,8 +2671,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__130;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:129:8: ( 'RecordType' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:129:10: 'RecordType'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:129:8: ( 'RecordType' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:129:10: 'RecordType'
             {
             match("RecordType"); 
 
@@ -2692,8 +2692,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__131;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:130:8: ( 'SequenceType' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:130:10: 'SequenceType'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:130:8: ( 'SequenceType' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:130:10: 'SequenceType'
             {
             match("SequenceType"); 
 
@@ -2713,8 +2713,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__132;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:131:8: ( 'DiscreteClockType' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:131:10: 'DiscreteClockType'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:131:8: ( 'DiscreteClockType' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:131:10: 'DiscreteClockType'
             {
             match("DiscreteClockType"); 
 
@@ -2734,8 +2734,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__133;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:132:8: ( 'DenseClockType' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:132:10: 'DenseClockType'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:132:8: ( 'DenseClockType' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:132:10: 'DenseClockType'
             {
             match("DenseClockType"); 
 
@@ -2755,8 +2755,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__134;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:133:8: ( 'baseUnit' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:133:10: 'baseUnit'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:133:8: ( 'baseUnit' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:133:10: 'baseUnit'
             {
             match("baseUnit"); 
 
@@ -2776,8 +2776,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__135;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:134:8: ( 'physicalMagnitude' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:134:10: 'physicalMagnitude'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:134:8: ( 'physicalMagnitude' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:134:10: 'physicalMagnitude'
             {
             match("physicalMagnitude"); 
 
@@ -2797,8 +2797,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__136;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:135:8: ( 'EnumerationType' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:135:10: 'EnumerationType'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:135:8: ( 'EnumerationType' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:135:10: 'EnumerationType'
             {
             match("EnumerationType"); 
 
@@ -2818,8 +2818,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__137;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:136:8: ( 'enumLiteral' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:136:10: 'enumLiteral'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:136:8: ( 'enumLiteral' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:136:10: 'enumLiteral'
             {
             match("enumLiteral"); 
 
@@ -2839,8 +2839,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__138;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:137:8: ( 'Field' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:137:10: 'Field'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:137:8: ( 'Field' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:137:10: 'Field'
             {
             match("Field"); 
 
@@ -2860,8 +2860,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__139;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:138:8: ( '_SubClock' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:138:10: '_SubClock'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:138:8: ( '_SubClock' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:138:10: '_SubClock'
             {
             match("_SubClock"); 
 
@@ -2881,8 +2881,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__140;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:139:8: ( 'rightEntity' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:139:10: 'rightEntity'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:139:8: ( 'rightEntity' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:139:10: 'rightEntity'
             {
             match("rightEntity"); 
 
@@ -2902,8 +2902,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__141;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:140:8: ( 'leftEntity' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:140:10: 'leftEntity'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:140:8: ( 'leftEntity' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:140:10: 'leftEntity'
             {
             match("leftEntity"); 
 
@@ -2923,8 +2923,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__142;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:141:8: ( '_Coincidence' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:141:10: '_Coincidence'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:141:8: ( '_Coincidence' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:141:10: '_Coincidence'
             {
             match("_Coincidence"); 
 
@@ -2944,8 +2944,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__143;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:142:8: ( '_Exclusion' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:142:10: '_Exclusion'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:142:8: ( '_Exclusion' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:142:10: '_Exclusion'
             {
             match("_Exclusion"); 
 
@@ -2965,8 +2965,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__144;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:143:8: ( '_Precedence' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:143:10: '_Precedence'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:143:8: ( '_Precedence' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:143:10: '_Precedence'
             {
             match("_Precedence"); 
 
@@ -2986,8 +2986,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__145;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:144:8: ( '_NonStrictPrecedence' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:144:10: '_NonStrictPrecedence'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:144:8: ( '_NonStrictPrecedence' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:144:10: '_NonStrictPrecedence'
             {
             match("_NonStrictPrecedence"); 
 
@@ -3007,8 +3007,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__146;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:145:8: ( '_UpTo' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:145:10: '_UpTo'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:145:8: ( '_UpTo' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:145:10: '_UpTo'
             {
             match("_UpTo"); 
 
@@ -3028,8 +3028,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__147;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:146:8: ( 'returnType' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:146:10: 'returnType'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:146:8: ( 'returnType' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:146:10: 'returnType'
             {
             match("returnType"); 
 
@@ -3049,8 +3049,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__148;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:147:8: ( 'clockToFollow' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:147:10: 'clockToFollow'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:147:8: ( 'clockToFollow' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:147:10: 'clockToFollow'
             {
             match("clockToFollow"); 
 
@@ -3070,8 +3070,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__149;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:148:8: ( 'killerClock' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:148:10: 'killerClock'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:148:8: ( 'killerClock' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:148:10: 'killerClock'
             {
             match("killerClock"); 
 
@@ -3091,8 +3091,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__150;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:149:8: ( 'isPreemptive' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:149:10: 'isPreemptive'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:149:8: ( 'isPreemptive' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:149:10: 'isPreemptive'
             {
             match("isPreemptive"); 
 
@@ -3112,8 +3112,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__151;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:150:8: ( '_Defer' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:150:10: '_Defer'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:150:8: ( '_Defer' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:150:10: '_Defer'
             {
             match("_Defer"); 
 
@@ -3133,8 +3133,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__152;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:151:8: ( 'baseClock' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:151:10: 'baseClock'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:151:8: ( 'baseClock' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:151:10: 'baseClock'
             {
             match("baseClock"); 
 
@@ -3154,8 +3154,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__153;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:152:8: ( 'delayClock' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:152:10: 'delayClock'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:152:8: ( 'delayClock' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:152:10: 'delayClock'
             {
             match("delayClock"); 
 
@@ -3175,8 +3175,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__154;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:153:8: ( 'delayPattern' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:153:10: 'delayPattern'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:153:8: ( 'delayPattern' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:153:10: 'delayPattern'
             {
             match("delayPattern"); 
 
@@ -3196,8 +3196,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__155;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:154:8: ( '_StrictSampling' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:154:10: '_StrictSampling'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:154:8: ( '_StrictSampling' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:154:10: '_StrictSampling'
             {
             match("_StrictSampling"); 
 
@@ -3217,8 +3217,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__156;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:155:8: ( 'sampledClock' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:155:10: 'sampledClock'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:155:8: ( 'sampledClock' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:155:10: 'sampledClock'
             {
             match("sampledClock"); 
 
@@ -3238,8 +3238,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__157;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:156:8: ( 'samplingClock' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:156:10: 'samplingClock'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:156:8: ( 'samplingClock' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:156:10: 'samplingClock'
             {
             match("samplingClock"); 
 
@@ -3259,8 +3259,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__158;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:157:8: ( '_Concatenation' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:157:10: '_Concatenation'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:157:8: ( '_Concatenation' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:157:10: '_Concatenation'
             {
             match("_Concatenation"); 
 
@@ -3280,8 +3280,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__159;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:158:8: ( 'leftClock' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:158:10: 'leftClock'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:158:8: ( 'leftClock' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:158:10: 'leftClock'
             {
             match("leftClock"); 
 
@@ -3301,8 +3301,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__160;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:159:8: ( 'rightClock' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:159:10: 'rightClock'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:159:8: ( 'rightClock' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:159:10: 'rightClock'
             {
             match("rightClock"); 
 
@@ -3322,8 +3322,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__161;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:160:8: ( '_Union' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:160:10: '_Union'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:160:8: ( '_Union' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:160:10: '_Union'
             {
             match("_Union"); 
 
@@ -3343,8 +3343,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__162;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:161:8: ( 'clock1' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:161:10: 'clock1'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:161:8: ( 'clock1' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:161:10: 'clock1'
             {
             match("clock1"); 
 
@@ -3364,8 +3364,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__163;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:162:8: ( 'clock2' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:162:10: 'clock2'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:162:8: ( 'clock2' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:162:10: 'clock2'
             {
             match("clock2"); 
 
@@ -3385,8 +3385,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__164;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:163:8: ( '_Intersection' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:163:10: '_Intersection'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:163:8: ( '_Intersection' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:163:10: '_Intersection'
             {
             match("_Intersection"); 
 
@@ -3406,8 +3406,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__165;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:164:8: ( '_Sup' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:164:10: '_Sup'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:164:8: ( '_Sup' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:164:10: '_Sup'
             {
             match("_Sup"); 
 
@@ -3427,8 +3427,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__166;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:165:8: ( '_Inf' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:165:10: '_Inf'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:165:8: ( '_Inf' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:165:10: '_Inf'
             {
             match("_Inf"); 
 
@@ -3448,8 +3448,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__167;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:166:8: ( '_NonStrictSampling' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:166:10: '_NonStrictSampling'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:166:8: ( '_NonStrictSampling' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:166:10: '_NonStrictSampling'
             {
             match("_NonStrictSampling"); 
 
@@ -3469,8 +3469,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__168;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:167:8: ( '_Wait' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:167:10: '_Wait'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:167:8: ( '_Wait' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:167:10: '_Wait'
             {
             match("_Wait"); 
 
@@ -3490,8 +3490,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__169;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:168:8: ( 'waitingClock' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:168:10: 'waitingClock'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:168:8: ( 'waitingClock' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:168:10: 'waitingClock'
             {
             match("waitingClock"); 
 
@@ -3511,8 +3511,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__170;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:169:8: ( 'waitingValue' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:169:10: 'waitingValue'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:169:8: ( 'waitingValue' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:169:10: 'waitingValue'
             {
             match("waitingValue"); 
 
@@ -3532,8 +3532,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__171;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:170:8: ( '_Discretization' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:170:10: '_Discretization'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:170:8: ( '_Discretization' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:170:10: '_Discretization'
             {
             match("_Discretization"); 
 
@@ -3553,8 +3553,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__172;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:171:8: ( 'denseClock' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:171:10: 'denseClock'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:171:8: ( 'denseClock' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:171:10: 'denseClock'
             {
             match("denseClock"); 
 
@@ -3574,8 +3574,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__173;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:172:8: ( 'discretizationFactor' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:172:10: 'discretizationFactor'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:172:8: ( 'discretizationFactor' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:172:10: 'discretizationFactor'
             {
             match("discretizationFactor"); 
 
@@ -3595,8 +3595,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__174;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:173:8: ( '_Death' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:173:10: '_Death'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:173:8: ( '_Death' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:173:10: '_Death'
             {
             match("_Death"); 
 
@@ -3616,8 +3616,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__175;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:174:8: ( 'finish' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:174:10: 'finish'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:174:8: ( 'finish' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:174:10: 'finish'
             {
             match("finish"); 
 
@@ -3637,8 +3637,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__176;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:175:8: ( 'stop' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:175:10: 'stop'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:175:8: ( 'stop' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:175:10: 'stop'
             {
             match("stop"); 
 
@@ -3658,8 +3658,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__177;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:176:8: ( 'consume' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:176:10: 'consume'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:176:8: ( 'consume' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:176:10: 'consume'
             {
             match("consume"); 
 
@@ -3679,8 +3679,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__178;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:177:8: ( 'produce' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:177:10: 'produce'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:177:8: ( 'produce' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:177:10: 'produce'
             {
             match("produce"); 
 
@@ -3700,8 +3700,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__179;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:178:8: ( 'receive' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:178:10: 'receive'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:178:8: ( 'receive' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:178:10: 'receive'
             {
             match("receive"); 
 
@@ -3721,8 +3721,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__180;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:179:8: ( 'send' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:179:10: 'send'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:179:8: ( 'send' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:179:10: 'send'
             {
             match("send"); 
 
@@ -3742,8 +3742,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__181;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:180:8: ( 'any' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:180:10: 'any'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:180:8: ( 'any' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:180:10: 'any'
             {
             match("any"); 
 
@@ -3763,8 +3763,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__182;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:181:8: ( 'all' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:181:10: 'all'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:181:8: ( 'all' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:181:10: 'all'
             {
             match("all"); 
 
@@ -3784,8 +3784,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = T__183;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:182:8: ( 'undefined' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:182:10: 'undefined'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:182:8: ( 'undefined' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:182:10: 'undefined'
             {
             match("undefined"); 
 
@@ -3805,10 +3805,10 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = RULE_REAL0;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13096:12: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )+ )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13096:14: ( '0' .. '9' )+ '.' ( '0' .. '9' )+
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13096:12: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )+ )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13096:14: ( '0' .. '9' )+ '.' ( '0' .. '9' )+
             {
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13096:14: ( '0' .. '9' )+
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13096:14: ( '0' .. '9' )+
             int cnt1=0;
             loop1:
             do {
@@ -3822,7 +3822,7 @@ public class InternalMoCDslLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13096:15: '0' .. '9'
+            	    // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13096:15: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -3839,7 +3839,7 @@ public class InternalMoCDslLexer extends Lexer {
             } while (true);
 
             match('.'); 
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13096:30: ( '0' .. '9' )+
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13096:30: ( '0' .. '9' )+
             int cnt2=0;
             loop2:
             do {
@@ -3853,7 +3853,7 @@ public class InternalMoCDslLexer extends Lexer {
 
                 switch (alt2) {
             	case 1 :
-            	    // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13096:31: '0' .. '9'
+            	    // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13096:31: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -3885,10 +3885,10 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13098:10: ( ( '-' )? ( '0' .. '9' )+ )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13098:12: ( '-' )? ( '0' .. '9' )+
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13098:10: ( ( '-' )? ( '0' .. '9' )+ )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13098:12: ( '-' )? ( '0' .. '9' )+
             {
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13098:12: ( '-' )?
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13098:12: ( '-' )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -3897,7 +3897,7 @@ public class InternalMoCDslLexer extends Lexer {
             }
             switch (alt3) {
                 case 1 :
-                    // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13098:12: '-'
+                    // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13098:12: '-'
                     {
                     match('-'); 
 
@@ -3906,7 +3906,7 @@ public class InternalMoCDslLexer extends Lexer {
 
             }
 
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13098:17: ( '0' .. '9' )+
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13098:17: ( '0' .. '9' )+
             int cnt4=0;
             loop4:
             do {
@@ -3920,7 +3920,7 @@ public class InternalMoCDslLexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13098:18: '0' .. '9'
+            	    // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13098:18: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -3952,10 +3952,10 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13100:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13100:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13100:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13100:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13100:11: ( '^' )?
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13100:11: ( '^' )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -3964,7 +3964,7 @@ public class InternalMoCDslLexer extends Lexer {
             }
             switch (alt5) {
                 case 1 :
-                    // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13100:11: '^'
+                    // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13100:11: '^'
                     {
                     match('^'); 
 
@@ -3982,7 +3982,7 @@ public class InternalMoCDslLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13100:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13100:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop6:
             do {
                 int alt6=2;
@@ -3995,7 +3995,7 @@ public class InternalMoCDslLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:
+            	    // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:
             	    {
             	    if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
             	        input.consume();
@@ -4031,10 +4031,10 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13102:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13102:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13102:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13102:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13102:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13102:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -4052,10 +4052,10 @@ public class InternalMoCDslLexer extends Lexer {
             }
             switch (alt9) {
                 case 1 :
-                    // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13102:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13102:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13102:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13102:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop7:
                     do {
                         int alt7=3;
@@ -4071,7 +4071,7 @@ public class InternalMoCDslLexer extends Lexer {
 
                         switch (alt7) {
                     	case 1 :
-                    	    // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13102:21: '\\\\' .
+                    	    // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13102:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -4079,7 +4079,7 @@ public class InternalMoCDslLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13102:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13102:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -4104,10 +4104,10 @@ public class InternalMoCDslLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13102:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13102:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13102:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13102:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop8:
                     do {
                         int alt8=3;
@@ -4123,7 +4123,7 @@ public class InternalMoCDslLexer extends Lexer {
 
                         switch (alt8) {
                     	case 1 :
-                    	    // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13102:54: '\\\\' .
+                    	    // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13102:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -4131,7 +4131,7 @@ public class InternalMoCDslLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13102:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13102:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -4174,12 +4174,12 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13104:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13104:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13104:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13104:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13104:24: ( options {greedy=false; } : . )*
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13104:24: ( options {greedy=false; } : . )*
             loop10:
             do {
                 int alt10=2;
@@ -4204,7 +4204,7 @@ public class InternalMoCDslLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13104:52: .
+            	    // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13104:52: .
             	    {
             	    matchAny(); 
 
@@ -4234,12 +4234,12 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13106:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13106:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13106:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13106:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13106:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13106:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop11:
             do {
                 int alt11=2;
@@ -4252,7 +4252,7 @@ public class InternalMoCDslLexer extends Lexer {
 
                 switch (alt11) {
             	case 1 :
-            	    // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13106:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13106:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -4272,7 +4272,7 @@ public class InternalMoCDslLexer extends Lexer {
                 }
             } while (true);
 
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13106:40: ( ( '\\r' )? '\\n' )?
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13106:40: ( ( '\\r' )? '\\n' )?
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -4281,9 +4281,9 @@ public class InternalMoCDslLexer extends Lexer {
             }
             switch (alt13) {
                 case 1 :
-                    // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13106:41: ( '\\r' )? '\\n'
+                    // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13106:41: ( '\\r' )? '\\n'
                     {
-                    // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13106:41: ( '\\r' )?
+                    // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13106:41: ( '\\r' )?
                     int alt12=2;
                     int LA12_0 = input.LA(1);
 
@@ -4292,7 +4292,7 @@ public class InternalMoCDslLexer extends Lexer {
                     }
                     switch (alt12) {
                         case 1 :
-                            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13106:41: '\\r'
+                            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13106:41: '\\r'
                             {
                             match('\r'); 
 
@@ -4324,10 +4324,10 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13108:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13108:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13108:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13108:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13108:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13108:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt14=0;
             loop14:
             do {
@@ -4341,7 +4341,7 @@ public class InternalMoCDslLexer extends Lexer {
 
                 switch (alt14) {
             	case 1 :
-            	    // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:
+            	    // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:
             	    {
             	    if ( (input.LA(1)>='\t' && input.LA(1)<='\n')||input.LA(1)=='\r'||input.LA(1)==' ' ) {
             	        input.consume();
@@ -4381,8 +4381,8 @@ public class InternalMoCDslLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13110:16: ( . )
-            // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13110:18: .
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13110:16: ( . )
+            // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:13110:18: .
             {
             matchAny(); 
 
@@ -4397,1265 +4397,1265 @@ public class InternalMoCDslLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:8: ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | T__112 | T__113 | T__114 | T__115 | T__116 | T__117 | T__118 | T__119 | T__120 | T__121 | T__122 | T__123 | T__124 | T__125 | T__126 | T__127 | T__128 | T__129 | T__130 | T__131 | T__132 | T__133 | T__134 | T__135 | T__136 | T__137 | T__138 | T__139 | T__140 | T__141 | T__142 | T__143 | T__144 | T__145 | T__146 | T__147 | T__148 | T__149 | T__150 | T__151 | T__152 | T__153 | T__154 | T__155 | T__156 | T__157 | T__158 | T__159 | T__160 | T__161 | T__162 | T__163 | T__164 | T__165 | T__166 | T__167 | T__168 | T__169 | T__170 | T__171 | T__172 | T__173 | T__174 | T__175 | T__176 | T__177 | T__178 | T__179 | T__180 | T__181 | T__182 | T__183 | RULE_REAL0 | RULE_INT | RULE_ID | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:8: ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | T__112 | T__113 | T__114 | T__115 | T__116 | T__117 | T__118 | T__119 | T__120 | T__121 | T__122 | T__123 | T__124 | T__125 | T__126 | T__127 | T__128 | T__129 | T__130 | T__131 | T__132 | T__133 | T__134 | T__135 | T__136 | T__137 | T__138 | T__139 | T__140 | T__141 | T__142 | T__143 | T__144 | T__145 | T__146 | T__147 | T__148 | T__149 | T__150 | T__151 | T__152 | T__153 | T__154 | T__155 | T__156 | T__157 | T__158 | T__159 | T__160 | T__161 | T__162 | T__163 | T__164 | T__165 | T__166 | T__167 | T__168 | T__169 | T__170 | T__171 | T__172 | T__173 | T__174 | T__175 | T__176 | T__177 | T__178 | T__179 | T__180 | T__181 | T__182 | T__183 | RULE_REAL0 | RULE_INT | RULE_ID | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
         int alt15=180;
         alt15 = dfa15.predict(input);
         switch (alt15) {
             case 1 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:10: T__12
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:10: T__12
                 {
                 mT__12(); 
 
                 }
                 break;
             case 2 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:16: T__13
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:16: T__13
                 {
                 mT__13(); 
 
                 }
                 break;
             case 3 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:22: T__14
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:22: T__14
                 {
                 mT__14(); 
 
                 }
                 break;
             case 4 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:28: T__15
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:28: T__15
                 {
                 mT__15(); 
 
                 }
                 break;
             case 5 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:34: T__16
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:34: T__16
                 {
                 mT__16(); 
 
                 }
                 break;
             case 6 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:40: T__17
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:40: T__17
                 {
                 mT__17(); 
 
                 }
                 break;
             case 7 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:46: T__18
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:46: T__18
                 {
                 mT__18(); 
 
                 }
                 break;
             case 8 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:52: T__19
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:52: T__19
                 {
                 mT__19(); 
 
                 }
                 break;
             case 9 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:58: T__20
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:58: T__20
                 {
                 mT__20(); 
 
                 }
                 break;
             case 10 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:64: T__21
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:64: T__21
                 {
                 mT__21(); 
 
                 }
                 break;
             case 11 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:70: T__22
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:70: T__22
                 {
                 mT__22(); 
 
                 }
                 break;
             case 12 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:76: T__23
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:76: T__23
                 {
                 mT__23(); 
 
                 }
                 break;
             case 13 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:82: T__24
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:82: T__24
                 {
                 mT__24(); 
 
                 }
                 break;
             case 14 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:88: T__25
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:88: T__25
                 {
                 mT__25(); 
 
                 }
                 break;
             case 15 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:94: T__26
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:94: T__26
                 {
                 mT__26(); 
 
                 }
                 break;
             case 16 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:100: T__27
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:100: T__27
                 {
                 mT__27(); 
 
                 }
                 break;
             case 17 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:106: T__28
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:106: T__28
                 {
                 mT__28(); 
 
                 }
                 break;
             case 18 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:112: T__29
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:112: T__29
                 {
                 mT__29(); 
 
                 }
                 break;
             case 19 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:118: T__30
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:118: T__30
                 {
                 mT__30(); 
 
                 }
                 break;
             case 20 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:124: T__31
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:124: T__31
                 {
                 mT__31(); 
 
                 }
                 break;
             case 21 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:130: T__32
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:130: T__32
                 {
                 mT__32(); 
 
                 }
                 break;
             case 22 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:136: T__33
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:136: T__33
                 {
                 mT__33(); 
 
                 }
                 break;
             case 23 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:142: T__34
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:142: T__34
                 {
                 mT__34(); 
 
                 }
                 break;
             case 24 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:148: T__35
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:148: T__35
                 {
                 mT__35(); 
 
                 }
                 break;
             case 25 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:154: T__36
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:154: T__36
                 {
                 mT__36(); 
 
                 }
                 break;
             case 26 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:160: T__37
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:160: T__37
                 {
                 mT__37(); 
 
                 }
                 break;
             case 27 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:166: T__38
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:166: T__38
                 {
                 mT__38(); 
 
                 }
                 break;
             case 28 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:172: T__39
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:172: T__39
                 {
                 mT__39(); 
 
                 }
                 break;
             case 29 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:178: T__40
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:178: T__40
                 {
                 mT__40(); 
 
                 }
                 break;
             case 30 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:184: T__41
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:184: T__41
                 {
                 mT__41(); 
 
                 }
                 break;
             case 31 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:190: T__42
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:190: T__42
                 {
                 mT__42(); 
 
                 }
                 break;
             case 32 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:196: T__43
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:196: T__43
                 {
                 mT__43(); 
 
                 }
                 break;
             case 33 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:202: T__44
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:202: T__44
                 {
                 mT__44(); 
 
                 }
                 break;
             case 34 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:208: T__45
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:208: T__45
                 {
                 mT__45(); 
 
                 }
                 break;
             case 35 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:214: T__46
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:214: T__46
                 {
                 mT__46(); 
 
                 }
                 break;
             case 36 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:220: T__47
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:220: T__47
                 {
                 mT__47(); 
 
                 }
                 break;
             case 37 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:226: T__48
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:226: T__48
                 {
                 mT__48(); 
 
                 }
                 break;
             case 38 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:232: T__49
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:232: T__49
                 {
                 mT__49(); 
 
                 }
                 break;
             case 39 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:238: T__50
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:238: T__50
                 {
                 mT__50(); 
 
                 }
                 break;
             case 40 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:244: T__51
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:244: T__51
                 {
                 mT__51(); 
 
                 }
                 break;
             case 41 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:250: T__52
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:250: T__52
                 {
                 mT__52(); 
 
                 }
                 break;
             case 42 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:256: T__53
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:256: T__53
                 {
                 mT__53(); 
 
                 }
                 break;
             case 43 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:262: T__54
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:262: T__54
                 {
                 mT__54(); 
 
                 }
                 break;
             case 44 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:268: T__55
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:268: T__55
                 {
                 mT__55(); 
 
                 }
                 break;
             case 45 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:274: T__56
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:274: T__56
                 {
                 mT__56(); 
 
                 }
                 break;
             case 46 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:280: T__57
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:280: T__57
                 {
                 mT__57(); 
 
                 }
                 break;
             case 47 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:286: T__58
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:286: T__58
                 {
                 mT__58(); 
 
                 }
                 break;
             case 48 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:292: T__59
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:292: T__59
                 {
                 mT__59(); 
 
                 }
                 break;
             case 49 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:298: T__60
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:298: T__60
                 {
                 mT__60(); 
 
                 }
                 break;
             case 50 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:304: T__61
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:304: T__61
                 {
                 mT__61(); 
 
                 }
                 break;
             case 51 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:310: T__62
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:310: T__62
                 {
                 mT__62(); 
 
                 }
                 break;
             case 52 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:316: T__63
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:316: T__63
                 {
                 mT__63(); 
 
                 }
                 break;
             case 53 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:322: T__64
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:322: T__64
                 {
                 mT__64(); 
 
                 }
                 break;
             case 54 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:328: T__65
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:328: T__65
                 {
                 mT__65(); 
 
                 }
                 break;
             case 55 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:334: T__66
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:334: T__66
                 {
                 mT__66(); 
 
                 }
                 break;
             case 56 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:340: T__67
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:340: T__67
                 {
                 mT__67(); 
 
                 }
                 break;
             case 57 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:346: T__68
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:346: T__68
                 {
                 mT__68(); 
 
                 }
                 break;
             case 58 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:352: T__69
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:352: T__69
                 {
                 mT__69(); 
 
                 }
                 break;
             case 59 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:358: T__70
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:358: T__70
                 {
                 mT__70(); 
 
                 }
                 break;
             case 60 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:364: T__71
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:364: T__71
                 {
                 mT__71(); 
 
                 }
                 break;
             case 61 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:370: T__72
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:370: T__72
                 {
                 mT__72(); 
 
                 }
                 break;
             case 62 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:376: T__73
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:376: T__73
                 {
                 mT__73(); 
 
                 }
                 break;
             case 63 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:382: T__74
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:382: T__74
                 {
                 mT__74(); 
 
                 }
                 break;
             case 64 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:388: T__75
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:388: T__75
                 {
                 mT__75(); 
 
                 }
                 break;
             case 65 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:394: T__76
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:394: T__76
                 {
                 mT__76(); 
 
                 }
                 break;
             case 66 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:400: T__77
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:400: T__77
                 {
                 mT__77(); 
 
                 }
                 break;
             case 67 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:406: T__78
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:406: T__78
                 {
                 mT__78(); 
 
                 }
                 break;
             case 68 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:412: T__79
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:412: T__79
                 {
                 mT__79(); 
 
                 }
                 break;
             case 69 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:418: T__80
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:418: T__80
                 {
                 mT__80(); 
 
                 }
                 break;
             case 70 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:424: T__81
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:424: T__81
                 {
                 mT__81(); 
 
                 }
                 break;
             case 71 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:430: T__82
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:430: T__82
                 {
                 mT__82(); 
 
                 }
                 break;
             case 72 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:436: T__83
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:436: T__83
                 {
                 mT__83(); 
 
                 }
                 break;
             case 73 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:442: T__84
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:442: T__84
                 {
                 mT__84(); 
 
                 }
                 break;
             case 74 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:448: T__85
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:448: T__85
                 {
                 mT__85(); 
 
                 }
                 break;
             case 75 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:454: T__86
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:454: T__86
                 {
                 mT__86(); 
 
                 }
                 break;
             case 76 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:460: T__87
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:460: T__87
                 {
                 mT__87(); 
 
                 }
                 break;
             case 77 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:466: T__88
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:466: T__88
                 {
                 mT__88(); 
 
                 }
                 break;
             case 78 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:472: T__89
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:472: T__89
                 {
                 mT__89(); 
 
                 }
                 break;
             case 79 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:478: T__90
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:478: T__90
                 {
                 mT__90(); 
 
                 }
                 break;
             case 80 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:484: T__91
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:484: T__91
                 {
                 mT__91(); 
 
                 }
                 break;
             case 81 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:490: T__92
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:490: T__92
                 {
                 mT__92(); 
 
                 }
                 break;
             case 82 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:496: T__93
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:496: T__93
                 {
                 mT__93(); 
 
                 }
                 break;
             case 83 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:502: T__94
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:502: T__94
                 {
                 mT__94(); 
 
                 }
                 break;
             case 84 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:508: T__95
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:508: T__95
                 {
                 mT__95(); 
 
                 }
                 break;
             case 85 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:514: T__96
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:514: T__96
                 {
                 mT__96(); 
 
                 }
                 break;
             case 86 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:520: T__97
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:520: T__97
                 {
                 mT__97(); 
 
                 }
                 break;
             case 87 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:526: T__98
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:526: T__98
                 {
                 mT__98(); 
 
                 }
                 break;
             case 88 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:532: T__99
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:532: T__99
                 {
                 mT__99(); 
 
                 }
                 break;
             case 89 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:538: T__100
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:538: T__100
                 {
                 mT__100(); 
 
                 }
                 break;
             case 90 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:545: T__101
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:545: T__101
                 {
                 mT__101(); 
 
                 }
                 break;
             case 91 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:552: T__102
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:552: T__102
                 {
                 mT__102(); 
 
                 }
                 break;
             case 92 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:559: T__103
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:559: T__103
                 {
                 mT__103(); 
 
                 }
                 break;
             case 93 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:566: T__104
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:566: T__104
                 {
                 mT__104(); 
 
                 }
                 break;
             case 94 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:573: T__105
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:573: T__105
                 {
                 mT__105(); 
 
                 }
                 break;
             case 95 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:580: T__106
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:580: T__106
                 {
                 mT__106(); 
 
                 }
                 break;
             case 96 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:587: T__107
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:587: T__107
                 {
                 mT__107(); 
 
                 }
                 break;
             case 97 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:594: T__108
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:594: T__108
                 {
                 mT__108(); 
 
                 }
                 break;
             case 98 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:601: T__109
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:601: T__109
                 {
                 mT__109(); 
 
                 }
                 break;
             case 99 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:608: T__110
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:608: T__110
                 {
                 mT__110(); 
 
                 }
                 break;
             case 100 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:615: T__111
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:615: T__111
                 {
                 mT__111(); 
 
                 }
                 break;
             case 101 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:622: T__112
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:622: T__112
                 {
                 mT__112(); 
 
                 }
                 break;
             case 102 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:629: T__113
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:629: T__113
                 {
                 mT__113(); 
 
                 }
                 break;
             case 103 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:636: T__114
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:636: T__114
                 {
                 mT__114(); 
 
                 }
                 break;
             case 104 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:643: T__115
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:643: T__115
                 {
                 mT__115(); 
 
                 }
                 break;
             case 105 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:650: T__116
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:650: T__116
                 {
                 mT__116(); 
 
                 }
                 break;
             case 106 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:657: T__117
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:657: T__117
                 {
                 mT__117(); 
 
                 }
                 break;
             case 107 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:664: T__118
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:664: T__118
                 {
                 mT__118(); 
 
                 }
                 break;
             case 108 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:671: T__119
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:671: T__119
                 {
                 mT__119(); 
 
                 }
                 break;
             case 109 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:678: T__120
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:678: T__120
                 {
                 mT__120(); 
 
                 }
                 break;
             case 110 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:685: T__121
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:685: T__121
                 {
                 mT__121(); 
 
                 }
                 break;
             case 111 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:692: T__122
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:692: T__122
                 {
                 mT__122(); 
 
                 }
                 break;
             case 112 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:699: T__123
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:699: T__123
                 {
                 mT__123(); 
 
                 }
                 break;
             case 113 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:706: T__124
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:706: T__124
                 {
                 mT__124(); 
 
                 }
                 break;
             case 114 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:713: T__125
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:713: T__125
                 {
                 mT__125(); 
 
                 }
                 break;
             case 115 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:720: T__126
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:720: T__126
                 {
                 mT__126(); 
 
                 }
                 break;
             case 116 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:727: T__127
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:727: T__127
                 {
                 mT__127(); 
 
                 }
                 break;
             case 117 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:734: T__128
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:734: T__128
                 {
                 mT__128(); 
 
                 }
                 break;
             case 118 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:741: T__129
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:741: T__129
                 {
                 mT__129(); 
 
                 }
                 break;
             case 119 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:748: T__130
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:748: T__130
                 {
                 mT__130(); 
 
                 }
                 break;
             case 120 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:755: T__131
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:755: T__131
                 {
                 mT__131(); 
 
                 }
                 break;
             case 121 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:762: T__132
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:762: T__132
                 {
                 mT__132(); 
 
                 }
                 break;
             case 122 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:769: T__133
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:769: T__133
                 {
                 mT__133(); 
 
                 }
                 break;
             case 123 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:776: T__134
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:776: T__134
                 {
                 mT__134(); 
 
                 }
                 break;
             case 124 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:783: T__135
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:783: T__135
                 {
                 mT__135(); 
 
                 }
                 break;
             case 125 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:790: T__136
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:790: T__136
                 {
                 mT__136(); 
 
                 }
                 break;
             case 126 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:797: T__137
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:797: T__137
                 {
                 mT__137(); 
 
                 }
                 break;
             case 127 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:804: T__138
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:804: T__138
                 {
                 mT__138(); 
 
                 }
                 break;
             case 128 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:811: T__139
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:811: T__139
                 {
                 mT__139(); 
 
                 }
                 break;
             case 129 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:818: T__140
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:818: T__140
                 {
                 mT__140(); 
 
                 }
                 break;
             case 130 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:825: T__141
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:825: T__141
                 {
                 mT__141(); 
 
                 }
                 break;
             case 131 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:832: T__142
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:832: T__142
                 {
                 mT__142(); 
 
                 }
                 break;
             case 132 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:839: T__143
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:839: T__143
                 {
                 mT__143(); 
 
                 }
                 break;
             case 133 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:846: T__144
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:846: T__144
                 {
                 mT__144(); 
 
                 }
                 break;
             case 134 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:853: T__145
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:853: T__145
                 {
                 mT__145(); 
 
                 }
                 break;
             case 135 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:860: T__146
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:860: T__146
                 {
                 mT__146(); 
 
                 }
                 break;
             case 136 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:867: T__147
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:867: T__147
                 {
                 mT__147(); 
 
                 }
                 break;
             case 137 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:874: T__148
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:874: T__148
                 {
                 mT__148(); 
 
                 }
                 break;
             case 138 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:881: T__149
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:881: T__149
                 {
                 mT__149(); 
 
                 }
                 break;
             case 139 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:888: T__150
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:888: T__150
                 {
                 mT__150(); 
 
                 }
                 break;
             case 140 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:895: T__151
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:895: T__151
                 {
                 mT__151(); 
 
                 }
                 break;
             case 141 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:902: T__152
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:902: T__152
                 {
                 mT__152(); 
 
                 }
                 break;
             case 142 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:909: T__153
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:909: T__153
                 {
                 mT__153(); 
 
                 }
                 break;
             case 143 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:916: T__154
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:916: T__154
                 {
                 mT__154(); 
 
                 }
                 break;
             case 144 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:923: T__155
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:923: T__155
                 {
                 mT__155(); 
 
                 }
                 break;
             case 145 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:930: T__156
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:930: T__156
                 {
                 mT__156(); 
 
                 }
                 break;
             case 146 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:937: T__157
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:937: T__157
                 {
                 mT__157(); 
 
                 }
                 break;
             case 147 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:944: T__158
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:944: T__158
                 {
                 mT__158(); 
 
                 }
                 break;
             case 148 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:951: T__159
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:951: T__159
                 {
                 mT__159(); 
 
                 }
                 break;
             case 149 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:958: T__160
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:958: T__160
                 {
                 mT__160(); 
 
                 }
                 break;
             case 150 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:965: T__161
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:965: T__161
                 {
                 mT__161(); 
 
                 }
                 break;
             case 151 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:972: T__162
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:972: T__162
                 {
                 mT__162(); 
 
                 }
                 break;
             case 152 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:979: T__163
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:979: T__163
                 {
                 mT__163(); 
 
                 }
                 break;
             case 153 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:986: T__164
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:986: T__164
                 {
                 mT__164(); 
 
                 }
                 break;
             case 154 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:993: T__165
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:993: T__165
                 {
                 mT__165(); 
 
                 }
                 break;
             case 155 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1000: T__166
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1000: T__166
                 {
                 mT__166(); 
 
                 }
                 break;
             case 156 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1007: T__167
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1007: T__167
                 {
                 mT__167(); 
 
                 }
                 break;
             case 157 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1014: T__168
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1014: T__168
                 {
                 mT__168(); 
 
                 }
                 break;
             case 158 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1021: T__169
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1021: T__169
                 {
                 mT__169(); 
 
                 }
                 break;
             case 159 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1028: T__170
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1028: T__170
                 {
                 mT__170(); 
 
                 }
                 break;
             case 160 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1035: T__171
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1035: T__171
                 {
                 mT__171(); 
 
                 }
                 break;
             case 161 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1042: T__172
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1042: T__172
                 {
                 mT__172(); 
 
                 }
                 break;
             case 162 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1049: T__173
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1049: T__173
                 {
                 mT__173(); 
 
                 }
                 break;
             case 163 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1056: T__174
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1056: T__174
                 {
                 mT__174(); 
 
                 }
                 break;
             case 164 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1063: T__175
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1063: T__175
                 {
                 mT__175(); 
 
                 }
                 break;
             case 165 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1070: T__176
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1070: T__176
                 {
                 mT__176(); 
 
                 }
                 break;
             case 166 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1077: T__177
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1077: T__177
                 {
                 mT__177(); 
 
                 }
                 break;
             case 167 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1084: T__178
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1084: T__178
                 {
                 mT__178(); 
 
                 }
                 break;
             case 168 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1091: T__179
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1091: T__179
                 {
                 mT__179(); 
 
                 }
                 break;
             case 169 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1098: T__180
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1098: T__180
                 {
                 mT__180(); 
 
                 }
                 break;
             case 170 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1105: T__181
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1105: T__181
                 {
                 mT__181(); 
 
                 }
                 break;
             case 171 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1112: T__182
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1112: T__182
                 {
                 mT__182(); 
 
                 }
                 break;
             case 172 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1119: T__183
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1119: T__183
                 {
                 mT__183(); 
 
                 }
                 break;
             case 173 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1126: RULE_REAL0
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1126: RULE_REAL0
                 {
                 mRULE_REAL0(); 
 
                 }
                 break;
             case 174 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1137: RULE_INT
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1137: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
             case 175 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1146: RULE_ID
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1146: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
             case 176 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1154: RULE_STRING
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1154: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
             case 177 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1166: RULE_ML_COMMENT
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1166: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
             case 178 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1182: RULE_SL_COMMENT
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1182: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
             case 179 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1198: RULE_WS
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1198: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
             case 180 :
-                // ../org.gemoc.mocc.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1206: RULE_ANY_OTHER
+                // ../org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl/src-gen/org/gemoc/mocc/ccslmocc/model/xtext/parser/antlr/internal/InternalMoCDsl.g:1:1206: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 

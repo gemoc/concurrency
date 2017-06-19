@@ -1,4 +1,4 @@
-package org.gemoc.mocc.ccslmocc.model;
+package org.eclipse.gemoc.moccml.constraint.ccslmocc.model;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
