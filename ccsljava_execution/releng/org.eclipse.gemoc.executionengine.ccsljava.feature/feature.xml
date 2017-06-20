@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.gemoc.executionengine.ccsljava.runtime.feature"
-      label="Execution Engine CCSL Java Runtime"
+      id="org.eclipse.gemoc.executionengine.ccsljava.feature"
+      label="Execution Engine CCSL Java"
       version="2.3.0.qualifier"
       provider-name="GEMOC">
 
@@ -17,6 +17,13 @@
       [Enter License Description here.]
    </license>
 
+   <requires>
+      <import feature="org.eclipse.gemoc.xdsmlframework.feature" version="0.1.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.gemoc.modeldebugging.framework.commons.feature" version="0.1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.gemoc.executionframework.extensions.sirius"/>
+      <import plugin="org.eclipse.gemoc.xdsmlframework.extensions.sirius"/>
+   </requires>
+
    <plugin
          id="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.k3"
          download-size="0"
@@ -30,6 +37,12 @@
          install-size="0"
          version="0.0.0"
          unpack="false"/>
+
+   <plugin
+         id="org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
 
    <plugin
          id="org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.utils"
@@ -54,6 +67,13 @@
 
    <plugin
          id="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuli_scenario.model"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"
