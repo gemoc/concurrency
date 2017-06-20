@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.gemoc.concurrent_addons.feature"
+      id="org.eclipse.gemoc.concurrent_addons.feature"
       label="Concurrent addons and Views"
       version="2.3.0.qualifier"
       provider-name="GEMOC">

@@ -17,7 +17,7 @@
         <module>plugins/org.eclipse.gemoc.addon.eventscheduling.timeline</module>
         
         <!-- feature and update site -->
-        <module>releng/org.gemoc.concurrent_addons.feature</module>
+        <module>releng/org.eclipse.gemoc.concurrent_addons.feature</module>
         <module>releng/org.gemoc.concurrent_addons.repository</module>
     </modules>
 
