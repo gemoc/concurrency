@@ -9,7 +9,7 @@
     <artifactId>org.gemoc.execution.concurrent.ccsljava.root</artifactId>
   </parent>
 
-  <artifactId>org.gemoc.executionengine.ccsljava.repository</artifactId>
+  <artifactId>org.eclipse.gemoc.executionengine.ccsljava.repository</artifactId>
   <packaging>eclipse-repository</packaging>
 
 </project> 
