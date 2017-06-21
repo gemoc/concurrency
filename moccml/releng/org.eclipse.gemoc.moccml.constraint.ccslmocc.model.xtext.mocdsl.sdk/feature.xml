@@ -3,7 +3,8 @@
       id="org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl.sdk"
       label="MoCDsl SDK Feature "
       version="0.1.1.qualifier"
-      image="gemocstudio32.png">
+      image="gemocstudio32.png"
+      provider-name="%providerName">
 
    <copyright url="http://www.eclipse.org/legal/epl-v10.html">
       Copyright (c) 2012, 2017 I3S Laboratory and others

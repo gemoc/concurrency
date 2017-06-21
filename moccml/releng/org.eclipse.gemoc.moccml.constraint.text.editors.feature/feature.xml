@@ -15,7 +15,7 @@
       id="org.eclipse.gemoc.moccml.constraint.text.editors.feature"
       label="Gemoc MoCC Text Editors"
       version="0.1.1.qualifier"
-      provider-name="ENSTA Bretagne"
+      provider-name="%providerName"
       image="gemocstudio32.png">
 
    <description>

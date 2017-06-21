@@ -3,7 +3,7 @@
       id="org.eclipse.gemoc.moccml.constraint.ccsl.solver.extension.automata.feature"
       label="TimeSquare Solver Extension to Automata"
       version="0.1.1.qualifier"
-      provider-name="AOSTE"
+      provider-name="%providerName"
       image="gemocstudio32.png">
 
    <description>

@@ -15,7 +15,7 @@
       id="org.eclipse.gemoc.moccml.constraint.feature"
       label="Gemoc MoCC"
       version="0.1.1.qualifier"
-      provider-name="ENSTA Bretagne"
+      provider-name="%providerName"
       image="gemocstudio32.png">
 
    <description>

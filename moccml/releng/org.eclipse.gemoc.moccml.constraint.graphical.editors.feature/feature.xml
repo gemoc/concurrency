@@ -3,7 +3,7 @@
       id="org.eclipse.gemoc.moccml.constraint.graphical.editors.feature"
       label="Gemoc MoCC Graphical Concrete Syntax Editors"
       version="0.1.1.qualifier"
-      provider-name="ENSTA Bretagne"
+      provider-name="%providerName"
       image="gemocstudio32.png">
 
    <description>
