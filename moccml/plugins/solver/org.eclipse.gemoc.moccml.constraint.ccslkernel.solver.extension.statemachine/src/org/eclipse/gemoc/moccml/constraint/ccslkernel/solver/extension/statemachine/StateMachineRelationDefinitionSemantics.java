@@ -55,7 +55,8 @@ public class StateMachineRelationDefinitionSemantics extends AbstractWrappedRela
 	private org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.State _currentState=null;
 	private AbstractConcreteMapping<ISolverElement> _abstract2concreteMap=null;
 	private StateMachineRelationDefinition _modelSTS=null;
-	
+
+
 	private ArrayList<Transition> _sensitiveTransitition;
 
 	private List<AbstractEntity> _parameters = null;
@@ -64,6 +65,10 @@ public class StateMachineRelationDefinitionSemantics extends AbstractWrappedRela
 	private Map<ConcreteEntity, IntegerElement> _localInteger = null;
 	private List<IntegerElement> _orderedLocalInteger = null;
 	
+	public List<IntegerElement> get_orderedLocalInteger() {
+		return _orderedLocalInteger;
+	}
+
 	public StateMachineRelationDefinitionSemantics(StateMachineRelationDefinition modelSTS, AbstractConcreteMapping<ISolverElement> context) {
 		_modelSTS = modelSTS;
 		_abstract2concreteMap = context;
