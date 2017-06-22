@@ -29,4 +29,5 @@ Export-Package: org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.ui.cont
  org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.ui.contentassist.antlr,
  org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.ui.internal,
  org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.ui.quickfix,
- org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.ui.wizard
+ org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.ui.wizard,
+ org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.ui.contentassist.antlr.internal

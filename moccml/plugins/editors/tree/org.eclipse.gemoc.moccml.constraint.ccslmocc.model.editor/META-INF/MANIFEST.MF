@@ -4,11 +4,11 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.gemoc.moccml.constraint.ccslmocc.model.editor;singleton:=true
 Bundle-Version: 0.1.1.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: org.gemoc.mocc.ccslmoc.model.moccml.editor.presentation.CcslmoccEditorPlugin$Implementation
+Bundle-Activator: org.eclipse.gemoc.moccml.constraint.ccslmoc.model.moccml.moccml.editor.presentation.CcslmoccEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: org.gemoc.mocc.ccslmoc.model.moccml.editor.presentation
+Export-Package: org.eclipse.gemoc.moccml.constraint.ccslmoc.model.moccml.moccml.editor.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
  org.eclipse.gemoc.moccml.constraint.ccslmocc.model.edit;visibility:=reexport,

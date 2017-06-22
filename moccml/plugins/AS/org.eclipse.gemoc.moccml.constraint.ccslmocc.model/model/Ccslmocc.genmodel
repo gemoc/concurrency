@@ -4,7 +4,7 @@
     <details key=" Use Delegates" value="false"/>
   </genAnnotations>
   <foreignModel>Ccslmocc.ecore</foreignModel>
-  <genPackages prefix="Ccslmocc" basePackage="org.gemoc.mocc.ccslmoc.model" disposableProviderFactory="true" providerPackageSuffix="edit.provider" presentationPackageSuffix="editor.presentation" fileExtensions="moccml">
+  <genPackages prefix="Ccslmocc" basePackage="org.eclipse.gemoc.moccml.constraint.ccslmoc.model.moccml" disposableProviderFactory="true" providerPackageSuffix="edit.provider" presentationPackageSuffix="editor.presentation" fileExtensions="moccml">
     <ecorePackage href="Ccslmocc.ecore#/"/>
     <genClasses>
       <ecoreClass href="Ccslmocc.ecore#//StateRelationBasedLibrary"/>

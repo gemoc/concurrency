@@ -1,12 +1,12 @@
-module org.gemoc.mocc.ccslmocc.model.xtext.MoCDsl
+module org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl.MoCDsl
 
 import org.eclipse.emf.mwe.utils.*
 import org.eclipse.xtext.generator.*
 import org.eclipse.xtext.ui.generator.*
 
-var grammarURI = "classpath:/org/gemoc/mocc/ccslmocc/model/xtext/MoCDsl.xtext"
+var grammarURI = "classpath:/org/eclipse/gemoc/moccml/constraint/ccslmocc/model/xtext/MoCDsl.xtext"
 var fileExtensions = "moccml"
-var projectName = "org.gemoc.mocc.ccslmocc.model.xtext.mocdsl"
+var projectName = "org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl"
 var runtimeProject = "../${projectName}"
 //var generateXtendStub = true
 
@@ -25,10 +25,10 @@ Workflow {
 		registerGeneratedEPackage = "fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.ClockExpressionAndRelationPackage"
 		registerGeneratedEPackage = "fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.KernelRelation.KernelRelationPackage"
 	
-		registerGeneratedEPackage = "org.gemoc.mocc.fsmkernel.model.FSMModel.FSMModelPackage"
+		registerGeneratedEPackage = "org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.FSMModelPackage"
 	    
 		
-		registerGeneratedEPackage = "org.gemoc.mocc.ccslmoc.model.moccml.CcslmoccPackage"
+		registerGeneratedEPackage = "org.eclipse.gemoc.moccml.constraint.ccslmoc.model.moccml.moccml.CcslmoccPackage"
 		//registerGenModelFile = "platform:/resource/org.gemoc.mocc.ccslmocc.model/model/Ccslmocc.genmodel"
 		//registerGenModelFile = "platform:/resource/org.gemoc.mocc.fsmkernel.model/model/FSMModel.genmodel"
 		//registerGenModelFile = "platform:/resource/fr.inria.aoste.timesquare.ccslkernel.model/model/TimeModel.genmodel"
@@ -47,7 +47,7 @@ Workflow {
 	component = Generator {
 		pathRtProject = runtimeProject
 		pathUiProject = "${runtimeProject}.ui"
-		pathTestProject = "${runtimeProject}.tests"
+		pathTestProject = "../../../../tests/${projectName}.tests"
 		projectNameRt = projectName
 		projectNameUi = "${projectName}.ui"
 		language = auto-inject {

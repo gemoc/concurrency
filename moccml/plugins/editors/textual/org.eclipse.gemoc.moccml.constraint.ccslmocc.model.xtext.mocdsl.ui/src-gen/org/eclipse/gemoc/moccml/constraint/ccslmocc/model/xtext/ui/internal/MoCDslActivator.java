@@ -23,7 +23,7 @@ import com.google.inject.Module;
  */
 public class MoCDslActivator extends AbstractUIPlugin {
 	
-	public static final String ORG_GEMOC_MOCC_CCSLMOCC_MODEL_XTEXT_MOCDSL = "org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.MoCDsl";
+	public static final String ORG_ECLIPSE_GEMOC_MOCCML_CONSTRAINT_CCSLMOCC_MODEL_XTEXT_MOCDSL = "org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.MoCDsl";
 	
 	private static final Logger logger = Logger.getLogger(MoCDslActivator.class);
 	
@@ -73,7 +73,7 @@ public class MoCDslActivator extends AbstractUIPlugin {
 	}
 
 	protected Module getRuntimeModule(String grammar) {
-		if (ORG_GEMOC_MOCC_CCSLMOCC_MODEL_XTEXT_MOCDSL.equals(grammar)) {
+		if (ORG_ECLIPSE_GEMOC_MOCCML_CONSTRAINT_CCSLMOCC_MODEL_XTEXT_MOCDSL.equals(grammar)) {
 			return new org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.MoCDslRuntimeModule();
 		}
 		
@@ -81,7 +81,7 @@ public class MoCDslActivator extends AbstractUIPlugin {
 	}
 	
 	protected Module getUiModule(String grammar) {
-		if (ORG_GEMOC_MOCC_CCSLMOCC_MODEL_XTEXT_MOCDSL.equals(grammar)) {
+		if (ORG_ECLIPSE_GEMOC_MOCCML_CONSTRAINT_CCSLMOCC_MODEL_XTEXT_MOCDSL.equals(grammar)) {
 			return new org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.ui.MoCDslUiModule(this);
 		}
 		

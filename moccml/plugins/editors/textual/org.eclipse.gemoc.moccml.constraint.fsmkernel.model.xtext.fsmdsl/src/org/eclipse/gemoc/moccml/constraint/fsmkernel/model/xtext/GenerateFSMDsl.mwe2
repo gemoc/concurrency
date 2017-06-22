@@ -1,12 +1,13 @@
-module org.gemoc.mocc.fsmkernel.model.xtext.FSMDsl
+module org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.fsmdsl.FSMDsl
 
 import org.eclipse.emf.mwe.utils.*
 import org.eclipse.xtext.generator.*
 import org.eclipse.xtext.ui.generator.*
 
-var grammarURI = "classpath:/org/gemoc/mocc/fsmkernel/model/xtext/FSMDsl.xtext"
+
+var grammarURI = "classpath:/org/eclipse/gemoc/moccml/constraint/fsmkernel/model/xtext/FSMDsl.xtext"
 var fileExtensions = "fsmdsl"
-var projectName = "org.gemoc.mocc.fsmkernel.model.xtext.fsmdsl"
+var projectName = "org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.fsmdsl"
 var runtimeProject = "../${projectName}"
 //var generateXtendStub = true
 
@@ -24,8 +25,8 @@ Workflow {
 		registerGeneratedEPackage = "fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.ClockExpressionAndRelationPackage"
 		registerGeneratedEPackage = "fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.KernelRelation.KernelRelationPackage"
 	
-		registerGeneratedEPackage = "org.gemoc.mocc.fsmkernel.model.FSMModel.FSMModelPackage"
-	    registerGeneratedEPackage = "org.gemoc.mocc.fsmkernel.model.FSMModel.editionextension.EditionExtensionPackage"
+		registerGeneratedEPackage = "org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.FSMModelPackage"
+	    registerGeneratedEPackage = "org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.EditionExtensionPackage"
 		//registerGenModelFile = "platform:/resource/org.gemoc.mocc.fsmkernel.model/model/FSMModel.genmodel"
 		//registerGenModelFile = "platform:/resource/fr.inria.aoste.timesquare.ccslkernel.model/model/TimeModel.genmodel"
 	
@@ -42,7 +43,7 @@ Workflow {
 	component = Generator {
 		pathRtProject = runtimeProject
 		pathUiProject = "${runtimeProject}.ui"
-		pathTestProject = "${runtimeProject}.tests"
+		pathTestProject = "../../../../tests/${projectName}.tests"
 		projectNameRt = projectName
 		projectNameUi = "${projectName}.ui"
 		language = auto-inject {

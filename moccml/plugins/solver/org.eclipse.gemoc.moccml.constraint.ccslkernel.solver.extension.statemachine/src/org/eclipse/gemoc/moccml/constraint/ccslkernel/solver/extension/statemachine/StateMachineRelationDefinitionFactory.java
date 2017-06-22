@@ -1,7 +1,8 @@
 package org.eclipse.gemoc.moccml.constraint.ccslkernel.solver.extension.statemachine;
 
 
-import org.gemoc.mocc.ccslmoc.model.moccml.StateMachineRelationDefinition;
+
+import org.eclipse.gemoc.moccml.constraint.ccslmoc.model.moccml.moccml.StateMachineRelationDefinition;
 
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.ExternalRelationDefinition;
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.RelationDeclaration;

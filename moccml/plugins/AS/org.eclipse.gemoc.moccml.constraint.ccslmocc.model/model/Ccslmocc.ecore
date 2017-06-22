@@ -7,12 +7,12 @@
     <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="StateRelationBasedLibrary" eSuperTypes="../../fr.inria.aoste.timesquare.ccslkernel.model/model/TimeModel.ecore#//CCSLModel/ClockExpressionAndRelation/Library"/>
-  <eClassifiers xsi:type="ecore:EClass" name="StateMachineRelationDefinition" eSuperTypes="../../fr.inria.aoste.timesquare.ccslkernel.model/model/TimeModel.ecore#//CCSLModel/ClockExpressionAndRelation/ExternalRelationDefinition ../../org.gemoc.mocc.fsmkernel.model/model/FSMModel.ecore#//StateMachineDefinition"/>
-  <eClassifiers xsi:type="ecore:EClass" name="FinishClock" eSuperTypes="../../org.gemoc.mocc.fsmkernel.model/model/FSMModel.ecore#//AbstractAction">
+  <eClassifiers xsi:type="ecore:EClass" name="StateMachineRelationDefinition" eSuperTypes="../../fr.inria.aoste.timesquare.ccslkernel.model/model/TimeModel.ecore#//CCSLModel/ClockExpressionAndRelation/ExternalRelationDefinition ../../org.eclipse.gemoc.moccml.constraint.fsmkernel.model/model/FSMModel.ecore#//StateMachineDefinition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FinishClock" eSuperTypes="../../org.eclipse.gemoc.moccml.constraint.fsmkernel.model/model/FSMModel.ecore#//AbstractAction">
     <eStructuralFeatures xsi:type="ecore:EReference" name="clock" lowerBound="1" eType="ecore:EClass ../../fr.inria.aoste.timesquare.ccslkernel.model/model/TimeModel.ecore#//CCSLModel/ClockExpressionAndRelation/BindableEntity"
         eKeys="../../fr.inria.aoste.timesquare.ccslkernel.model/model/TimeModel.ecore#//NamedElement/name"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StartClock" eSuperTypes="../../org.gemoc.mocc.fsmkernel.model/model/FSMModel.ecore#//AbstractAction">
+  <eClassifiers xsi:type="ecore:EClass" name="StartClock" eSuperTypes="../../org.eclipse.gemoc.moccml.constraint.fsmkernel.model/model/FSMModel.ecore#//AbstractAction">
     <eStructuralFeatures xsi:type="ecore:EReference" name="clock" lowerBound="1" eType="ecore:EClass ../../fr.inria.aoste.timesquare.ccslkernel.model/model/TimeModel.ecore#//CCSLModel/ClockExpressionAndRelation/BindableEntity"
         eKeys="../../fr.inria.aoste.timesquare.ccslkernel.model/model/TimeModel.ecore#//NamedElement/name"/>
   </eClassifiers>

@@ -27,7 +27,7 @@ public class OpenEmbeddedEditor extends OpenXtextEmbeddedEditor {
 	
     @Override
     protected Injector getInjector() {
-        return  MoCDslActivator.getInstance().getInjector(MoCDslActivator.ORG_GEMOC_MOCC_CCSLMOCC_MODEL_XTEXT_MOCDSL);
+        return  MoCDslActivator.getInstance().getInjector(MoCDslActivator.ORG_ECLIPSE_GEMOC_MOCCML_CONSTRAINT_CCSLMOCC_MODEL_XTEXT_MOCDSL);
     }
 }
 

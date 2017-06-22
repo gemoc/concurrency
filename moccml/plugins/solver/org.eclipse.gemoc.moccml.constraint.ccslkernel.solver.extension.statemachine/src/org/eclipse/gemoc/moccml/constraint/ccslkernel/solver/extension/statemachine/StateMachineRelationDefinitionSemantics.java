@@ -5,10 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import net.javabdd.BDD;
-
-import org.gemoc.mocc.ccslmoc.model.moccml.FinishClock;
-import org.gemoc.mocc.ccslmoc.model.moccml.StateMachineRelationDefinition;
+import org.eclipse.gemoc.moccml.constraint.ccslmoc.model.moccml.moccml.FinishClock;
+import org.eclipse.gemoc.moccml.constraint.ccslmoc.model.moccml.moccml.StateMachineRelationDefinition;
 import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.AbstractAction;
 import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.Guard;
 import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.IntegerAssignement;
@@ -44,17 +42,15 @@ import fr.inria.aoste.timesquare.ccslkernel.solver.ISolverElement;
 import fr.inria.aoste.timesquare.ccslkernel.solver.SolverElement;
 import fr.inria.aoste.timesquare.ccslkernel.solver.SolverPrimitiveElement;
 import fr.inria.aoste.timesquare.ccslkernel.solver.TimeModel.SolverClock;
-import fr.inria.aoste.timesquare.ccslkernel.solver.exception.SolverException;
-import fr.inria.aoste.timesquare.ccslkernel.solver.helpers.SemanticHelper;
-import fr.inria.aoste.timesquare.ccslkernel.solver.helpers.UpdateHelper;
 import fr.inria.aoste.timesquare.ccslkernel.solver.relation.AbstractWrappedRelation;
+import net.javabdd.BDD;
 
 public class StateMachineRelationDefinitionSemantics extends AbstractWrappedRelation {
 
 
 	private org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.State _currentState=null;
 	private AbstractConcreteMapping<ISolverElement> _abstract2concreteMap=null;
-	private StateMachineRelationDefinition _modelSTS=null;
+	private org.eclipse.gemoc.moccml.constraint.ccslmoc.model.moccml.moccml.StateMachineRelationDefinition _modelSTS=null;
 
 
 	private ArrayList<Transition> _sensitiveTransitition;

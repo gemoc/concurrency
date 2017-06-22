@@ -9,7 +9,8 @@ Require-Bundle: org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.fsmdsl
  org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.fsmdsl.ui,
  org.eclipse.core.runtime;bundle-version="3.8.0",
  org.eclipse.ui.workbench;resolution:=optional,
- org.eclipse.xtext.junit4
+ org.eclipse.xtext.junit4,
+ org.eclipse.xtext.xbase.lib
 Import-Package: org.apache.log4j,
  org.junit;version="4.5.0",
  org.junit.runner;version="4.5.0",

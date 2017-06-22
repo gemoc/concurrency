@@ -6,7 +6,6 @@ package org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext;
 import java.util.Properties;
 
 import org.eclipse.xtext.Constants;
-import org.eclipse.xtext.service.DefaultRuntimeModule;
 
 import com.google.inject.Binder;
 import com.google.inject.name.Names;
@@ -14,14 +13,14 @@ import com.google.inject.name.Names;
 /**
  * Manual modifications go to {org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.MoCDslRuntimeModule}
  */
- @SuppressWarnings("all")
-public abstract class AbstractMoCDslRuntimeModule extends DefaultRuntimeModule {
+@SuppressWarnings("all")
+public abstract class AbstractMoCDslRuntimeModule extends org.eclipse.xtext.service.DefaultRuntimeModule {
 
 	protected Properties properties = null;
 
 	@Override
 	public void configure(Binder binder) {
-		properties = tryBindProperties(binder, "org/gemoc/mocc/ccslmocc/model/xtext/MoCDsl.properties");
+		properties = tryBindProperties(binder, "org/eclipse/gemoc/moccml/constraint/ccslmocc/model/xtext/MoCDsl.properties");
 		super.configure(binder);
 	}
 	

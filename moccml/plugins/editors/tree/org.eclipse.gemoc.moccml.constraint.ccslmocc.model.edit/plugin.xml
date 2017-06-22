@@ -23,7 +23,7 @@
       <!-- @generated Ccslmocc -->
       <factory
             uri="http://org.gemoc.moccml/1.0"
-            class="org.gemoc.mocc.ccslmoc.model.moccml.edit.provider.CcslmoccItemProviderAdapterFactory"
+            class="org.eclipse.gemoc.moccml.constraint.ccslmoc.model.moccml.moccml.edit.provider.CcslmoccItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

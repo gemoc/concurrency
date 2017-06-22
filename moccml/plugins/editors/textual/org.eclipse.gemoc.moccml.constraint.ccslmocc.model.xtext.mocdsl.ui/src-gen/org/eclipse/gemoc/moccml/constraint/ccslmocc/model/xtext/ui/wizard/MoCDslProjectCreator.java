@@ -28,6 +28,7 @@ public class MoCDslProjectCreator extends org.eclipse.xtext.ui.wizard.AbstractPl
 		return (MoCDslProjectInfo) super.getProjectInfo();
 	}
 	
+	@Override
 	protected String getModelFolderName() {
 		return SRC_ROOT;
 	}
@@ -44,6 +45,7 @@ public class MoCDslProjectCreator extends org.eclipse.xtext.ui.wizard.AbstractPl
 		return result;
 	}
 
+	@Override
 	protected void enhanceProject(final IProject project, final IProgressMonitor monitor) throws CoreException {
 		OutputImpl output = new OutputImpl();
 		output.addOutlet(new Outlet(false, getEncoding(), null, true, project.getLocation().makeAbsolute().toOSString()));
@@ -53,7 +55,7 @@ public class MoCDslProjectCreator extends org.eclipse.xtext.ui.wizard.AbstractPl
 		execCtx.registerMetaModel(new JavaBeansMetaModel());
 
 		XpandFacade facade = XpandFacade.create(execCtx);
-		facade.evaluate("org::gemoc::mocc::ccslmocc::model::xtext::ui::wizard::MoCDslNewProject::main", getProjectInfo());
+		facade.evaluate("org::eclipse::gemoc::moccml::constraint::ccslmocc::model::xtext::ui::wizard::MoCDslNewProject::main", getProjectInfo());
 
 		project.refreshLocal(IResource.DEPTH_INFINITE, monitor);
 	}

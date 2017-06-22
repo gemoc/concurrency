@@ -23,7 +23,7 @@ public class OpenEmbeddedEditor extends OpenXtextEmbeddedEditor {
 	
     @Override
     protected Injector getInjector() {
-        return  FSMDslActivator.getInstance().getInjector(FSMDslActivator.ORG_GEMOC_MOCC_FSMKERNEL_MODEL_XTEXT_FSMDSL);
+        return  FSMDslActivator.getInstance().getInjector(FSMDslActivator.ORG_ECLIPSE_GEMOC_MOCCML_CONSTRAINT_FSMKERNEL_MODEL_XTEXT_FSMDSL);
     }
 }
 

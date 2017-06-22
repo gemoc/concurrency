@@ -4,14 +4,13 @@
  */
 package org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.ui;
 
-import org.eclipse.xtext.ui.DefaultUiModule;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 /**
  * Manual modifications go to {org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.ui.MoCDslUiModule}
  */
 @SuppressWarnings("all")
-public abstract class AbstractMoCDslUiModule extends DefaultUiModule {
+public abstract class AbstractMoCDslUiModule extends org.eclipse.xtext.ui.DefaultUiModule {
 	
 	public AbstractMoCDslUiModule(AbstractUIPlugin plugin) {
 		super(plugin);
@@ -96,6 +95,11 @@ public abstract class AbstractMoCDslUiModule extends DefaultUiModule {
 	// contributed by org.eclipse.xtext.generator.builder.BuilderIntegrationFragment
 	public Class<? extends org.eclipse.xtext.ui.editor.IXtextEditorCallback> bindIXtextEditorCallback() {
 		return org.eclipse.xtext.builder.nature.NatureAddingEditorCallback.class;
+	}
+
+	// contributed by org.eclipse.xtext.generator.builder.BuilderIntegrationFragment
+	public Class<? extends org.eclipse.xtext.generator.IContextualOutputConfigurationProvider> bindIContextualOutputConfigurationProvider() {
+		return org.eclipse.xtext.builder.EclipseOutputConfigurationProvider.class;
 	}
 
 	// contributed by org.eclipse.xtext.generator.builder.BuilderIntegrationFragment

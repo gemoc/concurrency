@@ -23,7 +23,7 @@
       <!-- @generated Ccslmocc -->
       <package
             uri="http://org.gemoc.moccml/1.0"
-            class="org.gemoc.mocc.ccslmoc.model.moccml.CcslmoccPackage"
+            class="org.eclipse.gemoc.moccml.constraint.ccslmoc.model.moccml.moccml.CcslmoccPackage"
             genModel="model/Ccslmocc.genmodel"/>
    </extension>
 
