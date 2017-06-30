@@ -43,7 +43,7 @@ import fr.inria.aoste.timesquare.ccslkernel.solver.SolverElement;
 import fr.inria.aoste.timesquare.ccslkernel.solver.SolverPrimitiveElement;
 import fr.inria.aoste.timesquare.ccslkernel.solver.TimeModel.SolverClock;
 import fr.inria.aoste.timesquare.ccslkernel.solver.relation.AbstractWrappedRelation;
-import net.javabdd.BDD;
+import net.sf.javabdd.BuDDyFactory.BuDDyBDD;
 
 public class StateMachineRelationDefinitionSemantics extends AbstractWrappedRelation {
 
@@ -156,7 +156,7 @@ public class StateMachineRelationDefinitionSemantics extends AbstractWrappedRela
 			return;
 		super.semantic(semanticHelper);
 		_sensitiveTransitition.clear();
-		BDD stateBDD =semanticHelper.createOne();
+		BuDDyBDD stateBDD =semanticHelper.createOne();
 	
 		//always possible to do nothing 
 		for (ISolverElement se : _allClocks) {
@@ -181,7 +181,7 @@ public class StateMachineRelationDefinitionSemantics extends AbstractWrappedRela
 				falseTrigger = getConcreteElements((List<? extends AbstractEntity>) ((Trigger)t.getTrigger()).getFalseTriggers());
 				clocksNotInTrigger.removeAll(trueTrigger);
 			
-			BDD triggersBDD =semanticHelper.createOne();
+			BuDDyBDD triggersBDD =semanticHelper.createOne();
 			for (ISolverElement se : trueTrigger) {
 				triggersBDD.andWith(semanticHelper.getBDDVariable((SolverClock) se));
 			}
