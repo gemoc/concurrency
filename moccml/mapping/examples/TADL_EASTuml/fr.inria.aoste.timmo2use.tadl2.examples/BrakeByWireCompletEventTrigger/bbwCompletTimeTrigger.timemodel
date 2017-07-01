@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fr.inria.aoste.timemodel.ccslmodel:ClockConstraintSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fr.inria.aoste.timemodel="http://fr.inria.aoste.timemodel" xmlns:fr.inria.aoste.timemodel.basicTypes="http://fr.inria.aoste.timemodel.basicTypes" xmlns:fr.inria.aoste.timemodel.ccslmodel="http://fr.inria.aoste.timemodel.ccslmodel" name="BBW" superBlock="//@subBlock.0">
+  <subBlock name="mainBlock">
+    <elements xsi:type="fr.inria.aoste.timemodel:Clock" name="globalTorque_tadlEvent">
+      <type xsi:type="fr.inria.aoste.timemodel.basicTypes:DiscreteClockType" href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@predefinedTypes.1"/>
+      <tickingEvent name="evt_globalTorque_tadlEvent">
+        <referencedObjectRefs href="model.uml#_1VfS8H6xEeKVNJm0wuMs1A"/>
+      </tickingEvent>
+    </elements>
+    <elements xsi:type="fr.inria.aoste.timemodel:Clock" name="frontLeftABSBrakeTorque_tadlEvent">
+      <type xsi:type="fr.inria.aoste.timemodel.basicTypes:DiscreteClockType" href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@predefinedTypes.1"/>
+      <tickingEvent name="evt_frontLeftABSBrakeTorque_tadlEvent">
+        <referencedObjectRefs href="model.uml#_l8alQH6zEeKVNJm0wuMs1A"/>
+      </tickingEvent>
+    </elements>
+    <elements xsi:type="fr.inria.aoste.timemodel:Clock" name="brakePedalActionning_tadlEvent">
+      <type xsi:type="fr.inria.aoste.timemodel.basicTypes:DiscreteClockType" href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@predefinedTypes.1"/>
+      <tickingEvent name="evt_brakePedalActionning_tadlEvent">
+        <referencedObjectRefs href="model.uml#_ih24MHxpEeKVDOjYFBpnyg"/>
+      </tickingEvent>
+    </elements>
+    <elements xsi:type="fr.inria.aoste.timemodel:Clock" name="brakePedalPosition_tadlEvent">
+      <type xsi:type="fr.inria.aoste.timemodel.basicTypes:DiscreteClockType" href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@predefinedTypes.1"/>
+      <tickingEvent name="evt_brakePedalPosition_tadlEvent">
+        <referencedObjectRefs href="model.uml#_WDa_YHxaEeK5uZh6TngEPw"/>
+      </tickingEvent>
+    </elements>
+    <elements xsi:type="fr.inria.aoste.timemodel:Clock" name="torqFrontLeftWheel_tadlEvent">
+      <type xsi:type="fr.inria.aoste.timemodel.basicTypes:DiscreteClockType" href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@predefinedTypes.1"/>
+      <tickingEvent name="evt_torqFrontLeftWheel_tadlEvent">
+        <referencedObjectRefs href="model.uml#_2AW04H6xEeKVNJm0wuMs1A"/>
+      </tickingEvent>
+    </elements>
+    <elements xsi:type="fr.inria.aoste.timemodel:Clock" name="frontLeftWheelTorqActuatorSignal_tadlEvent">
+      <type xsi:type="fr.inria.aoste.timemodel.basicTypes:DiscreteClockType" href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@predefinedTypes.1"/>
+      <tickingEvent name="evt_frontLeftWheelTorqActuatorSignal_tadlEvent">
+        <referencedObjectRefs href="model.uml#_AXiZMH60EeKVNJm0wuMs1A"/>
+      </tickingEvent>
+    </elements>
+    <elements xsi:type="fr.inria.aoste.timemodel:Clock" name="pedalPercent_tadlEvent">
+      <type xsi:type="fr.inria.aoste.timemodel.basicTypes:DiscreteClockType" href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@predefinedTypes.1"/>
+      <tickingEvent name="evt_pedalPercent_tadlEvent">
+        <referencedObjectRefs href="model.uml#_H8o50Xx5EeK3kO62KGyfFQ"/>
+      </tickingEvent>
+    </elements>
+    <elements xsi:type="fr.inria.aoste.timemodel:Clock" name="doSampleFrontRightWheelSpeed_tadlEvent">
+      <type xsi:type="fr.inria.aoste.timemodel.basicTypes:DiscreteClockType" href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@predefinedTypes.1"/>
+      <tickingEvent name="evt_doSampleFrontRightWheelSpeed_tadlEvent">
+        <referencedObjectRefs href="model.uml#_7XJPMH64EeKVNJm0wuMs1A"/>
+      </tickingEvent>
+    </elements>
+    <elements xsi:type="fr.inria.aoste.timemodel:Clock" name="frontRightWheelSpeed_tadlEvent">
+      <type xsi:type="fr.inria.aoste.timemodel.basicTypes:DiscreteClockType" href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@predefinedTypes.1"/>
+      <tickingEvent name="evt_frontRightWheelSpeed_tadlEvent">
+        <referencedObjectRefs href="model.uml#_sHVE0H6yEeKVNJm0wuMs1A"/>
+      </tickingEvent>
+    </elements>
+    <elements xsi:type="fr.inria.aoste.timemodel:Clock" name="doSampleFrontLeftWheelSpeed_tadlEvent">
+      <type xsi:type="fr.inria.aoste.timemodel.basicTypes:DiscreteClockType" href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@predefinedTypes.1"/>
+      <tickingEvent name="evt_doSampleFrontLeftWheelSpeed_tadlEvent">
+        <referencedObjectRefs href="model.uml#_ESObMH62EeKVNJm0wuMs1A"/>
+      </tickingEvent>
+    </elements>
+    <elements xsi:type="fr.inria.aoste.timemodel:Clock" name="frontLeftWheelSpeed_tadlEvent">
+      <type xsi:type="fr.inria.aoste.timemodel.basicTypes:DiscreteClockType" href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@predefinedTypes.1"/>
+      <tickingEvent name="evt_frontLeftWheelSpeed_tadlEvent">
+        <referencedObjectRefs href="model.uml#_sHVE0H6yEeKVNJm0wuMs1A"/>
+      </tickingEvent>
+    </elements>
+    <elements xsi:type="fr.inria.aoste.timemodel:Clock" name="universal_time_ref">
+      <type xsi:type="fr.inria.aoste.timemodel.basicTypes:DiscreteClockType" href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@predefinedTypes.1"/>
+      <tickingEvent name="evt_universal_time_ref"/>
+    </elements>
+    <elements xsi:type="fr.inria.aoste.timemodel:Clock" name="physicalTime_discretized">
+      <type xsi:type="fr.inria.aoste.timemodel.basicTypes:DiscreteClockType" href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@predefinedTypes.1"/>
+      <tickingEvent name="evt_physicalTime_discretized"/>
+    </elements>
+    <elements xsi:type="fr.inria.aoste.timemodel.basicTypes:IntegerElement" name="endToEndDeadlineendToEnd_max_value" value="20">
+      <type xsi:type="fr.inria.aoste.timemodel.basicTypes:Integer" href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@predefinedTypes.2"/>
+    </elements>
+    <elements xsi:type="fr.inria.aoste.timemodel.basicTypes:IntegerElement" name="endToEndDeadlineendToEnd_min_value" value="18">
+      <type xsi:type="fr.inria.aoste.timemodel.basicTypes:Integer" href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@predefinedTypes.2"/>
+    </elements>
+    <elements xsi:type="fr.inria.aoste.timemodel.basicTypes:IntegerElement" name="universal_timemicros_factor" value="1">
+      <type xsi:type="fr.inria.aoste.timemodel.basicTypes:Integer" href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@predefinedTypes.2"/>
+    </elements>
+    <elements xsi:type="fr.inria.aoste.timemodel.basicTypes:IntegerElement" name="universal_timeuniversal_time_0" value="0">
+      <type xsi:type="fr.inria.aoste.timemodel.basicTypes:Integer" href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@predefinedTypes.2"/>
+    </elements>
+    <elements xsi:type="fr.inria.aoste.timemodel.basicTypes:IntegerElement" name="syncConstraint1syncTolerance_value" value="2">
+      <type xsi:type="fr.inria.aoste.timemodel.basicTypes:Integer" href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@predefinedTypes.2"/>
+    </elements>
+    <elements xsi:type="fr.inria.aoste.timemodel.basicTypes:IntegerElement" name="PeriodSensing1SensingPeriod_value" value="5">
+      <type xsi:type="fr.inria.aoste.timemodel.basicTypes:Integer" href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@predefinedTypes.2"/>
+    </elements>
+    <elements xsi:type="fr.inria.aoste.timemodel.basicTypes:IntegerElement" name="PeriodSensing1PeriodSensing1_0" value="0">
+      <type xsi:type="fr.inria.aoste.timemodel.basicTypes:Integer" href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@predefinedTypes.2"/>
+    </elements>
+    <relations name="endToEndDeadlinePrecedes_reactionConstraintMax">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2"/>
+      <bindings bindable="//@subBlock.0/@expressions.5">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@leftEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@expressions.6">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@rightEntity"/>
+      </bindings>
+    </relations>
+    <relations name="endToEndDeadlinePrecedes_reactionConstraintMin">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2"/>
+      <bindings bindable="//@subBlock.0/@expressions.7">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@leftEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@expressions.13">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@rightEntity"/>
+      </bindings>
+    </relations>
+    <relations name="universal_timeCoincides_periodicTB">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.1"/>
+      <bindings bindable="//@subBlock.0/@elements.11">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.1/@leftEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@expressions.14">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.1/@rightEntity"/>
+      </bindings>
+    </relations>
+    <relations name="syncConstraint1Precedes_synchronisation">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2"/>
+      <bindings bindable="//@subBlock.0/@expressions.15">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@leftEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@expressions.17">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@rightEntity"/>
+      </bindings>
+    </relations>
+    <relations name="chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality1_2">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5"/>
+      <bindings bindable="//@subBlock.0/@elements.2">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@rightEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.3">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@leftEntity"/>
+      </bindings>
+    </relations>
+    <relations name="chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality1_3">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5"/>
+      <bindings bindable="//@subBlock.0/@elements.2">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@rightEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.6">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@leftEntity"/>
+      </bindings>
+    </relations>
+    <relations name="chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality1_4">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5"/>
+      <bindings bindable="//@subBlock.0/@elements.2">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@rightEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.0">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@leftEntity"/>
+      </bindings>
+    </relations>
+    <relations name="chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality1_5">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5"/>
+      <bindings bindable="//@subBlock.0/@elements.2">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@rightEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.4">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@leftEntity"/>
+      </bindings>
+    </relations>
+    <relations name="chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality1_6">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5"/>
+      <bindings bindable="//@subBlock.0/@elements.2">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@rightEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.1">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@leftEntity"/>
+      </bindings>
+    </relations>
+    <relations name="chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality1_7">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5"/>
+      <bindings bindable="//@subBlock.0/@elements.2">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@rightEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.5">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@leftEntity"/>
+      </bindings>
+    </relations>
+    <relations name="chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality2_3">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5"/>
+      <bindings bindable="//@subBlock.0/@elements.3">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@rightEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.6">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@leftEntity"/>
+      </bindings>
+    </relations>
+    <relations name="chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality2_4">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5"/>
+      <bindings bindable="//@subBlock.0/@elements.3">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@rightEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.0">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@leftEntity"/>
+      </bindings>
+    </relations>
+    <relations name="chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality2_5">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5"/>
+      <bindings bindable="//@subBlock.0/@elements.3">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@rightEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.4">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@leftEntity"/>
+      </bindings>
+    </relations>
+    <relations name="chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality2_6">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5"/>
+      <bindings bindable="//@subBlock.0/@elements.3">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@rightEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.1">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@leftEntity"/>
+      </bindings>
+    </relations>
+    <relations name="chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality2_7">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5"/>
+      <bindings bindable="//@subBlock.0/@elements.3">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@rightEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.5">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@leftEntity"/>
+      </bindings>
+    </relations>
+    <relations name="chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality3_4">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5"/>
+      <bindings bindable="//@subBlock.0/@elements.6">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@rightEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.0">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@leftEntity"/>
+      </bindings>
+    </relations>
+    <relations name="chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality3_5">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5"/>
+      <bindings bindable="//@subBlock.0/@elements.6">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@rightEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.4">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@leftEntity"/>
+      </bindings>
+    </relations>
+    <relations name="chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality3_6">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5"/>
+      <bindings bindable="//@subBlock.0/@elements.6">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@rightEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.1">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@leftEntity"/>
+      </bindings>
+    </relations>
+    <relations name="chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality3_7">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5"/>
+      <bindings bindable="//@subBlock.0/@elements.6">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@rightEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.5">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@leftEntity"/>
+      </bindings>
+    </relations>
+    <relations name="chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality4_5">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5"/>
+      <bindings bindable="//@subBlock.0/@elements.0">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@rightEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.4">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@leftEntity"/>
+      </bindings>
+    </relations>
+    <relations name="chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality4_6">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5"/>
+      <bindings bindable="//@subBlock.0/@elements.0">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@rightEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.1">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@leftEntity"/>
+      </bindings>
+    </relations>
+    <relations name="chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality4_7">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5"/>
+      <bindings bindable="//@subBlock.0/@elements.0">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@rightEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.5">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@leftEntity"/>
+      </bindings>
+    </relations>
+    <relations name="chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality5_6">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5"/>
+      <bindings bindable="//@subBlock.0/@elements.4">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@rightEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.1">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@leftEntity"/>
+      </bindings>
+    </relations>
+    <relations name="chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality5_7">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5"/>
+      <bindings bindable="//@subBlock.0/@elements.4">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@rightEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.5">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@leftEntity"/>
+      </bindings>
+    </relations>
+    <relations name="chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality6_7">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5"/>
+      <bindings bindable="//@subBlock.0/@elements.1">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@rightEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.5">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.5/@leftEntity"/>
+      </bindings>
+    </relations>
+    <relations name="PeriodSensing1Coincides_periodicConstraintRaltion">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.1"/>
+      <bindings bindable="//@subBlock.0/@expressions.18">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.1/@leftEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.9">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.1/@rightEntity"/>
+      </bindings>
+    </relations>
+    <expressions name="endToEndDeadlineintermediate_chain1">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6"/>
+      <bindings bindable="//@subBlock.0/@elements.2">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6/@parameters.0"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.3">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6/@parameters.0"/>
+      </bindings>
+    </expressions>
+    <expressions name="endToEndDeadlineintermediate_chain3">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6"/>
+      <bindings bindable="//@subBlock.0/@expressions.0">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6/@parameters.0"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.6">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6/@parameters.0"/>
+      </bindings>
+    </expressions>
+    <expressions name="endToEndDeadlineintermediate_chain4">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6"/>
+      <bindings bindable="//@subBlock.0/@expressions.1">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6/@parameters.0"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.0">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6/@parameters.0"/>
+      </bindings>
+    </expressions>
+    <expressions name="endToEndDeadlineintermediate_chain5">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6"/>
+      <bindings bindable="//@subBlock.0/@expressions.2">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6/@parameters.0"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.4">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6/@parameters.0"/>
+      </bindings>
+    </expressions>
+    <expressions name="endToEndDeadlineintermediate_chain6">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6"/>
+      <bindings bindable="//@subBlock.0/@expressions.3">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6/@parameters.0"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.1">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6/@parameters.0"/>
+      </bindings>
+    </expressions>
+    <expressions name="endToEndDeadlineintermediate_chain7">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6"/>
+      <bindings bindable="//@subBlock.0/@expressions.4">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6/@parameters.0"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.5">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6/@parameters.0"/>
+      </bindings>
+    </expressions>
+    <expressions name="endToEndDeadline_DelayFor_deadline">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.3"/>
+      <bindings bindable="//@subBlock.0/@elements.2">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.3/@parameters.0"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.11">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.3/@parameters.1"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.13">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.3/@parameters.2"/>
+      </bindings>
+    </expressions>
+    <expressions name="endToEndDeadline_DelayFor_minTime">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.3"/>
+      <bindings bindable="//@subBlock.0/@elements.2">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.3/@parameters.0"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.11">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.3/@parameters.1"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.14">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.3/@parameters.2"/>
+      </bindings>
+    </expressions>
+    <expressions name="endToEndDeadlineintermediate_chainMin1">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6"/>
+      <bindings bindable="//@subBlock.0/@elements.2">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6/@parameters.0"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.3">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6/@parameters.1"/>
+      </bindings>
+    </expressions>
+    <expressions name="endToEndDeadlineintermediate_chainMin3">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6"/>
+      <bindings bindable="//@subBlock.0/@expressions.8">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6/@parameters.0"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.6">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6/@parameters.1"/>
+      </bindings>
+    </expressions>
+    <expressions name="endToEndDeadlineintermediate_chainMin4">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6"/>
+      <bindings bindable="//@subBlock.0/@expressions.9">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6/@parameters.0"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.0">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6/@parameters.1"/>
+      </bindings>
+    </expressions>
+    <expressions name="endToEndDeadlineintermediate_chainMin5">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6"/>
+      <bindings bindable="//@subBlock.0/@expressions.10">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6/@parameters.0"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.4">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6/@parameters.1"/>
+      </bindings>
+    </expressions>
+    <expressions name="endToEndDeadlineintermediate_chainMin6">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6"/>
+      <bindings bindable="//@subBlock.0/@expressions.11">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6/@parameters.0"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.1">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6/@parameters.1"/>
+      </bindings>
+    </expressions>
+    <expressions name="endToEndDeadlineintermediate_chainMin7">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6"/>
+      <bindings bindable="//@subBlock.0/@expressions.12">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6/@parameters.0"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.5">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6/@parameters.1"/>
+      </bindings>
+    </expressions>
+    <expressions name="universal_time_Periodic_periodicClockTB">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.1"/>
+      <bindings bindable="//@subBlock.0/@elements.12">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.1/@parameters.0"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.15">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.1/@parameters.1"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.16">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.1/@parameters.2"/>
+      </bindings>
+    </expressions>
+    <expressions name="syncConstraint1intermediate_supSync1">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6"/>
+      <bindings bindable="//@subBlock.0/@elements.10">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6/@clock1"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.8">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@expressionLibraries.0/@expressionDeclarations.6/@clock2"/>
+      </bindings>
+    </expressions>
+    <expressions name="syncConstraint1intermediate_infSync1">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@expressionLibraries.0/@expressionDeclarations.7"/>
+      <bindings bindable="//@subBlock.0/@elements.10">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@expressionLibraries.0/@expressionDeclarations.7/@clock1"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.8">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@expressionLibraries.0/@expressionDeclarations.7/@clock2"/>
+      </bindings>
+    </expressions>
+    <expressions name="syncConstraint1_DelayFor_delayedInf">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.3"/>
+      <bindings bindable="//@subBlock.0/@expressions.16">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.3/@parameters.0"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.11">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.3/@parameters.1"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.17">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.3/@parameters.2"/>
+      </bindings>
+    </expressions>
+    <expressions name="PeriodSensing1_Periodic_periodicClock">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.1"/>
+      <bindings>
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.1/@parameters.0"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.18">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.1/@parameters.1"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.19">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.1/@parameters.2"/>
+      </bindings>
+    </expressions>
+  </subBlock>
+  <imports importURI="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib" alias="kernel"/>
+  <imports importURI="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib" alias="CCSL"/>
+  <imports importURI="platform:/resource/fr.inria.aoste.timmo2use.tadl2.examples/tadl2.ccslLib" alias="tadl2"/>
+  <imports importURI="platform:/resource/fr.inria.aoste.timmo2use.tadl2.examples/BrakeByWireCompletEventTrigger/bbwCompletTimeTrigger.tadl2" alias="Timing"/>
+</fr.inria.aoste.timemodel.ccslmodel:ClockConstraintSystem>

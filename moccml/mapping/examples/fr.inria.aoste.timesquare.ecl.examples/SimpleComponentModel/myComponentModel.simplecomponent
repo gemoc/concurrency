@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simplecomponent:Component xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:simplecomponent="http://fr.inria.aoste.timesquare.ecl.example.simplecomponent/1.0" name="c1">
+  <internalComponent name="c1a">
+    <ports xsi:type="simplecomponent:InputPort"/>
+    <behaviors name="c1a_behav1"/>
+    <behaviors name="c1a_behav2"/>
+    <behaviors name="c1a_behav3"/>
+    <behaviors name="c1a_behav4"/>
+  </internalComponent>
+  <internalComponent name="c1b">
+    <ports xsi:type="simplecomponent:OutputPort"/>
+    <behaviors name="c1b_behav"/>
+  </internalComponent>
+  <connectors from="//@internalComponent.1/@ports.0" to="//@internalComponent.0/@ports.0"/>
+</simplecomponent:Component>

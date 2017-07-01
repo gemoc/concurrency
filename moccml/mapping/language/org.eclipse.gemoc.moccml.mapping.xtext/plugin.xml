@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+  <extension point="org.eclipse.core.contenttype.contentTypes">
+	<content-type id="org.eclipse.gemoc.moccml.mapping" name="MoCCMLmapping_editor" 
+		base-type="org.eclipse.core.runtime.text"
+		file-extensions="ecl, dse, mapping, moccml_mapping"
+        default-charset="UTF-8"/>
+  </extension>
+
+</plugin>

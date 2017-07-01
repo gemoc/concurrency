@@ -1,0 +1,29 @@
+/*
+ * CCSL specification
+ * @author:  jdeanton
+ * date :  Tue February 26 2013  06:48:44 CET 
+ */
+ClockConstraintSystem MySpec {
+    imports {
+        // import statements
+		import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib" as lib0; 
+		import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib" as lib1; 
+		import "BrakeByWireOneWheel/tadl2.ccslLib" as lib2; 
+
+    }
+    entryBlock main
+     
+        Block main {
+		Clock a
+		Clock b
+		Expression override=AgeEventChainOverride( AgeEventChainOverride_left-> a 	,AgeEventChainOverride_right-> b  )
+		Expression override2=AgeEventChainOverride( AgeEventChainOverride_left-> a 	,AgeEventChainOverride_right-> b  )
+		
+		Expression aSampledOnB=SampledOn( SampledOnSampledClock-> a 	,SampledOnTrigger-> b  )
+		Expression bSampledOna=NonStrictSampledOn( NonStrictSampledOnSampledClock-> b 	,NonStrictSampledOnTrigger-> a  )
+
+		Relation relation_0[Precedes](   LeftClock-> a ,	RightClock-> b  )
+
+
+	}
+}

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Profile xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_PhaH4HwuEeKwtJWK6b5hmA" name="eastLight" URI="http://fr.inria.aoste.gemoc.eastadl" metaclassReference="_XzCm4HwuEeKwtJWK6b5hmA _deoQsHwuEeKwtJWK6b5hmA _k40U4HwvEeKwtJWK6b5hmA" metamodelReference="_PhaH4XwuEeKwtJWK6b5hmA">
+  <eAnnotations xmi:id="_0oADYHxXEeKXRbNbBE_anA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <contents xmi:type="ecore:EPackage" xmi:id="_0oADYXxXEeKXRbNbBE_anA" name="eastLight" nsURI="http://fr.inria.aoste.gemoc.eastadl" nsPrefix="eastLight">
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_0oADYnxXEeKXRbNbBE_anA" name="AnalysisFunctionType">
+        <eAnnotations xmi:id="_0oADY3xXEeKXRbNbBE_anA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_YcJ1UHwuEeKwtJWK6b5hmA"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_0oADZHxXEeKXRbNbBE_anA" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_0oADZnxXEeKXRbNbBE_anA" name="functionTrigger" ordered="false" eType="_0oADaHxXEeKXRbNbBE_anA" containment="true"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_0oADaHxXEeKXRbNbBE_anA" name="FunctionTrigger">
+        <eAnnotations xmi:id="_0oADaXxXEeKXRbNbBE_anA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_iUsnwHwuEeKwtJWK6b5hmA"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_0oADanxXEeKXRbNbBE_anA" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_0oADbHxXEeKXRbNbBE_anA" name="triggerCondition" ordered="false" lowerBound="1" defaultValueLiteral="TODO">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_0oADbnxXEeKXRbNbBE_anA" name="port" ordered="false" upperBound="-1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Port"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_0oADcHxXEeKXRbNbBE_anA" name="triggerPolicyKind" ordered="false" lowerBound="1" defaultValueLiteral="EVENT">
+          <eType xmi:type="ecore:EEnum" href="http://fr.inria.aoste.gemoc.eastadl#//TriggerPolicyKind"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_0oADcnxXEeKXRbNbBE_anA" name="AnalysisFunctionPrototype">
+        <eAnnotations xmi:id="_0oADc3xXEeKXRbNbBE_anA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_eCaTMHwuEeKwtJWK6b5hmA"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_0oADdHxXEeKXRbNbBE_anA" name="base_Property" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Property"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_0oADdnxXEeKXRbNbBE_anA" name="functionTrigger" ordered="false" eType="_0oADaHxXEeKXRbNbBE_anA" containment="true"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EEnum" xmi:id="_0oADeHxXEeKXRbNbBE_anA" name="TriggerPolicyKind">
+        <eAnnotations xmi:id="_0oADeXxXEeKXRbNbBE_anA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_shQs8HwvEeKwtJWK6b5hmA"/>
+        <eLiterals xmi:id="_0oADenxXEeKXRbNbBE_anA" name="EVENT"/>
+        <eLiterals xmi:id="_0oADe3xXEeKXRbNbBE_anA" name="TIME" value="1"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_0oADfHxXEeKXRbNbBE_anA" name="FlowPort">
+        <eAnnotations xmi:id="_0oADfXxXEeKXRbNbBE_anA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_pU8sgHwwEeKwtJWK6b5hmA"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_0oADfnxXEeKXRbNbBE_anA" name="base_Port" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Port"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+    </contents>
+  </eAnnotations>
+  <elementImport xmi:id="_XzCm4HwuEeKwtJWK6b5hmA" alias="Class">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+  </elementImport>
+  <elementImport xmi:id="_deoQsHwuEeKwtJWK6b5hmA" alias="Property">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Property"/>
+  </elementImport>
+  <elementImport xmi:id="_k40U4HwvEeKwtJWK6b5hmA" alias="Port">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Port"/>
+  </elementImport>
+  <packageImport xmi:id="_PhaH4XwuEeKwtJWK6b5hmA">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_0"/>
+  </packageImport>
+  <packageImport xmi:id="_PhaH4nwuEeKwtJWK6b5hmA">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packageImport xmi:id="_buONkHwvEeKwtJWK6b5hmA">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_YcJ1UHwuEeKwtJWK6b5hmA" name="AnalysisFunctionType">
+    <ownedAttribute xmi:id="_bNXYsHwuEeKwtJWK6b5hmA" name="base_Class" association="_bNX_wHwuEeKwtJWK6b5hmA">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_l7QewHwuEeKwtJWK6b5hmA" name="functionTrigger" type="_iUsnwHwuEeKwtJWK6b5hmA" association="_l7Qew3wuEeKwtJWK6b5hmA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_l7QewXwuEeKwtJWK6b5hmA"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_l7QewnwuEeKwtJWK6b5hmA" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_bNX_wHwuEeKwtJWK6b5hmA" name="E_AnalysisFunctionType_Class1" memberEnd="_bNX_wXwuEeKwtJWK6b5hmA _bNXYsHwuEeKwtJWK6b5hmA">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_bNX_wXwuEeKwtJWK6b5hmA" name="extension_AnalysisFunctionType" type="_YcJ1UHwuEeKwtJWK6b5hmA" aggregation="composite" association="_bNX_wHwuEeKwtJWK6b5hmA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_eCaTMHwuEeKwtJWK6b5hmA" name="AnalysisFunctionPrototype">
+    <ownedAttribute xmi:id="_fr1vIHwuEeKwtJWK6b5hmA" name="base_Property" association="_fr2WMHwuEeKwtJWK6b5hmA">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Property"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_DQ6KIHwvEeKwtJWK6b5hmA" name="functionTrigger" type="_iUsnwHwuEeKwtJWK6b5hmA" association="_DQ6xMHwvEeKwtJWK6b5hmA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DQ6KIXwvEeKwtJWK6b5hmA"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DQ6KInwvEeKwtJWK6b5hmA" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_fr2WMHwuEeKwtJWK6b5hmA" name="E_AnalysisFunctionPrototype_Property1" memberEnd="_fr2WMXwuEeKwtJWK6b5hmA _fr1vIHwuEeKwtJWK6b5hmA">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_fr2WMXwuEeKwtJWK6b5hmA" name="extension_AnalysisFunctionPrototype" type="_eCaTMHwuEeKwtJWK6b5hmA" aggregation="composite" association="_fr2WMHwuEeKwtJWK6b5hmA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_iUsnwHwuEeKwtJWK6b5hmA" name="FunctionTrigger">
+    <ownedAttribute xmi:id="_kKcocHwuEeKwtJWK6b5hmA" name="base_Class" association="_kKdPgHwuEeKwtJWK6b5hmA">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_TG1hAHwvEeKwtJWK6b5hmA" name="triggerCondition" aggregation="composite">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_sO_KAHxXEeKXRbNbBE_anA" value="TODO"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_lq7HQHwvEeKwtJWK6b5hmA" name="port" association="_lq8VYHwvEeKwtJWK6b5hmA">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Port"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lq7HQXwvEeKwtJWK6b5hmA"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lq7HQnwvEeKwtJWK6b5hmA" value="*"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_g-0vEHwwEeKwtJWK6b5hmA" name="triggerPolicyKind" type="_shQs8HwvEeKwtJWK6b5hmA" aggregation="composite" association="_g-1WIHwwEeKwtJWK6b5hmA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_g-0vEXwwEeKwtJWK6b5hmA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_g-0vEnwwEeKwtJWK6b5hmA" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_w00ssHxXEeKXRbNbBE_anA" value="EVENT"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_kKdPgHwuEeKwtJWK6b5hmA" name="E_FunctionTrigger_Class1" memberEnd="_kKdPgXwuEeKwtJWK6b5hmA _kKcocHwuEeKwtJWK6b5hmA">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_kKdPgXwuEeKwtJWK6b5hmA" name="extension_FunctionTrigger" type="_iUsnwHwuEeKwtJWK6b5hmA" aggregation="composite" association="_kKdPgHwuEeKwtJWK6b5hmA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_l7Qew3wuEeKwtJWK6b5hmA" name="analysisFunctionType_functionTrigger_1" memberEnd="_l7QexHwuEeKwtJWK6b5hmA _l7QewHwuEeKwtJWK6b5hmA">
+    <ownedEnd xmi:id="_l7QexHwuEeKwtJWK6b5hmA" name="analysisFunctionType" type="_YcJ1UHwuEeKwtJWK6b5hmA" association="_l7Qew3wuEeKwtJWK6b5hmA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_l7QexXwuEeKwtJWK6b5hmA"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_l7QexnwuEeKwtJWK6b5hmA" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_DQ6xMHwvEeKwtJWK6b5hmA" name="analysisFunctionPrototype_functionTrigger_1" memberEnd="_DQ6xMXwvEeKwtJWK6b5hmA _DQ6KIHwvEeKwtJWK6b5hmA">
+    <ownedEnd xmi:id="_DQ6xMXwvEeKwtJWK6b5hmA" name="analysisFunctionPrototype" type="_eCaTMHwuEeKwtJWK6b5hmA" association="_DQ6xMHwvEeKwtJWK6b5hmA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DQ6xMnwvEeKwtJWK6b5hmA"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DQ6xM3wvEeKwtJWK6b5hmA" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_lq8VYHwvEeKwtJWK6b5hmA" name="functionTrigger_port_1" memberEnd="_lq8VYXwvEeKwtJWK6b5hmA _lq7HQHwvEeKwtJWK6b5hmA">
+    <ownedEnd xmi:id="_lq8VYXwvEeKwtJWK6b5hmA" name="functionTrigger" type="_iUsnwHwuEeKwtJWK6b5hmA" association="_lq8VYHwvEeKwtJWK6b5hmA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lq8VYnwvEeKwtJWK6b5hmA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lq8VY3wvEeKwtJWK6b5hmA" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Enumeration" xmi:id="_shQs8HwvEeKwtJWK6b5hmA" name="TriggerPolicyKind">
+    <ownedLiteral xmi:id="_wHHZUHwvEeKwtJWK6b5hmA" name="EVENT"/>
+    <ownedLiteral xmi:id="_y7F80HwvEeKwtJWK6b5hmA" name="TIME"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_g-1WIHwwEeKwtJWK6b5hmA" name="functionTrigger_triggerPolicyKind_1" memberEnd="_g-1WIXwwEeKwtJWK6b5hmA _g-0vEHwwEeKwtJWK6b5hmA">
+    <ownedEnd xmi:id="_g-1WIXwwEeKwtJWK6b5hmA" name="functionTrigger" type="_iUsnwHwuEeKwtJWK6b5hmA" association="_g-1WIHwwEeKwtJWK6b5hmA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_g-1WInwwEeKwtJWK6b5hmA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_g-1WI3wwEeKwtJWK6b5hmA" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_pU8sgHwwEeKwtJWK6b5hmA" name="FlowPort">
+    <ownedAttribute xmi:id="_qouokHwwEeKwtJWK6b5hmA" name="base_Port" association="_qovPoHwwEeKwtJWK6b5hmA">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Port"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_nY5ykHxcEeKlr-P7Mi-bTA" name="direction" type="_d8IWIHxcEeKlr-P7Mi-bTA" aggregation="composite" association="_nY6ZoHxcEeKlr-P7Mi-bTA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nY5ykXxcEeKlr-P7Mi-bTA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nY5yknxcEeKlr-P7Mi-bTA" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_qovPoHwwEeKwtJWK6b5hmA" name="E_FlowPort_Port1" memberEnd="_qovPoXwwEeKwtJWK6b5hmA _qouokHwwEeKwtJWK6b5hmA">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_qovPoXwwEeKwtJWK6b5hmA" name="extension_FlowPort" type="_pU8sgHwwEeKwtJWK6b5hmA" aggregation="composite" association="_qovPoHwwEeKwtJWK6b5hmA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Enumeration" xmi:id="_d8IWIHxcEeKlr-P7Mi-bTA" name="PortDirection">
+    <ownedLiteral xmi:id="_g0j70HxcEeKlr-P7Mi-bTA" name="IN"/>
+    <ownedLiteral xmi:id="_iQuX0HxcEeKlr-P7Mi-bTA" name="OUT"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_nY6ZoHxcEeKlr-P7Mi-bTA" name="flowPort_portDirection_1" memberEnd="_nY6ZoXxcEeKlr-P7Mi-bTA _nY5ykHxcEeKlr-P7Mi-bTA">
+    <ownedEnd xmi:id="_nY6ZoXxcEeKlr-P7Mi-bTA" name="flowPort" type="_pU8sgHwwEeKwtJWK6b5hmA" association="_nY6ZoHxcEeKlr-P7Mi-bTA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nY6ZonxcEeKlr-P7Mi-bTA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nY6Zo3xcEeKlr-P7Mi-bTA" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+</uml:Profile>

@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.gemoc.moccml.mapping.feedback.model;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: .,
+ bin/
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: org.eclipse.gemoc.moccml.mapping.feedback.feedback,
+ org.eclipse.gemoc.moccml.mapping.feedback.feedback.impl,
+ org.eclipse.gemoc.moccml.mapping.feedback.feedback.util
+Bundle-ActivationPolicy: lazy

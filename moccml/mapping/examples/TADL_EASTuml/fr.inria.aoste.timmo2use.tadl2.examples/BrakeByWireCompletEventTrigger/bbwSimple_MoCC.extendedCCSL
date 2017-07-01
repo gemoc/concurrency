@@ -1,0 +1,175 @@
+ClockConstraintSystem BBW {
+	imports {
+		import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib" as kernel ;
+		import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib" as CCSL ;
+		import "platform:/resource/fr.inria.aoste.timmo2use.tadl2.examples/tadl2.ccslLib" as tadl2 ;
+		import "platform:/resource/fr.inria.aoste.timmo2use.tadl2.examples/BrakeByWireCompletEventTrigger/model.uml" as	model ;
+	}
+	entryBlock mainBlock
+	Block mainBlock {
+		Expression endToEndDeadlineintermediate_chain1 = SampledOn
+		( SampledOnSampledClock -> brakePedalActionning_tadlEvent,
+		SampledOnTrigger -> brakePedalPosition_tadlEvent )
+		Expression endToEndDeadlineintermediate_chain3 = SampledOn
+		( SampledOnSampledClock -> endToEndDeadlineintermediate_chain1,
+		SampledOnTrigger -> pedalPercent_tadlEvent )
+		Expression endToEndDeadlineintermediate_chain4 = SampledOn
+		( SampledOnSampledClock -> endToEndDeadlineintermediate_chain3,
+		SampledOnTrigger -> globalTorque_tadlEvent )
+		Expression endToEndDeadlineintermediate_chain5 = SampledOn
+		( SampledOnSampledClock -> endToEndDeadlineintermediate_chain4,
+		SampledOnTrigger -> torqFrontLeftWheel_tadlEvent )
+		Expression endToEndDeadlineintermediate_chain6 = SampledOn
+		( SampledOnSampledClock -> endToEndDeadlineintermediate_chain5,
+		SampledOnTrigger -> frontLeftABSBrakeTorque_tadlEvent )
+		Expression endToEndDeadlineintermediate_chain7 = SampledOn
+		( SampledOnSampledClock -> endToEndDeadlineintermediate_chain6,
+		SampledOnTrigger -> frontLeftWheelTorqActuatorSignal_tadlEvent )
+		Expression endToEndDeadline_DelayFor_deadline = DelayFor
+		( DelayForClockToDelay -> brakePedalActionning_tadlEvent,
+		DelayForClockForCounting -> universal_time_ref,
+		DelayForDelay -> endToEndDeadlineendToEnd_max_value )
+		Expression endToEndDeadline_DelayFor_minTime = DelayFor
+		( DelayForClockToDelay -> brakePedalActionning_tadlEvent,
+		DelayForClockForCounting -> universal_time_ref,
+		DelayForDelay -> endToEndDeadlineendToEnd_min_value )
+		Expression endToEndDeadlineintermediate_chainMin1 = SampledOn
+		( SampledOnSampledClock -> brakePedalActionning_tadlEvent,
+		SampledOnTrigger -> brakePedalPosition_tadlEvent )
+		Expression endToEndDeadlineintermediate_chainMin3 = SampledOn
+		( SampledOnSampledClock -> endToEndDeadlineintermediate_chainMin1,
+		SampledOnTrigger -> pedalPercent_tadlEvent )
+		Expression endToEndDeadlineintermediate_chainMin4 = SampledOn
+		( SampledOnSampledClock -> endToEndDeadlineintermediate_chainMin3,
+		SampledOnTrigger -> globalTorque_tadlEvent )
+		Expression endToEndDeadlineintermediate_chainMin5 = SampledOn
+		( SampledOnSampledClock -> endToEndDeadlineintermediate_chainMin4,
+		SampledOnTrigger -> torqFrontLeftWheel_tadlEvent )
+		Expression endToEndDeadlineintermediate_chainMin6 = SampledOn
+		( SampledOnSampledClock -> endToEndDeadlineintermediate_chainMin5,
+		SampledOnTrigger -> frontLeftABSBrakeTorque_tadlEvent )
+		Expression endToEndDeadlineintermediate_chainMin7 = SampledOn
+		( SampledOnSampledClock -> endToEndDeadlineintermediate_chainMin6,
+		SampledOnTrigger -> frontLeftWheelTorqActuatorSignal_tadlEvent )
+		Expression universal_time_Periodic_periodicClock = Periodic
+		( PeriodicBaseClock -> physicalTime_discretized,
+		PeriodicPeriod -> universal_timemicros_factor,
+		PeriodicOffset -> universal_timeuniversal_time_0 )
+		Expression syncConstraint1intermediate_supSync1 = Sup
+		( Clock1 -> frontLeftWheelSpeed_tadlEvent,
+		Clock2 -> frontRightWheelSpeed_tadlEvent )
+		Expression syncConstraint1intermediate_infSync1 = Inf
+		( Clock1 -> frontLeftWheelSpeed_tadlEvent,
+		Clock2 -> frontRightWheelSpeed_tadlEvent )
+		Expression syncConstraint1_DelayFor_delayedInf = DelayFor
+		( DelayForClockToDelay -> syncConstraint1intermediate_infSync1,
+		DelayForClockForCounting -> universal_time_ref,
+		DelayForDelay -> syncConstraint1syncTolerance_value )
+		Relation endToEndDeadlinePrecedes_reactionConstraintMax [ Precedes ]
+		( LeftClock -> endToEndDeadlineintermediate_chain7,
+		RightClock -> endToEndDeadline_DelayFor_deadline )
+		Relation endToEndDeadlinePrecedes_reactionConstraintMin [ Precedes ]
+		( LeftClock -> endToEndDeadline_DelayFor_minTime,
+		RightClock -> endToEndDeadlineintermediate_chainMin7 )
+		Relation universal_timeCoincides_periodicTB [ Coincides ]
+		( Clock2 -> universal_time_ref,
+		Clock1 -> universal_time_Periodic_periodicClock )
+		Relation syncConstraint1Precedes_synchronisation [ Precedes ]
+		( LeftClock -> syncConstraint1intermediate_supSync1,
+		RightClock -> syncConstraint1_DelayFor_delayedInf )
+		Relation chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality1_2 [ Causes ]
+		( RightClock -> brakePedalActionning_tadlEvent,
+		LeftClock -> brakePedalPosition_tadlEvent )
+		Relation chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality1_3 [ Causes ]
+		( RightClock -> brakePedalActionning_tadlEvent,
+		LeftClock -> pedalPercent_tadlEvent )
+		Relation chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality1_4 [ Causes ]
+		( RightClock -> brakePedalActionning_tadlEvent,
+		LeftClock -> globalTorque_tadlEvent )
+		Relation chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality1_5 [ Causes ]
+		( RightClock -> brakePedalActionning_tadlEvent,
+		LeftClock -> torqFrontLeftWheel_tadlEvent )
+		Relation chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality1_6 [ Causes ]
+		( RightClock -> brakePedalActionning_tadlEvent,
+		LeftClock -> frontLeftABSBrakeTorque_tadlEvent )
+		Relation chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality1_7 [ Causes ]
+		( RightClock -> brakePedalActionning_tadlEvent,
+		LeftClock -> frontLeftWheelTorqActuatorSignal_tadlEvent )
+		Relation chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality2_3 [ Causes ]
+		( RightClock -> brakePedalPosition_tadlEvent,
+		LeftClock -> pedalPercent_tadlEvent )
+		Relation chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality2_4 [ Causes ]
+		( RightClock -> brakePedalPosition_tadlEvent,
+		LeftClock -> globalTorque_tadlEvent )
+		Relation chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality2_5 [ Causes ]
+		( RightClock -> brakePedalPosition_tadlEvent,
+		LeftClock -> torqFrontLeftWheel_tadlEvent )
+		Relation chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality2_6 [ Causes ]
+		( RightClock -> brakePedalPosition_tadlEvent,
+		LeftClock -> frontLeftABSBrakeTorque_tadlEvent )
+		Relation chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality2_7 [ Causes ]
+		( RightClock -> brakePedalPosition_tadlEvent,
+		LeftClock -> frontLeftWheelTorqActuatorSignal_tadlEvent )
+		Relation chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality3_4 [ Causes ]
+		( RightClock -> pedalPercent_tadlEvent,
+		LeftClock -> globalTorque_tadlEvent )
+		Relation chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality3_5 [ Causes ]
+		( RightClock -> pedalPercent_tadlEvent,
+		LeftClock -> torqFrontLeftWheel_tadlEvent )
+		Relation chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality3_6 [ Causes ]
+		( RightClock -> pedalPercent_tadlEvent,
+		LeftClock -> frontLeftABSBrakeTorque_tadlEvent )
+		Relation chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality3_7 [ Causes ]
+		( RightClock -> pedalPercent_tadlEvent,
+		LeftClock -> frontLeftWheelTorqActuatorSignal_tadlEvent )
+		Relation chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality4_5 [ Causes ]
+		( RightClock -> globalTorque_tadlEvent,
+		LeftClock -> torqFrontLeftWheel_tadlEvent )
+		Relation chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality4_6 [ Causes ]
+		( RightClock -> globalTorque_tadlEvent,
+		LeftClock -> frontLeftABSBrakeTorque_tadlEvent )
+		Relation chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality4_7 [ Causes ]
+		( RightClock -> globalTorque_tadlEvent,
+		LeftClock -> frontLeftWheelTorqActuatorSignal_tadlEvent )
+		Relation chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality5_6 [ Causes ]
+		( RightClock -> torqFrontLeftWheel_tadlEvent,
+		LeftClock -> frontLeftABSBrakeTorque_tadlEvent )
+		Relation chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality5_7 [ Causes ]
+		( RightClock -> torqFrontLeftWheel_tadlEvent,
+		LeftClock -> frontLeftWheelTorqActuatorSignal_tadlEvent )
+		Relation chainPedalActionning2frontLeftWheelBrakeActuator_bisintermediate_eventChainCausality6_7 [ Causes ]
+		( RightClock -> frontLeftABSBrakeTorque_tadlEvent,
+		LeftClock -> frontLeftWheelTorqActuatorSignal_tadlEvent )
+		Clock torqFrontLeftWheel_tadlEvent : clock -> evt_torqFrontLeftWheel_tadlEvent
+		( "model->Model::FunctionalArchitecture::globalBrakeController::torqFrontLeftWheel" )
+		Clock brakePedalActionning_tadlEvent : clock -> evt_brakePedalActionning_tadlEvent
+		( "model->Model::FunctionalArchitecture::brakePedalSensor::BrakePedalActionning" )
+		Clock doSampleFrontLeftWheelSpeed_tadlEvent : clock -> evt_doSampleFrontLeftWheelSpeed_tadlEvent
+		( "model->Model::FunctionalArchitecture::frontLeftWheelSpeedSensor" )
+		Clock frontLeftABSBrakeTorque_tadlEvent : clock -> evt_frontLeftABSBrakeTorque_tadlEvent
+		( "model->Model::FunctionalArchitecture::frontLeftABSSat::ABSBrakeTorq" )
+		Clock pedalPercent_tadlEvent : clock -> evt_pedalPercent_tadlEvent
+		( "model->Model::FunctionalArchitecture::brakeTorqueCalculator::requestedTorq" )
+		Clock frontLeftWheelTorqActuatorSignal_tadlEvent : clock -> evt_frontLeftWheelTorqActuatorSignal_tadlEvent
+		( "model->Model::FunctionalArchitecture::frontLeftBrake::ActuatorSignal" )
+		Clock doSampleFrontRightWheelSpeed_tadlEvent : clock -> evt_doSampleFrontRightWheelSpeed_tadlEvent
+		( "model->Model::FunctionalArchitecture::frontRightWheelSpeedSensor" )
+		Clock frontRightWheelSpeed_tadlEvent : clock -> evt_frontRightWheelSpeed_tadlEvent
+		( "model->Model::FunctionalArchitecture::frontRightWheelSpeedSensor::speed_rpm" )
+		Clock brakePedalPosition_tadlEvent : clock -> evt_brakePedalPosition_tadlEvent
+		( "model->Model::FunctionalArchitecture::brakePedalSensor::pedalPosition" )
+		Clock globalTorque_tadlEvent : clock -> evt_globalTorque_tadlEvent
+		( "model->Model::FunctionalArchitecture::globalBrakeController::globalTorque" )
+		Clock frontLeftWheelSpeed_tadlEvent : clock -> evt_frontLeftWheelSpeed_tadlEvent
+		( "model->Model::FunctionalArchitecture::frontLeftWheelSpeedSensor::speed_rpm" )
+		Clock universal_time_ref : clock -> evt_universal_time_ref
+		( )
+		Clock physicalTime_discretized : clock -> evt_physicalTime_discretized
+		( )
+		Integer endToEndDeadlineendToEnd_max_value : int = 20
+		Integer endToEndDeadlineendToEnd_min_value : int = 18
+		Integer universal_timemicros_factor : int = 1
+		Integer universal_timeuniversal_time_0 : int = 0
+		Integer syncConstraint1syncTolerance_value : int = 2
+	}
+}

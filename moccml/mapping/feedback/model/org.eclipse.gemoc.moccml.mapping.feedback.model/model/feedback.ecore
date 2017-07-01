@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="feedback" nsURI="http://timesquare.inria.fr/feedback" nsPrefix="feedback">
+  <eClassifiers xsi:type="ecore:EClass" name="When">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1" eType="//ModelSpecificEvent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1" eType="//Condition" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="action" lowerBound="1" eType="//Action" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Condition" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Action" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Force" eSuperTypes="//Action">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eventToBeForced" lowerBound="1" eType="//ModelSpecificEvent"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" lowerBound="1" eType="//ForceKind"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="onTrigger" eType="//ModelSpecificEvent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="untilTrigger" eType="//ModelSpecificEvent"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActionFinishedCondition" eSuperTypes="//Condition"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="ForceKind">
+    <eLiterals name="Presence"/>
+    <eLiterals name="Absence" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ImportStatement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="importURI">
+      <eType xsi:type="ecore:EDataType" href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModelSpecificEvent">
+    <eSuperTypes href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//ENamedElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="caller">
+      <eType xsi:type="ecore:EClass" href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="action">
+      <eType xsi:type="ecore:EClass" href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EOperation"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="solverEvent">
+      <eType xsi:type="ecore:EClass" href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActionResultCondition" eSuperTypes="//Condition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comparisonValue" lowerBound="1">
+      <eType xsi:type="ecore:EDataType" href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EJavaObject"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" lowerBound="1" eType="//ComparisonOperator"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActionModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="events" upperBound="-1" eType="//ModelSpecificEvent" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="whenStatements" upperBound="-1" eType="//When" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="importStatements" upperBound="-1" eType="//ImportStatement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ComparisonOperator">
+    <eLiterals name="equals" literal="="/>
+    <eLiterals name="inf" value="1" literal="&lt;"/>
+    <eLiterals name="sup" value="2" literal=">"/>
+    <eLiterals name="different" value="3" literal="&lt;>"/>
+    <eLiterals name="infEquals" value="4" literal="&lt;="/>
+    <eLiterals name="supEquals" value="5" literal=">="/>
+  </eClassifiers>
+</ecore:EPackage>

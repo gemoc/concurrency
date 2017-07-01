@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="moccml_mapping" nsURI="http://org.eclipse.gemoc.moccml.mapping"
+    nsPrefix="org.eclipse.gemoc.moccml.mapping">
+  <eClassifiers xsi:type="ecore:EClass" name="EventType" eSuperTypes="../../org.eclipse.ocl.xtext.base/model/BaseCS.ecore#//TypedRefCS ../../org.eclipse.ocl.pivot/model/Pivot.ecore#//Nameable">
+    <eOperations name="accept">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return (R) visitor.getAdapter(ECLVisitor.class).visitEventType(this);"/>
+        <details key="suppressedVisibility" value="true"/>
+      </eAnnotations>
+      <eGenericType eTypeParameter="#//EventType/accept/R"/>
+      <eTypeParameters name="R"/>
+      <eParameters name="visitor">
+        <eGenericType eClassifier="#//BaseCSVisitor">
+          <eTypeArguments eTypeParameter="#//EventType/accept/R"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="referedElement" eType="#//EventKind"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DSAFeedback" eSuperTypes="../../org.eclipse.ocl.xtext.completeocl/model/CompleteOCLCS.ecore#//DefPropertyCS">
+    <eOperations name="accept">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return (R) visitor.getAdapter(ECLVisitor.class).visitDSAFeedBack(this);"/>
+        <details key="suppressedVisibility" value="true"/>
+      </eAnnotations>
+      <eGenericType eTypeParameter="#//DSAFeedback/accept/R"/>
+      <eTypeParameters name="R"/>
+      <eParameters name="visitor">
+        <eGenericType eClassifier="#//BaseCSVisitor">
+          <eTypeArguments eTypeParameter="#//DSAFeedback/accept/R"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cases" upperBound="-1"
+        eType="#//Case" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" lowerBound="1" eType="#//ECLEventDefCS"
+        eOpposite="#//ECLEventDefCS/feedback"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Case" eSuperTypes="../../org.eclipse.ocl.xtext.essentialocl/model/EssentialOCLCS.ecore#//ExpCS">
+    <eOperations name="accept">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return (R) visitor.getAdapter(ECLVisitor.class).visitCase(this);"/>
+        <details key="suppressedVisibility" value="true"/>
+      </eAnnotations>
+      <eGenericType eTypeParameter="#//Case/accept/R"/>
+      <eTypeParameters name="R"/>
+      <eParameters name="visitor">
+        <eGenericType eClassifier="#//BaseCSVisitor">
+          <eTypeArguments eTypeParameter="#//Case/accept/R"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="ecore:EClass ../../org.eclipse.ocl.xtext.essentialocl/model/EssentialOCLCS.ecore#//ExpCS"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eventToForce" eType="ecore:EClass ../../org.eclipse.ocl.xtext.essentialocl/model/EssentialOCLCS.ecore#//ExpCS"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="on" eType="ecore:EClass ../../org.eclipse.ocl.xtext.essentialocl/model/EssentialOCLCS.ecore#//ExpCS"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kindOfFeedback" lowerBound="1"
+        eType="#//FeedBackKind"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ECLDocument" eSuperTypes="../../org.eclipse.ocl.xtext.completeocl/model/CompleteOCLCS.ecore#//CompleteOCLDocumentCS">
+    <eOperations name="accept">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return (R) visitor.getAdapter(ECLVisitor.class).visitECLDocument(this);"/>
+        <details key="suppressedVisibility" value="true"/>
+      </eAnnotations>
+      <eGenericType eTypeParameter="#//ECLDocument/accept/R"/>
+      <eTypeParameters name="R"/>
+      <eParameters name="visitor">
+        <eGenericType eClassifier="#//BaseCSVisitor">
+          <eTypeArguments eTypeParameter="#//ECLDocument/accept/R"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
+        eType="#//ImportStatement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EventLiteralExp" eSuperTypes="../../org.eclipse.ocl.xtext.essentialocl/model/EssentialOCLCS.ecore#//LiteralExpCS">
+    <eOperations name="accept">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return (R) visitor.getAdapter(ECLVisitor.class).visitEventLiteralExp(this);"/>
+        <details key="suppressedVisibility" value="true"/>
+      </eAnnotations>
+      <eGenericType eTypeParameter="#//EventLiteralExp/accept/R"/>
+      <eTypeParameters name="R"/>
+      <eParameters name="visitor">
+        <eGenericType eClassifier="#//BaseCSVisitor">
+          <eTypeArguments eTypeParameter="#//EventLiteralExp/accept/R"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//EventKind"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EventKind">
+    <eLiterals name="undefined"/>
+    <eLiterals name="start" value="1"/>
+    <eLiterals name="finish" value="2"/>
+    <eLiterals name="send" value="3"/>
+    <eLiterals name="receive" value="4"/>
+    <eLiterals name="consume" value="6"/>
+    <eLiterals name="produce" value="5"/>
+    <eLiterals name="create" value="7"/>
+    <eLiterals name="destroy" value="8"/>
+    <eLiterals name="suspend" value="9"/>
+    <eLiterals name="resume" value="10"/>
+    <eLiterals name="call" value="11" literal="call"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ECLRelation" eSuperTypes="../../org.eclipse.ocl.xtext.essentialocl/model/EssentialOCLCS.ecore#//ExpCS">
+    <eOperations name="accept">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return (R) visitor.getAdapter(ECLVisitor.class).visitECLRelation(this);"/>
+        <details key="suppressedVisibility" value="true"/>
+      </eAnnotations>
+      <eGenericType eTypeParameter="#//ECLRelation/accept/R"/>
+      <eTypeParameters name="R"/>
+      <eParameters name="visitor">
+        <eGenericType eClassifier="#//BaseCSVisitor">
+          <eTypeArguments eTypeParameter="#//ECLRelation/accept/R"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="ecore:EClass ../../fr.inria.aoste.timesquare.ccslkernel.model/model/TimeModel.ecore#//CCSLModel/ClockExpressionAndRelation/RelationDeclaration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" lowerBound="1"
+        upperBound="-1" eType="ecore:EClass ../../org.eclipse.ocl.xtext.essentialocl/model/EssentialOCLCS.ecore#//ExpCS"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isAnAssertion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ImportStatement" eSuperTypes="../../org.eclipse.ocl.xtext.base/model/BaseCS.ecore#//ImportCS">
+    <eOperations name="accept">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return (R) visitor.getAdapter(ECLVisitor.class).visitImportStatement(this);"/>
+        <details key="suppressedVisibility" value="true"/>
+      </eAnnotations>
+      <eGenericType eTypeParameter="#//ImportStatement/accept/R"/>
+      <eTypeParameters name="R"/>
+      <eParameters name="visitor">
+        <eGenericType eClassifier="#//BaseCSVisitor">
+          <eTypeArguments eTypeParameter="#//ImportStatement/accept/R"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="importURI" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ECLExpression" eSuperTypes="../../org.eclipse.ocl.xtext.essentialocl/model/EssentialOCLCS.ecore#//ExpCS">
+    <eOperations name="accept">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return (R) visitor.getAdapter(ECLVisitor.class).visitECLExpression(this);"/>
+        <details key="suppressedVisibility" value="true"/>
+      </eAnnotations>
+      <eGenericType eTypeParameter="#//ECLExpression/accept/R"/>
+      <eTypeParameters name="R"/>
+      <eParameters name="visitor">
+        <eGenericType eClassifier="#//BaseCSVisitor">
+          <eTypeArguments eTypeParameter="#//ECLExpression/accept/R"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="ecore:EClass ../../fr.inria.aoste.timesquare.ccslkernel.model/model/TimeModel.ecore#//CCSLModel/ClockExpressionAndRelation/ExpressionDeclaration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" lowerBound="1"
+        upperBound="-1" eType="ecore:EClass ../../org.eclipse.ocl.xtext.essentialocl/model/EssentialOCLCS.ecore#//ExpCS"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ECLDefCS" abstract="true" eSuperTypes="../../org.eclipse.ocl.xtext.completeocl/model/CompleteOCLCS.ecore#//DefPropertyCS">
+    <eOperations name="accept">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return (R) visitor.getAdapter(ECLVisitor.class).visitECLDefCS(this);"/>
+        <details key="suppressedVisibility" value="true"/>
+      </eAnnotations>
+      <eGenericType eTypeParameter="#//ECLDefCS/accept/R"/>
+      <eTypeParameters name="R"/>
+      <eParameters name="visitor">
+        <eGenericType eClassifier="#//BaseCSVisitor">
+          <eTypeArguments eTypeParameter="#//ECLDefCS/accept/R"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="ecore:EClass ../../org.eclipse.ocl.xtext.essentialocl/model/EssentialOCLCS.ecore#//ExpCS"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="visibility" lowerBound="1"
+        eType="#//Visibility"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BaseCSVisitor" instanceClassName="org.eclipse.ocl.xtext.basecs.util.BaseCSVisitor"
+      abstract="true" interface="true">
+    <eTypeParameters name="R"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Visibility">
+    <eLiterals name="public" literal="public"/>
+    <eLiterals name="private" value="1" literal="private"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="FeedBackKind">
+    <eLiterals name="force"/>
+    <eLiterals name="forbid" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BlockType" eSuperTypes="../../org.eclipse.ocl.xtext.base/model/BaseCS.ecore#//TypedRefCS ../../org.eclipse.ocl.pivot/model/Pivot.ecore#//Nameable">
+    <eOperations name="accept">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return (R) visitor.getAdapter(ECLVisitor.class).visitBlockType(this);"/>
+        <details key="suppressedVisibility" value="true"/>
+      </eAnnotations>
+      <eGenericType eTypeParameter="#//BlockType/accept/R"/>
+      <eTypeParameters name="R"/>
+      <eParameters name="visitor">
+        <eGenericType eClassifier="#//BaseCSVisitor">
+          <eTypeArguments eTypeParameter="#//BlockType/accept/R"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ECLEventDefCS" eSuperTypes="#//ECLDefCS">
+    <eOperations name="accept">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return (R) visitor.getAdapter(ECLVisitor.class).visitECLEventDefCS(this);"/>
+        <details key="suppressedVisibility" value="true"/>
+      </eAnnotations>
+      <eGenericType eTypeParameter="#//ECLEventDefCS/accept/R"/>
+      <eTypeParameters name="R"/>
+      <eParameters name="visitor">
+        <eGenericType eClassifier="#//BaseCSVisitor">
+          <eTypeArguments eTypeParameter="#//ECLEventDefCS/accept/R"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="feedback" eType="#//DSAFeedback"
+        containment="true" eOpposite="#//DSAFeedback/owner"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="future" eType="ecore:EClass ../../org.eclipse.ocl.xtext.essentialocl/model/EssentialOCLCS.ecore#//ExpCS"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dsaResultName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ECLBlockDefCS" eSuperTypes="#//ECLDefCS">
+    <eOperations name="accept">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return (R) visitor.getAdapter(ECLVisitor.class).visitECLBlockDefCS(this);"/>
+        <details key="suppressedVisibility" value="true"/>
+      </eAnnotations>
+      <eGenericType eTypeParameter="#//ECLBlockDefCS/accept/R"/>
+      <eTypeParameters name="R"/>
+      <eParameters name="visitor">
+        <eGenericType eClassifier="#//BaseCSVisitor">
+          <eTypeArguments eTypeParameter="#//ECLBlockDefCS/accept/R"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enterWhen" eType="ecore:EClass ../../org.eclipse.ocl.xtext.essentialocl/model/EssentialOCLCS.ecore#//ExpCS"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leaveWhen" eType="ecore:EClass ../../org.eclipse.ocl.xtext.essentialocl/model/EssentialOCLCS.ecore#//ExpCS"
+        containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

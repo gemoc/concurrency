@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/fr.obeo.dsl.pivot/src-gen" modelPluginID="fr.obeo.dsl.pivot"
+    modelName="Pivot" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false">
+  <foreignModel>Pivot.ecore</foreignModel>
+  <genPackages prefix="Pivot" basePackage="fr.obeo.dsl" disposableProviderFactory="true"
+      ecorePackage="Pivot.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Pivot.ecore#//ActivationType">
+      <genEnumLiterals ecoreEnumLiteral="Pivot.ecore#//ActivationType/Periodic"/>
+      <genEnumLiterals ecoreEnumLiteral="Pivot.ecore#//ActivationType/Sporadic"/>
+      <genEnumLiterals ecoreEnumLiteral="Pivot.ecore#//ActivationType/Jitter"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="Pivot.ecore#//Interval"/>
+    <genDataTypes ecoreDataType="Pivot.ecore#//Duration"/>
+    <genClasses ecoreClass="Pivot.ecore#//Source">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Pivot.ecore#//Source/fragment"/>
+    </genClasses>
+    <genClasses ecoreClass="Pivot.ecore#//Sink">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Pivot.ecore#//Sink/fragment"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Pivot.ecore#//Sink/chain"/>
+    </genClasses>
+    <genClasses ecoreClass="Pivot.ecore#//HwResource">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pivot.ecore#//HwResource/schedulingPolicy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pivot.ecore#//HwResource/frequencyFactor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pivot.ecore#//HwResource/tasks"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pivot.ecore#//HwResource/delay"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pivot.ecore#//HwResource/swschedulableresources"/>
+    </genClasses>
+    <genClasses ecoreClass="Pivot.ecore#//Task">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pivot.ecore#//Task/priority"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pivot.ecore#//Task/schedulingIndex"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Pivot.ecore#//Task/fragments"/>
+    </genClasses>
+    <genClasses ecoreClass="Pivot.ecore#//Chain">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Pivot.ecore#//Chain/sink"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Pivot.ecore#//Chain/source"/>
+    </genClasses>
+    <genClasses ecoreClass="Pivot.ecore#//Fragment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pivot.ecore#//Fragment/time"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pivot.ecore#//Fragment/index"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pivot.ecore#//Fragment/criticalSection"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Pivot.ecore#//Fragment/sink"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Pivot.ecore#//Fragment/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Pivot.ecore#//Fragment/previousFragment"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Pivot.ecore#//Fragment/nextFragments"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Pivot.ecore#//Fragment/task"/>
+    </genClasses>
+    <genClasses ecoreClass="Pivot.ecore#//BusComm">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Pivot.ecore#//BusComm/target"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pivot.ecore#//BusComm/delay"/>
+    </genClasses>
+    <genClasses ecoreClass="Pivot.ecore#//System">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pivot.ecore#//System/hwResources"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pivot.ecore#//System/bus"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pivot.ecore#//System/sources"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pivot.ecore#//System/sinks"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pivot.ecore#//System/fragments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pivot.ecore#//System/chains"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="Pivot.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pivot.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="Pivot.ecore#//Stimuli">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pivot.ecore#//Stimuli/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pivot.ecore#//Stimuli/duration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pivot.ecore#//Stimuli/jitter"/>
+    </genClasses>
+    <genClasses ecoreClass="Pivot.ecore#//Jitter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pivot.ecore#//Jitter/duration"/>
+    </genClasses>
+    <genClasses ecoreClass="Pivot.ecore#//SwSchedulableResource">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pivot.ecore#//SwSchedulableResource/delay"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Pivot.ecore#//SwSchedulableResource/tasks"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

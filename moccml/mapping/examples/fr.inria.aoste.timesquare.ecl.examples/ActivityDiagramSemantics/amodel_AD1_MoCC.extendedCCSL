@@ -1,0 +1,113 @@
+ClockConstraintSystem model {
+	imports {
+		import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib" as kernel ;
+		import "platform:/resource/fr.inria.aoste.timesquare.ecl.examples/ActivityDiagramSemantics/amodel_AD1.uml" as Model ;
+	}
+	entryBlock mainBlock
+	Block mainBlock {
+		Expression DecisionNode1_Union_unionOfChoices = Union
+		( Clock1 -> MergeNode1_startIt,
+		Clock2 -> OpaqueAction5_startIt )
+		Relation OpaqueAction5Causes_waitControlToExecute [ Causes ]
+		( LeftClock -> DecisionNode1_finishIt,
+		RightClock -> OpaqueAction5_startIt )
+		Relation OpaqueAction2Causes_waitControlToExecute [ Causes ]
+		( LeftClock -> MergeNode1_finishIt,
+		RightClock -> OpaqueAction2_startIt )
+		Relation MergeNode1Causes_waitControlToExecute [ Causes ]
+		( LeftClock -> DecisionNode1_finishIt,
+		RightClock -> MergeNode1_startIt )
+		Relation OpaqueAction3Causes_waitControlToExecute [ Causes ]
+		( LeftClock -> ForkNode1_finishIt,
+		RightClock -> OpaqueAction3_startIt )
+		Relation ActivityFinalNode1Causes_waitControlToExecute [ Causes ]
+		( LeftClock -> OpaqueAction5_finishIt,
+		RightClock -> ActivityFinalNode1_startIt )
+		Relation OpaqueAction1Causes_waitControlToExecute [ Causes ]
+		( LeftClock -> InitialNode1_finishIt,
+		RightClock -> OpaqueAction1_startIt )
+		Relation OpaqueAction4Causes_waitControlToExecute [ Causes ]
+		( LeftClock -> ForkNode1_finishIt,
+		RightClock -> OpaqueAction4_startIt )
+		Relation ForkNode1Causes_waitControlToExecute [ Causes ]
+		( LeftClock -> OpaqueAction2_finishIt,
+		RightClock -> ForkNode1_startIt )
+		Relation JoinNode1Causes_waitControlToExecute [ Causes ]
+		( LeftClock -> OpaqueAction3_finishIt,
+		RightClock -> JoinNode1_startIt )
+		Relation DecisionNode1Causes_waitControlToExecute [ Causes ]
+		( LeftClock -> JoinNode1_finishIt,
+		RightClock -> DecisionNode1_startIt )
+		Relation DecisionNode1Precedes_ForkCausalities [ Precedes ]
+		( LeftClock -> DecisionNode1_startIt,
+		RightClock -> DecisionNode1_Union_unionOfChoices )
+		Clock Activity0_referenceClock : clock -> evt_Activity0_referenceClock
+		( "model::Activity0" )
+		Clock OpaqueAction5_startIt : clock -> evt_OpaqueAction5_startIt
+		( "OpaqueAction5" )
+		: start
+		Clock OpaqueAction2_startIt : clock -> evt_OpaqueAction2_startIt
+		( "OpaqueAction2" )
+		: start
+		Clock MergeNode1_startIt : clock -> evt_MergeNode1_startIt
+		( "MergeNode1" )
+		: start
+		Clock OpaqueAction3_startIt : clock -> evt_OpaqueAction3_startIt
+		( "OpaqueAction3" )
+		: start
+		Clock InitialNode1_startIt : clock -> evt_InitialNode1_startIt
+		( "InitialNode1" )
+		: start
+		Clock ActivityFinalNode1_startIt : clock -> evt_ActivityFinalNode1_startIt
+		( "ActivityFinalNode1" )
+		: start
+		Clock OpaqueAction1_startIt : clock -> evt_OpaqueAction1_startIt
+		( "OpaqueAction1" )
+		: start
+		Clock OpaqueAction4_startIt : clock -> evt_OpaqueAction4_startIt
+		( "OpaqueAction4" )
+		: start
+		Clock ForkNode1_startIt : clock -> evt_ForkNode1_startIt
+		( "ForkNode1" )
+		: start
+		Clock JoinNode1_startIt : clock -> evt_JoinNode1_startIt
+		( "JoinNode1" )
+		: start
+		Clock DecisionNode1_startIt : clock -> evt_DecisionNode1_startIt
+		( "DecisionNode1" )
+		: start
+		Clock OpaqueAction5_finishIt : clock -> evt_OpaqueAction5_finishIt
+		( "OpaqueAction5" )
+		: finish
+		Clock OpaqueAction2_finishIt : clock -> evt_OpaqueAction2_finishIt
+		( "OpaqueAction2" )
+		: finish
+		Clock MergeNode1_finishIt : clock -> evt_MergeNode1_finishIt
+		( "MergeNode1" )
+		: finish
+		Clock OpaqueAction3_finishIt : clock -> evt_OpaqueAction3_finishIt
+		( "OpaqueAction3" )
+		: finish
+		Clock InitialNode1_finishIt : clock -> evt_InitialNode1_finishIt
+		( "InitialNode1" )
+		: finish
+		Clock ActivityFinalNode1_finishIt : clock -> evt_ActivityFinalNode1_finishIt
+		( "ActivityFinalNode1" )
+		: finish
+		Clock OpaqueAction1_finishIt : clock -> evt_OpaqueAction1_finishIt
+		( "OpaqueAction1" )
+		: finish
+		Clock OpaqueAction4_finishIt : clock -> evt_OpaqueAction4_finishIt
+		( "OpaqueAction4" )
+		: finish
+		Clock ForkNode1_finishIt : clock -> evt_ForkNode1_finishIt
+		( "ForkNode1" )
+		: finish
+		Clock JoinNode1_finishIt : clock -> evt_JoinNode1_finishIt
+		( "JoinNode1" )
+		: finish
+		Clock DecisionNode1_finishIt : clock -> evt_DecisionNode1_finishIt
+		( "DecisionNode1" )
+		: finish
+	}
+}

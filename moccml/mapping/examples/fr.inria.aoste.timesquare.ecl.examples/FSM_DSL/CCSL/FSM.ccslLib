@@ -1,0 +1,40 @@
+/* CCSL Library 
+ *
+ *@author:  Julien DeAntoni
+ * date :  Thu July 25 2012  05:51:24 CEST 
+ */
+Library CCSL {
+	imports {
+		 // import statements
+		import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib" as lib0; 
+		import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib" as lib1; 
+	}
+	RelationLibrary FSMRelations{
+		//removed other constraints	
+		
+/**
+ * Defines the constraints on the events to reflect the firing of a transition.
+ * note: In this MoC definition the fire event is synchronous with the action event,
+ *       it could have been causal
+ */
+RelationDeclaration TransitionRule(evaluateGuard:clock, fire:clock, action:clock, resTrue:clock)
+
+RelationDefinition TransitionRuleDef[TransitionRule]{
+	Clock resFalse:Logical
+	
+	Expression  ResEvalGuard = Union(Clock1->resTrue, Clock2->resFalse)
+	Relation EitherFalseOrTrue[Exclusion](Clock2->resTrue, Clock1->resFalse)
+
+	Relation evalCausesResult[Causes](LeftClock->evaluateGuard,RightClock->ResEvalGuard)
+	Relation evaluateTrueCausesFiring[Causes](LeftClock->resTrue, RightClock->fire)
+	Relation fireCausesSynchronousAction[Coincides](Clock2->fire, Clock1->action)
+}
+	}
+}
+	
+	
+	
+	
+	
+	
+	

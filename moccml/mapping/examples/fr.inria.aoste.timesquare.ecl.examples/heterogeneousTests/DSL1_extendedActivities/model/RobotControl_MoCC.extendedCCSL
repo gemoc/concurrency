@@ -1,0 +1,363 @@
+ClockConstraintSystem Model {
+	imports {
+		import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib" as kernel ;
+		import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib" as CCSL ;
+		import
+		"platform:/resource/fr.inria.aoste.timesquare.ecl.examples/heterogeneousTests/DSL1_extendedActivities/model/RobotControl.uml"
+		as Model ;
+	}
+	entryBlock mainBlock
+	Block mainBlock {
+		Expression CallDuplicateObstacleDataintermediate_lastDataRead1 = Sup
+		( Clock1 -> InputDirectionOfClosestObstacle_dataRead,
+		Clock2 -> InputDirectionOfClosestObstacle_dataRead )
+		Expression CallDuplicateObstaclesinfointermediate_lastDataRead1 = Sup
+		( Clock1 -> InputObstacleDistancesDuplicate_dataRead,
+		Clock2 -> InputObstacleDistancesDuplicate_dataRead )
+		Expression CallCorrelateAndCheckIfAlarmintermediate_lastDataRead1 = Sup
+		( Clock1 -> InputSonarValues_dataRead,
+		Clock2 -> InputSonarValues_dataRead )
+		Expression CallSwitchOffRobotAlertColorintermediate_lastDataRead1 = Sup
+		( Clock1 -> InputObstacleDistancesAlarm_dataRead,
+		Clock2 -> InputObstacleDistancesAlarm_dataRead )
+		Expression CallSwitchOnAlertColorintermediate_lastDataRead1 = Sup
+		( Clock1 -> InputDirectionOfClosestObstacle1_dataRead,
+		Clock2 -> InputDirectionOfClosestObstacle1_dataRead )
+		Expression CallComputeRobotSafeCommandintermediate_lastDataRead1 = Sup
+		( Clock1 -> InputDirectionOfClosestObstacle2_dataRead,
+		Clock2 -> InputDirectionOfClosestObstacle2_dataRead )
+		Expression CallFishBrainControlintermediate_lastDataRead1 = Sup
+		( Clock1 -> InputObstacleDistancesBrain_dataRead,
+		Clock2 -> InputObstacleDistancesBrain_dataRead )
+		Expression CallServoMotorCommandintermediate_unionOfDataRead1 = Union
+		( Clock2 -> InputFishBrainCommand_dataRead,
+		Clock1 -> InputSafeCommand_dataRead )
+		Expression CallDuplicateObstacleDataintermediate_allDataWrote1 = Sup
+		( Clock1 -> OutputDirectionOfClosestObstacle1_dataWrite,
+		Clock2 -> OutputDirectionOfClosestObstacle2_dataWrite )
+		Expression CallDuplicateObstaclesinfointermediate_allDataWrote1 = Sup
+		( Clock1 -> OutputObstacleDistancesDuplicate2_dataWrite,
+		Clock2 -> OutputObstacleDistancesDuplicate1_dataWrite )
+		Expression CallReadSonarsintermediate_allDataWrote1 = Sup
+		( Clock1 -> OutputSonarValues_dataWrite,
+		Clock2 -> OutputSonarValues_dataWrite )
+		Expression CallComputeRobotSafeCommandintermediate_allDataWrote1 = Sup
+		( Clock1 -> OutputSafeCommand_dataWrite,
+		Clock2 -> OutputSafeCommand_dataWrite )
+		Expression CallFishBrainControlintermediate_allDataWrote1 = Sup
+		( Clock1 -> OutputFishBrainCommand_dataWrite,
+		Clock2 -> OutputFishBrainCommand_dataWrite )
+		Expression CallDuplicateObstacleDataintermediate_firstDataWrote1 = Inf
+		( Clock2 -> OutputDirectionOfClosestObstacle1_dataWrite,
+		Clock1 -> OutputDirectionOfClosestObstacle2_dataWrite )
+		Expression CallDuplicateObstaclesinfointermediate_firstDataWrote1 = Inf
+		( Clock2 -> OutputObstacleDistancesDuplicate2_dataWrite,
+		Clock1 -> OutputObstacleDistancesDuplicate1_dataWrite )
+		Expression CallReadSonarsintermediate_firstDataWrote1 = Inf
+		( Clock2 -> OutputSonarValues_dataWrite,
+		Clock1 -> OutputSonarValues_dataWrite )
+		Expression CallComputeRobotSafeCommandintermediate_firstDataWrote1 = Inf
+		( Clock2 -> OutputSafeCommand_dataWrite,
+		Clock1 -> OutputSafeCommand_dataWrite )
+		Expression CallFishBrainControlintermediate_firstDataWrote1 = Inf
+		( Clock2 -> OutputFishBrainCommand_dataWrite,
+		Clock1 -> OutputFishBrainCommand_dataWrite )
+		Expression CallCorrelateAndCheckIfAlarmintermediate_unionOfDataWrote1 = Union
+		( Clock2 -> OutputObstacleDistances_dataWrite,
+		Clock1 -> OutputDirectionOfClosestObstacle_dataWrite )
+		Expression CallCorrelateAndCheckIfAlarmintermediate_unionOfDataWrote21 = Union
+		( Clock2 -> OutputObstacleDistances_dataWrite,
+		Clock1 -> OutputDirectionOfClosestObstacle_dataWrite )
+		Expression CallCorrelateAndCheckIfAlarmintermediate_unionOfDataWrote31 = Union
+		( Clock2 -> OutputObstacleDistances_dataWrite,
+		Clock1 -> OutputDirectionOfClosestObstacle_dataWrite )
+		Expression RobotControlintermediate_firstFinalNode1 = Inf
+		( Clock2 -> ActivityFinalNode2_finishIt,
+		Clock1 -> ActivityFinalNode2_finishIt )
+		Expression RobotController_Periodic_periodicClock = Periodic
+		( PeriodicBaseClock -> RobotController_referenceClock,
+		PeriodicPeriod -> RobotControllerRobotController_10,
+		PeriodicOffset -> RobotControllerRobotController_1 )
+		Relation ObjectFlow8Precedes_consumeonlyIfproduced [ Precedes ]
+		( LeftClock -> OutputObstacleDistances_dataWrite,
+		RightClock -> InputObstacleDistancesDuplicate_dataRead )
+		Relation ObjectFlow2Precedes_consumeonlyIfproduced [ Precedes ]
+		( LeftClock -> OutputDirectionOfClosestObstacle1_dataWrite,
+		RightClock -> InputDirectionOfClosestObstacle1_dataRead )
+		Relation ObjectFlow1Precedes_consumeonlyIfproduced [ Precedes ]
+		( LeftClock -> OutputSonarValues_dataWrite,
+		RightClock -> InputSonarValues_dataRead )
+		Relation ObjectFlow5Precedes_consumeonlyIfproduced [ Precedes ]
+		( LeftClock -> OutputSafeCommand_dataWrite,
+		RightClock -> InputSafeCommand_dataRead )
+		Relation ObjectFlow7Precedes_consumeonlyIfproduced [ Precedes ]
+		( LeftClock -> OutputObstacleDistancesDuplicate1_dataWrite,
+		RightClock -> InputObstacleDistancesAlarm_dataRead )
+		Relation ObjectFlow4Precedes_consumeonlyIfproduced [ Precedes ]
+		( LeftClock -> OutputDirectionOfClosestObstacle_dataWrite,
+		RightClock -> InputDirectionOfClosestObstacle_dataRead )
+		Relation ObjectFlow3Precedes_consumeonlyIfproduced [ Precedes ]
+		( LeftClock -> OutputDirectionOfClosestObstacle2_dataWrite,
+		RightClock -> InputDirectionOfClosestObstacle2_dataRead )
+		Relation ObjectFlow9Precedes_consumeonlyIfproduced [ Precedes ]
+		( LeftClock -> OutputObstacleDistancesDuplicate2_dataWrite,
+		RightClock -> InputObstacleDistancesBrain_dataRead )
+		Relation ObjectFlow6Precedes_consumeonlyIfproduced [ Precedes ]
+		( LeftClock -> OutputFishBrainCommand_dataWrite,
+		RightClock -> InputFishBrainCommand_dataRead )
+		Relation CallReadSonarsCauses_waitControlToExecute [ Causes ]
+		( LeftClock -> InitialNode1_finishIt,
+		RightClock -> CallReadSonars_startIt )
+		Relation CallDuplicateObstacleDataAlternates_StartAlternatesWithFinish [ Alternates ]
+		( AlternatesLeftClock -> CallDuplicateObstacleData_startIt,
+		AlternatesRightClock -> CallDuplicateObstacleData_finishIt )
+		Relation CallDuplicateObstaclesinfoAlternates_StartAlternatesWithFinish [ Alternates ]
+		( AlternatesLeftClock -> CallDuplicateObstaclesinfo_startIt,
+		AlternatesRightClock -> CallDuplicateObstaclesinfo_finishIt )
+		Relation CallCorrelateAndCheckIfAlarmAlternates_StartAlternatesWithFinish [ Alternates ]
+		( AlternatesLeftClock -> CallCorrelateAndCheckIfAlarm_startIt,
+		AlternatesRightClock -> CallCorrelateAndCheckIfAlarm_finishIt )
+		Relation CallReadSonarsAlternates_StartAlternatesWithFinish [ Alternates ]
+		( AlternatesLeftClock -> CallReadSonars_startIt,
+		AlternatesRightClock -> CallReadSonars_finishIt )
+		Relation CallSwitchOffRobotAlertColorAlternates_StartAlternatesWithFinish [ Alternates ]
+		( AlternatesLeftClock -> CallSwitchOffRobotAlertColor_startIt,
+		AlternatesRightClock -> CallSwitchOffRobotAlertColor_finishIt )
+		Relation CallServoMotorCommandAlternates_StartAlternatesWithFinish [ Alternates ]
+		( AlternatesLeftClock -> CallServoMotorCommand_startIt,
+		AlternatesRightClock -> CallServoMotorCommand_finishIt )
+		Relation CallSwitchOnAlertColorAlternates_StartAlternatesWithFinish [ Alternates ]
+		( AlternatesLeftClock -> CallSwitchOnAlertColor_startIt,
+		AlternatesRightClock -> CallSwitchOnAlertColor_finishIt )
+		Relation CallComputeRobotSafeCommandAlternates_StartAlternatesWithFinish [ Alternates ]
+		( AlternatesLeftClock -> CallComputeRobotSafeCommand_startIt,
+		AlternatesRightClock -> CallComputeRobotSafeCommand_finishIt )
+		Relation CallFishBrainControlAlternates_StartAlternatesWithFinish [ Alternates ]
+		( AlternatesLeftClock -> CallFishBrainControl_startIt,
+		AlternatesRightClock -> CallFishBrainControl_finishIt )
+		Relation CallDuplicateObstacleDataCauses_startAsSoonAsAllDataRead [ Causes ]
+		( LeftClock -> CallDuplicateObstacleDataintermediate_lastDataRead1,
+		RightClock -> CallDuplicateObstacleData_startIt )
+		Relation CallDuplicateObstaclesinfoCauses_startAsSoonAsAllDataRead [ Causes ]
+		( LeftClock -> CallDuplicateObstaclesinfointermediate_lastDataRead1,
+		RightClock -> CallDuplicateObstaclesinfo_startIt )
+		Relation CallCorrelateAndCheckIfAlarmCauses_startAsSoonAsAllDataRead [ Causes ]
+		( LeftClock -> CallCorrelateAndCheckIfAlarmintermediate_lastDataRead1,
+		RightClock -> CallCorrelateAndCheckIfAlarm_startIt )
+		Relation CallSwitchOffRobotAlertColorCauses_startAsSoonAsAllDataRead [ Causes ]
+		( LeftClock -> CallSwitchOffRobotAlertColorintermediate_lastDataRead1,
+		RightClock -> CallSwitchOffRobotAlertColor_startIt )
+		Relation CallSwitchOnAlertColorCauses_startAsSoonAsAllDataRead [ Causes ]
+		( LeftClock -> CallSwitchOnAlertColorintermediate_lastDataRead1,
+		RightClock -> CallSwitchOnAlertColor_startIt )
+		Relation CallComputeRobotSafeCommandCauses_startAsSoonAsAllDataRead [ Causes ]
+		( LeftClock -> CallComputeRobotSafeCommandintermediate_lastDataRead1,
+		RightClock -> CallComputeRobotSafeCommand_startIt )
+		Relation CallFishBrainControlCauses_startAsSoonAsAllDataRead [ Causes ]
+		( LeftClock -> CallFishBrainControlintermediate_lastDataRead1,
+		RightClock -> CallFishBrainControl_startIt )
+		Relation CallServoMotorCommandCauses_Select_startAsSoonAsOneDataRead [ Causes ]
+		( LeftClock -> CallServoMotorCommandintermediate_unionOfDataRead1,
+		RightClock -> CallServoMotorCommand_startIt )
+		Relation CallDuplicateObstacleDataAlternates_lastDataWroteCauseStop [ Alternates ]
+		( AlternatesLeftClock -> CallDuplicateObstacleDataintermediate_allDataWrote1,
+		AlternatesRightClock -> CallDuplicateObstacleData_finishIt )
+		Relation CallDuplicateObstaclesinfoAlternates_lastDataWroteCauseStop [ Alternates ]
+		( AlternatesLeftClock -> CallDuplicateObstaclesinfointermediate_allDataWrote1,
+		AlternatesRightClock -> CallDuplicateObstaclesinfo_finishIt )
+		Relation CallReadSonarsAlternates_lastDataWroteCauseStop [ Alternates ]
+		( AlternatesLeftClock -> CallReadSonarsintermediate_allDataWrote1,
+		AlternatesRightClock -> CallReadSonars_finishIt )
+		Relation CallComputeRobotSafeCommandAlternates_lastDataWroteCauseStop [ Alternates ]
+		( AlternatesLeftClock -> CallComputeRobotSafeCommandintermediate_allDataWrote1,
+		AlternatesRightClock -> CallComputeRobotSafeCommand_finishIt )
+		Relation CallFishBrainControlAlternates_lastDataWroteCauseStop [ Alternates ]
+		( AlternatesLeftClock -> CallFishBrainControlintermediate_allDataWrote1,
+		AlternatesRightClock -> CallFishBrainControl_finishIt )
+		Relation CallDuplicateObstacleDataAlternates_startBeforeWritingAndWirteOnlyOnce [ Alternates ]
+		( AlternatesLeftClock -> CallDuplicateObstacleData_startIt,
+		AlternatesRightClock -> CallDuplicateObstacleDataintermediate_firstDataWrote1 )
+		Relation CallDuplicateObstaclesinfoAlternates_startBeforeWritingAndWirteOnlyOnce [ Alternates ]
+		( AlternatesLeftClock -> CallDuplicateObstaclesinfo_startIt,
+		AlternatesRightClock -> CallDuplicateObstaclesinfointermediate_firstDataWrote1 )
+		Relation CallReadSonarsAlternates_startBeforeWritingAndWirteOnlyOnce [ Alternates ]
+		( AlternatesLeftClock -> CallReadSonars_startIt,
+		AlternatesRightClock -> CallReadSonarsintermediate_firstDataWrote1 )
+		Relation CallComputeRobotSafeCommandAlternates_startBeforeWritingAndWirteOnlyOnce [ Alternates ]
+		( AlternatesLeftClock -> CallComputeRobotSafeCommand_startIt,
+		AlternatesRightClock -> CallComputeRobotSafeCommandintermediate_firstDataWrote1 )
+		Relation CallFishBrainControlAlternates_startBeforeWritingAndWirteOnlyOnce [ Alternates ]
+		( AlternatesLeftClock -> CallFishBrainControl_startIt,
+		AlternatesRightClock -> CallFishBrainControlintermediate_firstDataWrote1 )
+		Relation CallCorrelateAndCheckIfAlarmAlternates_Route_oneDataWroteCauseStop [ Alternates ]
+		( AlternatesLeftClock -> CallCorrelateAndCheckIfAlarmintermediate_unionOfDataWrote1,
+		AlternatesRightClock -> CallCorrelateAndCheckIfAlarm_finishIt )
+		Relation CallCorrelateAndCheckIfAlarmAlternates_Route_startAlternesWithoneDataWrote [ Alternates ]
+		( AlternatesLeftClock -> CallCorrelateAndCheckIfAlarm_startIt,
+		AlternatesRightClock -> CallCorrelateAndCheckIfAlarmintermediate_unionOfDataWrote21 )
+		Relation CallDuplicateObstacleDataintermediate_Route_onlyOneRouteSelected1_2 [ Exclusion ]
+		( Clock2 -> OutputDirectionOfClosestObstacle1_dataWrite,
+		Clock1 -> OutputDirectionOfClosestObstacle2_dataWrite )
+		Relation CallDuplicateObstaclesinfointermediate_Route_onlyOneRouteSelected1_2 [ Exclusion ]
+		( Clock2 -> OutputObstacleDistancesDuplicate2_dataWrite,
+		Clock1 -> OutputObstacleDistancesDuplicate1_dataWrite )
+		Relation CallCorrelateAndCheckIfAlarmintermediate_Route_onlyOneRouteSelected1_2 [ Exclusion ]
+		( Clock2 -> OutputObstacleDistances_dataWrite,
+		Clock1 -> OutputDirectionOfClosestObstacle_dataWrite )
+		Relation CallCorrelateAndCheckIfAlarmAlternates_Route_startBeforeWritingAndWriteOnlyOnce [ Alternates ]
+		( AlternatesLeftClock -> CallCorrelateAndCheckIfAlarm_startIt,
+		AlternatesRightClock -> CallCorrelateAndCheckIfAlarmintermediate_unionOfDataWrote31 )
+		Relation RobotControlCauses_startCausesInit [ Causes ]
+		( LeftClock -> RobotControl_startActivity,
+		RightClock -> InitialNode1_startIt )
+		Relation RobotControlCauses_lastFinalNodeStopActivity [ Causes ]
+		( LeftClock -> RobotControlintermediate_firstFinalNode1,
+		RightClock -> RobotControl_finishActivity )
+		Relation RobotControlAlternates_noReEntrance [ Alternates ]
+		( AlternatesLeftClock -> RobotControl_startActivity,
+		AlternatesRightClock -> RobotControl_finishActivity )
+		Relation InitialNode1Coincides_instantaneousExecution [ Coincides ]
+		( Clock2 -> InitialNode1_startIt,
+		Clock1 -> InitialNode1_finishIt )
+		Relation ActivityFinalNode2Coincides_instantaneousExecution [ Coincides ]
+		( Clock2 -> ActivityFinalNode2_startIt,
+		Clock1 -> ActivityFinalNode2_finishIt )
+		Relation ActivityFinalNode2Causes_waitAllInputsToStart [ Causes ]
+		( LeftClock -> CallServoMotorCommand_finishIt,
+		RightClock -> ActivityFinalNode2_startIt )
+		Relation RobotControllerCoincides_periodicExec [ Coincides ]
+		( Clock2 -> RobotController_Periodic_periodicClock,
+		Clock1 -> RobotControl_startActivity )
+
+		Clock RobotController_referenceClock : clock -> evt_RobotController_referenceClock
+		( )
+		Clock InputObstacleDistancesBrain_dataRead : clock -> evt_InputObstacleDistancesBrain_dataRead
+		( "Model->InputObstacleDistancesBrain" )
+		: consume
+		Clock InputObstacleDistancesDuplicate_dataRead : clock -> evt_InputObstacleDistancesDuplicate_dataRead
+		( "Model->InputObstacleDistancesDuplicate" )
+		: consume
+		Clock InputDirectionOfClosestObstacle2_dataRead : clock -> evt_InputDirectionOfClosestObstacle2_dataRead
+		( "Model->InputDirectionOfClosestObstacle2" )
+		: consume
+		Clock InputDirectionOfClosestObstacle1_dataRead : clock -> evt_InputDirectionOfClosestObstacle1_dataRead
+		( "Model->InputDirectionOfClosestObstacle1" )
+		: consume
+		Clock InputSafeCommand_dataRead : clock -> evt_InputSafeCommand_dataRead
+		( "Model->InputSafeCommand" )
+		: consume
+		Clock InputFishBrainCommand_dataRead : clock -> evt_InputFishBrainCommand_dataRead
+		( "Model->InputFishBrainCommand" )
+		: consume
+		Clock InputDirectionOfClosestObstacle_dataRead : clock -> evt_InputDirectionOfClosestObstacle_dataRead
+		( "Model->InputDirectionOfClosestObstacle" )
+		: consume
+		Clock InputObstacleDistancesAlarm_dataRead : clock -> evt_InputObstacleDistancesAlarm_dataRead
+		( "Model->InputObstacleDistancesAlarm" )
+		: consume
+		Clock InputSonarValues_dataRead : clock -> evt_InputSonarValues_dataRead
+		( "Model->InputSonarValues" )
+		: consume
+		Clock OutputObstacleDistancesDuplicate2_dataWrite : clock -> evt_OutputObstacleDistancesDuplicate2_dataWrite
+		( "Model->OutputObstacleDistancesDuplicate2" )
+		: produce
+		Clock OutputObstacleDistances_dataWrite : clock -> evt_OutputObstacleDistances_dataWrite
+		( "Model->OutputObstacleDistances" )
+		: produce
+		Clock OutputDirectionOfClosestObstacle_dataWrite : clock -> evt_OutputDirectionOfClosestObstacle_dataWrite
+		( "Model->OutputDirectionOfClosestObstacle" )
+		: produce
+		Clock OutputDirectionOfClosestObstacle2_dataWrite : clock -> evt_OutputDirectionOfClosestObstacle2_dataWrite
+		( "Model->OutputDirectionOfClosestObstacle2" )
+		: produce
+		Clock OutputFishBrainCommand_dataWrite : clock -> evt_OutputFishBrainCommand_dataWrite
+		( "Model->OutputFishBrainCommand" )
+		: produce
+		Clock OutputSafeCommand_dataWrite : clock -> evt_OutputSafeCommand_dataWrite
+		( "Model->OutputSafeCommand" )
+		: produce
+		Clock OutputSonarValues_dataWrite : clock -> evt_OutputSonarValues_dataWrite
+		( "Model->OutputSonarValues" )
+		: produce
+		Clock OutputDirectionOfClosestObstacle1_dataWrite : clock -> evt_OutputDirectionOfClosestObstacle1_dataWrite
+		( "Model->OutputDirectionOfClosestObstacle1" )
+		: produce
+		Clock OutputObstacleDistancesDuplicate1_dataWrite : clock -> evt_OutputObstacleDistancesDuplicate1_dataWrite
+		( "Model->OutputObstacleDistancesDuplicate1" )
+		: produce
+		Clock InitialNode1_startIt : clock -> evt_InitialNode1_startIt
+		( "Model->InitialNode1" )
+		: start
+		Clock ActivityFinalNode2_startIt : clock -> evt_ActivityFinalNode2_startIt
+		( "Model->ActivityFinalNode2" )
+		: start
+		Clock InitialNode1_finishIt : clock -> evt_InitialNode1_finishIt
+		( "Model->InitialNode1" )
+		: start
+		Clock ActivityFinalNode2_finishIt : clock -> evt_ActivityFinalNode2_finishIt
+		( "Model->ActivityFinalNode2" )
+		: start
+		Clock RobotControl_startActivity : clock -> evt_RobotControl_startActivity
+		( "Model->Model::RobotController::RobotControl" )
+		: start
+		Clock RobotControl_finishActivity : clock -> evt_RobotControl_finishActivity
+		( "Model->Model::RobotController::RobotControl" )
+		: finish
+		Clock CallDuplicateObstacleData_startIt : clock -> evt_CallDuplicateObstacleData_startIt
+		( "Model->CallDuplicateObstacleData" )
+		: start
+		Clock CallDuplicateObstaclesinfo_startIt : clock -> evt_CallDuplicateObstaclesinfo_startIt
+		( "Model->CallDuplicateObstaclesinfo" )
+		: start
+		Clock CallCorrelateAndCheckIfAlarm_startIt : clock -> evt_CallCorrelateAndCheckIfAlarm_startIt
+		( "Model->CallCorrelateAndCheckIfAlarm" )
+		: start
+		Clock CallReadSonars_startIt : clock -> evt_CallReadSonars_startIt
+		( "Model->CallReadSonars" )
+		: start
+		Clock CallSwitchOffRobotAlertColor_startIt : clock -> evt_CallSwitchOffRobotAlertColor_startIt
+		( "Model->CallSwitchOffRobotAlertColor" )
+		: start
+		Clock CallServoMotorCommand_startIt : clock -> evt_CallServoMotorCommand_startIt
+		( "Model->CallServoMotorCommand" )
+		: start
+		Clock CallSwitchOnAlertColor_startIt : clock -> evt_CallSwitchOnAlertColor_startIt
+		( "Model->CallSwitchOnAlertColor" )
+		: start
+		Clock CallComputeRobotSafeCommand_startIt : clock -> evt_CallComputeRobotSafeCommand_startIt
+		( "Model->CallComputeRobotSafeCommand" )
+		: start
+		Clock CallFishBrainControl_startIt : clock -> evt_CallFishBrainControl_startIt
+		( "Model->CallFishBrainControl" )
+		: start
+		Clock CallDuplicateObstacleData_finishIt : clock -> evt_CallDuplicateObstacleData_finishIt
+		( "Model->CallDuplicateObstacleData" )
+		: finish
+		Clock CallDuplicateObstaclesinfo_finishIt : clock -> evt_CallDuplicateObstaclesinfo_finishIt
+		( "Model->CallDuplicateObstaclesinfo" )
+		: finish
+		Clock CallCorrelateAndCheckIfAlarm_finishIt : clock -> evt_CallCorrelateAndCheckIfAlarm_finishIt
+		( "Model->CallCorrelateAndCheckIfAlarm" )
+		: finish
+		Clock CallReadSonars_finishIt : clock -> evt_CallReadSonars_finishIt
+		( "Model->CallReadSonars" )
+		: finish
+		Clock CallSwitchOffRobotAlertColor_finishIt : clock -> evt_CallSwitchOffRobotAlertColor_finishIt
+		( "Model->CallSwitchOffRobotAlertColor" )
+		: finish
+		Clock CallServoMotorCommand_finishIt : clock -> evt_CallServoMotorCommand_finishIt
+		( "Model->CallServoMotorCommand" )
+		: finish
+		Clock CallSwitchOnAlertColor_finishIt : clock -> evt_CallSwitchOnAlertColor_finishIt
+		( "Model->CallSwitchOnAlertColor" )
+		: finish
+		Clock CallComputeRobotSafeCommand_finishIt : clock -> evt_CallComputeRobotSafeCommand_finishIt
+		( "Model->CallComputeRobotSafeCommand" )
+		: finish
+		Clock CallFishBrainControl_finishIt : clock -> evt_CallFishBrainControl_finishIt
+		( "Model->CallFishBrainControl" )
+		: finish
+		Integer RobotControllerRobotController_10 : int = 10
+		Integer RobotControllerRobotController_1 : int = 1
+	}
+}

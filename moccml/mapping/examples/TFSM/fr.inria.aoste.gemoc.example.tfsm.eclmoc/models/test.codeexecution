@@ -1,0 +1,6 @@
+CodeExecutionSpecification {
+	importModel "./testParallel_MoCC.extendedCCSL" as model;
+	importPackage 
+	
+	
+}

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.eclipse.gemoc.moccml.mapping.framework</groupId>
+	<artifactId>org.eclipse.gemoc.moccml.mapping.parent</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>Event Constraint Language</name>
+	<url>http://timesquare.inria.fr/ecl/update_site/</url>
+	<organization>
+		<name>Aoste INRIA/I3S</name>
+		<url>http://www.inria.fr/sophia/aoste</url>
+	</organization>
+	<scm>
+		<url>svn+ssh://jdeanton@scm.gforge.inria.fr/svnroot/aosteincubation/trunk/TimeSquare/ECL</url>
+	</scm>
+
+	<properties>
+		<tycho-version>0.24.0</tycho-version>
+		<tycho-extras-version>0.24.0</tycho-extras-version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>TimeSquare</id>
+			<url>http://timesquare.inria.fr/update_site/neon</url>
+			<layout>p2</layout>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		
+		<repository>
+			<id>Luna</id>
+			<url>http://download.eclipse.org/releases/neon/</url>
+			<layout>p2</layout>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+<!--		<repository>
+			<id>luna-updates</id>
+			<url>http://download.eclipse.org/eclipse/updates/4.4</url>
+			<layout>p2</layout>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>-->
+
+		<repository>
+			<id>Xtext All-in-One</id>
+			<url>http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/</url>
+			<layout>p2</layout>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<!--<repository>
+			<id>acceleo</id>
+			<url>http://download.eclipse.org/modeling/m2t/acceleo/updates/releases/3.2</url>
+			<layout>p2</layout>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>-->
+<!--		<repository>
+			<id>Sirius4Luna</id>
+			<url>http://download.eclipse.org/sirius/updates/milestones/1.0.0M6/luna</url>
+			<layout>p2</layout>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>-->
+	</repositories>
+
+	<build>
+		<defaultGoal>clean verify</defaultGoal>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<environments>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
+						-
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>macosx</os>
+							<ws>cocoa</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-source-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<executions>
+					<execution>
+						<id>plugin-source</id>
+						<goals>
+							<goal>plugin-source</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho.extras</groupId>
+				<artifactId>tycho-source-feature-plugin</artifactId>
+				<version>${tycho-extras-version}</version>
+				<executions>
+					<execution>
+						<id>source-feature</id>
+						<phase>package</phase>
+						<goals>
+							<goal>source-feature</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<brandingPlugin>org.eclipse.gemoc.moccml.mapping.branding</brandingPlugin>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<executions>
+					<execution>
+						<id>attach-p2-metadata</id>
+						<phase>package</phase>
+						<goals>
+							<goal>p2-metadata</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+	<modules>
+		
+		<module>../../org.eclipse.gemoc.moccml.mapping.feature</module>
+		
+		<module>../../language/org.eclipse.gemoc.moccml.mapping</module>
+		<module>../../language/org.eclipse.gemoc.moccml.mapping.editor.feature</module>
+		<module>../../language/org.eclipse.gemoc.moccml.mapping.xtext</module>
+		<module>../../language/org.eclipse.gemoc.moccml.mapping.xtext.ui</module>
+		
+		<module>../../transformations/org.eclipse.gemoc.moccml.mapping.ecltoqvto</module>
+		<module>../../transformations/org.eclipse.gemoc.moccml.mapping.ecltoqvto.ui</module>
+		<module>../../transformations/org.eclipse.gemoc.moccml.mapping.qvto.helper</module>
+		<module>../../transformations/org.eclipse.gemoc.moccml.mapping.qvto2ccsl.ui</module>
+		<module>../../transformations/org.eclipse.gemoc.moccml.mapping.transfos.feature</module>
+		
+		<module>../../feedback/model/org.eclipse.gemoc.moccml.mapping.feedback.model</module>
+		<module>../../feedback/model/org.eclipse.gemoc.moccml.mapping.feedback.model.edit</module>
+		<module>../../feedback/model/org.eclipse.gemoc.moccml.mapping.feedback.model.editor</module>
+		<module>../../feedback/model/org.eclipse.gemoc.moccml.mapping.feedback.model.feature</module>
+		
+		<module>../org.eclipse.gemoc.moccml.mapping.branding</module>
+		<module>../org.eclipse.gemoc.moccml.mapping.updatesite</module>
+		<module>../org.eclipse.gemoc.moccml.mapping.license.feature</module>
+	</modules>
+</project>

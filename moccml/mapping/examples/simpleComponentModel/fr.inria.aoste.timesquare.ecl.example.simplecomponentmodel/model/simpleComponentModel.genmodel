@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/fr.inria.aoste.timesquare.ecl.example.simplecomponentmodel/src"
+    modelPluginID="fr.inria.aoste.timesquare.ecl.example.simplecomponentmodel" modelName="SimpleComponentModel"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>simpleComponentModel.ecore</foreignModel>
+  <genPackages prefix="Simplecomponentmodel" disposableProviderFactory="true" ecorePackage="simpleComponentModel.ecore#/">
+    <genClasses image="false" ecoreClass="simpleComponentModel.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simpleComponentModel.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="simpleComponentModel.ecore#//Behavior"/>
+    <genClasses ecoreClass="simpleComponentModel.ecore#//Component">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simpleComponentModel.ecore#//Component/behaviors"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simpleComponentModel.ecore#//Component/internalComponents"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simpleComponentModel.ecore#//Component/connectors"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simpleComponentModel.ecore#//Component/ports"/>
+    </genClasses>
+    <genClasses ecoreClass="simpleComponentModel.ecore#//Connector">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simpleComponentModel.ecore#//Connector/from"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simpleComponentModel.ecore#//Connector/to"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="simpleComponentModel.ecore#//Port"/>
+    <genClasses ecoreClass="simpleComponentModel.ecore#//InputPort"/>
+    <genClasses ecoreClass="simpleComponentModel.ecore#//OutputPort"/>
+  </genPackages>
+</genmodel:GenModel>

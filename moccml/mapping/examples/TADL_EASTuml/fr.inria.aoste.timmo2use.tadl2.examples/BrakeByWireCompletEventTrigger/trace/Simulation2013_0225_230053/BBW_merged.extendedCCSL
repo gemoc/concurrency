@@ -1,0 +1,783 @@
+/*
+ * CCSL specification
+ * @author:  jdeanton
+ * date :  Mon February 25 2013  09:58:13 CET 
+ */
+ClockConstraintSystem MySpec {
+    imports {
+        // import statements
+		import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib" as lib0; 
+		import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib" as lib1; 
+		import "platform:/resource/fr.inria.aoste.timmo2use.tadl2.examples/BrakeByWireCompletEventTrigger/model.uml" as Model;
+
+    }
+    entryBlock main
+     
+        Block main {
+		Expression endToEndDeadlineintermediate_chain1 = SampledOn
+		( SampledOnSampledClock -> brakePedalActionning_tadlEvent,
+		SampledOnTrigger -> brakePedalPosition_tadlEvent )
+		Expression endToEndDeadlineintermediate_chain3 = SampledOn
+		( SampledOnSampledClock -> endToEndDeadlineintermediate_chain1,
+		SampledOnTrigger -> pedalPercent_tadlEvent )
+		Expression endToEndDeadlineintermediate_chain4 = SampledOn
+		( SampledOnSampledClock -> endToEndDeadlineintermediate_chain3,
+		SampledOnTrigger -> globalTorque_tadlEvent )
+		Expression endToEndDeadlineintermediate_chain5 = SampledOn
+		( SampledOnSampledClock -> endToEndDeadlineintermediate_chain4,
+		SampledOnTrigger -> torqFrontLeftWheel_tadlEvent )
+		Expression endToEndDeadlineintermediate_chain6 = SampledOn
+		( SampledOnSampledClock -> endToEndDeadlineintermediate_chain5,
+		SampledOnTrigger -> ABSBrakeTorqFL_tadlEvent )
+		Expression endToEndDeadlineintermediate_chain7 = SampledOn
+		( SampledOnSampledClock -> endToEndDeadlineintermediate_chain6,
+		SampledOnTrigger -> BrakeActuatorSigFL_tadlEvent )
+		Expression endToEndDeadline_DelayFor_deadline = DelayFor
+		( DelayForClockToDelay -> brakePedalActionning_tadlEvent,
+		DelayForClockForCounting -> universal_time_ref,
+		DelayForDelay -> endToEndDeadlineendToEnd_max_value )
+		Expression endToEndDeadline_DelayFor_minTime = DelayFor
+		( DelayForClockToDelay -> brakePedalActionning_tadlEvent,
+		DelayForClockForCounting -> universal_time_ref,
+		DelayForDelay -> endToEndDeadlineendToEnd_min_value )
+		Expression endToEndDeadlineintermediate_chainMin1 = SampledOn
+		( SampledOnSampledClock -> brakePedalActionning_tadlEvent,
+		SampledOnTrigger -> brakePedalPosition_tadlEvent )
+		Expression endToEndDeadlineintermediate_chainMin3 = SampledOn
+		( SampledOnSampledClock -> endToEndDeadlineintermediate_chainMin1,
+		SampledOnTrigger -> pedalPercent_tadlEvent )
+		Expression endToEndDeadlineintermediate_chainMin4 = SampledOn
+		( SampledOnSampledClock -> endToEndDeadlineintermediate_chainMin3,
+		SampledOnTrigger -> globalTorque_tadlEvent )
+		Expression endToEndDeadlineintermediate_chainMin5 = SampledOn
+		( SampledOnSampledClock -> endToEndDeadlineintermediate_chainMin4,
+		SampledOnTrigger -> torqFrontLeftWheel_tadlEvent )
+		Expression endToEndDeadlineintermediate_chainMin6 = SampledOn
+		( SampledOnSampledClock -> endToEndDeadlineintermediate_chainMin5,
+		SampledOnTrigger -> ABSBrakeTorqFL_tadlEvent )
+		Expression endToEndDeadlineintermediate_chainMin7 = SampledOn
+		( SampledOnSampledClock -> endToEndDeadlineintermediate_chainMin6,
+		SampledOnTrigger -> BrakeActuatorSigFL_tadlEvent )
+		Expression universal_time_Periodic_periodicClockTB = Periodic
+		( PeriodicBaseClock -> physicalTime_discretized,
+		PeriodicPeriod -> universal_timemicros_factor,
+		PeriodicOffset -> universal_timeuniversal_time_0 )
+		Expression PeriodSensingFL_Periodic_periodicClock = Periodic
+		( PeriodicBaseClock -> universal_time_ref,
+		PeriodicPeriod -> PeriodSensingFLSensingPeriod_value,
+		PeriodicOffset -> PeriodSensingFLPeriodSensingFL_0 )
+		Expression ABSSatTriggeringFR_Periodic_periodicClock = Periodic
+		( PeriodicBaseClock -> universal_time_ref,
+		PeriodicPeriod -> ABSSatTriggeringFRABSSatPeriod_value,
+		PeriodicOffset -> ABSSatTriggeringFRABSSatTriggeringFR_0 )
+		Expression ABSSatTriggeringRL_Periodic_periodicClock = Periodic
+		( PeriodicBaseClock -> universal_time_ref,
+		PeriodicPeriod -> ABSSatTriggeringRLABSSatPeriod_value,
+		PeriodicOffset -> ABSSatTriggeringRLABSSatTriggeringRL_0 )
+		Expression PeriodBrakeTriggeringFL_Periodic_periodicClock = Periodic
+		( PeriodicBaseClock -> universal_time_ref,
+		PeriodicPeriod -> PeriodBrakeTriggeringFLBrakePeriod_value,
+		PeriodicOffset -> PeriodBrakeTriggeringFLPeriodBrakeTriggeringFL_0 )
+		Expression PeriodSensingPD_Periodic_periodicClock = Periodic
+		( PeriodicBaseClock -> universal_time_ref,
+		PeriodicPeriod -> PeriodSensingPDSensingPeriod_value,
+		PeriodicOffset -> PeriodSensingPDPeriodSensingPD_0 )
+		Expression PeriodBrakeTriggeringFR_Periodic_periodicClock = Periodic
+		( PeriodicBaseClock -> universal_time_ref,
+		PeriodicPeriod -> PeriodBrakeTriggeringFRBrakePeriod_value,
+		PeriodicOffset -> PeriodBrakeTriggeringFRPeriodBrakeTriggeringFR_0 )
+		Expression PeriodBrakeCalculator_Periodic_periodicClock = Periodic
+		( PeriodicBaseClock -> universal_time_ref,
+		PeriodicPeriod -> PeriodBrakeCalculatorBrakeTorqueCalculatorPeriod_value,
+		PeriodicOffset -> PeriodBrakeCalculatorPeriodBrakeCalculator_0 )
+		Expression PeriodSensingRL_Periodic_periodicClock = Periodic
+		( PeriodicBaseClock -> universal_time_ref,
+		PeriodicPeriod -> PeriodSensingRLSensingPeriod_value,
+		PeriodicOffset -> PeriodSensingRLPeriodSensingRL_0 )
+		Expression PeriodSensingFR_Periodic_periodicClock = Periodic
+		( PeriodicBaseClock -> universal_time_ref,
+		PeriodicPeriod -> PeriodSensingFRSensingPeriod_value,
+		PeriodicOffset -> PeriodSensingFRPeriodSensingFR_0 )
+		Expression PeriodBrakeTriggeringRR_Periodic_periodicClock = Periodic
+		( PeriodicBaseClock -> universal_time_ref,
+		PeriodicPeriod -> PeriodBrakeTriggeringRRBrakePeriod_value,
+		PeriodicOffset -> PeriodBrakeTriggeringRRPeriodBrakeTriggeringRR_0 )
+		Expression GlobalBrakeTriggering_Periodic_periodicClock = Periodic
+		( PeriodicBaseClock -> universal_time_ref,
+		PeriodicPeriod -> GlobalBrakeTriggeringglobalBrakePeriod_value,
+		PeriodicOffset -> GlobalBrakeTriggeringGlobalBrakeTriggering_0 )
+		Expression PeriodSensingRR_Periodic_periodicClock = Periodic
+		( PeriodicBaseClock -> universal_time_ref,
+		PeriodicPeriod -> PeriodSensingRRSensingPeriod_value,
+		PeriodicOffset -> PeriodSensingRRPeriodSensingRR_0 )
+		Expression ABSSatTriggeringFL_Periodic_periodicClock = Periodic
+		( PeriodicBaseClock -> universal_time_ref,
+		PeriodicPeriod -> ABSSatTriggeringFLABSSatPeriod_value,
+		PeriodicOffset -> ABSSatTriggeringFLABSSatTriggeringFL_0 )
+		Expression ABSSatTriggeringRR_Periodic_periodicClock = Periodic
+		( PeriodicBaseClock -> universal_time_ref,
+		PeriodicPeriod -> ABSSatTriggeringRRABSSatPeriod_value,
+		PeriodicOffset -> ABSSatTriggeringRRABSSatTriggeringRR_0 )
+		Expression PeriodBrakeTriggeringRL_Periodic_periodicClock = Periodic
+		( PeriodicBaseClock -> universal_time_ref,
+		PeriodicPeriod -> PeriodBrakeTriggeringRLBrakePeriod_value,
+		PeriodicOffset -> PeriodBrakeTriggeringRLPeriodBrakeTriggeringRL_0 )
+		Expression RLWheelSensingExecTime_DelayFor_delayedClock = DelayFor
+		( DelayForClockToDelay -> doSampleRearLeftWheelSpeed_tadlEvent,
+		DelayForClockForCounting -> universal_time_ref,
+		DelayForDelay -> RLWheelSensingExecTimeWheelSensingExecTime_value )
+		Expression BrakeTorqueCalculatorExecTime_DelayFor_delayedClock = DelayFor
+		( DelayForClockToDelay -> doBrakeTorqueCalculatorTriggering_tadlEvent,
+		DelayForClockForCounting -> universal_time_ref,
+		DelayForDelay -> BrakeTorqueCalculatorExecTimeBrakeTorqueCalculatorExecTime_value )
+		Expression BrakeExecTimeRL_DelayFor_delayedClock = DelayFor
+		( DelayForClockToDelay -> doBrakeTriggeringRL_tadlEvent,
+		DelayForClockForCounting -> universal_time_ref,
+		DelayForDelay -> BrakeExecTimeRLBrakeExecTime_value )
+		Expression ABSSatExecTimeRR_DelayFor_delayedClock = DelayFor
+		( DelayForClockToDelay -> doABSSatTriggeringRR_tadlEvent,
+		DelayForClockForCounting -> universal_time_ref,
+		DelayForDelay -> ABSSatExecTimeRRABSSatExecTime_value )
+		Expression pedalBrakeExecTime_DelayFor_delayedClock = DelayFor
+		( DelayForClockToDelay -> doPedalBrakeSensing_tadlEvent,
+		DelayForClockForCounting -> universal_time_ref,
+		DelayForDelay -> pedalBrakeExecTimePedalBrakeSensingExecTime_value )
+		Expression GlobalBrakeControlExecTime_DelayFor_delayedClock = DelayFor
+		( DelayForClockToDelay -> doGlobalBrakeControl_tadlEvent,
+		DelayForClockForCounting -> universal_time_ref,
+		DelayForDelay -> GlobalBrakeControlExecTimeGlobalBrakeControlExecTime_value )
+		Expression ABSSatExecTimeFL_DelayFor_delayedClock = DelayFor
+		( DelayForClockToDelay -> doABSSatTriggeringFL_tadlEvent,
+		DelayForClockForCounting -> universal_time_ref,
+		DelayForDelay -> ABSSatExecTimeFLABSSatExecTime_value )
+		Expression BrakeExecTimeFR_DelayFor_delayedClock = DelayFor
+		( DelayForClockToDelay -> doBrakeTriggeringFR_tadlEvent,
+		DelayForClockForCounting -> universal_time_ref,
+		DelayForDelay -> BrakeExecTimeFRBrakeExecTime_value )
+		Expression RRWheelSensingExecTime_DelayFor_delayedClock = DelayFor
+		( DelayForClockToDelay -> doSampleRearRightWheelSpeed_tadlEvent,
+		DelayForClockForCounting -> universal_time_ref,
+		DelayForDelay -> RRWheelSensingExecTimeWheelSensingExecTime_value )
+		Expression ABSSatExecTimeFR_DelayFor_delayedClock = DelayFor
+		( DelayForClockToDelay -> doABSSatTriggeringFR_tadlEvent,
+		DelayForClockForCounting -> universal_time_ref,
+		DelayForDelay -> ABSSatExecTimeFRABSSatExecTime_value )
+		Expression BrakeExecTimeRR_DelayFor_delayedClock = DelayFor
+		( DelayForClockToDelay -> doBrakeTriggeringRR_tadlEvent,
+		DelayForClockForCounting -> universal_time_ref,
+		DelayForDelay -> BrakeExecTimeRRBrakeExecTime_value )
+		Expression FRWheelSensingExecTime_DelayFor_delayedClock = DelayFor
+		( DelayForClockToDelay -> doSampleFrontRightWheelSpeed_tadlEvent,
+		DelayForClockForCounting -> universal_time_ref,
+		DelayForDelay -> FRWheelSensingExecTimeWheelSensingExecTime_value )
+		Expression BrakeExecTimeFL_DelayFor_delayedClock = DelayFor
+		( DelayForClockToDelay -> doBrakeTriggeringFL_tadlEvent,
+		DelayForClockForCounting -> universal_time_ref,
+		DelayForDelay -> BrakeExecTimeFLBrakeExecTime_value )
+		Expression ABSSatExecTimeRL_DelayFor_delayedClock = DelayFor
+		( DelayForClockToDelay -> doABSSatTriggeringRL_tadlEvent,
+		DelayForClockForCounting -> universal_time_ref,
+		DelayForDelay -> ABSSatExecTimeRLABSSatExecTime_value )
+		Expression FLWheelSensingExecTime_DelayFor_delayedClock = DelayFor
+		( DelayForClockToDelay -> doSampleFrontLeftWheelSpeed_tadlEvent,
+		DelayForClockForCounting -> universal_time_ref,
+		DelayForDelay -> FLWheelSensingExecTimeWheelSensingExecTime_value )
+		Relation relation_0[Coincides](Clock2-> FLActuatorSignal_write ,	Clock1->BrakeActuatorSigFL_tadlEvent)
+		Relation relation_1[Coincides](Clock2-> FRActuatorSignal_write ,	Clock1->BrakeActuatorSigFR_tadlEvent)
+		Relation relation_2[Coincides](Clock2-> RLActuatorSignal_write ,	Clock1->BrakeActuatorSigRL_tadlEvent)
+		Relation relation_3[Coincides](Clock2-> RRActuatorSignal_write ,	Clock1->BrakeActuatorSigRR_tadlEvent)
+        	
+        Relation relation_4[Coincides](   Clock2-> FLspeed_rpm_write ,	Clock1-> FLspeed_rpm_tadlEvent  )
+        Relation relation_5[Coincides](   Clock2-> FRspeed_rpm_write ,	Clock1-> FRspeed_rpm_tadlEvent  )
+        Relation relation_6[Coincides](   Clock2-> RLspeed_rpm_write ,	Clock1-> RLspeed_rpm_tadlEvent  )
+        Relation relation_7[Coincides](   Clock2-> RRspeed_rpm_write ,	Clock1-> RRspeed_rpm_tadlEvent  )
+
+        Relation relation_8[Coincides](   Clock2-> FLABSBrakeTorq_write ,	Clock1-> ABSBrakeTorqFL_tadlEvent  )
+        Relation relation_9[Coincides](   Clock2-> FRABSBrakeTorq_write ,	Clock1-> ABSBrakeTorqFR_tadlEvent  )
+        Relation relation_10[Coincides](   Clock2-> RLABSBrakeTorq_write ,	Clock1-> ABSBrakeTorqRL_tadlEvent  )
+        Relation relation_11[Coincides](   Clock2-> RRABSBrakeTorq_write ,	Clock1-> ABSBrakeTorqRR_tadlEvent  )
+        
+        Relation relation_12[Coincides](   Clock2-> pedalPosition_write ,	Clock1-> brakePedalPosition_tadlEvent  )
+        
+        Relation relation_13[Coincides](   Clock2-> requestedTorq_write ,	Clock1-> requestedTorque_tadlEvent  )
+
+		Relation relation_14[Coincides](   Clock2-> VehicleSpeed_write ,	Clock1-> vehicleSpeed_tadlEvent  )
+		
+		Relation relation_15[Coincides](   Clock2-> frontLeftWheelSpeedSensor_start ,	Clock1-> doSampleFrontLeftWheelSpeed_tadlEvent )
+		Relation relation_16[Coincides](   Clock2-> frontRightWheelSpeedSensor_start ,	Clock1-> doSampleFrontRightWheelSpeed_tadlEvent )
+		Relation relation_17[Coincides](   Clock2-> rearLeftWheelSpeedSensor_start ,	Clock1-> doSampleRearLeftWheelSpeed_tadlEvent )
+		Relation relation_18[Coincides](   Clock2-> rearRightWheelSpeedSensor_start ,	Clock1-> doSampleRearRightWheelSpeed_tadlEvent )
+
+		Relation relation_19[Coincides](   Clock2-> brakePedalSensor_start ,	Clock1-> doPedalBrakeSensing_tadlEvent  )
+		
+		Relation relation_20[Coincides](   Clock2-> brakeTorqueCalculator_start ,	Clock1-> doBrakeTorqueCalculatorTriggering_tadlEvent  )
+		
+		Relation relation_21[Coincides](   Clock2-> globalBrakeController_start ,	Clock1-> doGlobalBrakeControl_tadlEvent  )
+		
+		Relation relation_22[Coincides](   Clock2-> frontLeftABSSat_start ,	Clock1-> doABSSatTriggeringFL_tadlEvent  )
+		Relation relation_23[Coincides](   Clock2-> frontRightABSSat_start ,Clock1-> doABSSatTriggeringFR_tadlEvent  )
+		Relation relation_24[Coincides](   Clock2-> rearLeftABSSat_start ,	Clock1-> doABSSatTriggeringRL_tadlEvent  )
+		Relation relation_25[Coincides](   Clock2-> rearRightABSSat_start ,	Clock1-> doABSSatTriggeringRR_tadlEvent  )
+
+		Relation relation_26[Coincides](   Clock2-> frontLeftBrake_start ,	Clock1-> doBrakeTriggeringFL_tadlEvent  )
+		Relation relation_27[Coincides](   Clock2-> frontRightBrake_start ,	Clock1-> doBrakeTriggeringFR_tadlEvent  )
+		Relation relation_28[Coincides](   Clock2-> rearLeftBrake_start ,	Clock1-> doBrakeTriggeringRL_tadlEvent  )
+		Relation relation_29[Coincides](   Clock2-> rearRightBrake_start ,	Clock1-> doBrakeTriggeringRR_tadlEvent  )
+		Relation endToEndDeadlinePrecedes_reactionConstraintMax [ Precedes ]
+		( LeftClock -> endToEndDeadlineintermediate_chain7,
+		RightClock -> endToEndDeadline_DelayFor_deadline )
+		Relation endToEndDeadlinePrecedes_reactionConstraintMin [ Precedes ]
+		( LeftClock -> endToEndDeadline_DelayFor_minTime,
+		RightClock -> endToEndDeadlineintermediate_chainMin7 )
+		Relation universal_timeCoincides_periodicTB [ Coincides ]
+		( Clock2 -> universal_time_ref,
+		Clock1 -> universal_time_Periodic_periodicClockTB )
+		Relation PeriodSensingFLCoincides_periodicConstraintRaltion [ Coincides ]
+		( Clock2 -> PeriodSensingFL_Periodic_periodicClock,
+		Clock1 -> doSampleFrontLeftWheelSpeed_tadlEvent )
+		Relation ABSSatTriggeringFRCoincides_periodicConstraintRaltion [ Coincides ]
+		( Clock2 -> ABSSatTriggeringFR_Periodic_periodicClock,
+		Clock1 -> doABSSatTriggeringFR_tadlEvent )
+		Relation ABSSatTriggeringRLCoincides_periodicConstraintRaltion [ Coincides ]
+		( Clock2 -> ABSSatTriggeringRL_Periodic_periodicClock,
+		Clock1 -> doABSSatTriggeringRL_tadlEvent )
+		Relation PeriodBrakeTriggeringFLCoincides_periodicConstraintRaltion [ Coincides ]
+		( Clock2 -> PeriodBrakeTriggeringFL_Periodic_periodicClock,
+		Clock1 -> doBrakeTriggeringFL_tadlEvent )
+		Relation PeriodSensingPDCoincides_periodicConstraintRaltion [ Coincides ]
+		( Clock2 -> PeriodSensingPD_Periodic_periodicClock,
+		Clock1 -> doPedalBrakeSensing_tadlEvent )
+		Relation PeriodBrakeTriggeringFRCoincides_periodicConstraintRaltion [ Coincides ]
+		( Clock2 -> PeriodBrakeTriggeringFR_Periodic_periodicClock,
+		Clock1 -> doBrakeTriggeringFR_tadlEvent )
+		Relation PeriodBrakeCalculatorCoincides_periodicConstraintRaltion [ Coincides ]
+		( Clock2 -> PeriodBrakeCalculator_Periodic_periodicClock,
+		Clock1 -> doBrakeTorqueCalculatorTriggering_tadlEvent )
+		Relation PeriodSensingRLCoincides_periodicConstraintRaltion [ Coincides ]
+		( Clock2 -> PeriodSensingRL_Periodic_periodicClock,
+		Clock1 -> doSampleRearLeftWheelSpeed_tadlEvent )
+		Relation PeriodSensingFRCoincides_periodicConstraintRaltion [ Coincides ]
+		( Clock2 -> PeriodSensingFR_Periodic_periodicClock,
+		Clock1 -> doSampleFrontRightWheelSpeed_tadlEvent )
+		Relation PeriodBrakeTriggeringRRCoincides_periodicConstraintRaltion [ Coincides ]
+		( Clock2 -> PeriodBrakeTriggeringRR_Periodic_periodicClock,
+		Clock1 -> doBrakeTriggeringRR_tadlEvent )
+		Relation GlobalBrakeTriggeringCoincides_periodicConstraintRaltion [ Coincides ]
+		( Clock2 -> GlobalBrakeTriggering_Periodic_periodicClock,
+		Clock1 -> doGlobalBrakeControl_tadlEvent )
+		Relation PeriodSensingRRCoincides_periodicConstraintRaltion [ Coincides ]
+		( Clock2 -> PeriodSensingRR_Periodic_periodicClock,
+		Clock1 -> doSampleRearRightWheelSpeed_tadlEvent )
+		Relation ABSSatTriggeringFLCoincides_periodicConstraintRaltion [ Coincides ]
+		( Clock2 -> ABSSatTriggeringFL_Periodic_periodicClock,
+		Clock1 -> doABSSatTriggeringFL_tadlEvent )
+		Relation ABSSatTriggeringRRCoincides_periodicConstraintRaltion [ Coincides ]
+		( Clock2 -> ABSSatTriggeringRR_Periodic_periodicClock,
+		Clock1 -> doABSSatTriggeringRR_tadlEvent )
+		Relation PeriodBrakeTriggeringRLCoincides_periodicConstraintRaltion [ Coincides ]
+		( Clock2 -> PeriodBrakeTriggeringRL_Periodic_periodicClock,
+		Clock1 -> doBrakeTriggeringRL_tadlEvent )
+		Relation RLWheelSensingExecTimeCoincides_delayConstraintRelation [ Coincides ]
+		( Clock2 -> RLWheelSensingExecTime_DelayFor_delayedClock,
+		Clock1 -> RLspeed_rpm_tadlEvent )
+		Relation BrakeTorqueCalculatorExecTimeCoincides_delayConstraintRelation [ Coincides ]
+		( Clock2 -> BrakeTorqueCalculatorExecTime_DelayFor_delayedClock,
+		Clock1 -> requestedTorque_tadlEvent )
+		Relation BrakeExecTimeRLCoincides_delayConstraintRelation [ Coincides ]
+		( Clock2 -> BrakeExecTimeRL_DelayFor_delayedClock,
+		Clock1 -> BrakeActuatorSigRL_tadlEvent )
+		Relation ABSSatExecTimeRRCoincides_delayConstraintRelation [ Coincides ]
+		( Clock2 -> ABSSatExecTimeRR_DelayFor_delayedClock,
+		Clock1 -> ABSBrakeTorqRR_tadlEvent )
+		Relation pedalBrakeExecTimeCoincides_delayConstraintRelation [ Coincides ]
+		( Clock2 -> pedalBrakeExecTime_DelayFor_delayedClock,
+		Clock1 -> brakePedalPosition_tadlEvent )
+		Relation GlobalBrakeControlExecTimeCoincides_delayConstraintRelation [ Coincides ]
+		( Clock2 -> GlobalBrakeControlExecTime_DelayFor_delayedClock,
+		Clock1 -> vehicleSpeed_tadlEvent )
+		Relation ABSSatExecTimeFLCoincides_delayConstraintRelation [ Coincides ]
+		( Clock2 -> ABSSatExecTimeFL_DelayFor_delayedClock,
+		Clock1 -> ABSBrakeTorqFL_tadlEvent )
+		Relation BrakeExecTimeFRCoincides_delayConstraintRelation [ Coincides ]
+		( Clock2 -> BrakeExecTimeFR_DelayFor_delayedClock,
+		Clock1 -> BrakeActuatorSigFR_tadlEvent )
+		Relation RRWheelSensingExecTimeCoincides_delayConstraintRelation [ Coincides ]
+		( Clock2 -> RRWheelSensingExecTime_DelayFor_delayedClock,
+		Clock1 -> RRspeed_rpm_tadlEvent )
+		Relation ABSSatExecTimeFRCoincides_delayConstraintRelation [ Coincides ]
+		( Clock2 -> ABSSatExecTimeFR_DelayFor_delayedClock,
+		Clock1 -> ABSBrakeTorqFR_tadlEvent )
+		Relation BrakeExecTimeRRCoincides_delayConstraintRelation [ Coincides ]
+		( Clock2 -> BrakeExecTimeRR_DelayFor_delayedClock,
+		Clock1 -> BrakeActuatorSigRR_tadlEvent )
+		Relation FRWheelSensingExecTimeCoincides_delayConstraintRelation [ Coincides ]
+		( Clock2 -> FRWheelSensingExecTime_DelayFor_delayedClock,
+		Clock1 -> FRspeed_rpm_tadlEvent )
+		Relation BrakeExecTimeFLCoincides_delayConstraintRelation [ Coincides ]
+		( Clock2 -> BrakeExecTimeFL_DelayFor_delayedClock,
+		Clock1 -> BrakeActuatorSigFL_tadlEvent )
+		Relation ABSSatExecTimeRLCoincides_delayConstraintRelation [ Coincides ]
+		( Clock2 -> ABSSatExecTimeRL_DelayFor_delayedClock,
+		Clock1 -> ABSBrakeTorqRL_tadlEvent )
+		Relation FLWheelSensingExecTimeCoincides_delayConstraintRelation [ Coincides ]
+		( Clock2 -> FLWheelSensingExecTime_DelayFor_delayedClock,
+		Clock1 -> FLspeed_rpm_tadlEvent )
+		Relation rearLeftABSSatAlternates_StartThenStop [ Alternates ]
+		( AlternatesLeftClock -> rearLeftABSSat_start,
+		AlternatesRightClock -> rearLeftABSSat_stop )
+		Relation frontLeftWheelSpeedSensorAlternates_StartThenStop [ Alternates ]
+		( AlternatesLeftClock -> frontLeftWheelSpeedSensor_start,
+		AlternatesRightClock -> frontLeftWheelSpeedSensor_stop )
+		Relation rearLeftBrakeAlternates_StartThenStop [ Alternates ]
+		( AlternatesLeftClock -> rearLeftBrake_start,
+		AlternatesRightClock -> rearLeftBrake_stop )
+		Relation rearLeftWheelSpeedSensorAlternates_StartThenStop [ Alternates ]
+		( AlternatesLeftClock -> rearLeftWheelSpeedSensor_start,
+		AlternatesRightClock -> rearLeftWheelSpeedSensor_stop )
+		Relation frontLeftABSSatAlternates_StartThenStop [ Alternates ]
+		( AlternatesLeftClock -> frontLeftABSSat_start,
+		AlternatesRightClock -> frontLeftABSSat_stop )
+		Relation rearRightABSSatAlternates_StartThenStop [ Alternates ]
+		( AlternatesLeftClock -> rearRightABSSat_start,
+		AlternatesRightClock -> rearRightABSSat_stop )
+		Relation frontLeftBrakeAlternates_StartThenStop [ Alternates ]
+		( AlternatesLeftClock -> frontLeftBrake_start,
+		AlternatesRightClock -> frontLeftBrake_stop )
+		Relation frontRightBrakeAlternates_StartThenStop [ Alternates ]
+		( AlternatesLeftClock -> frontRightBrake_start,
+		AlternatesRightClock -> frontRightBrake_stop )
+		Relation globalBrakeControllerAlternates_StartThenStop [ Alternates ]
+		( AlternatesLeftClock -> globalBrakeController_start,
+		AlternatesRightClock -> globalBrakeController_stop )
+		Relation rearRightWheelSpeedSensorAlternates_StartThenStop [ Alternates ]
+		( AlternatesLeftClock -> rearRightWheelSpeedSensor_start,
+		AlternatesRightClock -> rearRightWheelSpeedSensor_stop )
+		Relation frontRightABSSatAlternates_StartThenStop [ Alternates ]
+		( AlternatesLeftClock -> frontRightABSSat_start,
+		AlternatesRightClock -> frontRightABSSat_stop )
+		Relation brakeTorqueCalculatorAlternates_StartThenStop [ Alternates ]
+		( AlternatesLeftClock -> brakeTorqueCalculator_start,
+		AlternatesRightClock -> brakeTorqueCalculator_stop )
+		Relation brakePedalSensorAlternates_StartThenStop [ Alternates ]
+		( AlternatesLeftClock -> brakePedalSensor_start,
+		AlternatesRightClock -> brakePedalSensor_stop )
+		Relation frontRightWheelSpeedSensorAlternates_StartThenStop [ Alternates ]
+		( AlternatesLeftClock -> frontRightWheelSpeedSensor_start,
+		AlternatesRightClock -> frontRightWheelSpeedSensor_stop )
+		Relation rearRightBrakeAlternates_StartThenStop [ Alternates ]
+		( AlternatesLeftClock -> rearRightBrake_start,
+		AlternatesRightClock -> rearRightBrake_stop )
+		Relation globalBrakeControllerintermediate_PortOutWriteCoincidesWithStop1_2 [ Coincides ]
+		( Clock2 -> torqFrontLeftWheel_write,
+		Clock1 -> VehicleSpeed_write )
+		Relation globalBrakeControllerintermediate_PortOutWriteCoincidesWithStop1_3 [ Coincides ]
+		( Clock2 -> torqFrontLeftWheel_write,
+		Clock1 -> torqFrontRightWheel_write )
+		Relation globalBrakeControllerintermediate_PortOutWriteCoincidesWithStop1_4 [ Coincides ]
+		( Clock2 -> torqFrontLeftWheel_write,
+		Clock1 -> torqRearLeftWheel_write )
+		Relation globalBrakeControllerintermediate_PortOutWriteCoincidesWithStop1_5 [ Coincides ]
+		( Clock2 -> torqFrontLeftWheel_write,
+		Clock1 -> torqRearRightWheel_write )
+		Relation globalBrakeControllerintermediate_PortOutWriteCoincidesWithStop2_3 [ Coincides ]
+		( Clock2 -> VehicleSpeed_write,
+		Clock1 -> torqFrontRightWheel_write )
+		Relation globalBrakeControllerintermediate_PortOutWriteCoincidesWithStop2_4 [ Coincides ]
+		( Clock2 -> VehicleSpeed_write,
+		Clock1 -> torqRearLeftWheel_write )
+		Relation globalBrakeControllerintermediate_PortOutWriteCoincidesWithStop2_5 [ Coincides ]
+		( Clock2 -> VehicleSpeed_write,
+		Clock1 -> torqRearRightWheel_write )
+		Relation globalBrakeControllerintermediate_PortOutWriteCoincidesWithStop3_4 [ Coincides ]
+		( Clock2 -> torqFrontRightWheel_write,
+		Clock1 -> torqRearLeftWheel_write )
+		Relation globalBrakeControllerintermediate_PortOutWriteCoincidesWithStop3_5 [ Coincides ]
+		( Clock2 -> torqFrontRightWheel_write,
+		Clock1 -> torqRearRightWheel_write )
+		Relation globalBrakeControllerintermediate_PortOutWriteCoincidesWithStop4_5 [ Coincides ]
+		( Clock2 -> torqRearLeftWheel_write,
+		Clock1 -> torqRearRightWheel_write )
+		Relation rearLeftABSSatCoincides_PortOutWriteCoincidesWithStop2 [ Coincides ]
+		( Clock2 -> RLABSBrakeTorq_write,
+		Clock1 -> rearLeftABSSat_stop )
+		Relation frontLeftWheelSpeedSensorCoincides_PortOutWriteCoincidesWithStop2 [ Coincides ]
+		( Clock2 -> FLspeed_rpm_write,
+		Clock1 -> frontLeftWheelSpeedSensor_stop )
+		Relation rearLeftBrakeCoincides_PortOutWriteCoincidesWithStop2 [ Coincides ]
+		( Clock2 -> RLActuatorSignal_write,
+		Clock1 -> rearLeftBrake_stop )
+		Relation rearLeftWheelSpeedSensorCoincides_PortOutWriteCoincidesWithStop2 [ Coincides ]
+		( Clock2 -> RLspeed_rpm_write,
+		Clock1 -> rearLeftWheelSpeedSensor_stop )
+		Relation frontLeftABSSatCoincides_PortOutWriteCoincidesWithStop2 [ Coincides ]
+		( Clock2 -> FLABSBrakeTorq_write,
+		Clock1 -> frontLeftABSSat_stop )
+		Relation rearRightABSSatCoincides_PortOutWriteCoincidesWithStop2 [ Coincides ]
+		( Clock2 -> RRABSBrakeTorq_write,
+		Clock1 -> rearRightABSSat_stop )
+		Relation frontLeftBrakeCoincides_PortOutWriteCoincidesWithStop2 [ Coincides ]
+		( Clock2 -> FLActuatorSignal_write,
+		Clock1 -> frontLeftBrake_stop )
+		Relation frontRightBrakeCoincides_PortOutWriteCoincidesWithStop2 [ Coincides ]
+		( Clock2 -> FRActuatorSignal_write,
+		Clock1 -> frontRightBrake_stop )
+		Relation globalBrakeControllerCoincides_PortOutWriteCoincidesWithStop2 [ Coincides ]
+		( Clock2 -> torqFrontLeftWheel_write,
+		Clock1 -> globalBrakeController_stop )
+		Relation rearRightWheelSpeedSensorCoincides_PortOutWriteCoincidesWithStop2 [ Coincides ]
+		( Clock2 -> RRspeed_rpm_write,
+		Clock1 -> rearRightWheelSpeedSensor_stop )
+		Relation frontRightABSSatCoincides_PortOutWriteCoincidesWithStop2 [ Coincides ]
+		( Clock2 -> FRABSBrakeTorq_write,
+		Clock1 -> frontRightABSSat_stop )
+		Relation brakeTorqueCalculatorCoincides_PortOutWriteCoincidesWithStop2 [ Coincides ]
+		( Clock2 -> requestedTorq_write,
+		Clock1 -> brakeTorqueCalculator_stop )
+		Relation brakePedalSensorCoincides_PortOutWriteCoincidesWithStop2 [ Coincides ]
+		( Clock2 -> pedalPosition_write,
+		Clock1 -> brakePedalSensor_stop )
+		Relation frontRightWheelSpeedSensorCoincides_PortOutWriteCoincidesWithStop2 [ Coincides ]
+		( Clock2 -> FRspeed_rpm_write,
+		Clock1 -> frontRightWheelSpeedSensor_stop )
+		Relation rearRightBrakeCoincides_PortOutWriteCoincidesWithStop2 [ Coincides ]
+		( Clock2 -> RRActuatorSignal_write,
+		Clock1 -> rearRightBrake_stop )
+		Clock requestedTorque_tadlEvent : clock -> evt_requestedTorque_tadlEvent
+		(  )
+		Clock BrakeActuatorSigRR_tadlEvent : clock -> evt_BrakeActuatorSigRR_tadlEvent
+		(  )
+		Clock doSampleFrontLeftWheelSpeed_tadlEvent : clock -> evt_doSampleFrontLeftWheelSpeed_tadlEvent
+		(  )
+		Clock vehicleSpeed_tadlEvent : clock -> evt_vehicleSpeed_tadlEvent
+		(  )
+		Clock doSampleRearLeftWheelSpeed_tadlEvent : clock -> evt_doSampleRearLeftWheelSpeed_tadlEvent
+		(  )
+		Clock ABSBrakeTorqRL_tadlEvent : clock -> evt_ABSBrakeTorqRL_tadlEvent
+		(  )
+		Clock torqFrontLeftWheel_tadlEvent : clock -> evt_torqFrontLeftWheel_tadlEvent
+		(  )
+		Clock doABSSatTriggeringFL_tadlEvent : clock -> evt_doABSSatTriggeringFL_tadlEvent
+		(  )
+		Clock BrakeActuatorSigFR_tadlEvent : clock -> evt_BrakeActuatorSigFR_tadlEvent
+		(  )
+		Clock globalTorque_tadlEvent : clock -> evt_globalTorque_tadlEvent
+		(  )
+		Clock doABSSatTriggeringFR_tadlEvent : clock -> evt_doABSSatTriggeringFR_tadlEvent
+		(  )
+		Clock brakePedalPosition_tadlEvent : clock -> evt_brakePedalPosition_tadlEvent
+		(  )
+		Clock doBrakeTriggeringRL_tadlEvent : clock -> evt_doBrakeTriggeringRL_tadlEvent
+		(  )
+		Clock RLspeed_rpm_tadlEvent : clock -> evt_RLspeed_rpm_tadlEvent
+		(  )
+		Clock ABSBrakeTorqRR_tadlEvent : clock -> evt_ABSBrakeTorqRR_tadlEvent
+		(  )
+		Clock BrakeActuatorSigFL_tadlEvent : clock -> evt_BrakeActuatorSigFL_tadlEvent
+		(  )
+		Clock FRspeed_rpm_tadlEvent : clock -> evt_FRspeed_rpm_tadlEvent
+		(  )
+		Clock RRspeed_rpm_tadlEvent : clock -> evt_RRspeed_rpm_tadlEvent
+		(  )
+		Clock doPedalBrakeSensing_tadlEvent : clock -> evt_doPedalBrakeSensing_tadlEvent
+		(  )
+		Clock ABSBrakeTorqFL_tadlEvent : clock -> evt_ABSBrakeTorqFL_tadlEvent
+		(  )
+		Clock doABSSatTriggeringRL_tadlEvent : clock -> evt_doABSSatTriggeringRL_tadlEvent
+		(  )
+		Clock pedalPercent_tadlEvent : clock -> evt_pedalPercent_tadlEvent
+		(  )
+		Clock doBrakeTriggeringFL_tadlEvent : clock -> evt_doBrakeTriggeringFL_tadlEvent
+		(  )
+		Clock doSampleFrontRightWheelSpeed_tadlEvent : clock -> evt_doSampleFrontRightWheelSpeed_tadlEvent
+		(  )
+		Clock ABSBrakeTorqFR_tadlEvent : clock -> evt_ABSBrakeTorqFR_tadlEvent
+		(  )
+		Clock doSampleRearRightWheelSpeed_tadlEvent : clock -> evt_doSampleRearRightWheelSpeed_tadlEvent
+		(  )
+		Clock brakePedalActionning_tadlEvent : clock -> evt_brakePedalActionning_tadlEvent
+		(  )
+		Clock doGlobalBrakeControl_tadlEvent : clock -> evt_doGlobalBrakeControl_tadlEvent
+		(  )
+		Clock FLspeed_rpm_tadlEvent : clock -> evt_FLspeed_rpm_tadlEvent
+		(  )
+		Clock doBrakeTriggeringFR_tadlEvent : clock -> evt_doBrakeTriggeringFR_tadlEvent
+		(  )
+		Clock doABSSatTriggeringRR_tadlEvent : clock -> evt_doABSSatTriggeringRR_tadlEvent
+		(  )
+		Clock BrakeActuatorSigRL_tadlEvent : clock -> evt_BrakeActuatorSigRL_tadlEvent
+		(  )
+		Clock doBrakeTriggeringRR_tadlEvent : clock -> evt_doBrakeTriggeringRR_tadlEvent
+		(  )
+		Clock doBrakeTorqueCalculatorTriggering_tadlEvent : clock -> evt_doBrakeTorqueCalculatorTriggering_tadlEvent
+		(  )
+		Clock universal_time_ref : clock -> evt_universal_time_ref
+		( )
+		Clock physicalTime_discretized : clock -> evt_physicalTime_discretized
+		( )
+		Integer endToEndDeadlineendToEnd_max_value : int = 100
+		Integer endToEndDeadlineendToEnd_min_value : int = 1
+		Integer universal_timemicros_factor : int = 1
+		Integer universal_timeuniversal_time_0 : int = 0
+		Integer PeriodSensingFLSensingPeriod_value : int = 10
+		Integer PeriodSensingFLPeriodSensingFL_0 : int = 0
+		Integer ABSSatTriggeringFRABSSatPeriod_value : int = 20
+		Integer ABSSatTriggeringFRABSSatTriggeringFR_0 : int = 0
+		Integer ABSSatTriggeringRLABSSatPeriod_value : int = 20
+		Integer ABSSatTriggeringRLABSSatTriggeringRL_0 : int = 0
+		Integer PeriodBrakeTriggeringFLBrakePeriod_value : int = 15
+		Integer PeriodBrakeTriggeringFLPeriodBrakeTriggeringFL_0 : int = 0
+		Integer PeriodSensingPDSensingPeriod_value : int = 10
+		Integer PeriodSensingPDPeriodSensingPD_0 : int = 0
+		Integer PeriodBrakeTriggeringFRBrakePeriod_value : int = 15
+		Integer PeriodBrakeTriggeringFRPeriodBrakeTriggeringFR_0 : int = 0
+		Integer PeriodBrakeCalculatorBrakeTorqueCalculatorPeriod_value : int = 10
+		Integer PeriodBrakeCalculatorPeriodBrakeCalculator_0 : int = 0
+		Integer PeriodSensingRLSensingPeriod_value : int = 10
+		Integer PeriodSensingRLPeriodSensingRL_0 : int = 0
+		Integer PeriodSensingFRSensingPeriod_value : int = 10
+		Integer PeriodSensingFRPeriodSensingFR_0 : int = 0
+		Integer PeriodBrakeTriggeringRRBrakePeriod_value : int = 15
+		Integer PeriodBrakeTriggeringRRPeriodBrakeTriggeringRR_0 : int = 0
+		Integer GlobalBrakeTriggeringglobalBrakePeriod_value : int = 10
+		Integer GlobalBrakeTriggeringGlobalBrakeTriggering_0 : int = 0
+		Integer PeriodSensingRRSensingPeriod_value : int = 10
+		Integer PeriodSensingRRPeriodSensingRR_0 : int = 0
+		Integer ABSSatTriggeringFLABSSatPeriod_value : int = 20
+		Integer ABSSatTriggeringFLABSSatTriggeringFL_0 : int = 0
+		Integer ABSSatTriggeringRRABSSatPeriod_value : int = 20
+		Integer ABSSatTriggeringRRABSSatTriggeringRR_0 : int = 0
+		Integer PeriodBrakeTriggeringRLBrakePeriod_value : int = 15
+		Integer PeriodBrakeTriggeringRLPeriodBrakeTriggeringRL_0 : int = 0
+		Integer RLWheelSensingExecTimeWheelSensingExecTime_value : int = 7
+		Integer BrakeTorqueCalculatorExecTimeBrakeTorqueCalculatorExecTime_value : int = 12
+		Integer BrakeExecTimeRLBrakeExecTime_value : int = 4
+		Integer ABSSatExecTimeRRABSSatExecTime_value : int = 12
+		Integer pedalBrakeExecTimePedalBrakeSensingExecTime_value : int = 8
+		Integer GlobalBrakeControlExecTimeGlobalBrakeControlExecTime_value : int = 12
+		Integer ABSSatExecTimeFLABSSatExecTime_value : int = 12
+		Integer BrakeExecTimeFRBrakeExecTime_value : int = 4
+		Integer RRWheelSensingExecTimeWheelSensingExecTime_value : int = 7
+		Integer ABSSatExecTimeFRABSSatExecTime_value : int = 12
+		Integer BrakeExecTimeRRBrakeExecTime_value : int = 4
+		Integer FRWheelSensingExecTimeWheelSensingExecTime_value : int = 7
+		Integer BrakeExecTimeFLBrakeExecTime_value : int = 4
+		Integer ABSSatExecTimeRLABSSatExecTime_value : int = 12
+		Integer FLWheelSensingExecTimeWheelSensingExecTime_value : int = 7
+		Clock FRActuatorSignal_write : clock -> evt_FRActuatorSignal_write
+		( "Model::BrakeFR::FRActuatorSignal" )
+		: produce
+		Clock torqRearLeftWheel_write : clock -> evt_torqRearLeftWheel_write
+		( "Model::GlobalBrakeController::torqRearLeftWheel" )
+		: produce
+		Clock RLActuatorSignal_write : clock -> evt_RLActuatorSignal_write
+		( "Model::BrakeRL::RLActuatorSignal" )
+		: produce
+		Clock FRABSBrakeTorq_write : clock -> evt_FRABSBrakeTorq_write
+		( "Model::ABSSatFR::FRABSBrakeTorq" )
+		: produce
+		Clock torqRearRightWheel_write : clock -> evt_torqRearRightWheel_write
+		( "Model::GlobalBrakeController::torqRearRightWheel" )
+		: produce
+		Clock RRActuatorSignal_write : clock -> evt_RRActuatorSignal_write
+		( "Model::BrakeRR::RRActuatorSignal" )
+		: produce
+		Clock pedalPosition_write : clock -> evt_pedalPosition_write
+		( "Model::BrakePedalSensor::pedalPosition" )
+		: produce
+		Clock FLABSBrakeTorq_write : clock -> evt_FLABSBrakeTorq_write
+		( "Model::ABSSatFL::FLABSBrakeTorq" )
+		: produce
+		Clock RLABSBrakeTorq_write : clock -> evt_RLABSBrakeTorq_write
+		( "Model::ABSSatRL::RLABSBrakeTorq" )
+		: produce
+		Clock requestedTorq_write : clock -> evt_requestedTorq_write
+		( "Model::BrakeTorqueCalculator::requestedTorq" )
+		: produce
+		Clock FLActuatorSignal_write : clock -> evt_FLActuatorSignal_write
+		( "Model::BrakeFL::FLActuatorSignal" )
+		: produce
+		Clock FRspeed_rpm_write : clock -> evt_FRspeed_rpm_write
+		( "Model::WheelSpeedSensorFR::FRspeed_rpm" )
+		: produce
+		Clock RRABSBrakeTorq_write : clock -> evt_RRABSBrakeTorq_write
+		( "Model::ABSSatRR::RRABSBrakeTorq" )
+		: produce
+		Clock FLspeed_rpm_write : clock -> evt_FLspeed_rpm_write
+		( "Model::WheelSpeedSensorFL::FLspeed_rpm" )
+		: produce
+		Clock torqFrontRightWheel_write : clock -> evt_torqFrontRightWheel_write
+		( "Model::GlobalBrakeController::torqFrontRightWheel" )
+		: produce
+		Clock RLspeed_rpm_write : clock -> evt_RLspeed_rpm_write
+		( "Model::WheelSpeedSensorRL::RLspeed_rpm" )
+		: produce
+		Clock VehicleSpeed_write : clock -> evt_VehicleSpeed_write
+		( "Model::GlobalBrakeController::VehicleSpeed" )
+		: produce
+		Clock RRspeed_rpm_write : clock -> evt_RRspeed_rpm_write
+		( "Model::WheelSpeedSensorRR::RRspeed_rpm" )
+		: produce
+		Clock torqFrontLeftWheel_write : clock -> evt_torqFrontLeftWheel_write
+		( "Model::GlobalBrakeController::torqFrontLeftWheel" )
+		: produce
+		Clock BrakePedalActionning_read : clock -> evt_BrakePedalActionning_read
+		( "Model::BrakePedalSensor::BrakePedalActionning" )
+		: consume
+		Clock FRvehicleSpeed_kmph_read : clock -> evt_FRvehicleSpeed_kmph_read
+		( "Model::ABSSatFR::FRvehicleSpeed_kmph" )
+		: consume
+		Clock FRtorqCmd_read : clock -> evt_FRtorqCmd_read
+		( "Model::BrakeFR::FRtorqCmd" )
+		: consume
+		Clock FLRequestedTorq_read : clock -> evt_FLRequestedTorq_read
+		( "Model::ABSSatFL::FLRequestedTorq" )
+		: consume
+		Clock RLtorqCmd_read : clock -> evt_RLtorqCmd_read
+		( "Model::BrakeRL::RLtorqCmd" )
+		: consume
+		Clock FLwheelSpeed_rpm_read : clock -> evt_FLwheelSpeed_rpm_read
+		( "Model::ABSSatFL::FLwheelSpeed_rpm" )
+		: consume
+		Clock globalTorque_read : clock -> evt_globalTorque_read
+		( "Model::GlobalBrakeController::globalTorque" )
+		: consume
+		Clock FRwheelSpeed_rpm_read : clock -> evt_FRwheelSpeed_rpm_read
+		( "Model::ABSSatFR::FRwheelSpeed_rpm" )
+		: consume
+		Clock FLtorqCmd_read : clock -> evt_FLtorqCmd_read
+		( "Model::BrakeFL::FLtorqCmd" )
+		: consume
+		Clock RRvehicleSpeed_kmph_read : clock -> evt_RRvehicleSpeed_kmph_read
+		( "Model::ABSSatRR::RRvehicleSpeed_kmph" )
+		: consume
+		Clock frontRightWheel_rpm_read : clock -> evt_frontRightWheel_rpm_read
+		( "Model::GlobalBrakeController::frontRightWheel_rpm" )
+		: consume
+		Clock rearRightWheel_rpm_read : clock -> evt_rearRightWheel_rpm_read
+		( "Model::GlobalBrakeController::rearRightWheel_rpm" )
+		: consume
+		Clock pedalPosition_read : clock -> evt_pedalPosition_read
+		( "Model::BrakeTorqueCalculator::pedalPosition" )
+		: consume
+		Clock RLwheelSpeed_rpm_read : clock -> evt_RLwheelSpeed_rpm_read
+		( "Model::ABSSatRL::RLwheelSpeed_rpm" )
+		: consume
+		Clock RLvehicleSpeed_kmph_read : clock -> evt_RLvehicleSpeed_kmph_read
+		( "Model::ABSSatRL::RLvehicleSpeed_kmph" )
+		: consume
+		Clock RRtorqCmd_read : clock -> evt_RRtorqCmd_read
+		( "Model::BrakeRR::RRtorqCmd" )
+		: consume
+		Clock frontLeftWheel_rpm_read : clock -> evt_frontLeftWheel_rpm_read
+		( "Model::GlobalBrakeController::frontLeftWheel_rpm" )
+		: consume
+		Clock FRRequestedTorq_read : clock -> evt_FRRequestedTorq_read
+		( "Model::ABSSatFR::FRRequestedTorq" )
+		: consume
+		Clock RRwheelSpeed_rpm_read : clock -> evt_RRwheelSpeed_rpm_read
+		( "Model::ABSSatRR::RRwheelSpeed_rpm" )
+		: consume
+		Clock FLvehicleSpeed_kmph_read : clock -> evt_FLvehicleSpeed_kmph_read
+		( "Model::ABSSatFL::FLvehicleSpeed_kmph" )
+		: consume
+		Clock rearLeftWheel_rpm_read : clock -> evt_rearLeftWheel_rpm_read
+		( "Model::GlobalBrakeController::rearLeftWheel_rpm" )
+		: consume
+		Clock RRRequestedTorq_read : clock -> evt_RRRequestedTorq_read
+		( "Model::ABSSatRR::RRRequestedTorq" )
+		: consume
+		Clock RLRequestedTorq_read : clock -> evt_RLRequestedTorq_read
+		( "Model::ABSSatRL::RLRequestedTorq" )
+		: consume
+		Clock rearLeftABSSat_start : clock -> evt_rearLeftABSSat_start
+		( "Model::FunctionalArchitecture::rearLeftABSSat" )
+		: start
+		Clock frontLeftWheelSpeedSensor_start : clock -> evt_frontLeftWheelSpeedSensor_start
+		( "Model::FunctionalArchitecture::frontLeftWheelSpeedSensor" )
+		: start
+		Clock rearLeftBrake_start : clock -> evt_rearLeftBrake_start
+		( "Model::FunctionalArchitecture::rearLeftBrake" )
+		: start
+		Clock rearLeftWheelSpeedSensor_start : clock -> evt_rearLeftWheelSpeedSensor_start
+		( "Model::FunctionalArchitecture::rearLeftWheelSpeedSensor" )
+		: start
+		Clock frontLeftABSSat_start : clock -> evt_frontLeftABSSat_start
+		( "Model::FunctionalArchitecture::frontLeftABSSat" )
+		: start
+		Clock rearRightABSSat_start : clock -> evt_rearRightABSSat_start
+		( "Model::FunctionalArchitecture::rearRightABSSat" )
+		: start
+		Clock frontLeftBrake_start : clock -> evt_frontLeftBrake_start
+		( "Model::FunctionalArchitecture::frontLeftBrake" )
+		: start
+		Clock frontRightBrake_start : clock -> evt_frontRightBrake_start
+		( "Model::FunctionalArchitecture::frontRightBrake" )
+		: start
+		Clock globalBrakeController_start : clock -> evt_globalBrakeController_start
+		( "Model::FunctionalArchitecture::globalBrakeController" )
+		: start
+		Clock rearRightWheelSpeedSensor_start : clock -> evt_rearRightWheelSpeedSensor_start
+		( "Model::FunctionalArchitecture::rearRightWheelSpeedSensor" )
+		: start
+		Clock frontRightABSSat_start : clock -> evt_frontRightABSSat_start
+		( "Model::FunctionalArchitecture::frontRightABSSat" )
+		: start
+		Clock brakeTorqueCalculator_start : clock -> evt_brakeTorqueCalculator_start
+		( "Model::FunctionalArchitecture::brakeTorqueCalculator" )
+		: start
+		Clock brakePedalSensor_start : clock -> evt_brakePedalSensor_start
+		( "Model::FunctionalArchitecture::brakePedalSensor" )
+		: start
+		Clock frontRightWheelSpeedSensor_start : clock -> evt_frontRightWheelSpeedSensor_start
+		( "Model::FunctionalArchitecture::frontRightWheelSpeedSensor" )
+		: start
+		Clock rearRightBrake_start : clock -> evt_rearRightBrake_start
+		( "Model::FunctionalArchitecture::rearRightBrake" )
+		: start
+		Clock rearLeftABSSat_stop : clock -> evt_rearLeftABSSat_stop
+		( "Model::FunctionalArchitecture::rearLeftABSSat" )
+		: finish
+		Clock frontLeftWheelSpeedSensor_stop : clock -> evt_frontLeftWheelSpeedSensor_stop
+		( "Model::FunctionalArchitecture::frontLeftWheelSpeedSensor" )
+		: finish
+		Clock rearLeftBrake_stop : clock -> evt_rearLeftBrake_stop
+		( "Model::FunctionalArchitecture::rearLeftBrake" )
+		: finish
+		Clock rearLeftWheelSpeedSensor_stop : clock -> evt_rearLeftWheelSpeedSensor_stop
+		( "Model::FunctionalArchitecture::rearLeftWheelSpeedSensor" )
+		: finish
+		Clock frontLeftABSSat_stop : clock -> evt_frontLeftABSSat_stop
+		( "Model::FunctionalArchitecture::frontLeftABSSat" )
+		: finish
+		Clock rearRightABSSat_stop : clock -> evt_rearRightABSSat_stop
+		( "Model::FunctionalArchitecture::rearRightABSSat" )
+		: finish
+		Clock frontLeftBrake_stop : clock -> evt_frontLeftBrake_stop
+		( "Model::FunctionalArchitecture::frontLeftBrake" )
+		: finish
+		Clock frontRightBrake_stop : clock -> evt_frontRightBrake_stop
+		( "Model::FunctionalArchitecture::frontRightBrake" )
+		: finish
+		Clock globalBrakeController_stop : clock -> evt_globalBrakeController_stop
+		( "Model::FunctionalArchitecture::globalBrakeController" )
+		: finish
+		Clock rearRightWheelSpeedSensor_stop : clock -> evt_rearRightWheelSpeedSensor_stop
+		( "Model::FunctionalArchitecture::rearRightWheelSpeedSensor" )
+		: finish
+		Clock frontRightABSSat_stop : clock -> evt_frontRightABSSat_stop
+		( "Model::FunctionalArchitecture::frontRightABSSat" )
+		: finish
+		Clock brakeTorqueCalculator_stop : clock -> evt_brakeTorqueCalculator_stop
+		( "Model::FunctionalArchitecture::brakeTorqueCalculator" )
+		: finish
+		Clock brakePedalSensor_stop : clock -> evt_brakePedalSensor_stop
+		( "Model::FunctionalArchitecture::brakePedalSensor" )
+		: finish
+		Clock frontRightWheelSpeedSensor_stop : clock -> evt_frontRightWheelSpeedSensor_stop
+		( "Model::FunctionalArchitecture::frontRightWheelSpeedSensor" )
+		: finish
+		Clock rearRightBrake_stop : clock -> evt_rearRightBrake_stop
+		( "Model::FunctionalArchitecture::rearRightBrake" )
+		: finish
+	}
+}

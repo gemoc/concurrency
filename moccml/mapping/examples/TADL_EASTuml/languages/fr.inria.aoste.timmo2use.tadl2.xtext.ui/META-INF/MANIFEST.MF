@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: fr.inria.aoste.timmo2use.tadl2.xtext.ui
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0
+Bundle-SymbolicName: fr.inria.aoste.timmo2use.tadl2.xtext.ui; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: fr.inria.aoste.timmo2use.tadl2.xtext;visibility:=reexport,
+ org.eclipse.xtext.ui,
+ org.eclipse.ui.editors;bundle-version="3.5.0",
+ org.eclipse.ui.ide;bundle-version="3.5.0",
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.ui,
+ org.antlr.runtime,
+ org.eclipse.compare,
+ org.eclipse.xtext.builder
+Import-Package: org.apache.log4j,
+ org.apache.commons.logging
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: fr.inria.aoste.timmo2use.tadl2.ui.contentassist.antlr,
+ fr.inria.aoste.timmo2use.tadl2.ui.contentassist
+Bundle-Activator: fr.inria.aoste.timmo2use.tadl2.ui.internal.Tadl2Activator

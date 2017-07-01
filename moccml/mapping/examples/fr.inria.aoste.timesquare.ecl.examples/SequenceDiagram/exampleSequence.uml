@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_lxnDYDPIEeKyid0Gi5u1Hg" name="model">
+  <packagedElement xmi:type="uml:Interaction" xmi:id="_w64ncDPUEeKoiZAU2hFgew" name="Interaction1">
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_2B5vIDPVEeKoiZAU2hFgew" name="Operation1_MessageSend" covered="_yOCRYDPUEeKoiZAU2hFgew" message="_2B4hADPVEeKoiZAU2hFgew"/>
+    <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_KI69MDPVEeKoiZAU2hFgew" name="BehaviorExecSpecStart" covered="_yOCRYDPUEeKoiZAU2hFgew" execution="_KI7kQDPVEeKoiZAU2hFgew"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_2B6WMDPVEeKoiZAU2hFgew" name="Operation1_MessageRecv" covered="_jyrloDPVEeKoiZAU2hFgew" message="_2B4hADPVEeKoiZAU2hFgew"/>
+    <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_gz_UADPiEeKoiZAU2hFgew" name="BehaviorExecSpec0Start" covered="_jyrloDPVEeKoiZAU2hFgew" execution="_gz_UATPiEeKoiZAU2hFgew"/>
+    <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_KI7kQDPVEeKoiZAU2hFgew" name="BehaviorExecSpec" covered="_yOCRYDPUEeKoiZAU2hFgew" finish="_KI7kQTPVEeKoiZAU2hFgew" start="_KI69MDPVEeKoiZAU2hFgew"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_taHo4DP0EeKG86Iw1UIcoQ" name="Operation1_MessageSend0" covered="_yOCRYDPUEeKoiZAU2hFgew" message="_taFMoDP0EeKG86Iw1UIcoQ"/>
+    <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_gz_UATPiEeKoiZAU2hFgew" name="BehaviorExecSpec0" covered="_jyrloDPVEeKoiZAU2hFgew" finish="_gz_UAjPiEeKoiZAU2hFgew" start="_gz_UADPiEeKoiZAU2hFgew"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_taIP8DP0EeKG86Iw1UIcoQ" name="Operation1_MessageRecv0" covered="_jyrloDPVEeKoiZAU2hFgew" message="_taFMoDP0EeKG86Iw1UIcoQ"/>
+    <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_KI7kQTPVEeKoiZAU2hFgew" name="BehaviorExecSpecFinish" covered="_yOCRYDPUEeKoiZAU2hFgew" execution="_KI7kQDPVEeKoiZAU2hFgew"/>
+    <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_gz_UAjPiEeKoiZAU2hFgew" name="BehaviorExecSpec0Finish" covered="_jyrloDPVEeKoiZAU2hFgew" execution="_gz_UATPiEeKoiZAU2hFgew"/>
+    <lifeline xmi:id="_yOCRYDPUEeKoiZAU2hFgew" name="Lifeline" represents="_HqgaADPVEeKoiZAU2hFgew" coveredBy="_KI69MDPVEeKoiZAU2hFgew _KI7kQTPVEeKoiZAU2hFgew _KI7kQDPVEeKoiZAU2hFgew _2B5vIDPVEeKoiZAU2hFgew _taHo4DP0EeKG86Iw1UIcoQ"/>
+    <lifeline xmi:id="_jyrloDPVEeKoiZAU2hFgew" name="Lifeline1" represents="_d4T48DPVEeKoiZAU2hFgew" coveredBy="_gz_UADPiEeKoiZAU2hFgew _gz_UAjPiEeKoiZAU2hFgew _gz_UATPiEeKoiZAU2hFgew _2B6WMDPVEeKoiZAU2hFgew _taIP8DP0EeKG86Iw1UIcoQ"/>
+    <message xmi:id="_2B4hADPVEeKoiZAU2hFgew" name="1:Operation1_Message" messageSort="asynchCall" receiveEvent="_2B6WMDPVEeKoiZAU2hFgew" sendEvent="_2B5vIDPVEeKoiZAU2hFgew" signature="_-3If4DPUEeKoiZAU2hFgew"/>
+    <message xmi:id="_taFMoDP0EeKG86Iw1UIcoQ" name="2:Operation1_Message" messageSort="asynchCall" receiveEvent="_taIP8DP0EeKG86Iw1UIcoQ" sendEvent="_taHo4DP0EeKG86Iw1UIcoQ" signature="_-3If4DPUEeKoiZAU2hFgew"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_9ACbYDPUEeKoiZAU2hFgew" name="Class1">
+    <ownedAttribute xmi:id="_HqgaADPVEeKoiZAU2hFgew" name="c1" type="_9ACbYDPUEeKoiZAU2hFgew"/>
+    <ownedOperation xmi:id="__MWh8DPUEeKoiZAU2hFgew" name="Operation1"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_9SbL4DPUEeKoiZAU2hFgew" name="Class2">
+    <ownedOperation xmi:id="_-3If4DPUEeKoiZAU2hFgew" name="Operation1"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_YCi_cDPVEeKoiZAU2hFgew" name="InstanceSpecification1"/>
+  <packagedElement xmi:type="uml:TimeObservation" xmi:id="_aPFIcDPVEeKoiZAU2hFgew" name="TimeObservation1"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_bcD48DPVEeKoiZAU2hFgew" name="Class3">
+    <ownedAttribute xmi:id="_d4T48DPVEeKoiZAU2hFgew" name="C2" visibility="public" type="_9SbL4DPUEeKoiZAU2hFgew">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hwtG0DPVEeKoiZAU2hFgew" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hwwKIDPVEeKoiZAU2hFgew" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_hwx_UDPVEeKoiZAU2hFgew">
+        <value xsi:nil="true"/>
+      </defaultValue>
+    </ownedAttribute>
+  </packagedElement>
+</uml:Model>

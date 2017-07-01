@@ -1,0 +1,1032 @@
+import fr.inria.aoste.timesquare.ecl.EclQVToHelper;
+
+	
+modeltype Ecore uses 'http://www.eclipse.org/emf/2002/Ecore';
+//modeltype pivot uses 'http://www.eclipse.org/ocl/3.1.0/Pivot';
+	   
+modeltype inMM uses 'http://www.eclipse.org/uml2/4.0.0/UML';
+modeltype QVT uses 'http://www.eclipse.org/QVT/1.0.0/Operational';//http://www.eclipse.org/m2m/qvt/oml/1.0.0/Stdlib';//http://www.eclipse.org/qvt/1.0/ImperativeOCL'; 
+modeltype TimeModel uses 'http://fr.inria.aoste.timemodel';
+
+	
+
+transformation doUML_To_CCSL(in inM : inMM, out TimeModel);
+
+property theCCSLSpec			:TimeModel::CCSLModel::ClockConstraintSystem = null;
+property theMainBlock			:TimeModel::CCSLModel::Block				 = null;
+
+property Kernel_Integer 	: TimeModel::BasicType::Type		= null;
+property Kernel_Clock_Type 	: TimeModel::BasicType::Type		= null;
+
+property seqOfRelationDeclaration :	Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::RelationDeclaration)    = Sequence{};
+property seqOfAbstractEntity :		Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)    = Sequence{};
+property seqOfExpressionDeclaration :	Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::ExpressionDeclaration)    = Sequence{};
+
+
+query identifyUserRelations() {
+	var kernelTypes :  	Sequence(TimeModel::BasicType::Type) := Sequence{};
+	seqOfRelationDeclaration		+= getLibObjects("platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib")[TimeModel::CCSLModel::ClockExpressionAndRelation::RelationDeclaration];
+	seqOfAbstractEntity				+= getLibObjects("platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib")[TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity];
+	seqOfExpressionDeclaration		+= getLibObjects("platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib")[TimeModel::CCSLModel::ClockExpressionAndRelation::ExpressionDeclaration];
+	kernelTypes 					+= getLibObjects("platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib")[TimeModel::BasicType::Type];
+	seqOfRelationDeclaration		+= getLibObjects("platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib")[TimeModel::CCSLModel::ClockExpressionAndRelation::RelationDeclaration];
+	seqOfAbstractEntity				+= getLibObjects("platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib")[TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity];
+	seqOfExpressionDeclaration		+= getLibObjects("platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib")[TimeModel::CCSLModel::ClockExpressionAndRelation::ExpressionDeclaration];
+	kernelTypes 					+= getLibObjects("platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib")[TimeModel::BasicType::Type];
+	seqOfRelationDeclaration		+= getLibObjects("./lib4RT.ccslLib")[TimeModel::CCSLModel::ClockExpressionAndRelation::RelationDeclaration];
+	seqOfAbstractEntity				+= getLibObjects("./lib4RT.ccslLib")[TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity];
+	seqOfExpressionDeclaration		+= getLibObjects("./lib4RT.ccslLib")[TimeModel::CCSLModel::ClockExpressionAndRelation::ExpressionDeclaration];
+	kernelTypes 					+= getLibObjects("./lib4RT.ccslLib")[TimeModel::BasicType::Type];
+
+	Kernel_Integer 					:= kernelTypes[name='int']->asSequence()->first();
+	Kernel_Clock_Type				:= kernelTypes[name='clock']->asSequence()->first();	
+	return;
+}
+
+
+//usefull function :)
+	mapping Real::Real2Integer(n: String) :TimeModel::BasicType::IntegerElement {
+		name:= n;
+		type:= Kernel_Integer;
+		value := self.round();
+
+		end{
+			theMainBlock.elements += result;
+		}
+	}
+
+main() {
+	identifyUserRelations();
+	inM.rootObjects()[inMM::Package]->asSequence()->first()-> map uml2CCSL();
+	}
+
+			
+			
+
+	mapping inMM::Package::uml2CCSL() : TimeModel::CCSLModel::ClockConstraintSystem {
+	    theCCSLSpec := result;
+	    name := self.name;
+	    theMainBlock :=object TimeModel::CCSLModel::Block{
+	    	name := "mainBlock";
+	    };
+	    subBlock += theMainBlock;
+	    result.superBlock := theMainBlock;
+
+		imports+= object TimeModel::ImportStatement{
+			importURI := 'platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib';
+			alias := 'kernel';
+			
+		}; 
+		imports+= object TimeModel::ImportStatement{
+			importURI := 'platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib';
+			alias := 'CCSL';
+			
+		}; 
+		imports+= object TimeModel::ImportStatement{
+			importURI := './lib4RT.ccslLib';
+			alias := 'lib4RT';
+			
+		}; 
+	
+		imports+= object TimeModel::ImportStatement{
+			importURI := getModelPath(inM.rootObjects()->asSequence()->first().oclAsType(EObject));
+			alias := getModelAlias(inM.rootObjects()->asSequence()->first().oclAsType(EObject));
+			
+		};
+
+		
+
+		inM.rootObjects().allSubobjects()->including(self)[ InputPin ]->map dataRead2Clock();
+		
+
+
+		
+
+		inM.rootObjects().allSubobjects()->including(self)[ OutputPin ]->map dataWrite2Clock();
+		
+
+
+		
+
+		inM.rootObjects().allSubobjects()->including(self)[ ControlNode ]->map startIt2Clock();
+		inM.rootObjects().allSubobjects()->including(self)[ ControlNode ]->map finishIt2Clock();
+		inM.rootObjects().allSubobjects()->including(self)[ ControlNode ]->map temporalEvent2Clock();
+		
+
+
+		
+
+		inM.rootObjects().allSubobjects()->including(self)[ Activity ]->map startActivity2Clock();
+		inM.rootObjects().allSubobjects()->including(self)[ Activity ]->map finishActivity2Clock();
+		
+
+
+		
+
+		inM.rootObjects().allSubobjects()->including(self)[ Action ]->map startIt2Clock();
+		inM.rootObjects().allSubobjects()->including(self)[ Action ]->map finishIt2Clock();
+		
+
+
+		
+
+		inM.rootObjects().allSubobjects()->including(self)[ MessageEvent ]->map call2Clock();
+		
+
+
+		
+
+		
+
+
+		
+		inM.rootObjects().allSubobjects()->including(self)[ AcceptEventAction ]->map attachCallEventAfterStartBeforeFinish282attachCallEventAfterStartBeforeFinish();
+		
+		
+
+		
+
+
+		
+		inM.rootObjects().allSubobjects()->including(self)[ SendSignalAction ]->map attachSignalEventAfterStartBeforeFinish292attachSignalEventAfterStartBeforeFinish();
+		
+		
+
+		
+
+
+		
+		inM.rootObjects().allSubobjects()->including(self)[ ObjectFlow ]->map consumeonlyIfproduced112consumeonlyIfproduced();
+		
+		
+		inM.rootObjects().allSubobjects()->including(self)[ ObjectFlow ]->map consumeMeansStart112consumeMeansStart();
+		
+		
+		inM.rootObjects().allSubobjects()->including(self)[ ObjectFlow ]->map consumeMeansControl112consumeMeansControl();
+		
+		
+
+		
+
+
+		
+		inM.rootObjects().allSubobjects()->including(self)[ Action ]->map waitControlToExecute502waitControlToExecute();
+		
+		
+		inM.rootObjects().allSubobjects()->including(self)[ Action ]->map StartAlternatesWithFinish12StartAlternatesWithFinish();
+		
+		
+
+		
+
+
+		
+		inM.rootObjects().allSubobjects()->including(self)[ Activity ]->map startCausesInit202startCausesInit();
+		
+		
+		inM.rootObjects().allSubobjects()->including(self)[ Activity ]->map lastSingleFinalNodeStopActivity292lastSingleFinalNodeStopActivity();
+		
+		
+		inM.rootObjects().allSubobjects()->including(self)[ Activity ]->map noReEntrance102noReEntrance();
+		
+		
+
+		
+
+
+		
+		inM.rootObjects().allSubobjects()->including(self)[ DecisionNode ]->map DecisionCausalitiesOutgoingActions612DecisionCausalitiesOutgoingActions();
+		
+		
+		inM.rootObjects().allSubobjects()->including(self)[ DecisionNode ]->map DecisionCausalitiesOutgoingControlNodesActions1122DecisionCausalitiesOutgoingControlNodesActions();
+		
+		
+		inM.rootObjects().allSubobjects()->including(self)[ DecisionNode ]->map DecisionCausalitiesOutgoingActionsAlternates422DecisionCausalitiesOutgoingActionsAlternates();
+		
+		
+		inM.rootObjects().allSubobjects()->including(self)[ DecisionNode ]->map DecisionCausalitiesOutgoingControlNodesActionsAlternates1102DecisionCausalitiesOutgoingControlNodesActionsAlternates();
+		
+		
+
+		
+
+
+		
+		inM.rootObjects().allSubobjects()->including(self)[ MergeNode ]->map MergeCausalitiesforTwoActions392MergeCausalitiesforTwoActions();
+		
+		
+		inM.rootObjects().allSubobjects()->including(self)[ MergeNode ]->map MergeCausalitiesforActionAndDecition902MergeCausalitiesforActionAndDecition();
+		
+		
+
+		
+
+
+		
+		inM.rootObjects().allSubobjects()->including(self)[ ControlNode ]->map instantaneousExecution12instantaneousExecution();
+		
+		
+		inM.rootObjects().allSubobjects()->including(self)[ ControlNode ]->map waitInputToControlFromAction672waitInputToControlFromAction();
+		
+		
+		inM.rootObjects().allSubobjects()->including(self)[ ControlNode ]->map waitInputFromMergeNode462waitInputFromMergeNode();
+		
+	}
+
+
+
+
+
+//create the expressions...
+	
+	
+//Create an intermediate expression
+//create the expressions... 
+	mapping inMM::DecisionNode::intermediate_allStartChoices2Expression(an1 : uml::Action, an2 : uml::Action, nb : Integer):TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
+	{ 
+		name := self.name+'intermediate_allStartChoices'+nb.toString();
+		type := seqOfExpressionDeclaration->select(rd | rd.name = "Union")->first();
+				 
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = an1.name+'_startIt']->first();
+					_abstract := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at(1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = an2.name+'_startIt']->first();
+					_abstract := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at(2).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+				};
+		end{
+			theMainBlock.expressions += result;
+		}
+	}
+
+	mapping inMM::DecisionNode::intermediate_allStartChoices2Expression(expr :TimeModel::CCSLModel::ClockExpressionAndRelation::Expression , an : uml::Action, nb : Integer):TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
+	{
+		name := self.name+'intermediate_allStartChoices'+nb.toString();
+		type := seqOfExpressionDeclaration->select(rd | rd.name = "Union")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.expressions[name = expr.name]->first();
+					 _abstract := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at(1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = an.name+'_startIt']->first();
+					
+					_abstract := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at(2).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+				};
+		end{
+			theMainBlock.expressions += result;
+		}
+	}
+	
+	mapping inMM::DecisionNode::allStartChoices2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
+	{
+		init{
+		var sources : Sequence(uml::Action) := self.outgoing->asSequence().target.oclAsType(Action)->asSequence();
+		var lastExpr : TimeModel::CCSLModel::ClockExpressionAndRelation::Expression :=null;
+		var i : Integer := 3;
+		var newExpr : TimeModel::CCSLModel::ClockExpressionAndRelation::Expression := lastExpr;
+		var size : Integer = sources->size(); 
+		if(size = 1)then{
+			result := self.map intermediate_allStartChoices2Expression(sources->at(1),sources->at(1), 1);
+		}else{
+			lastExpr := self.map intermediate_allStartChoices2Expression(sources->at(1),sources->at(2), 1);
+			while (i <= size){
+				newExpr := self.map intermediate_allStartChoices2Expression(lastExpr,sources->at(i), i);
+				lastExpr := newExpr;
+				i := i + 1;
+			};
+			result := lastExpr;
+		}
+		endif;
+		}
+		
+		end{
+			theMainBlock.expressions += result;
+		}
+	}
+
+	mapping inMM::DecisionNode::unionOfTwoChoices2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
+	{
+		name := self.name+'_Union_unionOfTwoChoices';
+		type := seqOfExpressionDeclaration->select(rd | rd.name = "Union")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = self.outgoing->asSequence().target->select(n|n.oclIsKindOf(Action))->asSequence()->first().oclAsType(Action).name+'_startIt']->first();
+					var size : Integer = seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->size()+1;
+					var seqAbstract : Sequence(Stdlib::Element) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence();
+					_abstract := seqAbstract->at(size-1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = self.outgoing->asSequence().target->select(n|n.oclIsKindOf(ControlNode))->asSequence()->first().oclAsType(ControlNode).name+'_temporalEvent']->first();
+					var size : Integer = seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->size()+1;
+					var seqAbstract : Sequence(Stdlib::Element) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence();
+					_abstract := seqAbstract->at(size-2).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+				};
+		end{
+			theMainBlock.expressions += result;
+		}
+	}
+	
+	
+//Create an intermediate expression
+//create the expressions... 
+	mapping inMM::MergeNode::intermediate_unionOfIncomes2Expression(an1 : uml::Action, an2 : uml::Action, nb : Integer):TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
+	{ 
+		name := self.name+'intermediate_unionOfIncomes'+nb.toString();
+		type := seqOfExpressionDeclaration->select(rd | rd.name = "Union")->first();
+				 
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = an1.name+'_finishIt']->first();
+					_abstract := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at(1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = an2.name+'_finishIt']->first();
+					_abstract := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at(2).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+				};
+		end{
+			theMainBlock.expressions += result;
+		}
+	}
+
+	mapping inMM::MergeNode::intermediate_unionOfIncomes2Expression(expr :TimeModel::CCSLModel::ClockExpressionAndRelation::Expression , an : uml::Action, nb : Integer):TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
+	{
+		name := self.name+'intermediate_unionOfIncomes'+nb.toString();
+		type := seqOfExpressionDeclaration->select(rd | rd.name = "Union")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.expressions[name = expr.name]->first();
+					 _abstract := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at(1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = an.name+'_finishIt']->first();
+					
+					_abstract := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at(2).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+				};
+		end{
+			theMainBlock.expressions += result;
+		}
+	}
+	
+	mapping inMM::MergeNode::unionOfIncomes2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
+	{
+		init{
+		var sources : Sequence(uml::Action) := self.incoming.source.oclAsType(Action)->asSequence();
+		var lastExpr : TimeModel::CCSLModel::ClockExpressionAndRelation::Expression :=null;
+		var i : Integer := 3;
+		var newExpr : TimeModel::CCSLModel::ClockExpressionAndRelation::Expression := lastExpr;
+		var size : Integer = sources->size(); 
+		if(size = 1)then{
+			result := self.map intermediate_unionOfIncomes2Expression(sources->at(1),sources->at(1), 1);
+		}else{
+			lastExpr := self.map intermediate_unionOfIncomes2Expression(sources->at(1),sources->at(2), 1);
+			while (i <= size){
+				newExpr := self.map intermediate_unionOfIncomes2Expression(lastExpr,sources->at(i), i);
+				lastExpr := newExpr;
+				i := i + 1;
+			};
+			result := lastExpr;
+		}
+		endif;
+		}
+		
+		end{
+			theMainBlock.expressions += result;
+		}
+	}
+
+	mapping inMM::MergeNode::unionOfActionAndDecision2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
+	{
+		name := self.name+'_Union_unionOfActionAndDecision';
+		type := seqOfExpressionDeclaration->select(rd | rd.name = "Union")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = self.incoming->asSequence().source->select(n|n.oclIsKindOf(Action))->asSequence()->first().oclAsType(Action).name+'_finishIt']->first();
+					var size : Integer = seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->size()+1;
+					var seqAbstract : Sequence(Stdlib::Element) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence();
+					_abstract := seqAbstract->at(size-1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = self.name+'_temporalEvent']->first();
+					var size : Integer = seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->size()+1;
+					var seqAbstract : Sequence(Stdlib::Element) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence();
+					_abstract := seqAbstract->at(size-2).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+				};
+		end{
+			theMainBlock.expressions += result;
+		}
+	}
+
+
+
+
+	 	mapping inMM::InputPin::dataRead2Clock() :TimeModel::Clock 
+		{
+			name:= self.name+'_dataRead';
+			
+			tickingEvent := object TimeModel::Event{
+ 				referencedObjectRefs += self.oclAsType(EObject);
+				name := 'evt_'+self.name+'_dataRead';
+				kind := TimeModel::EventKind::consume;
+						
+			};
+			type:= Kernel_Clock_Type;
+
+			end{
+				theMainBlock.elements += result;
+			}
+		}
+
+//relation stuff		
+	 	mapping inMM::OutputPin::dataWrite2Clock() :TimeModel::Clock 
+		{
+			name:= self.name+'_dataWrite';
+			
+			tickingEvent := object TimeModel::Event{
+ 				referencedObjectRefs += self.oclAsType(EObject);
+				name := 'evt_'+self.name+'_dataWrite';
+				kind := TimeModel::EventKind::produce;
+						
+			};
+			type:= Kernel_Clock_Type;
+
+			end{
+				theMainBlock.elements += result;
+			}
+		}
+
+//relation stuff		
+	 	mapping inMM::ControlNode::startIt2Clock() :TimeModel::Clock 
+		{
+			name:= self.name+'_startIt';
+			
+			tickingEvent := object TimeModel::Event{
+ 				referencedObjectRefs += self.oclAsType(EObject);
+				name := 'evt_'+self.name+'_startIt';
+				kind := TimeModel::EventKind::start;
+						
+			};
+			type:= Kernel_Clock_Type;
+
+			end{
+				theMainBlock.elements += result;
+			}
+		}
+	 	mapping inMM::ControlNode::finishIt2Clock() :TimeModel::Clock 
+		{
+			name:= self.name+'_finishIt';
+			
+			tickingEvent := object TimeModel::Event{
+ 				referencedObjectRefs += self.oclAsType(EObject);
+				name := 'evt_'+self.name+'_finishIt';
+				kind := TimeModel::EventKind::finish;
+						
+			};
+			type:= Kernel_Clock_Type;
+
+			end{
+				theMainBlock.elements += result;
+			}
+		}
+	 	mapping inMM::ControlNode::temporalEvent2Clock() :TimeModel::Clock 
+		{
+			name:= self.name+'_temporalEvent';
+			
+			tickingEvent := object TimeModel::Event{
+ 				referencedObjectRefs += self.oclAsType(EObject);
+				name := 'evt_'+self.name+'_temporalEvent';
+				kind := TimeModel::EventKind::undefined;
+						
+			};
+			type:= Kernel_Clock_Type;
+
+			end{
+				theMainBlock.elements += result;
+			}
+		}
+
+//relation stuff		
+	 	mapping inMM::Activity::startActivity2Clock() :TimeModel::Clock 
+		{
+			name:= self.name+'_startActivity';
+			
+			tickingEvent := object TimeModel::Event{
+ 				referencedObjectRefs += self.oclAsType(EObject);
+				name := 'evt_'+self.name+'_startActivity';
+				kind := TimeModel::EventKind::start;
+						
+			};
+			type:= Kernel_Clock_Type;
+
+			end{
+				theMainBlock.elements += result;
+			}
+		}
+	 	mapping inMM::Activity::finishActivity2Clock() :TimeModel::Clock 
+		{
+			name:= self.name+'_finishActivity';
+			
+			tickingEvent := object TimeModel::Event{
+ 				referencedObjectRefs += self.oclAsType(EObject);
+				name := 'evt_'+self.name+'_finishActivity';
+				kind := TimeModel::EventKind::finish;
+						
+			};
+			type:= Kernel_Clock_Type;
+
+			end{
+				theMainBlock.elements += result;
+			}
+		}
+
+//relation stuff		
+	 	mapping inMM::Action::startIt2Clock() :TimeModel::Clock 
+		{
+			name:= self.name+'_startIt';
+			
+			tickingEvent := object TimeModel::Event{
+ 				referencedObjectRefs += self.oclAsType(EObject);
+				name := 'evt_'+self.name+'_startIt';
+				kind := TimeModel::EventKind::start;
+						
+			};
+			type:= Kernel_Clock_Type;
+
+			end{
+				theMainBlock.elements += result;
+			}
+		}
+	 	mapping inMM::Action::finishIt2Clock() :TimeModel::Clock 
+		{
+			name:= self.name+'_finishIt';
+			
+			tickingEvent := object TimeModel::Event{
+ 				referencedObjectRefs += self.oclAsType(EObject);
+				name := 'evt_'+self.name+'_finishIt';
+				kind := TimeModel::EventKind::finish;
+						
+			};
+			type:= Kernel_Clock_Type;
+
+			end{
+				theMainBlock.elements += result;
+			}
+		}
+
+//relation stuff		
+	 	mapping inMM::MessageEvent::call2Clock() :TimeModel::Clock 
+		{
+			name:= self.name+'_call';
+			
+			tickingEvent := object TimeModel::Event{
+ 				referencedObjectRefs += self.oclAsType(EObject);
+				name := 'evt_'+self.name+'_call';
+				kind := TimeModel::EventKind::undefined;
+						
+			};
+			type:= Kernel_Clock_Type;
+
+			end{
+				theMainBlock.elements += result;
+			}
+		}
+
+//relation stuff		
+
+//relation stuff		
+	
+		mapping inMM::AcceptEventAction::attachCallEventAfterStartBeforeFinish282attachCallEventAfterStartBeforeFinish(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+			when { 
+			  let triggers: OrderedSet(uml::Trigger) = self.trigger->select(e| e.event.oclIsKindOf(MessageEvent))->asOrderedSet() in
+				(triggers->size()>0) 
+				
+}
+		{
+		 	name := self.name+"AfterBeforeHappens_attachCallEventAfterStartBeforeFinish";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "AfterBeforeHappens")->first();
+					var triggers : OrderedSet(uml::Trigger) := self.trigger->select(e| e.event.oclIsKindOf(MessageEvent))->asOrderedSet();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = self.oclAsType(Action).name+'_startIt']->first();
+					_abstract := seqOfAbstractEntity[name = 'ClockBefore']->first();
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = triggers->first().event.oclAsType(MessageEvent).name+'_call']->first();
+					_abstract := seqOfAbstractEntity[name = 'ClockMiddle']->first();
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = self.oclAsType(Action).name+'_finishIt']->first();
+					_abstract := seqOfAbstractEntity[name = 'ClockAfter']->first();
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+
+//relation stuff		
+	
+		mapping inMM::SendSignalAction::attachSignalEventAfterStartBeforeFinish292attachSignalEventAfterStartBeforeFinish(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+			when { 
+			  let signalEvents: OrderedSet(uml::SignalEvent) = uml::SignalEvent.allInstances()->asOrderedSet() in
+				(signalEvents->select(n| n.signal = self.signal)->size()>0) 
+				
+}
+		{
+		 	name := self.name+"AfterBeforeHappens_attachSignalEventAfterStartBeforeFinish";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "AfterBeforeHappens")->first();
+					var signalEvents : OrderedSet(uml::SignalEvent) := uml::SignalEvent.allInstances()->asOrderedSet();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = self.oclAsType(Action).name+'_startIt']->first();
+					_abstract := seqOfAbstractEntity[name = 'ClockBefore']->first();
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = signalEvents->select(n| n.signal = self.signal)->asOrderedSet()->first().oclAsType(MessageEvent).name+'_call']->first();
+					_abstract := seqOfAbstractEntity[name = 'ClockMiddle']->first();
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = self.oclAsType(Action).name+'_finishIt']->first();
+					_abstract := seqOfAbstractEntity[name = 'ClockAfter']->first();
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+
+//relation stuff		
+	
+		mapping inMM::ObjectFlow::consumeonlyIfproduced112consumeonlyIfproduced(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+			when { 
+				(self.target.oclIsKindOf(InputPin)) 
+				
+}
+		{
+		 	name := self.name+"Precedes_consumeonlyIfproduced";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "Precedes")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = self.source.oclAsType(OutputPin).name+'_dataWrite']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = self.target.oclAsType(InputPin).name+'_dataRead']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+	
+		mapping inMM::ObjectFlow::consumeMeansStart112consumeMeansStart(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+			when { 
+				(self.target.oclIsKindOf(Action)) 
+				
+}
+		{
+		 	name := self.name+"Precedes_consumeMeansStart";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "Precedes")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = self.source.oclAsType(OutputPin).name+'_dataWrite']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = self.target.oclAsType(Action).name+'_startIt']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+	
+		mapping inMM::ObjectFlow::consumeMeansControl112consumeMeansControl(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+			when { 
+				(self.target.oclIsKindOf(ControlNode)) 
+				
+}
+		{
+		 	name := self.name+"Precedes_consumeMeansControl";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "Precedes")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = self.source.oclAsType(OutputPin).name+'_dataWrite']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = self.target.oclAsType(ControlNode).name+'_startIt']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+
+//relation stuff		
+	
+		mapping inMM::Action::waitControlToExecute502waitControlToExecute(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+			when { 
+				((self.incoming->size() > 0) and (self.incoming->asSequence().source->select(n| n.oclIsKindOf(DecisionNode))->size()= 0)) 
+				
+}
+		{
+		 	name := self.name+"Causes_waitControlToExecute";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "Causes")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+				
+						bindable := theMainBlock.elements[name = self.incoming->asSequence()->first().source.name+'_finishIt']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Causes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = self.name+'_startIt']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Causes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+	
+		mapping inMM::Action::StartAlternatesWithFinish12StartAlternatesWithFinish(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+		{
+		 	name := self.name+"Alternates_StartAlternatesWithFinish";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "Alternates")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = self.name+'_startIt']->first();
+					_abstract := seqOfAbstractEntity[name = 'AlternatesLeftClock']->first();
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = self.name+'_finishIt']->first();
+					_abstract := seqOfAbstractEntity[name = 'AlternatesRightClock']->first();
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+
+//relation stuff		
+	
+		mapping inMM::Activity::startCausesInit202startCausesInit(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+			when { 
+				(self.node->select(n|n.oclIsKindOf(InitialNode))->size()>0) 
+				
+}
+		{
+		 	name := self.name+"Causes_startCausesInit";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "Causes")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = self.name+'_startActivity']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Causes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = self.node->select(n|n.oclIsKindOf(InitialNode))->asSequence()->first().oclAsType(InitialNode).name+'_startIt']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Causes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+	
+		mapping inMM::Activity::lastSingleFinalNodeStopActivity292lastSingleFinalNodeStopActivity(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+			when { 
+			  let finalNodes : OrderedSet(uml::FinalNode) = self.node->select(n|n.oclIsKindOf(FinalNode)).oclAsType(FinalNode)->asOrderedSet() in
+				(finalNodes->size()=1) 
+				
+}
+		{
+		 	name := self.name+"Causes_lastSingleFinalNodeStopActivity";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "Causes")->first();
+					var finalNodes : OrderedSet(uml::FinalNode) := self.node->select(n|n.oclIsKindOf(FinalNode)).oclAsType(FinalNode)->asOrderedSet();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = finalNodes->first().name+'_finishIt']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Causes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = self.name+'_finishActivity']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Causes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+	
+		mapping inMM::Activity::noReEntrance102noReEntrance(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+			when { 
+				(not self.isReentrant) 
+				
+}
+		{
+		 	name := self.name+"Alternates_noReEntrance";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "Alternates")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = self.name+'_startActivity']->first();
+					_abstract := seqOfAbstractEntity[name = 'AlternatesLeftClock']->first();
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = self.name+'_finishActivity']->first();
+					_abstract := seqOfAbstractEntity[name = 'AlternatesRightClock']->first();
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+
+//relation stuff		
+	
+		mapping inMM::DecisionNode::DecisionCausalitiesOutgoingActions612DecisionCausalitiesOutgoingActions(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+			when { 
+				(not (self.outgoing->asSequence().target->select(n| n.oclIsKindOf(ControlNode))->size()>0)) 
+				
+}
+		{
+		 	name := self.name+"Exclusion_DecisionCausalitiesOutgoingActions";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "Exclusion")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+				
+						bindable := theMainBlock.elements[name = self.outgoing->asSequence()->first().target.oclAsType(Action).name+'_startIt']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Exclusion']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+				
+						bindable := theMainBlock.elements[name = self.outgoing->asSequence()->last().target.oclAsType(Action).name+'_startIt']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Exclusion']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+	
+		mapping inMM::DecisionNode::DecisionCausalitiesOutgoingControlNodesActions1122DecisionCausalitiesOutgoingControlNodesActions(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+			when { 
+				((self.outgoing->size()=2) and
+			 (self.outgoing->asSequence().target->select(n| n.oclIsKindOf(ControlNode))->size()>0) and 
+			 (self.outgoing->asSequence().target->select(n| n.oclIsKindOf(Action))->size()>0)
+			) 
+				
+}
+		{
+		 	name := self.name+"Exclusion_DecisionCausalitiesOutgoingControlNodesActions";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "Exclusion")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+				
+						bindable := theMainBlock.elements[name = self.outgoing->asSequence().target->select(n|n.oclIsKindOf(Action))->asSequence()->first().oclAsType(Action).name+'_startIt']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Exclusion']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+				
+						bindable := theMainBlock.elements[name = self.outgoing->asSequence().target->select(n|n.oclIsKindOf(ControlNode))->asSequence()->first().oclAsType(ControlNode).name+'_temporalEvent']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Exclusion']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+	
+		mapping inMM::DecisionNode::DecisionCausalitiesOutgoingActionsAlternates422DecisionCausalitiesOutgoingActionsAlternates(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+			when { 
+				(not (self.outgoing->asSequence().target->select(n| n.oclIsKindOf(ControlNode))->size()>0)) 
+				
+}
+		{
+		 	name := self.name+"Alternates_DecisionCausalitiesOutgoingActionsAlternates";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "Alternates")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = self.name+'_startIt']->first();
+					_abstract := seqOfAbstractEntity[name = 'AlternatesLeftClock']->first();
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+				
+						bindable := self -> map allStartChoices2Expression()->asSequence()->first();
+					_abstract := seqOfAbstractEntity[name = 'AlternatesRightClock']->first();
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+	
+		mapping inMM::DecisionNode::DecisionCausalitiesOutgoingControlNodesActionsAlternates1102DecisionCausalitiesOutgoingControlNodesActionsAlternates(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+			when { 
+				((self.outgoing->size()=2) and
+			 (self.outgoing->asSequence().target->select(n| n.oclIsKindOf(ControlNode))->size()>0) and 
+			 (self.outgoing->asSequence().target->select(n| n.oclIsKindOf(Action))->size()>0)
+			) 
+				
+}
+		{
+		 	name := self.name+"Alternates_DecisionCausalitiesOutgoingControlNodesActionsAlternates";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "Alternates")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = self.name+'_startIt']->first();
+					_abstract := seqOfAbstractEntity[name = 'AlternatesLeftClock']->first();
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+				
+						bindable := self -> map unionOfTwoChoices2Expression()->asSequence()->first();
+					_abstract := seqOfAbstractEntity[name = 'AlternatesRightClock']->first();
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+
+//relation stuff		
+	
+		mapping inMM::MergeNode::MergeCausalitiesforTwoActions392MergeCausalitiesforTwoActions(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+			when { 
+				((self.incoming->asSequence().source->select(n| n.oclIsKindOf(Action))->size()=2)) 
+				
+}
+		{
+		 	name := self.name+"Precedes_MergeCausalitiesforTwoActions";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "Precedes")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+				
+						bindable := self -> map unionOfIncomes2Expression()->asSequence()->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = self.name+'_startIt']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+	
+		mapping inMM::MergeNode::MergeCausalitiesforActionAndDecition902MergeCausalitiesforActionAndDecition(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+			when { 
+				((self.incoming->size()=2) and
+			 (self.incoming->asSequence().source->select(n| n.oclIsKindOf(DecisionNode))->size()>0) and 
+			 (self.incoming->asSequence().source->select(n| n.oclIsKindOf(Action))->size()>0)
+			) 
+				
+}
+		{
+		 	name := self.name+"Precedes_MergeCausalitiesforActionAndDecition";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "Precedes")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+				
+						bindable := self -> map unionOfActionAndDecision2Expression()->asSequence()->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = self.name+'_startIt']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+
+//relation stuff		
+	
+		mapping inMM::ControlNode::instantaneousExecution12instantaneousExecution(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+		{
+		 	name := self.name+"Coincides_instantaneousExecution";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "Coincides")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = self.name+'_startIt']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Coincides']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = self.name+'_finishIt']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Coincides']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+	
+		mapping inMM::ControlNode::waitInputToControlFromAction672waitInputToControlFromAction(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+			when { 
+				((not self.oclIsKindOf(MergeNode)) and (self.incoming->size() > 0) and (self.incoming->select(n|n.source.oclIsKindOf(Action))->size()>0)) 
+				
+}
+		{
+		 	name := self.name+"Causes_waitInputToControlFromAction";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "Causes")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+				
+						bindable := theMainBlock.elements[name = self.incoming->select(n|n.source.oclIsKindOf(Action))->asSequence()->first().source.name+'_finishIt']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Causes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = self.name+'_startIt']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Causes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+	
+		mapping inMM::ControlNode::waitInputFromMergeNode462waitInputFromMergeNode(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+			when { 
+				(self.oclIsKindOf(ActivityFinalNode) and (self.incoming->size() > 0) and self.incoming->asSequence()->first().source.oclIsKindOf(MergeNode)) 
+				
+}
+		{
+		 	name := self.name+"Causes_waitInputFromMergeNode";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "Causes")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+				
+						bindable := theMainBlock.elements[name = self.incoming->asSequence()->first().source.name+'_finishIt']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Causes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = self.name+'_startIt']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Causes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+

@@ -1,0 +1,197 @@
+ClockConstraintSystem RobotActivationControlSpeedControl {
+	imports {
+		import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib" as kernel ;
+		import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib" as CCSL ;
+		import "platform:/resource/fr.inria.aoste.gemoc.example.tfsm.eclmoc/MocAndApplication/TFSMHelper.ccslLib" as
+		TFSMHelper ; 
+		import
+		"platform:/resource/fr.inria.aoste.timesquare.ecl.examples/heterogeneousTests/DSL2_FSM/models/RobotActivationSpeedControl.tfsm"
+		as TFSM ;
+	}
+	entryBlock mainBlock
+	Block mainBlock {
+		Expression doSamplingintermediate_AllTriggeringOccurrences1 = Union
+		( Clock2 -> NormalSelfLoop_fire,
+		Clock1 -> SafeSelfLoop_fire )
+		Expression initToNormalSampling_SampledOn_eventOccursAfterOrWhileStateEntering = SampledOn
+		( SampledOnSampledClock -> initState_entering,
+		SampledOnTrigger -> startControl_occurs )
+		Expression safeToNormalintermediate_otherFireFromTheSameState21 = Union
+		( Clock2 -> SafeSelfLoop_fire,
+		Clock1 -> SafeSelfLoop_fire )
+		Expression normalToSafeintermediate_otherFireFromTheSameState21 = Union
+		( Clock2 -> NormalSelfLoop_fire,
+		Clock1 -> NormalSelfLoop_fire )
+		Expression SafeSelfLoopintermediate_otherFireFromTheSameState1 = Union
+		( Clock2 -> safeToNormal_fire,
+		Clock1 -> safeToNormal_fire )
+		Expression NormalSelfLoopintermediate_otherFireFromTheSameState1 = Union
+		( Clock2 -> normalToSafe_fire,
+		Clock1 -> normalToSafe_fire )
+		Expression safeSamplingintermediate_allFiredoutgoingTransition1 = Union
+		( Clock2 -> SafeSelfLoop_fire,
+		Clock1 -> safeToNormal_fire )
+		Expression normalSamplingintermediate_allFiredoutgoingTransition1 = Union
+		( Clock2 -> NormalSelfLoop_fire,
+		Clock1 -> normalToSafe_fire )
+		Expression initStateintermediate_allFiredoutgoingTransition1 = Union
+		( Clock2 -> initToNormalSampling_fire,
+		Clock1 -> initToNormalSampling_fire )
+		Expression safeSamplingintermediate_allInputTransition1 = Union
+		( Clock2 -> SafeSelfLoop_fire,
+		Clock1 -> normalToSafe_fire )
+		Expression normalSamplingintermediate_allInputTransition1 = Union
+		( Clock2 -> initToNormalSampling_fire,
+		Clock1 -> NormalSelfLoop_fire )
+		Expression normalSamplingintermediate_allInputTransition3 = Union
+		( Clock2 -> normalSamplingintermediate_allInputTransition1,
+		Clock1 -> safeToNormal_fire )
+		Expression RobotActivationControlSpeedControlintermediate_onlyOneFirst1 = OneTickAndNoMore
+		( OneTickAndNoMoreClock -> RobotActivationControlSpeedControl_start )
+		Relation doSamplingCoincides_occursWhenSolicitate [ Coincides ]
+		( Clock2 -> doSamplingintermediate_AllTriggeringOccurrences1,
+		Clock1 -> doSampling_occurs )
+		Relation initToNormalSamplingCoincides_fireWhenEventOccursOneTransition [ Coincides ]
+		( Clock2 -> initToNormalSampling_SampledOn_eventOccursAfterOrWhileStateEntering,
+		Clock1 -> initToNormalSampling_fire )
+		Relation safeToNormalEventTransition_fireWhenEventOccursVariousTransition [ EventTransition ]
+		( EventTransition_MakeFireable -> safeSampling_entering,
+		EventTransition_Trigger -> goToNormalSampling_occurs,
+		EventTransition_Reset -> safeToNormalintermediate_otherFireFromTheSameState21,
+		EventTransition_Fire -> safeToNormal_fire )
+		Relation normalToSafeEventTransition_fireWhenEventOccursVariousTransition [ EventTransition ]
+		( EventTransition_MakeFireable -> normalSampling_entering,
+		EventTransition_Trigger -> goToSafeSampling_occurs,
+		EventTransition_Reset -> normalToSafeintermediate_otherFireFromTheSameState21,
+		EventTransition_Fire -> normalToSafe_fire )
+		Relation SafeSelfLoopTemporalTransition_fireWhenTemporalGuardHoldsVariousTransition [ TemporalTransition ]
+		( TemporalTransition_MakeFireable -> safeSampling_entering,
+		TemporalTransition_RefClock -> referencedClock_ticks,
+		TemporalTransition_Reset -> SafeSelfLoopintermediate_otherFireFromTheSameState1,
+		TemporalTransition_delay -> SafeSelfLoopsafeGuard_afterDuration,
+		TemporalTransition_Fire -> SafeSelfLoop_fire )
+		Relation NormalSelfLoopTemporalTransition_fireWhenTemporalGuardHoldsVariousTransition [ TemporalTransition ]
+		( TemporalTransition_MakeFireable -> normalSampling_entering,
+		TemporalTransition_RefClock -> referencedClock_ticks,
+		TemporalTransition_Reset -> NormalSelfLoopintermediate_otherFireFromTheSameState1,
+		TemporalTransition_delay -> NormalSelfLoopnormalGuard_afterDuration,
+		TemporalTransition_Fire -> NormalSelfLoop_fire )
+		Relation safeSamplingAlternates_enterOnceBeforeToLeave [ Alternates ]
+		( AlternatesLeftClock -> safeSampling_entering,
+		AlternatesRightClock -> safeSampling_leaving )
+		Relation normalSamplingAlternates_enterOnceBeforeToLeave [ Alternates ]
+		( AlternatesLeftClock -> normalSampling_entering,
+		AlternatesRightClock -> normalSampling_leaving )
+		Relation initStateAlternates_enterOnceBeforeToLeave [ Alternates ]
+		( AlternatesLeftClock -> initState_entering,
+		AlternatesRightClock -> initState_leaving )
+		Relation safeSamplingCoincides_firingATransitionAlternatesWithLeavingState [ Coincides ]
+		( Clock2 -> safeSamplingintermediate_allFiredoutgoingTransition1,
+		Clock1 -> safeSampling_leaving )
+		Relation normalSamplingCoincides_firingATransitionAlternatesWithLeavingState [ Coincides ]
+		( Clock2 -> normalSamplingintermediate_allFiredoutgoingTransition1,
+		Clock1 -> normalSampling_leaving )
+		Relation initStateCoincides_firingATransitionAlternatesWithLeavingState [ Coincides ]
+		( Clock2 -> initStateintermediate_allFiredoutgoingTransition1,
+		Clock1 -> initState_leaving )
+		Relation safeSamplingCauses_stateEntering [ Causes ]
+		( LeftClock -> safeSamplingintermediate_allInputTransition1,
+		RightClock -> safeSampling_entering )
+		Relation normalSamplingCauses_stateEntering [ Causes ]
+		( LeftClock -> normalSamplingintermediate_allInputTransition3,
+		RightClock -> normalSampling_entering )
+		Relation RobotActivationControlSpeedControlintermediate_oneStateAtATime1_2 [ Exclusion ]
+		( Clock2 -> initState_entering,
+		Clock1 -> safeSampling_entering )
+		Relation RobotActivationControlSpeedControlintermediate_oneStateAtATime1_3 [ Exclusion ]
+		( Clock2 -> initState_entering,
+		Clock1 -> normalSampling_entering )
+		Relation RobotActivationControlSpeedControlintermediate_oneStateAtATime2_3 [ Exclusion ]
+		( Clock2 -> safeSampling_entering,
+		Clock1 -> normalSampling_entering )
+		Relation RobotActivationControlSpeedControlintermediate_oneTransitionAtATime1_2 [ Exclusion ]
+		( Clock2 -> initToNormalSampling_fire,
+		Clock1 -> SafeSelfLoop_fire )
+		Relation RobotActivationControlSpeedControlintermediate_oneTransitionAtATime1_3 [ Exclusion ]
+		( Clock2 -> initToNormalSampling_fire,
+		Clock1 -> safeToNormal_fire )
+		Relation RobotActivationControlSpeedControlintermediate_oneTransitionAtATime1_4 [ Exclusion ]
+		( Clock2 -> initToNormalSampling_fire,
+		Clock1 -> NormalSelfLoop_fire )
+		Relation RobotActivationControlSpeedControlintermediate_oneTransitionAtATime1_5 [ Exclusion ]
+		( Clock2 -> initToNormalSampling_fire,
+		Clock1 -> normalToSafe_fire )
+		Relation RobotActivationControlSpeedControlintermediate_oneTransitionAtATime2_3 [ Exclusion ]
+		( Clock2 -> SafeSelfLoop_fire,
+		Clock1 -> safeToNormal_fire )
+		Relation RobotActivationControlSpeedControlintermediate_oneTransitionAtATime2_4 [ Exclusion ]
+		( Clock2 -> SafeSelfLoop_fire,
+		Clock1 -> NormalSelfLoop_fire )
+		Relation RobotActivationControlSpeedControlintermediate_oneTransitionAtATime2_5 [ Exclusion ]
+		( Clock2 -> SafeSelfLoop_fire,
+		Clock1 -> normalToSafe_fire )
+		Relation RobotActivationControlSpeedControlintermediate_oneTransitionAtATime3_4 [ Exclusion ]
+		( Clock2 -> safeToNormal_fire,
+		Clock1 -> NormalSelfLoop_fire )
+		Relation RobotActivationControlSpeedControlintermediate_oneTransitionAtATime3_5 [ Exclusion ]
+		( Clock2 -> safeToNormal_fire,
+		Clock1 -> normalToSafe_fire )
+		Relation RobotActivationControlSpeedControlintermediate_oneTransitionAtATime4_5 [ Exclusion ]
+		( Clock2 -> NormalSelfLoop_fire,
+		Clock1 -> normalToSafe_fire )
+		Relation RobotActivationControlSpeedControlCoincides_firstIsInitialState [ Coincides ]
+		( Clock2 -> RobotActivationControlSpeedControl_start,
+		Clock1 -> initState_entering )
+		Relation RobotActivationControlSpeedControlCoincides_firstOnlyOnce [ Coincides ]
+		( Clock2 -> RobotActivationControlSpeedControl_start,
+		Clock1 -> RobotActivationControlSpeedControlintermediate_onlyOneFirst1 )
+		Clock goToSafeSampling_occurs : clock -> evt_goToSafeSampling_occurs
+		( "TFSM->goToSafeSampling" )
+		Clock doSampling_occurs : clock -> evt_doSampling_occurs
+		( "TFSM->doSampling" )
+		Clock startControl_occurs : clock -> evt_startControl_occurs
+		( "TFSM->startControl" )
+		Clock goToNormalSampling_occurs : clock -> evt_goToNormalSampling_occurs
+		( "TFSM->goToNormalSampling" )
+		Clock referencedClock_ticks : clock -> evt_referencedClock_ticks
+		( "TFSM->referencedClock" )
+		Clock SafeSelfLoop_fire : clock -> evt_SafeSelfLoop_fire
+		( "TFSM->SafeSelfLoop" )
+		: start
+		Clock NormalSelfLoop_fire : clock -> evt_NormalSelfLoop_fire
+		( "TFSM->NormalSelfLoop" )
+		: start
+		Clock safeToNormal_fire : clock -> evt_safeToNormal_fire
+		( "TFSM->safeToNormal" )
+		: start
+		Clock normalToSafe_fire : clock -> evt_normalToSafe_fire
+		( "TFSM->normalToSafe" )
+		: start
+		Clock initToNormalSampling_fire : clock -> evt_initToNormalSampling_fire
+		( "TFSM->initToNormalSampling" )
+		: start
+		Clock safeSampling_entering : clock -> evt_safeSampling_entering
+		( "TFSM->safeSampling" )
+		: start
+		Clock normalSampling_entering : clock -> evt_normalSampling_entering
+		( "TFSM->normalSampling" )
+		: start
+		Clock initState_entering : clock -> evt_initState_entering
+		( "TFSM->initState" )
+		: start
+		Clock safeSampling_leaving : clock -> evt_safeSampling_leaving
+		( "TFSM->safeSampling" )
+		: finish
+		Clock normalSampling_leaving : clock -> evt_normalSampling_leaving
+		( "TFSM->normalSampling" )
+		: finish
+		Clock initState_leaving : clock -> evt_initState_leaving
+		( "TFSM->initState" )
+		: finish
+		Clock RobotActivationControlSpeedControl_start : clock -> evt_RobotActivationControlSpeedControl_start
+		( "TFSM->RobotActivationControlSpeedControl" )
+		: start
+		Integer SafeSelfLoopsafeGuard_afterDuration : int = 7
+		Integer NormalSelfLoopnormalGuard_afterDuration : int = 15
+	}
+}

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fr.inria.aoste.gemoc.example:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fr.inria.aoste.gemoc.example="http://fr.inria.aoste.gemoc.example.tfsm" name="BDC">
+  <tfsms name="RailRoadControl" initialState="//@tfsms.0/@ownedStates.0">
+    <ownedStates name="initState" outgoingTransitions="//@tfsms.0/@ownedTransitions.0"/>
+    <ownedStates name="Up" outgoingTransitions="//@tfsms.0/@ownedTransitions.1" incomingTransitions="//@tfsms.0/@ownedTransitions.0 //@tfsms.0/@ownedTransitions.4"/>
+    <ownedStates name="Closing" outgoingTransitions="//@tfsms.0/@ownedTransitions.2" incomingTransitions="//@tfsms.0/@ownedTransitions.1"/>
+    <ownedStates name="Down" outgoingTransitions="//@tfsms.0/@ownedTransitions.3" incomingTransitions="//@tfsms.0/@ownedTransitions.2"/>
+    <ownedStates name="Opening" outgoingTransitions="//@tfsms.0/@ownedTransitions.4" incomingTransitions="//@tfsms.0/@ownedTransitions.3"/>
+    <localEvents name="doClose" sollicitingTransitions="//@tfsms.0/@ownedTransitions.1"/>
+    <localEvents name="Closed"/>
+    <localEvents name="doOpen" sollicitingTransitions="//@tfsms.0/@ownedTransitions.3"/>
+    <localEvents name="Opened"/>
+    <ownedTransitions name="initState_to_Up" source="//@tfsms.0/@ownedStates.0" target="//@tfsms.0/@ownedStates.1" action="doStart">
+      <ownedGuard xsi:type="fr.inria.aoste.gemoc.example:EventGuard" name="guardStart" triggeringEvent="//@globalEvents.2"/>
+    </ownedTransitions>
+    <ownedTransitions name="Up_to_isClosing" source="//@tfsms.0/@ownedStates.1" target="//@tfsms.0/@ownedStates.2" generatedEvents="//@tfsms.0/@localEvents.0" action="doClose">
+      <ownedGuard xsi:type="fr.inria.aoste.gemoc.example:EventGuard" name="guardTrainArriving" triggeringEvent="//@globalEvents.1"/>
+    </ownedTransitions>
+    <ownedTransitions name="isClosing_to_Down" source="//@tfsms.0/@ownedStates.2" target="//@tfsms.0/@ownedStates.3" action="doDown">
+      <ownedGuard xsi:type="fr.inria.aoste.gemoc.example:EventGuard" name="guardClosed" triggeringEvent="//@tfsms.0/@localEvents.1"/>
+    </ownedTransitions>
+    <ownedTransitions name="Down_to_isOpenning" source="//@tfsms.0/@ownedStates.3" target="//@tfsms.0/@ownedStates.4" generatedEvents="//@tfsms.0/@localEvents.2" action="doSomething">
+      <ownedGuard xsi:type="fr.inria.aoste.gemoc.example:EventGuard" name="guardTrainFarEnought" triggeringEvent="//@globalEvents.0"/>
+    </ownedTransitions>
+    <ownedTransitions name="isOpenning_to_Up" source="//@tfsms.0/@ownedStates.4" target="//@tfsms.0/@ownedStates.1" action="doUp">
+      <ownedGuard xsi:type="fr.inria.aoste.gemoc.example:EventGuard" name="guardOpened" triggeringEvent="//@tfsms.0/@localEvents.3"/>
+    </ownedTransitions>
+  </tfsms>
+  <tfsms name="TrainArrivingDeparting" initialState="//@tfsms.1/@ownedStates.0">
+    <ownedStates name="initState0" outgoingTransitions="//@tfsms.1/@ownedTransitions.0"/>
+    <ownedStates name="S0" outgoingTransitions="//@tfsms.1/@ownedTransitions.1" incomingTransitions="//@tfsms.1/@ownedTransitions.0"/>
+    <ownedStates name="S1" outgoingTransitions="//@tfsms.1/@ownedTransitions.2" incomingTransitions="//@tfsms.1/@ownedTransitions.1"/>
+    <ownedStates name="S2" incomingTransitions="//@tfsms.1/@ownedTransitions.2"/>
+    <localClock name="scenarClock"/>
+    <ownedTransitions name="initState0_to_S0" source="//@tfsms.1/@ownedStates.0" target="//@tfsms.1/@ownedStates.1">
+      <ownedGuard xsi:type="fr.inria.aoste.gemoc.example:EventGuard" name="guardStart0" triggeringEvent="//@globalEvents.2"/>
+    </ownedTransitions>
+    <ownedTransitions name="S0_to_S1" source="//@tfsms.1/@ownedStates.1" target="//@tfsms.1/@ownedStates.2" generatedEvents="//@globalEvents.1" action="">
+      <ownedGuard xsi:type="fr.inria.aoste.gemoc.example:TemporalGuard" name="guardTemp0" onClock="//@tfsms.1/@localClock" afterDuration="5"/>
+    </ownedTransitions>
+    <ownedTransitions name="S1_to_S2" source="//@tfsms.1/@ownedStates.2" target="//@tfsms.1/@ownedStates.3" generatedEvents="//@globalEvents.0">
+      <ownedGuard xsi:type="fr.inria.aoste.gemoc.example:TemporalGuard" name="guardTemporal1" onClock="//@tfsms.1/@localClock" afterDuration="25"/>
+    </ownedTransitions>
+  </tfsms>
+  <globalEvents name="TrainFarEnough" sollicitingTransitions="//@tfsms.1/@ownedTransitions.2"/>
+  <globalEvents name="TrainComing" sollicitingTransitions="//@tfsms.1/@ownedTransitions.1"/>
+  <globalEvents name="start"/>
+</fr.inria.aoste.gemoc.example:System>

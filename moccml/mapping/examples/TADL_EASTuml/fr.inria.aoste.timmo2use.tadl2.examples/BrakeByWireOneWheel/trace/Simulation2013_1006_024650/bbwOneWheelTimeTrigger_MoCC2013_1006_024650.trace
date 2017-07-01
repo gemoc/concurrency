@@ -1,0 +1,819 @@
+<?xml version="1.0" encoding="ASCII"?>
+<trace:Trace xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:trace="http://www.inria.fr/sophia/aoste/trace/1.0.0" name="bbwOneWheelTimeTrigger_MoCC2013_1006_024650">
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@elements.13"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@elements.9"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@elements.4"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@elements.2"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@elements.16"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@elements.7"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@elements.3"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@elements.12"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@elements.15"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@elements.6"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@elements.10"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@elements.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@elements.18"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@elements.0"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@elements.5"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@elements.14"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@elements.11"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@elements.8"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@elements.17"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@elements.19"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.20"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.2"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.3"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.3/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.28"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.13"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.3"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.24"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.2"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.3"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.3/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.25"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.2"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.12"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.13"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6/@concreteEntities.0"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.23"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.2"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.3"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.3/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.20"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.16"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.25"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.19"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.17"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6/@concreteEntities.0"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.4"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.5"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.23"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.20"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.0"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.20"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.2"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.22"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.2"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.3"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.3/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.5"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.22"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.0"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.17"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.31"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.11"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.17"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.24"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.25"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.2"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.3"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.3/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.30"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.2"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.2/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.23"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.26"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.0"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.10"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.22"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.9"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.2"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.2/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.29"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.2"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.2/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.9"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.18"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6/@concreteEntities.0"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.0"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.26"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.1"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6/@concreteEntities.0"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.21"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.32"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.15"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.12"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6/@concreteEntities.0"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.16"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.25"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.0"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.27"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.2"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.3"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.3/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.3"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6/@concreteEntities.0"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.15"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6/@concreteEntities.0"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.22"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.2"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.27"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.2"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.0"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.14"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.10"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.2"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.2/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.27"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.26"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.2"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.3"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.3/@concreteEntities.0"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.21"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.2"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.6"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.11"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6/@concreteEntities.0"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.28"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.2"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.2/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.27"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.26"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.22"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.22"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.2"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.3"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.3/@concreteEntities.0"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.21"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.24"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.0"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.25"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.29"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.5"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6/@concreteEntities.0"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.20"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.2"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.8"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6/@concreteEntities.0"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.26"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.2"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.7"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.23"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.0"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.18"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.3"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.23"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.2"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.32"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.2"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.2/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.21"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.2"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.3"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.3/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.14"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.33"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.2"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.2/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.8"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.15"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.31"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.2"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.2/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.24"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.2"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.14"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6/@concreteEntities.0"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.19"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6/@concreteEntities.0"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6/@concreteEntities.0"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.21"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.0"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.13"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.25"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.2"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.3"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.3/@concreteEntities.0"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.18"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.7"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6/@concreteEntities.0"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.0"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6/@concreteEntities.0"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.26"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.2"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.3"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.3/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.2"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6/@concreteEntities.0"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.23"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.2"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.3"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.3/@concreteEntities.0"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.16"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6/@concreteEntities.0"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.7"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.11"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.33"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.12"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.1"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6/@concreteEntities.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.27"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.0"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.27"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.2"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.3"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.3/@concreteEntities.0"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.24"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.2"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.21"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.2"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.3"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.3/@concreteEntities.0"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.8"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.6/@concreteEntities.0"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.20"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.2"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.3"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.3/@concreteEntities.0"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.30"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.24"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.4/@concreteEntities.2"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.3"/>
+    <elementRef href="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDefinitions.3/@concreteEntities.0"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@expressions.19"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@relations.8"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@relations.7"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@relations.12"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@relations.14"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@relations.2"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@relations.3"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@relations.10"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@relations.13"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@relations.6"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@relations.5"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@relations.9"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@relations.11"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@relations.4"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@relations.1"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@relations.0"/>
+  </references>
+  <references xsi:type="trace:ModelElementReference">
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0"/>
+    <elementRef href="bbwOneWheelTimeTrigger_MoCC.extendedCCSL#//@subBlock.0/@relations.15"/>
+  </references>
+</trace:Trace>

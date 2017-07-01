@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Simple Component Model MoC
+Bundle-SymbolicName: fr.inria.aoste.timesquare.ecl.example.simplecomponentmodel.moc
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: fr.inria.aoste.timesquare.ecl.example.simplecomponentmodel.moc.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-Vendor: Inria/I3S Aoste

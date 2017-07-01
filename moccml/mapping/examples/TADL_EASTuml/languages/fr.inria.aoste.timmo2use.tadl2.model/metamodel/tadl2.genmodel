@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/fr.inria.aoste.timmo2use.tadl2.model/src-gen"
+    editDirectory="/fr.inria.aoste.timmo2use.tadl2.model.edit/src-gen" editorDirectory="/fr.inria.aoste.timmo2use.tadl2.model.editor/src-gen"
+    modelPluginID="fr.inria.aoste.timmo2use.tadl2.model" modelName="Tadl2" testsDirectory="/fr.inria.aoste.timmo2use.tadl2.model.tests/src-gen"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>tadl2.ecore</foreignModel>
+  <genPackages prefix="Tadl2" basePackage="fr.inria.aoste.timmo2use.tadl2" disposableProviderFactory="true"
+      contentTypeIdentifier="" ecorePackage="tadl2.ecore#/">
+    <nestedGenPackages prefix="TimingExpressions" basePackage="fr.inria.aoste.timmo2use.tadl2"
+        disposableProviderFactory="true" ecorePackage="tadl2.ecore#//TimingExpressions">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="tadl2.ecore#//TimingExpressions/DimensionKind">
+        <genEnumLiterals ecoreEnumLiteral="tadl2.ecore#//TimingExpressions/DimensionKind/other"/>
+        <genEnumLiterals ecoreEnumLiteral="tadl2.ecore#//TimingExpressions/DimensionKind/Time"/>
+        <genEnumLiterals ecoreEnumLiteral="tadl2.ecore#//TimingExpressions/DimensionKind/Angle"/>
+        <genEnumLiterals ecoreEnumLiteral="tadl2.ecore#//TimingExpressions/DimensionKind/Distance"/>
+        <genEnumLiterals ecoreEnumLiteral="tadl2.ecore#//TimingExpressions/DimensionKind/Logical"/>
+      </genEnums>
+      <genClasses image="false" ecoreClass="tadl2.ecore#//TimingExpressions/NamedElement">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tadl2.ecore#//TimingExpressions/NamedElement/name"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="tadl2.ecore#//TimingExpressions/TimingExpression"/>
+      <genClasses ecoreClass="tadl2.ecore#//TimingExpressions/SymbolicTimingExpression">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/SymbolicTimingExpression/operator"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/SymbolicTimingExpression/variable"/>
+      </genClasses>
+      <genClasses ecoreClass="tadl2.ecore#//TimingExpressions/VariableTimingExpression">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/VariableTimingExpression/value"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/VariableTimingExpression/timeBase"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/VariableTimingExpression/unit"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="tadl2.ecore#//TimingExpressions/Operator">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/Operator/leftOperand"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/Operator/rightOperand"/>
+      </genClasses>
+      <genClasses ecoreClass="tadl2.ecore#//TimingExpressions/Addition"/>
+      <genClasses ecoreClass="tadl2.ecore#//TimingExpressions/Subtraction"/>
+      <genClasses ecoreClass="tadl2.ecore#//TimingExpressions/Multiplication"/>
+      <genClasses ecoreClass="tadl2.ecore#//TimingExpressions/Division"/>
+      <genClasses ecoreClass="tadl2.ecore#//TimingExpressions/ValueTimingExpression">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/ValueTimingExpression/timeBase"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/ValueTimingExpression/unit"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tadl2.ecore#//TimingExpressions/ValueTimingExpression/value"/>
+      </genClasses>
+      <genClasses ecoreClass="tadl2.ecore#//TimingExpressions/TimeBase">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/TimeBase/type"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/TimeBase/precisionUnit"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tadl2.ecore#//TimingExpressions/TimeBase/precisionFactor"/>
+      </genClasses>
+      <genClasses ecoreClass="tadl2.ecore#//TimingExpressions/Dimension">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/Dimension/units"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tadl2.ecore#//TimingExpressions/Dimension/kind"/>
+      </genClasses>
+      <genClasses ecoreClass="tadl2.ecore#//TimingExpressions/Unit">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/Unit/reference"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tadl2.ecore#//TimingExpressions/Unit/factor"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tadl2.ecore#//TimingExpressions/Unit/offset"/>
+      </genClasses>
+      <genClasses ecoreClass="tadl2.ecore#//TimingExpressions/TimeBaseRelation">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/TimeBaseRelation/left"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/TimeBaseRelation/right"/>
+      </genClasses>
+      <genClasses ecoreClass="tadl2.ecore#//TimingExpressions/Timing">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/Timing/timingExpressions"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/Timing/timeBases"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/Timing/dimensions"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/Timing/timeBaseRelations"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/Timing/events"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/Timing/constraints"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/Timing/eventChains"/>
+      </genClasses>
+      <genClasses ecoreClass="tadl2.ecore#//TimingExpressions/Assignment"/>
+      <genClasses ecoreClass="tadl2.ecore#//TimingExpressions/GreaterThan"/>
+      <genClasses ecoreClass="tadl2.ecore#//TimingExpressions/GreaterThanOrEqual"/>
+      <genClasses ecoreClass="tadl2.ecore#//TimingExpressions/LessThan"/>
+      <genClasses ecoreClass="tadl2.ecore#//TimingExpressions/LessThanOrEqual"/>
+      <genClasses image="false" ecoreClass="tadl2.ecore#//TimingExpressions/TimingConstraint"/>
+      <genClasses ecoreClass="tadl2.ecore#//TimingExpressions/DelayConstraint">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/DelayConstraint/source"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/DelayConstraint/target"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/DelayConstraint/lower"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/DelayConstraint/upper"/>
+      </genClasses>
+      <genClasses ecoreClass="tadl2.ecore#//TimingExpressions/RepetitionConstraint">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/RepetitionConstraint/event"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tadl2.ecore#//TimingExpressions/RepetitionConstraint/span"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/RepetitionConstraint/lower"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/RepetitionConstraint/upper"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/RepetitionConstraint/jitter"/>
+      </genClasses>
+      <genClasses ecoreClass="tadl2.ecore#//TimingExpressions/SynchronizationConstraint">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/SynchronizationConstraint/events"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/SynchronizationConstraint/tolerance"/>
+      </genClasses>
+      <genClasses ecoreClass="tadl2.ecore#//TimingExpressions/OrderConstraint">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/OrderConstraint/left"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/OrderConstraint/right"/>
+      </genClasses>
+      <genClasses ecoreClass="tadl2.ecore#//TimingExpressions/Event"/>
+      <genClasses ecoreClass="tadl2.ecore#//TimingExpressions/PatternConstraint">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/PatternConstraint/offset"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/PatternConstraint/jitter"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/PatternConstraint/minimum"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/PatternConstraint/ref"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/PatternConstraint/event"/>
+      </genClasses>
+      <genClasses ecoreClass="tadl2.ecore#//TimingExpressions/SporadicConstraint">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/SporadicConstraint/lower"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/SporadicConstraint/upper"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/SporadicConstraint/jitter"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/SporadicConstraint/minimum"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/SporadicConstraint/event"/>
+      </genClasses>
+      <genClasses ecoreClass="tadl2.ecore#//TimingExpressions/PeriodicConstraint">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/PeriodicConstraint/period"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/PeriodicConstraint/jitter"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/PeriodicConstraint/minimum"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/PeriodicConstraint/event"/>
+      </genClasses>
+      <genClasses ecoreClass="tadl2.ecore#//TimingExpressions/ArbitraryConstraint">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/ArbitraryConstraint/minimum"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/ArbitraryConstraint/maximum"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/ArbitraryConstraint/event"/>
+      </genClasses>
+      <genClasses ecoreClass="tadl2.ecore#//TimingExpressions/BurstConstraint">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tadl2.ecore#//TimingExpressions/BurstConstraint/maxOccurrence"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/BurstConstraint/length"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/BurstConstraint/minimum"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/BurstConstraint/event"/>
+      </genClasses>
+      <genClasses ecoreClass="tadl2.ecore#//TimingExpressions/ReactionConstraint">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/ReactionConstraint/minimum"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/ReactionConstraint/maximum"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/ReactionConstraint/scope"/>
+      </genClasses>
+      <genClasses ecoreClass="tadl2.ecore#//TimingExpressions/AgeConstraint">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/AgeConstraint/minimum"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/AgeConstraint/maximum"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/AgeConstraint/scope"/>
+      </genClasses>
+      <genClasses ecoreClass="tadl2.ecore#//TimingExpressions/EventChain">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/EventChain/stimulus"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/EventChain/response"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference tadl2.ecore#//TimingExpressions/EventChain/segment"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

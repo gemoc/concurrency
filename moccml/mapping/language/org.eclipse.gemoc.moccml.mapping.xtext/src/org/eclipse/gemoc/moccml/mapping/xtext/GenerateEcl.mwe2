@@ -1,0 +1,201 @@
+module org.eclipse.gemoc.moccml.mapping.xtext.Ecl
+
+import org.eclipse.emf.mwe.utils.*
+import org.eclipse.ocl.examples.build.*
+import org.eclipse.ocl.examples.build.utilities.*
+import org.eclipse.ocl.examples.build.xtend.*
+import org.eclipse.xtext.generator.*
+import org.eclipse.xtext.ui.generator.*
+
+var grammarURI = "classpath:/org/eclipse/gemoc/moccml/mapping/xtext/Ecl.xtext"
+var file.extensions = "ecl"
+var projectName = "org.eclipse.gemoc.moccml.mapping.xtext"
+var runtimeProject = "../${projectName}"
+
+Workflow {
+	bean = StandaloneSetup {
+		scanClassPath  = true
+		platformUri = "${runtimeProject}/../../.."
+//		
+//		uriMap = {
+//			from = "platform:/plugin/org.eclipse.ocl.examples.pivot/model/Pivot.ecore"
+//			to = "platform:/resource/org.eclipse.ocl.examples.pivot/model/Pivot.ecore"
+//		}
+//		uriMap = {
+//			from = "platform:/plugin/org.eclipse.ocl.examples.xtext.base/model/BaseCS.ecore"
+//			to = "platform:/resource/org.eclipse.ocl.examples.xtext.base/model/BaseCS.ecore"
+//		}
+//		uriMap = {
+//			from = "platform:/plugin/org.eclipse.ocl.examples.xtext.essentialocl/model/EssentialOCLCS.ecore"
+//			to = "platform:/resource/org.eclipse.ocl.examples.xtext.essentialocl/model/EssentialOCLCS.ecore"
+//		}
+//		uriMap = {
+//			from = "platform:/plugin/org.eclipse.ocl.examples.xtext.completeocl/model/CompleteOCLCS.ecore"
+//			to = "platform:/resource/org.eclipse.ocl.examples.xtext.completeocl/model/CompleteOCLCS.ecore"
+//		}
+//		uriMap = {
+//			from = "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/model/TimeModel.ecore"
+//			to = "platform:/resource/fr.inria.aoste.timesquare.ccslkernel.model/model/TimeModel.ecore"
+//		}
+//		uriMap = {
+//			from = "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/model/TimeModel.ecore"
+//			to = "platform:/resource/fr.inria.aoste.timesquare.ccslkernel.model/model/TimeModel.ecore"
+//		}
+//		uriMap = {
+//			from = "platform:/resource/fr.inria.aoste.timesquare.ccslkernel.model/model/TimeModel.ecore"
+//			to = "/home/jdeanton/boulot/recherche/Marte/eclipse/t2@forge/trunk/timesquare/core/ccslkernel/model/fr.inria.aoste.timesquare.ccslkernel.model/model/TimeModel.ecore"
+//		}
+//	uriMap = {
+//			from = "platform:/plugin/org.eclipse.uml2.uml/model/UML.ecore"
+//			to = "platform:/resource/org.eclipse.uml2.uml/model/UML.ecore"
+//		}
+		
+//		registerEcoreFile = "platform:/resource/org.eclipse.ocl.pivot/model/Pivot.ecore"
+//		registerEcoreFile = "platform:/resource/org.eclipse.ocl.xtext.base/model/BaseCS.ecore"
+//		registerEcoreFile = "platform:/resource/org.eclipse.ocl.xtext.essentialocl/model/EssentialOCLCS.ecore"
+//		registerEcoreFile = "platform:/resource/org.eclipse.ocl.xtext.completeocl/model/CompleteOCLCS.ecore"
+//		registerEcoreFile = "platform:/resource/fr.inria.aoste.timesquare.ccslkernel.model/model/TimeModel.ecore"
+//		registerEcoreFile = "platform:/resource/org.eclipse.gemoc.moccml.mapping/model/ecl.ecore"
+//		registerEcoreFile = "platform:/resource/org.eclipse.uml2.uml/model/UML.ecore"
+//		
+//		registerGeneratedEPackage = "org.eclipse.ocl.pivot.PivotPackage"
+//		registerGeneratedEPackage = "org.eclipse.ocl.xtext.basecs.BaseCSPackage"
+//		registerGeneratedEPackage = "org.eclipse.ocl.xtext.essentialoclcs.EssentialOCLCSPackage"
+//		registerGeneratedEPackage = "org.eclipse.ocl.xtext.completeoclcs.CompleteOCLCSPackage"
+//		registerGeneratedEPackage = "fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.TimeModelPackage"
+		registerGeneratedEPackage = "org.eclipse.gemoc.moccml.mapping.moccml_mapping.MoCCMLmappingPackage"
+//
+//		registerGenModelFile = "platform:/resource/org.eclipse.ocl.pivot/model/Pivot.genmodel"
+//		registerGenModelFile = "platform:/resource/org.eclipse.ocl.xtext.base/model/BaseCS.genmodel"
+//		registerGenModelFile = "platform:/resource/org.eclipse.ocl.xtext.essentialocl/model/EssentialOCLCS.genmodel"
+//		registerGenModelFile = "platform:/resource/org.eclipse.ocl.xtext.completeocl/model/CompleteOCLCS.genmodel"
+//		registerGenModelFile = "platform:/resource/fr.inria.aoste.timesquare.ccslkernel.model/model/TimeModel.genmodel"
+//		registerGenModelFile = "/home/jdeanton/boulot/recherche/Marte/CCSL_metaSpec/srcECL/ECL/language/org.eclipse.gemoc.moccml.mapping/model/ecl.genmodel"
+		registerGenModelFile = "platform:/resource/org.eclipse.gemoc.moccml.mapping/model/moccml_mapping.genmodel"
+	}
+
+	component = DirectoryCleaner {
+		directory = "${runtimeProject}/src-gen"
+	}
+
+	component = DirectoryCleaner {
+		directory = "${runtimeProject}.ui/src-gen"
+	}
+
+	component = Generator {
+		pathRtProject = runtimeProject
+		pathUiProject = "${runtimeProject}.ui"
+		projectNameRt = projectName
+		projectNameUi = "${projectName}.ui"
+		mergeManifest = false
+		
+		language = {
+			uri = grammarURI
+			fileExtensions = file.extensions
+
+			// Java API to access grammar elements (required by several other fragments)
+			fragment = grammarAccess.GrammarAccessFragment {}
+
+// the serialization component
+fragment = serializer.SerializerFragment {}
+
+// a custom ResourceFactory for use with EMF
+fragment = resourceFactory.ResourceFactoryFragment {
+fileExtensions = file.extensions
+}
+
+// the following fragment tries to use the Antlr Generator fragment which can be installed via update manager from http://download.itemis.com/updates/
+// fragment = de.itemis.xtext.antlr.XtextAntlrGeneratorFragment {
+// options = { backtrack = true classSplitting = true }
+// }
+fragment = parser.antlr.XtextAntlrGeneratorFragment {
+options = { backtrack = true classSplitting = true }
+antlrParam = "-Xconversiontimeout" antlrParam = "10000"
+}
+
+// check-based API for validation
+/*
+fragment = validation.CheckFragment {}
+*/
+
+// java-based API for validation
+fragment = validation.JavaValidatorFragment {
+                composedCheck = "org.eclipse.xtext.validation.ImportUriValidator"
+// composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
+            }
+            
+// scoping and exporting API
+
+fragment = scoping.ImportURIScopingFragment {}
+fragment = exporting.SimpleNamesFragment {}
+
+
+// scoping and exporting API
+fragment = scoping.ImportNamespacesScopingFragment {}
+fragment = exporting.QualifiedNamesFragment {}
+
+// formatter API
+fragment = formatting.FormatterFragment {}
+
+// labeling API
+fragment = labeling.LabelProviderFragment {}
+
+// outline API
+// fragment = outline.TransformerFragment {}
+// fragment = outline.OutlineNodeAdapterFactoryFragment {}
+fragment = outline.OutlineTreeProviderFragment {}
+fragment = outline.QuickOutlineFragment {}
+
+// java-based API for content assistance
+fragment = contentAssist.JavaBasedContentAssistFragment {}
+
+// fragment = de.itemis.xtext.antlr.XtextAntlrGeneratorFragment {
+// options = { backtrack = true classSplitting = true}
+// }
+fragment = parser.antlr.XtextAntlrUiGeneratorFragment {
+options = { backtrack = true classSplitting = true}
+antlrParam = "-Xconversiontimeout" antlrParam = "10000"
+}
+
+fragment = builder.BuilderIntegrationFragment {}
+
+// project wizard (optional)
+/*
+fragment = projectWizard.SimpleProjectWizardFragment {
+generatorProjectName = "${projectName}.generator"
+modelFileExtension = file.extensions
+}
+*/
+
+// quickfix API
+fragment = quickfix.QuickfixProviderFragment {}
+
+// EssentialOCL bindings
+fragment = fragments.EssentialOCLFragment{}
+// Support Markup in Hover text
+fragment = fragments.MarkupHoverFragment {} 
+// Support compatibility stuff
+//fragment = fragments.CompatibilityFragment {} 
+		}
+	}
+	
+	
+//	component = org.eclipse.ocl.examples.build.fragments.GenerateGrammarXtend {
+//		javaFolder = "${runtimeProject}/src-gen"
+//		javaPackageName = "${projectName}"
+//		grammarFileStem = "CompleteOCL"
+//	}
+//	component = org.eclipse.ocl.examples.build.utilities.BackportToXtext_2_3_1 {
+//		directory = "${runtimeProject}/src-gen"
+//	}
+//	component = org.eclipse.ocl.examples.build.utilities.BackportToXtext_2_3_1 {
+//		directory = "${runtimeProject}.ui/src-gen"
+//	}
+//	component = org.eclipse.ocl.examples.build.utilities.ConvertToUnixLineEndings {
+//		directory = "${runtimeProject}/src-gen"
+//	}
+//	component = org.eclipse.ocl.examples.build.utilities.ConvertToUnixLineEndings {
+//		directory = "${runtimeProject}.ui/src-gen"
+//	}
+	
+}

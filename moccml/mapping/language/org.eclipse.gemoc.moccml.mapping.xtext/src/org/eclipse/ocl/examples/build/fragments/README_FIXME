@@ -1,0 +1,3 @@
+This package comes from org.eclipse.ocl.examples.build
+
+It is a pure copy without modification because the build is not in the distribution. It is not used during runtime, only to compile the Xtext file...

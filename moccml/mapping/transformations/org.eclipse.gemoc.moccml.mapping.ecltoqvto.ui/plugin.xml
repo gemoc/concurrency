@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            id="org.eclipse.gemoc.moccml.mapping.ecltoqvto.ui.contribution1"
+            nameFilter="*.ecl"
+            objectClass="org.eclipse.core.resources.IFile">
+         <menu
+               label="ECL"
+               path="additions"
+               id="org.eclipse.gemoc.moccml.mapping.ecltoqvto.ui.menu1">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               label="translate Ecl to QVTo"
+               class="org.eclipse.gemoc.moccml.mapping.ecltoqvto.ui.popup.actions.EclToQvtoTranslator"
+               menubarPath="org.eclipse.gemoc.moccml.mapping.ecltoqvto.ui.menu1/group1"
+               enablesFor="1"
+               id="org.eclipse.gemoc.moccml.mapping.ecltoqvto.ui.newAction">
+         </action>
+      </objectContribution>
+   </extension>
+
+</plugin>

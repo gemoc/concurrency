@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ecl -->
+      <package
+            uri="http://org.eclipse.gemoc.moccml.mapping"
+            class="org.eclipse.gemoc.moccml.mapping.ecl.ECLPackage"
+            genModel="model/moccml_mapping.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated moccml_mapping -->
+      <package
+            uri="http://org.eclipse.gemoc.moccml.mapping"
+            class="org.eclipse.gemoc.moccml.mapping.moccml_mapping.MoCCMLmappingPackage"
+            genModel="model/moccml_mapping.genmodel"/>
+   </extension>
+
+</plugin>

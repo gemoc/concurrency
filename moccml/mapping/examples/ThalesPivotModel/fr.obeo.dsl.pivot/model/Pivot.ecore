@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="pivot" nsURI="http://www.obeo.fr/dsl/pivot/1.0.0" nsPrefix="pivot">
+  <eClassifiers xsi:type="ecore:EClass" name="Source" eSuperTypes="#//Stimuli">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Represents an input stimuli"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A periodic or sporadic source references a fragment but a jitter references no fragment"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fragment" lowerBound="1"
+        eType="#//Fragment" eOpposite="#//Fragment/source"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Sink" eSuperTypes="#//Stimuli">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Represents an output stimuli"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fragment" lowerBound="1"
+        eType="#//Fragment" eOpposite="#//Fragment/sink"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="chain" lowerBound="1" eType="#//Chain"
+        eOpposite="#//Chain/sink"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HwResource" eSuperTypes="#//NamedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Represents Computing resources (CPU) in the system"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="schedulingPolicy" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="frequencyFactor" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" upperBound="-1"
+        eType="#//Task" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="delay" lowerBound="1" eType="#//Duration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="swschedulableresources"
+        upperBound="-1" eType="#//SwSchedulableResource" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="#//NamedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Represents a task in the system"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="priority" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="schedulingIndex" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fragments" upperBound="-1"
+        eType="#//Fragment" eOpposite="#//Fragment/task"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Chain" eSuperTypes="#//NamedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Represents a list of chained fragment from a source (input stilmuli) to a sink (output stimuli)"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sink" lowerBound="1" eType="#//Sink"
+        eOpposite="#//Sink/chain"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+        eType="#//Source"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Fragment" eSuperTypes="#//NamedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Represents a part of an operation withour any message sending"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="time" lowerBound="1" eType="#//Interval"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="index" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="criticalSection" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sink" eType="#//Sink" eOpposite="#//Sink/fragment"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Source"
+        eOpposite="#//Source/fragment"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="previousFragment" eType="#//Fragment"
+        eOpposite="#//Fragment/nextFragments"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nextFragments" upperBound="-1"
+        eType="#//Fragment" eOpposite="#//Fragment/previousFragment"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="1" eType="#//Task"
+        eOpposite="#//Task/fragments"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BusComm" eSuperTypes="#//NamedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Represents the communication delay betwenn two hardware resources"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="2"
+        upperBound="-1" eType="#//HwResource"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="delay" lowerBound="1" eType="#//Duration"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="System" eSuperTypes="#//NamedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Represents the system to analyse"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hwResources" upperBound="-1"
+        eType="#//HwResource" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bus" upperBound="-1" eType="#//BusComm"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sources" upperBound="-1"
+        eType="#//Source" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sinks" upperBound="-1"
+        eType="#//Sink" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fragments" upperBound="-1"
+        eType="#//Fragment" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="chains" upperBound="-1"
+        eType="#//Chain" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Interval" instanceClassName="fr.obeo.dsl.pivot.datatype.Interval"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Stimuli" abstract="true" eSuperTypes="#//NamedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Represents the input/outpu stimuli of the system. A stimuli can reference one other stimuli of type jitter."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//ActivationType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" lowerBound="1"
+        eType="#//Duration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="jitter" lowerBound="1"
+        eType="#//Jitter" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ActivationType">
+    <eLiterals name="Periodic"/>
+    <eLiterals name="Sporadic"/>
+    <eLiterals name="Jitter"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Jitter" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" lowerBound="1"
+        eType="#//Duration"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Duration" instanceClassName="fr.obeo.dsl.pivot.datatype.Duration"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SwSchedulableResource" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="delay" lowerBound="1" eType="#//Duration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" upperBound="-1"
+        eType="#//Task"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.eclipse.gemoc.moccml.mapping.ecltoqvto;bundle-version="1.0.0",
+ org.eclipse.acceleo.engine;bundle-version="3.3.0",
+ fr.inria.aoste.timesquare.ccslkernel.parser.xtext,
+ org.eclipse.xtext,
+ org.eclipse.gemoc.moccml.mapping.xtext
+Bundle-Vendor: Aoste Inria/I3S
+Bundle-ActivationPolicy: lazy
+Bundle-Version: 1.0.0.qualifier
+Bundle-Name: ecl to qvto ui
+Bundle-Activator: org.eclipse.gemoc.moccml.mapping.ecltoqvto.ui.Activator
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.eclipse.gemoc.moccml.mapping.ecltoqvto.ui;singleton:=true
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6,JavaSE-1.7
+
+

@@ -1,0 +1,246 @@
+import fr.inria.aoste.timesquare.ecl.EclQVToHelper;
+
+	
+modeltype Ecore uses 'http://www.eclipse.org/emf/2002/Ecore';
+//modeltype pivot uses 'http://www.eclipse.org/ocl/3.1.0/Pivot';
+	   
+modeltype inMM uses 'http://www.eclipse.org/uml2/4.0.0/UML';
+modeltype QVT uses 'http://www.eclipse.org/QVT/1.0.0/Operational';//http://www.eclipse.org/m2m/qvt/oml/1.0.0/Stdlib';//http://www.eclipse.org/qvt/1.0/ImperativeOCL'; 
+modeltype TimeModel uses 'http://fr.inria.aoste.timemodel';
+
+	
+
+transformation doUML_To_CCSL(in inM : inMM, out TimeModel);
+
+property theCCSLSpec			:TimeModel::CCSLModel::ClockConstraintSystem = null;
+property theMainBlock			:TimeModel::CCSLModel::Block				 = null;
+
+property Kernel_Integer 	: TimeModel::BasicType::Type		= null;
+property Kernel_Clock_Type 	: TimeModel::BasicType::Type		= null;
+
+property seqOfRelationDeclaration :	Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::RelationDeclaration)    = Sequence{};
+property seqOfAbstractEntity :		Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)    = Sequence{};
+property seqOfExpressionDeclaration :	Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::ExpressionDeclaration)    = Sequence{};
+
+
+query identifyUserRelations() {
+	var kernelTypes :  	Sequence(TimeModel::BasicType::Type) := Sequence{};
+	seqOfRelationDeclaration		+= getLibObjects("platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib")[TimeModel::CCSLModel::ClockExpressionAndRelation::RelationDeclaration];
+	seqOfAbstractEntity				+= getLibObjects("platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib")[TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity];
+	seqOfExpressionDeclaration		+= getLibObjects("platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib")[TimeModel::CCSLModel::ClockExpressionAndRelation::ExpressionDeclaration];
+	kernelTypes 					+= getLibObjects("platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib")[TimeModel::BasicType::Type];
+	seqOfRelationDeclaration		+= getLibObjects("platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib")[TimeModel::CCSLModel::ClockExpressionAndRelation::RelationDeclaration];
+	seqOfAbstractEntity				+= getLibObjects("platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib")[TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity];
+	seqOfExpressionDeclaration		+= getLibObjects("platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib")[TimeModel::CCSLModel::ClockExpressionAndRelation::ExpressionDeclaration];
+	kernelTypes 					+= getLibObjects("platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib")[TimeModel::BasicType::Type];
+	seqOfRelationDeclaration		+= getLibObjects("./lib4RT.ccslLib")[TimeModel::CCSLModel::ClockExpressionAndRelation::RelationDeclaration];
+	seqOfAbstractEntity				+= getLibObjects("./lib4RT.ccslLib")[TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity];
+	seqOfExpressionDeclaration		+= getLibObjects("./lib4RT.ccslLib")[TimeModel::CCSLModel::ClockExpressionAndRelation::ExpressionDeclaration];
+	kernelTypes 					+= getLibObjects("./lib4RT.ccslLib")[TimeModel::BasicType::Type];
+
+	Kernel_Integer 					:= kernelTypes[name='int']->asSequence()->first();
+	Kernel_Clock_Type				:= kernelTypes[name='clock']->asSequence()->first();	
+	return;
+}
+
+
+//usefull function :)
+	mapping Real::Real2Integer(n: String) :TimeModel::BasicType::IntegerElement {
+		name:= n;
+		type:= Kernel_Integer;
+		value := self.round();
+
+		end{
+			theMainBlock.elements += result;
+		}
+	}
+
+main() {
+	identifyUserRelations();
+	inM.rootObjects()[inMM::Package]->asSequence()->first()-> map uml2CCSL();
+	}
+
+			
+			
+
+	mapping inMM::Package::uml2CCSL() : TimeModel::CCSLModel::ClockConstraintSystem {
+	    theCCSLSpec := result;
+	    name := self.name;
+	    theMainBlock :=object TimeModel::CCSLModel::Block{
+	    	name := "mainBlock";
+	    };
+	    subBlock += theMainBlock;
+	    result.superBlock := theMainBlock;
+
+		imports+= object TimeModel::ImportStatement{
+			importURI := 'platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib';
+			alias := 'kernel';
+			
+		}; 
+		imports+= object TimeModel::ImportStatement{
+			importURI := 'platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib';
+			alias := 'CCSL';
+			
+		}; 
+		imports+= object TimeModel::ImportStatement{
+			importURI := './lib4RT.ccslLib';
+			alias := 'lib4RT';
+			
+		}; 
+	
+		imports+= object TimeModel::ImportStatement{
+			importURI := getModelPath(inM.rootObjects()->asSequence()->first().oclAsType(EObject));
+			alias := getModelAlias(inM.rootObjects()->asSequence()->first().oclAsType(EObject));
+			
+		};
+
+		
+
+		inM.rootObjects().allSubobjects()->including(self)[ Interaction ]->map interactionEvent2Clock();
+		
+
+
+		
+
+		inM.rootObjects().allSubobjects()->including(self)[ OccurrenceSpecification ]->map occurrence2Clock();
+		
+
+
+		
+		inM.rootObjects().allSubobjects()->including(self)[ OccurrenceSpecification ]->map beforeAlternativeMessages1482beforeAlternativeMessages();
+		
+		
+		inM.rootObjects().allSubobjects()->including(self)[ OccurrenceSpecification ]->map afterAlternativeMessages1482afterAlternativeMessages();
+		
+	}
+
+
+
+
+
+//create the expressions...
+
+
+
+
+	 	mapping inMM::Interaction::interactionEvent2Clock() :TimeModel::Clock 
+		{
+			name:= self.name+'_interactionEvent';
+			
+			tickingEvent := object TimeModel::Event{
+ 				referencedObjectRefs += self.oclAsType(EObject);
+				name := 'evt_'+self.name+'_interactionEvent';
+				kind := TimeModel::EventKind::undefined;
+						
+			};
+			type:= Kernel_Clock_Type;
+
+			end{
+				theMainBlock.elements += result;
+			}
+		}
+
+//relation stuff		
+	 	mapping inMM::OccurrenceSpecification::occurrence2Clock() :TimeModel::Clock 
+		{
+			name:= self.name+'_occurrence';
+			
+			tickingEvent := object TimeModel::Event{
+ 				referencedObjectRefs += self.oclAsType(EObject);
+				name := 'evt_'+self.name+'_occurrence';
+				kind := TimeModel::EventKind::undefined;
+						
+			};
+			type:= Kernel_Clock_Type;
+
+			end{
+				theMainBlock.elements += result;
+			}
+		}
+
+//relation stuff		
+	
+		mapping inMM::OccurrenceSpecification::beforeAlternativeMessages1482beforeAlternativeMessages(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+			when { 
+			  let lifeline : Lifeline = self.covered->asSequence()->first().oclAsType(Lifeline) in
+			  let fragments : OrderedSet(uml::InteractionFragment) = lifeline.interaction.fragment in
+			  let someFragments : OrderedSet(uml::InteractionFragment) = fragments->select(n|n.oclIsKindOf(InteractionFragment) and not n.oclIsKindOf(BehaviorExecutionSpecification) and n.covered->includes(lifeline)) in
+			  let i:Integer = someFragments->asSequence()->indexOf(self) in
+				(if(not (fragments->includes(self))) then false
+           	else if (someFragments->asSequence()->last() = self) then false
+          	       else if (not (someFragments->asSequence()->at(i+1).oclIsKindOf(CombinedFragment))) then false
+            	    else if (not (someFragments->asSequence()->at(i+1).oclAsType(CombinedFragment).interactionOperator = InteractionOperatorKind::alt)) then false
+           	        else if (not (someFragments->at(i+1).oclAsType(CombinedFragment).operand->size()=2)) then false   	
+           else true endif endif endif endif endif
+           
+           ) 
+				
+}
+		{
+		 	name := self.name+"OptionalAfter_beforeAlternativeMessages";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "OptionalAfter")->first();
+					var lifeline : Lifeline := self.covered->asSequence()->first().oclAsType(Lifeline);
+					var fragments : OrderedSet(uml::InteractionFragment) := lifeline.interaction.fragment;
+					var someFragments : OrderedSet(uml::InteractionFragment) := fragments->select(n|n.oclIsKindOf(InteractionFragment) and not n.oclIsKindOf(BehaviorExecutionSpecification) and n.covered->includes(lifeline));
+					var i : Integer := someFragments->asSequence()->indexOf(self);
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = self.name+'_occurrence']->first();
+					_abstract := seqOfAbstractEntity[name = 'FirstClock']->first();
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = someFragments->at(i+1).oclAsType(CombinedFragment).operand->asSequence()->first().fragment->
+           		                  select(n| fragments->select(m|m.oclIsKindOf(Message))->select(m|m.oclAsType(Message)._'sendEvent' = n)->size()>0 )->asSequence()->first().name+'_occurrence']->first();
+					_abstract := seqOfAbstractEntity[name = 'OptionalClock1']->first();
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = someFragments->asSequence()->at(i+1).oclAsType(CombinedFragment).operand->asSequence()->last().fragment->
+           		                  select(n| fragments->select(m|m.oclIsKindOf(Message))->select(m|m.oclAsType(Message)._'sendEvent' = n)->size()>0 )->asSequence()->first().name+'_occurrence']->first();
+					_abstract := seqOfAbstractEntity[name = 'OptionalClock2']->first();
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+	
+		mapping inMM::OccurrenceSpecification::afterAlternativeMessages1482afterAlternativeMessages(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+			when { 
+			  let lifeline : Lifeline = self.covered->asSequence()->first().oclAsType(Lifeline) in
+			  let fragments : OrderedSet(uml::InteractionFragment) = lifeline.interaction.fragment in
+			  let someFragments : OrderedSet(uml::InteractionFragment) = fragments->select(n|n.oclIsKindOf(InteractionFragment) and not n.oclIsKindOf(BehaviorExecutionSpecification) and n.covered->includes(lifeline)) in
+			  let i:Integer = someFragments->asSequence()->indexOf(self) in
+				(if(not (fragments->includes(self))) then false
+               else if (someFragments->asSequence()->first() = self) then false
+                     else if (not (someFragments->asSequence()->at(i-1).oclIsKindOf(CombinedFragment))) then false
+                       else if (not (someFragments->asSequence()->at(i-1).oclAsType(CombinedFragment).interactionOperator = InteractionOperatorKind::alt)) then false
+                         else if (not (someFragments->at(i-1).oclAsType(CombinedFragment).operand->size()=2)) then false    
+          else true endif endif endif endif endif
+
+          ) 
+				
+}
+		{
+		 	name := self.name+"OptionalBefore_afterAlternativeMessages";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "OptionalBefore")->first();
+					var lifeline : Lifeline := self.covered->asSequence()->first().oclAsType(Lifeline);
+					var fragments : OrderedSet(uml::InteractionFragment) := lifeline.interaction.fragment;
+					var someFragments : OrderedSet(uml::InteractionFragment) := fragments->select(n|n.oclIsKindOf(InteractionFragment) and not n.oclIsKindOf(BehaviorExecutionSpecification) and n.covered->includes(lifeline));
+					var i : Integer := someFragments->asSequence()->indexOf(self);
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = self.name+'_occurrence']->first();
+					_abstract := seqOfAbstractEntity[name = 'FirstClock']->first();
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = someFragments->at(i-1).oclAsType(CombinedFragment).operand->asSequence()->first().fragment->
+           		                  select(n| fragments->select(m|m.oclIsKindOf(Message))->select(m|m.oclAsType(Message)._'receiveEvent' = n)->size()>0 )->asSequence()->first().name+'_occurrence']->first();
+					_abstract := seqOfAbstractEntity[name = 'OptionalClock1']->first();
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = someFragments->at(i-1).oclAsType(CombinedFragment).operand->asSequence()->last().fragment->
+           		                  select(n| fragments->select(m|m.oclIsKindOf(Message))->select(m|m.oclAsType(Message)._'receiveEvent' = n)->size()>0 )->asSequence()->first().name+'_occurrence']->first();
+					_abstract := seqOfAbstractEntity[name = 'OptionalClock2']->first();
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+

@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:eastLight="http://fr.inria.aoste.gemoc.eastadl" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML">
+  <uml:Model xmi:id="_ILGW8HxVEeKvh9b_OM2sEQ" name="Model">
+    <packageImport xmi:id="_ILGW8XxVEeKvh9b_OM2sEQ">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Class" xmi:id="_CASoQHxaEeK5uZh6TngEPw" name="FunctionalArchitecture">
+      <ownedAttribute xmi:id="_GAJJAHxaEeK5uZh6TngEPw" name="brakePedalSensor" visibility="public" type="_EDcy0HxaEeK5uZh6TngEPw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gE34YHxpEeKVDOjYFBpnyg" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gE5GgHxpEeKVDOjYFBpnyg" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_gE6UoHxpEeKVDOjYFBpnyg">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_h7bXEHx5EeK3kO62KGyfFQ" name="brakeTorqueCalculator" type="_H8o50Hx5EeK3kO62KGyfFQ"/>
+      <ownedAttribute xmi:id="_6QuhEH61EeKVNJm0wuMs1A" name="globalBrakeController" type="_o_fmoH6xEeKVNJm0wuMs1A"/>
+      <ownedAttribute xmi:id="_ESObMH62EeKVNJm0wuMs1A" name="frontLeftWheelSpeedSensor" type="_o5Ve0H6yEeKVNJm0wuMs1A"/>
+      <ownedAttribute xmi:id="_fodMgH62EeKVNJm0wuMs1A" name="frontLeftABSSat" type="_GmbZ0H6zEeKVNJm0wuMs1A"/>
+      <ownedAttribute xmi:id="_4auzUH62EeKVNJm0wuMs1A" name="frontLeftBrake" type="_prllsH6zEeKVNJm0wuMs1A"/>
+      <ownedAttribute xmi:id="_7XJPMH64EeKVNJm0wuMs1A" name="frontRightWheelSpeedSensor" type="_o5Ve0H6yEeKVNJm0wuMs1A"/>
+      <ownedAttribute xmi:id="_7_MGoH64EeKVNJm0wuMs1A" name="rearLeftWheelSpeedSensor" type="_o5Ve0H6yEeKVNJm0wuMs1A"/>
+      <ownedAttribute xmi:id="_8ToFkH64EeKVNJm0wuMs1A" name="rearRightWheelSpeedSensor" type="_o5Ve0H6yEeKVNJm0wuMs1A"/>
+      <ownedAttribute xmi:id="_qemdYH67EeKVNJm0wuMs1A" name="frontRightABSSat" type="_GmbZ0H6zEeKVNJm0wuMs1A"/>
+      <ownedAttribute xmi:id="_rHY7sH67EeKVNJm0wuMs1A" name="rearLeftABSSat" type="_GmbZ0H6zEeKVNJm0wuMs1A"/>
+      <ownedAttribute xmi:id="_rb0TkH67EeKVNJm0wuMs1A" name="rearRightABSSat" type="_GmbZ0H6zEeKVNJm0wuMs1A"/>
+      <ownedAttribute xmi:id="_abeQoH6-EeKVNJm0wuMs1A" name="frontRightBrake" type="_prllsH6zEeKVNJm0wuMs1A"/>
+      <ownedAttribute xmi:id="_a19NMH6-EeKVNJm0wuMs1A" name="rearLeftBrake" type="_prllsH6zEeKVNJm0wuMs1A"/>
+      <ownedAttribute xmi:id="_bUN2gH6-EeKVNJm0wuMs1A" name="rearRightBrake" type="_prllsH6zEeKVNJm0wuMs1A"/>
+      <ownedConnector xmi:id="_zM10gHx5EeK3kO62KGyfFQ" name="Connector1">
+        <end xmi:id="_zM6tAHx5EeK3kO62KGyfFQ" partWithPort="_h7bXEHx5EeK3kO62KGyfFQ" role="_H8o50nx5EeK3kO62KGyfFQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zM6tAXx5EeK3kO62KGyfFQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zM6tAnx5EeK3kO62KGyfFQ" value="1"/>
+        </end>
+        <end xmi:id="_zM6tA3x5EeK3kO62KGyfFQ" partWithPort="_GAJJAHxaEeK5uZh6TngEPw" role="_WDa_YHxaEeK5uZh6TngEPw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zM6tBHx5EeK3kO62KGyfFQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zM6tBXx5EeK3kO62KGyfFQ" value="1"/>
+        </end>
+      </ownedConnector>
+      <ownedConnector xmi:id="_V7h-wH63EeKVNJm0wuMs1A" name="Connector2">
+        <end xmi:id="_V7il0H63EeKVNJm0wuMs1A" partWithPort="_ESObMH62EeKVNJm0wuMs1A" role="_sHVE0H6yEeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V7il0X63EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V7il0n63EeKVNJm0wuMs1A" value="1"/>
+        </end>
+        <end xmi:id="_V7jM4H63EeKVNJm0wuMs1A" partWithPort="_6QuhEH61EeKVNJm0wuMs1A" role="_0dq6IH6xEeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V7jM4X63EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V7jM4n63EeKVNJm0wuMs1A" value="1"/>
+        </end>
+      </ownedConnector>
+      <ownedConnector xmi:id="_XWsVMH63EeKVNJm0wuMs1A" name="Connector3">
+        <end xmi:id="_XWsVMX63EeKVNJm0wuMs1A" partWithPort="_6QuhEH61EeKVNJm0wuMs1A" role="_2AW04H6xEeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XWsVMn63EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XWsVM363EeKVNJm0wuMs1A" value="1"/>
+        </end>
+        <end xmi:id="_XWs8QH63EeKVNJm0wuMs1A" partWithPort="_fodMgH62EeKVNJm0wuMs1A" role="_Og3g0H6zEeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XWs8QX63EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XWs8Qn63EeKVNJm0wuMs1A" value="1"/>
+        </end>
+      </ownedConnector>
+      <ownedConnector xmi:id="_YX1pIH63EeKVNJm0wuMs1A" name="Connector4">
+        <end xmi:id="_YX2QMH63EeKVNJm0wuMs1A" partWithPort="_6QuhEH61EeKVNJm0wuMs1A" role="_RIaK0H6zEeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YX2QMX63EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YX2QMn63EeKVNJm0wuMs1A" value="1"/>
+        </end>
+        <end xmi:id="_YX23QH63EeKVNJm0wuMs1A" partWithPort="_fodMgH62EeKVNJm0wuMs1A" role="_WozRQH6zEeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YX23QX63EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YX23Qn63EeKVNJm0wuMs1A" value="1"/>
+        </end>
+      </ownedConnector>
+      <ownedConnector xmi:id="_bRv1gH63EeKVNJm0wuMs1A" name="Connector5">
+        <end xmi:id="_bRv1gX63EeKVNJm0wuMs1A" partWithPort="_ESObMH62EeKVNJm0wuMs1A" role="_sHVE0H6yEeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bRv1gn63EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bRv1g363EeKVNJm0wuMs1A" value="1"/>
+        </end>
+        <end xmi:id="_bRv1hH63EeKVNJm0wuMs1A" partWithPort="_fodMgH62EeKVNJm0wuMs1A" role="_hpc7QH6zEeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bRv1hX63EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bRv1hn63EeKVNJm0wuMs1A" value="1"/>
+        </end>
+      </ownedConnector>
+      <ownedConnector xmi:id="_xCLb8H63EeKVNJm0wuMs1A" name="Connector6">
+        <end xmi:id="_xCLb8X63EeKVNJm0wuMs1A" partWithPort="_fodMgH62EeKVNJm0wuMs1A" role="_l8alQH6zEeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xCLb8n63EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xCLb8363EeKVNJm0wuMs1A" value="1"/>
+        </end>
+        <end xmi:id="_xCLb9H63EeKVNJm0wuMs1A" partWithPort="_4auzUH62EeKVNJm0wuMs1A" role="_6tN6sH6zEeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xCLb9X63EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xCLb9n63EeKVNJm0wuMs1A" value="1"/>
+        </end>
+      </ownedConnector>
+      <ownedConnector xmi:id="_8HPr4H63EeKVNJm0wuMs1A" name="Connector7">
+        <end xmi:id="_8HQS8H63EeKVNJm0wuMs1A" partWithPort="_h7bXEHx5EeK3kO62KGyfFQ" role="_H8o50Xx5EeK3kO62KGyfFQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8HQS8X63EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8HQS8n63EeKVNJm0wuMs1A" value="1"/>
+        </end>
+        <end xmi:id="_8HQS8363EeKVNJm0wuMs1A" partWithPort="_6QuhEH61EeKVNJm0wuMs1A" role="_1VfS8H6xEeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8HQS9H63EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8HQS9X63EeKVNJm0wuMs1A" value="1"/>
+        </end>
+      </ownedConnector>
+      <ownedConnector xmi:id="_yCds4H66EeKVNJm0wuMs1A" name="Connector8">
+        <end xmi:id="_yCeT8H66EeKVNJm0wuMs1A" partWithPort="_7XJPMH64EeKVNJm0wuMs1A" role="_sHVE0H6yEeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_yCeT8X66EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_yCeT8n66EeKVNJm0wuMs1A" value="1"/>
+        </end>
+        <end xmi:id="_yCeT8366EeKVNJm0wuMs1A" partWithPort="_6QuhEH61EeKVNJm0wuMs1A" role="__JqpIH65EeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_yCeT9H66EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_yCeT9X66EeKVNJm0wuMs1A" value="1"/>
+        </end>
+      </ownedConnector>
+      <ownedConnector xmi:id="_y-0ncH66EeKVNJm0wuMs1A" name="Connector9">
+        <end xmi:id="_y-0ncX66EeKVNJm0wuMs1A" partWithPort="_7_MGoH64EeKVNJm0wuMs1A" role="_sHVE0H6yEeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_y-0ncn66EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_y-0nc366EeKVNJm0wuMs1A" value="1"/>
+        </end>
+        <end xmi:id="_y-0ndH66EeKVNJm0wuMs1A" partWithPort="_6QuhEH61EeKVNJm0wuMs1A" role="_FE2OIH66EeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_y-0ndX66EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_y-0ndn66EeKVNJm0wuMs1A" value="1"/>
+        </end>
+      </ownedConnector>
+      <ownedConnector xmi:id="_zxkTAH66EeKVNJm0wuMs1A" name="Connector10">
+        <end xmi:id="_zxk6EH66EeKVNJm0wuMs1A" partWithPort="_8ToFkH64EeKVNJm0wuMs1A" role="_sHVE0H6yEeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zxk6EX66EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zxk6En66EeKVNJm0wuMs1A" value="1"/>
+        </end>
+        <end xmi:id="_zxk6E366EeKVNJm0wuMs1A" partWithPort="_6QuhEH61EeKVNJm0wuMs1A" role="_DQ9OoH66EeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zxk6FH66EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zxk6FX66EeKVNJm0wuMs1A" value="1"/>
+        </end>
+      </ownedConnector>
+      <ownedConnector xmi:id="_8R_KAH68EeKVNJm0wuMs1A" name="Connector11">
+        <end xmi:id="_8R_xEH68EeKVNJm0wuMs1A" partWithPort="_6QuhEH61EeKVNJm0wuMs1A" role="_E7u48H67EeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8R_xEX68EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8R_xEn68EeKVNJm0wuMs1A" value="1"/>
+        </end>
+        <end xmi:id="_8R_xE368EeKVNJm0wuMs1A" partWithPort="_rHY7sH67EeKVNJm0wuMs1A" role="_Og3g0H6zEeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8R_xFH68EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8R_xFX68EeKVNJm0wuMs1A" value="1"/>
+        </end>
+      </ownedConnector>
+      <ownedConnector xmi:id="_9mKHoH68EeKVNJm0wuMs1A" name="Connector12">
+        <end xmi:id="_9mKusH68EeKVNJm0wuMs1A" partWithPort="_6QuhEH61EeKVNJm0wuMs1A" role="_Fkx18H67EeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9mKusX68EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9mKusn68EeKVNJm0wuMs1A" value="1"/>
+        </end>
+        <end xmi:id="_9mKus368EeKVNJm0wuMs1A" partWithPort="_rb0TkH67EeKVNJm0wuMs1A" role="_Og3g0H6zEeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9mKutH68EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9mKutX68EeKVNJm0wuMs1A" value="1"/>
+        </end>
+      </ownedConnector>
+      <ownedConnector xmi:id="_-yTKoH68EeKVNJm0wuMs1A" name="Connector13">
+        <end xmi:id="_-yTxsH68EeKVNJm0wuMs1A" partWithPort="_8ToFkH64EeKVNJm0wuMs1A" role="_sHVE0H6yEeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-yTxsX68EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-yTxsn68EeKVNJm0wuMs1A" value="1"/>
+        </end>
+        <end xmi:id="_-yUYwH68EeKVNJm0wuMs1A" partWithPort="_rb0TkH67EeKVNJm0wuMs1A" role="_hpc7QH6zEeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-yUYwX68EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-yUYwn68EeKVNJm0wuMs1A" value="1"/>
+        </end>
+      </ownedConnector>
+      <ownedConnector xmi:id="_DBM0AH69EeKVNJm0wuMs1A" name="Connector14">
+        <end xmi:id="_DBM0AX69EeKVNJm0wuMs1A" partWithPort="_6QuhEH61EeKVNJm0wuMs1A" role="_DGyJgH67EeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DBM0An69EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DBM0A369EeKVNJm0wuMs1A" value="1"/>
+        </end>
+        <end xmi:id="_DBM0BH69EeKVNJm0wuMs1A" partWithPort="_qemdYH67EeKVNJm0wuMs1A" role="_Og3g0H6zEeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DBM0BX69EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DBM0Bn69EeKVNJm0wuMs1A" value="1"/>
+        </end>
+      </ownedConnector>
+      <ownedConnector xmi:id="_ELvUgH69EeKVNJm0wuMs1A" name="Connector15">
+        <end xmi:id="_ELv7kH69EeKVNJm0wuMs1A" partWithPort="_6QuhEH61EeKVNJm0wuMs1A" role="_RIaK0H6zEeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ELv7kX69EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ELv7kn69EeKVNJm0wuMs1A" value="1"/>
+        </end>
+        <end xmi:id="_ELv7k369EeKVNJm0wuMs1A" partWithPort="_qemdYH67EeKVNJm0wuMs1A" role="_WozRQH6zEeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ELv7lH69EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ELv7lX69EeKVNJm0wuMs1A" value="1"/>
+        </end>
+      </ownedConnector>
+      <ownedConnector xmi:id="_FTxTkH69EeKVNJm0wuMs1A" name="Connector16">
+        <end xmi:id="_FTxTkX69EeKVNJm0wuMs1A" partWithPort="_6QuhEH61EeKVNJm0wuMs1A" role="_RIaK0H6zEeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FTxTkn69EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FTxTk369EeKVNJm0wuMs1A" value="1"/>
+        </end>
+        <end xmi:id="_FTx6oH69EeKVNJm0wuMs1A" partWithPort="_rHY7sH67EeKVNJm0wuMs1A" role="_WozRQH6zEeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FTx6oX69EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FTx6on69EeKVNJm0wuMs1A" value="1"/>
+        </end>
+      </ownedConnector>
+      <ownedConnector xmi:id="_VKetkH69EeKVNJm0wuMs1A" name="Connector17">
+        <end xmi:id="_VKfUoH69EeKVNJm0wuMs1A" partWithPort="_7XJPMH64EeKVNJm0wuMs1A" role="_sHVE0H6yEeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VKfUoX69EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VKfUon69EeKVNJm0wuMs1A" value="1"/>
+        </end>
+        <end xmi:id="_VKf7sH69EeKVNJm0wuMs1A" partWithPort="_qemdYH67EeKVNJm0wuMs1A" role="_hpc7QH6zEeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VKf7sX69EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VKf7sn69EeKVNJm0wuMs1A" value="1"/>
+        </end>
+      </ownedConnector>
+      <ownedConnector xmi:id="_gcRx8H69EeKVNJm0wuMs1A" name="Connector18">
+        <end xmi:id="_gcRx8X69EeKVNJm0wuMs1A" partWithPort="_7_MGoH64EeKVNJm0wuMs1A" role="_sHVE0H6yEeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gcRx8n69EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gcRx8369EeKVNJm0wuMs1A" value="1"/>
+        </end>
+        <end xmi:id="_gcRx9H69EeKVNJm0wuMs1A" partWithPort="_rHY7sH67EeKVNJm0wuMs1A" role="_hpc7QH6zEeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gcRx9X69EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gcRx9n69EeKVNJm0wuMs1A" value="1"/>
+        </end>
+      </ownedConnector>
+      <ownedConnector xmi:id="_ngBhgH69EeKVNJm0wuMs1A" name="Connector19">
+        <end xmi:id="_ngCIkH69EeKVNJm0wuMs1A" partWithPort="_6QuhEH61EeKVNJm0wuMs1A" role="_RIaK0H6zEeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ngCIkX69EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ngCIkn69EeKVNJm0wuMs1A" value="1"/>
+        </end>
+        <end xmi:id="_ngCvoH69EeKVNJm0wuMs1A" partWithPort="_rb0TkH67EeKVNJm0wuMs1A" role="_WozRQH6zEeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ngCvoX69EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ngCvon69EeKVNJm0wuMs1A" value="1"/>
+        </end>
+      </ownedConnector>
+      <ownedConnector xmi:id="_F4ffUH6_EeKVNJm0wuMs1A" name="Connector20">
+        <end xmi:id="_F4ffUX6_EeKVNJm0wuMs1A" partWithPort="_qemdYH67EeKVNJm0wuMs1A" role="_l8alQH6zEeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_F4ffUn6_EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_F4ffU36_EeKVNJm0wuMs1A" value="1"/>
+        </end>
+        <end xmi:id="_F4gGYH6_EeKVNJm0wuMs1A" partWithPort="_abeQoH6-EeKVNJm0wuMs1A" role="_6tN6sH6zEeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_F4gGYX6_EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_F4gGYn6_EeKVNJm0wuMs1A" value="1"/>
+        </end>
+      </ownedConnector>
+      <ownedConnector xmi:id="_Gv3MMH6_EeKVNJm0wuMs1A" name="Connector21">
+        <end xmi:id="_Gv3MMX6_EeKVNJm0wuMs1A" partWithPort="_rHY7sH67EeKVNJm0wuMs1A" role="_l8alQH6zEeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Gv3MMn6_EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Gv3MM36_EeKVNJm0wuMs1A" value="1"/>
+        </end>
+        <end xmi:id="_Gv3MNH6_EeKVNJm0wuMs1A" partWithPort="_a19NMH6-EeKVNJm0wuMs1A" role="_6tN6sH6zEeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Gv3MNX6_EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Gv3MNn6_EeKVNJm0wuMs1A" value="1"/>
+        </end>
+      </ownedConnector>
+      <ownedConnector xmi:id="_HfQo0H6_EeKVNJm0wuMs1A" name="Connector22">
+        <end xmi:id="_HfQo0X6_EeKVNJm0wuMs1A" partWithPort="_rb0TkH67EeKVNJm0wuMs1A" role="_l8alQH6zEeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HfQo0n6_EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HfQo036_EeKVNJm0wuMs1A" value="1"/>
+        </end>
+        <end xmi:id="_HfRP4H6_EeKVNJm0wuMs1A" partWithPort="_bUN2gH6-EeKVNJm0wuMs1A" role="_6tN6sH6zEeKVNJm0wuMs1A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HfRP4X6_EeKVNJm0wuMs1A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HfRP4n6_EeKVNJm0wuMs1A" value="1"/>
+        </end>
+      </ownedConnector>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_EDcy0HxaEeK5uZh6TngEPw" name="BrakePedalSensor">
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_WDa_YHxaEeK5uZh6TngEPw" name="PedalPosition" aggregation="composite"/>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_ih24MHxpEeKVDOjYFBpnyg" name="BrakePedalActionning" visibility="public" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mnScgHxpEeKVDOjYFBpnyg" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mnTDkHxpEeKVDOjYFBpnyg" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_mnWG4HxpEeKVDOjYFBpnyg">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_MMYBwHxaEeK5uZh6TngEPw" name="BrakePedalSensorTrigger"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_H8o50Hx5EeK3kO62KGyfFQ" name="BrakeTorqueCalculator">
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_H8o50Xx5EeK3kO62KGyfFQ" name="pedalPercent" aggregation="composite"/>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_H8o50nx5EeK3kO62KGyfFQ" name="pedalPosition" visibility="public" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_H8o503x5EeK3kO62KGyfFQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_H8o51Hx5EeK3kO62KGyfFQ" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_H8o51Xx5EeK3kO62KGyfFQ">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_HpthUHx6EeK3kO62KGyfFQ" name="BrakeTorqueCalculatorTrigger"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_o_fmoH6xEeKVNJm0wuMs1A" name="GlobalBrakeController">
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_0dq6IH6xEeKVNJm0wuMs1A" name="frontLeftWheel_rpm" visibility="public" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0rgh0H6xEeKVNJm0wuMs1A" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0ri-EH6xEeKVNJm0wuMs1A" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_0rmocH6xEeKVNJm0wuMs1A">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_1VfS8H6xEeKVNJm0wuMs1A" name="globalTorque" visibility="public" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1nSNkH6xEeKVNJm0wuMs1A" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1nUCwH6xEeKVNJm0wuMs1A" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_1nXGEH6xEeKVNJm0wuMs1A">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_2AW04H6xEeKVNJm0wuMs1A" name="torqFrontLeftWheel" visibility="public" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2Sj_MH6xEeKVNJm0wuMs1A" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2SmbcH6xEeKVNJm0wuMs1A" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_2SoQoH6xEeKVNJm0wuMs1A">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_RIaK0H6zEeKVNJm0wuMs1A" name="VehicleSpeed" visibility="public" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SrnqAH6zEeKVNJm0wuMs1A" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SroREH6zEeKVNJm0wuMs1A" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_Sro4IH6zEeKVNJm0wuMs1A">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="__JqpIH65EeKVNJm0wuMs1A" name="frontRightWheel_rpm" visibility="public" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CUe_UH66EeKVNJm0wuMs1A" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CUfmYH66EeKVNJm0wuMs1A" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_CUgNcH66EeKVNJm0wuMs1A">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_DQ9OoH66EeKVNJm0wuMs1A" name="rearRightWheel_rpm" visibility="public" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_EsnUUH66EeKVNJm0wuMs1A" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_EsnUUX66EeKVNJm0wuMs1A" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_Esn7YH66EeKVNJm0wuMs1A">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_FE2OIH66EeKVNJm0wuMs1A" name="rearLeftWheel_rpm" visibility="public" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HWPpAH66EeKVNJm0wuMs1A" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HWPpAX66EeKVNJm0wuMs1A" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_HWQ3IH66EeKVNJm0wuMs1A">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_DGyJgH67EeKVNJm0wuMs1A" name="torqFrontRightWheel" visibility="public" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DjO08H67EeKVNJm0wuMs1A" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DjQqIH67EeKVNJm0wuMs1A" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_DjR4QH67EeKVNJm0wuMs1A">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_E7u48H67EeKVNJm0wuMs1A" name="torqRearLeftWheel" visibility="public" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FJSMwH67EeKVNJm0wuMs1A" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FJUpAH67EeKVNJm0wuMs1A" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_FJXFQH67EeKVNJm0wuMs1A">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_Fkx18H67EeKVNJm0wuMs1A" name="torqRearRightWheel" visibility="public" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GlQbgH67EeKVNJm0wuMs1A" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GlSQsH67EeKVNJm0wuMs1A" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_GlV7EH67EeKVNJm0wuMs1A">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_hmMoYH6yEeKVNJm0wuMs1A" name="GlobalBrakeControllerTrigger"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_o5Ve0H6yEeKVNJm0wuMs1A" name="WheelSpeedSensor">
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_sHVE0H6yEeKVNJm0wuMs1A" name="speed_rpm" visibility="public" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_sZ6CkH6yEeKVNJm0wuMs1A" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_sZ6poH6yEeKVNJm0wuMs1A" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_sZ6poX6yEeKVNJm0wuMs1A">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_wNjTUH6yEeKVNJm0wuMs1A" name="WheelSpeedSensorTrigger"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_GmbZ0H6zEeKVNJm0wuMs1A" name="ABSSat">
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_Og3g0H6zEeKVNJm0wuMs1A" name="RequestedTorq" aggregation="composite"/>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_WozRQH6zEeKVNJm0wuMs1A" name="vehicleSpeed_kmph" visibility="public" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YCMtIH6zEeKVNJm0wuMs1A" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YCN7QH6zEeKVNJm0wuMs1A" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_YCPwcH6zEeKVNJm0wuMs1A">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_hpc7QH6zEeKVNJm0wuMs1A" name="wheelSpeed_rpm" visibility="public" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_i7bggH6zEeKVNJm0wuMs1A" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_i7dVsH6zEeKVNJm0wuMs1A" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_i7hAEH6zEeKVNJm0wuMs1A">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_l8alQH6zEeKVNJm0wuMs1A" name="ABSBrakeTorq" visibility="public" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nWyRgH6zEeKVNJm0wuMs1A" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nW0GsH6zEeKVNJm0wuMs1A" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_nW4YIH6zEeKVNJm0wuMs1A">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_KILCQH6zEeKVNJm0wuMs1A" name="ABSSatTrigger"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_prllsH6zEeKVNJm0wuMs1A" name="Brake">
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_6tN6sH6zEeKVNJm0wuMs1A" name="torqCmd" visibility="public" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_90TncH6zEeKVNJm0wuMs1A" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_90UOgH6zEeKVNJm0wuMs1A" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_90UOgX6zEeKVNJm0wuMs1A">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_AXiZMH60EeKVNJm0wuMs1A" name="ActuatorSignal" visibility="public" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CvS6wH60EeKVNJm0wuMs1A" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CvS6wX60EeKVNJm0wuMs1A" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_CvTh0H60EeKVNJm0wuMs1A">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_4DdqMH6zEeKVNJm0wuMs1A" name="BrakeTrigger"/>
+    <profileApplication xmi:id="_AcIt4HxaEeK5uZh6TngEPw">
+      <eAnnotations xmi:id="_AcTtAHxaEeK5uZh6TngEPw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://fr.inria.aoste.gemoc.eastadl#/"/>
+      </eAnnotations>
+      <appliedProfile href="platform:/plugin/fr.inria.aoste.gemoc.eastlight.profile/model/eastLight.profile.uml#_PhaH4HwuEeKwtJWK6b5hmA"/>
+    </profileApplication>
+  </uml:Model>
+  <eastLight:AnalysisFunctionType xmi:id="_DMWLsHxaEeK5uZh6TngEPw" base_Class="_CASoQHxaEeK5uZh6TngEPw"/>
+  <eastLight:AnalysisFunctionType xmi:id="_FP4wwHxaEeK5uZh6TngEPw" base_Class="_EDcy0HxaEeK5uZh6TngEPw"/>
+  <eastLight:AnalysisFunctionPrototype xmi:id="_KceKYHxaEeK5uZh6TngEPw" base_Property="_GAJJAHxaEeK5uZh6TngEPw" functionTrigger="_N5DmAHxaEeK5uZh6TngEPw"/>
+  <eastLight:FunctionTrigger xmi:id="_N5DmAHxaEeK5uZh6TngEPw" base_Class="_MMYBwHxaEeK5uZh6TngEPw" triggerCondition="" port="_ih24MHxpEeKVDOjYFBpnyg"/>
+  <eastLight:FlowPort xmi:id="_WtfIsHxdEeKVm7O1POntzg" base_Port="_WDa_YHxaEeK5uZh6TngEPw" direction="OUT"/>
+  <eastLight:FlowPort xmi:id="_3XEzkHxpEeKVDOjYFBpnyg" base_Port="_ih24MHxpEeKVDOjYFBpnyg"/>
+  <eastLight:AnalysisFunctionType xmi:id="_H8pg4Hx5EeK3kO62KGyfFQ" base_Class="_H8o50Hx5EeK3kO62KGyfFQ" functionTrigger="_HpuvcHx6EeK3kO62KGyfFQ"/>
+  <eastLight:FlowPort xmi:id="_H8qH8Hx5EeK3kO62KGyfFQ" base_Port="_H8o50Xx5EeK3kO62KGyfFQ" direction="OUT"/>
+  <eastLight:FlowPort xmi:id="_H8qH8Xx5EeK3kO62KGyfFQ" base_Port="_H8o50nx5EeK3kO62KGyfFQ"/>
+  <eastLight:FunctionTrigger xmi:id="_HpuvcHx6EeK3kO62KGyfFQ" base_Class="_HpthUHx6EeK3kO62KGyfFQ" triggerCondition="" port="_H8o50nx5EeK3kO62KGyfFQ"/>
+  <eastLight:AnalysisFunctionPrototype xmi:id="_XYDCcHx6EeK3kO62KGyfFQ" base_Property="_h7bXEHx5EeK3kO62KGyfFQ" functionTrigger="_HpuvcHx6EeK3kO62KGyfFQ"/>
+  <eastLight:AnalysisFunctionType xmi:id="_ghkioH6yEeKVNJm0wuMs1A" base_Class="_o_fmoH6xEeKVNJm0wuMs1A"/>
+  <eastLight:FunctionTrigger xmi:id="_l4Ab0H6yEeKVNJm0wuMs1A" base_Class="_hmMoYH6yEeKVNJm0wuMs1A"/>
+  <eastLight:AnalysisFunctionType xmi:id="_y6xHgH6yEeKVNJm0wuMs1A" base_Class="_o5Ve0H6yEeKVNJm0wuMs1A"/>
+  <eastLight:FunctionTrigger xmi:id="_0HARIH6yEeKVNJm0wuMs1A" base_Class="_wNjTUH6yEeKVNJm0wuMs1A"/>
+  <eastLight:FunctionTrigger xmi:id="_MNtycH6zEeKVNJm0wuMs1A" base_Class="_KILCQH6zEeKVNJm0wuMs1A"/>
+  <eastLight:AnalysisFunctionType xmi:id="_NK82wH6zEeKVNJm0wuMs1A" base_Class="_GmbZ0H6zEeKVNJm0wuMs1A"/>
+  <eastLight:AnalysisFunctionType xmi:id="_3m5C8H6zEeKVNJm0wuMs1A" base_Class="_prllsH6zEeKVNJm0wuMs1A"/>
+  <eastLight:FunctionTrigger xmi:id="_6L-14H6zEeKVNJm0wuMs1A" base_Class="_4DdqMH6zEeKVNJm0wuMs1A"/>
+  <eastLight:FlowPort xmi:id="_I3dL0H60EeKVNJm0wuMs1A" base_Port="_1VfS8H6xEeKVNJm0wuMs1A"/>
+  <eastLight:FlowPort xmi:id="_KSltEH60EeKVNJm0wuMs1A" base_Port="_0dq6IH6xEeKVNJm0wuMs1A"/>
+  <eastLight:FlowPort xmi:id="_Le36AH60EeKVNJm0wuMs1A" base_Port="_2AW04H6xEeKVNJm0wuMs1A" direction="OUT"/>
+  <eastLight:FlowPort xmi:id="_Nsm84H60EeKVNJm0wuMs1A" base_Port="_RIaK0H6zEeKVNJm0wuMs1A" direction="OUT"/>
+  <eastLight:AnalysisFunctionPrototype xmi:id="_S3h3sH62EeKVNJm0wuMs1A" base_Property="_ESObMH62EeKVNJm0wuMs1A"/>
+  <eastLight:AnalysisFunctionPrototype xmi:id="_ZLYbYH62EeKVNJm0wuMs1A" base_Property="_6QuhEH61EeKVNJm0wuMs1A"/>
+  <eastLight:AnalysisFunctionPrototype xmi:id="_iAR_gH62EeKVNJm0wuMs1A" base_Property="_fodMgH62EeKVNJm0wuMs1A"/>
+  <eastLight:AnalysisFunctionPrototype xmi:id="_8Gaa4H62EeKVNJm0wuMs1A" base_Property="_4auzUH62EeKVNJm0wuMs1A"/>
+  <eastLight:AnalysisFunctionPrototype xmi:id="_A8-2UH65EeKVNJm0wuMs1A" base_Property="_7XJPMH64EeKVNJm0wuMs1A"/>
+  <eastLight:AnalysisFunctionPrototype xmi:id="_BzF-8H65EeKVNJm0wuMs1A" base_Property="_7_MGoH64EeKVNJm0wuMs1A"/>
+  <eastLight:AnalysisFunctionPrototype xmi:id="_Cm8dwH65EeKVNJm0wuMs1A" base_Property="_8ToFkH64EeKVNJm0wuMs1A"/>
+  <eastLight:FlowPort xmi:id="_I-agsH66EeKVNJm0wuMs1A" base_Port="_FE2OIH66EeKVNJm0wuMs1A"/>
+  <eastLight:FlowPort xmi:id="_KXbiEH66EeKVNJm0wuMs1A" base_Port="_DQ9OoH66EeKVNJm0wuMs1A"/>
+  <eastLight:FlowPort xmi:id="_LOMK8H66EeKVNJm0wuMs1A" base_Port="__JqpIH65EeKVNJm0wuMs1A"/>
+  <eastLight:FlowPort xmi:id="_NTBwgH66EeKVNJm0wuMs1A" base_Port="_sHVE0H6yEeKVNJm0wuMs1A" direction="OUT"/>
+  <eastLight:FlowPort xmi:id="_QPzqsH66EeKVNJm0wuMs1A" base_Port="_Og3g0H6zEeKVNJm0wuMs1A"/>
+  <eastLight:FlowPort xmi:id="_RiUbcH66EeKVNJm0wuMs1A" base_Port="_WozRQH6zEeKVNJm0wuMs1A"/>
+  <eastLight:FlowPort xmi:id="_SaxtcH66EeKVNJm0wuMs1A" base_Port="_hpc7QH6zEeKVNJm0wuMs1A"/>
+  <eastLight:FlowPort xmi:id="_ThCx8H66EeKVNJm0wuMs1A" base_Port="_l8alQH6zEeKVNJm0wuMs1A" direction="OUT"/>
+  <eastLight:FlowPort xmi:id="_V7jskH66EeKVNJm0wuMs1A" base_Port="_6tN6sH6zEeKVNJm0wuMs1A"/>
+  <eastLight:FlowPort xmi:id="_W2UEoH66EeKVNJm0wuMs1A" base_Port="_AXiZMH60EeKVNJm0wuMs1A" direction="OUT"/>
+  <eastLight:FlowPort xmi:id="_NXlq8H67EeKVNJm0wuMs1A" base_Port="_DGyJgH67EeKVNJm0wuMs1A" direction="OUT"/>
+  <eastLight:FlowPort xmi:id="_PDo9EH67EeKVNJm0wuMs1A" base_Port="_E7u48H67EeKVNJm0wuMs1A" direction="OUT"/>
+  <eastLight:FlowPort xmi:id="_QqlFsH67EeKVNJm0wuMs1A" base_Port="_Fkx18H67EeKVNJm0wuMs1A" direction="OUT"/>
+  <eastLight:AnalysisFunctionPrototype xmi:id="_sv4jgH67EeKVNJm0wuMs1A" base_Property="_qemdYH67EeKVNJm0wuMs1A"/>
+  <eastLight:AnalysisFunctionPrototype xmi:id="_GeWs0H68EeKVNJm0wuMs1A" base_Property="_rHY7sH67EeKVNJm0wuMs1A"/>
+  <eastLight:AnalysisFunctionPrototype xmi:id="_JuBt0H68EeKVNJm0wuMs1A" base_Property="_rb0TkH67EeKVNJm0wuMs1A"/>
+  <eastLight:AnalysisFunctionPrototype xmi:id="_fF_fAH6-EeKVNJm0wuMs1A" base_Property="_abeQoH6-EeKVNJm0wuMs1A"/>
+  <eastLight:AnalysisFunctionPrototype xmi:id="_fxKi8H6-EeKVNJm0wuMs1A" base_Property="_a19NMH6-EeKVNJm0wuMs1A"/>
+  <eastLight:AnalysisFunctionPrototype xmi:id="_gbn1MH6-EeKVNJm0wuMs1A" base_Property="_bUN2gH6-EeKVNJm0wuMs1A"/>
+</xmi:XMI>

@@ -1,0 +1,185 @@
+TimingSpecification BBW {
+
+import "platform:/resource/fr.inria.aoste.timmo2use.tadl2.examples/BrakeByWireOneWheel/model.uml" as "model";
+   
+ Dimension physicalTime {
+   Units { micros{factor 1.0 offset 0.0},
+           ms{factor 100.0 offset 0.0 reference micros},
+ 	     second{factor 1000000.0 offset 0.0 reference micros}    
+   }
+ 		
+ } 
+	
+ TimeBase universal_time {
+	dimension physicalTime 
+	precisionFactor 1.0
+	precisionUnit micros
+ }
+var SporadicBrakingDmin ms on universal_time := 25.0
+
+Event StartBraking{"model->Model::FunctionalArchitecture::brakePedalSensor::BrakePedalActionning"}	
+SporadicConstraint StartBrakingSporadicConstraint{
+	event StartBraking
+	lower =SporadicBrakingDmin
+	upper = SporadicBrakingDmin
+	jitter= 0.0
+	minimum = 0.0
+	
+}
+
+
+ /**************
+  *   Sensors  *
+  *************/
+ var SensingPeriod ms on universal_time := 20.0
+ var WheelSensingExecTime ms on universal_time := 10.0
+ 
+ //Front left
+ Event activate_frontLeftWheelSpeedSensor {"model->Model::FunctionalArchitecture::frontLeftWheelSpeedSensor"}
+ PeriodicConstraint PeriodSensingFL{
+	event activate_frontLeftWheelSpeedSensor
+	period = SensingPeriod
+	minimum = 0.0
+	jitter = 0.0	
+}
+ Event FLspeed_rpm{"model->Model::FunctionalArchitecture::frontLeftWheelSpeedSensor::FLspeed_rpm"}
+ DelayConstraint FLWheelSensingExecTime{
+ 	source activate_frontLeftWheelSpeedSensor
+ 	target FLspeed_rpm
+ 	lower = WheelSensingExecTime
+ 	upper = WheelSensingExecTime //not used
+ }
+ 
+//pedal brake
+ Event pedalPositionOut{"model->Model::FunctionalArchitecture::brakePedalSensor::pedalPositionOut"} 
+ Event doPedalBrakeSensing{"model->Model::FunctionalArchitecture::brakePedalSensor"}
+ PeriodicConstraint PeriodSensingPD{
+	event doPedalBrakeSensing
+	period = SensingPeriod
+	minimum = 0.0
+	jitter = 0.0	
+}
+ var PedalBrakeSensingExecTime ms on universal_time := 1.0
+ 
+ DelayConstraint pedalBrakeExecTime{
+ 	source doPedalBrakeSensing
+ 	target pedalPositionOut
+ 	lower = PedalBrakeSensingExecTime
+ 	upper = PedalBrakeSensingExecTime //not used
+ }
+
+ /************************
+  *  Torque Calculator   *
+  ************************/
+ Event activate_brakeTorqueCalculator {"model->Model::FunctionalArchitecture::brakeTorqueCalculator"}
+ var BrakeTorqueCalculatorPeriod ms on universal_time := 50.0
+ PeriodicConstraint PeriodBrakeCalculator{
+	event activate_brakeTorqueCalculator
+	period = BrakeTorqueCalculatorPeriod
+	minimum = 0.0
+	jitter = 0.0	
+}
+ 
+ var BrakeTorqueCalculatorExecTime ms on universal_time := 40.0
+ DelayConstraint BrakeTorqueCalculatorExecTime{
+ 	source activate_brakeTorqueCalculator
+ 	target activate_requestedTorq
+ 	lower = BrakeTorqueCalculatorExecTime
+ 	upper = BrakeTorqueCalculatorExecTime //not used
+ }
+ 
+/**************************
+ *  Global brake control  *
+ **************************/
+ Event doGlobalBrakeControl{"model->Model::FunctionalArchitecture::globalBrakeController"}
+ var globalBrakePeriod ms on universal_time := 150.0
+ PeriodicConstraint GlobalBrakeTriggering{
+	event doGlobalBrakeControl
+	period = globalBrakePeriod
+	minimum = 0.0
+	jitter = 0.0	
+}
+ Event vehicleSpeed{"model->Model::FunctionalArchitecture::globalBrakeController::VehicleSpeed"}
+ var GlobalBrakeControlExecTime ms on universal_time := 80.0
+ DelayConstraint GlobalBrakeControlExecTime{
+ 	source doGlobalBrakeControl
+ 	target vehicleSpeed
+ 	lower = GlobalBrakeControlExecTime
+ 	upper = GlobalBrakeControlExecTime //not used
+ }
+
+
+ /***********
+ *  ABSSat  *
+ ***********/
+
+ var ABSSatPeriod ms on universal_time := 40.0
+ var ABSSatExecTime ms on universal_time := 30.0
+
+ Event doABSSatTriggeringFL {"model->Model::FunctionalArchitecture::frontLeftABSSat"}
+ PeriodicConstraint ABSSatTriggeringFL{
+	event doABSSatTriggeringFL
+	period = ABSSatPeriod
+	minimum = 0.0
+	jitter = 0.0	
+}
+ Event FLABSBrakeTorq{"model->Model::FunctionalArchitecture::frontLeftABSSat::FLABSBrakeTorq"}
+ DelayConstraint ABSSatExecTimeFL{
+ 	source doABSSatTriggeringFL
+ 	target FLABSBrakeTorq
+ 	lower = ABSSatExecTime
+ 	upper = ABSSatExecTime //not used
+ }
+
+ /**********
+ *  Brake  *
+ **********/
+  var BrakePeriod ms on universal_time := 40.0
+  var BrakeExecTime ms on universal_time := 10.0
+ 
+
+ Event doBrakeTriggeringFL {"model->Model::FunctionalArchitecture::frontLeftBrake"}
+ PeriodicConstraint PeriodBrakeTriggeringFL{
+	event doBrakeTriggeringFL
+	period = BrakePeriod
+	minimum = 0.0
+	jitter = 0.0	
+}
+ Event BrakeActuatorSigFL{"model->Model::FunctionalArchitecture::frontLeftBrake::FLActuatorSignal"}
+ DelayConstraint BrakeExecTimeFL{
+ 	source doBrakeTriggeringFL
+ 	target BrakeActuatorSigFL
+ 	lower = BrakeExecTime
+ 	upper = BrakeExecTime //not used
+ }
+
+
+ /***********************************
+ *  end to end reaction constraint  *
+ ***********************************/
+
+// Event brakePedalActionning {"model->Model::FunctionalArchitecture::brakePedalSensor::BrakePedalActionning"}
+ Event activate_requestedTorq {"model->Model::FunctionalArchitecture::brakeTorqueCalculator::requestedTorq"} 
+ Event calculatorPedalPosition {"model->Model::FunctionalArchitecture::brakeTorqueCalculator::pedalPosition"}
+ Event globalTorque {"model->Model::FunctionalArchitecture::globalBrakeController::globalTorque"} 
+ Event torqFrontLeftWheel{"model->Model::FunctionalArchitecture::globalBrakeController::torqFrontLeftWheel"} 
+ Event FLrequestedTorq{"model->Model::FunctionalArchitecture::frontLeftABSSat::FLRequestedTorq"}
+ Event FLtorqCmd{"model->Model::FunctionalArchitecture::frontLeftBrake::FLtorqCmd"}  
+
+ EventChain chainStartBraking2frontLeftWheelBrakeActuator {
+  stimulus StartBraking
+  response BrakeActuatorSigFL 
+  eventChains StartBraking, pedalPositionOut, calculatorPedalPosition, activate_requestedTorq,
+  		     globalTorque, torqFrontLeftWheel,FLrequestedTorq,FLABSBrakeTorq,FLtorqCmd, BrakeActuatorSigFL
+ }
+ var endToEnd_min ms on universal_time := 1.0
+ var endToEnd_max ms on universal_time := 110.0
+ ReactionConstraint reactionConstraintToStartBraking {
+ 	
+	scope chainStartBraking2frontLeftWheelBrakeActuator 
+	maximum = endToEnd_max
+	minimum = endToEnd_min
+}
+
+    
+}//end of TimingSpecification BBW

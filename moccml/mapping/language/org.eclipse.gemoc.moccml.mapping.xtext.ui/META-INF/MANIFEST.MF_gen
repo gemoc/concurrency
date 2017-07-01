@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.eclipse.gemoc.moccml.mapping.xtext.ui
+Bundle-SymbolicName: org.eclipse.gemoc.moccml.mapping.xtext.ui; singleton:=true
+Bundle-Version: 0.0.1
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Export-Package: org.eclipse.gemoc.moccml.mapping.xtext.ui.contentassist,
+ org.eclipse.gemoc.moccml.mapping.xtext.ui.quickfix,
+ org.eclipse.gemoc.moccml.mapping.xtext.ui.contentassist.antlr,
+ org.eclipse.gemoc.moccml.mapping.xtext.ui.contentassist.antlr.internal
+Require-Bundle: org.eclipse.xtext.ui,
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.ui.editors,
+ org.eclipse.ui,
+ org.eclipse.xtext.builder
+Import-Package: org.apache.log4j
+Bundle-Activator: org.eclipse.gemoc.moccml.mapping.xtext.ui.internal.EclActivator

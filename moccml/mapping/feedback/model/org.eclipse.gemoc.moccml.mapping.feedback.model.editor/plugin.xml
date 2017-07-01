@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated feedback -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.eclipse.gemoc.moccml.mapping.feedback.feedback.presentation.FeedbackModelWizardID"
+            name="%_UI_FeedbackModelWizard_label"
+            class="org.eclipse.gemoc.moccml.mapping.feedback.feedback.presentation.FeedbackModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/FeedbackModelFile.gif">
+         <description>%_UI_FeedbackModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated feedback -->
+      <editor
+            id="org.eclipse.gemoc.moccml.mapping.feedback.feedback.presentation.FeedbackEditorID"
+            name="%_UI_FeedbackEditor_label"
+            icon="icons/full/obj16/FeedbackModelFile.gif"
+            extensions="feedback"
+            class="org.eclipse.gemoc.moccml.mapping.feedback.feedback.presentation.FeedbackEditor"
+            contributorClass="org.eclipse.gemoc.moccml.mapping.feedback.feedback.presentation.FeedbackActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

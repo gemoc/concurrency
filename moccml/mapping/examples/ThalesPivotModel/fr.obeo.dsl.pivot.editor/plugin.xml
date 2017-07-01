@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="fr.obeo.dsl.pivot.presentation.PivotModelWizardID"
+            name="%_UI_PivotModelWizard_label"
+            class="fr.obeo.dsl.pivot.presentation.PivotModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/PivotModelFile.gif">
+         <description>%_UI_PivotModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="fr.obeo.dsl.pivot.presentation.PivotEditorID"
+            name="%_UI_PivotEditor_label"
+            icon="icons/full/obj16/PivotModelFile.gif"
+            extensions="pivot"
+            class="fr.obeo.dsl.pivot.presentation.PivotEditor"
+            contributorClass="fr.obeo.dsl.pivot.presentation.PivotActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

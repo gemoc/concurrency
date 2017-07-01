@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated simpleComponentModel -->
+      <package
+            uri="http://fr.inria.aoste.timesquare.ecl.example.simplecomponent/1.0"
+            class="simplecomponentmodel.SimplecomponentmodelPackage"
+            genModel="model/simpleComponentModel.genmodel"/>
+   </extension>
+
+</plugin>

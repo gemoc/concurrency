@@ -1,0 +1,136 @@
+grammar org.eclipse.gemoc.moccml.mapping.xtext.Ecl with org.eclipse.ocl.xtext.completeocl.CompleteOCL
+//import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+import "platform:/resource/org.eclipse.ocl.xtext.base/model/BaseCS.ecore" as baseCST
+//import "http://www.eclipse.org/ocl/2015/BaseCS" as base
+  
+import "platform:/resource/org.eclipse.ocl.xtext.essentialocl/model/EssentialOCLCS.ecore" as essentialOCLCST
+//import "http://www.eclipse.org/ocl/2015/EssentialOCLCS" as essentialOCLCST 
+import "platform:/resource/org.eclipse.ocl.pivot/model/Pivot.ecore" as pivot
+//import "http://www.eclipse.org/ocl/2015/Pivot" as pivot
+import "platform:/resource/org.eclipse.ocl.xtext.completeocl/model/CompleteOCLCS.ecore" as completeOCL
+//import "http://www.eclipse.org/ocl/2015/CompleteOCLCS" as completeOCL //*"http://www.eclipse.org/ocl/3.1.0/CompleteOCLCST"*/
+//
+import "platform:/resource/fr.inria.aoste.timesquare.ccslkernel.model/model/TimeModel.ecore#//CCSLModel/ClockExpressionAndRelation" as CCSL
+//import "http://fr.inria.aoste.timemodel.ccslmodel.clockexpressionandrelation" as CCSL
+import "platform:/resource/org.eclipse.gemoc.moccml.mapping/model/moccml_mapping.ecore"
+//import  "http://org.eclipse.gemoc.moccml.mapping"  
+ 
+//import "http://fr.inria.aoste.timemodel.ccslmodel.clockexpressionandrelation"  as CCSL
+ 
+ECLDocument returns ECLDocument:
+ 	{ECLDocument}
+	ownedImports+=ImportCS* 
+	imports += Import*
+	(ownedPackages+=PackageDeclarationCS | ownedContexts+=ContextDeclCS)*;
+	
+Import returns ImportStatement:
+	"ECLimport" importURI=DOUBLE_QUOTED_STRING;
+ 
+ 
+//override essential OCL rule 
+TypeExpCS returns baseCST::TypedRefCS:
+	(TypeNameExpCS | TypeLiteralCS | CollectionPatternCS| EventType	| BlockType) ownedMultiplicity=MultiplicityCS?;
+ 
+EventType returns EventType:
+	{EventType}
+	'Event' 
+	('('referedElement=EventKind')')?;
+
+BlockType returns BlockType:
+	{BlockType}
+	'Block';
+
+//EventLiteralExp returns EventLiteralExp:
+//	{EventLiteralExp}
+//	 value=EventKind  (';')?
+//;
+
+enum EventKind:
+	start= 'StartEvent' |// start= 'start Event' | start= 'startEvent' |start= 'Start Event' |
+	finish='StopEvent' | //finish= 'stop Event' | finish= 'stopEvent' |finish= 'Stop Event' |
+	finish='FinishEvent'| //| finish= 'finish Event' | finish= 'finishEvent' | finish= 'Finish Event' |
+	consume="ConsumeEvent"|
+	produce="produceEvent"|
+	receive="receiveEvent"|
+	send="sendEvent"|
+	create="CreateEvent"|
+	destroy="DestroyEvent"|
+	suspend="SuspendEvent" |
+	resume="ResumeEvent"|
+	undefined="DSE"| undefined="internalMoCCEvent"| undefined="any"|undefined="GenericEvent" |undefined="ExecuteEvent" |
+	call="CallEvent"
+;
+
+
+//NEON FROM ESSENTIAL
+ExpCS returns essentialOCLCST::ExpCS:
+//	({InfixExpCS} ownedSource=PrefixedExpCS name=BinaryOperatorName ownedArgument=ExpCS)
+//| 	PrefixedExpCS
+// the above takes exponential or worse time for backtracking, below is fast
+	(PrefixedPrimaryExpCS ({essentialOCLCST::InfixExpCS.ownedLeft=current} name=BinaryOperatorName ownedRight=ExpCS)?)
+| 	PrefixedLetExpCS
+|ECLRelation | 	ECLExpression ;
+
+
+
+
+//neon from compleocl
+ClassifierContextDeclCS returns completeOCL::ClassifierContextDeclCS:
+	'context' (ownedSignature=TemplateSignatureCS)? (selfName=UnrestrictedName)?
+	ownedPathName=PathNameCS	
+	(('inv' ownedInvariants+=ConstraintCS)
+	| ownedDefinitions+=DefCS
+	)+;
+	
+
+//completeOCL override
+DefCS returns completeOCL::DefCS:
+	DefOperationCS|DefPropertyCS|ECLEventDefCS | ECLBlockDefCS;
+
+enum Visibility:
+	public= 'public' |
+	private='private'
+	;
+
+ECLBlockDefCS returns ECLBlockDefCS:
+	 (visibility=Visibility )? 'blockDef' ('if' condition=ExpCS)? ':' name=UnrestrictedName ':' ownedType=TypeExpCS
+		'=' ownedSpecification=SpecificationCS
+		("enter" "when" enterWhen=ExpCS)?
+		("leave" "when" leaveWhen=ExpCS)?
+		;
+
+ECLEventDefCS returns ECLEventDefCS: 
+	(visibility=Visibility )? 'def' ('if' condition=ExpCS)? ':' name=UnrestrictedName ':' ownedType=TypeExpCS
+		'=' ownedSpecification=SpecificationCS
+		( ('['dsaResultName=UnrestrictedName']')? 
+		("future" "("future=ExpCS")")?
+		("switch" feedback=DSAFeedBackRule)?)
+		
+;
+
+DSAFeedBackRule returns DSAFeedback:
+	(cases+=CasesRule)+
+;
+
+CasesRule returns Case:
+	'case' condition=ExpCS kindOfFeedback=FeedBackKind eventToForce=ExpCS (('until' | 'when'|'on') on=ExpCS)? ';'
+;
+
+enum FeedBackKind:
+	force= 'force' |// start= 'start Event' | start= 'startEvent' |start= 'Start Event' |
+	forbid='forbid' 
+;
+
+ECLExpression returns ECLExpression:
+	{ECLExpression}
+	  //we need to add a keyWord to make the EclScopeProvider working :-/
+	("Expression")? type=[CCSL::ExpressionDeclaration | ID] '(' parameters+=ExpCS  ( ',' parameters+=ExpCS )* ')' 
+;
+
+
+ECLRelation returns ECLRelation: 
+	{ECLRelation}
+  //we need to add a keyWord to make the EclScopeProvider working :-/
+  ("Relation")? type=[CCSL::RelationDeclaration | ID] '(' parameters+=ExpCS  ( ',' parameters+=ExpCS )* ')' 
+;
+ 

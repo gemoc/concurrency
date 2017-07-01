@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.gemoc.moccml.mapping.feature"
+      label="ECL development framework feature"
+      version="1.0.0.qualifier"
+      provider-name="Aoste INRIA / I3S">
+
+   <description url="http://www.example.com/description">
+      the full options ;)
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <url>
+      <discovery label="Neon" url="http://download.eclipse.org/releases/neon/"/>
+      <discovery label="The Eclipse Project Updates" url="http://download.eclipse.org/eclipse/updates/4.6"/>
+      <discovery label="Acceleo" url="http://download.eclipse.org/modeling/m2t/acceleo/updates/releases/3.2"/>
+      <discovery label="Xtext All In One - Releases" url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
+      <discovery label="TimeSquare" url="http://timesquare.inria.fr/update_site/neon"/>
+   </url>
+
+   <includes
+         id="org.eclipse.gemoc.moccml.mapping.editor.feature"
+         version="0"
+         name="ECL editor"
+         search-location="both"/>
+
+   <includes
+         id="org.eclipse.gemoc.moccml.mapping.transfos.feature"
+         version="0"
+         name="ECL transfos"
+         search-location="both"/>
+
+</feature>

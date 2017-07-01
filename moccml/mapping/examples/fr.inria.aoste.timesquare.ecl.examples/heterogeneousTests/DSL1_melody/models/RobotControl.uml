@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Melody="http:///schemas/Melody/_A3AhAPj9EeGIXs43q3bRRA/3" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:melody="http:///schemas/melody/_Q_YA4BClEeKwoPUtkRTsCg/3" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http:///schemas/Melody/_A3AhAPj9EeGIXs43q3bRRA/3 profil_definition/melody.profile.uml#_A3AhAfj9EeGIXs43q3bRRA http:///schemas/melody/_Q_YA4BClEeKwoPUtkRTsCg/3 ../Profile/melody.profile.uml#_Q_ZPABClEeKwoPUtkRTsCg">
+  <uml:Model xmi:id="_2ardUPkCEeGIXc43q3bRRA" name="Model">
+    <packageImport xmi:id="_2ardUfkCEeGIXc43q3bRRA">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Class" xmi:id="_7vvdgPkCEeGIXc43q3bRRA" name="RobotController" classifierBehavior="_CPiLcPkDEeGIXc43q3bRRA">
+      <ownedBehavior xmi:type="uml:Activity" xmi:id="_CPiLcPkDEeGIXc43q3bRRA" name="RobotControl" node="_HMt3IPkDEeGIXc43q3bRRA _KPo1kPkDEeGIXc43q3bRRA _eDlrwPkEEeGIXc43q3bRRA _rSeScPkFEeGIXc43q3bRRA _yIV-EPkFEeGIXc43q3bRRA _pJmsAPkGEeGIXc43q3bRRA _GIHCsPkHEeGIXc43q3bRRA _yZ-OsPkHEeGIXc43q3bRRA _VF6pUPkIEeGIXc43q3bRRA">
+        <ownedComment xmi:id="_LixDsA4zEeKuuYILFd3iJg">
+          <body>CCSL simulation results:
+   number of activation: 0
+   schedule: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+        </ownedComment>
+        <ownedComment xmi:id="_LiyR0A4zEeKuuYILFd3iJg">
+          <body>CCSL simulation results:
+   number of activation: 100
+   schedule: 1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111</body>
+        </ownedComment>
+        <ownedComment xmi:id="_Li0HAA4zEeKuuYILFd3iJg">
+          <body>CCSL simulation results:
+   number of activation: 1
+   schedule: 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+        </ownedComment>
+        <ownedOperation xmi:id="_KJiNkPkDEeGIXc43q3bRRA" name="readSonars"/>
+        <ownedOperation xmi:id="_d_RMcPkEEeGIXc43q3bRRA" name="correlateAndCheckIfAlarm"/>
+        <ownedOperation xmi:id="_Y7WKIPkFEeGIXc43q3bRRA" name="DuplicateObstacleInformation"/>
+        <ownedOperation xmi:id="_rN0b8PkFEeGIXc43q3bRRA" name="ChangeRobotColor"/>
+        <ownedOperation xmi:id="_yD3twPkFEeGIXc43q3bRRA" name="StopRobotAndTurn"/>
+        <ownedOperation xmi:id="_pDgEAPkGEeGIXc43q3bRRA" name="DuplicateObstacleData"/>
+        <ownedOperation xmi:id="_GB8wUPkHEeGIXc43q3bRRA" name="ServoMotorConmmand"/>
+        <ownedOperation xmi:id="_yUobsPkHEeGIXc43q3bRRA" name="FishBrainControl"/>
+        <edge xmi:type="uml:ControlFlow" xmi:id="_NWrfAPkDEeGIXc43q3bRRA" name="ControlFlow1" source="_HMt3IPkDEeGIXc43q3bRRA" target="_KPo1kPkDEeGIXc43q3bRRA">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_NWsGEPkDEeGIXc43q3bRRA" value="true"/>
+          <weight xmi:type="uml:LiteralInteger" xmi:id="_NWsGEfkDEeGIXc43q3bRRA"/>
+        </edge>
+        <edge xmi:type="uml:ObjectFlow" xmi:id="_jv-xYPkFEeGIXc43q3bRRA" name="ObjectFlow1" source="_P7lEsPkDEeGIXc43q3bRRA" target="_0IyBQPkEEeGIXc43q3bRRA"/>
+        <edge xmi:type="uml:ObjectFlow" xmi:id="_60ARMPkGEeGIXc43q3bRRA" name="ObjectFlow2" source="_wWqvoPkGEeGIXc43q3bRRA" target="_vZyQoPkGEeGIXc43q3bRRA"/>
+        <edge xmi:type="uml:ObjectFlow" xmi:id="_8anpsPkGEeGIXc43q3bRRA" name="ObjectFlow3" source="_wtUVEPkGEeGIXc43q3bRRA" target="_vvwgoPkGEeGIXc43q3bRRA"/>
+        <edge xmi:type="uml:ObjectFlow" xmi:id="_NocAkPkHEeGIXc43q3bRRA" name="ObjectFlow4" source="_28rFMPkEEeGIXc43q3bRRA" target="_uqY0APkGEeGIXc43q3bRRA"/>
+        <edge xmi:type="uml:ObjectFlow" xmi:id="_uIWogPkHEeGIXc43q3bRRA" name="ObjectFlow5" source="_xzmAoPkGEeGIXc43q3bRRA" target="_PnFekPkHEeGIXc43q3bRRA"/>
+        <edge xmi:type="uml:ObjectFlow" xmi:id="_GCaN4PkIEeGIXc43q3bRRA" name="ObjectFlow6" source="_7zWY4PkHEeGIXc43q3bRRA" target="_PLKXkPkHEeGIXc43q3bRRA"/>
+        <edge xmi:type="uml:ObjectFlow" xmi:id="_HEANwPkIEeGIXc43q3bRRA" name="ObjectFlow7" source="_1DadgPkEEeGIXc43q3bRRA" target="_7HVncPkHEeGIXc43q3bRRA"/>
+        <edge xmi:type="uml:ControlFlow" xmi:id="_TSot0PkIEeGIXc43q3bRRA" name="ControlFlow2" source="_rSeScPkFEeGIXc43q3bRRA">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_TSot0fkIEeGIXc43q3bRRA" value="true"/>
+          <weight xmi:type="uml:LiteralInteger" xmi:id="_TSpU4PkIEeGIXc43q3bRRA"/>
+        </edge>
+        <edge xmi:type="uml:ControlFlow" xmi:id="_WNiYsPkIEeGIXc43q3bRRA" name="ControlFlow3" source="_GIHCsPkHEeGIXc43q3bRRA" target="_VF6pUPkIEeGIXc43q3bRRA">
+          <guard xmi:type="uml:LiteralBoolean" xmi:id="_WNiYsfkIEeGIXc43q3bRRA" value="true"/>
+          <weight xmi:type="uml:LiteralInteger" xmi:id="_WNi_wPkIEeGIXc43q3bRRA"/>
+        </edge>
+        <node xmi:type="uml:InitialNode" xmi:id="_HMt3IPkDEeGIXc43q3bRRA" name="InitialNode1" outgoing="_NWrfAPkDEeGIXc43q3bRRA">
+          <ownedComment xmi:id="_Lik2cA4zEeKuuYILFd3iJg">
+            <body>CCSL simulation results:
+   number of activation: 1
+   schedule: 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+          </ownedComment>
+          <ownedComment xmi:id="_LildgA4zEeKuuYILFd3iJg">
+            <body>CCSL simulation results:
+   number of activation: 1
+   schedule: 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+          </ownedComment>
+        </node>
+        <node xmi:type="uml:CallOperationAction" xmi:id="_KPo1kPkDEeGIXc43q3bRRA" name="CallReadSonars" incoming="_NWrfAPkDEeGIXc43q3bRRA" operation="_KJiNkPkDEeGIXc43q3bRRA">
+          <ownedComment xmi:id="_LihzIA4zEeKuuYILFd3iJg">
+            <body>CCSL simulation results:
+   number of activation: 1
+   schedule: 0010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+          </ownedComment>
+          <ownedComment xmi:id="_LiiaMA4zEeKuuYILFd3iJg">
+            <body>CCSL simulation results:
+   number of activation: 1
+   schedule: 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+          </ownedComment>
+          <result xmi:id="_P7lEsPkDEeGIXc43q3bRRA" name="OutputSonarValues" outgoing="_jv-xYPkFEeGIXc43q3bRRA">
+            <ownedComment xmi:id="_TIohoPkmEeGdqdFa9goL2w">
+              <body>CCSL simulation results:
+   number of activation: 13
+   schedule: 0100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100</body>
+            </ownedComment>
+            <ownedComment xmi:id="_LiwcoA4zEeKuuYILFd3iJg">
+              <body>CCSL simulation results:
+   number of activation: 1
+   schedule: 0100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+            </ownedComment>
+          </result>
+        </node>
+        <node xmi:type="uml:CallOperationAction" xmi:id="_eDlrwPkEEeGIXc43q3bRRA" name="CallCorrelateAndCheckIfAlarm" operation="_d_RMcPkEEeGIXc43q3bRRA">
+          <ownedComment xmi:id="_LidhsA4zEeKuuYILFd3iJg">
+            <body>CCSL simulation results:
+   number of activation: 1
+   schedule: 0000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+          </ownedComment>
+          <ownedComment xmi:id="_LieIwA4zEeKuuYILFd3iJg">
+            <body>CCSL simulation results:
+   number of activation: 1
+   schedule: 0010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+          </ownedComment>
+          <argument xmi:id="_0IyBQPkEEeGIXc43q3bRRA" name="InputSonarValues" incoming="_jv-xYPkFEeGIXc43q3bRRA">
+            <ownedComment xmi:id="_TIhM4PkmEeGdqdFa9goL2w">
+              <body>CCSL simulation results:
+   number of activation: 13
+   schedule: 0010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010</body>
+            </ownedComment>
+            <ownedComment xmi:id="_Liq9EA4zEeKuuYILFd3iJg">
+              <body>CCSL simulation results:
+   number of activation: 1
+   schedule: 0010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+            </ownedComment>
+          </argument>
+          <result xmi:id="_1DadgPkEEeGIXc43q3bRRA" name="OutputObstacleDistances" outgoing="_HEANwPkIEeGIXc43q3bRRA">
+            <ownedComment xmi:id="_TImscPkmEeGdqdFa9goL2w">
+              <body>CCSL simulation results:
+   number of activation: 13
+   schedule: 0001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001</body>
+            </ownedComment>
+            <ownedComment xmi:id="_LivOgA4zEeKuuYILFd3iJg">
+              <body>CCSL simulation results:
+   number of activation: 1
+   schedule: 0001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+            </ownedComment>
+          </result>
+          <result xmi:id="_28rFMPkEEeGIXc43q3bRRA" name="OutputDirectionOfClosestObstacle" outgoing="_NocAkPkHEeGIXc43q3bRRA">
+            <ownedComment xmi:id="_TIk3QPkmEeGdqdFa9goL2w">
+              <body>CCSL simulation results:
+   number of activation: 0
+   schedule: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+            </ownedComment>
+            <ownedComment xmi:id="_LitZUA4zEeKuuYILFd3iJg">
+              <body>CCSL simulation results:
+   number of activation: 0
+   schedule: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+            </ownedComment>
+          </result>
+        </node>
+        <node xmi:type="uml:CallOperationAction" xmi:id="_rSeScPkFEeGIXc43q3bRRA" name="CallChangeRobotColor" outgoing="_TSot0PkIEeGIXc43q3bRRA" operation="_rN0b8PkFEeGIXc43q3bRRA">
+          <ownedComment xmi:id="_LibFcA4zEeKuuYILFd3iJg">
+            <body>CCSL simulation results:
+   number of activation: 0
+   schedule: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+          </ownedComment>
+          <ownedComment xmi:id="_LibsgA4zEeKuuYILFd3iJg">
+            <body>CCSL simulation results:
+   number of activation: 0
+   schedule: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+          </ownedComment>
+          <argument xmi:id="_vZyQoPkGEeGIXc43q3bRRA" name="InputDirectionOfClosestObstacle1" incoming="_60ARMPkGEeGIXc43q3bRRA">
+            <ownedComment xmi:id="_TIcUYPkmEeGdqdFa9goL2w">
+              <body>CCSL simulation results:
+   number of activation: 0
+   schedule: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+            </ownedComment>
+            <ownedComment xmi:id="_LimEkA4zEeKuuYILFd3iJg">
+              <body>CCSL simulation results:
+   number of activation: 0
+   schedule: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+            </ownedComment>
+          </argument>
+        </node>
+        <node xmi:type="uml:CallOperationAction" xmi:id="_yIV-EPkFEeGIXc43q3bRRA" name="CallComputeRobotSafeCommand" operation="_yD3twPkFEeGIXc43q3bRRA">
+          <ownedComment xmi:id="_LicTkA4zEeKuuYILFd3iJg">
+            <body>CCSL simulation results:
+   number of activation: 0
+   schedule: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+          </ownedComment>
+          <ownedComment xmi:id="_Lic6oA4zEeKuuYILFd3iJg">
+            <body>CCSL simulation results:
+   number of activation: 0
+   schedule: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+          </ownedComment>
+          <argument xmi:id="_vvwgoPkGEeGIXc43q3bRRA" name="InputDirectionOfClosestObstacle2" incoming="_8anpsPkGEeGIXc43q3bRRA">
+            <ownedComment xmi:id="_TIdigPkmEeGdqdFa9goL2w">
+              <body>CCSL simulation results:
+   number of activation: 0
+   schedule: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+            </ownedComment>
+            <ownedComment xmi:id="_Lin5wA4zEeKuuYILFd3iJg">
+              <body>CCSL simulation results:
+   number of activation: 0
+   schedule: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+            </ownedComment>
+          </argument>
+          <result xmi:id="_xzmAoPkGEeGIXc43q3bRRA" name="OutputSafeCommand" outgoing="_uIWogPkHEeGIXc43q3bRRA">
+            <ownedComment xmi:id="_TInTgPkmEeGdqdFa9goL2w">
+              <body>CCSL simulation results:
+   number of activation: 0
+   schedule: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+            </ownedComment>
+            <ownedComment xmi:id="_Liv1kA4zEeKuuYILFd3iJg">
+              <body>CCSL simulation results:
+   number of activation: 0
+   schedule: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+            </ownedComment>
+          </result>
+        </node>
+        <node xmi:type="uml:CallOperationAction" xmi:id="_pJmsAPkGEeGIXc43q3bRRA" name="CallDuplicateObstacleData" operation="_pDgEAPkGEeGIXc43q3bRRA">
+          <ownedComment xmi:id="_LifW4A4zEeKuuYILFd3iJg">
+            <body>CCSL simulation results:
+   number of activation: 0
+   schedule: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+          </ownedComment>
+          <ownedComment xmi:id="_Lif98A4zEeKuuYILFd3iJg">
+            <body>CCSL simulation results:
+   number of activation: 0
+   schedule: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+          </ownedComment>
+          <argument xmi:id="_uqY0APkGEeGIXc43q3bRRA" name="InputDirectionOfClosestObstacle" incoming="_NocAkPkHEeGIXc43q3bRRA">
+            <ownedComment xmi:id="_TIeJkPkmEeGdqdFa9goL2w">
+              <body>CCSL simulation results:
+   number of activation: 0
+   schedule: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+            </ownedComment>
+            <ownedComment xmi:id="_Liog0A4zEeKuuYILFd3iJg">
+              <body>CCSL simulation results:
+   number of activation: 0
+   schedule: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+            </ownedComment>
+          </argument>
+          <result xmi:id="_wWqvoPkGEeGIXc43q3bRRA" name="OutputDirectionOfClosestObstacle1" outgoing="_60ARMPkGEeGIXc43q3bRRA">
+            <ownedComment xmi:id="_TIhz8PkmEeGdqdFa9goL2w">
+              <body>CCSL simulation results:
+   number of activation: 0
+   schedule: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+            </ownedComment>
+            <ownedComment xmi:id="_LirkIA4zEeKuuYILFd3iJg">
+              <body>CCSL simulation results:
+   number of activation: 0
+   schedule: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+            </ownedComment>
+          </result>
+          <result xmi:id="_wtUVEPkGEeGIXc43q3bRRA" name="OutputDirectionOfClosestObstacle2" outgoing="_8anpsPkGEeGIXc43q3bRRA">
+            <ownedComment xmi:id="_TIjpIPkmEeGdqdFa9goL2w">
+              <body>CCSL simulation results:
+   number of activation: 0
+   schedule: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+            </ownedComment>
+            <ownedComment xmi:id="_LisyQA4zEeKuuYILFd3iJg">
+              <body>CCSL simulation results:
+   number of activation: 0
+   schedule: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+            </ownedComment>
+          </result>
+        </node>
+        <node xmi:type="uml:CallOperationAction" xmi:id="_GIHCsPkHEeGIXc43q3bRRA" name="CallServoMotorCommand" outgoing="_WNiYsPkIEeGIXc43q3bRRA" operation="_GB8wUPkHEeGIXc43q3bRRA">
+          <ownedComment xmi:id="_LijBQA4zEeKuuYILFd3iJg">
+            <body>CCSL simulation results:
+   number of activation: 0
+   schedule: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+          </ownedComment>
+          <ownedComment xmi:id="_LijoUA4zEeKuuYILFd3iJg">
+            <body>CCSL simulation results:
+   number of activation: 0
+   schedule: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+          </ownedComment>
+          <argument xmi:id="_PLKXkPkHEeGIXc43q3bRRA" name="InputFishBrainCommand" incoming="_GCaN4PkIEeGIXc43q3bRRA">
+            <ownedComment xmi:id="_TIfXsPkmEeGdqdFa9goL2w">
+              <body>CCSL simulation results:
+   number of activation: 12
+   schedule: 0000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000</body>
+            </ownedComment>
+            <ownedComment xmi:id="_LipH4A4zEeKuuYILFd3iJg">
+              <body>CCSL simulation results:
+   number of activation: 1
+   schedule: 0000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+            </ownedComment>
+          </argument>
+          <argument xmi:id="_PnFekPkHEeGIXc43q3bRRA" name="InputSafeCommand" incoming="_uIWogPkHEeGIXc43q3bRRA">
+            <ownedComment xmi:id="_TIgl0PkmEeGdqdFa9goL2w">
+              <body>CCSL simulation results:
+   number of activation: 0
+   schedule: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+            </ownedComment>
+            <ownedComment xmi:id="_LiqWAA4zEeKuuYILFd3iJg">
+              <body>CCSL simulation results:
+   number of activation: 0
+   schedule: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+            </ownedComment>
+          </argument>
+        </node>
+        <node xmi:type="uml:CallOperationAction" xmi:id="_yZ-OsPkHEeGIXc43q3bRRA" name="CallFishBrainControl" operation="_yUobsPkHEeGIXc43q3bRRA">
+          <ownedComment xmi:id="_LiglAA4zEeKuuYILFd3iJg">
+            <body>CCSL simulation results:
+   number of activation: 1
+   schedule: 0000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+          </ownedComment>
+          <ownedComment xmi:id="_LihMEA4zEeKuuYILFd3iJg">
+            <body>CCSL simulation results:
+   number of activation: 1
+   schedule: 0000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+          </ownedComment>
+          <argument xmi:id="_7HVncPkHEeGIXc43q3bRRA" name="InputObstacleDistances" incoming="_HEANwPkIEeGIXc43q3bRRA">
+            <ownedComment xmi:id="_TIf-wPkmEeGdqdFa9goL2w">
+              <body>CCSL simulation results:
+   number of activation: 12
+   schedule: 0000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000</body>
+            </ownedComment>
+            <ownedComment xmi:id="_Lipu8A4zEeKuuYILFd3iJg">
+              <body>CCSL simulation results:
+   number of activation: 1
+   schedule: 0000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+            </ownedComment>
+          </argument>
+          <result xmi:id="_7zWY4PkHEeGIXc43q3bRRA" name="OutputFishBrainCommand" outgoing="_GCaN4PkIEeGIXc43q3bRRA">
+            <ownedComment xmi:id="_TIleUPkmEeGdqdFa9goL2w">
+              <body>CCSL simulation results:
+   number of activation: 12
+   schedule: 0000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000</body>
+            </ownedComment>
+            <ownedComment xmi:id="_LiuncA4zEeKuuYILFd3iJg">
+              <body>CCSL simulation results:
+   number of activation: 1
+   schedule: 0000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+            </ownedComment>
+          </result>
+        </node>
+        <node xmi:type="uml:ActivityFinalNode" xmi:id="_VF6pUPkIEeGIXc43q3bRRA" name="ActivityFinalNode2" incoming="_WNiYsPkIEeGIXc43q3bRRA">
+          <ownedComment xmi:id="_LiYpMA4zEeKuuYILFd3iJg">
+            <body>CCSL simulation results:
+   number of activation: 0
+   schedule: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+          </ownedComment>
+          <ownedComment xmi:id="_LiaeYA4zEeKuuYILFd3iJg">
+            <body>CCSL simulation results:
+   number of activation: 0
+   schedule: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</body>
+          </ownedComment>
+        </node>
+      </ownedBehavior>
+    </packagedElement>
+    <profileApplication xmi:id="_l9kWQA4tEeKuuYILFd3iJg">
+      <eAnnotations xmi:id="_l93RMA4tEeKuuYILFd3iJg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="../Profile/melody.profile.uml#_Q_ZPABClEeKwoPUtkRTsCg"/>
+      </eAnnotations>
+      <appliedProfile href="../Profile/melody.profile.uml#_Mq_UMA4sEeKuuYILFd3iJg"/>
+    </profileApplication>
+  </uml:Model>
+  <Melody:Route xmi:id="_mBJ_QPkEEeGIXc43q3bRRA" base_Action="_eDlrwPkEEeGIXc43q3bRRA"/>
+  <Melody:Select xmi:id="_aDAOYPkIEeGIXc43q3bRRA" base_Action="_GIHCsPkHEeGIXc43q3bRRA"/>
+  <Melody:Duplicate xmi:id="_x0BC8Pj8EeGIXs43q3bRRA" base_Action="_pJmsAPkGEeGIXc43q3bRRA"/>
+  <melody:Route xmi:id="_o43CsA4tEeKuuYILFd3iJg" base_Action="_eDlrwPkEEeGIXc43q3bRRA"/>
+  <melody:Duplicate xmi:id="_wVU0QA4tEeKuuYILFd3iJg" base_Action="_pJmsAPkGEeGIXc43q3bRRA"/>
+  <melody:Select xmi:id="_c0zWwBClEeKwoPUtkRTsCg" base_Action="_GIHCsPkHEeGIXc43q3bRRA"/>
+</xmi:XMI>

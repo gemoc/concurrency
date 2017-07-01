@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.gemoc.moccml.mapping.transfos.feature"
+      label="transformations for ECL Feature"
+      version="1.0.0.qualifier"
+      provider-name="Aoste INRIA / I3S"
+      plugin="fr.inria.aoste.timesquare.branding">
+
+   <description url="http://www.example.com/description">
+      ECL transformation to generate your concurrency model compiler from the specification at the language level(installation means installing everything)
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      EPL --&gt; TODO[Enter License Description here.]
+   </license>
+
+   <url>
+      <update label="ECL update site" url="http://timesquare.inria.fr/ecl/update_site/"/>
+      <discovery label="Luna" url="http://download.eclipse.org/releases/luna/"/>
+      <discovery label="The Eclipse Project Updates" url="http://download.eclipse.org/eclipse/updates/4.4"/>
+      <discovery label="Acceleo" url="http://download.eclipse.org/modeling/m2t/acceleo/updates/releases/3.3"/>
+      <discovery label="Xtext All In One - Releases" url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
+      <discovery label="TimeSquare" url="http://timesquare.inria.fr/update_site"/>
+   </url>
+
+   <requires>
+      <import feature="org.eclipse.m2m.qvt.oml" version="3.2.0.v20120918-0827" match="compatible"/>
+      <import feature="org.eclipse.m2m.qvt.oml" version="3.2.0.v20120918-0827" match="compatible"/>
+      <import feature="org.eclipse.gemoc.moccml.mapping.editor.feature" version="1.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.acceleo" version="3.3.1.v20120831-0923" match="compatible"/>
+      <import feature="org.eclipse.m2m.qvt.oml" version="3.2.0.v20120918-0827" match="compatible"/>
+      <import feature="org.eclipse.m2m.qvt.oml.editor" version="3.2.0.v20120918-0827" match="compatible"/>
+      <import feature="org.eclipse.m2m.qvt.oml.examples" version="3.2.0.v20120918-0827" match="compatible"/>
+      <import feature="org.eclipse.m2m.qvt.oml.runtime" version="3.2.0.v20120918-0827" match="compatible"/>
+      <import feature="org.eclipse.m2m.qvt.oml.sdk" version="3.2.1.v20120918-0827" match="compatible"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipse.emf.ecore.xmi"/>
+      <import plugin="org.eclipse.ocl"/>
+      <import plugin="org.eclipse.ocl.ecore"/>
+      <import plugin="fr.inria.aoste.timesquare.ccslkernel.model"/>
+      <import plugin="org.eclipse.acceleo.common" version="3.2.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.acceleo.model" version="3.2.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.acceleo.profiler" version="3.2.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.acceleo.engine" version="3.2.1" match="greaterOrEqual"/>
+      <import plugin="com.google.guava"/>
+      <import plugin="org.eclipse.gemoc.moccml.mapping.xtext.ui" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.gemoc.moccml.mapping" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.gemoc.moccml.mapping.xtext" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.acceleo.engine" version="3.3.0" match="greaterOrEqual"/>
+      <import plugin="fr.inria.aoste.timesquare.ccslkernel.parser.xtext"/>
+      <import plugin="org.eclipse.xtext"/>
+      <import plugin="org.eclipse.emf.ecore" version="2.8.0" match="greaterOrEqual"/>
+      <import plugin="fr.inria.aoste.timesquare.ccslkernel.model" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext" version="2.3.0" match="greaterOrEqual"/>
+      <import plugin="fr.inria.aoste.timesquare.ccslkernel.library.xtext" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="fr.inria.aoste.timesquare.ccslkernel.parser.xtext" version="1.0.0" match="greaterOrEqual"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.gemoc.moccml.mapping.ecltoqvto"
+         download-size="0"
+         install-size="0"
+         version="1.0.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.gemoc.moccml.mapping.ecltoqvto.ui"
+         download-size="0"
+         install-size="0"
+         version="1.0.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.gemoc.moccml.mapping.qvto.helper"
+         download-size="0"
+         install-size="0"
+         version="1.0.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.gemoc.moccml.mapping.qvto2ccsl.ui"
+         download-size="0"
+         install-size="0"
+         version="1.0.0.qualifier"
+         unpack="false"/>
+
+</feature>

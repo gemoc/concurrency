@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_sMjr8UnIEeGilugX0at0iw" name="Model">
+  <packageImport xmi:id="_sMjr8knIEeGilugX0at0iw">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_sM3N8EnIEeGilugX0at0iw" name="ActivityForSDF">
+    <edge xmi:type="uml:ControlFlow" xmi:id="_7cn5sEnpEeGilugX0at0iw" name="arcA-Bbegin" target="_mRhjAEnrEeGilugX0at0iw" source="_6oUK4EnIEeGilugX0at0iw">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_0soXIEnqEeGilugX0at0iw" name="outputWeight" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_sNytIEnrEeGilugX0at0iw" name="arcA-Bend" target="_b_JzwEnJEeGilugX0at0iw" source="_mRhjAEnrEeGilugX0at0iw">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_xjOgwEnrEeGilugX0at0iw" name="inputWeight" value="2"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_2ONpMEnrEeGilugX0at0iw" name="arcB-Cbegin" target="_zmk4kEnrEeGilugX0at0iw" source="_b_JzwEnJEeGilugX0at0iw">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_Hi5mYEqXEeGwE5CNrQxcbw" name="outputWeight" value="2"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_3cR-0EnrEeGilugX0at0iw" name="arcB-Cend" target="_xXNv8EnpEeGilugX0at0iw" source="_zmk4kEnrEeGilugX0at0iw">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_LkAEUEqXEeGwE5CNrQxcbw" name="inputWeight" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_4wkRMEnrEeGilugX0at0iw" name="arcC-Bbegin" target="_1AmmkEnrEeGilugX0at0iw" source="_xXNv8EnpEeGilugX0at0iw">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_P2o-MEqXEeGwE5CNrQxcbw" name="outputWeight" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_6JkEcEnrEeGilugX0at0iw" name="arcC-Bend" target="_b_JzwEnJEeGilugX0at0iw" source="_1AmmkEnrEeGilugX0at0iw">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_SrENoEqXEeGwE5CNrQxcbw" name="inputWeight" value="2"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_Ybde8EqXEeGwE5CNrQxcbw" name="ControlFlow1" target="_1AmmkEnrEeGilugX0at0iw" source="_UaYPIEqXEeGwE5CNrQxcbw">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_jeJJQEqXEeGwE5CNrQxcbw" name="initialDelay" value="2"/>
+    </edge>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_6oUK4EnIEeGilugX0at0iw" name="ActorA" outgoing="_7cn5sEnpEeGilugX0at0iw"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_b_JzwEnJEeGilugX0at0iw" name="ActorB" incoming="_sNytIEnrEeGilugX0at0iw _6JkEcEnrEeGilugX0at0iw" outgoing="_2ONpMEnrEeGilugX0at0iw"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_xXNv8EnpEeGilugX0at0iw" name="ActorC" incoming="_3cR-0EnrEeGilugX0at0iw" outgoing="_4wkRMEnrEeGilugX0at0iw"/>
+    <node xmi:type="uml:JoinNode" xmi:id="_mRhjAEnrEeGilugX0at0iw" name="JoinNode1" incoming="_7cn5sEnpEeGilugX0at0iw" outgoing="_sNytIEnrEeGilugX0at0iw"/>
+    <node xmi:type="uml:JoinNode" xmi:id="_zmk4kEnrEeGilugX0at0iw" name="JoinNode2" incoming="_2ONpMEnrEeGilugX0at0iw" outgoing="_3cR-0EnrEeGilugX0at0iw"/>
+    <node xmi:type="uml:JoinNode" xmi:id="_1AmmkEnrEeGilugX0at0iw" name="JoinNode3" incoming="_4wkRMEnrEeGilugX0at0iw _Ybde8EqXEeGwE5CNrQxcbw" outgoing="_6JkEcEnrEeGilugX0at0iw"/>
+    <node xmi:type="uml:InitialNode" xmi:id="_UaYPIEqXEeGwE5CNrQxcbw" name="InitialNode1" outgoing="_Ybde8EqXEeGwE5CNrQxcbw"/>
+  </packagedElement>
+</uml:Model>

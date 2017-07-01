@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.gemoc.moccml.mapping.editor.feature"
+      label="ECL model and editor"
+      version="1.0.0.qualifier"
+      provider-name="Aoste INRIA / I3S"
+      plugin="fr.inria.aoste.timesquare.branding">
+
+   <description url="http://timesquare.inria.fr/ecl">
+      the ECL language and transformation to specify the concurrent and timing aspect of your language !
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      EPL --&gt; TODO[Enter License Description here.]
+   </license>
+
+   <url>
+      <update label="ECL update site" url="http://timesquare.inria.fr/ecl/update_site/neon"/>
+      <discovery label="Neon" url="http://download.eclipse.org/releases/neon"/>
+      <discovery label="The Eclipse Project Updates" url="http://download.eclipse.org/eclipse/updates/4.6"/>
+      <discovery label="Acceleo" url="http://download.eclipse.org/modeling/m2t/acceleo/updates/releases/3.2"/>
+      <discovery label="Xtext All In One - Releases" url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
+      <discovery label="TimeSquare" url="http://timesquare.inria.fr/update_site/neon"/>
+   </url>
+
+   <requires>
+      <import feature="org.eclipse.xtext.ui" version="2.6.0" match="compatible"/>
+      <import feature="fr.inria.aoste.timesquare.feature" version="1.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.xtext.runtime" version="2.6.0" match="compatible"/>
+      <import feature="org.eclipse.xtext.ui" version="2.6.0" match="compatible"/>
+      <import feature="org.eclipse.xtext.xtext.ui" version="2.6.0" match="compatible"/>
+      <import feature="org.eclipse.m2m.qvt.oml" version="3.2.0.v20120918-0827" match="compatible"/>
+      <import feature="org.eclipse.m2m.qvt.oml.editor" version="3.2.0.v20120918-0827" match="compatible"/>
+      <import feature="org.eclipse.m2m.qvt.oml.runtime" version="3.2.0.v20120918-0827" match="compatible"/>
+      <import feature="org.eclipse.m2m.qvt.oml.sdk" version="3.2.1.v20120918-0827" match="compatible"/>
+      <import feature="org.eclipse.ocl.all" version="5.0.0.v20140528-1458"/>
+      <import feature="org.eclipse.ocl.uml" version="5.0.0.v20140524-1436"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipse.emf.cdo"/>
+      <import plugin="org.eclipse.ocl.xtext.base"/>
+      <import plugin="org.eclipse.ocl.xtext.completeocl"/>
+      <import plugin="org.eclipse.ocl.xtext.essentialocl"/>
+      <import plugin="fr.inria.aoste.timesquare.ccslkernel.model"/>
+      <import plugin="org.eclipse.ocl.pivot"/>
+      <import plugin="org.eclipse.xtext"/>
+      <import plugin="org.apache.log4j" version="1.2.15" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.generator"/>
+      <import plugin="org.eclipse.xtext.xtext.generator"/>
+      <import plugin="org.eclipse.xtext.util"/>
+      <import plugin="org.antlr.runtime"/>
+      <import plugin="org.eclipse.osgi"/>
+      <import plugin="org.eclipse.core.runtime" version="3.8.0" match="greaterOrEqual"/>
+      <import plugin="fr.inria.aoste.timesquare.ccslkernel.model" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="fr.inria.aoste.timesquare.ccslkernel.library.xtext" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ocl.xtext.markup.ui"/>
+      <import plugin="org.eclipse.uml2.codegen.ecore" version="1.8.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ocl.xtext.essentialocl.ui"/>
+      <import plugin="fr.inria.aoste.timesquare.ccslkernel.parser.xtext"/>
+      <import plugin="org.eclipse.jdt.annotation"/>
+      <import plugin="org.eclipse.uml2.uml" version="5.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ocl.examples.codegen"/>
+      <import plugin="org.apache.commons.logging"/>
+      <import plugin="org.eclipse.core.resources" version="3.5.0" match="compatible"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.ocl.xtext.base.ui"/>
+      <import plugin="org.eclipse.core.runtime" version="3.5.0" match="compatible"/>
+      <import plugin="org.eclipse.gemoc.moccml.mapping.xtext" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ocl.examples.xtext.completeocl" version="3.4.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ocl.xtext.completeocl.ui"/>
+      <import plugin="org.eclipse.xtext.builder"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.gemoc.moccml.mapping"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.gemoc.moccml.mapping.xtext"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.gemoc.moccml.mapping.xtext.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

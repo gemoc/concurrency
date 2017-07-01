@@ -1,0 +1,80 @@
+ClockConstraintSystem model {
+	imports {
+		import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib" as kernel ;
+		import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib" as CCSL ;
+		import "platform:/resource/fr.inria.aoste.timesquare.ecl.examples/SequenceDiagram/exampleSequence.uml" as Model ;
+	}
+	entryBlock mainBlock
+	Block mainBlock {
+		Relation BehaviorExecSpecPrecedes_startfinishPrecedence [ Precedes ]
+		( LeftClock -> BehaviorExecSpec_startOc,
+		RightClock -> BehaviorExecSpec_stopOc )
+		Relation BehaviorExecSpec0Precedes_startfinishPrecedence [ Precedes ]
+		( LeftClock -> BehaviorExecSpec0_startOc,
+		RightClock -> BehaviorExecSpec0_stopOc )
+		Relation Lifelineintermediate_lifelineordering1_2 [ Precedes ]
+		( LeftClock -> Operation1_MessageSend_occurrence,
+		RightClock -> BehaviorExecSpecStart_occurrence )
+		Relation Lifelineintermediate_lifelineordering1_3 [ Precedes ]
+		( LeftClock -> Operation1_MessageSend_occurrence,
+		RightClock -> Operation1_MessageSend0_occurrence )
+		Relation Lifelineintermediate_lifelineordering1_4 [ Precedes ]
+		( LeftClock -> Operation1_MessageSend_occurrence,
+		RightClock -> BehaviorExecSpecFinish_occurrence )
+		Relation Lifelineintermediate_lifelineordering2_3 [ Precedes ]
+		( LeftClock -> BehaviorExecSpecStart_occurrence,
+		RightClock -> Operation1_MessageSend0_occurrence )
+		Relation Lifelineintermediate_lifelineordering2_4 [ Precedes ]
+		( LeftClock -> BehaviorExecSpecStart_occurrence,
+		RightClock -> BehaviorExecSpecFinish_occurrence )
+		Relation Lifelineintermediate_lifelineordering3_4 [ Precedes ]
+		( LeftClock -> Operation1_MessageSend0_occurrence,
+		RightClock -> BehaviorExecSpecFinish_occurrence )
+		Relation Lifeline1intermediate_lifelineordering1_2 [ Precedes ]
+		( LeftClock -> Operation1_MessageRecv_occurrence,
+		RightClock -> BehaviorExecSpec0Start_occurrence )
+		Relation Lifeline1intermediate_lifelineordering1_3 [ Precedes ]
+		( LeftClock -> Operation1_MessageRecv_occurrence,
+		RightClock -> Operation1_MessageRecv0_occurrence )
+		Relation Lifeline1intermediate_lifelineordering1_4 [ Precedes ]
+		( LeftClock -> Operation1_MessageRecv_occurrence,
+		RightClock -> BehaviorExecSpec0Finish_occurrence )
+		Relation Lifeline1intermediate_lifelineordering2_3 [ Precedes ]
+		( LeftClock -> BehaviorExecSpec0Start_occurrence,
+		RightClock -> Operation1_MessageRecv0_occurrence )
+		Relation Lifeline1intermediate_lifelineordering2_4 [ Precedes ]
+		( LeftClock -> BehaviorExecSpec0Start_occurrence,
+		RightClock -> BehaviorExecSpec0Finish_occurrence )
+		Relation Lifeline1intermediate_lifelineordering3_4 [ Precedes ]
+		( LeftClock -> Operation1_MessageRecv0_occurrence,
+		RightClock -> BehaviorExecSpec0Finish_occurrence )
+		Clock Operation1_MessageSend_occurrence : clock -> evt_Operation1_MessageSend_occurrence
+		( "Model->model::Interaction1::Operation1_MessageSend" )
+		Clock BehaviorExecSpecFinish_occurrence : clock -> evt_BehaviorExecSpecFinish_occurrence
+		( "Model->model::Interaction1::BehaviorExecSpecFinish" )
+		Clock Operation1_MessageRecv_occurrence : clock -> evt_Operation1_MessageRecv_occurrence
+		( "Model->model::Interaction1::Operation1_MessageRecv" )
+		Clock BehaviorExecSpec0Start_occurrence : clock -> evt_BehaviorExecSpec0Start_occurrence
+		( "Model->model::Interaction1::BehaviorExecSpec0Start" )
+		Clock Operation1_MessageSend0_occurrence : clock -> evt_Operation1_MessageSend0_occurrence
+		( "Model->model::Interaction1::Operation1_MessageSend0" )
+		Clock BehaviorExecSpec0Finish_occurrence : clock -> evt_BehaviorExecSpec0Finish_occurrence
+		( "Model->model::Interaction1::BehaviorExecSpec0Finish" )
+		Clock BehaviorExecSpecStart_occurrence : clock -> evt_BehaviorExecSpecStart_occurrence
+		( "Model->model::Interaction1::BehaviorExecSpecStart" )
+		Clock Operation1_MessageRecv0_occurrence : clock -> evt_Operation1_MessageRecv0_occurrence
+		( "Model->model::Interaction1::Operation1_MessageRecv0" )
+		Clock BehaviorExecSpec_startOc : clock -> evt_BehaviorExecSpec_startOc
+		( "Model->model::Interaction1::BehaviorExecSpecStart" )
+		: start
+		Clock BehaviorExecSpec0_startOc : clock -> evt_BehaviorExecSpec0_startOc
+		( "Model->model::Interaction1::BehaviorExecSpec0Start" )
+		: start
+		Clock BehaviorExecSpec_stopOc : clock -> evt_BehaviorExecSpec_stopOc
+		( "Model->model::Interaction1::BehaviorExecSpecFinish" )
+		: finish
+		Clock BehaviorExecSpec0_stopOc : clock -> evt_BehaviorExecSpec0_stopOc
+		( "Model->model::Interaction1::BehaviorExecSpec0Finish" )
+		: finish
+	}
+}

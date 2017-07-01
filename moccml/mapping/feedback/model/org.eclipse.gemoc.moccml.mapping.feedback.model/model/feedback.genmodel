@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.gemoc.moccml.mapping.feedback.model/src-gen"
+    editDirectory="/org.eclipse.gemoc.moccml.mapping.feedback.model.edit/src-gen" editorDirectory="/org.eclipse.gemoc.moccml.mapping.feedback.model.editor/src-gen"
+    modelPluginID="org.eclipse.gemoc.moccml.mapping.feedback.model" modelName="Feedback"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" testsDirectory="/org.eclipse.gemoc.moccml.mapping.feedback.model.tests/src-gen"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore" operationReflection="true"
+    importOrganizing="true">
+  <foreignModel>feedback.ecore</foreignModel>
+  <genPackages prefix="Feedback" basePackage="org.eclipse.gemoc.moccml.mapping.feedback"
+      disposableProviderFactory="true" ecorePackage="feedback.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="feedback.ecore#//ForceKind">
+      <genEnumLiterals ecoreEnumLiteral="feedback.ecore#//ForceKind/Presence"/>
+      <genEnumLiterals ecoreEnumLiteral="feedback.ecore#//ForceKind/Absence"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="feedback.ecore#//ComparisonOperator">
+      <genEnumLiterals ecoreEnumLiteral="feedback.ecore#//ComparisonOperator/equals"/>
+      <genEnumLiterals ecoreEnumLiteral="feedback.ecore#//ComparisonOperator/inf"/>
+      <genEnumLiterals ecoreEnumLiteral="feedback.ecore#//ComparisonOperator/sup"/>
+      <genEnumLiterals ecoreEnumLiteral="feedback.ecore#//ComparisonOperator/different"/>
+      <genEnumLiterals ecoreEnumLiteral="feedback.ecore#//ComparisonOperator/infEquals"/>
+      <genEnumLiterals ecoreEnumLiteral="feedback.ecore#//ComparisonOperator/supEquals"/>
+    </genEnums>
+    <genClasses ecoreClass="feedback.ecore#//When">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference feedback.ecore#//When/source"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference feedback.ecore#//When/condition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference feedback.ecore#//When/actionCall"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference feedback.ecore#//When/action"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="feedback.ecore#//Condition"/>
+    <genClasses image="false" ecoreClass="feedback.ecore#//Action"/>
+    <genClasses ecoreClass="feedback.ecore#//Force">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference feedback.ecore#//Force/eventToBeForced"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute feedback.ecore#//Force/kind"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference feedback.ecore#//Force/onTrigger"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference feedback.ecore#//Force/untilTrigger"/>
+    </genClasses>
+    <genClasses ecoreClass="feedback.ecore#//ActionFinishedCondition"/>
+    <genClasses ecoreClass="feedback.ecore#//ImportStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute feedback.ecore#//ImportStatement/importURI"/>
+    </genClasses>
+    <genClasses ecoreClass="feedback.ecore#//ModelSpecificEvent">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference feedback.ecore#//ModelSpecificEvent/caller"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference feedback.ecore#//ModelSpecificEvent/action"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference feedback.ecore#//ModelSpecificEvent/solverEvent"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="feedback.ecore#//ActionResultCondition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute feedback.ecore#//ActionResultCondition/comparisonValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute feedback.ecore#//ActionResultCondition/operator"/>
+    </genClasses>
+    <genClasses ecoreClass="feedback.ecore#//ActionCall">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference feedback.ecore#//ActionCall/triggeringEvent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute feedback.ecore#//ActionCall/parameters"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute feedback.ecore#//ActionCall/result"/>
+    </genClasses>
+    <genClasses ecoreClass="feedback.ecore#//ActionModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference feedback.ecore#//ActionModel/events"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference feedback.ecore#//ActionModel/actionCalls"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference feedback.ecore#//ActionModel/whenStatements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference feedback.ecore#//ActionModel/importStatements"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feedback:ActionModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:feedback="http://timesquare.inria.fr/feedback">
+  <events name="MSE_Activity0_referenceClock">
+    <solverEvent href="amodel_AD1.timeModel#//@subBlock.0/@elements.0"/>
+  </events>
+  <events name="MSE_OpaqueAction1_startIt">
+    <solverEvent href="amodel_AD1.timeModel#//@subBlock.0/@elements.1"/>
+  </events>
+  <events name="MSE_DecisionNode1_startIt">
+    <solverEvent href="amodel_AD1.timeModel#//@subBlock.0/@elements.2"/>
+  </events>
+  <events name="MSE_OpaqueAction4_startIt">
+    <solverEvent href="amodel_AD1.timeModel#//@subBlock.0/@elements.3"/>
+  </events>
+  <events name="MSE_MergeNode1_startIt">
+    <solverEvent href="amodel_AD1.timeModel#//@subBlock.0/@elements.4"/>
+  </events>
+  <events name="MSE_OpaqueAction5_startIt">
+    <solverEvent href="amodel_AD1.timeModel#//@subBlock.0/@elements.5"/>
+  </events>
+  <events name="MSE_OpaqueAction3_startIt">
+    <solverEvent href="amodel_AD1.timeModel#//@subBlock.0/@elements.6"/>
+  </events>
+  <events name="MSE_ForkNode1_startIt">
+    <solverEvent href="amodel_AD1.timeModel#//@subBlock.0/@elements.7"/>
+  </events>
+  <events name="MSE_JoinNode1_startIt">
+    <solverEvent href="amodel_AD1.timeModel#//@subBlock.0/@elements.8"/>
+  </events>
+  <events name="MSE_ActivityFinalNode1_startIt">
+    <solverEvent href="amodel_AD1.timeModel#//@subBlock.0/@elements.9"/>
+  </events>
+  <events name="MSE_OpaqueAction2_startIt">
+    <solverEvent href="amodel_AD1.timeModel#//@subBlock.0/@elements.10"/>
+  </events>
+  <events name="MSE_InitialNode1_startIt">
+    <solverEvent href="amodel_AD1.timeModel#//@subBlock.0/@elements.11"/>
+  </events>
+  <events name="MSE_OpaqueAction1_finishIt">
+    <solverEvent href="amodel_AD1.timeModel#//@subBlock.0/@elements.12"/>
+  </events>
+  <events name="MSE_DecisionNode1_finishIt">
+    <solverEvent href="amodel_AD1.timeModel#//@subBlock.0/@elements.13"/>
+  </events>
+  <events name="MSE_OpaqueAction4_finishIt">
+    <solverEvent href="amodel_AD1.timeModel#//@subBlock.0/@elements.14"/>
+  </events>
+  <events name="MSE_MergeNode1_finishIt">
+    <solverEvent href="amodel_AD1.timeModel#//@subBlock.0/@elements.15"/>
+  </events>
+  <events name="MSE_OpaqueAction5_finishIt">
+    <solverEvent href="amodel_AD1.timeModel#//@subBlock.0/@elements.16"/>
+  </events>
+  <events name="MSE_OpaqueAction3_finishIt">
+    <solverEvent href="amodel_AD1.timeModel#//@subBlock.0/@elements.17"/>
+  </events>
+  <events name="MSE_ForkNode1_finishIt">
+    <solverEvent href="amodel_AD1.timeModel#//@subBlock.0/@elements.18"/>
+  </events>
+  <events name="MSE_JoinNode1_finishIt">
+    <solverEvent href="amodel_AD1.timeModel#//@subBlock.0/@elements.19"/>
+  </events>
+  <events name="MSE_ActivityFinalNode1_finishIt">
+    <solverEvent href="amodel_AD1.timeModel#//@subBlock.0/@elements.20"/>
+  </events>
+  <events name="MSE_OpaqueAction2_finishIt">
+    <solverEvent href="amodel_AD1.timeModel#//@subBlock.0/@elements.21"/>
+  </events>
+  <events name="MSE_InitialNode1_finishIt">
+    <solverEvent href="amodel_AD1.timeModel#//@subBlock.0/@elements.22"/>
+  </events>
+  <importStatements importURI="platform:/13"/>
+</feedback:ActionModel>

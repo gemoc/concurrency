@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fr.inria.aoste.gemoc.example:TFSM xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fr.inria.aoste.gemoc.example="http://fr.inria.aoste.gemoc.example.tfsm" name="RobotActivationControlSpeedControl" initialState="//@ownedState.0">
+  <ownedState name="initState">
+    <outgoingTransition name="initToNormalSampling" target="//@ownedState.2" >
+      <ownedGuard xsi:type="fr.inria.aoste.gemoc.example:EventGuard" name="normalStart" triggeringEvent="//@ownedEvents.0"/>
+    </outgoingTransition>
+  </ownedState>
+  <ownedState name="safeSampling" incomingTransition="//@ownedState.1/@outgoingTransition.0 //@ownedState.2/@outgoingTransition.1">
+    <outgoingTransition name="SafeSelfLoop" target="//@ownedState.1" generatedEvents="//@ownedEvents.3">
+      <ownedGuard xsi:type="fr.inria.aoste.gemoc.example:TemporalGuard" name="safeGuard" onClock="//@ownedClock" afterDuration="7"/>
+    </outgoingTransition>
+    <outgoingTransition name="safeToNormal" target="//@ownedState.2">
+      <ownedGuard xsi:type="fr.inria.aoste.gemoc.example:EventGuard" name="waitNoStress" triggeringEvent="//@ownedEvents.2"/>
+    </outgoingTransition>
+  </ownedState>
+  <ownedState name="normalSampling" incomingTransition="//@ownedState.0/@outgoingTransition.0 //@ownedState.2/@outgoingTransition.0 //@ownedState.1/@outgoingTransition.1">
+    <outgoingTransition name="NormalSelfLoop" target="//@ownedState.2" generatedEvents="//@ownedEvents.3">
+      <ownedGuard xsi:type="fr.inria.aoste.gemoc.example:TemporalGuard" name="normalGuard" onClock="//@ownedClock" afterDuration="15"/>
+    </outgoingTransition>
+    <outgoingTransition name="normalToSafe" target="//@ownedState.1">
+      <ownedGuard xsi:type="fr.inria.aoste.gemoc.example:EventGuard" name="waitAlarm" triggeringEvent="//@ownedEvents.1"/>
+    </outgoingTransition>
+  </ownedState>
+  <ownedEvents name="startControl"/>
+  <ownedEvents name="goToSafeSampling"/>
+  <ownedEvents name="goToNormalSampling"/>
+  <ownedEvents name="doSampling" sollicitingTransitions="//@ownedState.2/@outgoingTransition.0 //@ownedState.1/@outgoingTransition.0"/>
+  <ownedClock name="referencedClock"/>
+</fr.inria.aoste.gemoc.example:TFSM>
