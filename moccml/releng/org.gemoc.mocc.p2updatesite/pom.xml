@@ -4,12 +4,12 @@
 
   <parent>
     <relativePath>../..</relativePath>
-    <groupId>org.gemoc.mocc</groupId>
+    <groupId>org.eclipse.gemoc.mocc</groupId>
     <version>0.1.1-SNAPSHOT</version>
-    <artifactId>org.gemoc.mocc.root</artifactId>
+    <artifactId>org.eclipse.gemoc.mocc.root</artifactId>
   </parent>
 
-  <artifactId>org.gemoc.mocc.p2updatesite</artifactId>
+  <artifactId>org.eclipse.gemoc.mocc.p2updatesite</artifactId>
   <packaging>eclipse-repository</packaging>
 
 </project> 

@@ -80,7 +80,7 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_lhPqk39sEeOABozKiLtDIw"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_lhMnQX9sEeOABozKiLtDIw" fontColor="4210752" fontName="Segoe UI" fontHeight="10" lineColor="8421504"/>
-    <element xmi:type="ecore:EClass" href="platform:/resource/org.gemoc.mocc.fsmkernel.model/model/FSMModel.ecore#//StateMachineDefinition"/>
+    <element xmi:type="ecore:EClass" href="platform:/resource/org.eclipse.gemoc.mocc.fsmkernel.model/model/FSMModel.ecore#//StateMachineDefinition"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lhMnQn9sEeOABozKiLtDIw" x="444" y="228" width="195"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_VcHlQKO3EeOhwbfcswp6xg" type="1001">
@@ -99,7 +99,7 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_VcQvM6O3EeOhwbfcswp6xg"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_VcHlQaO3EeOhwbfcswp6xg" fontColor="4210752" fontName="Segoe UI" fontHeight="10" lineColor="8421504"/>
-    <element xmi:type="ecore:EClass" href="platform:/resource/org.gemoc.mocc.fsmkernel.model/model/FSMModel.ecore#//DeclarationBlock"/>
+    <element xmi:type="ecore:EClass" href="platform:/resource/org.eclipse.gemoc.mocc.fsmkernel.model/model/FSMModel.ecore#//DeclarationBlock"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VcHlQqO3EeOhwbfcswp6xg" x="576" y="360" width="135"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_VcQvNqO3EeOhwbfcswp6xg" type="1001">
@@ -118,7 +118,7 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_VcQvQaO3EeOhwbfcswp6xg"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_VcQvN6O3EeOhwbfcswp6xg" fontColor="4210752" fontName="Segoe UI" fontHeight="10" lineColor="8421504"/>
-    <element xmi:type="ecore:EClass" href="platform:/resource/org.gemoc.mocc.fsmkernel.model/model/FSMModel.ecore#//Transition"/>
+    <element xmi:type="ecore:EClass" href="platform:/resource/org.eclipse.gemoc.mocc.fsmkernel.model/model/FSMModel.ecore#//Transition"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VcQvOKO3EeOhwbfcswp6xg" x="420" y="108" width="159"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_VcQvRKO3EeOhwbfcswp6xg" type="1001">
@@ -137,7 +137,7 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_VcQvT6O3EeOhwbfcswp6xg"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_VcQvRaO3EeOhwbfcswp6xg" fontColor="4210752" fontName="Segoe UI" fontHeight="10" lineColor="8421504"/>
-    <element xmi:type="ecore:EClass" href="platform:/resource/org.gemoc.mocc.fsmkernel.model/model/FSMModel.ecore#//State"/>
+    <element xmi:type="ecore:EClass" href="platform:/resource/org.eclipse.gemoc.mocc.fsmkernel.model/model/FSMModel.ecore#//State"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VcQvRqO3EeOhwbfcswp6xg" x="300" y="108"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_FWDLMKn6EeOc8_A2ar1kxg" type="1001">
@@ -270,7 +270,7 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_f575m6n6EeOc8_A2ar1kxg"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_f575kan6EeOc8_A2ar1kxg" fontColor="4210752" fontName="Segoe UI" fontHeight="10" lineColor="8421504"/>
-    <element xmi:type="ecore:EClass" href="platform:/resource/org.gemoc.mocc.fsmkernel.model/model/FSMModel.ecore#//IntegerAssignement"/>
+    <element xmi:type="ecore:EClass" href="platform:/resource/org.eclipse.gemoc.mocc.fsmkernel.model/model/FSMModel.ecore#//IntegerAssignement"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_f575kqn6EeOc8_A2ar1kxg" x="48" y="456" width="161"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_9CN3UKn6EeOc8_A2ar1kxg" type="1001">
@@ -368,7 +368,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_VgIikaO3EeOhwbfcswp6xg" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_VgIikqO3EeOhwbfcswp6xg" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="platform:/resource/org.gemoc.mocc.fsmkernel.model/model/FSMModel.ecore#//StateMachineDefinition/declarationBlock"/>
+    <element xmi:type="ecore:EReference" href="platform:/resource/org.eclipse.gemoc.mocc.fsmkernel.model/model/FSMModel.ecore#//StateMachineDefinition/declarationBlock"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_VgIik6O3EeOhwbfcswp6xg" points="[0, 0, 0, 60]$[0, -60, 0, 0]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ViEcTKO3EeOhwbfcswp6xg" id="(0.4967741935483871,0.0)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ViNmMKO3EeOhwbfcswp6xg" id="(0.5,1.0)"/>
@@ -382,7 +382,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_VglOgaO3EeOhwbfcswp6xg" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_VglOgqO3EeOhwbfcswp6xg" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="platform:/resource/org.gemoc.mocc.fsmkernel.model/model/FSMModel.ecore#//StateMachineDefinition/transitions"/>
+    <element xmi:type="ecore:EReference" href="platform:/resource/org.eclipse.gemoc.mocc.fsmkernel.model/model/FSMModel.ecore#//StateMachineDefinition/transitions"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_VglOg6O3EeOhwbfcswp6xg" points="[0, 0, 0, 60]$[0, -60, 0, 0]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ViEcSKO3EeOhwbfcswp6xg" id="(0.7743589743589744,0.0)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ViEcSaO3EeOhwbfcswp6xg" id="(0.4968553459119497,1.0)"/>
@@ -396,7 +396,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_VglOiaO3EeOhwbfcswp6xg" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_VglOiqO3EeOhwbfcswp6xg" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="platform:/resource/org.gemoc.mocc.fsmkernel.model/model/FSMModel.ecore#//StateMachineDefinition/states"/>
+    <element xmi:type="ecore:EReference" href="platform:/resource/org.eclipse.gemoc.mocc.fsmkernel.model/model/FSMModel.ecore#//StateMachineDefinition/states"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_VglOi6O3EeOhwbfcswp6xg" points="[0, 0, 116, 60]$[-116, -60, 0, 0]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ViEcRqO3EeOhwbfcswp6xg" id="(0.38461538461538464,0.0)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ViEcR6O3EeOhwbfcswp6xg" id="(0.5,1.0)"/>
@@ -410,7 +410,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_VglOkaO3EeOhwbfcswp6xg" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_VglOkqO3EeOhwbfcswp6xg" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="platform:/resource/org.gemoc.mocc.fsmkernel.model/model/FSMModel.ecore#//StateMachineDefinition/initialState"/>
+    <element xmi:type="ecore:EReference" href="platform:/resource/org.eclipse.gemoc.mocc.fsmkernel.model/model/FSMModel.ecore#//StateMachineDefinition/initialState"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_VglOk6O3EeOhwbfcswp6xg" points="[0, 0, 128, 60]$[-128, -60, 0, 0]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ViEcRKO3EeOhwbfcswp6xg" id="(0.5794871794871795,0.0)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ViEcRaO3EeOhwbfcswp6xg" id="(0.7452830188679245,1.0)"/>
@@ -424,7 +424,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_VglOmaO3EeOhwbfcswp6xg" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_VglOmqO3EeOhwbfcswp6xg" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="platform:/resource/org.gemoc.mocc.fsmkernel.model/model/FSMModel.ecore#//StateMachineDefinition/finalStates"/>
+    <element xmi:type="ecore:EReference" href="platform:/resource/org.eclipse.gemoc.mocc.fsmkernel.model/model/FSMModel.ecore#//StateMachineDefinition/finalStates"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_VglOm6O3EeOhwbfcswp6xg" points="[0, 0, 105, 60]$[-105, -60, 0, 0]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ViEcSqO3EeOhwbfcswp6xg" id="(0.18974358974358974,0.0)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ViEcS6O3EeOhwbfcswp6xg" id="(0.24528301886792453,1.0)"/>

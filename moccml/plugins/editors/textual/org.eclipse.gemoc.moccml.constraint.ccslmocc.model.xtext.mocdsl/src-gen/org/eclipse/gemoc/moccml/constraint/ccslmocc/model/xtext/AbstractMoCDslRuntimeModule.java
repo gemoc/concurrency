@@ -20,7 +20,7 @@ public abstract class AbstractMoCDslRuntimeModule extends org.eclipse.xtext.serv
 
 	@Override
 	public void configure(Binder binder) {
-		properties = tryBindProperties(binder, "org/eclipse/gemoc/moccml/constraint/ccslmocc/model/xtext/MoCDsl.properties");
+		properties = tryBindProperties(binder, "org/eclipse/gemoc//moccml/constraint/ccslmocc/model/xtext/MoCDsl.properties");
 		super.configure(binder);
 	}
 	

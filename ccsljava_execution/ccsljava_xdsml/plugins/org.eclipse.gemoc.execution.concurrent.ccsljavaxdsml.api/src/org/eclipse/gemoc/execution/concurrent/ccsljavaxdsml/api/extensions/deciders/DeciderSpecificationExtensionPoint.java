@@ -7,7 +7,7 @@ import org.eclipse.gemoc.xdsmlframework.api.extensions.ExtensionPoint;
 public class DeciderSpecificationExtensionPoint extends ExtensionPoint<DeciderSpecificationExtension>
 {
 
-	public static final String GEMOC_DECIDER_EXTENSION_POINT = "org.gemoc.gemoc_language_workbench.deciders";
+	public static final String GEMOC_DECIDER_EXTENSION_POINT = "org.eclipse.gemoc.gemoc_language_workbench.deciders";
 	public static final String GEMOC_DECIDER_EXTENSION_POINT_NAME = "Name";
 	public static final String GEMOC_DECIDER_EXTENSION_POINT_CLASS = "Class";
 	public static final String GEMOC_DECIDER_EXTENSION_POINT_Description = "Description";

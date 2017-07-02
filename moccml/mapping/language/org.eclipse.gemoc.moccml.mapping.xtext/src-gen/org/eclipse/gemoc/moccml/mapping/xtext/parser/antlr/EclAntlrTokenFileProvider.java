@@ -11,6 +11,6 @@ public class EclAntlrTokenFileProvider implements IAntlrTokenFileProvider {
 	@Override
 	public InputStream getAntlrTokenFile() {
 		ClassLoader classLoader = getClass().getClassLoader();
-    	return classLoader.getResourceAsStream("org/eclipse/gemoc/moccml/mapping/xtext/parser/antlr/internal/InternalEcl.tokens");
+    	return classLoader.getResourceAsStream("org/eclipse/gemoc//moccml/mapping/xtext/parser/antlr/internal/InternalEcl.tokens");
 	}
 }

@@ -10,7 +10,7 @@
       <metamodel href="http://fr.inria.aoste.timemodel#//CCSLModel/ClockExpressionAndRelation/KernelRelation"/>
       <metamodel href="http://fr.inria.aoste.timemodel#//CCSLModel/ClassicalExpression"/>
       <metamodel href="http://fr.inria.aoste.timemodel#//PrimitivesTypeValue"/>
-      <metamodel href="http://org.gemoc.mocc.fsmmodel/editionextension/1.0#/"/>
+      <metamodel href="http://org.eclipse.gemoc.mocc.fsmmodel/editionextension/1.0#/"/>
       <metamodel href="../../org.eclipse.gemoc.moccml.constraint.ccslmocc.model/model/Ccslmocc.ecore#/"/>
       <metamodel href="../../org.eclipse.gemoc.moccml.constraint.fsmkernel.model/model/FSMModel.ecore#/"/>
       <validationSet>
@@ -640,7 +640,7 @@
       <metamodel href="http://fr.inria.aoste.timemodel#//CCSLModel/ClockExpressionAndRelation/KernelRelation"/>
       <metamodel href="http://fr.inria.aoste.timemodel#//CCSLModel/ClassicalExpression"/>
       <metamodel href="http://fr.inria.aoste.timemodel#//PrimitivesTypeValue"/>
-      <metamodel href="http://org.gemoc.mocc.fsmmodel/editionextension/1.0#/"/>
+      <metamodel href="http://org.eclipse.gemoc.mocc.fsmmodel/editionextension/1.0#/"/>
       <metamodel href="../../org.eclipse.gemoc.moccml.constraint.ccslmocc.model/model/Ccslmocc.ecore#/"/>
       <metamodel href="../../org.eclipse.gemoc.moccml.constraint.fsmkernel.model/model/FSMModel.ecore#/"/>
       <defaultLayer name="Default">

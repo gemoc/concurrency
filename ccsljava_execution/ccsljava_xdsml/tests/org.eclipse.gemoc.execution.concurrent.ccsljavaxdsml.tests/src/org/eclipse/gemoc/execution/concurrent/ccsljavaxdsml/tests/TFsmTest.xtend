@@ -33,9 +33,9 @@ public class TFsmTest extends AbstractXtextTests
 	@Inject WorkspaceTestHelper helper
 	IProject melangeProject
 	static final String BASE_FOLDER_NAME = "tests-inputs-gen/TFSM"
-	static final String BASE_PROJECT_NAME = "org.gemoc.sample.tfsm.concurrent"
+	static final String BASE_PROJECT_NAME = "org.eclipse.gemoc.sample.tfsm.concurrent"
 	static final String PROJECT_NAME = BASE_PROJECT_NAME
-	static final String MELANGE_FILE = PROJECT_NAME+"/src/org/gemoc/sample/tfsm/concurrent/Main.melange"
+	static final String MELANGE_FILE = PROJECT_NAME+"/src/org/eclipse/gemoc/sample/tfsm/concurrent/Main.melange"
 	
 	@Before
 	override setUp() {

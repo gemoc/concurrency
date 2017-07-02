@@ -54,7 +54,7 @@ public interface CcslmoccPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://org.gemoc.moccml/1.0";
+	String eNS_URI = "http://org.eclipse.gemoc.moccml/1.0";
 
 	/**
 	 * The package namespace name.

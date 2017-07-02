@@ -57,7 +57,7 @@ public interface EditionExtensionPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://org.gemoc.mocc.fsmmodel/editionextension/1.0";
+	String eNS_URI = "http://org.eclipse.gemoc.mocc.fsmmodel/editionextension/1.0";
 
 	/**
 	 * The package namespace name.
@@ -65,7 +65,7 @@ public interface EditionExtensionPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "org.gemoc.mocc.fsmmodel.editionextension";
+	String eNS_PREFIX = "org.eclipse.gemoc.mocc.fsmmodel.editionextension";
 
 	/**
 	 * The singleton instance of the package.

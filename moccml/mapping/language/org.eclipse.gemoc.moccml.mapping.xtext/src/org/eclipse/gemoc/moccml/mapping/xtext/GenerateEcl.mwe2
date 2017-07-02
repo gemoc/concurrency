@@ -7,7 +7,7 @@ import org.eclipse.ocl.examples.build.xtend.*
 import org.eclipse.xtext.generator.*
 import org.eclipse.xtext.ui.generator.*
 
-var grammarURI = "classpath:/org/eclipse/gemoc/moccml/mapping/xtext/Ecl.xtext"
+var grammarURI = "classpath:/org/eclipse/gemoc//moccml/mapping/xtext/Ecl.xtext"
 var file.extensions = "ecl"
 var projectName = "org.eclipse.gemoc.moccml.mapping.xtext"
 var runtimeProject = "../${projectName}"

@@ -20,7 +20,7 @@ public abstract class AbstractFSMDslRuntimeModule extends org.eclipse.xtext.serv
 
 	@Override
 	public void configure(Binder binder) {
-		properties = tryBindProperties(binder, "org/eclipse/gemoc/moccml/constraint/fsmkernel/model/xtext/FSMDsl.properties");
+		properties = tryBindProperties(binder, "org/eclipse/gemoc//moccml/constraint/fsmkernel/model/xtext/FSMDsl.properties");
 		super.configure(binder);
 	}
 	

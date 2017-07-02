@@ -8,19 +8,19 @@
             adaptable="true"
             objectClass="org.eclipse.core.resources.IProject"
             nameFilter="*"
-            id="org.gemoc.gemoc_modeling_workbench.ui.addnature.contribution">
+            id="org.eclipse.gemoc.gemoc_modeling_workbench.ui.addnature.contribution">
          <action
-               class="org.gemoc.gemoc_modeling_workbench.ui.builder.ToggleNatureAction"
+               class="org.eclipse.gemoc.gemoc_modeling_workbench.ui.builder.ToggleNatureAction"
                enablesFor="+"
                icon="icons/IconeGemocModel-16.png"
-               id="org.gemoc.gemoc_modeling_workbench.ui.addRemoveNatureAction"
+               id="org.eclipse.gemoc.gemoc_modeling_workbench.ui.addRemoveNatureAction"
                label="Add Executable Modeling Nature"
                menubarPath="org.eclipse.ui.projectConfigure/additions">
          </action>
          <visibility>
          <and>
             <not>
-                <objectState name="projectNature" value="org.gemoc.gemoc_modeling_workbench.ui.gemocReflectiveModelNature"/>
+                <objectState name="projectNature" value="org.eclipse.gemoc.gemoc_modeling_workbench.ui.gemocReflectiveModelNature"/>
             </not>
             <objectClass name="org.eclipse.core.resources.IProject" />
           </and>
@@ -30,12 +30,12 @@
             adaptable="true"
             objectClass="org.eclipse.core.resources.IProject"
             nameFilter="*"
-            id="org.gemoc.gemoc_modeling_workbench.ui.removenature.contribution">
+            id="org.eclipse.gemoc.gemoc_modeling_workbench.ui.removenature.contribution">
          <action
-               class="org.gemoc.gemoc_modeling_workbench.ui.builder.ToggleNatureAction"
+               class="org.eclipse.gemoc.gemoc_modeling_workbench.ui.builder.ToggleNatureAction"
                enablesFor="+"
                icon="icons/IconeGemocModel-16.png"
-               id="org.gemoc.gemoc_modeling_workbench.ui.addRemoveNatureAction"
+               id="org.eclipse.gemoc.gemoc_modeling_workbench.ui.addRemoveNatureAction"
                label="Remove Executable Modeling Nature (Reflective)"
                menubarPath="org.eclipse.ui.projectConfigure/additions">
          </action>
@@ -47,7 +47,7 @@
 	          </objectClass>
 	          <objectState
 	                name="projectNature"
-	                value="org.gemoc.gemoc_modeling_workbench.ui.gemocReflectiveModelNature">
+	                value="org.eclipse.gemoc.gemoc_modeling_workbench.ui.gemocReflectiveModelNature">
 	          </objectState>
 	       </and>
 	    </visibility>
@@ -73,18 +73,18 @@
        </debugModelPresentation>
     </extension>
     <!--ibute
-             name="org.gemoc.gemoc_modeling_workbench.ui.breakpoint.breakOnLogicalStep">
+             name="org.eclipse.gemoc.gemoc_modeling_workbench.ui.breakpoint.breakOnLogicalStep">
        </attribute>
        <attribute
-             name="org.gemoc.gemoc_modeling_workbench.ui.breakpoint.breakOnMSE">
+             name="org.eclipse.gemoc.gemoc_modeling_workbench.ui.breakpoint.breakOnMSE">
        </attribute>
     </extension>
     <extension
           point="org.eclipse.debug.core.breakpoints">
        <breakpoint
-             class="org.gemoc.gemoc_modeling_workbench.ui.breakpoint.GemocBreakpoint"
-             id="org.gemoc.gemoc_modeling_workbench.ui.breakpoint.gemocBreakpoint"
-             markerType="org.gemoc.gemoc_modeling_workbench.ui.breakpoint.breakpointMarker"
+             class="org.eclipse.gemoc.gemoc_modeling_workbench.ui.breakpoint.GemocBreakpoint"
+             id="org.eclipse.gemoc.gemoc_modeling_workbench.ui.breakpoint.gemocBreakpoint"
+             markerType="org.eclipse.gemoc.gemoc_modeling_workbench.ui.breakpoint.breakpointMarker"
              name="Gemoc Breakpoints">
        </breakpoint>
     </extension>-->
@@ -179,7 +179,7 @@
       <perspectiveExtension
             targetID="org.eclipse.sirius.ui.tools.perspective.modeling">
       <!--   <newWizardShortcut
-               id="org.gemoc.gemoc_modeling_workbench.concurrent.ui.wizards.CreateNewGemocModelingProject">
+               id="org.eclipse.gemoc.gemoc_modeling_workbench.concurrent.ui.wizards.CreateNewGemocModelingProject">
          </newWizardShortcut>-->
          <view
                id="org.eclipse.gemoc.executionframework.engine.io.views.steps.LogicalStepsView"
@@ -189,7 +189,7 @@
                visible="true">
          </view>
          <view
-               id="org.gemoc.gemoc_modeling_workbench.concurrent.ui.views.stimulimanager.StimuliManagerView"
+               id="org.eclipse.gemoc.gemoc_modeling_workbench.concurrent.ui.views.stimulimanager.StimuliManagerView"
                minimized="false"
                relationship="stack"
                relative="org.eclipse.ui.views.ContentOutline"
@@ -206,13 +206,13 @@
                id="org.eclipse.gemoc.executionframework.engine.io.views.steps.LogicalStepsView">
          </viewShortcut>
          <viewShortcut
-               id="org.gemoc.gemoc_modeling_workbench.concurrent.ui.views.stimulimanager.StimuliManagerView">
+               id="org.eclipse.gemoc.gemoc_modeling_workbench.concurrent.ui.views.stimulimanager.StimuliManagerView">
          </viewShortcut>
       </perspectiveExtension>
       <perspectiveExtension
             targetID="org.eclipse.debug.ui.DebugPerspective">
          <view
-               id="org.gemoc.gemoc_modeling_workbench.concurrent.ui.views.stimulimanager.StimuliManagerView"
+               id="org.eclipse.gemoc.gemoc_modeling_workbench.concurrent.ui.views.stimulimanager.StimuliManagerView"
                minimized="false"
                relationship="stack"
                relative="org.eclipse.ui.views.ContentOutline"
@@ -227,7 +227,7 @@
                visible="true">
          </view>
          <viewShortcut
-               id="org.gemoc.gemoc_modeling_workbench.concurrent.ui.views.stimulimanager.StimuliManagerView">
+               id="org.eclipse.gemoc.gemoc_modeling_workbench.concurrent.ui.views.stimulimanager.StimuliManagerView">
          </viewShortcut>
          <viewShortcut
                id="org.eclipse.gemoc.executionframework.engine.io.views.steps.LogicalStepsView">
@@ -240,7 +240,7 @@
       <commonWizard
             menuGroupId="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.category"
             type="new"
-            wizardId="org.gemoc.gemoc_modeling_workbench.concurrent.ui.wizards.CreateNewGemocModelingProject">
+            wizardId="org.eclipse.gemoc.gemoc_modeling_workbench.concurrent.ui.wizards.CreateNewGemocModelingProject">
          <enablement>
             <with
                   variable="activeWorkbenchWindow.activePerspective">
@@ -256,10 +256,10 @@
          point="org.eclipse.ui.popupMenus">
       <objectContribution
             objectClass="org.eclipse.core.resources.IFile"
-            id="org.gemoc.modeling.advanced.menu.contribution">
+            id="org.eclipse.gemoc.modeling.advanced.menu.contribution">
          <menu
                icon="icons/IconeGemocModel-16.png"
-               id="org.gemoc.modeling.advanced.menu"
+               id="org.eclipse.gemoc.modeling.advanced.menu"
                label="GEMOC Modeling advanced tools"
                path="xdsmlGroup">
             <separator
@@ -269,27 +269,27 @@
          <action
                label="Generate extended CCSL (use language specified QVTO)"
                class="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.actions.GenerateExtendedCCSLFile"
-               menubarPath="org.gemoc.modeling.advanced.menu/additions"
-               id="org.gemoc.modeling.generate.extendedccsl">
+               menubarPath="org.eclipse.gemoc.modeling.advanced.menu/additions"
+               id="org.eclipse.gemoc.modeling.generate.extendedccsl">
          </action>
          <action
                class="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.actions.ChooseQVTOAndGenerateExtendedCCSLFile"
-               id="org.gemoc.modeling.generate.extendedccsl2"
+               id="org.eclipse.gemoc.modeling.generate.extendedccsl2"
                label="Generate extended CCSL (choose QVTO)"
-               menubarPath="org.gemoc.modeling.advanced.menu/additions">
+               menubarPath="org.eclipse.gemoc.modeling.advanced.menu/additions">
          </action>
 
          <action
                label="Generate time model (use language specified QVTO)"
                class="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.actions.GenerateTimeModelFile"
-               menubarPath="org.gemoc.modeling.advanced.menu/additions"
-               id="org.gemoc.modeling.generate.extendedccsl">
+               menubarPath="org.eclipse.gemoc.modeling.advanced.menu/additions"
+               id="org.eclipse.gemoc.modeling.generate.extendedccsl">
          </action>
          <action
                class="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.actions.ChooseQVTOAndGenerateTimeModelFile"
-               id="org.gemoc.modeling.generate.extendedccsl2"
+               id="org.eclipse.gemoc.modeling.generate.extendedccsl2"
                label="Generate time model (choose QVTO)"
-               menubarPath="org.gemoc.modeling.advanced.menu/additions">
+               menubarPath="org.eclipse.gemoc.modeling.advanced.menu/additions">
          </action>
 
       </objectContribution>
@@ -332,7 +332,7 @@
          </menuContribution>-->
          <menuContribution
                allPopups="false"
-               locationURI="popup:org.gemoc.gemoc_modeling_workbench.concurrent.ui.views.stimulimanager.StimuliManagerView">
+               locationURI="popup:org.eclipse.gemoc.gemoc_modeling_workbench.concurrent.ui.views.stimulimanager.StimuliManagerView">
             <command
                   commandId="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.ToggleBreapointCommand"
                   icon="icons/breakpoint.gif"
@@ -364,12 +364,12 @@
             category="org.eclipse.gemoc.executionframework.ui.category"
             class="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.StimuliManagerView"
             icon="icons/IconeGemocModel-16.png"
-            id="org.gemoc.gemoc_modeling_workbench.concurrent.ui.views.stimulimanager.StimuliManagerView"
+            id="org.eclipse.gemoc.gemoc_modeling_workbench.concurrent.ui.views.stimulimanager.StimuliManagerView"
             name="Stimuli Manager">
       </view>
 	</extension>
     <extension
-         point="org.gemoc.gemoc_language_workbench.deciders">
+         point="org.eclipse.gemoc.gemoc_language_workbench.deciders">
       <DeciderSpecification
             Class="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.deciders.StepByStepUserDecider"
             Icon="icons/user-shield-green-16.png"

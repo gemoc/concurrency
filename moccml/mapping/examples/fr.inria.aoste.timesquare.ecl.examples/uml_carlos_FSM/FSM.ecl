@@ -1,5 +1,5 @@
 import 'http://www.eclipse.org/uml2/5.0.0/UML'
---import _'http://org.gemoc.mocc.fsmmodel/1.0'
+--import _'http://org.eclipse.gemoc.mocc.fsmmodel/1.0'
 
 ECLimport  "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib"
 ECLimport  "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib"

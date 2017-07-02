@@ -20,7 +20,7 @@ public abstract class AbstractEclRuntimeModule extends org.eclipse.xtext.service
 
 	@Override
 	public void configure(Binder binder) {
-		properties = tryBindProperties(binder, "org/eclipse/gemoc/moccml/mapping/xtext/Ecl.properties");
+		properties = tryBindProperties(binder, "org/eclipse/gemoc//moccml/mapping/xtext/Ecl.properties");
 		super.configure(binder);
 	}
 	

@@ -81,7 +81,7 @@ public class StimuliManagerView extends EngineSelectionDependentViewPart impleme
 	private static final class GemocLabelDecorator extends DSLLabelDecorator {
 
 		// TODO should use Launcher.MODEL_ID
-		private final static String MODEL_ID = "org.gemoc.gemoc_modeling_workbench.ui.debugModel";
+		private final static String MODEL_ID = "org.eclipse.gemoc.gemoc_modeling_workbench.ui.debugModel";
 
 		public GemocLabelDecorator() {
 			super(MODEL_ID);
@@ -139,7 +139,7 @@ public class StimuliManagerView extends EngineSelectionDependentViewPart impleme
 		}
 	}
 	
-	public static final String ID = "org.gemoc.gemoc_modeling_workbench.concurrent.ui.views.stimulimanager.StimuliManagerView";
+	public static final String ID = "org.eclipse.gemoc.gemoc_modeling_workbench.concurrent.ui.views.stimulimanager.StimuliManagerView";
 
 	private Color notForcedSetColor;
 	private Color forcedSetColor;

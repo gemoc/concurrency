@@ -15,11 +15,11 @@ public class AbstractMoCDslJavaValidator extends org.eclipse.gemoc.moccml.constr
 	@Override
 	protected List<EPackage> getEPackages() {
 	    List<EPackage> result = new ArrayList<EPackage>();
-	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://org.gemoc.moccml/1.0"));
+	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://org.eclipse.gemoc.moccml/1.0"));
 	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://fr.inria.aoste.timemodel"));
 	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://fr.inria.aoste.timemodel.ccslmodel.clockexpressionandrelation"));
-	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://org.gemoc.moccml.fsmmodel/1.0"));
-	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://org.gemoc.mocc.fsmmodel/editionextension/1.0"));
+	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://org.eclipse.gemoc.moccml.fsmmodel/1.0"));
+	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://org.eclipse.gemoc.mocc.fsmmodel/editionextension/1.0"));
 	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://fr.inria.aoste.timemodel.classicalexpression"));
 	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://fr.inria.aoste.timemodel.basicTypes"));
 	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://fr.inria.aoste.timemodel.ccslmodel.clockexpressionandrelation.kernelexpression"));

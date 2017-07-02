@@ -4,7 +4,7 @@ import org.eclipse.emf.mwe.utils.*
 import org.eclipse.xtext.generator.*
 import org.eclipse.xtext.ui.generator.*
 
-var grammarURI = "classpath:/org/eclipse/gemoc/moccml/constraint/ccslmocc/model/xtext/MoCDsl.xtext"
+var grammarURI = "classpath:/org/eclipse/gemoc//moccml/constraint/ccslmocc/model/xtext/MoCDsl.xtext"
 var fileExtensions = "moccml"
 var projectName = "org.eclipse.gemoc.moccml.constraint.ccslmocc.model.xtext.mocdsl"
 var runtimeProject = "../${projectName}"
@@ -29,8 +29,8 @@ Workflow {
 	    
 		
 		registerGeneratedEPackage = "org.eclipse.gemoc.moccml.constraint.ccslmoc.model.moccml.moccml.CcslmoccPackage"
-		//registerGenModelFile = "platform:/resource/org.gemoc.mocc.ccslmocc.model/model/Ccslmocc.genmodel"
-		//registerGenModelFile = "platform:/resource/org.gemoc.mocc.fsmkernel.model/model/FSMModel.genmodel"
+		//registerGenModelFile = "platform:/resource/org.eclipse.gemoc.mocc.ccslmocc.model/model/Ccslmocc.genmodel"
+		//registerGenModelFile = "platform:/resource/org.eclipse.gemoc.mocc.fsmkernel.model/model/FSMModel.genmodel"
 		//registerGenModelFile = "platform:/resource/fr.inria.aoste.timesquare.ccslkernel.model/model/TimeModel.genmodel"
 	
 		

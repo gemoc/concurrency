@@ -22,7 +22,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated Ccslmocc -->
       <package
-            uri="http://org.gemoc.moccml/1.0"
+            uri="http://org.eclipse.gemoc.moccml/1.0"
             class="org.eclipse.gemoc.moccml.constraint.ccslmoc.model.moccml.moccml.CcslmoccPackage"
             genModel="model/Ccslmocc.genmodel"/>
    </extension>

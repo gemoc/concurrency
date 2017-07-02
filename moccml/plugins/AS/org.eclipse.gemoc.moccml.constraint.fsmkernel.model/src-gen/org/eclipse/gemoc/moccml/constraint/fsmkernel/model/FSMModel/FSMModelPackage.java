@@ -55,7 +55,7 @@ public interface FSMModelPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://org.gemoc.moccml.fsmmodel/1.0";
+	String eNS_URI = "http://org.eclipse.gemoc.moccml.fsmmodel/1.0";
 
 	/**
 	 * The package namespace name.
@@ -63,7 +63,7 @@ public interface FSMModelPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "org.gemoc.moccml.fsmmodel";
+	String eNS_PREFIX = "org.eclipse.gemoc.moccml.fsmmodel";
 
 	/**
 	 * The singleton instance of the package.

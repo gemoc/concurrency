@@ -8,7 +8,7 @@ public class ConcurrentLanguageDefinitionExtensionPoint extends ExtensionPoint<C
 {
 
 
-	public static final String GEMOC_CONCURRENT_LANGUAGE_EXTENSION_POINT = "org.gemoc.gemoc_language_workbench.concurrent.xdsml";
+	public static final String GEMOC_CONCURRENT_LANGUAGE_EXTENSION_POINT = "org.eclipse.gemoc.gemoc_language_workbench.concurrent.xdsml";
 //	public static final String GEMOC_LANGUAGE_EXTENSION_POINT_XDSML_DEF = "XDSML_Definition";
 //	public static final String GEMOC_LANGUAGE_EXTENSION_POINT_XDSML_DEF_NAME_ATT = "name";
 //	public static final String GEMOC_LANGUAGE_EXTENSION_POINT_XDSML_DEF_LOADMODEL_ATT = "modelLoader_class";

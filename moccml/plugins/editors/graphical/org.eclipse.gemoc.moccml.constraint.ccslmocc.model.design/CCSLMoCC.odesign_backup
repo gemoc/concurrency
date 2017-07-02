@@ -10,9 +10,9 @@
       <metamodel href="http://fr.inria.aoste.timemodel#//CCSLModel/ClockExpressionAndRelation/KernelRelation"/>
       <metamodel href="http://fr.inria.aoste.timemodel#//CCSLModel/ClassicalExpression"/>
       <metamodel href="http://fr.inria.aoste.timemodel#//PrimitivesTypeValue"/>
-      <metamodel href="http://org.gemoc.mocc.fsmmodel/editionextension/1.0#/"/>
-      <metamodel href="../../org.gemoc.mocc.ccslmocc.model/model/Ccslmocc.ecore#/"/>
-      <metamodel href="../../org.gemoc.mocc.fsmkernel.model/model/FSMModel.ecore#/"/>
+      <metamodel href="http://org.eclipse.gemoc.mocc.fsmmodel/editionextension/1.0#/"/>
+      <metamodel href="../../org.eclipse.gemoc.mocc.ccslmocc.model/model/Ccslmocc.ecore#/"/>
+      <metamodel href="../../org.eclipse.gemoc.mocc.fsmkernel.model/model/FSMModel.ecore#/"/>
       <defaultLayer name="Default">
         <edgeMappings name="RelationDefToDeclaration" deletionDescription="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DelDeclarationRelation']" sourceMapping="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@defaultLayer/@containerMappings[name='RelationLibrary']/@subContainerMappings[name='StateMachineRelationDefinition']" targetMapping="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@defaultLayer/@containerMappings[name='RelationLibrary']/@subContainerMappings[name='RelationDeclaration']" targetFinderExpression="feature:declaration" reconnections="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='SetDeclarationChange']">
           <style lineStyle="dash" sizeComputationExpression="2">
@@ -24,7 +24,7 @@
         </edgeMappings>
         <containerMappings name="RelationLibrary" labelDirectEdit="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='NameEditRelationTools']" semanticCandidatesExpression="feature:eAllContents" domainClass="RelationLibrary">
           <subContainerMappings name="StateMachineRelationDefinition" detailDescriptions="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='CreateStateBasedDefDiagram']" labelDirectEdit="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='NameEditRelationTools']" semanticCandidatesExpression="feature:eAllContents" doubleClickDescription="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='OpenXtextEditorOnDeclAndSMRDef']" domainClass="moccml.StateMachineRelationDefinition">
-            <style xsi:type="style:FlatContainerStyleDescription" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/FSM.gif" backgroundStyle="Liquid">
+            <style xsi:type="style:FlatContainerStyleDescription" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/FSM.gif" backgroundStyle="Liquid">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -34,19 +34,19 @@
           </subContainerMappings>
           <subContainerMappings name="RelationDeclaration" labelDirectEdit="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='EditRelationDeclaration']" semanticCandidatesExpression="feature:eAllContents" doubleClickDescription="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='OpenXtextEditorOnDeclAndSMRDef']" domainClass="RelationDeclaration" childrenPresentation="List" listContainer="true">
             <subNodeMappings name="AbstractEntity" labelDirectEdit="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='NameEditAbstractEntity']" semanticCandidatesExpression="feature:eAllContents" domainClass="AbstractEntity">
-              <style xsi:type="style:SquareDescription" labelFormat="italic" labelExpression="service:computeLabel" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/Parameter.gif" labelAlignment="LEFT" resizeKind="NSEW">
+              <style xsi:type="style:SquareDescription" labelFormat="italic" labelExpression="service:computeLabel" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/Parameter.gif" labelAlignment="LEFT" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
               </style>
             </subNodeMappings>
-            <style xsi:type="style:ShapeContainerStyleDescription" arcWidth="2" arcHeight="2" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/Variable.gif">
+            <style xsi:type="style:ShapeContainerStyleDescription" arcWidth="2" arcHeight="2" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/Variable.gif">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
             </style>
           </subContainerMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/RelationLibrary.jpg" backgroundStyle="Liquid">
+          <style xsi:type="style:FlatContainerStyleDescription" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/RelationLibrary.jpg" backgroundStyle="Liquid">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -55,7 +55,7 @@
           </style>
         </containerMappings>
         <toolSections name="LibraryToolsCreation" label="Library Edition">
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="CreateRelationLibrary" label="New Relation Library" forceRefresh="true" containerMappings="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@defaultLayer/@containerMappings[name='RelationLibrary']" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/CreateRelationLibrary.jpg">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="CreateRelationLibrary" label="New Relation Library" forceRefresh="true" containerMappings="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@defaultLayer/@containerMappings[name='RelationLibrary']" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/CreateRelationLibrary.jpg">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -65,7 +65,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="CreateRelationDeclaration" label="New Relation Declaration" forceRefresh="true" containerMappings="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@defaultLayer/@containerMappings[name='RelationLibrary']/@subContainerMappings[name='RelationDeclaration']" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/AddStructuralFeature.gif">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="CreateRelationDeclaration" label="New Relation Declaration" forceRefresh="true" containerMappings="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@defaultLayer/@containerMappings[name='RelationLibrary']/@subContainerMappings[name='RelationDeclaration']" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/AddStructuralFeature.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -74,7 +74,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="CreateStateBasedDefinition" label="New Automata Definition" forceRefresh="true" containerMappings="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@defaultLayer/@containerMappings[name='RelationLibrary']/@subContainerMappings[name='StateMachineRelationDefinition']" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/CreateFSM.gif">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="CreateStateBasedDefinition" label="New Automata Definition" forceRefresh="true" containerMappings="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@defaultLayer/@containerMappings[name='RelationLibrary']/@subContainerMappings[name='StateMachineRelationDefinition']" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/CreateFSM.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -83,7 +83,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="SetDeclaration" label="Set Declaration Relation" edgeMappings="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@defaultLayer/@edgeMappings[name='RelationDefToDeclaration']" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/CreateDeclaration.gif" connectionStartPrecondition="[preSource.oclAsType(moccml::StateMachineRelationDefinition).declaration=null/]">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="SetDeclaration" label="Set Declaration Relation" edgeMappings="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@defaultLayer/@edgeMappings[name='RelationDefToDeclaration']" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/CreateDeclaration.gif" connectionStartPrecondition="[preSource.oclAsType(moccml::StateMachineRelationDefinition).declaration=null/]">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -95,7 +95,7 @@
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:ToolGroup" name="AbstractEntitiesCreation">
-            <tools xsi:type="tool_1:SelectionWizardDescription" name="CreateTypedAbstractEntity" label="New Typed Declaration Parameter" precondition="[container.oclIsTypeOf(RelationDeclaration)/]" forceRefresh="true" candidatesExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target.oclAsType(StateRelationBasedLibrary).getAllExistingTypes()/]" rootExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target/]" childrenExpression="[eAllContents()/]" message="Select the type of the declaration parameter" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/CreateParameter.gif" windowTitle="New Declaration Parameter Creation">
+            <tools xsi:type="tool_1:SelectionWizardDescription" name="CreateTypedAbstractEntity" label="New Typed Declaration Parameter" precondition="[container.oclIsTypeOf(RelationDeclaration)/]" forceRefresh="true" candidatesExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target.oclAsType(StateRelationBasedLibrary).getAllExistingTypes()/]" rootExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target/]" childrenExpression="[eAllContents()/]" message="Select the type of the declaration parameter" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/CreateParameter.gif" windowTitle="New Declaration Parameter Creation">
               <element name="element"/>
               <containerView name="containerView"/>
               <container name="container"/>
@@ -108,7 +108,7 @@
                 </firstModelOperations>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool_1:SelectionWizardDescription" name="CreateStartTypedAbstractEntity" label="New Typed Declaration Parameter Start" precondition="[container.oclIsTypeOf(RelationDeclaration)/]" forceRefresh="true" candidatesExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target.oclAsType(StateRelationBasedLibrary).getAllExistingTypes()/]" rootExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target/]" childrenExpression="[eAllContents()/]" message="Select the type of the declaration parameter" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/CreateParameter.gif" windowTitle="New Declaration Parameter Creation">
+            <tools xsi:type="tool_1:SelectionWizardDescription" name="CreateStartTypedAbstractEntity" label="New Typed Declaration Parameter Start" precondition="[container.oclIsTypeOf(RelationDeclaration)/]" forceRefresh="true" candidatesExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target.oclAsType(StateRelationBasedLibrary).getAllExistingTypes()/]" rootExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target/]" childrenExpression="[eAllContents()/]" message="Select the type of the declaration parameter" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/CreateParameter.gif" windowTitle="New Declaration Parameter Creation">
               <element name="element"/>
               <containerView name="containerView"/>
               <container name="container"/>
@@ -122,7 +122,7 @@
                 </firstModelOperations>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool_1:SelectionWizardDescription" name="CreateFinishTypedAbstractEntity" label="New Typed Declaration Parameter Finish" precondition="[container.oclIsTypeOf(RelationDeclaration)/]" forceRefresh="true" candidatesExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target.oclAsType(StateRelationBasedLibrary).getAllExistingTypes()/]" rootExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target/]" childrenExpression="[eAllContents()/]" message="Select the type of the declaration parameter" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/CreateParameter.gif" windowTitle="New Declaration Parameter Creation">
+            <tools xsi:type="tool_1:SelectionWizardDescription" name="CreateFinishTypedAbstractEntity" label="New Typed Declaration Parameter Finish" precondition="[container.oclIsTypeOf(RelationDeclaration)/]" forceRefresh="true" candidatesExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target.oclAsType(StateRelationBasedLibrary).getAllExistingTypes()/]" rootExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target/]" childrenExpression="[eAllContents()/]" message="Select the type of the declaration parameter" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/CreateParameter.gif" windowTitle="New Declaration Parameter Creation">
               <element name="element"/>
               <containerView name="containerView"/>
               <container name="container"/>
@@ -136,7 +136,7 @@
                 </firstModelOperations>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool_1:SelectionWizardDescription" name="CreateSendTypedAbstractEntity" label="New Typed Declaration Parameter Send" precondition="[container.oclIsTypeOf(RelationDeclaration)/]" forceRefresh="true" candidatesExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target.oclAsType(StateRelationBasedLibrary).getAllExistingTypes()/]" rootExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target/]" childrenExpression="[eAllContents()/]" message="Select the type of the declaration parameter" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/CreateParameter.gif" windowTitle="New Declaration Parameter Creation">
+            <tools xsi:type="tool_1:SelectionWizardDescription" name="CreateSendTypedAbstractEntity" label="New Typed Declaration Parameter Send" precondition="[container.oclIsTypeOf(RelationDeclaration)/]" forceRefresh="true" candidatesExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target.oclAsType(StateRelationBasedLibrary).getAllExistingTypes()/]" rootExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target/]" childrenExpression="[eAllContents()/]" message="Select the type of the declaration parameter" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/CreateParameter.gif" windowTitle="New Declaration Parameter Creation">
               <element name="element"/>
               <containerView name="containerView"/>
               <container name="container"/>
@@ -150,7 +150,7 @@
                 </firstModelOperations>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool_1:SelectionWizardDescription" name="CreateReceiveTypedAbstractEntity" label="New Typed Declaration Parameter Receive" precondition="[container.oclIsTypeOf(RelationDeclaration)/]" forceRefresh="true" candidatesExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target.oclAsType(StateRelationBasedLibrary).getAllExistingTypes()/]" rootExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target/]" childrenExpression="[eAllContents()/]" message="Select the type of the declaration parameter" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/CreateParameter.gif" windowTitle="New Declaration Parameter Creation">
+            <tools xsi:type="tool_1:SelectionWizardDescription" name="CreateReceiveTypedAbstractEntity" label="New Typed Declaration Parameter Receive" precondition="[container.oclIsTypeOf(RelationDeclaration)/]" forceRefresh="true" candidatesExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target.oclAsType(StateRelationBasedLibrary).getAllExistingTypes()/]" rootExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target/]" childrenExpression="[eAllContents()/]" message="Select the type of the declaration parameter" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/CreateParameter.gif" windowTitle="New Declaration Parameter Creation">
               <element name="element"/>
               <containerView name="containerView"/>
               <container name="container"/>
@@ -164,7 +164,7 @@
                 </firstModelOperations>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool_1:SelectionWizardDescription" name="CreateConsumeTypedAbstractEntity" label="New Typed Declaration Parameter Consume" precondition="[container.oclIsTypeOf(RelationDeclaration)/]" forceRefresh="true" candidatesExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target.oclAsType(StateRelationBasedLibrary).getAllExistingTypes()/]" rootExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target/]" childrenExpression="[eAllContents()/]" message="Select the type of the declaration parameter" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/CreateParameter.gif" windowTitle="New Declaration Parameter Creation">
+            <tools xsi:type="tool_1:SelectionWizardDescription" name="CreateConsumeTypedAbstractEntity" label="New Typed Declaration Parameter Consume" precondition="[container.oclIsTypeOf(RelationDeclaration)/]" forceRefresh="true" candidatesExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target.oclAsType(StateRelationBasedLibrary).getAllExistingTypes()/]" rootExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target/]" childrenExpression="[eAllContents()/]" message="Select the type of the declaration parameter" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/CreateParameter.gif" windowTitle="New Declaration Parameter Creation">
               <element name="element"/>
               <containerView name="containerView"/>
               <container name="container"/>
@@ -178,7 +178,7 @@
                 </firstModelOperations>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool_1:SelectionWizardDescription" name="CreateProduceTypedAbstractEntity" label="New Typed Declaration Parameter Produce" precondition="[container.oclIsTypeOf(RelationDeclaration)/]" forceRefresh="true" candidatesExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target.oclAsType(StateRelationBasedLibrary).getAllExistingTypes()/]" rootExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target/]" childrenExpression="[eAllContents()/]" message="Select the type of the declaration parameter" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/CreateParameter.gif" windowTitle="New Declaration Parameter Creation">
+            <tools xsi:type="tool_1:SelectionWizardDescription" name="CreateProduceTypedAbstractEntity" label="New Typed Declaration Parameter Produce" precondition="[container.oclIsTypeOf(RelationDeclaration)/]" forceRefresh="true" candidatesExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target.oclAsType(StateRelationBasedLibrary).getAllExistingTypes()/]" rootExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target/]" childrenExpression="[eAllContents()/]" message="Select the type of the declaration parameter" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/CreateParameter.gif" windowTitle="New Declaration Parameter Creation">
               <element name="element"/>
               <containerView name="containerView"/>
               <container name="container"/>
@@ -195,7 +195,7 @@
           </ownedTools>
         </toolSections>
         <toolSections name="LibraryAddingDefaultElement" label="New Library &amp; Required Feature">
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="CreateRelationLibraryReq" label="New Relation Library +" forceRefresh="true" containerMappings="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@defaultLayer/@containerMappings[name='RelationLibrary']" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/CreateRelationLibrary.jpg">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="CreateRelationLibraryReq" label="New Relation Library +" forceRefresh="true" containerMappings="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@defaultLayer/@containerMappings[name='RelationLibrary']" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/CreateRelationLibrary.jpg">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -213,7 +213,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="CreateStateBasedDefinitionReq" label="New Automata Definition +" forceRefresh="true" containerMappings="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@defaultLayer/@containerMappings[name='RelationLibrary']/@subContainerMappings[name='StateMachineRelationDefinition']" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/CreateFSM.gif">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="CreateStateBasedDefinitionReq" label="New Automata Definition +" forceRefresh="true" containerMappings="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='State-Based%20Library%20Diagram']/@defaultLayer/@containerMappings[name='RelationLibrary']/@subContainerMappings[name='StateMachineRelationDefinition']" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/CreateFSM.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -292,7 +292,7 @@
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ExternalJavaActionCall" name="org.gemoc.mocc.ccslmocc.model.design.OpenEditorActionCallID" forceRefresh="true" action="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='OpenEmbeddedEditorAction']"/>
+              <firstModelOperations xsi:type="tool_1:ExternalJavaActionCall" name="org.eclipse.gemoc.mocc.ccslmocc.model.design.OpenEditorActionCallID" forceRefresh="true" action="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='OpenEmbeddedEditorAction']"/>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:DiagramCreationDescription" name="CreateStateBasedDefDiagram" label="State Based Diagram" forceRefresh="true" diagramDescription="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']">
@@ -549,7 +549,7 @@
           </ownedTools>
         </toolSections>
         <toolSections name="LibraryBasicsToolsModification">
-          <ownedTools xsi:type="tool_1:ExternalJavaAction" name="DeleteNotAllowed" precondition="[self.oclIsTypeOf(BasicType::Type)/]" forceRefresh="true" id="org.gemoc.mocc.ccslmocc.model.design.actions.DeleteNotAllowedID"/>
+          <ownedTools xsi:type="tool_1:ExternalJavaAction" name="DeleteNotAllowed" precondition="[self.oclIsTypeOf(BasicType::Type)/]" forceRefresh="true" id="org.eclipse.gemoc.mocc.ccslmocc.model.design.actions.DeleteNotAllowedID"/>
           <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteImportedTypes" forceRefresh="true">
             <element name="element"/>
             <elementView name="elementView"/>
@@ -604,9 +604,9 @@
       <metamodel href="http://fr.inria.aoste.timemodel#//CCSLModel/ClockExpressionAndRelation/KernelRelation"/>
       <metamodel href="http://fr.inria.aoste.timemodel#//CCSLModel/ClassicalExpression"/>
       <metamodel href="http://fr.inria.aoste.timemodel#//PrimitivesTypeValue"/>
-      <metamodel href="http://org.gemoc.mocc.fsmmodel/editionextension/1.0#/"/>
-      <metamodel href="../../org.gemoc.mocc.ccslmocc.model/model/Ccslmocc.ecore#/"/>
-      <metamodel href="../../org.gemoc.mocc.fsmkernel.model/model/FSMModel.ecore#/"/>
+      <metamodel href="http://org.eclipse.gemoc.mocc.fsmmodel/editionextension/1.0#/"/>
+      <metamodel href="../../org.eclipse.gemoc.mocc.ccslmocc.model/model/Ccslmocc.ecore#/"/>
+      <metamodel href="../../org.eclipse.gemoc.mocc.fsmkernel.model/model/FSMModel.ecore#/"/>
       <defaultLayer name="Default">
         <nodeMappings name="FSMState" deletionDescription="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DeleteState']" labelDirectEdit="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='SetStateName']" semanticCandidatesExpression="[states/]" doubleClickDescription="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='OpenXtextEditorState']" domainClass="FSMModel.State">
           <style xsi:type="style:BundledImageDescription" labelFormat="bold" showIcon="false" sizeComputationExpression="[self.name.toString().size()+5/]" labelPosition="node" resizeKind="NSEW" shape="dot">
@@ -638,7 +638,7 @@
           </style>
         </edgeMappings>
         <toolSections name="StateMachineToolsCreation" label="State Machine Tools">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="FSMStateCreation" label="New State" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@nodeMappings[name='FSMState']" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/CreateState.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="FSMStateCreation" label="New State" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@nodeMappings[name='FSMState']" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/CreateState.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -649,7 +649,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="FSMInitialStateCreation" label="New Initial State" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@nodeMappings[name='FSMState']" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/CreateInitialState.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="FSMInitialStateCreation" label="New Initial State" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@nodeMappings[name='FSMState']" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/CreateInitialState.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -663,7 +663,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="FSMFinalStateCreation" label="New Final State" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@nodeMappings[name='FSMState']" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/CreateFinalNode.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="FSMFinalStateCreation" label="New Final State" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@nodeMappings[name='FSMState']" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/CreateFinalNode.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -677,7 +677,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="FSMTransitionCreation" label="New Transition" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/CreateTransition.gif">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="FSMTransitionCreation" label="New Transition" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@edgeMappings[name='FSMTransition']" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/CreateTransition.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -808,16 +808,16 @@
           </ownedTools>
         </toolSections>
         <toolSections name="StateMachineToolsNavigation">
-          <ownedTools xsi:type="tool_1:ExternalJavaAction" name="OpenEmbeddedEditorAction" forceRefresh="true" id="org.gemoc.mocc.ccslmocc.model.design.OpenEmbeddedEditorID"/>
+          <ownedTools xsi:type="tool_1:ExternalJavaAction" name="OpenEmbeddedEditorAction" forceRefresh="true" id="org.eclipse.gemoc.mocc.ccslmocc.model.design.OpenEmbeddedEditorID"/>
           <ownedTools xsi:type="tool_1:PopupMenu" name="OpenTextDescription" label="Open Textual Description" precondition="[self.oclIsTypeOf(moccml::StateMachineRelationDefinition)/]" forceRefresh="true">
-            <menuItemDescription xsi:type="tool_1:ExternalJavaActionCall" name="org.gemoc.mocc.ccslmocc.model.design.popupOpenEditorActionCallID" action="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='OpenEmbeddedEditorAction']"/>
+            <menuItemDescription xsi:type="tool_1:ExternalJavaActionCall" name="org.eclipse.gemoc.mocc.ccslmocc.model.design.popupOpenEditorActionCallID" action="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='OpenEmbeddedEditorAction']"/>
           </ownedTools>
           <ownedTools xsi:type="tool:DoubleClickDescription" name="OpenXtextEditorState" label="Open Xtext Editor State" forceRefresh="true" mappings="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@nodeMappings[name='FSMState']">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element.eContainer()/]">
-                <subModelOperations xsi:type="tool_1:ExternalJavaActionCall" name="org.gemoc.mocc.ccslmocc.model.design.OpenEditorActionCallID" action="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='OpenEmbeddedEditorAction']"/>
+                <subModelOperations xsi:type="tool_1:ExternalJavaActionCall" name="org.eclipse.gemoc.mocc.ccslmocc.model.design.OpenEditorActionCallID" action="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='OpenEmbeddedEditorAction']"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -826,7 +826,7 @@
             <elementView name="elementView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool_1:ExternalJavaActionCall" name="org.gemoc.mocc.ccslmocc.model.design.OpenEditorActionCallOnTransitionID" forceRefresh="true" action="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='OpenEmbeddedEditorAction']"/>
+                <subModelOperations xsi:type="tool_1:ExternalJavaActionCall" name="org.eclipse.gemoc.mocc.ccslmocc.model.design.OpenEditorActionCallOnTransitionID" forceRefresh="true" action="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='OpenEmbeddedEditorAction']"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -837,27 +837,27 @@
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool_1:PopupMenu" name="OpenTextDescriptionTransition" label="Open Textual Description" precondition="[self.oclIsTypeOf(FSMModel::Transition)/]" forceRefresh="true">
-            <menuItemDescription xsi:type="tool_1:ExternalJavaActionCall" name="org.gemoc.mocc.ccslmocc.model.design.popupOpenEditorActionCallFromP" forceRefresh="true" action="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='OpenEmbeddedEditorAction']"/>
+            <menuItemDescription xsi:type="tool_1:ExternalJavaActionCall" name="org.eclipse.gemoc.mocc.ccslmocc.model.design.popupOpenEditorActionCallFromP" forceRefresh="true" action="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='OpenEmbeddedEditorAction']"/>
           </ownedTools>
         </toolSections>
       </defaultLayer>
       <additionalLayers name="Declarations" activeByDefault="true">
         <containerMappings name="DeclarationBlockID" semanticCandidatesExpression="[declarationBlock/]" doubleClickDescription="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@toolSections.2/@ownedTools[name='OpenXtextEditor']" domainClass="FSMModel.DeclarationBlock" childrenPresentation="List">
           <subNodeMappings name="ConcreteEntityID" labelDirectEdit="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@toolSections.1/@ownedTools[name='EditCE']" semanticCandidatesExpression="[concreteEntities/]" doubleClickDescription="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@toolSections.2/@ownedTools[name='OpenXtextEditor']" domainClass="ClockExpressionAndRelation.ConcreteEntity">
-            <style xsi:type="style:SquareDescription" labelExpression="service:computeLabel" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/QualifierValue.gif" labelAlignment="LEFT" resizeKind="NSEW">
+            <style xsi:type="style:SquareDescription" labelExpression="service:computeLabel" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/QualifierValue.gif" labelAlignment="LEFT" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
           <subNodeMappings name="ExpressionID" semanticCandidatesExpression="[classicalExpressions/]" doubleClickDescription="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@toolSections.2/@ownedTools[name='OpenXtextEditor']" domainClass="ClassicalExpression.ClassicalExpression">
-            <style xsi:type="style:SquareDescription" labelExpression="service:computeLabel" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/QualifierValue.gif" labelAlignment="LEFT" resizeKind="NSEW">
+            <style xsi:type="style:SquareDescription" labelExpression="service:computeLabel" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/QualifierValue.gif" labelAlignment="LEFT" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="10" arcHeight="10" labelFormat="italic" labelExpression="Declaration Block" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/DeclarationBloc.gif" roundedCorner="true" backgroundStyle="Liquid">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="10" arcHeight="10" labelFormat="italic" labelExpression="Declaration Block" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/DeclarationBloc.gif" roundedCorner="true" backgroundStyle="Liquid">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -866,27 +866,27 @@
         </containerMappings>
         <containerMappings name="RelationDeclarationID" semanticCandidatesExpression="[declaration/]" doubleClickDescription="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@toolSections.2/@ownedTools[name='OpenXtextEditor']" domainClass="RelationDeclaration" childrenPresentation="List">
           <subNodeMappings name="AbstractEntityID" labelDirectEdit="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@toolSections.1/@ownedTools[name='NameEditAbstractEntity']" semanticCandidatesExpression="[parameters/]" doubleClickDescription="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@toolSections.2/@ownedTools[name='OpenXtextEditor']" domainClass="ClockExpressionAndRelation.AbstractEntity">
-            <style xsi:type="style:SquareDescription" labelExpression="service:computeLabel" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/Parameter.gif" labelAlignment="LEFT" resizeKind="NSEW">
+            <style xsi:type="style:SquareDescription" labelExpression="service:computeLabel" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/Parameter.gif" labelAlignment="LEFT" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:ShapeContainerStyleDescription" arcWidth="2" arcHeight="2" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/Variable.gif">
+          <style xsi:type="style:ShapeContainerStyleDescription" arcWidth="2" arcHeight="2" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/Variable.gif">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
           </style>
         </containerMappings>
         <toolSections name="DeclarationsTooling" label="Declarations Edition">
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="DeclarationBlockCreation" label="New Declaration Block" precondition="[container.oclAsType(moccml::StateMachineRelationDefinition).declarationBlock=null/]" containerMappings="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='DeclarationBlockID']" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/DeclarationBloc.gif">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="DeclarationBlockCreation" label="New Declaration Block" precondition="[container.oclAsType(moccml::StateMachineRelationDefinition).declarationBlock=null/]" containerMappings="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='DeclarationBlockID']" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/DeclarationBloc.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="DeclarationBlock" referenceName="declarationBlock"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="RelationDeclarationBlocCreation" label="New Relation Declaration" precondition="[container.oclAsType(moccml::StateMachineRelationDefinition).declaration=null/]" forceRefresh="true" containerMappings="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='RelationDeclarationID']" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/Variable.gif">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="RelationDeclarationBlocCreation" label="New Relation Declaration" precondition="[container.oclAsType(moccml::StateMachineRelationDefinition).declaration=null/]" forceRefresh="true" containerMappings="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='RelationDeclarationID']" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/Variable.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -899,7 +899,7 @@
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:ToolGroup" name="AbstractEntitiesCreation">
-            <tools xsi:type="tool:NodeCreationDescription" name="CreateAbstractEntity" label="New Declaration Parameter" nodeMappings="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='RelationDeclarationID']/@subNodeMappings[name='AbstractEntityID']" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/CreateParameter.gif">
+            <tools xsi:type="tool:NodeCreationDescription" name="CreateAbstractEntity" label="New Declaration Parameter" nodeMappings="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@additionalLayers[name='Declarations']/@containerMappings[name='RelationDeclarationID']/@subNodeMappings[name='AbstractEntityID']" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/CreateParameter.gif">
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
@@ -908,7 +908,7 @@
                 </firstModelOperations>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool_1:SelectionWizardDescription" name="CreateTypedAbstractEntity" label="New Typed Declaration Parameter" precondition="[container.oclIsTypeOf(RelationDeclaration)/]" forceRefresh="true" candidatesExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target.oclAsType(StateMachineRelationDefinition).eContainer().eContainer(StateRelationBasedLibrary).getAllExistingTypes()/]" rootExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target/]" childrenExpression="[eAllContents()/]" message="Select the type of the declaration parameter" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/CreateParameter.gif" windowTitle="New Declaration Parameter Creation">
+            <tools xsi:type="tool_1:SelectionWizardDescription" name="CreateTypedAbstractEntity" label="New Typed Declaration Parameter" precondition="[container.oclIsTypeOf(RelationDeclaration)/]" forceRefresh="true" candidatesExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target.oclAsType(StateMachineRelationDefinition).eContainer().eContainer(StateRelationBasedLibrary).getAllExistingTypes()/]" rootExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target/]" childrenExpression="[eAllContents()/]" message="Select the type of the declaration parameter" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/CreateParameter.gif" windowTitle="New Declaration Parameter Creation">
               <element name="element"/>
               <containerView name="containerView"/>
               <container name="container"/>
@@ -921,7 +921,7 @@
                 </firstModelOperations>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool_1:SelectionWizardDescription" name="CreateStartTypedAbstractEntity" label="New Typed Declaration Parameter Start" precondition="[container.oclIsTypeOf(RelationDeclaration)/]" forceRefresh="true" candidatesExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target.oclAsType(StateMachineRelationDefinition).eContainer().eContainer(StateRelationBasedLibrary).getAllExistingTypes()/]" rootExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target/]" childrenExpression="[eAllContents()/]" message="Select the type of the declaration parameter" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/CreateParameter.gif" windowTitle="New Declaration Parameter Creation">
+            <tools xsi:type="tool_1:SelectionWizardDescription" name="CreateStartTypedAbstractEntity" label="New Typed Declaration Parameter Start" precondition="[container.oclIsTypeOf(RelationDeclaration)/]" forceRefresh="true" candidatesExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target.oclAsType(StateMachineRelationDefinition).eContainer().eContainer(StateRelationBasedLibrary).getAllExistingTypes()/]" rootExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target/]" childrenExpression="[eAllContents()/]" message="Select the type of the declaration parameter" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/CreateParameter.gif" windowTitle="New Declaration Parameter Creation">
               <element name="element"/>
               <containerView name="containerView"/>
               <container name="container"/>
@@ -935,7 +935,7 @@
                 </firstModelOperations>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool_1:SelectionWizardDescription" name="CreateFinishTypedAbstractEntity" label="New Typed Declaration Parameter Finish" precondition="[container.oclIsTypeOf(RelationDeclaration)/]" forceRefresh="true" candidatesExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target.oclAsType(StateMachineRelationDefinition).eContainer().eContainer(StateRelationBasedLibrary).getAllExistingTypes()/]" rootExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target/]" childrenExpression="[eAllContents()/]" message="Select the type of the declaration parameter" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/CreateParameter.gif" windowTitle="New Declaration Parameter Creation">
+            <tools xsi:type="tool_1:SelectionWizardDescription" name="CreateFinishTypedAbstractEntity" label="New Typed Declaration Parameter Finish" precondition="[container.oclIsTypeOf(RelationDeclaration)/]" forceRefresh="true" candidatesExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target.oclAsType(StateMachineRelationDefinition).eContainer().eContainer(StateRelationBasedLibrary).getAllExistingTypes()/]" rootExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target/]" childrenExpression="[eAllContents()/]" message="Select the type of the declaration parameter" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/CreateParameter.gif" windowTitle="New Declaration Parameter Creation">
               <element name="element"/>
               <containerView name="containerView"/>
               <container name="container"/>
@@ -949,7 +949,7 @@
                 </firstModelOperations>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool_1:SelectionWizardDescription" name="CreateSendTypedAbstractEntity" label="New Typed Declaration Parameter Send" precondition="[container.oclIsTypeOf(RelationDeclaration)/]" forceRefresh="true" candidatesExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target.oclAsType(StateMachineRelationDefinition).eContainer().eContainer(StateRelationBasedLibrary).getAllExistingTypes()/]" rootExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target/]" childrenExpression="[eAllContents()/]" message="Select the type of the declaration parameter" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/CreateParameter.gif" windowTitle="New Declaration Parameter Creation">
+            <tools xsi:type="tool_1:SelectionWizardDescription" name="CreateSendTypedAbstractEntity" label="New Typed Declaration Parameter Send" precondition="[container.oclIsTypeOf(RelationDeclaration)/]" forceRefresh="true" candidatesExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target.oclAsType(StateMachineRelationDefinition).eContainer().eContainer(StateRelationBasedLibrary).getAllExistingTypes()/]" rootExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target/]" childrenExpression="[eAllContents()/]" message="Select the type of the declaration parameter" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/CreateParameter.gif" windowTitle="New Declaration Parameter Creation">
               <element name="element"/>
               <containerView name="containerView"/>
               <container name="container"/>
@@ -963,7 +963,7 @@
                 </firstModelOperations>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool_1:SelectionWizardDescription" name="CreateReceiveTypedAbstractEntity" label="New Typed Declaration Parameter Receive" precondition="[container.oclIsTypeOf(RelationDeclaration)/]" forceRefresh="true" candidatesExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target.oclAsType(StateMachineRelationDefinition).eContainer().eContainer(StateRelationBasedLibrary).getAllExistingTypes()/]" rootExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target/]" childrenExpression="[eAllContents()/]" message="Select the type of the declaration parameter" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/CreateParameter.gif" windowTitle="New Declaration Parameter Creation">
+            <tools xsi:type="tool_1:SelectionWizardDescription" name="CreateReceiveTypedAbstractEntity" label="New Typed Declaration Parameter Receive" precondition="[container.oclIsTypeOf(RelationDeclaration)/]" forceRefresh="true" candidatesExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target.oclAsType(StateMachineRelationDefinition).eContainer().eContainer(StateRelationBasedLibrary).getAllExistingTypes()/]" rootExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target/]" childrenExpression="[eAllContents()/]" message="Select the type of the declaration parameter" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/CreateParameter.gif" windowTitle="New Declaration Parameter Creation">
               <element name="element"/>
               <containerView name="containerView"/>
               <container name="container"/>
@@ -977,7 +977,7 @@
                 </firstModelOperations>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool_1:SelectionWizardDescription" name="CreateConsumeTypedAbstractEntity" label="New Typed Declaration Parameter Consume" precondition="[container.oclIsTypeOf(RelationDeclaration)/]" forceRefresh="true" candidatesExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target.oclAsType(StateMachineRelationDefinition).eContainer().eContainer(StateRelationBasedLibrary).getAllExistingTypes()/]" rootExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target/]" childrenExpression="[eAllContents()/]" message="Select the type of the declaration parameter" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/CreateParameter.gif" windowTitle="New Declaration Parameter Creation">
+            <tools xsi:type="tool_1:SelectionWizardDescription" name="CreateConsumeTypedAbstractEntity" label="New Typed Declaration Parameter Consume" precondition="[container.oclIsTypeOf(RelationDeclaration)/]" forceRefresh="true" candidatesExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target.oclAsType(StateMachineRelationDefinition).eContainer().eContainer(StateRelationBasedLibrary).getAllExistingTypes()/]" rootExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target/]" childrenExpression="[eAllContents()/]" message="Select the type of the declaration parameter" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/CreateParameter.gif" windowTitle="New Declaration Parameter Creation">
               <element name="element"/>
               <containerView name="containerView"/>
               <container name="container"/>
@@ -991,7 +991,7 @@
                 </firstModelOperations>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool_1:SelectionWizardDescription" name="CreateProduceTypedAbstractEntity" label="New Typed Declaration Parameter Produce" precondition="[container.oclIsTypeOf(RelationDeclaration)/]" forceRefresh="true" candidatesExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target.oclAsType(StateMachineRelationDefinition).eContainer().eContainer(StateRelationBasedLibrary).getAllExistingTypes()/]" rootExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target/]" childrenExpression="[eAllContents()/]" message="Select the type of the declaration parameter" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/CreateParameter.gif" windowTitle="New Declaration Parameter Creation">
+            <tools xsi:type="tool_1:SelectionWizardDescription" name="CreateProduceTypedAbstractEntity" label="New Typed Declaration Parameter Produce" precondition="[container.oclIsTypeOf(RelationDeclaration)/]" forceRefresh="true" candidatesExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target.oclAsType(StateMachineRelationDefinition).eContainer().eContainer(StateRelationBasedLibrary).getAllExistingTypes()/]" rootExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target/]" childrenExpression="[eAllContents()/]" message="Select the type of the declaration parameter" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/CreateParameter.gif" windowTitle="New Declaration Parameter Creation">
               <element name="element"/>
               <containerView name="containerView"/>
               <container name="container"/>
@@ -1026,7 +1026,7 @@
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ExternalJavaActionCall" name="org.gemoc.mocc.ccslmocc.model.design.OpenEditorActionCallID" action="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='OpenEmbeddedEditorAction']"/>
+              <firstModelOperations xsi:type="tool_1:ExternalJavaActionCall" name="org.eclipse.gemoc.mocc.ccslmocc.model.design.OpenEditorActionCallID" action="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='OpenEmbeddedEditorAction']"/>
             </initialOperation>
           </ownedTools>
         </toolSections>
@@ -1048,7 +1048,7 @@
         </edgeMappings>
         <toolSections name="TransitionTooling" label="Transition Edition">
           <ownedTools xsi:type="tool:ToolGroup" name="TriggerCreationGroup">
-            <tools xsi:type="tool_1:SelectionWizardDescription" name="AddTrueTriggers" label="Add True Triggers On" precondition="[container.oclIsTypeOf(Transition)/]" forceRefresh="true" candidatesExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target.oclAsType(StateMachineRelationDefinition).declaration.parameters/]" multiple="true" rootExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target/]" childrenExpression="[eAllContents()/]" message="Select element(s) to trigger on" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/Trigger.gif" windowTitle="Selection of Element(s) To Trigger On">
+            <tools xsi:type="tool_1:SelectionWizardDescription" name="AddTrueTriggers" label="Add True Triggers On" precondition="[container.oclIsTypeOf(Transition)/]" forceRefresh="true" candidatesExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target.oclAsType(StateMachineRelationDefinition).declaration.parameters/]" multiple="true" rootExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target/]" childrenExpression="[eAllContents()/]" message="Select element(s) to trigger on" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/Trigger.gif" windowTitle="Selection of Element(s) To Trigger On">
               <element name="elements"/>
               <containerView name="containerView"/>
               <container name="container"/>
@@ -1065,7 +1065,7 @@
                 </firstModelOperations>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool_1:SelectionWizardDescription" name="AddFalseTriggers" label="Add False Triggers On" precondition="[container.oclIsTypeOf(Transition)/]" forceRefresh="true" candidatesExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target.oclAsType(StateMachineRelationDefinition).declaration.parameters/]" multiple="true" rootExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target/]" childrenExpression="[eAllContents()/]" message="Select element(s) to trigger on" iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/Trigger.gif" windowTitle="Selection of Element(s) To Trigger On">
+            <tools xsi:type="tool_1:SelectionWizardDescription" name="AddFalseTriggers" label="Add False Triggers On" precondition="[container.oclIsTypeOf(Transition)/]" forceRefresh="true" candidatesExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target.oclAsType(StateMachineRelationDefinition).declaration.parameters/]" multiple="true" rootExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target/]" childrenExpression="[eAllContents()/]" message="Select element(s) to trigger on" iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/Trigger.gif" windowTitle="Selection of Element(s) To Trigger On">
               <element name="elements"/>
               <containerView name="containerView"/>
               <container name="container"/>
@@ -1083,7 +1083,7 @@
               </initialOperation>
             </tools>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="AddDeclaredGuard" label="Add Declared Guard" precondition="[container.oclIsTypeOf(Transition)/]" forceRefresh="true" candidatesExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target.oclAsType(StateMachineRelationDefinition).declarationBlock.classicalExpressions/]" rootExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target/]" childrenExpression="[eAllContents()/]" message="Select guard expression..." iconPath="/org.gemoc.mocc.ccslmocc.model.design/images/CreateGuard.gif" windowTitle="Selection of the guard expression">
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="AddDeclaredGuard" label="Add Declared Guard" precondition="[container.oclIsTypeOf(Transition)/]" forceRefresh="true" candidatesExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target.oclAsType(StateMachineRelationDefinition).declarationBlock.classicalExpressions/]" rootExpression="[diagram.oclAsType(viewpoint::DSemanticDecorator).target/]" childrenExpression="[eAllContents()/]" message="Select guard expression..." iconPath="/org.eclipse.gemoc.mocc.ccslmocc.model.design/images/CreateGuard.gif" windowTitle="Selection of the guard expression">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>
@@ -1146,14 +1146,14 @@
             <elementView name="elementView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool_1:ExternalJavaActionCall" name="org.gemoc.mocc.ccslmocc.model.design.OpenEditorActionCallID" action="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='OpenEmbeddedEditorAction']"/>
+                <subModelOperations xsi:type="tool_1:ExternalJavaActionCall" name="org.eclipse.gemoc.mocc.ccslmocc.model.design.OpenEditorActionCallID" action="//@ownedViewpoints[name='MoCCML']/@ownedRepresentations[name='StateMachineRelationDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='OpenEmbeddedEditorAction']"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>
       </additionalLayers>
     </ownedRepresentations>
-    <ownedJavaExtensions qualifiedClassName="org.gemoc.mocc.ccslmocc.model.design.services.MoCMLServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.gemoc.mocc.ccslmocc.model.design.services.MoCMLServices"/>
   </ownedViewpoints>
   <userColorsPalettes name="MoCCMLColors">
     <entries xsi:type="description:UserFixedColor" red="255" green="255" blue="240" name="veryPaleYellow"/>

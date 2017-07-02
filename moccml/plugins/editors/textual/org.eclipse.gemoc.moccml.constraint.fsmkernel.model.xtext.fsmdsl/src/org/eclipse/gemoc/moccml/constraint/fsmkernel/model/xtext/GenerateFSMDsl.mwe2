@@ -5,7 +5,7 @@ import org.eclipse.xtext.generator.*
 import org.eclipse.xtext.ui.generator.*
 
 
-var grammarURI = "classpath:/org/eclipse/gemoc/moccml/constraint/fsmkernel/model/xtext/FSMDsl.xtext"
+var grammarURI = "classpath:/org/eclipse/gemoc//moccml/constraint/fsmkernel/model/xtext/FSMDsl.xtext"
 var fileExtensions = "fsmdsl"
 var projectName = "org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.fsmdsl"
 var runtimeProject = "../${projectName}"
@@ -27,7 +27,7 @@ Workflow {
 	
 		registerGeneratedEPackage = "org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.FSMModelPackage"
 	    registerGeneratedEPackage = "org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.EditionExtensionPackage"
-		//registerGenModelFile = "platform:/resource/org.gemoc.mocc.fsmkernel.model/model/FSMModel.genmodel"
+		//registerGenModelFile = "platform:/resource/org.eclipse.gemoc.mocc.fsmkernel.model/model/FSMModel.genmodel"
 		//registerGenModelFile = "platform:/resource/fr.inria.aoste.timesquare.ccslkernel.model/model/TimeModel.genmodel"
 	
 	}

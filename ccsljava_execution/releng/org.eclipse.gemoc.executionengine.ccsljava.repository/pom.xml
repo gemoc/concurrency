@@ -4,9 +4,9 @@
 
   <parent>
     <relativePath>../../pom.xml</relativePath>
-    <groupId>org.gemoc.execution.concurrent.ccsljava</groupId>
+    <groupId>org.eclipse.gemoc.execution.concurrent.ccsljava</groupId>
     <version>2.3.0-SNAPSHOT</version>
-    <artifactId>org.gemoc.execution.concurrent.ccsljava.root</artifactId>
+    <artifactId>org.eclipse.gemoc.execution.concurrent.ccsljava.root</artifactId>
   </parent>
 
   <artifactId>org.eclipse.gemoc.executionengine.ccsljava.repository</artifactId>

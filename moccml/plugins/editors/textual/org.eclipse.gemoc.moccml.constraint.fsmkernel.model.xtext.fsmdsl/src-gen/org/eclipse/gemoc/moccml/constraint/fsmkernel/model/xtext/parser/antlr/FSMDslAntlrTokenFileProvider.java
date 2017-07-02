@@ -11,6 +11,6 @@ public class FSMDslAntlrTokenFileProvider implements IAntlrTokenFileProvider {
 	@Override
 	public InputStream getAntlrTokenFile() {
 		ClassLoader classLoader = getClass().getClassLoader();
-    	return classLoader.getResourceAsStream("org/eclipse/gemoc/moccml/constraint/fsmkernel/model/xtext/parser/antlr/internal/InternalFSMDsl.tokens");
+    	return classLoader.getResourceAsStream("org/eclipse/gemoc//moccml/constraint/fsmkernel/model/xtext/parser/antlr/internal/InternalFSMDsl.tokens");
 	}
 }

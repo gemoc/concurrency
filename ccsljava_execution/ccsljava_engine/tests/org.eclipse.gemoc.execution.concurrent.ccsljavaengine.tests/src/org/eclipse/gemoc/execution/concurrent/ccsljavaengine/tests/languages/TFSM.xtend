@@ -9,7 +9,7 @@
 //	}
 //
 //	override getLanguageName() {
-//		"org.gemoc.sample.tfsm.concurrent.XTfsm"
+//		"org.eclipse.gemoc.sample.tfsm.concurrent.XTfsm"
 //	}
 //
 //	override getInitializationMethod() {

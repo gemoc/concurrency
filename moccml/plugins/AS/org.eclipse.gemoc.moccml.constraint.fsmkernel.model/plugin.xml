@@ -24,7 +24,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated FSMModel -->
       <package
-            uri="http://org.gemoc.moccml.fsmmodel/1.0"
+            uri="http://org.eclipse.gemoc.moccml.fsmmodel/1.0"
             class="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.FSMModelPackage"
             genModel="model/FSMModel.genmodel"/>
    </extension>
@@ -32,7 +32,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated FSMModel -->
       <package
-            uri="http://org.gemoc.mocc.fsmmodel/editionextension/1.0"
+            uri="http://org.eclipse.gemoc.mocc.fsmmodel/editionextension/1.0"
             class="org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.EditionExtensionPackage"
             genModel="model/FSMModel.genmodel"/>
    </extension>

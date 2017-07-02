@@ -11,7 +11,7 @@ public class BuilderTemplates {
 "import org.eclipse.emf.ecore.resource.Resource;\n"+
 "import org.eclipse.emf.ecore.resource.ResourceSet;\n"+
 "import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;\n"+
-"import org.gemoc.gemoc_language_workbench.api.utils.ModelLoader;\n"+
+"import org.eclipse.gemoc.gemoc_language_workbench.api.utils.ModelLoader;\n"+
 "public class ${language.name.toupperfirst}ModelLoader implements ModelLoader {\n"+
 "	@Override\n"+
 "	public Resource loadModel(String modelFileUri) {\n"+
@@ -25,7 +25,7 @@ public class BuilderTemplates {
 "/* GENERATED FILE, do not modify manually                                                    *\n" +
 " * If you need to modify it, disable the generation in the BuildOptions of the project.xdsml */\n" +
 "package ${package.name};\n"+
-"import org.gemoc.gemoc_language_workbench.api.utils.LanguageInitializer;\n"+
+"import org.eclipse.gemoc.gemoc_language_workbench.api.utils.LanguageInitializer;\n"+
 "public class ${language.name.toupperfirst}Initializer implements LanguageInitializer {\n"+
 "	@Override\n"+
 "	public void initialize() {\n"+
@@ -54,7 +54,7 @@ public class BuilderTemplates {
 "/* GENERATED FILE, do not modify manually                                                    *\n" +
 " * If you need to modify it, disable the generation in the BuildOptions of the project.xdsml */\n" +
 "package ${package.name};\n"+
-"import org.gemoc.execution.engine.commons.solvers.ccsl.CcslSolver;\n"+
+"import org.eclipse.gemoc.execution.engine.commons.solvers.ccsl.CcslSolver;\n"+
 "public class ${language.name.toupperfirst}Solver extends CcslSolver {\n"+
 "	public ${language.name.toupperfirst}Solver(){\n"+
 "	    ${constructor.content}\n"+

@@ -22,7 +22,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated Ccslmocc -->
       <factory
-            uri="http://org.gemoc.moccml/1.0"
+            uri="http://org.eclipse.gemoc.moccml/1.0"
             class="org.eclipse.gemoc.moccml.constraint.ccslmoc.model.moccml.moccml.edit.provider.CcslmoccItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
