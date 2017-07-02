@@ -52,7 +52,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-antrun-plugin</artifactId>
-				<executions>
+	<!-- 			<executions>
 					<execution>
 						<phase>initialize</phase>
 						<goals>
@@ -62,7 +62,7 @@
 							<target>
 								<mkdir dir="${tests-inputs-gen.path}" />
 
-								<!-- LegacyFSM -->
+								LegacyFSM
 								<mkdir dir="${TFSM.tests-inputs-gen.path}" />
 								
 								<zip destfile="${TFSM.tests-inputs-gen.path}/org.eclipse.gemoc.sample.tfsm.concurrent.zip">
@@ -95,7 +95,7 @@
 							</target>
 						</configuration>
 					</execution>
-				</executions>
+				</executions> -->
 			</plugin>
 			<plugin>
 			   <groupId>org.eclipse.tycho</groupId>
