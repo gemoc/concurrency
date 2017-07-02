@@ -9,10 +9,10 @@
 	<packaging>pom</packaging>
 
 	<name>Event Constraint Language</name>
-	<url>http://timesquare.inria.fr/ecl/update_site/</url>
+	<url>https://ci.inria.fr/gemoc/job/MoCCML-mapping/lastSuccessfulBuild/artifact/moccml/mapping/deployment/org.eclipse.gemoc.moccml.mapping.updatesite/target/repository/</url>
 	<organization>
-		<name>Aoste INRIA/I3S</name>
-		<url>http://www.inria.fr/sophia/aoste</url>
+		<name>GEMOC initiative, I3S</name>
+		<url>http://team.inria.fr/kairos</url>
 	</organization>
 	<scm>
 		<url>svn+ssh://jdeanton@scm.gforge.inria.fr/svnroot/aosteincubation/trunk/TimeSquare/ECL</url>

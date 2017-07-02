@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <description name="ECL update site" url="http://timesquare.inria.fr/ecl/update_site">
-      ECL (Event Constraint Language) is an extension of OCL with events and logical time constraints dedicated to the specification of behavioral invariants (e.g. MoC) on metamodels. It enables the generation of CCSL specification for a specific model.
+   <description name="MoCCML_mapping update site" url="https://ci.inria.fr/gemoc/job/MoCCML-mapping/lastSuccessfulBuild/artifact/moccml/mapping/deployment/org.eclipse.gemoc.moccml.mapping.updatesite/target/repository/">
+      MoCCML_mapping (Event Constraint Language) is an extension of OCL with events and logical time constraints dedicated to the specification of behavioral invariants (e.g. MoC) on metamodels. It enables the generation of CCSL specification for a specific model.
    </description>
    <feature url="features/org.eclipse.gemoc.moccml.mapping.feature_1.0.0.qualifier.jar" id="org.eclipse.gemoc.moccml.mapping.feature" version="1.0.0.qualifier">
-      <category name="ECL full"/>
+      <category name="MoCCML_mapping full"/>
    </feature>
    <feature url="features/org.eclipse.gemoc.moccml.mapping.editor.feature_1.0.0.qualifier.jar" id="org.eclipse.gemoc.moccml.mapping.editor.feature" version="1.0.0.qualifier">
-      <category name="ECL editor only"/>
+      <category name="MoCCML_mapping editor only"/>
    </feature>
    <feature url="features/org.eclipse.gemoc.moccml.mapping.editor.feature_1.0.0.qualifier.jar" id="org.eclipse.gemoc.moccml.mapping.editor.feature" version="1.0.0.qualifier">
-      <category name="ECL full"/>
+      <category name="MoCCML_mapping full"/>
    </feature>
    <feature url="features/org.eclipse.gemoc.moccml.mapping.transfos.feature_1.0.0.qualifier.jar" id="org.eclipse.gemoc.moccml.mapping.transfos.feature" version="1.0.0.qualifier">
-      <category name="ECL full"/>
+      <category name="MoCCML_mapping full"/>
    </feature>
    <feature url="features/org.eclipse.gemoc.moccml.mapping.feedback.model.feature_1.0.0.qualifier.jar" id="org.eclipse.gemoc.moccml.mapping.feedback.model.feature" version="1.0.0.qualifier">
-      <category name="ECL full"/>
+      <category name="MoCCML_mapping full"/>
    </feature>
-   <category-def name="ECL full" label="ECL full">
+   <category-def name="MoCCML_mapping full" label="MoCCML_mapping full">
       <description>
          An extension of OCL with event and logical time constraints.
 It enables the specification of Model of Computation on any metamodel (UML or DSL)
       </description>
    </category-def>
-   <category-def name="ECL editor only" label="ECL editor only">
+   <category-def name="MoCCML_mapping editor only" label="MoCCML_mapping editor only">
       <description>
-         ECL metamodel and Xtext editor. No transformations...
+         MoCCML_mapping metamodel and Xtext editor. No transformations...
       </description>
    </category-def>
 </site>

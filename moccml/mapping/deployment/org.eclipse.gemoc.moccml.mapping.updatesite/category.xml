@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <description name="Event Constraint Language Update site" url="http://timesquare.inria.fr/ecl/update_site/">
-      ECL (Event Constraint Language) is a set of Eclipse plug-ins dedicated to explicit specification of causalities, timing and synchronization in a Language. It provides transformations to concurrency models in CCSL (see timesquare.inria.fr)
+   <description name="MoCCML Mapping Update site" url="https://ci.inria.fr/gemoc/job/MoCCML-mapping/lastSuccessfulBuild/artifact/moccml/mapping/deployment/org.eclipse.gemoc.moccml.mapping.updatesite/target/repository/">
+      MoCCML_mapping (Event Constraint Language) is a set of Eclipse plug-ins dedicated to explicit specification of causalities, timing and synchronization in a Language. It provides transformations to concurrency models in CCSL (see timesquare.inria.fr)
    </description>
    <feature url="features/org.eclipse.gemoc.moccml.mapping.feature_1.0.0.qualifier.jar" id="org.eclipse.gemoc.moccml.mapping.feature" version="1.0.0.qualifier">
-      <category name="EventConstraintLanguage"/>
+      <category name="MoCCML_mapping"/>
    </feature>
    <feature url="features/org.eclipse.gemoc.moccml.mapping.editor.feature_1.0.0.qualifier.jar" id="org.eclipse.gemoc.moccml.mapping.editor.feature" version="1.0.0.qualifier">
-      <category name="EventConstraintLanguage"/>
+      <category name="MoCCML_mapping"/>
    </feature>
    <feature url="features/org.eclipse.gemoc.moccml.mapping.transfos.feature_1.0.0.qualifier.jar" id="org.eclipse.gemoc.moccml.mapping.transfos.feature" version="1.0.0.qualifier">
-      <category name="EventConstraintLanguage"/>
+      <category name="MoCCML_mapping"/>
    </feature>
    <feature url="features/org.eclipse.gemoc.moccml.mapping.feedback.model.feature_1.0.0.qualifier.jar" id="org.eclipse.gemoc.moccml.mapping.feedback.model.feature" version="1.0.0.qualifier">
-      <category name="EventConstraintLanguage"/>
+      <category name="MoCCML_mapping"/>
    </feature>
-   <category-def name="EventConstraintLanguage" label="ECL framework">
+   <category-def name="MoCCML_mapping" label="MoCCML_mapping framework">
       <description>
-         The whole ECL development framework
+         The whole MoCCML_mapping development framework
       </description>
    </category-def>
 </site>

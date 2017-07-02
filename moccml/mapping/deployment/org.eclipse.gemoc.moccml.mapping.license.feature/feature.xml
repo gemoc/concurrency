@@ -20,6 +20,6 @@ Unless otherwise indicated below, the terms and conditions of the EPL still appl
 the Content and such source code may be obtained at http://www.inria.fr/sophia/aoste.
    </license>
     <url>
-        <update label="MoCCML mapping Update Site" url="http://timesquare.inria.fr/ecl/update_site/"/>
+        <update label="MoCCML mapping Update Site" url="https://ci.inria.fr/gemoc/job/MoCCML-mapping/lastSuccessfulBuild/artifact/moccml/mapping/deployment/org.eclipse.gemoc.moccml.mapping.updatesite/target/repository/"/>
     </url>
 </feature>
