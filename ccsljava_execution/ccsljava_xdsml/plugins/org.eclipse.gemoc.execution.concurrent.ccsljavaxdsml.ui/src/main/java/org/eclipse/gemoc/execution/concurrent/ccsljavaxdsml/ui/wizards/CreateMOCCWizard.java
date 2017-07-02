@@ -1,7 +1,7 @@
 package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards;
 
-import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.pages.CreateMOCCWizardPage;
+import org.eclipse.jface.wizard.Wizard;
 
 public class CreateMOCCWizard extends Wizard {
 

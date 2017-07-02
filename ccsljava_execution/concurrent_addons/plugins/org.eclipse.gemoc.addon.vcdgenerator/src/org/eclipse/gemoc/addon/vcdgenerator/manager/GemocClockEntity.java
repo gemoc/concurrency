@@ -1,9 +1,7 @@
 package org.eclipse.gemoc.addon.vcdgenerator.manager;
 
 import fr.inria.aoste.timesquare.backend.manager.visible.ClockEntity;
-import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.Clock;
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.ConcreteEntity;
-import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.Expression;
 import fr.inria.aoste.trace.ModelElementReference;
 
 public class GemocClockEntity extends ClockEntity {

@@ -8,7 +8,14 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.*;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.EventState;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ExecutionStep;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Fragment;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Future;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Reference;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Scenario;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ScenarioFactory;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ScenarioPackage;
 
 /**
  * <!-- begin-user-doc -->

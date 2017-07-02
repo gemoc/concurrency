@@ -15,16 +15,16 @@ import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.templates.ConcurrentTemplate;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.contextDSA.CreateDSAWizardContextActionDSAK3;
+import org.eclipse.gemoc.xdsmlframework.ide.ui.commands.AbstractMelangeSelectHandler;
+import org.eclipse.gemoc.xdsmlframework.ide.ui.xdsml.wizards.MelangeXDSMLProjectHelper;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.XtextEditor;
 import org.eclipse.xtext.ui.editor.model.IXtextDocument;
 import org.eclipse.xtext.ui.editor.utils.EditorUtils;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.templates.ConcurrentTemplate;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.contextDSA.CreateDSAWizardContextActionDSAK3;
-import org.eclipse.gemoc.xdsmlframework.ide.ui.commands.AbstractMelangeSelectHandler;
-import org.eclipse.gemoc.xdsmlframework.ide.ui.xdsml.wizards.MelangeXDSMLProjectHelper;
 
 import fr.inria.diverse.melange.metamodel.melange.Language;
 

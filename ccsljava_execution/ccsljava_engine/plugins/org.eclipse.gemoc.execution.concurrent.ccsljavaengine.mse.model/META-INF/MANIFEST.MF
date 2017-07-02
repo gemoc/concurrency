@@ -12,6 +12,6 @@ Export-Package: org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrent
  org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- fr.inria.aoste.timesquare.ecl.feedback.model;visibility:=reexport,
+ org.eclipse.gemoc.moccml.mapping.feedback.model;visibility:=reexport,
  org.eclipse.gemoc.trace.commons.model;bundle-version="0.1.0"
 Bundle-ActivationPolicy: lazy

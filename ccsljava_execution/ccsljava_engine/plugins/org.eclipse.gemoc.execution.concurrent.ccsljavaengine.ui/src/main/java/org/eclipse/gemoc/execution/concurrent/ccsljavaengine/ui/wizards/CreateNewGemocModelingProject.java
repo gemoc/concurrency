@@ -6,12 +6,12 @@ import org.eclipse.core.resources.IWorkspaceRunnable;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.Activator;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.Activator;
 
 public class CreateNewGemocModelingProject extends Wizard implements INewWizard {
 

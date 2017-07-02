@@ -1,7 +1,8 @@
 package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager;
 
+import org.eclipse.gemoc.moccml.mapping.feedback.feedback.ModelSpecificEvent;
+
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.Block;
-import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
 
 
 /**

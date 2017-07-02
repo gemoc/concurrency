@@ -4,6 +4,10 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.gemoc.commons.eclipse.ui.dialogs.SelectAnyIFileDialog;
+import org.eclipse.gemoc.executionframework.ui.utils.ENamedElementQualifiedNameLabelProvider;
+import org.eclipse.gemoc.xdsmlframework.ui.utils.dialogs.SelectAnyConcreteEClassDialog;
+import org.eclipse.gemoc.xdsmlframework.ui.utils.dialogs.SelectAnyEObjectDialog;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.util.BidiUtils;
 import org.eclipse.jface.viewers.LabelProvider;
@@ -18,10 +22,6 @@ import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.gemoc.commons.eclipse.ui.dialogs.SelectAnyIFileDialog;
-import org.eclipse.gemoc.executionframework.ui.utils.ENamedElementQualifiedNameLabelProvider;
-import org.eclipse.gemoc.xdsmlframework.ui.utils.dialogs.SelectAnyConcreteEClassDialog;
-import org.eclipse.gemoc.xdsmlframework.ui.utils.dialogs.SelectAnyEObjectDialog;
 
 public class AskDSEInfoWizardPage extends WizardPage {
 

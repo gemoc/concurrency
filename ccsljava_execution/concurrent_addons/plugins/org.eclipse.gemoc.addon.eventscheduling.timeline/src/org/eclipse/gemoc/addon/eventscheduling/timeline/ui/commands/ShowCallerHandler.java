@@ -15,6 +15,18 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.gemoc.dsl.debug.ide.sirius.ui.DebugSiriusIdeUiPlugin;
+import org.eclipse.gemoc.dsl.debug.ide.sirius.ui.SiriusEditorUtils;
+import org.eclipse.gemoc.dsl.debug.ide.ui.EMFEditorUtils;
+//import org.eclipse.gemoc.dsl.debug.ide.DSLBreakpoint;
+//import org.eclipse.gemoc.dsl.debug.ide.sirius.ui.DebugSiriusIdeUiPlugin;
+//import org.eclipse.gemoc.dsl.debug.ide.sirius.ui.SiriusEditorUtils;
+//import org.eclipse.gemoc.dsl.debug.ide.ui.EMFEditorUtils;
+import org.eclipse.gemoc.timeline.editpart.PossibleStepEditPart;
+import org.eclipse.gemoc.timeline.model.PossibleStep;
+import org.eclipse.gemoc.trace.commons.model.helper.StepHelper;
+import org.eclipse.gemoc.trace.commons.model.trace.MSEOccurrence;
+import org.eclipse.gemoc.trace.commons.model.trace.Step;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.sirius.business.api.session.Session;
@@ -27,19 +39,6 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
-
-import org.eclipse.gemoc.trace.commons.model.helper.StepHelper;
-import org.eclipse.gemoc.trace.commons.model.trace.MSEOccurrence;
-import org.eclipse.gemoc.trace.commons.model.trace.Step;
-import org.eclipse.gemoc.dsl.debug.ide.sirius.ui.DebugSiriusIdeUiPlugin;
-import org.eclipse.gemoc.dsl.debug.ide.sirius.ui.SiriusEditorUtils;
-import org.eclipse.gemoc.dsl.debug.ide.ui.EMFEditorUtils;
-//import org.eclipse.gemoc.dsl.debug.ide.DSLBreakpoint;
-//import org.eclipse.gemoc.dsl.debug.ide.sirius.ui.DebugSiriusIdeUiPlugin;
-//import org.eclipse.gemoc.dsl.debug.ide.sirius.ui.SiriusEditorUtils;
-//import org.eclipse.gemoc.dsl.debug.ide.ui.EMFEditorUtils;
-import org.eclipse.gemoc.timeline.editpart.PossibleStepEditPart;
-import org.eclipse.gemoc.timeline.model.PossibleStep;
 
 public class ShowCallerHandler extends AbstractHandler {
 

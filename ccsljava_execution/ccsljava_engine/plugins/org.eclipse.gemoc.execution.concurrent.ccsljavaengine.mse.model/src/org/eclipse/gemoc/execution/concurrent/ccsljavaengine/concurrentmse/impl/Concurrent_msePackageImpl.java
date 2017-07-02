@@ -11,8 +11,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.Concurrent_mseFactory;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.Concurrent_msePackage;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
-
-import fr.inria.aoste.timesquare.ecl.feedback.feedback.FeedbackPackage;
+import org.eclipse.gemoc.moccml.mapping.feedback.feedback.FeedbackPackage;
 import org.eclipse.gemoc.trace.commons.model.trace.TracePackage;
 
 /**

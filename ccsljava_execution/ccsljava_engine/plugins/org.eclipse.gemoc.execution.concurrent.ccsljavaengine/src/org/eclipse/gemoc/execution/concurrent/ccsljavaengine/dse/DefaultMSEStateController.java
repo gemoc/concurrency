@@ -6,8 +6,8 @@ import java.util.Map.Entry;
 
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.dse.IMSEStateController;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
+import org.eclipse.gemoc.moccml.mapping.feedback.feedback.ModelSpecificEvent;
 
-import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
 import fr.inria.aoste.trace.EventOccurrence;
 import fr.inria.aoste.trace.ModelElementReference;
 import fr.inria.aoste.trace.TraceFactory;

@@ -7,10 +7,10 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.filters.IEventFilterStrategy;
+import org.eclipse.gemoc.moccml.mapping.feedback.feedback.ActionModel;
+import org.eclipse.gemoc.moccml.mapping.feedback.feedback.ModelSpecificEvent;
 
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.Relation;
-import fr.inria.aoste.timesquare.ecl.feedback.feedback.ActionModel;
-import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
 
 public class ModelSpecificEventSet 
 {

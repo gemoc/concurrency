@@ -2,9 +2,8 @@ package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core;
 
 import java.util.List;
 
-import org.eclipse.gemoc.xdsmlframework.api.core.IDisposable;
-
 import org.eclipse.gemoc.trace.commons.model.trace.Step;
+import org.eclipse.gemoc.xdsmlframework.api.core.IDisposable;
 
 
 /**

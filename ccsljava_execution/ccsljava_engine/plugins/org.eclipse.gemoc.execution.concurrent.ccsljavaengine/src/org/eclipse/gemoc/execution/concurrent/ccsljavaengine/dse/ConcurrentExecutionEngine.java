@@ -10,7 +10,6 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.commons.ConcurrentModelExecutionContext;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionContext;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
@@ -24,19 +23,19 @@ import org.eclipse.gemoc.executionframework.engine.Activator;
 import org.eclipse.gemoc.executionframework.engine.core.AbstractExecutionEngine;
 import org.eclipse.gemoc.executionframework.engine.core.CommandExecution;
 import org.eclipse.gemoc.executionframework.engine.core.EngineStoppedException;
+import org.eclipse.gemoc.moccml.mapping.feedback.feedback.ActionModel;
+import org.eclipse.gemoc.moccml.mapping.feedback.feedback.When;
+import org.eclipse.gemoc.trace.commons.model.trace.MSE;
+import org.eclipse.gemoc.trace.commons.model.trace.ParallelStep;
+import org.eclipse.gemoc.trace.commons.model.trace.SmallStep;
+import org.eclipse.gemoc.trace.commons.model.trace.Step;
 import org.eclipse.gemoc.xdsmlframework.api.core.EngineStatus;
 import org.eclipse.gemoc.xdsmlframework.api.core.IDisposable;
 import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionContext;
 import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine;
 import org.eclipse.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 
-import fr.inria.aoste.timesquare.ecl.feedback.feedback.ActionModel;
-import fr.inria.aoste.timesquare.ecl.feedback.feedback.When;
 import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel;
-import org.eclipse.gemoc.trace.commons.model.trace.MSE;
-import org.eclipse.gemoc.trace.commons.model.trace.ParallelStep;
-import org.eclipse.gemoc.trace.commons.model.trace.SmallStep;
-import org.eclipse.gemoc.trace.commons.model.trace.Step;
 
 /**
  * Basic abstract implementation of the ExecutionEngine, independent from the technologies used for the solver, the

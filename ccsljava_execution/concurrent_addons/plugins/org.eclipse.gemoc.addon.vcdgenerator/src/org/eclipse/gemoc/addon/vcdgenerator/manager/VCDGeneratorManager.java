@@ -10,16 +10,20 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IPath;
-import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
 import org.eclipse.gemoc.addon.vcdgenerator.ScoreBoard;
 import org.eclipse.gemoc.addon.vcdgenerator.behaviors.AbstractVCDClockBehavior;
 import org.eclipse.gemoc.addon.vcdgenerator.behaviors.VCDGeneratorClockBehavior;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
+import org.eclipse.gemoc.trace.commons.model.helper.StepHelper;
+import org.eclipse.gemoc.trace.commons.model.trace.MSEOccurrence;
+import org.eclipse.gemoc.trace.commons.model.trace.SmallStep;
+import org.eclipse.gemoc.trace.commons.model.trace.Step;
 import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine;
 import org.eclipse.gemoc.xdsmlframework.api.engine_addon.DefaultEngineAddon;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.widgets.Display;
 
 import fr.inria.aoste.timesquare.backend.manager.visible.ClockEntity;
 import fr.inria.aoste.timesquare.backend.manager.visible.ConfigurationHelper;
@@ -45,10 +49,6 @@ import fr.inria.aoste.trace.FiredStateKind;
 import fr.inria.aoste.trace.ModelElementReference;
 import fr.inria.aoste.trace.PhysicalBase;
 import fr.inria.aoste.trace.TraceFactory;
-import org.eclipse.gemoc.trace.commons.model.helper.StepHelper;
-import org.eclipse.gemoc.trace.commons.model.trace.MSEOccurrence;
-import org.eclipse.gemoc.trace.commons.model.trace.SmallStep;
-import org.eclipse.gemoc.trace.commons.model.trace.Step;
 
 /**
  * 

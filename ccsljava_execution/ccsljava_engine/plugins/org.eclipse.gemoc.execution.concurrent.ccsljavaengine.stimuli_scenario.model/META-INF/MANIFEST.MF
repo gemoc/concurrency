@@ -12,6 +12,6 @@ Export-Package: org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimulisce
  org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- fr.inria.aoste.timesquare.ecl.feedback.model;visibility:=reexport,
+ org.eclipse.gemoc.moccml.mapping.feedback.model;visibility:=reexport,
  fr.inria.aoste.timesquare.ccslkernel.model;bundle-version="1.0.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy

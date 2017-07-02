@@ -4,8 +4,7 @@ package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EOperation;
-
-import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
+import org.eclipse.gemoc.moccml.mapping.feedback.feedback.ModelSpecificEvent;
 import org.eclipse.gemoc.trace.commons.model.trace.MSE;
 
 /**

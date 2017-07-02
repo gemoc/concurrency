@@ -6,6 +6,23 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.gemoc.commons.eclipse.ui.Activator;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.eventscheduling.trace.EventSchedulingModelExecutionTracingAddon;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.eventscheduling.trace.ModelExecutionTracingException;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.deciders.AbstractUserDecider;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
+import org.eclipse.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Branch;
+import org.eclipse.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Choice;
+import org.eclipse.gemoc.executionframework.ui.views.engine.IEngineSelectionListener;
+import org.eclipse.gemoc.timeline.editpart.PossibleStepEditPart;
+import org.eclipse.gemoc.timeline.editpart.TimelineEditPartFactory;
+import org.eclipse.gemoc.timeline.view.AbstractTimelineView;
+import org.eclipse.gemoc.timeline.view.ITimelineProvider;
+import org.eclipse.gemoc.trace.commons.model.trace.Step;
+import org.eclipse.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
+import org.eclipse.gemoc.xdsmlframework.api.core.ExecutionMode;
+import org.eclipse.gemoc.xdsmlframework.api.core.IDisposable;
+import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine;
 import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ISelection;
@@ -16,24 +33,6 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IViewSite;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
-import org.eclipse.gemoc.commons.eclipse.ui.Activator;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.eventscheduling.trace.EventSchedulingModelExecutionTracingAddon;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.eventscheduling.trace.ModelExecutionTracingException;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.deciders.AbstractUserDecider;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
-import org.eclipse.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Branch;
-import org.eclipse.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Choice;
-import org.eclipse.gemoc.executionframework.ui.views.engine.IEngineSelectionListener;
-import org.eclipse.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
-import org.eclipse.gemoc.xdsmlframework.api.core.ExecutionMode;
-import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine;
-import org.eclipse.gemoc.xdsmlframework.api.core.IDisposable;
-
-import org.eclipse.gemoc.trace.commons.model.trace.Step;
-import org.eclipse.gemoc.timeline.editpart.PossibleStepEditPart;
-import org.eclipse.gemoc.timeline.editpart.TimelineEditPartFactory;
-import org.eclipse.gemoc.timeline.view.AbstractTimelineView;
-import org.eclipse.gemoc.timeline.view.ITimelineProvider;
 
 public class EventSchedulingTimeLineView extends AbstractTimelineView implements IEngineSelectionListener {
 

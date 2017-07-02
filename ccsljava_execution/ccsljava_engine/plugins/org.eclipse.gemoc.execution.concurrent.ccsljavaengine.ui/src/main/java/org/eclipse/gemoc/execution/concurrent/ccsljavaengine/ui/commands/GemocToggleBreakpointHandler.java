@@ -7,19 +7,18 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.gemoc.dsl.debug.ide.DSLBreakpoint;
+import org.eclipse.gemoc.dsl.debug.ide.sirius.ui.DSLToggleBreakpointsUtils;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.Launcher;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.ModelSpecificEventWrapper;
+import org.eclipse.gemoc.executionframework.debugger.GemocBreakpoint;
+import org.eclipse.gemoc.moccml.mapping.feedback.feedback.ModelSpecificEvent;
+import org.eclipse.gemoc.trace.commons.model.trace.MSEOccurrence;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.ISelectionService;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.Launcher;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.ModelSpecificEventWrapper;
-import org.eclipse.gemoc.executionframework.debugger.GemocBreakpoint;
-
-import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
-import org.eclipse.gemoc.trace.commons.model.trace.MSEOccurrence;
-import org.eclipse.gemoc.dsl.debug.ide.DSLBreakpoint;
-import org.eclipse.gemoc.dsl.debug.ide.sirius.ui.DSLToggleBreakpointsUtils;
 
 public class GemocToggleBreakpointHandler extends AbstractHandler {
 

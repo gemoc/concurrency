@@ -2,9 +2,9 @@ package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulima
 
 import java.util.ArrayList;
 
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.filters.IEventFilterStrategy;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.Viewer;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.filters.IEventFilterStrategy;
 
 public class ViewContentProvider implements IStructuredContentProvider 
 {

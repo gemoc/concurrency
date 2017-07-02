@@ -20,12 +20,10 @@ import org.eclipse.debug.ui.ILaunchGroup;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EcorePackage;
-import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.StructuredSelection;
-import org.eclipse.ui.IEditorPart;
-import org.eclipse.ui.PlatformUI;
 import org.eclipse.gemoc.commons.eclipse.ui.ViewHelper;
+import org.eclipse.gemoc.dsl.debug.ide.IDSLDebugger;
+import org.eclipse.gemoc.dsl.debug.ide.adapter.IDSLCurrentInstructionListener;
+import org.eclipse.gemoc.dsl.debug.ide.event.DSLDebugEventDispatcher;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.commons.ConcurrentModelExecutionContext;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.dse.ConcurrentExecutionEngine;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.Activator;
@@ -34,25 +32,26 @@ import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.step.Logic
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.StimuliManagerView;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
-import org.eclipse.gemoc.executionframework.engine.commons.EngineContextException;
-import org.eclipse.gemoc.executionframework.engine.ui.commons.RunConfiguration;
 import org.eclipse.gemoc.executionframework.debugger.AbstractGemocDebugger;
 import org.eclipse.gemoc.executionframework.debugger.AnnotationMutableFieldExtractor;
 import org.eclipse.gemoc.executionframework.debugger.IMutableFieldExtractor;
+import org.eclipse.gemoc.executionframework.engine.ui.commons.RunConfiguration;
 import org.eclipse.gemoc.executionframework.engine.ui.launcher.AbstractGemocLauncher;
 import org.eclipse.gemoc.executionframework.extensions.sirius.services.AbstractGemocAnimatorServices;
 import org.eclipse.gemoc.executionframework.extensions.sirius.services.AbstractGemocDebuggerServices;
 import org.eclipse.gemoc.executionframework.ui.views.engine.EnginesStatusView;
+import org.eclipse.gemoc.trace.commons.model.trace.MSEOccurrence;
 import org.eclipse.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 import org.eclipse.gemoc.xdsmlframework.api.core.ExecutionMode;
 import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine;
 import org.eclipse.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.StructuredSelection;
+import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.PlatformUI;
 
 import fr.inria.diverse.commons.messagingsystem.api.MessagingSystem;
-import org.eclipse.gemoc.trace.commons.model.trace.MSEOccurrence;
-import org.eclipse.gemoc.dsl.debug.ide.IDSLDebugger;
-import org.eclipse.gemoc.dsl.debug.ide.adapter.IDSLCurrentInstructionListener;
-import org.eclipse.gemoc.dsl.debug.ide.event.DSLDebugEventDispatcher;
 
 public class Launcher extends AbstractGemocLauncher {
 

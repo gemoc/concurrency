@@ -2,15 +2,17 @@ package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse;
 
 import java.util.Iterator;
 
-import org.eclipse.core.commands.*;
+import org.eclipse.core.commands.AbstractHandler;
+import org.eclipse.core.commands.ExecutionEvent;
+import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.gemoc.commons.eclipse.core.resources.IProjectUtils;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.handlers.HandlerUtil;
-import org.eclipse.gemoc.commons.eclipse.core.resources.IProjectUtils;
 
 public class AddRemoveGemocDSENatureHandler extends AbstractHandler {
 

@@ -5,7 +5,12 @@ package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ut
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.*;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.EventState;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ExecutionStep;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Fragment;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Reference;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Scenario;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ScenarioPackage;
 
 /**
  * <!-- begin-user-doc -->

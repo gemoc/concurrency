@@ -1,11 +1,10 @@
 package org.eclipse.gemoc.execution.concurrent.ccsljavaengine;
 
-import org.osgi.framework.BundleContext;
 import org.eclipse.gemoc.commons.eclipse.logging.backends.DefaultLoggingBackend;
-import org.eclipse.gemoc.commons.eclipse.pde.GemocPlugin;
-
-import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystemManager;
 import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystem;
+import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystemManager;
+import org.eclipse.gemoc.commons.eclipse.pde.GemocPlugin;
+import org.osgi.framework.BundleContext;
 
 public class Activator extends GemocPlugin {
 

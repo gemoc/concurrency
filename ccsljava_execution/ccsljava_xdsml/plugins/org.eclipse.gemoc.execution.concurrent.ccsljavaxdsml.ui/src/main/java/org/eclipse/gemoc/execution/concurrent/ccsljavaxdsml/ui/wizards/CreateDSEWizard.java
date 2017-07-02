@@ -1,8 +1,7 @@
 package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards;
 
-import org.eclipse.jface.wizard.Wizard;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateDSEWizardContextAction;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.pages.CreateDSEWizardPage;
+import org.eclipse.jface.wizard.Wizard;
 
 public class CreateDSEWizard extends Wizard {
 

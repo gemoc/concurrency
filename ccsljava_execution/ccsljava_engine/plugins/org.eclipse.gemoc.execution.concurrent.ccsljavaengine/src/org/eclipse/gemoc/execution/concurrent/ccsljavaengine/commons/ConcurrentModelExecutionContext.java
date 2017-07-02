@@ -12,12 +12,11 @@ import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.langu
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtensionPoint;
 import org.eclipse.gemoc.executionframework.engine.commons.EngineContextException;
 import org.eclipse.gemoc.executionframework.engine.commons.ModelExecutionContext;
+import org.eclipse.gemoc.moccml.mapping.feedback.feedback.ActionModel;
+import org.eclipse.gemoc.trace.commons.model.trace.MSEModel;
 import org.eclipse.gemoc.xdsmlframework.api.core.ExecutionMode;
 import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionPlatform;
 import org.eclipse.gemoc.xdsmlframework.api.extensions.languages.LanguageDefinitionExtension;
-
-import fr.inria.aoste.timesquare.ecl.feedback.feedback.ActionModel;
-import org.eclipse.gemoc.trace.commons.model.trace.MSEModel;
 
 public class ConcurrentModelExecutionContext extends ModelExecutionContext implements IConcurrentExecutionContext
 {

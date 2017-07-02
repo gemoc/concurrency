@@ -40,14 +40,13 @@ import org.eclipse.gemoc.executionframework.reflectivetrace.gemoc_execution_trac
 import org.eclipse.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.ExecutionTraceModel;
 import org.eclipse.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Gemoc_execution_traceFactory;
 import org.eclipse.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.ModelState;
+import org.eclipse.gemoc.trace.commons.model.trace.Step;
+import org.eclipse.gemoc.trace.gemoc.api.IMultiDimensionalTraceAddon;
 import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionContext;
 import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine;
 import org.eclipse.gemoc.xdsmlframework.api.engine_addon.DefaultEngineAddon;
 import org.eclipse.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 import org.eclipse.gemoc.xdsmlframework.api.extensions.engine_addon.EngineAddonSpecificationExtensionPoint;
-
-import org.eclipse.gemoc.trace.commons.model.trace.Step;
-import org.eclipse.gemoc.trace.gemoc.api.IMultiDimensionalTraceAddon;
 
 /**
  * 

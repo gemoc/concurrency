@@ -5,7 +5,6 @@ import java.util.function.Consumer;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.CodeExecutionException;
 import org.eclipse.gemoc.executionframework.engine.Activator;
-
 import org.eclipse.gemoc.trace.commons.model.trace.SmallStep;
 import org.eclipse.gemoc.trace.commons.model.trace.Step;
 

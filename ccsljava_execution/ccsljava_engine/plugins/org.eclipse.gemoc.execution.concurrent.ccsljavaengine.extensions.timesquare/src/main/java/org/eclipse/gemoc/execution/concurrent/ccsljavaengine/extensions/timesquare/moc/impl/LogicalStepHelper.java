@@ -11,8 +11,6 @@ import fr.inria.aoste.trace.EventOccurrence;
 import fr.inria.aoste.trace.FiredStateKind;
 import fr.inria.aoste.trace.LogicalStep;
 import fr.inria.aoste.trace.ModelElementReference;
-import org.eclipse.gemoc.trace.commons.model.trace.ParallelStep;
-import org.eclipse.gemoc.trace.commons.model.trace.Step;
 
 public class LogicalStepHelper {
 

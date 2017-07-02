@@ -1,5 +1,7 @@
 package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.pages;
 
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateDSEWizardContextAction;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateDSEWizardContextAction.CreateDSEAction;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.RowLayout;
@@ -9,8 +11,6 @@ import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.ui.PlatformUI;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateDSEWizardContextAction;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateDSEWizardContextAction.CreateDSEAction;
 
 public class CreateDSEWizardPage extends WizardPage {
 

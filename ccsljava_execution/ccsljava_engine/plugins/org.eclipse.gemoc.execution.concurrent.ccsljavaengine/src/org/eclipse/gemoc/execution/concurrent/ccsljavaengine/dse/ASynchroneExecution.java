@@ -8,14 +8,13 @@ import java.util.function.Consumer;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.dse.IMSEStateController;
 import org.eclipse.gemoc.executionframework.engine.Activator;
-
-import fr.inria.aoste.timesquare.ecl.feedback.feedback.ActionFinishedCondition;
-import fr.inria.aoste.timesquare.ecl.feedback.feedback.ActionResultCondition;
-import fr.inria.aoste.timesquare.ecl.feedback.feedback.ComparisonOperator;
-import fr.inria.aoste.timesquare.ecl.feedback.feedback.Condition;
-import fr.inria.aoste.timesquare.ecl.feedback.feedback.Force;
-import fr.inria.aoste.timesquare.ecl.feedback.feedback.ForceKind;
-import fr.inria.aoste.timesquare.ecl.feedback.feedback.When;
+import org.eclipse.gemoc.moccml.mapping.feedback.feedback.ActionFinishedCondition;
+import org.eclipse.gemoc.moccml.mapping.feedback.feedback.ActionResultCondition;
+import org.eclipse.gemoc.moccml.mapping.feedback.feedback.ComparisonOperator;
+import org.eclipse.gemoc.moccml.mapping.feedback.feedback.Condition;
+import org.eclipse.gemoc.moccml.mapping.feedback.feedback.Force;
+import org.eclipse.gemoc.moccml.mapping.feedback.feedback.ForceKind;
+import org.eclipse.gemoc.moccml.mapping.feedback.feedback.When;
 import org.eclipse.gemoc.trace.commons.model.trace.SmallStep;
 import org.eclipse.gemoc.trace.commons.model.trace.Step;
 

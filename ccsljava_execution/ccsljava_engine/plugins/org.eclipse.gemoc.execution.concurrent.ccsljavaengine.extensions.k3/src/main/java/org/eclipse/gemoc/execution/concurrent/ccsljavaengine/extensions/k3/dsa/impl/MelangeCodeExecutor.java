@@ -14,7 +14,6 @@ import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.dsa.a
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.CodeExecutionException;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
 import org.eclipse.gemoc.executionframework.engine.commons.MelangeHelper;
-
 import org.eclipse.gemoc.trace.commons.model.trace.MSEOccurrence;
 
 //TODO: extends Kermeta3AspectsCodeExecutor?

@@ -16,6 +16,13 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.OperationCanceledException;
+import org.eclipse.gemoc.commons.eclipse.core.resources.IProjectUtils;
+import org.eclipse.gemoc.commons.eclipse.core.resources.NatureToggling;
+import org.eclipse.gemoc.commons.eclipse.jdt.JavaProject;
+import org.eclipse.gemoc.commons.eclipse.pde.manifest.ManifestChanger;
+import org.eclipse.gemoc.commons.eclipse.pde.ui.PluginConverter;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
+import org.eclipse.gemoc.xdsmlframework.ide.ui.builder.pde.PluginXMLHelper;
 import org.eclipse.jdt.core.IClasspathEntry;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
@@ -25,13 +32,6 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.gemoc.commons.eclipse.core.resources.NatureToggling;
-import org.eclipse.gemoc.commons.eclipse.core.resources.IProjectUtils;
-import org.eclipse.gemoc.commons.eclipse.jdt.JavaProject;
-import org.eclipse.gemoc.commons.eclipse.pde.manifest.ManifestChanger;
-import org.eclipse.gemoc.commons.eclipse.pde.ui.PluginConverter;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
-import org.eclipse.gemoc.xdsmlframework.ide.ui.builder.pde.PluginXMLHelper;
 import org.osgi.framework.BundleException;
 
 public class ToggleNatureAction implements IObjectActionDelegate {

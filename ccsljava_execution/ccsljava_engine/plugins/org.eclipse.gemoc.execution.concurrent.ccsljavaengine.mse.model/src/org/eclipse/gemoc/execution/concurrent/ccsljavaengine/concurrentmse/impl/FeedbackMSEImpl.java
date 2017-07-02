@@ -10,8 +10,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.Concurrent_msePackage;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
-
-import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
+import org.eclipse.gemoc.moccml.mapping.feedback.feedback.ModelSpecificEvent;
 import org.eclipse.gemoc.trace.commons.model.trace.impl.MSEImpl;
 
 /**

@@ -2,9 +2,8 @@
  */
 package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario;
 
-import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
-
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.gemoc.moccml.mapping.feedback.feedback.ModelSpecificEvent;
 
 /**
  * <!-- begin-user-doc -->

@@ -10,15 +10,14 @@ import org.eclipse.gemoc.executionframework.reflectivetrace.gemoc_execution_trac
 import org.eclipse.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.ExecutionTraceModel;
 import org.eclipse.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Gemoc_execution_traceFactory;
 import org.eclipse.gemoc.executionframework.ui.utils.ViewUtils;
-import org.eclipse.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
-import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine;
-import org.eclipse.gemoc.xdsmlframework.api.core.IDisposable;
-import org.eclipse.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
-
+import org.eclipse.gemoc.timeline.view.AbstractTimelineProvider;
 import org.eclipse.gemoc.trace.commons.model.helper.StepHelper;
 import org.eclipse.gemoc.trace.commons.model.trace.MSEOccurrence;
 import org.eclipse.gemoc.trace.commons.model.trace.Step;
-import org.eclipse.gemoc.timeline.view.AbstractTimelineProvider;
+import org.eclipse.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
+import org.eclipse.gemoc.xdsmlframework.api.core.IDisposable;
+import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine;
+import org.eclipse.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 
 /**
  * This class is registered either as an addon on the launch config or via the view itself as it listen to engine

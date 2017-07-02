@@ -4,9 +4,8 @@ import java.util.List;
 
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
-import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine;
-
 import org.eclipse.gemoc.trace.commons.model.trace.Step;
+import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine;
 
 public interface IConcurrentExecutionEngine extends IExecutionEngine{
 

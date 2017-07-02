@@ -1,9 +1,5 @@
 package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.tabs;
 
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspace;
@@ -11,9 +7,10 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.gemoc.commons.eclipse.ui.dialogs.SelectAnyIFileDialog;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.Activator;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.ConcurrentRunConfiguration;
+import org.eclipse.gemoc.executionframework.engine.ui.commons.RunConfiguration;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.swt.SWT;
@@ -25,32 +22,9 @@ import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
-import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.gemoc.commons.eclipse.emf.EMFResource;
-import org.eclipse.gemoc.commons.eclipse.emf.URIHelper;
-import org.eclipse.gemoc.commons.eclipse.ui.dialogs.SelectAnyIFileDialog;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.Activator;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.ConcurrentRunConfiguration;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.LauncherMessages;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.deciders.DeciderSpecificationExtension;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.deciders.DeciderSpecificationExtensionPoint;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtension;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtensionPoint;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.ConcurrentRunConfiguration;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.Activator;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.LauncherMessages;
-import org.eclipse.gemoc.executionframework.engine.commons.MelangeHelper;
-import org.eclipse.gemoc.executionframework.engine.ui.commons.RunConfiguration;
-import org.eclipse.gemoc.xdsmlframework.ui.utils.dialogs.SelectAIRDIFileDialog;
-import org.osgi.framework.Bundle;
-
-import org.eclipse.gemoc.dsl.debug.ide.launch.AbstractDSLLaunchConfigurationDelegate;
-import org.eclipse.gemoc.dsl.debug.ide.sirius.ui.launch.AbstractDSLLaunchConfigurationDelegateUI;
 
 public class LaunchConfigurationAdvancedTab extends LaunchConfigurationTab {
 

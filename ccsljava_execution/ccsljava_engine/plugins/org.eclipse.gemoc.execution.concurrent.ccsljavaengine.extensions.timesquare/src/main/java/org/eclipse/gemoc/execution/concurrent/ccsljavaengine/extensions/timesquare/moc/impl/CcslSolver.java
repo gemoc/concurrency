@@ -29,6 +29,16 @@ import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.Feedb
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.Activator;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionContext;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.utils.ccsl.QvtoTransformationPerformer;
+import org.eclipse.gemoc.moccml.mapping.feedback.feedback.ActionModel;
+import org.eclipse.gemoc.moccml.mapping.feedback.feedback.ModelSpecificEvent;
+import org.eclipse.gemoc.trace.commons.model.generictrace.GenericParallelStep;
+import org.eclipse.gemoc.trace.commons.model.generictrace.GenericSmallStep;
+import org.eclipse.gemoc.trace.commons.model.generictrace.GenerictraceFactory;
+import org.eclipse.gemoc.trace.commons.model.trace.MSE;
+import org.eclipse.gemoc.trace.commons.model.trace.MSEModel;
+import org.eclipse.gemoc.trace.commons.model.trace.MSEOccurrence;
+import org.eclipse.gemoc.trace.commons.model.trace.Step;
+import org.eclipse.gemoc.trace.commons.model.trace.TraceFactory;
 import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionContext;
 import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionWorkspace;
 import org.osgi.framework.Bundle;
@@ -40,8 +50,6 @@ import fr.inria.aoste.timesquare.ccslkernel.runtime.exceptions.NoBooleanSolution
 import fr.inria.aoste.timesquare.ccslkernel.runtime.exceptions.SimulationException;
 import fr.inria.aoste.timesquare.ccslkernel.solver.exception.SolverException;
 import fr.inria.aoste.timesquare.ccslkernel.solver.launch.CCSLKernelSolverWrapper;
-import fr.inria.aoste.timesquare.ecl.feedback.feedback.ActionModel;
-import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
 import fr.inria.aoste.timesquare.instantrelation.CCSLRelationModel.OccurrenceRelation;
 import fr.inria.aoste.timesquare.instantrelation.listener.RelationModelListener;
 import fr.inria.aoste.timesquare.simulationpolicy.maxcardpolicy.MaxCardSimulationPolicy;
@@ -51,16 +59,6 @@ import fr.inria.aoste.trace.LogicalStep;
 import fr.inria.aoste.trace.ModelElementReference;
 import fr.inria.aoste.trace.Reference;
 import fr.inria.aoste.trace.relation.IDescription;
-import org.eclipse.gemoc.trace.commons.model.generictrace.GenericParallelStep;
-import org.eclipse.gemoc.trace.commons.model.generictrace.GenericSmallStep;
-import org.eclipse.gemoc.trace.commons.model.generictrace.GenerictraceFactory;
-import org.eclipse.gemoc.trace.commons.model.trace.MSE;
-import org.eclipse.gemoc.trace.commons.model.trace.MSEModel;
-import org.eclipse.gemoc.trace.commons.model.trace.MSEOccurrence;
-import org.eclipse.gemoc.trace.commons.model.trace.ParallelStep;
-import org.eclipse.gemoc.trace.commons.model.trace.SmallStep;
-import org.eclipse.gemoc.trace.commons.model.trace.Step;
-import org.eclipse.gemoc.trace.commons.model.trace.TraceFactory;
 
 /**
  * Implementation of the ISolver dedicated to CCSL.

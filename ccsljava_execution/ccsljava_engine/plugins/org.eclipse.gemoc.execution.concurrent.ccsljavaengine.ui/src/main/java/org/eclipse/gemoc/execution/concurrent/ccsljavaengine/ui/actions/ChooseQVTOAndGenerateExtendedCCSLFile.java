@@ -1,8 +1,8 @@
 package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.actions;
 
 import org.eclipse.core.resources.IResource;
-import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.gemoc.commons.eclipse.ui.dialogs.SelectAnyIFileDialog;
+import org.eclipse.jface.dialogs.Dialog;
 
 public class ChooseQVTOAndGenerateExtendedCCSLFile extends GenerateExtendedCCSLFileAction
 {

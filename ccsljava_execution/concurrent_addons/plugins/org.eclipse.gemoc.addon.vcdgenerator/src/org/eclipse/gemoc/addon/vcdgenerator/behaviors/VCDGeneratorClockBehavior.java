@@ -9,6 +9,7 @@ import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.Clock;
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.Block;
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.Expression;
 import fr.inria.aoste.timesquare.trace.util.ReferenceNameBuilder;
+import fr.inria.aoste.timesquare.trace.util.adapter.AdapterRegistry;
 import fr.inria.aoste.timesquare.vcd.model.BinaryVectorValueChange;
 import fr.inria.aoste.timesquare.vcd.model.ICommentCommand;
 import fr.inria.aoste.timesquare.vcd.model.Value;
@@ -51,7 +52,7 @@ public class VCDGeneratorClockBehavior extends AbstractVCDClockBehavior {
 	/** The clockName + clockName.hashCode() field : it is used as the clock name in the VCD file and, as such, must be
 	 *  free of all characters not allowed in this context. Use {@link AbstractVCDClockBehavior#sanitizeClockName()} to
 	 *  set its value. The visible name in the VCD editor will be specified through a alias comment in the VCD file and
-	 *  the aliased name is the result of the call of {@link AdapterRegistry#getAliasName()} on the 
+	 *  the aliased name is the result of the call of {@link AdapterRegistry_getAliasName()} on the 
 	 *  ModelElementReference object {@link #modelElementReference} of the Clock associated with the behavior */
 	final private String _uniqueName;
 	

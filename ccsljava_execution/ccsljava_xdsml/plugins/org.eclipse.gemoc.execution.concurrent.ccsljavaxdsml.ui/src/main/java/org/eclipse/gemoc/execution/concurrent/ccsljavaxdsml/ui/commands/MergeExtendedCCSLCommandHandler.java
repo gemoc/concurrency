@@ -8,12 +8,12 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.gemoc.commons.eclipse.resource.merging.ActionContext;
 import org.eclipse.gemoc.commons.eclipse.resource.merging.IBeforeSavingAction;
 import org.eclipse.gemoc.commons.eclipse.resource.merging.ResourcesMergerScript;
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.ui.handlers.HandlerUtil;
 
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockConstraintSystem;
 

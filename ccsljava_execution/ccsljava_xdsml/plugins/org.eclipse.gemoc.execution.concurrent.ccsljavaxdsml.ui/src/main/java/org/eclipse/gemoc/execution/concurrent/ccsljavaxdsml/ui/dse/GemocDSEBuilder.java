@@ -27,13 +27,12 @@ import org.eclipse.core.runtime.SafeRunner;
 import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.gemoc.commons.eclipse.core.resources.IFileUtils;
-import org.eclipse.gemoc.commons.eclipse.core.resources.Marker;
 import org.eclipse.gemoc.commons.eclipse.core.resources.IProjectUtils;
+import org.eclipse.gemoc.commons.eclipse.core.resources.Marker;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
+import org.eclipse.gemoc.moccml.mapping.ecltoqvto.main.AcceleoLauncherForEclToQvto;
 
 import com.google.common.base.Charsets;
-
-import fr.inria.aoste.timesquare.ecl.ecltoqvto.main.AcceleoLauncherForEclToQvto;
 
 public class GemocDSEBuilder extends IncrementalProjectBuilder {
 	

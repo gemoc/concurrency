@@ -2,11 +2,11 @@ package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.pde.internal.ui.elements.ElementList;
-import org.eclipse.swt.widgets.Composite;
 import org.eclipse.gemoc.commons.eclipse.pde.wizards.pages.pde.TemplateListSelectionPage;
 import org.eclipse.gemoc.commons.eclipse.pde.wizards.pages.pde.WizardElement;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.builder.ToggleNatureAction;
+import org.eclipse.pde.internal.ui.elements.ElementList;
+import org.eclipse.swt.widgets.Composite;
 
 import fr.inria.diverse.melange.ui.wizards.NewMelangeProjectWizard;
 import fr.inria.diverse.melange.ui.wizards.pages.NewMelangeProjectWizardPage;

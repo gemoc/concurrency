@@ -3,9 +3,9 @@ package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.editor;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.gemoc.commons.eclipse.core.resources.FileFinderVisitor;
 import org.eclipse.gemoc.commons.eclipse.ui.dialogs.SelectSpecificFileDialog;
+import org.eclipse.jface.dialogs.Dialog;
 
 import fr.inria.diverse.melange.ui.contentassist.IProposal;
 

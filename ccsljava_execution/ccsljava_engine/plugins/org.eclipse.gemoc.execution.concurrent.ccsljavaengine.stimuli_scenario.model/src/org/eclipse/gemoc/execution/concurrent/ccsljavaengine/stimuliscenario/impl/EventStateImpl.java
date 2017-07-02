@@ -2,8 +2,6 @@
  */
 package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl;
 
-import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -12,6 +10,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.EventState;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Future;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ScenarioPackage;
+import org.eclipse.gemoc.moccml.mapping.feedback.feedback.ModelSpecificEvent;
 
 /**
  * <!-- begin-user-doc -->

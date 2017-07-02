@@ -2,8 +2,6 @@
  */
 package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.impl;
 
-import fr.inria.aoste.timesquare.ecl.feedback.feedback.FeedbackPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -18,6 +16,7 @@ import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Ref
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Scenario;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ScenarioFactory;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ScenarioPackage;
+import org.eclipse.gemoc.moccml.mapping.feedback.feedback.FeedbackPackage;
 
 /**
  * <!-- begin-user-doc -->

@@ -4,16 +4,16 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.jface.wizard.WizardDialog;
-import org.eclipse.ui.IWorkbench;
-import org.eclipse.ui.IWorkbenchWizard;
-import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.wizards.IWizardDescriptor;
 import org.eclipse.gemoc.commons.eclipse.core.resources.NewProjectWorkspaceListener;
 import org.eclipse.gemoc.commons.eclipse.ui.WizardFinder;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.dialogs.SelectECLIFileDialog;
 import org.eclipse.gemoc.xdsmlframework.ide.ui.xdsml.wizards.MelangeXDSMLProjectHelper;
+import org.eclipse.jface.wizard.WizardDialog;
+import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.IWorkbenchWizard;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.wizards.IWizardDescriptor;
 
 import fr.inria.diverse.melange.metamodel.melange.Language;
 

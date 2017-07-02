@@ -1,8 +1,8 @@
 package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare;
 
+import org.eclipse.gemoc.commons.eclipse.logging.backends.DefaultLoggingBackend;
 import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystem;
 import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystemManager;
-import org.eclipse.gemoc.commons.eclipse.logging.backends.DefaultLoggingBackend;
 import org.eclipse.gemoc.commons.eclipse.pde.GemocPlugin;
 import org.osgi.framework.BundleContext;
 

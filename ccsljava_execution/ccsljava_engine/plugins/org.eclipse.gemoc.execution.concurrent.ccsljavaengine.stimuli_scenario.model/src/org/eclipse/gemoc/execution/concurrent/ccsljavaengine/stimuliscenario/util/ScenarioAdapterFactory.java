@@ -6,7 +6,12 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.*;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.EventState;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ExecutionStep;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Fragment;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Reference;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.Scenario;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuliscenario.ScenarioPackage;
 
 /**
  * <!-- begin-user-doc -->

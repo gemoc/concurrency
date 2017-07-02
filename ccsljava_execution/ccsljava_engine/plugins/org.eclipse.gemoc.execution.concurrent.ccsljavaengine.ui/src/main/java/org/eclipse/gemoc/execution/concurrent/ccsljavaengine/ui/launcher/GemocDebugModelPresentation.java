@@ -10,22 +10,21 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
-import org.eclipse.swt.graphics.Image;
-import org.eclipse.ui.IEditorInput;
-import org.eclipse.ui.IEditorPart;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.SharedIcons;
-import org.eclipse.gemoc.executionframework.ui.IMSEPresenter;
-
-import org.eclipse.gemoc.trace.commons.model.helper.StepHelper;
-import org.eclipse.gemoc.trace.commons.model.trace.MSE;
-import org.eclipse.gemoc.trace.commons.model.trace.MSEOccurrence;
-import org.eclipse.gemoc.trace.commons.model.trace.Step;
 import org.eclipse.gemoc.dsl.debug.DebugTarget;
 import org.eclipse.gemoc.dsl.debug.StackFrame;
 import org.eclipse.gemoc.dsl.debug.ide.adapter.DSLStackFrameAdapter;
 import org.eclipse.gemoc.dsl.debug.ide.sirius.ui.DSLDebugModelPresentation;
 import org.eclipse.gemoc.dsl.debug.ide.sirius.ui.SiriusEditorUtils;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.SharedIcons;
+import org.eclipse.gemoc.executionframework.ui.IMSEPresenter;
+import org.eclipse.gemoc.trace.commons.model.helper.StepHelper;
+import org.eclipse.gemoc.trace.commons.model.trace.MSE;
+import org.eclipse.gemoc.trace.commons.model.trace.MSEOccurrence;
+import org.eclipse.gemoc.trace.commons.model.trace.Step;
+import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IEditorPart;
 
 public class GemocDebugModelPresentation extends DSLDebugModelPresentation {
 

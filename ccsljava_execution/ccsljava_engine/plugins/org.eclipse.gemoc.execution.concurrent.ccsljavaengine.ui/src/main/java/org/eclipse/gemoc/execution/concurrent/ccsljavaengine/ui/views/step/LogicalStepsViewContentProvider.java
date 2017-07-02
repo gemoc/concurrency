@@ -1,12 +1,11 @@
 package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.step;
 
-import org.eclipse.jface.viewers.ITreeContentProvider;
-import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
-import org.eclipse.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
-
 import org.eclipse.gemoc.trace.commons.model.helper.StepHelper;
 import org.eclipse.gemoc.trace.commons.model.trace.Step;
+import org.eclipse.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
+import org.eclipse.jface.viewers.ITreeContentProvider;
+import org.eclipse.jface.viewers.Viewer;
 
 public class LogicalStepsViewContentProvider implements ITreeContentProvider {
 

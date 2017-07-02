@@ -6,21 +6,20 @@ import java.util.Map;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EcorePackage;
-import org.eclipse.gemoc.executionframework.engine.core.AbstractExecutionEngine;
-import org.eclipse.gemoc.executionframework.engine.core.EngineStoppedException;
+import org.eclipse.gemoc.dsl.debug.ide.event.IDSLDebugEventProcessor;
 import org.eclipse.gemoc.executionframework.debugger.AbstractGemocDebugger;
 import org.eclipse.gemoc.executionframework.debugger.GemocBreakpoint;
+import org.eclipse.gemoc.executionframework.engine.core.AbstractExecutionEngine;
+import org.eclipse.gemoc.executionframework.engine.core.EngineStoppedException;
 import org.eclipse.gemoc.executionframework.ui.utils.ViewUtils;
-import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine;
-import org.eclipse.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
-
 import org.eclipse.gemoc.trace.commons.model.helper.StepHelper;
 import org.eclipse.gemoc.trace.commons.model.trace.BigStep;
 import org.eclipse.gemoc.trace.commons.model.trace.MSE;
 import org.eclipse.gemoc.trace.commons.model.trace.MSEOccurrence;
 import org.eclipse.gemoc.trace.commons.model.trace.SmallStep;
 import org.eclipse.gemoc.trace.commons.model.trace.Step;
-import org.eclipse.gemoc.dsl.debug.ide.event.IDSLDebugEventProcessor;
+import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine;
+import org.eclipse.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 
 public class GemocModelDebugger extends AbstractGemocDebugger implements IEngineAddon {
 
