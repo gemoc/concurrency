@@ -3,16 +3,16 @@
    <description name="ECL update site" url="http://timesquare.inria.fr/ecl/update_site">
       ECL (Event Constraint Language) is an extension of OCL with events and logical time constraints dedicated to the specification of behavioral invariants (e.g. MoC) on metamodels. It enables the generation of CCSL specification for a specific model.
    </description>
-   <feature url="features/org.eclipse.gemoc.moccml.mapping.feature_1.0.0.201211251650.jar" id="org.eclipse.gemoc.moccml.mapping.feature" version="1.0.0.201211251650">
+   <feature url="features/org.eclipse.gemoc.moccml.mapping.feature_1.0.0.qualifier.jar" id="org.eclipse.gemoc.moccml.mapping.feature" version="1.0.0.qualifier">
       <category name="ECL full"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.moccml.mapping.editor.feature_1.0.0.201210311236.jar" id="org.eclipse.gemoc.moccml.mapping.editor.feature" version="1.0.0.201210311236">
+   <feature url="features/org.eclipse.gemoc.moccml.mapping.editor.feature_1.0.0.qualifier.jar" id="org.eclipse.gemoc.moccml.mapping.editor.feature" version="1.0.0.qualifier">
       <category name="ECL editor only"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.moccml.mapping.editor.feature_1.0.0.201210311549.jar" id="org.eclipse.gemoc.moccml.mapping.editor.feature" version="1.0.0.201210311549">
+   <feature url="features/org.eclipse.gemoc.moccml.mapping.editor.feature_1.0.0.qualifier.jar" id="org.eclipse.gemoc.moccml.mapping.editor.feature" version="1.0.0.qualifier">
       <category name="ECL full"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.moccml.mapping.transfos.feature_1.0.0.201210311549.jar" id="org.eclipse.gemoc.moccml.mapping.transfos.feature" version="1.0.0.201210311549">
+   <feature url="features/org.eclipse.gemoc.moccml.mapping.transfos.feature_1.0.0.qualifier.jar" id="org.eclipse.gemoc.moccml.mapping.transfos.feature" version="1.0.0.qualifier">
       <category name="ECL full"/>
    </feature>
    <feature url="features/org.eclipse.gemoc.moccml.mapping.feedback.model.feature_1.0.0.qualifier.jar" id="org.eclipse.gemoc.moccml.mapping.feedback.model.feature" version="1.0.0.qualifier">
