@@ -2,10 +2,6 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
-<<<<<<< HEAD
 	<classpathentry excluding="org/eclipse/gemoc/execution/engine/io/views/event/CacheStatus.java|org/eclipse/gemoc/execution/engine/io/views/event/commands/DoInit.java|org/eclipse/gemoc/execution/engine/io/views/event/commands/UndoInit.java|org/eclipse/gemoc/execution/engine/io/views/event/commands/LoadScenario.java|org/eclipse/gemoc/execution/engine/io/views/event/commands/StopPlayScenario.java|org/eclipse/gemoc/execution/engine/io/views/event/commands/StopRecordScenario.java" kind="src" path="src"/>
-=======
-	<classpathentry excluding="org/eclipse/gemoc.execution/engine/io/views/event/CacheStatus.java|org/eclipse/gemoc.execution/engine/io/views/event/commands/DoInit.java|org/eclipse/gemoc.execution/engine/io/views/event/commands/UndoInit.java|org/eclipse/gemoc.execution/engine/io/views/event/commands/LoadScenario.java|org/eclipse/gemoc.execution/engine/io/views/event/commands/StopPlayScenario.java|org/eclipse/gemoc.execution/engine/io/views/event/commands/StopRecordScenario.java" kind="src" path="src"/>
->>>>>>> branch 'master' of https://github.com/gemoc/concurrency.git
 	<classpathentry kind="output" path="bin"/>
 </classpath>

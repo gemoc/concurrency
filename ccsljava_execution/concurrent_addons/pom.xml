@@ -37,15 +37,11 @@
 	            <activeByDefault>true</activeByDefault>
 	        </activation>
 	        <repositories>
-<!-- 		        <repository> -->
-<!-- 		            <id>Gemoc Target Platform all-except-gemoc-concurrent_addons</id> -->
-<!-- 		            <layout>p2</layout> -->
-<<<<<<< HEAD
-<!-- 		            <url>https://ci.inria.fr/gemoc/job/org.eclipse.gemoc.targetplatform.redirects/lastSuccessfulBuild/artifact/org/eclipse/gemoc/targetplatform/update/all-except-gemoc-concurrent_addons</url> -->
-=======
-<!-- 		            <url>https://ci.inria.fr/gemoc/job/org.eclipse.gemoc.targetplatform.redirects/lastSuccessfulBuild/artifact/org/eclipse/gemoc.targetplatform/update/all-except-gemoc-concurrent_addons</url> -->
->>>>>>> branch 'master' of https://github.com/gemoc/concurrency.git
-<!-- 		        </repository> -->
+ 		        <repository>
+ 		            <id>Gemoc Target Platform all-except-gemoc-concurrent_addons</id> 
+ 		            <layout>p2</layout> 
+                <url>https://ci.inria.fr/gemoc/job/org.eclipse.gemoc.targetplatform.redirects/lastSuccessfulBuild/artifact/org/eclipse/gemoc.targetplatform/update/all-except-gemoc-concurrent_addons</url> -->
+		        </repository> 
 				<repository>
 		            <id>gemoc-studio_commons on CI</id>
 		            <layout>p2</layout>
