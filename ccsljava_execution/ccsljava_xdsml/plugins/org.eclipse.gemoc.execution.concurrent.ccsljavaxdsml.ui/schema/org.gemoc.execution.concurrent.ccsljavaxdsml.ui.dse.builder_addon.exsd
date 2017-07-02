@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- Schema file written by PDE -->
-<schema targetNamespace="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse" xmlns="http://www.w3.org/2001/XMLSchema">
+<schema targetNamespace="org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appinfo>
-         <meta.schema plugin="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse" id="org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse.builder_addon.exsd" name="DSE Builder Addon"/>
+         <meta.schema plugin="org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse" id="org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse.builder_addon.exsd" name="DSE Builder Addon"/>
       </appinfo>
       <documentation>
          [Enter description of this extension point.]
@@ -82,7 +82,7 @@ can be used to specify addon exclusion
                   
                </documentation>
                <appinfo>
-                  <meta.attribute kind="java" basedOn=":org.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse.IGemocDSEBuilderAddon"/>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse.IGemocDSEBuilderAddon"/>
                </appinfo>
             </annotation>
          </attribute>

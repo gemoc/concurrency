@@ -15,7 +15,7 @@ import org.eclipse.gemoc.commons.eclipse.core.resources.IProjectUtils;
 import org.eclipse.gemoc.commons.eclipse.pde.ui.PluginConverter;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.pages.AskMoCInfoWizardPage;
-//import org.gemoc.gemoc_language_workbench.ui.dse.AddRemoveGemocDSENatureHandler;
+//import org.eclipse.gemoc.gemoc_language_workbench.ui.dse.AddRemoveGemocDSENatureHandler;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.jface.wizard.Wizard;

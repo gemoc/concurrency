@@ -7,7 +7,7 @@
 //
 //class JavaCCSLEngineTests {
 //
-//	public static val tfsmModelsPlugin = "org.gemoc.sample.tfsm.concurrent.simple_example"
+//	public static val tfsmModelsPlugin = "org.eclipse.gemoc.sample.tfsm.concurrent.simple_example"
 //
 //	@Test
 //	def void testTFSM() {

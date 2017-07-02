@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- Schema file written by PDE -->
-<schema targetNamespace="org.gemoc.gemoc_language_workbench.api" xmlns="http://www.w3.org/2001/XMLSchema">
+<schema targetNamespace="org.eclipse.gemoc.gemoc_language_workbench.api" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appinfo>
-         <meta.schema plugin="org.gemoc.gemoc_language_workbench.api" id="org.gemoc.gemoc_language_workbench.decider" name="GEMOC Decider"/>
+         <meta.schema plugin="org.eclipse.gemoc.gemoc_language_workbench.api" id="org.eclipse.gemoc.gemoc_language_workbench.decider" name="GEMOC Decider"/>
       </appinfo>
       <documentation>
          [Enter description of this extension point.]
@@ -62,7 +62,7 @@
                   
                </documentation>
                <appinfo>
-                  <meta.attribute kind="java" basedOn=":org.gemoc.gemoc_language_workbench.api.core.ILogicalStepDecider"/>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.gemoc.gemoc_language_workbench.api.core.ILogicalStepDecider"/>
                </appinfo>
             </annotation>
          </attribute>

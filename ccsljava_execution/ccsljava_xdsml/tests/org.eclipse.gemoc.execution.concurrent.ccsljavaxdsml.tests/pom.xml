@@ -15,8 +15,8 @@
 
 	<parent>
 		<relativePath>../../..</relativePath>
-		<groupId>org.gemoc.execution.concurrent.ccsljava</groupId>
-		<artifactId>org.gemoc.execution.concurrent.ccsljava.root</artifactId>
+		<groupId>org.eclipse.gemoc.execution.concurrent.ccsljava</groupId>
+		<artifactId>org.eclipse.gemoc.execution.concurrent.ccsljava.root</artifactId>
 		<version>2.3.0-SNAPSHOT</version>
 	</parent>
 
@@ -65,32 +65,32 @@
 								<!-- LegacyFSM -->
 								<mkdir dir="${TFSM.tests-inputs-gen.path}" />
 								
-								<zip destfile="${TFSM.tests-inputs-gen.path}/org.gemoc.sample.tfsm.concurrent.zip">
-									<fileset dir="${TFSM.language.root}/org.gemoc.sample.tfsm.concurrent/" />
+								<zip destfile="${TFSM.tests-inputs-gen.path}/org.eclipse.gemoc.sample.tfsm.concurrent.zip">
+									<fileset dir="${TFSM.language.root}/org.eclipse.gemoc.sample.tfsm.concurrent/" />
 								</zip>
-								<zip destfile="${TFSM.tests-inputs-gen.path}/org.gemoc.sample.tfsm.concurrent.k3dsa.zip">
-									<fileset dir="${TFSM.language.root}/org.gemoc.sample.tfsm.concurrent.k3dsa/" />
+								<zip destfile="${TFSM.tests-inputs-gen.path}/org.eclipse.gemoc.sample.tfsm.concurrent.k3dsa.zip">
+									<fileset dir="${TFSM.language.root}/org.eclipse.gemoc.sample.tfsm.concurrent.k3dsa/" />
 								</zip>
-								<zip destfile="${TFSM.tests-inputs-gen.path}/org.gemoc.sample.tfsm.concurrent.moc.dse.zip">
-									<fileset dir="${TFSM.language.root}/org.gemoc.sample.tfsm.concurrent.moc.dse/" />
+								<zip destfile="${TFSM.tests-inputs-gen.path}/org.eclipse.gemoc.sample.tfsm.concurrent.moc.dse.zip">
+									<fileset dir="${TFSM.language.root}/org.eclipse.gemoc.sample.tfsm.concurrent.moc.dse/" />
 								</zip>
-								<zip destfile="${TFSM.tests-inputs-gen.path}/org.gemoc.sample.tfsm.concurrent.moc.lib.zip">
-									<fileset dir="${TFSM.language.root}/org.gemoc.sample.tfsm.concurrent.moc.lib/" />
+								<zip destfile="${TFSM.tests-inputs-gen.path}/org.eclipse.gemoc.sample.tfsm.concurrent.moc.lib.zip">
+									<fileset dir="${TFSM.language.root}/org.eclipse.gemoc.sample.tfsm.concurrent.moc.lib/" />
 								</zip>
-								<zip destfile="${TFSM.tests-inputs-gen.path}/org.gemoc.sample.tfsm.concurrent.model.zip">
-									<fileset dir="${TFSM.language.root}/org.gemoc.sample.tfsm.concurrent.model/" />
+								<zip destfile="${TFSM.tests-inputs-gen.path}/org.eclipse.gemoc.sample.tfsm.concurrent.model.zip">
+									<fileset dir="${TFSM.language.root}/org.eclipse.gemoc.sample.tfsm.concurrent.model/" />
 								</zip>
-								<zip destfile="${TFSM.tests-inputs-gen.path}/org.gemoc.sample.tfsm.concurrent.xtfsm.zip">
-									<fileset dir="${TFSM.language.root}/org.gemoc.sample.tfsm.concurrent.xtfsm/" />
+								<zip destfile="${TFSM.tests-inputs-gen.path}/org.eclipse.gemoc.sample.tfsm.concurrent.xtfsm.zip">
+									<fileset dir="${TFSM.language.root}/org.eclipse.gemoc.sample.tfsm.concurrent.xtfsm/" />
 								</zip>
-								<zip destfile="${TFSM.tests-inputs-gen.path}/org.gemoc.sample.tfsm.concurrent.xtfsm.design.zip">
-									<fileset dir="${TFSM.language.root}/org.gemoc.sample.tfsm.concurrent.xtfsm.design/" />
+								<zip destfile="${TFSM.tests-inputs-gen.path}/org.eclipse.gemoc.sample.tfsm.concurrent.xtfsm.design.zip">
+									<fileset dir="${TFSM.language.root}/org.eclipse.gemoc.sample.tfsm.concurrent.xtfsm.design/" />
 								</zip>
-								<zip destfile="${TFSM.tests-inputs-gen.path}/org.gemoc.sample.tfsm.concurrent.xtfsm.edit.zip">
-									<fileset dir="${TFSM.language.root}/org.gemoc.sample.tfsm.concurrent.xtfsm.edit/" />
+								<zip destfile="${TFSM.tests-inputs-gen.path}/org.eclipse.gemoc.sample.tfsm.concurrent.xtfsm.edit.zip">
+									<fileset dir="${TFSM.language.root}/org.eclipse.gemoc.sample.tfsm.concurrent.xtfsm.edit/" />
 								</zip>
-								<zip destfile="${TFSM.tests-inputs-gen.path}/org.gemoc.sample.tfsm.concurrent.xtfsm.editor.zip">
-									<fileset dir="${TFSM.language.root}/org.gemoc.sample.tfsm.concurrent.xtfsm.editor/" />
+								<zip destfile="${TFSM.tests-inputs-gen.path}/org.eclipse.gemoc.sample.tfsm.concurrent.xtfsm.editor.zip">
+									<fileset dir="${TFSM.language.root}/org.eclipse.gemoc.sample.tfsm.concurrent.xtfsm.editor/" />
 								</zip>
 							</target>
 						</configuration>
@@ -214,7 +214,7 @@
 			            </requirement>
 			            <requirement>
 			               <type>eclipse-feature</type>
-			               <id>fr.inria.aoste.timesquare.ecl.feature</id>
+			               <id>org.eclipse.gemoc.moccml.mapping.feature</id>
 			               <versionRange>0.0.1</versionRange>
 			            </requirement>
 			            <requirement>

@@ -3,7 +3,7 @@ package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.contextDSA.CreateDSAWizardContextActionDSA;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.contextDSA.CreateDSAWizardContextActionDSAK3;
-//import org.gemoc.gemoc_language_workbench.ui.wizards.contextDSA.CreateDSAWizardContextActionDSAK2;
+//import org.eclipse.gemoc.gemoc_language_workbench.ui.wizards.contextDSA.CreateDSAWizardContextActionDSAK2;
 
 public class CreateDSAWizardContextAction {
 

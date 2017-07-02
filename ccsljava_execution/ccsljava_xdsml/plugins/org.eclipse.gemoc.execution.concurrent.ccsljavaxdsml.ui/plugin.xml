@@ -48,7 +48,7 @@
   <!-- contributions to popup menus -->
   <extension point="org.eclipse.ui.menus">
     <menuContribution allPopups="true" locationURI="popup:org.eclipse.ui.popup.any?after=xdsmlGroup">
-      <menu icon="icons/IconeGemocModel-16.png" id="org.gemoc.modeling.advanced.menu" label="GEMOC Modeling advanced tools">
+      <menu icon="icons/IconeGemocModel-16.png" id="org.eclipse.gemoc.modeling.advanced.menu" label="GEMOC Modeling advanced tools">
         <command commandId="org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.commands.MergeExtendedCCSL" label="Merge into one XMI resource" style="push">
           <visibleWhen checkEnabled="false">
             <with variable="selection">
