@@ -1,7 +1,0 @@
-* Si on veut pouvoir dire des choses sur la communication entre les DSLs
-au niveau meta alors il est nécessaire d'avoir "un support", c'est a dire un MM
-qui permet de lier les deux.
-
-* Par contre les DSLs ne doivent pas connaitre le support et le support doit au 
-moins faire des liens structuraux entre des éléments des DSLs
- 
