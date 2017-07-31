@@ -2,7 +2,7 @@
  * 
  * @author : Benoit Ferrero
  * INRIA/I3S Aoste 
- * Copyright  2007-2008
+ * Copyright  2007-2017
  */
 package org.eclipse.gemoc.addon.vcdgenerator;
 

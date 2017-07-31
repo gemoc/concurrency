@@ -18,7 +18,7 @@
   * This file provides additional validation constraints on ccslmocc ecore metamodel
   * for timesquare validation.
  */
- import moccml : 'http://org.eclipse.gemoc.moccml/1.0' 
+ import moccml : 'http://org.gemoc.moccml/1.0' 
  import 'http://fr.inria.aoste.timemodel'
  /*import '/resource/org.eclipse.gemoc.mocc.ccslmocc.model/model/Ccslmocc.ecore'*/
  

@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (c) 2017 I3S laboratory and others.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        I3S laboratory - initial API and implementation
+ -->
+
 <project default="generate" name="org.eclipse.gemoc.moccml.mapping.ecltoqvto">
-    <property name="ECLIPSE_HOME" value="../../../../../../../../../install/gemoc/build_1107migratioeclipse/gemoc_studio-linux.gtk.x86_64"/>
-    <property name="ECLIPSE_WORKSPACE" value="../../../../workspaceForRefactoring"/>
+    <property name="ECLIPSE_HOME" value="../../../../../../../../../../../../install/gemoc/build1134_migrationEclipse/gemoc_studio-linux.gtk.x86_64"/>
+    <property name="ECLIPSE_WORKSPACE" value="../../../../../../../workspace_gemocDev"/>
 
     <!-- The classpath with only the dependencies used by the project -->
     <path id="org.eclipse.gemoc.moccml.mapping.ecltoqvto.libraryclasspath">
@@ -26,7 +37,7 @@
         <pathelement location="${ECLIPSE_HOME}/plugins/lpg.runtime.java_2.0.17.v201004271640.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.common_1.4.0.v20160521-2033.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.ecore_3.6.0.v20160523-1914.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/fr.inria.aoste.timesquare.ccslkernel.model_1.0.0.201706302202.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/fr.inria.aoste.timesquare.ccslkernel.model_1.0.0.201707041338.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.common_3.6.6.201610060831.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.parser_3.6.6.201610060831.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.model_3.6.6.201610060831.jar"/>

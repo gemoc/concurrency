@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012-2016 GEMOC consortium.
+ * Copyright (c) 2012-2017 GEMOC consortium.
  * 
  * http://www.gemoc.org
  * 
