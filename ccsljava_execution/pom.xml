@@ -68,7 +68,7 @@
 		        <repository>
 		            <id>concurrency_moccml on CI</id>
 		            <layout>p2</layout>
-		            <url>https://ci.inria.fr/gemoc/view/All/job/concurrency_moccml/lastSuccessfulBuild/artifact/moccml/releng/org.gemoc.mocc.p2updatesite/target/repository/</url>
+		            <url>https://ci.inria.fr/gemoc/job/concurrency_moccml/lastSuccessfulBuild/artifact/moccml/constraint/releng/org.eclipse.gemoc.mocc.p2updatesite/target/repository/</url>
 		        </repository>
 		    </repositories>
 	    </profile>
