@@ -13,6 +13,8 @@ package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.utils.ccsl;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystem;
+import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystemManager;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.utils.Activator;
 import org.eclipse.m2m.qvt.oml.BasicModelExtent;
 import org.eclipse.m2m.qvt.oml.ExecutionContextImpl;
@@ -28,8 +30,6 @@ import com.google.inject.Injector;
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.ImportStatement;
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockConstraintSystem;
 import fr.inria.aoste.timesquare.ccslkernel.parser.xtext.ExtendedCCSLStandaloneSetup;
-import fr.inria.diverse.commons.eclipse.messagingsystem.api.MessagingSystemManager;
-import fr.inria.diverse.commons.messagingsystem.api.MessagingSystem;
 
 public class QvtoTransformationPerformer {
 

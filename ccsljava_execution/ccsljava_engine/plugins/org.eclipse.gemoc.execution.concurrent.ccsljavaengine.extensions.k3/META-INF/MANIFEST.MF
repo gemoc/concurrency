@@ -7,7 +7,6 @@ Bundle-Activator: org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensio
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.gemoc.xdsmlframework.api,
  org.eclipse.emf.ecore,
- fr.inria.diverse.commons.eclipse.messagingsystem.api;bundle-version="1.0.0",
  org.eclipse.gemoc.moccml.mapping.feedback.model,
  org.eclipse.gemoc.executionframework.reflectivetrace.model,
  org.eclipse.core.resources,
@@ -17,7 +16,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.gemoc.executionframework.engine,
  org.eclipse.jdt.core;bundle-version="3.10.0",
  org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api,
- org.eclipse.gemoc.trace.commons;bundle-version="1.0.0"
+ org.eclipse.gemoc.trace.commons;bundle-version="1.0.0",
+ org.eclipse.gemoc.commons.eclipse.messagingsystem.api;bundle-version="2.3.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.k3,

@@ -10,11 +10,11 @@
  *******************************************************************************/
 package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.k3;
 
+import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystem;
+import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystemManager;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
-import fr.inria.diverse.commons.eclipse.messagingsystem.api.MessagingSystemManager;
-import fr.inria.diverse.commons.messagingsystem.api.MessagingSystem;
 
 public class Activator implements BundleActivator {
 
