@@ -37,7 +37,7 @@
 
 	<repositories>
 		<repository>
-			<id>TimeSquare</id>
+			<id>timesquare</id>
 			<url>http://timesquare.inria.fr/update_site/neon</url>
 			<layout>p2</layout>
 			<releases>
@@ -49,7 +49,7 @@
 		</repository>
 		
 		<repository>
-			<id>Luna</id>
+			<id>Neon release</id>
 			<url>http://download.eclipse.org/releases/neon/</url>
 			<layout>p2</layout>
 			<releases>
@@ -70,7 +70,7 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>-->
-
+<!-- 
 		<repository>
 			<id>Xtext All-in-One</id>
 			<url>http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/</url>
@@ -81,7 +81,7 @@
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
-		</repository>
+		</repository>-->
 		<!--<repository>
 			<id>acceleo</id>
 			<url>http://download.eclipse.org/modeling/m2t/acceleo/updates/releases/3.2</url>
