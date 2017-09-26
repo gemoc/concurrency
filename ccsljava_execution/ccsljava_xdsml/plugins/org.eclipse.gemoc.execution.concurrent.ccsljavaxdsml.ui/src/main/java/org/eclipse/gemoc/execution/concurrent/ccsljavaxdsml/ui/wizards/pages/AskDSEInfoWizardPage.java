@@ -1,23 +1,11 @@
-/*******************************************************************************
- * Copyright (c) 2017 INRIA and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     INRIA - initial API and implementation
- *******************************************************************************/
 package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.pages;
 
 import org.eclipse.core.resources.IResource;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.gemoc.commons.eclipse.ui.dialogs.SelectAnyIFileDialog;
-import org.eclipse.gemoc.executionframework.ui.utils.ENamedElementQualifiedNameLabelProvider;
-import org.eclipse.gemoc.xdsmlframework.ui.utils.dialogs.SelectAnyConcreteEClassDialog;
-import org.eclipse.gemoc.xdsmlframework.ui.utils.dialogs.SelectAnyEObjectDialog;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.util.BidiUtils;
 import org.eclipse.jface.viewers.LabelProvider;
@@ -32,6 +20,10 @@ import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.gemoc.commons.eclipse.ui.dialogs.SelectAnyIFileDialog;
+import org.eclipse.gemoc.executionframework.ui.utils.ENamedElementQualifiedNameLabelProvider;
+import org.eclipse.gemoc.xdsmlframework.ui.utils.dialogs.SelectAnyConcreteEClassDialog;
+import org.eclipse.gemoc.xdsmlframework.ui.utils.dialogs.SelectAnyEObjectDialog;
 
 public class AskDSEInfoWizardPage extends WizardPage {
 
@@ -39,6 +31,7 @@ public class AskDSEInfoWizardPage extends WizardPage {
     public String initialTemplateECLFileFieldValue = "my";
     public String initialEcoreFileFieldValue;
     public String initialRootContainerFieldValue;
+    public String metamodelNsuri = "";
     
 	// widgets
     Text templateECLFileField;
@@ -227,6 +220,10 @@ public class AskDSEInfoWizardPage extends WizardPage {
 							// update the field
 							rootContainerField.setText(labelProvider
 									.getText(dialog.getFirstResult()));
+							EPackage relatedPackage = ((EPackage)((EObject) dialog.getFirstResult()).eContainer());
+							metamodelNsuri = relatedPackage.getNsURI();
+							//register the related MM to ease the flow
+							EPackage.Registry.INSTANCE.put(metamodelNsuri, relatedPackage);
 						}
 					}
 					break;

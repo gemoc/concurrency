@@ -12,6 +12,7 @@ package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards;
 
 import java.lang.reflect.InvocationTargetException;
 
+import org.eclipse.gemoc.commons.eclipse.core.resources.IProjectUtils;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IResource;
@@ -21,7 +22,6 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.gemoc.commons.eclipse.core.resources.IProjectUtils;
 import org.eclipse.gemoc.commons.eclipse.pde.ui.PluginConverter;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse.AddRemoveGemocDSENatureHandler;
@@ -119,11 +119,13 @@ public class CreateNewDSEProject extends Wizard implements INewWizard {
 					 String filePath = "ecl/" + _askDSEInfoPage.getTemplateECLFileNameFile() + ".ecl";
 					 
 					 StringBuilder eclfilecontent = new StringBuilder();
-					 eclfilecontent.append("import '"+_askDSEInfoPage.getEcoreFile()+"'\n");
+					 eclfilecontent.append("import '"+_askDSEInfoPage.metamodelNsuri+"'\n\n");
+					 eclfilecontent.append("ECLimport \"platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib\"\n"+
+							 			   "ECLimport \"platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib\"\n\n");
 					 String packageName;
 					 if(_askDSEInfoPage.getRootContainerModelElement().contains("::")){
 						 packageName = _askDSEInfoPage.getRootContainerModelElement().substring(0, _askDSEInfoPage.getRootContainerModelElement().indexOf("::"));
-						 eclfilecontent.append("package "+packageName+"\nendpackage");
+						 eclfilecontent.append("package "+packageName+"\n\n\t --add DSE and MoCCML mapping here\n\n endpackage");
 					 }
 					 
 					 

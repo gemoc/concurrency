@@ -13,7 +13,6 @@ Export-Package: org.eclipse.gemoc.moccml.mapping.moccml_mapping,
  org.eclipse.gemoc.moccml.mapping.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- org.eclipse.emf.cdo;visibility:=reexport,
  org.eclipse.ocl.xtext.base;visibility:=reexport,
  org.eclipse.ocl.xtext.completeocl;visibility:=reexport,
  org.eclipse.ocl.xtext.essentialocl;visibility:=reexport,
