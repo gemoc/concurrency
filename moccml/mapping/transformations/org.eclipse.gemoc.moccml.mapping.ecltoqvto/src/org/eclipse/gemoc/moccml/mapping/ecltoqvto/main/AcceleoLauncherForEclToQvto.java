@@ -38,7 +38,7 @@ public class AcceleoLauncherForEclToQvto extends AbstractAcceleoGenerator {
      *
      * @generated
      */
-    public static final String MODULE_FILE_NAME = "/fr/inria/aoste/timesquare/ecl/ecltoqvto/main/generate";
+    public static final String MODULE_FILE_NAME = "/org/eclipse/gemoc/moccml/mapping/ecltoqvto/main/generate";
     
     /**
      * The name of the templates that are to be generated.

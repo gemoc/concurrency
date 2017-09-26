@@ -342,6 +342,9 @@ public class Generate extends AbstractAcceleoGenerator {
     @Override
     public void registerPackages(ResourceSet resourceSet) {
         super.registerPackages(resourceSet);
+        if (!isInWorkspace(org.eclipse.gemoc.moccml.mapping.moccml_mapping.MoCCMLmappingPackage.class)) {
+            resourceSet.getPackageRegistry().put(org.eclipse.gemoc.moccml.mapping.moccml_mapping.MoCCMLmappingPackage.eINSTANCE.getNsURI(), org.eclipse.gemoc.moccml.mapping.moccml_mapping.MoCCMLmappingPackage.eINSTANCE);
+        }
         if (!isInWorkspace(fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.ClockExpressionAndRelationPackage.class)) {
             resourceSet.getPackageRegistry().put(fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.ClockExpressionAndRelationPackage.eINSTANCE.getNsURI(), fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.ClockExpressionAndRelationPackage.eINSTANCE);
         }

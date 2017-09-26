@@ -29,8 +29,8 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Eclipse-LazyStart: true
 Export-Package: org.eclipse.gemoc.moccml.mapping.ecltoqvto,
- org.eclipse.gemoc.moccml.mapping.ecltoqvto.helper,
- org.eclipse.gemoc.moccml.mapping.ecltoqvto.main
+ org.eclipse.gemoc.moccml.mapping.ecltoqvto.main,
+ org.eclipse.gemoc.moccml_mapping.ecltoqvto.helper
 Bundle-ClassPath: bin/,
  .
 

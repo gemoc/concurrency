@@ -13,9 +13,9 @@
 
 <plugin>
    <extension point="org.eclipse.m2m.qvt.oml.javaBlackboxUnits">
-  <unit name="EclQVToHelper" namespace="org.eclipse.gemoc.moccml.mapping">
+  <unit name="EclQVToHelper" namespace="org.eclipse.gemoc.moccml_mapping">
     <library name="EclQVToHelper" 
-             class="org.eclipse.gemoc.moccml.mapping.qvto.helper.EclQVToHelper">
+             class="org.eclipse.gemoc.moccml_mapping.qvto.helper.EclQVToHelper">
       <metamodel nsURI="http://www.eclipse.org/emf/2002/Ecore"/>
     </library>
   </unit>
