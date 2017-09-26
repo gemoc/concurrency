@@ -8,7 +8,7 @@
  * Contributors:
  *     I3S laboratory - initial API and implementation
  *******************************************************************************/
-package org.eclipse.gemoc.moccml.mapping.qvto.helper;
+package org.eclipse.gemoc.moccml_mapping.qvto.helper;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;

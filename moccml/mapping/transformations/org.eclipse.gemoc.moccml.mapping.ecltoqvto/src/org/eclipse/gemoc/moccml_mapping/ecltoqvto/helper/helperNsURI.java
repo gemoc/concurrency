@@ -8,7 +8,7 @@
  * Contributors:
  *     I3S laboratory - initial API and implementation
  *******************************************************************************/
-package org.eclipse.gemoc.moccml.mapping.ecltoqvto.helper;
+package org.eclipse.gemoc.moccml_mapping.ecltoqvto.helper;
 
 import java.io.IOException;
 import java.util.ArrayList;

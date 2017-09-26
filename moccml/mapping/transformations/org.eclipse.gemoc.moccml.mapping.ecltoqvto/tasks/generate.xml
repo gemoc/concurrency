@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-    Copyright (c) 2017 I3S laboratory and others.
-    All rights reserved. This program and the accompanying materials
-    are made available under the terms of the Eclipse Public License v1.0
-    which accompanies this distribution, and is available at
-    http://www.eclipse.org/legal/epl-v10.html
-   
-    Contributors:
-        I3S laboratory - initial API and implementation
- -->
-
 <project default="generate" name="org.eclipse.gemoc.moccml.mapping.ecltoqvto">
-    <property name="ECLIPSE_HOME" value="../../../../../../../../../../../../install/gemoc/build1134_migrationEclipse/gemoc_studio-linux.gtk.x86_64"/>
-    <property name="ECLIPSE_WORKSPACE" value="../../../../../../../workspace_gemocDev"/>
+    <property name="ECLIPSE_HOME" value="../../../../../../../../../../../../install/gemoc/gemoc@eclipse"/>
+    <property name="ECLIPSE_WORKSPACE" value="../../../../../../../workspace_runtime_GemocDev"/>
 
     <!-- The classpath with only the dependencies used by the project -->
     <path id="org.eclipse.gemoc.moccml.mapping.ecltoqvto.libraryclasspath">
@@ -37,7 +26,7 @@
         <pathelement location="${ECLIPSE_HOME}/plugins/lpg.runtime.java_2.0.17.v201004271640.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.common_1.4.0.v20160521-2033.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.ecore_3.6.0.v20160523-1914.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/fr.inria.aoste.timesquare.ccslkernel.model_1.0.0.201707041338.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/fr.inria.aoste.timesquare.ccslkernel.model_1.0.0.201708292315.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.common_3.6.6.201610060831.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.parser_3.6.6.201610060831.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.model_3.6.6.201610060831.jar"/>
@@ -49,22 +38,19 @@
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.examples.xtext.completeocl.ui_3.5.0.v20160105-2030.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.examples.xtext.essentialocl.ui_3.5.0.v20160105-2030.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.examples.xtext.markup_3.5.0.v20160105-2030.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.cdo_4.5.0.v20160607-1254.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.cdo.common_4.5.0.v20160301-1326.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.ecore.change_2.11.0.v20160420-0247.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.net4j.util_3.6.0.v20160607-1254.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.xtext.base_1.1.0.v20160521-2033.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.pivot_1.1.1.v20160808-1416.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.jdt.annotation_2.1.0.v20160418-1457.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.edit_2.12.0.v20160526-0356.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.xtext_2.10.0.v201605250459.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.ecore.change_2.11.0.v20160420-0247.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.xtext_2.12.0.v20170518-0959.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.antlr.runtime_3.2.0.v201101311130.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/com.google.inject_3.0.0.v201605172100.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.mwe.core_1.3.20.v201605261103.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.apache.commons.cli_1.2.0.v201404270220.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.mwe2.runtime_2.9.0.v201605261103.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.mwe.utils_1.3.20.v201605261103.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.xtext.util_2.10.0.v201605250459.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.xtext.util_2.12.0.v20170518-0959.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.xtext.completeocl_1.1.1.v20160808-1416.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.xtext.essentialocl_1.1.0.v20160523-1914.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.apache.log4j_1.2.15.v201012070815.jar"/>

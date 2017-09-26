@@ -11,10 +11,10 @@ Bundle-Vendor: Aoste INRIA/I3S
 Bundle-ActivationPolicy: lazy
 Bundle-Version: 1.0.0.qualifier
 Bundle-Name: QVTo Helper
-Bundle-Activator: org.eclipse.gemoc.moccml.mapping.qvto.helper.Activator
+Bundle-Activator: org.eclipse.gemoc.moccml_mapping.qvto.helper.Activator
 Bundle-ManifestVersion: 2
 Bundle-SymbolicName: org.eclipse.gemoc.moccml.mapping.qvto.helper;singleton:=true
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6,JavaSE-1.7
-Export-Package: org.eclipse.gemoc.moccml.mapping.qvto.helper
+Export-Package: org.eclipse.gemoc.moccml_mapping.qvto.helper
 
 
