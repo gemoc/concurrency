@@ -255,14 +255,14 @@
     <persistent value="true"/>
   </extension>
   <extension-point id="org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse.builder_addon" name="GemocDSEBuilderAddon" schema="schema/org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.dse.builder_addon.exsd"/>
-  <extension point="fr.inria.diverse.commons.eclipse.pde.projectContent">
+  <extension point="org.eclipse.gemoc.commons.eclipse.pde.projectContent">
     <wizard class="org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.templates.ConcurrentNewWizard" id="fr.inria.diverse.melange.ui.templates.projectContent.Concurrent" name="Simple concurrent GEMOC project" targetPluginId="fr.inria.diverse.melange.ui">
       <description>
             This template includes the definition of a concurrent language.
          </description>
     </wizard>
   </extension>
-  <extension point="fr.inria.diverse.commons.eclipse.pde.templates">
+  <extension point="org.eclipse.gemoc.commons.eclipse.pde.templates">
     <template class="org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.templates.ConcurrentTemplate" contributingId="fr.inria.diverse.melange.ui.templates.template1" id="fr.inria.diverse.melange.ui.templates.template_simple_concurrent_language" name="Simple GEMOC concurrent project"/>
   </extension>
   <extension point="org.eclipse.core.expressions.definitions">
