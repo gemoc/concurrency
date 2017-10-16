@@ -180,8 +180,9 @@ public class CcslSolver implements org.eclipse.gemoc.execution.concurrent.ccslja
 		
 		try 
 		{
-			ResourceSet resourceSet = context.getResourceModel().getResourceSet();		
-			
+			//ResourceSet resourceSet = context.getResourceModel().getResourceSet();		
+			ResourceSet resourceSet = new ResourceSetImpl();
+
 			Resource ccslResource = resourceSet.getResource(this.solverInputURI, true);
 			EcoreUtil.resolveAll(resourceSet);
 			traceResources(resourceSet);
