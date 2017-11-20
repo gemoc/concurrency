@@ -14,7 +14,7 @@
 <plugin>
 
    <extension
-         point="org.gemoc.gemoc_language_workbench.engine_addon">
+         point="org.eclipse.gemoc.gemoc_language_workbench.engine_addon">
       <Addon
             AddonGroupId="Concurrent.AddonGroup"
             Class="org.eclipse.gemoc.addon.vcdgenerator.manager.VCDGeneratorManager"

@@ -27,8 +27,8 @@
       </DeciderSpecification>
    </extension>
    <extension
-         point="org.gemoc.gemoc_language_workbench.engine_addon_group">
-         <AddonGroup
+         point="org.eclipse.gemoc.gemoc_language_workbench.engine_addon">
+      <AddonGroup
             Name="General"
             id="General.AddonGroup">
       </AddonGroup>
@@ -38,7 +38,7 @@
       </AddonGroup>
    </extension>
    <extension
-         point="org.gemoc.gemoc_language_workbench.engine_addon">
+         point="org.eclipse.gemoc.gemoc_language_workbench.engine_addon">
       <Addon
             AddonGroupId="Concurrent.AddonGroup"
             Class="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.eventscheduling.trace.EventSchedulingModelExecutionTracingAddon"
