@@ -38,7 +38,7 @@
 	<repositories>
 		<repository>
 			<id>timesquare</id>
-			<url>http://timesquare.inria.fr/update_site/neon</url>
+			<url>http://timesquare.inria.fr/update_site/oxygen</url>
 			<layout>p2</layout>
 			<releases>
 				<enabled>true</enabled>
@@ -49,8 +49,8 @@
 		</repository>
 		
 		<repository>
-			<id>Neon release</id>
-			<url>http://download.eclipse.org/releases/neon/</url>
+			<id>Oxygen release</id>
+			<url>http://download.eclipse.org/releases/oxygen/</url>
 			<layout>p2</layout>
 			<releases>
 				<enabled>true</enabled>
