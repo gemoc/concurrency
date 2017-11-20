@@ -34,7 +34,7 @@
       <discovery label="The Eclipse Project Updates" url="http://download.eclipse.org/eclipse/updates/4.6"/>
       <discovery label="Acceleo" url="http://download.eclipse.org/modeling/m2t/acceleo/updates/releases/3.2"/>
       <discovery label="Xtext All In One - Releases" url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
-      <discovery label="TimeSquare" url="http://timesquare.inria.fr/update_site/neon"/>
+      <discovery label="TimeSquare" url="http://timesquare.inria.fr/update_site/oxygen"/>
    </url>
 
    <requires>
@@ -80,7 +80,6 @@
       <import plugin="org.eclipse.ocl.xtext.base.ui"/>
       <import plugin="org.eclipse.core.runtime" version="3.5.0" match="compatible"/>
       <import plugin="org.eclipse.gemoc.moccml.mapping.xtext" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.ocl.examples.xtext.completeocl" version="3.4.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ocl.xtext.completeocl.ui"/>
       <import plugin="org.eclipse.xtext.builder"/>
    </requires>

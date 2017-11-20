@@ -27,6 +27,7 @@ import org.eclipse.ocl.xtext.base.as2cs.BaseReferenceVisitor;
 import org.eclipse.ocl.xtext.base.utilities.BaseCSResource;
 import org.eclipse.ocl.xtext.completeocl.as2cs.CompleteOCLAS2CS;
 import org.eclipse.ocl.xtext.completeocl.as2cs.CompleteOCLDeclarationVisitor;
+import org.eclipse.ocl.xtext.essentialocl.as2cs.EssentialOCLExpressionVisitor;
 import org.eclipse.ocl.xtext.essentialocl.as2cs.EssentialOCLReferenceVisitor;
 
 public class EclAS2CS extends CompleteOCLAS2CS
@@ -57,6 +58,12 @@ public class EclAS2CS extends CompleteOCLAS2CS
 				PivotPackage.Literals.PROPERTY,
 				PivotPackage.Literals.TYPE
 			};
+		}
+
+		@Override
+		public @NonNull BaseReferenceVisitor createExpressionVisitor(@NonNull AS2CSConversion converter,
+				@Nullable Namespace scope) {
+			return new EssentialOCLExpressionVisitor(converter, scope);
 		}
 	}
 		

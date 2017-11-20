@@ -4,6 +4,7 @@ language $metamodelName$ {
 	syntax "platform:/resource/$ecoreFilePath$"
 	
 	with $listOfAspects$
+	
 	ecl "$eclFilePath$"
 	
 }

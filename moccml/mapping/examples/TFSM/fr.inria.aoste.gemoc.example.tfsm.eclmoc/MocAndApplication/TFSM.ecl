@@ -12,17 +12,17 @@ package tfsm
 	
 	context FSMClock
 		def: ticks : Event = self
-		 
+		
 	context Transition
 		def: fire : Event = self.fire()
 	
 	context State
-		def : entering : Event(self.onEnter()) = StartEvent
-		def : leaving : Event(self.onLeave()) = StartEvent
+		def : entering : Event = self.onEnter()
+		def : leaving : Event = self.onLeave()
 	
 	context TFSM
-		def: start : Event(self) = StartEvent
-		def: stall : Event = GenericEvent
+		def: start : Event = self
+		def: stall : Event = self
 	context FSMEvent
 		inv occursWhenSolicitate:
 			(self.sollicitingTransitions->size() >0) implies  

@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: fr.inria.aoste.timesquare.ocl.ecl.xtext
+Bundle-Name: org.eclipse.gemoc.moccml.mapping.xtext
 Bundle-Vendor: Aoste INRIA/I3S
 Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: org.eclipse.gemoc.moccml.mapping.xtext;singleton:=true

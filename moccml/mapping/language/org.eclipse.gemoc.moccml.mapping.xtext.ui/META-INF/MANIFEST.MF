@@ -14,7 +14,7 @@ Require-Bundle: org.eclipse.core.resources;bundle-version="[3.5.0,4.0.0)",
  org.eclipse.gemoc.moccml.mapping,
  org.eclipse.gemoc.moccml.mapping.xtext;bundle-version="1.0.0",
  fr.inria.aoste.timesquare.ccslkernel.model;bundle-version="1.0.0",
- org.eclipse.ocl.examples.xtext.completeocl;bundle-version="3.4.0",
+ org.eclipse.ocl.xtext.completeocl;bundle-version="1.3.0",
  org.eclipse.ocl.xtext.completeocl.ui,
  org.eclipse.xtext.builder
 Import-Package: org.apache.log4j,
