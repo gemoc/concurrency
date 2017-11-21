@@ -709,31 +709,35 @@ mapping inMM[getpackageIndex(anECLDoc, rootElementName)/]::[rootElementName/]::[
 				
 			};
 			condition := object FeedBack::ActionResultCondition{
-				[if (case.condition.oclAsType(InfixExpCS).localParent.toString() = '=')]
+				[let op : String = case.condition.oclAsType(NestedExpCS).ownedExpression.oclAsType(InfixExpCS).name]
+				[if (op = '=')]
 				operator := ComparisonOperator::equals;
 				[/if]
-				[if (case.condition.oclAsType(InfixExpCS).localParent.toString() = '<>')]
+				[if (op = '<>')]
 				operator := ComparisonOperator::different;
 				[/if]
 [comment]				[if (case.condition.oclAsType(InfixExpCS).ownedOperator->last().toString() = '<')] [/comment]
-				[if (case.condition.oclAsType(InfixExpCS).localParent.toString() = '<')] 
+				[if (op = '<')] 
 				operator := ComparisonOperator::inf;
 				[/if]
-				[if (case.condition.oclAsType(InfixExpCS).localParent.toString() = '>')]
+				[if (op = '>')]
 				operator := ComparisonOperator::sup;
 				[/if]
-				[if (case.condition.oclAsType(InfixExpCS).localParent.toString() = '<=')]
+				[if (op = '<=')]
 				operator := ComparisonOperator::infEquals;
 				[/if]
-				[if (case.condition.oclAsType(InfixExpCS).localParent.toString() = '>=')]
+				[if (op = '>=')]
 				operator := ComparisonOperator::supEquals;
 				[/if]
-				comparisonValue := [case.condition.oclAsType(InfixExpCS).ownedRight/];
+				[/let]
+				comparisonValue := [case.condition.oclAsType(NestedExpCS).ownedExpression.oclAsType(InfixExpCS).ownedRight/];
 			};
-			source := seqOfMSE->select(mse | mse.name = 'MSE_'+self.name+'_[constraint.oclAsType(ECLEventDefCS).name/]')->first();
+			source := seqOfMSE->select(mse | mse.name = 'MSE_'+getNameOrUID(self.oclAsType(EObject))+'_[constraint.oclAsType(ECLEventDefCS).name/]')->first();
+			
 			end{
 				theFeedBackSpec.whenStatements += result;
 			}
+
 		}
 		[/for]
 		[/if]
