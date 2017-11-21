@@ -13,9 +13,9 @@ Export-Package: org.eclipse.gemoc.moccml.mapping.moccml_mapping,
  org.eclipse.gemoc.moccml.mapping.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- org.eclipse.ocl.xtext.base;visibility:=reexport,
- org.eclipse.ocl.xtext.completeocl;visibility:=reexport,
- org.eclipse.ocl.xtext.essentialocl;visibility:=reexport,
+ org.eclipse.ocl.xtext.base;bundle-version="1.3.0";visibility:=reexport,
+ org.eclipse.ocl.xtext.completeocl;bundle-version="1.3.0";visibility:=reexport,
+ org.eclipse.ocl.xtext.essentialocl;bundle-version="1.3.0";visibility:=reexport,
  fr.inria.aoste.timesquare.ccslkernel.model;visibility:=reexport,
  org.eclipse.ocl.pivot;visibility:=reexport
 Eclipse-LazyStart: true
