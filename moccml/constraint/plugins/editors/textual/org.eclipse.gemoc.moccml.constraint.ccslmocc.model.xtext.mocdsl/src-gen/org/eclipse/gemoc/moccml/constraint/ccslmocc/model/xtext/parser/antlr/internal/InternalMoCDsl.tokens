@@ -98,7 +98,7 @@
 '_UpTo'=146
 '_Wait'=168
 'all'=182
-'and ('=66
+'and'=66
 'any'=181
 'as'=16
 'assert'=94
@@ -139,7 +139,7 @@
 'name'=103
 'not'=33
 'operand'=57
-'or ('=68
+'or'=68
 'out'=40
 'physicalMagnitude'=135
 'produce'=178
@@ -162,11 +162,11 @@
 'v'=69
 'v_'=71
 'value'=56
-'variables {'=36
+'variables'=36
 'waitingClock'=169
 'waitingValue'=170
 'when'=29
-'xor ('=70
+'xor'=70
 '{'=13
 '}'=14
 '})'=59

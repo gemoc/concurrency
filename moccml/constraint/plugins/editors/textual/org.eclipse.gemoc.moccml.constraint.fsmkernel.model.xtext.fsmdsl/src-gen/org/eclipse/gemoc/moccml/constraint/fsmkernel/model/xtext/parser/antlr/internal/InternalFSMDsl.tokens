@@ -9,14 +9,14 @@
 '*='=38
 '+'=51
 '+='=36
-','=15
+','=16
 '-'=56
 '-='=37
 '->'=22
 '.value'=40
 '/'=59
 '/='=39
-':'=21
+':'=15
 '::'=46
 ';'=79
 '<'=68
@@ -98,7 +98,7 @@
 '_UpTo'=145
 '_Wait'=167
 'all'=182
-'and ('=62
+'and'=62
 'any'=181
 'as'=78
 'assert'=93
@@ -121,16 +121,16 @@
 'do'=26
 'enumLiteral'=136
 'falseTriggers'=34
-'finals: '=16
+'finals'=17
 'finish'=175
-'from'=19
+'from'=20
 'get('=41
 'i#ref'=50
 'i.'=49
 'if'=25
 'import'=77
 'in'=30
-'init: '=14
+'init'=14
 'isPreemptive'=149
 'killerClock'=148
 'leftClock'=158
@@ -138,7 +138,7 @@
 'leftValue'=107
 'name'=102
 'operand'=53
-'or ('=64
+'or'=64
 'out'=31
 'physicalMagnitude'=134
 'produce'=178
@@ -155,20 +155,20 @@
 'start'=174
 'stop'=176
 'switch'=87
-'to'=20
+'to'=21
 'trueTriggers'=33
 'type'=120
 'undefined'=183
 'v'=65
 'v_'=67
 'value'=52
-'variables {'=18
+'variables'=19
 'waitingClock'=168
 'waitingValue'=169
 'when'=24
-'xor ('=66
+'xor'=66
 '{'=13
-'}'=17
+'}'=18
 '})'=55
 RULE_ANY_OTHER=11
 RULE_ID=4

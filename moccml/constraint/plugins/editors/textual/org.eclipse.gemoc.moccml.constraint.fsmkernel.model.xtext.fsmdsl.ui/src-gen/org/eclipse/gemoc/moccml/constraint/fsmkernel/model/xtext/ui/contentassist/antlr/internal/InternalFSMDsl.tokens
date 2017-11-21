@@ -9,14 +9,14 @@
 '*='=52
 '+'=65
 '+='=49
-','=30
+','=31
 '-'=70
 '-='=51
 '->'=38
 '.value'=54
 '/'=73
 '/='=53
-':'=35
+':'=30
 '::'=60
 ';'=93
 '<'=82
@@ -98,7 +98,7 @@
 '_UpTo'=154
 '_Wait'=176
 'all'=24
-'and ('=76
+'and'=76
 'any'=23
 'as'=92
 'assert'=183
@@ -121,16 +121,16 @@
 'do'=41
 'enumLiteral'=145
 'falseTriggers'=48
-'finals: '=31
+'finals'=32
 'finish'=17
-'from'=33
+'from'=34
 'get('=55
 'i#ref'=64
 'i.'=63
 'if'=40
 'import'=91
 'in'=44
-'init: '=29
+'init'=29
 'isPreemptive'=158
 'killerClock'=157
 'leftClock'=167
@@ -138,7 +138,7 @@
 'leftValue'=116
 'name'=112
 'operand'=67
-'or ('=78
+'or'=78
 'out'=45
 'physicalMagnitude'=143
 'produce'=20
@@ -155,18 +155,18 @@
 'start'=16
 'stop'=18
 'switch'=101
-'to'=34
+'to'=35
 'trueTriggers'=47
 'type'=130
 'undefined'=25
 'v'=79
 'v_'=81
 'value'=66
-'variables {'=32
+'variables'=33
 'waitingClock'=177
 'waitingValue'=178
 'when'=39
-'xor ('=80
+'xor'=80
 '{'=27
 '}'=28
 '})'=69

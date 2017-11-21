@@ -138,9 +138,13 @@ ruleStateMachineDefinition returns [EObject current=null]
 	    }
 
 )
-)?(	otherlv_5='init: ' 
+)?(	otherlv_5='init' 
     {
     	newLeafNode(otherlv_5, grammarAccess.getStateMachineDefinitionAccess().getInitKeyword_5_0());
+    }
+	otherlv_6=':' 
+    {
+    	newLeafNode(otherlv_6, grammarAccess.getStateMachineDefinitionAccess().getColonKeyword_5_1());
     }
 (
 (
@@ -153,16 +157,16 @@ ruleStateMachineDefinition returns [EObject current=null]
 	        }
         }
 		{ 
-	        newCompositeNode(grammarAccess.getStateMachineDefinitionAccess().getInitialStatesStateCrossReference_5_1_0()); 
+	        newCompositeNode(grammarAccess.getStateMachineDefinitionAccess().getInitialStatesStateCrossReference_5_2_0()); 
 	    }
 		ruleEString		{ 
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))(	otherlv_7=',' 
+))(	otherlv_8=',' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getStateMachineDefinitionAccess().getCommaKeyword_6_0());
+    	newLeafNode(otherlv_8, grammarAccess.getStateMachineDefinitionAccess().getCommaKeyword_6_0());
     }
 (
 (
@@ -182,9 +186,13 @@ ruleStateMachineDefinition returns [EObject current=null]
 	    }
 
 )
-))*(	otherlv_9='finals: ' 
+))*(	otherlv_10='finals' 
     {
-    	newLeafNode(otherlv_9, grammarAccess.getStateMachineDefinitionAccess().getFinalsKeyword_7_0());
+    	newLeafNode(otherlv_10, grammarAccess.getStateMachineDefinitionAccess().getFinalsKeyword_7_0());
+    }
+	otherlv_11=':' 
+    {
+    	newLeafNode(otherlv_11, grammarAccess.getStateMachineDefinitionAccess().getColonKeyword_7_1());
     }
 (
 (
@@ -197,16 +205,16 @@ ruleStateMachineDefinition returns [EObject current=null]
 	        }
         }
 		{ 
-	        newCompositeNode(grammarAccess.getStateMachineDefinitionAccess().getFinalStatesStateCrossReference_7_1_0()); 
+	        newCompositeNode(grammarAccess.getStateMachineDefinitionAccess().getFinalStatesStateCrossReference_7_2_0()); 
 	    }
 		ruleEString		{ 
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)(	otherlv_11=',' 
+)(	otherlv_13=',' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getStateMachineDefinitionAccess().getCommaKeyword_7_2_0());
+    	newLeafNode(otherlv_13, grammarAccess.getStateMachineDefinitionAccess().getCommaKeyword_7_3_0());
     }
 (
 (
@@ -219,7 +227,7 @@ ruleStateMachineDefinition returns [EObject current=null]
 	        }
         }
 		{ 
-	        newCompositeNode(grammarAccess.getStateMachineDefinitionAccess().getFinalStatesStateCrossReference_7_2_1_0()); 
+	        newCompositeNode(grammarAccess.getStateMachineDefinitionAccess().getFinalStatesStateCrossReference_7_3_1_0()); 
 	    }
 		ruleEString		{ 
 	        afterParserOrEnumRuleCall();
@@ -231,14 +239,14 @@ ruleStateMachineDefinition returns [EObject current=null]
 		{ 
 	        newCompositeNode(grammarAccess.getStateMachineDefinitionAccess().getStatesStateParserRuleCall_8_0_0()); 
 	    }
-		lv_states_13_0=ruleState		{
+		lv_states_15_0=ruleState		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getStateMachineDefinitionRule());
 	        }
        		add(
        			$current, 
        			"states",
-        		lv_states_13_0, 
+        		lv_states_15_0, 
         		"org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl.State");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -250,22 +258,22 @@ ruleStateMachineDefinition returns [EObject current=null]
 		{ 
 	        newCompositeNode(grammarAccess.getStateMachineDefinitionAccess().getTransitionsTransitionParserRuleCall_8_1_0()); 
 	    }
-		lv_transitions_14_0=ruleTransition		{
+		lv_transitions_16_0=ruleTransition		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getStateMachineDefinitionRule());
 	        }
        		add(
        			$current, 
        			"transitions",
-        		lv_transitions_14_0, 
+        		lv_transitions_16_0, 
         		"org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl.Transition");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))+	otherlv_15='}' 
+))+	otherlv_17='}' 
     {
-    	newLeafNode(otherlv_15, grammarAccess.getStateMachineDefinitionAccess().getRightCurlyBracketKeyword_9());
+    	newLeafNode(otherlv_17, grammarAccess.getStateMachineDefinitionAccess().getRightCurlyBracketKeyword_9());
     }
 )
 ;
@@ -297,23 +305,27 @@ ruleDeclarationBlock returns [EObject current=null]
             grammarAccess.getDeclarationBlockAccess().getDeclarationBlockAction_0(),
             $current);
     }
-)	otherlv_1='variables {' 
+)	otherlv_1='variables' 
     {
     	newLeafNode(otherlv_1, grammarAccess.getDeclarationBlockAccess().getVariablesKeyword_1());
+    }
+	otherlv_2='{' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getDeclarationBlockAccess().getLeftCurlyBracketKeyword_2());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDeclarationBlockAccess().getConcreteEntitiesConcreteEntityParserRuleCall_2_0()); 
+	        newCompositeNode(grammarAccess.getDeclarationBlockAccess().getConcreteEntitiesConcreteEntityParserRuleCall_3_0()); 
 	    }
-		lv_concreteEntities_2_0=ruleConcreteEntity		{
+		lv_concreteEntities_3_0=ruleConcreteEntity		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getDeclarationBlockRule());
 	        }
        		add(
        			$current, 
        			"concreteEntities",
-        		lv_concreteEntities_2_0, 
+        		lv_concreteEntities_3_0, 
         		"fr.inria.aoste.timesquare.ccslkernel.library.xtext.CCSLLibrary.ConcreteEntity");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -322,24 +334,24 @@ ruleDeclarationBlock returns [EObject current=null]
 )*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDeclarationBlockAccess().getClassicalExpressionsBooleanExpressionParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getDeclarationBlockAccess().getClassicalExpressionsBooleanExpressionParserRuleCall_4_0()); 
 	    }
-		lv_classicalExpressions_3_0=ruleBooleanExpression		{
+		lv_classicalExpressions_4_0=ruleBooleanExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getDeclarationBlockRule());
 	        }
        		add(
        			$current, 
        			"classicalExpressions",
-        		lv_classicalExpressions_3_0, 
+        		lv_classicalExpressions_4_0, 
         		"org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl.BooleanExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)*	otherlv_4='}' 
+)*	otherlv_5='}' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getDeclarationBlockAccess().getRightCurlyBracketKeyword_4());
+    	newLeafNode(otherlv_5, grammarAccess.getDeclarationBlockAccess().getRightCurlyBracketKeyword_5());
     }
 )
 ;
@@ -3547,35 +3559,39 @@ ruleAnd returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='and (' 
+(	otherlv_0='and' 
     {
     	newLeafNode(otherlv_0, grammarAccess.getAndAccess().getAndKeyword_0());
     }
-(	otherlv_1='#ref' 
+	otherlv_1='(' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getAndAccess().getRefKeyword_1_0());
+    	newLeafNode(otherlv_1, grammarAccess.getAndAccess().getLeftParenthesisKeyword_1());
+    }
+(	otherlv_2='#ref' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getAndAccess().getRefKeyword_2_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getAndAccess().getNameString0ParserRuleCall_1_1_0()); 
+	        newCompositeNode(grammarAccess.getAndAccess().getNameString0ParserRuleCall_2_1_0()); 
 	    }
-		lv_name_2_0=ruleString0		{
+		lv_name_3_0=ruleString0		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getAndRule());
 	        }
        		set(
        			$current, 
        			"name",
-        		lv_name_2_0, 
+        		lv_name_3_0, 
         		"fr.inria.aoste.timesquare.ccslkernel.library.xtext.CCSLLibrary.String0");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)(	otherlv_3=':' 
+)(	otherlv_4=':' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getAndAccess().getColonKeyword_1_2_0());
+    	newLeafNode(otherlv_4, grammarAccess.getAndAccess().getColonKeyword_2_2_0());
     }
 (
 (
@@ -3588,7 +3604,7 @@ ruleAnd returns [EObject current=null]
 	        }
         }
 		{ 
-	        newCompositeNode(grammarAccess.getAndAccess().getTypeTypeCrossReference_1_2_1_0()); 
+	        newCompositeNode(grammarAccess.getAndAccess().getTypeTypeCrossReference_2_2_1_0()); 
 	    }
 		ruleEString		{ 
 	        afterParserOrEnumRuleCall();
@@ -3598,46 +3614,46 @@ ruleAnd returns [EObject current=null]
 ))?)?(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getAndAccess().getLeftValueBooleanExpressionParserRuleCall_2_0()); 
+	        newCompositeNode(grammarAccess.getAndAccess().getLeftValueBooleanExpressionParserRuleCall_3_0()); 
 	    }
-		lv_leftValue_5_0=ruleBooleanExpression		{
+		lv_leftValue_6_0=ruleBooleanExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getAndRule());
 	        }
        		set(
        			$current, 
        			"leftValue",
-        		lv_leftValue_5_0, 
+        		lv_leftValue_6_0, 
         		"org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl.BooleanExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_6='^' 
+)	otherlv_7='^' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getAndAccess().getCircumflexAccentKeyword_3());
+    	newLeafNode(otherlv_7, grammarAccess.getAndAccess().getCircumflexAccentKeyword_4());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getAndAccess().getRightValueBooleanExpressionParserRuleCall_4_0()); 
+	        newCompositeNode(grammarAccess.getAndAccess().getRightValueBooleanExpressionParserRuleCall_5_0()); 
 	    }
-		lv_rightValue_7_0=ruleBooleanExpression		{
+		lv_rightValue_8_0=ruleBooleanExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getAndRule());
 	        }
        		set(
        			$current, 
        			"rightValue",
-        		lv_rightValue_7_0, 
+        		lv_rightValue_8_0, 
         		"org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl.BooleanExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_8=')' 
+)	otherlv_9=')' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getAndAccess().getRightParenthesisKeyword_5());
+    	newLeafNode(otherlv_9, grammarAccess.getAndAccess().getRightParenthesisKeyword_6());
     }
 )
 ;
@@ -3660,35 +3676,39 @@ ruleOr returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='or (' 
+(	otherlv_0='or' 
     {
     	newLeafNode(otherlv_0, grammarAccess.getOrAccess().getOrKeyword_0());
     }
-(	otherlv_1='#ref' 
+	otherlv_1='(' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getOrAccess().getRefKeyword_1_0());
+    	newLeafNode(otherlv_1, grammarAccess.getOrAccess().getLeftParenthesisKeyword_1());
+    }
+(	otherlv_2='#ref' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getOrAccess().getRefKeyword_2_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getOrAccess().getNameString0ParserRuleCall_1_1_0()); 
+	        newCompositeNode(grammarAccess.getOrAccess().getNameString0ParserRuleCall_2_1_0()); 
 	    }
-		lv_name_2_0=ruleString0		{
+		lv_name_3_0=ruleString0		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getOrRule());
 	        }
        		set(
        			$current, 
        			"name",
-        		lv_name_2_0, 
+        		lv_name_3_0, 
         		"fr.inria.aoste.timesquare.ccslkernel.library.xtext.CCSLLibrary.String0");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)(	otherlv_3=':' 
+)(	otherlv_4=':' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getOrAccess().getColonKeyword_1_2_0());
+    	newLeafNode(otherlv_4, grammarAccess.getOrAccess().getColonKeyword_2_2_0());
     }
 (
 (
@@ -3701,7 +3721,7 @@ ruleOr returns [EObject current=null]
 	        }
         }
 		{ 
-	        newCompositeNode(grammarAccess.getOrAccess().getTypeTypeCrossReference_1_2_1_0()); 
+	        newCompositeNode(grammarAccess.getOrAccess().getTypeTypeCrossReference_2_2_1_0()); 
 	    }
 		ruleEString		{ 
 	        afterParserOrEnumRuleCall();
@@ -3711,46 +3731,46 @@ ruleOr returns [EObject current=null]
 ))?)?(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getOrAccess().getLeftValueBooleanExpressionParserRuleCall_2_0()); 
+	        newCompositeNode(grammarAccess.getOrAccess().getLeftValueBooleanExpressionParserRuleCall_3_0()); 
 	    }
-		lv_leftValue_5_0=ruleBooleanExpression		{
+		lv_leftValue_6_0=ruleBooleanExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getOrRule());
 	        }
        		set(
        			$current, 
        			"leftValue",
-        		lv_leftValue_5_0, 
+        		lv_leftValue_6_0, 
         		"org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl.BooleanExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_6='v' 
+)	otherlv_7='v' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getOrAccess().getVKeyword_3());
+    	newLeafNode(otherlv_7, grammarAccess.getOrAccess().getVKeyword_4());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getOrAccess().getRightValueBooleanExpressionParserRuleCall_4_0()); 
+	        newCompositeNode(grammarAccess.getOrAccess().getRightValueBooleanExpressionParserRuleCall_5_0()); 
 	    }
-		lv_rightValue_7_0=ruleBooleanExpression		{
+		lv_rightValue_8_0=ruleBooleanExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getOrRule());
 	        }
        		set(
        			$current, 
        			"rightValue",
-        		lv_rightValue_7_0, 
+        		lv_rightValue_8_0, 
         		"org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl.BooleanExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_8=')' 
+)	otherlv_9=')' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getOrAccess().getRightParenthesisKeyword_5());
+    	newLeafNode(otherlv_9, grammarAccess.getOrAccess().getRightParenthesisKeyword_6());
     }
 )
 ;
@@ -3773,35 +3793,39 @@ ruleXor returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='xor (' 
+(	otherlv_0='xor' 
     {
     	newLeafNode(otherlv_0, grammarAccess.getXorAccess().getXorKeyword_0());
     }
-(	otherlv_1='#ref' 
+	otherlv_1='(' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getXorAccess().getRefKeyword_1_0());
+    	newLeafNode(otherlv_1, grammarAccess.getXorAccess().getLeftParenthesisKeyword_1());
+    }
+(	otherlv_2='#ref' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getXorAccess().getRefKeyword_2_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getXorAccess().getNameString0ParserRuleCall_1_1_0()); 
+	        newCompositeNode(grammarAccess.getXorAccess().getNameString0ParserRuleCall_2_1_0()); 
 	    }
-		lv_name_2_0=ruleString0		{
+		lv_name_3_0=ruleString0		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getXorRule());
 	        }
        		set(
        			$current, 
        			"name",
-        		lv_name_2_0, 
+        		lv_name_3_0, 
         		"fr.inria.aoste.timesquare.ccslkernel.library.xtext.CCSLLibrary.String0");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)(	otherlv_3=':' 
+)(	otherlv_4=':' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getXorAccess().getColonKeyword_1_2_0());
+    	newLeafNode(otherlv_4, grammarAccess.getXorAccess().getColonKeyword_2_2_0());
     }
 (
 (
@@ -3814,7 +3838,7 @@ ruleXor returns [EObject current=null]
 	        }
         }
 		{ 
-	        newCompositeNode(grammarAccess.getXorAccess().getTypeTypeCrossReference_1_2_1_0()); 
+	        newCompositeNode(grammarAccess.getXorAccess().getTypeTypeCrossReference_2_2_1_0()); 
 	    }
 		ruleEString		{ 
 	        afterParserOrEnumRuleCall();
@@ -3824,46 +3848,46 @@ ruleXor returns [EObject current=null]
 ))?)?(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getXorAccess().getLeftValueBooleanExpressionParserRuleCall_2_0()); 
+	        newCompositeNode(grammarAccess.getXorAccess().getLeftValueBooleanExpressionParserRuleCall_3_0()); 
 	    }
-		lv_leftValue_5_0=ruleBooleanExpression		{
+		lv_leftValue_6_0=ruleBooleanExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getXorRule());
 	        }
        		set(
        			$current, 
        			"leftValue",
-        		lv_leftValue_5_0, 
+        		lv_leftValue_6_0, 
         		"org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl.BooleanExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_6='v_' 
+)	otherlv_7='v_' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getXorAccess().getV_Keyword_3());
+    	newLeafNode(otherlv_7, grammarAccess.getXorAccess().getV_Keyword_4());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getXorAccess().getRightValueBooleanExpressionParserRuleCall_4_0()); 
+	        newCompositeNode(grammarAccess.getXorAccess().getRightValueBooleanExpressionParserRuleCall_5_0()); 
 	    }
-		lv_rightValue_7_0=ruleBooleanExpression		{
+		lv_rightValue_8_0=ruleBooleanExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getXorRule());
 	        }
        		set(
        			$current, 
        			"rightValue",
-        		lv_rightValue_7_0, 
+        		lv_rightValue_8_0, 
         		"org.eclipse.gemoc.moccml.constraint.fsmkernel.model.xtext.FSMDsl.BooleanExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_8=')' 
+)	otherlv_9=')' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getXorAccess().getRightParenthesisKeyword_5());
+    	newLeafNode(otherlv_9, grammarAccess.getXorAccess().getRightParenthesisKeyword_6());
     }
 )
 ;

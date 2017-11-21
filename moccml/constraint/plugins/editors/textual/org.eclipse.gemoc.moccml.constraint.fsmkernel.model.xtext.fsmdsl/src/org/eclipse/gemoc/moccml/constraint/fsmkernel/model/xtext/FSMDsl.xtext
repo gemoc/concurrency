@@ -16,22 +16,16 @@ StateMachineDefinition returns fsmmodel::StateMachineDefinition:
 	'AutomataDefinition' name=EString
 	'{'
 		(declarationBlock=DeclarationBlock)? 
-		('init: ' initialStates+= [fsmmodel::State|EString]) ( "," initialStates+=[fsmmodel::State|EString])*
-		('finals: ' finalStates+=[fsmmodel::State|EString] ( "," finalStates+=[fsmmodel::State|EString])* )?
+		('init' ':' initialStates+= [fsmmodel::State|EString]) ( "," initialStates+=[fsmmodel::State|EString])*
+		('finals' ':' finalStates+=[fsmmodel::State|EString] ( "," finalStates+=[fsmmodel::State|EString])* )?
 		((states+=State)|
 		(transitions+=Transition))+
 		
     '}'; 
-	//'AutomataDefinition'name=EString
-	//'{'
-	//	(declarationBlock=DeclarationBlock)?
-	//	('init: ' initialStates+= [fsmmodel::State|EString]) ( "," initialStates+=[fsmmodel::State|EString])*
-	//	('finals: ' finalStates+=[fsmmodel::State|EString] ( "," finalStates+=[fsmmodel::State|EString])* )?
-	//	( ('states: ' states+=State ( "," states+=State)*) | (transitions+=Transition)+)
-    //'}';
+	
 DeclarationBlock returns fsmmodel::DeclarationBlock: 
    {fsmmodel::DeclarationBlock}
-    'variables {'(concreteEntities+=ConcreteEntity)* (classicalExpressions+=BooleanExpression)*'}'
+    'variables' '{'(concreteEntities+=ConcreteEntity)* (classicalExpressions+=BooleanExpression)*'}'
 ; 
 
 Transition returns fsmmodel::Transition:
@@ -103,10 +97,11 @@ IntegerAssignement returns fsmmodel::IntegerAssignement:
 	('#ref'name=EString ':')? leftValue=IntegerRef '=' rightValue=IntegerExpression //';'//'Assign'  '('leftValue=IntegerRef ',' rightValue=IntegerExpression ')'
 ;
 
+@Override
 IntegerExpression returns ClassicalExpression::IntegerExpression:
 	BinaryIntegerExpression | UnaryIntegerExpression |IntegerRef | SeqGetHead |IntegerVariableRef;
 
-
+@Override
 IntegerVariableRef returns ClassicalExpression::IntegerVariableRef:
 	(referencedVar=[ClockExpressionAndRelation::AbstractEntity|EString]".value")
 	|
@@ -115,65 +110,24 @@ IntegerVariableRef returns ClassicalExpression::IntegerVariableRef:
 	;
 	
 
-
 UnaryIntegerExpression returns ClassicalExpression::UnaryIntegerExpression: 
  UnaryIntPlus | UnaryIntMinus;
 
+@Override
 IntEqual returns ClassicalExpression::IntEqual:
-	//'('leftValue=IntegerExpression '==' rightValue=IntegerExpression')' |
 	('('('#ref' name=String0 ':')? leftValue=IntegerExpression '==' rightValue=IntegerExpression')')|
 	('('('#ref' name=String0 '::'type=[BasicType::Type|EString] ':')? leftValue=IntegerExpression '==' rightValue=IntegerExpression')');
-    
+
+@Override    
 BooleanRef returns ClassicalExpression::BooleanRef:
 	(referencedBool=[BasicType::BooleanElement|EString]) | 'b['referencedBool=[BasicType::BooleanElement|EString]']'|'b#ref'name=ID'['referencedBool=[BasicType::BooleanElement|EString]']';
 
-/*RealRef returns ClassicalExpression::RealRef:
-	'r['realElem=[BasicType::RealElement|EString]']'|'r#ref'name=ID'['realElem=[BasicType::RealElement|EString]']';*/
-
+@Override
 IntegerRef returns ClassicalExpression::IntegerRef:
 	(integerElem=[BasicType::IntegerElement|EString]) | 'i.'(integerElem=[BasicType::IntegerElement|EString])|('i#ref'name=ID'['integerElem=[BasicType::IntegerElement|EString]']');
-	//(integerElem=[BasicType::IntegerElement|EString])|('i#ref'name=ID'['integerElem=[BasicType::IntegerElement|EString]']');
-	//(('i#ref'name=ID'[')? integerElem=[BasicType::IntegerElement|EString](']')?);
 
-//IntegerRef returns ClassicalExpression::IntegerRef:
-//	integerElem=[BasicType::IntegerElement|EString]|'i#ref'name=ID'['integerElem=[BasicType::IntegerElement|EString]']';
-	
-/*UnaryRealPlus returns ClassicalExpression::UnaryRealPlus:
-	('+' 
-	'{'
-		'value' value=[BasicType::RealElement|EString]
-		'operand' operand=RealExpression
-	'}')|
-	('(+' ('#ref' name=String0 (':'type=[BasicType::Type|EString])?)?
-	'{'
-		'value' value=[BasicType::RealElement|EString]
-		'operand' operand=RealExpression
-	'})');*/
 
-/*UnaryRealMinus returns ClassicalExpression::UnaryRealMinus:
-	('-' 
-	'{'
-		'value' value=[BasicType::RealElement|EString]
-		'operand' operand=RealExpression
-	'}')|
-	('(-' ('#ref' name=String0 (':'type=[BasicType::Type|EString])?)?
-	'{'
-		'value' value=[BasicType::RealElement|EString]
-		'operand' operand=RealExpression
-	'})');*/
-
-/*RealPlus returns ClassicalExpression::RealPlus:
-	('('('#ref' name=String0)? leftValue=RealExpression '+' rightValue=RealExpression')')|
-	('('('#ref' name=String0 ':'type=[BasicType::Type|EString])? leftValue=RealExpression '+' rightValue=RealExpression')');
-
-RealMinus returns ClassicalExpression::RealMinus:
-	('('('#ref' name=String0)? leftValue=RealExpression '-' rightValue=RealExpression')')|
-	('('('#ref' name=String0 ':'type=[BasicType::Type|EString])? leftValue=RealExpression '-' rightValue=RealExpression')');
-
-RealMultiply returns ClassicalExpression::RealMultiply:
-	('('('#ref' name=String0)? leftValue=RealExpression '*' rightValue=RealExpression')')|
-	('('('#ref' name=String0 ':'type=[BasicType::Type|EString])? leftValue=RealExpression '*' rightValue=RealExpression')');*/
-
+@Override
 UnaryIntPlus returns ClassicalExpression::UnaryIntPlus:
 	('+' 
 	'{'
@@ -186,7 +140,7 @@ UnaryIntPlus returns ClassicalExpression::UnaryIntPlus:
 		'operand' operand=IntegerExpression
 	'})');
 	
-
+@Override
 UnaryIntMinus returns ClassicalExpression::UnaryIntMinus:
 	('-' 
 	'{'
@@ -199,102 +153,88 @@ UnaryIntMinus returns ClassicalExpression::UnaryIntMinus:
 		'operand' operand=IntegerExpression
 	'})');
 
+@Override
 IntPlus returns ClassicalExpression::IntPlus:
-	//'(' leftValue=IntegerExpression '+' rightValue=IntegerExpression')' |
 		('('('#ref' name=String0 ':')? leftValue=IntegerExpression '+' rightValue=IntegerExpression')')|
 	('('('#ref' name=String0 '::'type=[BasicType::Type|EString] ':')? leftValue=IntegerExpression '+' rightValue=IntegerExpression')');
 
+@Override
 IntMinus returns ClassicalExpression::IntMinus:
-	//'(' leftValue=IntegerExpression '-' rightValue=IntegerExpression')' |
 		('('('#ref' name=String0 ':')? leftValue=IntegerExpression '-' rightValue=IntegerExpression')')|
 	('('('#ref' name=String0 '::'type=[BasicType::Type|EString] ':')? leftValue=IntegerExpression '-' rightValue=IntegerExpression')');
 
+@Override
 IntMultiply returns ClassicalExpression::IntMultiply:
-	//'(' leftValue=IntegerExpression '*' rightValue=IntegerExpression')' |
 		('('('#ref' name=String0 ':')? leftValue=IntegerExpression '*' rightValue=IntegerExpression')')|
 	('('('#ref' name=String0 '::'type=[BasicType::Type|EString] ':')? leftValue=IntegerExpression '*' rightValue=IntegerExpression')');
 
+@Override
 IntDivide returns ClassicalExpression::IntDivide:
-	//'(' leftValue=IntegerExpression '/' rightValue=IntegerExpression')' |
 		('('('#ref' name=String0 ':')? leftValue=IntegerExpression '/' rightValue=IntegerExpression')')|
 	('('('#ref' name=String0 '::'type=[BasicType::Type|EString] ':')? leftValue=IntegerExpression '/' rightValue=IntegerExpression')');
 
+@Override
 Not returns ClassicalExpression::Not:
 	('!' operand=BooleanExpression)|
 	('!('('#ref' name=String0 (':'type=[BasicType::Type|EString])?)?
 		operand=BooleanExpression)')';
 
+@Override
 And returns ClassicalExpression::And:
-	'and (' ('#ref' name=String0 (':'type=[BasicType::Type|EString])?)?
+	'and' '(' ('#ref' name=String0 (':'type=[BasicType::Type|EString])?)?
 	leftValue=BooleanExpression	'^' rightValue=BooleanExpression')';
 
+@Override
 Or returns ClassicalExpression::Or:
-	'or (' ('#ref' name=String0 (':'type=[BasicType::Type|EString])?)?
+	'or' '(' ('#ref' name=String0 (':'type=[BasicType::Type|EString])?)?
 	leftValue=BooleanExpression	'v' rightValue=BooleanExpression')';
-
+@Override
 Xor returns ClassicalExpression::Xor:
-	'xor (' ('#ref' name=String0 (':'type=[BasicType::Type|EString])?)?
+	'xor' '(' ('#ref' name=String0 (':'type=[BasicType::Type|EString])?)?
 	leftValue=BooleanExpression	'v_' rightValue=BooleanExpression')';
 
-/*RealEqual returns ClassicalExpression::RealEqual:
-	('('('#ref' name=String0)? leftValue=RealExpression '==' rightValue=RealExpression')')|
-	('('('#ref' name=String0 ':'type=[BasicType::Type|EString])? leftValue=RealExpression '==' rightValue=RealExpression')');
-
-RealInf returns ClassicalExpression::RealInf:
-	('('('#ref' name=String0)? leftValue=RealExpression '<' rightValue=RealExpression')')|
-	('('('#ref' name=String0 ':'type=[BasicType::Type|EString])? leftValue=RealExpression '<' rightValue=RealExpression')');
-
-RealSup returns ClassicalExpression::RealSup:
-	('('('#ref' name=String0)? leftValue=RealExpression '>' rightValue=RealExpression')')|
-	('('('#ref' name=String0 ':'type=[BasicType::Type|EString])? leftValue=RealExpression '>' rightValue=RealExpression')');*/
-
-
+@Override
 IntInf returns ClassicalExpression::IntInf:
-	//'(' leftValue=IntegerExpression '<' rightValue=IntegerExpression')' |
 	('('('#ref' name=String0 ':')? leftValue=IntegerExpression '<' rightValue=IntegerExpression')')|
 	('('('#ref' name=String0 '::'type=[BasicType::Type|EString] ':')? leftValue=IntegerExpression '<' rightValue=IntegerExpression')');
 
+@Override
 IntSup returns ClassicalExpression::IntSup:
-	//'(' leftValue=IntegerExpression '>' rightValue=IntegerExpression')' |
 	('('('#ref' name=String0 ':')? leftValue=IntegerExpression '>' rightValue=IntegerExpression')')|
 	('('('#ref' name=String0 '::'type=[BasicType::Type|EString] ':')? leftValue=IntegerExpression '>' rightValue=IntegerExpression')');
 
+@Override
 SeqIsEmpty returns ClassicalExpression::SeqIsEmpty:
 	'SeqIsEmpty' ('#ref' name=String0 (':'type=[BasicType::Type|EString])?)?
 	'('
 		operand=SeqExpression
 	')';
 
+@Override
 SeqGetTail returns ClassicalExpression::SeqGetTail:
 	'Seq->Tail' ('#ref' name=String0 (':'type=[BasicType::Type|EString])?)?
 	'('
 		operand=SeqExpression
 	')';
 
+@Override
 SeqGetHead returns ClassicalExpression::SeqGetHead:
 	'Seq->Head' ('#ref' name=String0 (':'type=[BasicType::Type|EString])?)?
 	'('
 		operand=SeqExpression
 	')';
 
+@Override
 SeqDecr returns ClassicalExpression::SeqDecr:
 	'Seq--' ('#ref'name=ID ':')? '(' operand=SeqExpression')';
 
+@Override
 SeqSched returns ClassicalExpression::SeqSched:
 	'Seq++' ('#ref'name=ID ':')? '(' operand=SeqExpression ','integerExpr=IntegerExpression ')';
 
-
+@Override
 BooleanExpression returns ClassicalExpression::BooleanExpression:
-	BooleanRef | Not | And | Or | Xor | /*RealEqual | RealInf | RealSup | */IntEqual | IntInf | IntSup | SeqIsEmpty | BooleanVariableRef|IntInfEqual|IntSupEqual/*|RealInfEqual|RealSupEqual*/;
-
-/*RealSupEqual returns extension::RealSupEqual:
-	('('('#ref' name=String0)? leftValue=RealExpression '>=' rightValue=RealExpression')')|
-	('('('#ref' name=String0 ':'type=[BasicType::Type|EString])? leftValue=RealExpression '>=' rightValue=RealExpression')');*/
-
-
-/*RealInfEqual returns extension::RealInfEqual:
-	('('('#ref' name=String0)? leftValue=RealExpression '<=' rightValue=RealExpression')')|
-	('('('#ref' name=String0 ':'type=[BasicType::Type|EString])? leftValue=RealExpression '<=' rightValue=RealExpression')');*/
+	BooleanRef | Not | And | Or | Xor | IntEqual | IntInf | IntSup | SeqIsEmpty | BooleanVariableRef|IntInfEqual|IntSupEqual;
 
 
 IntSupEqual returns extension::IntSupEqual:
@@ -308,32 +248,7 @@ IntInfEqual returns extension::IntInfEqual:
 
 
 
-
+@Override
 ClassicalExpression0 returns ClassicalExpression::ClassicalExpression:
-	BooleanExpression /*| RealExpression*/ | IntegerExpression | SeqExpression;
+	BooleanExpression | IntegerExpression | SeqExpression; 
 	
-/*RealExpression returns ClassicalExpression::RealExpression:
-	BinaryRealExpression|UnaryRealExpression|RealRef|RealVariableRef;
-	
-BinaryRealExpression returns ClassicalExpression::BinaryRealExpression:
-	RealPlus|RealMinus|RealMultiply|RealSelfPlusAssign|RealSelfMinusAssign|RealSelfMultAssign;
-
-UnaryRealExpression returns ClassicalExpression::UnaryRealExpression:
-	UnaryRealPlus|UnaryRealMinus;*/
-	
-/* 
-RealSelfPlusAssign returns extension::RealSelfPlusAssignement:
-	{extension::RealSelfPlusAssignement}
-	('#ref'name=EString)? leftValue=RealRef '+=' rightValue=RealExpression
-;
-
-RealSelfMinusAssign returns extension::RealSelfMinusAssignement:
-	{extension::RealSelfMinusAssignement}
-	('#ref'name=EString)? leftValue=RealRef '-=' rightValue=RealExpression
-;
-
-RealSelfMultAssign returns extension::RealSelfMultiplyAssignement:
-	{extension::RealSelfMultiplyAssignement}
-	('#ref'name=EString)? leftValue=RealRef '*=' rightValue=RealExpression
-;
-*/
