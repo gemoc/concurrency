@@ -14,6 +14,7 @@ package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.moc;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionContext;
 import org.eclipse.gemoc.trace.commons.model.trace.Step;
 import org.eclipse.gemoc.xdsmlframework.api.core.IDisposable;
@@ -105,4 +106,11 @@ public interface ISolver extends IDisposable {
 	 * @param the current #LogicalStep 
 	 **/
 	List<OccurrenceRelation> getLastOccurrenceRelations();
+	
+	/**
+	 * This method is need to replace the eResource representing the executable metamodel referenced by the MSE model 
+	 * by the one which is actually loaded by executionEngine (and the animation if so)
+	 * @param the #Resource of the executable domain model
+	 **/
+	void setExecutableModelResource(Resource execModelResource);
 }
