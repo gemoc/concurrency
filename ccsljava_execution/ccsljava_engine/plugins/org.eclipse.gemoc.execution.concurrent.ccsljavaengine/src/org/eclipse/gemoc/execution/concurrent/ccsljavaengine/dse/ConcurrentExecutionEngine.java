@@ -11,6 +11,7 @@
  *******************************************************************************/
 package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.dse;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -19,8 +20,10 @@ import java.util.function.Consumer;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.emf.transaction.impl.InternalTransactionalEditingDomain;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionContext;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
@@ -36,6 +39,8 @@ import org.eclipse.gemoc.executionframework.engine.core.CommandExecution;
 import org.eclipse.gemoc.executionframework.engine.core.EngineStoppedException;
 import org.eclipse.gemoc.moccml.mapping.feedback.feedback.ActionModel;
 import org.eclipse.gemoc.moccml.mapping.feedback.feedback.When;
+import org.eclipse.gemoc.trace.commons.model.generictrace.GenericParallelStep;
+import org.eclipse.gemoc.trace.commons.model.generictrace.GenericStep;
 import org.eclipse.gemoc.trace.commons.model.trace.MSE;
 import org.eclipse.gemoc.trace.commons.model.trace.ParallelStep;
 import org.eclipse.gemoc.trace.commons.model.trace.SmallStep;
@@ -294,6 +299,7 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine
 		// thread in the debugger
 		// execution feedback is sent to the solver so it can take internal
 		// event into account
+
 		if (!_isStopped) { // execute while stopped may occur when we push the
 							// stop button when paused in the debugger
 			beforeExecutionStep(_selectedLogicalStep);
@@ -399,16 +405,17 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine
 					"executionContext must be an IConcurrentExecutionContext when used in ConcurrentExecutionEngine");
 
 		IConcurrentExecutionContext concurrentExecutionContext = getConcurrentExecutionContext();
-
-		ISolver solver;
-		// TODO very ugly
-		try {
-			solver = concurrentExecutionContext.getConcurrentLanguageDefinitionExtension().instanciateSolver();
-		} catch (CoreException e) {
-			throw new RuntimeException(e.getMessage());
-		}
-		solver.initialize(concurrentExecutionContext);
-		this.setSolver(solver);
+		_solver.setExecutableModelResource(concurrentExecutionContext.getResourceModel());
+//		already done in the launch place ?!
+//		ISolver solver;
+//		// TODO very ugly
+//		try {
+//			solver = concurrentExecutionContext.getConcurrentLanguageDefinitionExtension().instanciateSolver();
+//		} catch (CoreException e) {
+//			throw new RuntimeException(e.getMessage());
+//		}
+//		solver.initialize(concurrentExecutionContext);
+//		this.setSolver(solver);
 		this.changeLogicalStepDecider(concurrentExecutionContext.getLogicalStepDecider());
 
 		_mseStateController = new DefaultMSEStateController();
@@ -462,43 +469,37 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine
 					}	
 				}
 			}
-			
-			
-			
-			
-
-			final TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Factory.INSTANCE
-					.getEditingDomain(getExecutionContext().getResourceModel().getResourceSet());
-			if (editingDomain != null) {
-				final RecordingCommand command = new RecordingCommand(editingDomain,
-						"execute  " + modelInitializationMethodQName) {
-					private List<Object> result = new ArrayList<Object>();
-
-					@Override
-					protected void doExecute() {
-						try {
-							result.add(codeExecutor.execute(target, modelInitializationMethodName, modelInitializationParameters));
-							Activator.getDefault().debug("*** Model initialization done. ***");
-						} catch (CodeExecutionException e) {
-							Activator.getDefault().error("Exception while initializing model " + e.getMessage(), e);
-						}
-					}
-
-					@Override
-					public Collection<?> getResult() {
-						return result;
-					}
-				};
-				CommandExecution.execute(editingDomain, command);
-			} else {
-				try {
-					codeExecutor.execute(target,
-							modelInitializationMethodName, modelInitializationParameters);
-					Activator.getDefault().debug("*** Model initialization done. ***");
-				} catch (CodeExecutionException e) {
-					Activator.getDefault().error("Exception while initializing model " + e.getMessage(), e);
-				}
-			}
+	
+//			if (editingDomain != null) {
+//				final RecordingCommand command = new RecordingCommand(editingDomain,
+//						"execute  " + modelInitializationMethodQName) {
+//					private List<Object> result = new ArrayList<Object>();
+//
+//					@Override
+//					protected void doExecute() {
+//						try {
+//							result.add(codeExecutor.execute(target, modelInitializationMethodName, modelInitializationParameters));
+//							Activator.getDefault().debug("*** Model initialization done. ***");
+//						} catch (CodeExecutionException e) {
+//							Activator.getDefault().error("Exception while initializing model " + e.getMessage(), e);
+//						}
+//					}
+//
+//					@Override
+//					public Collection<?> getResult() {
+//						return result;
+//					}
+//				};
+//				CommandExecution.execute(editingDomain, command);
+//			} else {
+//				try {
+//					codeExecutor.execute(target,
+//							modelInitializationMethodName, modelInitializationParameters);
+//					Activator.getDefault().debug("*** Model initialization done. ***");
+//				} catch (CodeExecutionException e) {
+//					Activator.getDefault().error("Exception while initializing model " + e.getMessage(), e);
+//				}
+//			}
 		} else {
 			Activator.getDefault().debug(
 					"*** Model initialization done. (no modelInitialization method defined for the language) ***");

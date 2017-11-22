@@ -51,11 +51,12 @@ import org.eclipse.gemoc.executionframework.reflectivetrace.gemoc_execution_trac
 import org.eclipse.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.ExecutionTraceModel;
 import org.eclipse.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Gemoc_execution_traceFactory;
 import org.eclipse.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.ModelState;
+import org.eclipse.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.SolverState;
+import org.eclipse.gemoc.trace.commons.model.trace.ParallelStep;
 import org.eclipse.gemoc.trace.commons.model.trace.Step;
 import org.eclipse.gemoc.trace.gemoc.api.IMultiDimensionalTraceAddon;
 import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionContext;
 import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine;
-import org.eclipse.gemoc.xdsmlframework.api.engine_addon.DefaultEngineAddon;
 import org.eclipse.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 import org.eclipse.gemoc.xdsmlframework.api.extensions.engine_addon.EngineAddonSpecificationExtensionPoint;
 
@@ -68,7 +69,7 @@ import org.eclipse.gemoc.xdsmlframework.api.extensions.engine_addon.EngineAddonS
  *
  */
 @SuppressWarnings("restriction")
-public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddon {
+public class EventSchedulingModelExecutionTracingAddon implements IEngineAddon {
 
 	private IExecutionContext _executionContext;
 	private IExecutionEngine _executionEngine;
@@ -78,10 +79,12 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 	private ModelState currentState = null;
 	byte[] _lastRestoredSolverState;
 	private EContentAdapter adapter;
-	private boolean shouldSave = false;
+	private boolean shouldSave = true;
 	private boolean stateChanged = false;
 	private boolean _backToPastHappened = false;
 	private boolean _cannotSaveTrace = false;
+	
+	protected int stepNumber = 0;
 	
 	// if true, the trace doesn't work on a pure Concurrentengine, some features will be disabled
 	private boolean _limitedMode = false;
@@ -342,12 +345,12 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 				ModelState modelState = currentState;
 				contextState.setModelState(modelState);
 
-//				if (_executionEngine instanceof IConcurrentExecutionEngine) {
-//					IConcurrentExecutionEngine engine_cast = (IConcurrentExecutionEngine) _executionEngine;
-//					SolverState solverState = Gemoc_execution_traceFactory.eINSTANCE.createSolverState();
-//					solverState.setSerializableModel(engine_cast.getSolver().getState());
-//					contextState.setSolverState(solverState);
-//				}
+				if (_executionEngine instanceof IConcurrentExecutionEngine) {
+					IConcurrentExecutionEngine engine_cast = (IConcurrentExecutionEngine) _executionEngine;
+					SolverState solverState = Gemoc_execution_traceFactory.eINSTANCE.createSolverState();
+					solverState.setSerializableModel(engine_cast.getSolver().getState());
+					contextState.setSolverState(solverState);
+				}
 
 				choices.get(choices.size() - 1).setContextState(contextState);
 				contextState.setChoice(choices.get(choices.size() - 1));
@@ -360,7 +363,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 	 * S
 	 * @param stepNumber
 	 */
-	private void saveTraceModel(long stepNumber) {
+	private void saveTraceModel() {
 
 		Resource traceResource = _executionTraceModel.eResource();
 		if (traceResource.getContents().size() > 0) {
@@ -370,14 +373,16 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 //					if (path != null && path.length() > 0) {
 //						traceResource.setURI(URI.createFileURI(path));
 //					}
-					traceResource.save(null);
+					
 					Activator.getDefault().debug(String.format("[trace-%10s] %d states saved to %s",
 							getCurrentEngineShortName(),
 							_executionTraceModel.getReachedStates().size(), 
 							_executionTraceModel.eResource().getURI()));
+					traceResource.save(null);
 				} catch (IOException e) {
+					//chuuuut :-/ TODO: context State seems to miss a container
 					org.eclipse.gemoc.execution.concurrent.ccsljavaengine.Activator.getDefault().error("Error while saving trace to disk", e);
-					_cannotSaveTrace = true;
+					//_cannotSaveTrace = true;
 				}
 			}
 
@@ -482,7 +487,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 		CommandExecution.execute(getEditingDomain(), command);
 	}
 
-	private void updateTraceModelAfterExecution(final Step selectedLogicalStep) {		
+	private void updateTraceModelAfterExecution(final Step<?> selectedLogicalStep) {		
 		RecordingCommand command = new RecordingCommand(getEditingDomain(), "update trace model after deciding") {
 			@Override
 			protected void doExecute() {
@@ -518,7 +523,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 		CommandExecution.execute(getEditingDomain(), command);
 	}
 
-	private Choice findPreviousChoiceWithLogicalStep(final Choice startingChoice, final Step selectedLogicalStep){
+	private Choice findPreviousChoiceWithLogicalStep(final Choice startingChoice, final Step<?> selectedLogicalStep){
 		if(startingChoice.getPossibleLogicalSteps().contains(selectedLogicalStep)){
 			return startingChoice;
 		}
@@ -557,14 +562,28 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 	}
 	
 	@Override
-	public void stepExecuted(IExecutionEngine engine, Step logicalStepExecuted) {
+	public void stepExecuted(IExecutionEngine engine, Step<?> logicalStepExecuted) {
 		setUp(engine);		
-		updateTraceModelAfterExecution(logicalStepExecuted);					
+		updateTraceModelAfterExecution(logicalStepExecuted);	
+		RecordingCommand command = new RecordingCommand(getEditingDomain(), "Save trace model") {
+			@Override
+			protected void doExecute() {
+//				_executionTraceModel.getChoices().forEach(c -> c.getPossibleLogicalSteps()
+//						.forEach(s -> ((ParallelStep<?,?>)s).getSubSteps().forEach((ss -> ss.getMseoccurrence().setMse(null))))); //TODO: why null ?
+				_executionTraceModel.getChoices().forEach(c -> {
+					ContextState s = c.getContextState();
+					if (s.eContainer() == null) {
+						c.setContextState(s);
+					}
+				});
+				saveTraceModel();
+			}
+		};
+		CommandExecution.execute(getEditingDomain(), command);;
 	}
 	
 	@Override
 	public void engineAboutToDispose(IExecutionEngine engine){
-		
 	}
 
 	
@@ -597,7 +616,7 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 	}
 
 //	@Override
-//	public void proposedLogicalStepsChanged(IExecutionEngine engine, final Collection<LogicalStep> logicalSteps) {
+//	public void proposedStepsChanged(IExecutionEngine engine, final Collection<Step<?>> logicalSteps) {
 //		RecordingCommand command = new RecordingCommand(getEditingDomain(), "update trace model") {
 //
 //			@Override
@@ -606,8 +625,8 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 //					_lastChoice.getPossibleLogicalSteps().clear();
 //					_lastChoice.getPossibleLogicalSteps().addAll(logicalSteps);
 //				}
-//				storeCurrentContextState();
-////				saveTraceModel(0);
+//				//storeCurrentError while saving trace();
+//				saveTraceModel();
 //			}
 //		};
 //		CommandExecution.execute(getEditingDomain(), command);
@@ -649,21 +668,21 @@ public class EventSchedulingModelExecutionTracingAddon extends DefaultEngineAddo
 				
 			}
 		});
-//		RecordingCommand command = new RecordingCommand(getEditingDomain(), "Save trace model") {
-//			@Override
-//			protected void doExecute() {
-//				_executionTraceModel.getChoices().forEach(c -> c.getPossibleLogicalSteps()
-//						.forEach(s -> s.getMseoccurrence().setMse(null)));
-//				_executionTraceModel.getChoices().forEach(c -> {
-//					ContextState s = c.getContextState();
-//					if (s.eContainer() == null) {
-//						c.setContextState(null);
-//					}
-//				});
-//				saveTraceModel(0);
-//			}
-//		};
-//		CommandExecution.execute(getEditingDomain(), command);
+		RecordingCommand command = new RecordingCommand(getEditingDomain(), "Save trace model") {
+			@Override
+			protected void doExecute() {
+				_executionTraceModel.getChoices().forEach(c -> c.getPossibleLogicalSteps()
+						.forEach(s -> ((ParallelStep<?,?>)s).getSubSteps().forEach((ss -> ss.getMseoccurrence().setMse(null))))); 
+				_executionTraceModel.getChoices().forEach(c -> {
+					ContextState s = c.getContextState();
+					if (s.eContainer() == null) {
+						c.setContextState(s);
+					}
+				});
+				saveTraceModel();
+			}
+		};
+		CommandExecution.execute(getEditingDomain(), command);
 	}
 
 	@Override

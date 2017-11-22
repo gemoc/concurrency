@@ -17,6 +17,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.lang.reflect.Field;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -29,6 +30,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
@@ -36,6 +38,9 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.transaction.RecordingCommand;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.emf.transaction.impl.InternalTransactionalEditingDomain;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.Activator;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionContext;
@@ -44,6 +49,7 @@ import org.eclipse.gemoc.moccml.mapping.feedback.feedback.ActionModel;
 import org.eclipse.gemoc.moccml.mapping.feedback.feedback.ModelSpecificEvent;
 import org.eclipse.gemoc.trace.commons.model.generictrace.GenericParallelStep;
 import org.eclipse.gemoc.trace.commons.model.generictrace.GenericSmallStep;
+import org.eclipse.gemoc.trace.commons.model.generictrace.GenericStep;
 import org.eclipse.gemoc.trace.commons.model.generictrace.GenerictraceFactory;
 import org.eclipse.gemoc.trace.commons.model.trace.MSE;
 import org.eclipse.gemoc.trace.commons.model.trace.MSEModel;
@@ -176,7 +182,6 @@ public class CcslSolver implements org.eclipse.gemoc.execution.concurrent.ccslja
 			this.solverInputURI = URI.createPlatformResourceURI(_alternativeExecutionModelPath, true);
 		}
 		URI feedbackURI = URI.createPlatformResourceURI(getFeedbackPathFromMSEModelPath(context.getWorkspace().getMSEModelPath()).toString(), true);
-		URI mseModelURI = URI.createPlatformResourceURI(context.getWorkspace().getMSEModelPath().toString(), true);
 		
 		try 
 		{
@@ -195,8 +200,7 @@ public class CcslSolver implements org.eclipse.gemoc.execution.concurrent.ccslja
 
 			Resource feedbackResource = resourceSet.getResource(feedbackURI, true);
 			_feedbackModel = (ActionModel)feedbackResource.getContents().get(0);
-			Resource mseModelResource = resourceSet.getResource(mseModelURI, true);
-			_MSEModel = (MSEModel)mseModelResource.getContents().get(0);
+			_MSEModel = context.getMSEModel();
 			
 		} catch (IOException e) {
 			String errorMessage = "IOException while instantiating the CcslSolver";
@@ -578,6 +582,36 @@ public class CcslSolver implements org.eclipse.gemoc.execution.concurrent.ccslja
 	@Override
 	public List<OccurrenceRelation> getLastOccurrenceRelations() {
 		return lastOccurrenceRelations;
+	}
+
+	@Override
+	public void setExecutableModelResource(Resource execModelResource) {
+		Class<? extends EObject> clazz = execModelResource.getContents().get(0).getClass();
+		//EcoreUtil.resolveAll(_MSEModel.eResource());
+		
+		
+		 for(Resource r: _MSEModel.eResource().getResourceSet().getResources()) {
+				if(r.getContents().get(0).getClass() == clazz){
+					_MSEModel.eResource().getResourceSet().getResources().remove(r);
+					doChangeExecModel(execModelResource);
+					return;
+				}
+		 }
+		 doChangeExecModel(execModelResource);
+		 return;
+	}
+
+	private void doChangeExecModel(Resource execModelResource) {
+		TransactionalEditingDomain editingDomain = org.eclipse.emf.transaction.TransactionalEditingDomain.Factory.INSTANCE.getEditingDomain(_MSEModel.eResource().getResourceSet());
+		final CommandStack commandStack = editingDomain.getCommandStack();
+		commandStack.execute(new RecordingCommand(editingDomain) {
+
+			@Override
+			protected void doExecute() {
+				//Save DiagramDialog at proper position
+				_MSEModel.eResource().getResourceSet().getResources().add(execModelResource);
+			}
+		});
 	}
 
 

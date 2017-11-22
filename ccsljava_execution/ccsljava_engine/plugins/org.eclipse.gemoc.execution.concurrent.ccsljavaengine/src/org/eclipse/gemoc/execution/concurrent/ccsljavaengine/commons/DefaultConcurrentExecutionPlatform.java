@@ -30,14 +30,6 @@ public class DefaultConcurrentExecutionPlatform extends DefaultExecutionPlatform
 	public DefaultConcurrentExecutionPlatform(ConcurrentLanguageDefinitionExtension _languageDefinition, IRunConfiguration runConfiguration) throws CoreException 
 	{
 		super(_languageDefinition, runConfiguration);	
-//		for (EngineAddonSpecificationExtension extension : runConfiguration.getEngineAddonExtensions())
-//		{
-//			addEngineAddon(extension.instanciateComponent());
-//		}
-//		for (IEngineAddon addon : _languageDefinition.instanciateEngineAddons())
-//		{
-//			addEngineAddon(addon);			
-//		}
 		_codeExecutor = _languageDefinition.instanciateCodeExecutor();
 		_clockControllers = _languageDefinition.instanciateMSEStateControllers();
 		
