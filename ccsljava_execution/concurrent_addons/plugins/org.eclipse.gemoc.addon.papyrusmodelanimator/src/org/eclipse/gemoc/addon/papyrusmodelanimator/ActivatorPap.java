@@ -1,14 +1,14 @@
 /*******************************************************************************
- * Copyright (c) 2017 I3S laboratory and others.
+ * Copyright (c) 2017 I3S laboratory, INRIA and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     I3S laboratory - initial API and implementation
+ *     I3S laboratory and INRIA Kairos - initial API and implementation
  *******************************************************************************/
-package org.eclipse.gemoc.addon.vcdgenerator;
+package org.eclipse.gemoc.addon.papyrusmodelanimator;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
@@ -16,18 +16,18 @@ import org.osgi.framework.BundleContext;
 /**
  * The activator class controls the plug-in life cycle
  */
-public class Activator extends AbstractUIPlugin {
+public class ActivatorPap extends AbstractUIPlugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "org.eclipse.gemoc.addon.vcdgenerator"; //$NON-NLS-1$
+	public static final String PLUGIN_ID = "org.eclipse.gemoc.addon.papyrusmodelanimator";
 
 	// The shared instance
-	private static Activator plugin;
+	private static ActivatorPap plugin;
 	
 	/**
 	 * The constructor
 	 */
-	public Activator() {
+	public ActivatorPap() {
 	}
 
 	/*
@@ -53,7 +53,7 @@ public class Activator extends AbstractUIPlugin {
 	 *
 	 * @return the shared instance
 	 */
-	public static Activator getDefault() {
+	public static ActivatorPap getDefault() {
 		return plugin;
 	}
 

@@ -21,14 +21,14 @@
   	<!-- List of P2 repositories of external tool used to build the components -->
   	<!--  must NOT include the repositories of the tools included in the Studio has it has its own complementary list -->
         <repository>
-            <id>Neon release</id>
+            <id>Oxygen release</id>
             <layout>p2</layout>
-            <url>http://download.eclipse.org/releases/neon/</url>
+            <url>http://download.eclipse.org/releases/oxygen/</url>
         </repository>
         <repository>
             <id>timesquare</id>
             <layout>p2</layout>
-            <url>http://timesquare.inria.fr/update_site/neon</url>
+            <url>http://timesquare.inria.fr/update_site/oxygen</url>
         </repository>
         <repository>
             <id>moccml_mapping</id>
@@ -53,7 +53,7 @@
         <repository>
             <id>Sirius</id>
             <layout>p2</layout>
-            <url>http://download.eclipse.org/sirius/updates/releases/4.1.2/neon/</url>
+            <url>http://download.eclipse.org/sirius/updates/releases/5.1.0/oxygen/</url>
         </repository>
         <repository>
             <id>nebula</id>

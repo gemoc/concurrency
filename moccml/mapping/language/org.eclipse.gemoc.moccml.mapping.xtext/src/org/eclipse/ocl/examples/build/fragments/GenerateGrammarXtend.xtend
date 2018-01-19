@@ -45,7 +45,7 @@ import org.eclipse.xtext.EnumRule
 import org.eclipse.xtext.EnumLiteralDeclaration
 import org.eclipse.emf.ecore.EEnumLiteral
 import org.eclipse.xtext.UnorderedGroup
-
+ 
 /*
  * Serialize a YYY.xtextbin grammar as an YYYGrammarResource.java class.
  */

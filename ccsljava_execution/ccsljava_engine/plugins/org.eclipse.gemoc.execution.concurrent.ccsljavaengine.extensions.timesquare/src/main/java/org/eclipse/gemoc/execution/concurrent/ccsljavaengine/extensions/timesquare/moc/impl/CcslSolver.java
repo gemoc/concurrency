@@ -602,6 +602,7 @@ public class CcslSolver implements org.eclipse.gemoc.execution.concurrent.ccslja
 	}
 
 	private void doChangeExecModel(Resource execModelResource) {
+		final Resource r = execModelResource;
 		TransactionalEditingDomain editingDomain = org.eclipse.emf.transaction.TransactionalEditingDomain.Factory.INSTANCE.getEditingDomain(_MSEModel.eResource().getResourceSet());
 		final CommandStack commandStack = editingDomain.getCommandStack();
 		commandStack.execute(new RecordingCommand(editingDomain) {
@@ -609,7 +610,7 @@ public class CcslSolver implements org.eclipse.gemoc.execution.concurrent.ccslja
 			@Override
 			protected void doExecute() {
 				//Save DiagramDialog at proper position
-				_MSEModel.eResource().getResourceSet().getResources().add(execModelResource);
+				_MSEModel.eResource().getResourceSet().getResources().add(r);
 			}
 		});
 	}

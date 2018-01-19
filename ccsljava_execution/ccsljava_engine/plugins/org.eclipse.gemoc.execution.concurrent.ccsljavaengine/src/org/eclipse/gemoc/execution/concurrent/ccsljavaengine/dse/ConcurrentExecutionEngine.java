@@ -469,37 +469,38 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine
 					}	
 				}
 			}
-	
-//			if (editingDomain != null) {
-//				final RecordingCommand command = new RecordingCommand(editingDomain,
-//						"execute  " + modelInitializationMethodQName) {
-//					private List<Object> result = new ArrayList<Object>();
-//
-//					@Override
-//					protected void doExecute() {
-//						try {
-//							result.add(codeExecutor.execute(target, modelInitializationMethodName, modelInitializationParameters));
-//							Activator.getDefault().debug("*** Model initialization done. ***");
-//						} catch (CodeExecutionException e) {
-//							Activator.getDefault().error("Exception while initializing model " + e.getMessage(), e);
-//						}
-//					}
-//
-//					@Override
-//					public Collection<?> getResult() {
-//						return result;
-//					}
-//				};
-//				CommandExecution.execute(editingDomain, command);
-//			} else {
-//				try {
-//					codeExecutor.execute(target,
-//							modelInitializationMethodName, modelInitializationParameters);
-//					Activator.getDefault().debug("*** Model initialization done. ***");
-//				} catch (CodeExecutionException e) {
-//					Activator.getDefault().error("Exception while initializing model " + e.getMessage(), e);
-//				}
-//			}
+			final TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Factory.INSTANCE
+					.getEditingDomain(getExecutionContext().getResourceModel().getResourceSet());
+			if (editingDomain != null) {
+				final RecordingCommand command = new RecordingCommand(editingDomain,
+						"execute  " + modelInitializationMethodQName) {
+					private List<Object> result = new ArrayList<Object>();
+
+					@Override
+					protected void doExecute() {
+						try {
+							result.add(codeExecutor.execute(target, modelInitializationMethodName, modelInitializationParameters));
+							Activator.getDefault().debug("*** Model initialization done. ***");
+						} catch (CodeExecutionException e) {
+							Activator.getDefault().error("Exception while initializing model " + e.getMessage(), e);
+						}
+					}
+
+					@Override
+					public Collection<?> getResult() {
+						return result;
+					}
+				};
+				CommandExecution.execute(editingDomain, command);
+			} else {
+				try {
+					codeExecutor.execute(target,
+							modelInitializationMethodName, modelInitializationParameters);
+					Activator.getDefault().debug("*** Model initialization done. ***");
+				} catch (CodeExecutionException e) {
+					Activator.getDefault().error("Exception while initializing model " + e.getMessage(), e);
+				}
+			}
 		} else {
 			Activator.getDefault().debug(
 					"*** Model initialization done. (no modelInitialization method defined for the language) ***");
