@@ -55,21 +55,68 @@
 	            <activeByDefault>true</activeByDefault>
 	        </activation>
 	        <repositories>
-				<repository>
-		            <id>gemoc-studio_commons on CI</id>
-		            <layout>p2</layout>
-		            <url>https://ci.eclipse.org/gemoc/job/gemoc-studio/job/master/lastSuccessfulBuild/artifact/gemoc-studio/gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.updatesite/target/repository/</url>
-		        </repository>
-		        <repository>
-		            <id>modelanimation_siriusmodelanimation on CI</id>
-		            <layout>p2</layout>
-		            <url>http://obeo-siriuslab-nightly.s3-website-eu-west-1.amazonaws.com/SiriusAnimator/master/repository/</url>
-		        </repository>
-		        <repository>
+                    <repository>
+		        <id>gemoc-studio_commons on CI</id>
+		        <layout>p2</layout>
+		        <url>https://ci.eclipse.org/gemoc/job/gemoc-studio/job/master/lastSuccessfulBuild/artifact/gemoc-studio/gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.updatesite/target/repository/</url>
+                        <releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+                    </repository>
+                    <repository>
+		        <id>modelanimation_siriusmodelanimation on CI</id>
+		        <layout>p2</layout>
+		        <url>http://obeo-siriuslab-nightly.s3-website-eu-west-1.amazonaws.com/SiriusAnimator/master/repository/</url>
+                        <releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+                    </repository>
+                    <repository>
 		            <id>concurrency_moccml on CI</id>
 		            <layout>p2</layout>
 		            <url>https://ci.inria.fr/gemoc/job/concurrency_moccml/lastSuccessfulBuild/artifact/moccml/constraint/releng/org.eclipse.gemoc.mocc.p2updatesite/target/repository/</url>
-		        </repository>
+                    </repository>
+                    <repository>
+			<id>timesquare</id>
+			<url>http://timesquare.inria.fr/update_site/oxygen</url>
+			<layout>p2</layout>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+                    </repository>
+                    <repository>
+			<id>moccml mapping</id>
+                        <url>http://timesquare.inria.fr/ecl/update_site/oxygen</url>
+<!--                             https://ci.inria.fr/gemoc/job/MoCCML-mapping/lastSuccessfulBuild/artifact/moccml/mapping/deployment/org.eclipse.gemoc.moccml.mapping.updatesite/target/repository/</url> -->
+			<layout>p2</layout>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+                    </repository>
+		
+                    <repository>
+			<id>Oxygen release</id>
+			<url>http://download.eclipse.org/releases/oxygen/</url>
+			<layout>p2</layout>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+                    </repository>
 		    </repositories>
 	    </profile>
     	

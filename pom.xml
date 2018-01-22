@@ -235,6 +235,13 @@
 					<source>1.8</source>
 					<target>1.8</target>
 					<encoding>${project.build.sourceEncoding}</encoding>
+                                        <artifact>
+                                            <id>org.jdom:jdom2:2.0.6</id>
+                                            <source>true</source>
+                                            <instructions>
+                                                <Bundle-SymbolicName>org.jdom2</Bundle-SymbolicName>
+                                            </instructions>
+                                        </artifact>
 				</configuration>
 			</plugin>
 		</plugins>
