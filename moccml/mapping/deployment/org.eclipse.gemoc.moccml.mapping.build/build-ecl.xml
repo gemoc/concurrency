@@ -16,8 +16,8 @@
 	-->
 	<property file="local.properties" />
 	
-	<property name="javacSource" value="1.6" />
-	<property name="javacTarget" value="1.6" />
+	<property name="javacSource" value="1.8" />
+	<property name="javacTarget" value="1.8" />
 	
 	<property name="topLevelElementType" value="feature" />
 	<property name="topLevelElementId" value="org.eclipse.gemoc.moccml.mapping.feature" />
