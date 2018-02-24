@@ -24,6 +24,7 @@ import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.Transition;
 import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.Trigger;
 import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.IntInfEqual;
 import org.eclipse.gemoc.moccml.constraint.fsmkernel.model.FSMModel.editionextension.IntSupEqual;
+import org.sat4j.specs.ContradictionException;
 
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.BasicType.BasicTypeFactory;
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.BasicType.DiscreteClockType;
@@ -53,7 +54,6 @@ import fr.inria.aoste.timesquare.ccslkernel.solver.SolverElement;
 import fr.inria.aoste.timesquare.ccslkernel.solver.SolverPrimitiveElement;
 import fr.inria.aoste.timesquare.ccslkernel.solver.TimeModel.SolverClock;
 import fr.inria.aoste.timesquare.ccslkernel.solver.relation.AbstractWrappedRelation;
-import net.sf.javabdd.BuDDyFactory.BuDDyBDD;
 
 public class StateMachineRelationDefinitionSemantics extends AbstractWrappedRelation {
 
@@ -166,48 +166,53 @@ public class StateMachineRelationDefinitionSemantics extends AbstractWrappedRela
 			return;
 		super.semantic(semanticHelper);
 		_sensitiveTransitition.clear();
-		BuDDyBDD stateBDD =semanticHelper.createOne();
-	
-		//always possible to do nothing 
-		for (ISolverElement se : _allClocks) {
-			stateBDD.andWith(semanticHelper.getFalseBDDVariable((RuntimeClock) se));
-		}
+		try {
+			int stateBDD = semanticHelper.bddHelper.createOne();
 		
-		for (Transition t : _currentState.getOutputTransitions()) {
-			if (t.getGuard() != null){
-				if (! evaluate(((Guard)t.getGuard()).getValue())){
-					continue;
+			//always possible to do nothing 
+			for (ISolverElement se : _allClocks) {
+				stateBDD = semanticHelper.bddHelper.createConjunction(-((RuntimeClock) se).bddVariableNumber, stateBDD, false);
+			}
+			
+			for (Transition t : _currentState.getOutputTransitions()) {
+				if (t.getGuard() != null){
+					if (! evaluate(((Guard)t.getGuard()).getValue())){
+						continue;
+					}
 				}
-			}
+				
+				_sensitiveTransitition.add(t);
+				
+				List<ISolverElement> trueTrigger = null;
+				List<ISolverElement> falseTrigger = null;
+				List<ISolverElement> clocksNotInTrigger = new ArrayList<ISolverElement>(_allClocks);
+	
+				if(t.getTrigger() != null){
+					trueTrigger = getConcreteElements((List<? extends AbstractEntity>) ((Trigger)t.getTrigger()).getTrueTriggers());
+					falseTrigger = getConcreteElements((List<? extends AbstractEntity>) ((Trigger)t.getTrigger()).getFalseTriggers());
+					clocksNotInTrigger.removeAll(trueTrigger);
+				
+				int triggersBDD =semanticHelper.bddHelper.createOne();
+				for (ISolverElement se : trueTrigger) {
+					triggersBDD = semanticHelper.createConjunction(((SolverClock) se), triggersBDD, false);
+				}
+				for (ISolverElement se : falseTrigger) {
+					triggersBDD = semanticHelper.bddHelper.createConjunction(-((SolverClock) se).bddVariableNumber, triggersBDD, false);
+				}	
+				for (ISolverElement se : clocksNotInTrigger) {
+					triggersBDD = semanticHelper.bddHelper.createConjunction(-((SolverClock) se).bddVariableNumber, triggersBDD, false);
+				}	
 			
-			_sensitiveTransitition.add(t);
-			
-			List<ISolverElement> trueTrigger = null;
-			List<ISolverElement> falseTrigger = null;
-			List<ISolverElement> clocksNotInTrigger = new ArrayList<ISolverElement>(_allClocks);
-
-			if(t.getTrigger() != null){
-				trueTrigger = getConcreteElements((List<? extends AbstractEntity>) ((Trigger)t.getTrigger()).getTrueTriggers());
-				falseTrigger = getConcreteElements((List<? extends AbstractEntity>) ((Trigger)t.getTrigger()).getFalseTriggers());
-				clocksNotInTrigger.removeAll(trueTrigger);
-			
-			BuDDyBDD triggersBDD =semanticHelper.createOne();
-			for (ISolverElement se : trueTrigger) {
-				triggersBDD.andWith(semanticHelper.getBDDVariable((SolverClock) se));
+				stateBDD = semanticHelper.bddHelper.createDisjunction(stateBDD,triggersBDD, false);
+				}
+				semanticHelper.registerClockUse(_allClocks.toArray(new SolverClock[0]));
+	
 			}
-			for (ISolverElement se : falseTrigger) {
-				triggersBDD.andWith(semanticHelper.getFalseBDDVariable((SolverClock)  se));
-			}	
-			for (ISolverElement se : clocksNotInTrigger) {
-				triggersBDD.andWith(semanticHelper.getFalseBDDVariable((SolverClock)  se));
-			}	
-		
-			stateBDD.orWith(triggersBDD);
-			}
-			semanticHelper.registerClockUse(_allClocks.toArray(new SolverClock[0]));
-
+			semanticHelper.putInConjunction(stateBDD);
+		} catch (ContradictionException e) {
+			e.printStackTrace();
 		}
-		semanticHelper.semanticBDDAnd(stateBDD);
+		
 		RuntimeClock[] usedClocks = new RuntimeClock[_allClocks.size()];
 		int i=0;
 		for(ISolverElement rc : _allClocks){

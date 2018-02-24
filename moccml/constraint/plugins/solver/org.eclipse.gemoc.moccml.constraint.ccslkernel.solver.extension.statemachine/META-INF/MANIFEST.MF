@@ -8,11 +8,11 @@ Bundle-Vendor: Aoste INRIA/I3S
 Require-Bundle: org.eclipse.core.runtime,
  fr.inria.aoste.timesquare.ccslkernel.model;bundle-version="1.0.0",
  fr.inria.aoste.timesquare.ccslkernel.modelunfolding;bundle-version="1.0.0",
- fr.inria.aoste.timesquare.buddywrapper.runtime;bundle-version="1.2.0",
  fr.inria.aoste.timesquare.ccslkernel.runtime;bundle-version="1.0.0",
  fr.inria.aoste.timesquare.ccslkernel.solver;bundle-version="1.0.0",
  fr.inria.aoste.utils.grph,
- org.eclipse.gemoc.moccml.constraint.ccslmocc.model;bundle-version="0.1.1"
+ org.eclipse.gemoc.moccml.constraint.ccslmocc.model;bundle-version="0.1.1",
+ org.sat4j.core;bundle-version="2.3.5"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Export-Package: org.eclipse.gemoc.moccml.constraint.ccslkernel.solver.extension.statemachine
