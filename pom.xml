@@ -33,8 +33,8 @@
         <repository>
             <id>moccml mapping</id>
             <layout>p2</layout>
-<!--            <url>https://ci.inria.fr/gemoc/job/MoCCML-mapping/lastSuccessfulBuild/artifact/moccml/mapping/deployment/org.eclipse.gemoc.moccml.mapping.updatesite/target/repository/</url>-->
-                <url>http://www.i3s.unice.fr/~deantoni/gemoc/update_site/moccml_mapping/</url>
+           <url>https://ci.inria.fr/gemoc/job/MoCCML-mapping/lastSuccessfulBuild/artifact/moccml/mapping/deployment/org.eclipse.gemoc.moccml.mapping.updatesite/target/repository/</url>
+<!--                 <url>http://www.i3s.unice.fr/~deantoni/gemoc/update_site/moccml_mapping/</url> -->
         </repository>
         <repository>
             <id>diverse-commons</id>
