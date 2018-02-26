@@ -35,8 +35,8 @@
         <module>releng/org.eclipse.gemoc.concurrent_addons.feature</module>
         <module>releng/org.eclipse.gemoc.executionengine.ccsljava.repository</module>
         
-        <!-- tests -->
-        <module>ccsljava_xdsml/tests/org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.tests</module>
+        <!-- tests (none defined, yet)-->
+        <!-- <module>ccsljava_xdsml/tests/org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.tests</module> -->
     </modules>
 
  
