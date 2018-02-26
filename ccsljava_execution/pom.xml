@@ -35,8 +35,9 @@
         <module>releng/org.eclipse.gemoc.concurrent_addons.feature</module>
         <module>releng/org.eclipse.gemoc.executionengine.ccsljava.repository</module>
         
-        <!-- tests (none defined, yet)-->
-        <!-- <module>ccsljava_xdsml/tests/org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.tests</module> -->
+        <!-- tests (not a single one for now)-->
+<!--         <module>ccsljava_xdsml/tests/org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.tests</module> -->
+
     </modules>
 
  
@@ -111,7 +112,6 @@
                         <layout>p2</layout>
                         <url>http://download.eclipse.org/app4mc/updatesites/releases/0.8.0/</url>
                     </repository>
-		
                     <repository>
 			<id>Oxygen release</id>
 			<url>http://download.eclipse.org/releases/oxygen/</url>
