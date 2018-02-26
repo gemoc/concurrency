@@ -53,7 +53,7 @@
         <repository>
             <id>Sirius</id>
             <layout>p2</layout>
-            <url>http://download.eclipse.org/sirius/updates/releases/5.1.0/oxygen/</url>
+            <url>http://download.eclipse.org/sirius/updates/releases/5.1.1/oxygen/</url>
         </repository>
         <repository>
             <id>nebula</id>

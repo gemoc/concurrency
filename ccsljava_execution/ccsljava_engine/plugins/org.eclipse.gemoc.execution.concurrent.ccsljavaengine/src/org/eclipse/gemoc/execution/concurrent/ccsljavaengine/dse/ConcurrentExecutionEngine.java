@@ -11,7 +11,6 @@
  *******************************************************************************/
 package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.dse;
 
-import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -20,10 +19,8 @@ import java.util.function.Consumer;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.BasicEList;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.emf.transaction.impl.InternalTransactionalEditingDomain;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionContext;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
@@ -39,8 +36,6 @@ import org.eclipse.gemoc.executionframework.engine.core.CommandExecution;
 import org.eclipse.gemoc.executionframework.engine.core.EngineStoppedException;
 import org.eclipse.gemoc.moccml.mapping.feedback.feedback.ActionModel;
 import org.eclipse.gemoc.moccml.mapping.feedback.feedback.When;
-import org.eclipse.gemoc.trace.commons.model.generictrace.GenericParallelStep;
-import org.eclipse.gemoc.trace.commons.model.generictrace.GenericStep;
 import org.eclipse.gemoc.trace.commons.model.trace.MSE;
 import org.eclipse.gemoc.trace.commons.model.trace.ParallelStep;
 import org.eclipse.gemoc.trace.commons.model.trace.SmallStep;
