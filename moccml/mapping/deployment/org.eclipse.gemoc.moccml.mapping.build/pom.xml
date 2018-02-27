@@ -61,6 +61,14 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
+                <repository>
+                        <id>Eclipse - Acceleo Snapshots</id>
+                        <url>https://repo.eclipse.org/content/repositories/acceleo-snapshots</url>
+                        </repository>
+                        <repository>
+                        <id>Eclipse - Acceleo Release</id>
+                        <url>https://repo.eclipse.org/content/repositories/acceleo-releases</url>
+                </repository>
 <!--		<repository>
 			<id>luna-updates</id>
 			<url>http://download.eclipse.org/eclipse/updates/4.4</url>
@@ -108,6 +116,30 @@
 		</repository>-->
 	</repositories>
 
+        <pluginRepositories>
+            <pluginRepository>
+                <id>Eclipse - Acceleo Snapshots</id>
+                <url>https://repo.eclipse.org/content/repositories/acceleo-snapshots</url>
+            </pluginRepository>
+            <pluginRepository>
+                <id>Eclipse - Acceleo Release</id>
+                <url>https://repo.eclipse.org/content/repositories/acceleo-releases</url>
+            </pluginRepository>
+        </pluginRepositories>
+        
+        <dependencies>
+            <dependency>
+                <groupId>org.eclipse.acceleo</groupId>
+                <artifactId>org.eclipse.acceleo.maven</artifactId>
+                <version>3.5.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.acceleo</groupId>
+                <artifactId>org.eclipse.acceleo.engine</artifactId>
+                <version>3.5.0-SNAPSHOT</version>
+            </dependency>
+        </dependencies>
+        
 	<build>
 		<defaultGoal>clean verify</defaultGoal>
 		<plugins>
@@ -199,6 +231,25 @@
 			</plugin>
 
 		</plugins>
+                 <!--required by acceleo-->
+                 <pluginManagement>
+                    <plugins>
+                    <plugin>
+                        <groupId>org.eclipse.acceleo</groupId>
+                        <artifactId>org.eclipse.acceleo.maven</artifactId>
+                        <version>3.5.0-SNAPSHOT</version>
+                        <executions>
+                        <execution>
+                            <id>acceleo-compile</id>
+                            <phase>compile</phase>
+                            <goals>
+                            <goal>acceleo-compile</goal>
+                            </goals>
+                        </execution>
+                        </executions>
+                    </plugin>
+                    </plugins>
+                </pluginManagement>
 	</build>
 	<modules>
 		

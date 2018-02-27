@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="generate" name="org.eclipse.gemoc.moccml.mapping.ecltoqvto">
     <property name="ECLIPSE_HOME" value="../../../../../../../../../../../../install/gemoc/gemoc@eclipse/Oxygen/build40"/>
-    <property name="ECLIPSE_WORKSPACE" value="../../../../../../../workspace_gemocDev"/>
+    <property name="ECLIPSE_WORKSPACE" value="../../../../../../../workspace_language_ericJenn"/>
 
     <!-- The classpath with only the dependencies used by the project -->
     <path id="org.eclipse.gemoc.moccml.mapping.ecltoqvto.libraryclasspath">
