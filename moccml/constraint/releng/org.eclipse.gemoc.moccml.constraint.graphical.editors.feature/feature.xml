@@ -10,17 +10,18 @@
         I3S Laboratory - initial API and implementation
  *     ENSTA Bretagne - API update, feature enhancement and bug fix
  -->
-
 <feature
       id="org.eclipse.gemoc.moccml.constraint.graphical.editors.feature"
-      label="Gemoc MoCC Graphical Concrete Syntax Editors"
+      label="GEMOC Moccml Constraint Graphical Editors"
       version="0.1.1.qualifier"
       provider-name="%providerName"
       image="gemocstudio32.png">
 
    <description>
-      The MoCC Graphical Concrete Syntax Feature provides a graphical edition to express MoC models 
-      (extension of CCSL to define automaton). The feature includes sirius design models and related java services.
+      The Moccml constraint Graphical Editor Feature provides a graphical
+edition to express MoCC models 
+(extension of CCSL to define automaton). The feature includes
+sirius design models and related java services.
    </description>
 
    <copyright url="http://www.eclipse.org/legal/epl-v10.html">

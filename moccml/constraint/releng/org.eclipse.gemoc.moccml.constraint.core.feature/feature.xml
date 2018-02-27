@@ -13,14 +13,16 @@
 -->
 <feature
       id="org.eclipse.gemoc.moccml.constraint.core.feature"
-      label="Gemoc MoCC Modeling Language Abstract Syntax Core"
+      label="GEMOC Moccml Constraint Core"
       version="0.1.1.qualifier"
       provider-name="%providerName"
       image="gemocstudio32.png">
 
    <description>
-      The MoC Modeling Language Abstract Syntax provides an extension to CCSL to
-define automaton. The feature includes metamodels and genmodel edits and editors.
+      The MoCC Modeling Language Abstract Syntax provides an extension
+to CCSL to
+define constraints using automaton. The feature includes metamodels and genmodel
+edits and editors.
    </description>
 
    <copyright url="http://www.eclipse.org/legal/epl-v10.html">
