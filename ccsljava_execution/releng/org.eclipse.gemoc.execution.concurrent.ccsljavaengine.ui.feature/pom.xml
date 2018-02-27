@@ -9,7 +9,7 @@
     <version>2.3.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>org.eclipse.gemoc.executionengine.ccsljava.runtime.ui.feature</artifactId>
+  <artifactId>org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.feature</artifactId>
   <packaging>eclipse-feature</packaging>
 
 </project> 

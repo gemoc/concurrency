@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.eclipse.gemoc.executionengine.ccsljava.feature"
+      id="org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.feature"
       label="GEMOC Execution Engine CCSL Java"
       version="2.3.0.qualifier"
       provider-name="%providerName"
@@ -25,11 +25,11 @@ http://www.eclipse.org/legal/epl-v10.html
    </license>
 
    <includes
-         id="org.eclipse.gemoc.executionengine.ccsljava.runtime.feature"
+         id="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.feature"
          version="0.0.0"/>
 
    <includes
-         id="org.eclipse.gemoc.executionengine.ccsljava.runtime.ui.feature"
+         id="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.feature"
          version="0.0.0"/>
 
    <includes
