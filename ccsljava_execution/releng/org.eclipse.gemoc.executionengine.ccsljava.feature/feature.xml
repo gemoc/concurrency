@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="org.eclipse.gemoc.executionengine.ccsljava.feature"
-      label="Execution Engine CCSL Java"
+      label="GEMOC Execution Engine CCSL Java"
       version="2.3.0.qualifier"
       provider-name="%providerName"
       image="gemocstudio32.png">
 
    <description url="http://gemoc.org/studio/">
-      List of plugins that are part of the CCSL Java Execution Engine
+      Language defintion and edition support for creating languages using the CCSL Java Execution Engine
+
+Also includes the runtime, runtime.ui, and concurrent_addons features
    </description>
 
    <copyright url="http://www.eclipse.org/legal/epl-v10.html">
@@ -22,6 +24,18 @@ http://www.eclipse.org/legal/epl-v10.html
       %license
    </license>
 
+   <includes
+         id="org.eclipse.gemoc.executionengine.ccsljava.runtime.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.gemoc.executionengine.ccsljava.runtime.ui.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.gemoc.concurrent_addons.feature"
+         version="0.0.0"/>
+
    <requires>
       <import feature="org.eclipse.gemoc.xdsmlframework.feature" version="0.1.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.gemoc.modeldebugging.framework.commons.feature" version="0.1.0.0" match="greaterOrEqual"/>
@@ -30,65 +44,9 @@ http://www.eclipse.org/legal/epl-v10.html
    </requires>
 
    <plugin
-         id="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.k3"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.utils"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.gemoc.execution.concurrent.ccsljavaengine"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuli_scenario.model"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.mse.model"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
 
 </feature>
