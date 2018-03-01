@@ -179,7 +179,7 @@
 			            </requirement>
 			            <requirement>
 			               <type>eclipse-feature</type>
-			               <id>org.eclipse.gemoc.executionengine.ccsljava.feature</id>
+			               <id>org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.feature</id>
 			               <versionRange>1.0.0</versionRange>
 			            </requirement>
 			            <requirement>

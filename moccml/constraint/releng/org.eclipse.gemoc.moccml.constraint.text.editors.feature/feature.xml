@@ -13,13 +13,14 @@
 -->
 <feature
       id="org.eclipse.gemoc.moccml.constraint.text.editors.feature"
-      label="Gemoc MoCC Text Editors"
+      label="GEMOC Moccml Constraint Textual Editors"
       version="0.1.1.qualifier"
       provider-name="%providerName"
       image="gemocstudio32.png">
 
    <description>
-      The MoCC Graphical Concrete Syntax Feature provides a textual edition to express MoC models (extension of CCSL to define automaton).
+      The Moccml Constraint Textual Editors Feature provides a textual
+edition to express Moccml models (extension of CCSL to define automaton).
    </description>
 
    <copyright url="http://www.eclipse.org/legal/epl-v10.html">

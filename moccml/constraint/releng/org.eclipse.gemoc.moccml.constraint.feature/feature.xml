@@ -13,13 +13,18 @@
 -->
 <feature
       id="org.eclipse.gemoc.moccml.constraint.feature"
-      label="Gemoc MoCC"
+      label="GEMOC Moccml Constraint"
       version="0.1.1.qualifier"
       provider-name="%providerName"
       image="gemocstudio32.png">
 
    <description>
-      The MoC Modeling Language Abstract Syntax provides an extension to CCSL to define automaton. The feature includes metamodels and genmodel edits and editors.
+      The MoCC Modeling Language allows to defines MoCC constraints using automaton. 
+It provides an extension
+to CCSL to define automaton. The feature includes metamodels
+and genmodel edits and editors.
+
+(Includes moccml.constraint.core, moccml.constraint.graphical.editors, moccml.constraint.text.editors, and moccml.constraint.ccsl.solver.extension.automata features)
    </description>
 
    <copyright url="http://www.eclipse.org/legal/epl-v10.html">
