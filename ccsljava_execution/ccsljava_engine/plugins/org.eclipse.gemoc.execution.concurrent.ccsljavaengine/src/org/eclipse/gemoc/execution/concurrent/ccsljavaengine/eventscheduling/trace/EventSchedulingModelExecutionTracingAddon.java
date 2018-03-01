@@ -52,6 +52,7 @@ import org.eclipse.gemoc.executionframework.reflectivetrace.gemoc_execution_trac
 import org.eclipse.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.Gemoc_execution_traceFactory;
 import org.eclipse.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.ModelState;
 import org.eclipse.gemoc.executionframework.reflectivetrace.gemoc_execution_trace.SolverState;
+import org.eclipse.gemoc.trace.commons.model.generictrace.GenericParallelStep;
 import org.eclipse.gemoc.trace.commons.model.trace.ParallelStep;
 import org.eclipse.gemoc.trace.commons.model.trace.Step;
 import org.eclipse.gemoc.trace.gemoc.api.IMultiDimensionalTraceAddon;
@@ -496,8 +497,8 @@ public class EventSchedulingModelExecutionTracingAddon implements IEngineAddon {
 					if (_lastChoice != null) {
 						if (_lastChoice.getPossibleLogicalSteps().size() == 0)
 							return;
-						if (_lastChoice.getPossibleLogicalSteps().contains(selectedLogicalStep)) {
-							_lastChoice.setChosenLogicalStep(selectedLogicalStep);
+						if (_lastChoice.getPossibleLogicalSteps().contains(selectedLogicalStep.eContainer())) { //warning we want to store all the generic small step chosen in parallel
+							_lastChoice.setChosenLogicalStep((GenericParallelStep)selectedLogicalStep.eContainer());
 						}
 					}
 				}
@@ -512,12 +513,6 @@ public class EventSchedulingModelExecutionTracingAddon implements IEngineAddon {
 					}
 				}
 				
-				long t1 = System.nanoTime();
-				storeCurrentContextState();
-				long t2 = System.nanoTime();
-				if (outputAddTmpWriter != null) {
-					outputAddTmpWriter.println(t2 - t1);
-				}
 			}
 		};
 		CommandExecution.execute(getEditingDomain(), command);
