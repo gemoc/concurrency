@@ -366,7 +366,7 @@ public class helperNsURI {
 		
 		ArrayList<ExpCS> ownedRightExpressions = collectAllOwnedRightExpression((InfixExpCS) param);
 		for(ExpCS e: ownedRightExpressions){
-			if (e.getPivot() instanceof IteratorExp){
+			if (e.getPivot() instanceof IteratorExp || e.getPivot().eContainer() instanceof IteratorExp){
 				//not enough ! (but sufficient here to avoid most of the problems
 				return true;
 			}
