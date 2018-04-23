@@ -359,13 +359,24 @@ public class helperNsURI {
 		return res;
 	}
 	
+	private ArrayList<ExpCS> collectAllOwnedLeftExpression(InfixExpCS infExp){
+		ArrayList<ExpCS> res = new ArrayList<ExpCS>();
+		ExpCS current = infExp.getOwnedLeft();
+		res.add(current);
+		if (current instanceof InfixExpCS){
+			res.addAll(collectAllOwnedLeftExpression((InfixExpCS) current));
+		}
+		return res;
+	}
+	
 	public boolean isACollection(ExpCS param){
 		if (! (param instanceof InfixExpCS)){
 			return false;//throw new RuntimeException("in the qvto helper; in isACollection, the param is not supported: "+param);
 		}
 		
-		ArrayList<ExpCS> ownedRightExpressions = collectAllOwnedRightExpression((InfixExpCS) param);
-		for(ExpCS e: ownedRightExpressions){
+		ArrayList<ExpCS> ownedExpressions = collectAllOwnedRightExpression((InfixExpCS) param);
+		ownedExpressions.addAll(collectAllOwnedLeftExpression((InfixExpCS) param));
+		for(ExpCS e: ownedExpressions){
 			if (e.getPivot() instanceof IteratorExp || e.getPivot().eContainer() instanceof IteratorExp){
 				//not enough ! (but sufficient here to avoid most of the problems
 				return true;

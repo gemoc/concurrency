@@ -415,7 +415,11 @@ main() {
 		[comment]end if it is a def of event[/comment]
 		[/if]
 		[if (constraint.ownedType <> null and constraint.ownedType.oclIsKindOf(PrimitiveTypeRefCS))]
-		mapping inMM[itsContext.getinMMindex()/]::[itsContext.pivot.oclAsType(NamedElement).name/]::[constraint.pivot.oclAsType(NamedElement).name/]2Integer() :TimeModel::BasicType::IntegerElement {
+		mapping inMM[itsContext.getinMMindex()/]::[itsContext.pivot.oclAsType(NamedElement).name/]::[constraint.pivot.oclAsType(NamedElement).name/]2Integer() :TimeModel::BasicType::IntegerElement
+		[if constraint.oclIsKindOf(ECLDefCS) ]
+			when { [constraint.oclAsType(ECLDefCS).condition/] }
+		[/if]
+		 {
 			name:= getNameOrUID(self.oclAsType(EObject)) + '_[constraint.pivot.oclAsType(NamedElement).name/]';
 			type:= Kernel_Integer;
 			value := [constraint.ownedSpecification/];
