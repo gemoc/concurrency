@@ -100,7 +100,6 @@ public class K3DSLCodeExecutor extends AbstractAspectsCodeExecutor implements IC
 	 * @return
 	 */
 	protected Method getFirstApplicableMethod(Class<?> staticHelperClass, String methodName, List<Object> parameters) {
-
 		Method[] methods = staticHelperClass.getDeclaredMethods();
 		for (Method method : methods) {
 			Class<?>[] evaluatedMethodParamTypes = method.getParameterTypes();
@@ -144,6 +143,7 @@ public class K3DSLCodeExecutor extends AbstractAspectsCodeExecutor implements IC
 	@Override
 	protected Set<Class<?>> getStaticHelperClasses(Object target) {
 		Set<Class<?>> classes = new HashSet<Class<?>>();
+		K3DslHelper.getAspects(languageName);
 		classes.addAll((Collection<? extends Class<?>>) K3DslHelper.getAspectsOn(languageName, target.getClass()));
 		//TODO: report for aspects not found on target 
 		return classes;

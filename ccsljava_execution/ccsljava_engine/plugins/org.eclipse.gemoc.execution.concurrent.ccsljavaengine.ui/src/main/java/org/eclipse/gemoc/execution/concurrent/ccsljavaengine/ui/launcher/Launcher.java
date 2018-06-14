@@ -11,8 +11,10 @@
  *******************************************************************************/
 package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.launcher;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.function.BiPredicate;
 
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
@@ -31,18 +33,27 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystem;
 import org.eclipse.gemoc.commons.eclipse.ui.ViewHelper;
+import org.eclipse.gemoc.dsl.debug.ide.IDSLDebugger;
 import org.eclipse.gemoc.dsl.debug.ide.adapter.IDSLCurrentInstructionListener;
+import org.eclipse.gemoc.dsl.debug.ide.event.DSLDebugEventDispatcher;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.commons.ConcurrentModelExecutionContext;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.dse.ConcurrentExecutionEngine;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.Activator;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.debug.GemocModelDebugger;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.step.LogicalStepsView;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.StimuliManagerView;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
+import org.eclipse.gemoc.executionframework.debugger.AbstractGemocDebugger;
+import org.eclipse.gemoc.executionframework.debugger.AnnotationMutableFieldExtractor;
+import org.eclipse.gemoc.executionframework.debugger.IMutableFieldExtractor;
 import org.eclipse.gemoc.executionframework.engine.ui.commons.RunConfiguration;
 import org.eclipse.gemoc.executionframework.engine.ui.launcher.AbstractGemocLauncher;
 import org.eclipse.gemoc.executionframework.extensions.sirius.services.AbstractGemocAnimatorServices;
 import org.eclipse.gemoc.executionframework.extensions.sirius.services.AbstractGemocDebuggerServices;
 import org.eclipse.gemoc.executionframework.ui.views.engine.EnginesStatusView;
+import org.eclipse.gemoc.trace.commons.model.trace.MSEOccurrence;
+import org.eclipse.gemoc.trace.commons.model.trace.Step;
 import org.eclipse.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 import org.eclipse.gemoc.xdsmlframework.api.core.ExecutionMode;
 import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine;
@@ -53,11 +64,12 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PlatformUI;
 
+
 public class Launcher extends AbstractGemocLauncher {
 
-	public final static String TYPE_ID = Activator.PLUGIN_ID + ".launcher";
+	public final static String TYPE_ID = Activator.PLUGIN_ID+".launcher";
 
-	private ConcurrentExecutionEngine _executionEngine;
+	private IExecutionEngine _executionEngine;
 
 	@Override
 	public void launch(final ILaunchConfiguration configuration, final String mode, final ILaunch launch,
@@ -66,15 +78,17 @@ public class Launcher extends AbstractGemocLauncher {
 			debug("About to initialize and run the GEMOC Execution Engine...");
 
 			// make sure to have the engine view when starting the engine
-			PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable() {
-				@Override
-				public void run() {
-					ViewHelper.retrieveView(StimuliManagerView.ID);
-					ViewHelper.retrieveView(EnginesStatusView.ID);
-					ViewHelper.showView(LogicalStepsView.ID);
-				}
-			});
-
+			PlatformUI.getWorkbench().getDisplay().syncExec(
+					new Runnable()
+					{
+						@Override
+						public void run() {
+							ViewHelper.retrieveView(StimuliManagerView.ID);
+							ViewHelper.retrieveView(EnginesStatusView.ID);
+							ViewHelper.showView(LogicalStepsView.ID);
+						}			
+					});	
+			
 			// We parse the run configuration
 			final ConcurrentRunConfiguration runConfiguration = new ConcurrentRunConfiguration(configuration);
 
@@ -91,20 +105,20 @@ public class Launcher extends AbstractGemocLauncher {
 				return;
 			}
 
-			ConcurrentModelExecutionContext concurrentexecutionContext = new ConcurrentModelExecutionContext(
-					runConfiguration, executionMode);
+
+			ConcurrentModelExecutionContext	concurrentexecutionContext = new ConcurrentModelExecutionContext(runConfiguration, executionMode);
 			concurrentexecutionContext.initializeResourceModel();
 			ISolver _solver = null;
 			try {
-				_solver = concurrentexecutionContext.getConcurrentLanguageDefinitionExtension().instanciateSolver();
+				_solver  = concurrentexecutionContext.getConcurrentLanguageDefinitionExtension().instanciateSolver();
 				_solver.prepareBeforeModelLoading(concurrentexecutionContext);
 				_solver.initialize(concurrentexecutionContext);
 			} catch (CoreException e) {
-				throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID,
-						"Cannot instanciate solver from language definition", e));
+				throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID, "Cannot instanciate solver from language definition", e));
 			}
-
+			
 			_executionEngine = new ConcurrentExecutionEngine(concurrentexecutionContext, _solver);
+			
 
 			openViewsRecommandedByAddons(runConfiguration);
 
@@ -152,8 +166,8 @@ public class Launcher extends AbstractGemocLauncher {
 
 	private boolean isEngineAlreadyRunning(URI launchedModelURI) throws CoreException {
 		// make sure there is no other running engine on this model
-		Collection<IExecutionEngine> engines = org.eclipse.gemoc.executionframework.engine.Activator
-				.getDefault().gemocRunningEngineRegistry.getRunningEngines().values();
+		Collection<IExecutionEngine> engines = org.eclipse.gemoc.executionframework.engine.Activator.getDefault().gemocRunningEngineRegistry
+				.getRunningEngines().values();
 		for (IExecutionEngine engine : engines) {
 			IExecutionEngine observable = (IExecutionEngine) engine;
 			if (observable.getRunningStatus() != RunStatus.Stopped
@@ -218,6 +232,40 @@ public class Launcher extends AbstractGemocLauncher {
 		return EcorePackage.eINSTANCE;
 	}
 
+	@Override
+	protected IDSLDebugger getDebugger(ILaunchConfiguration configuration, DSLDebugEventDispatcher dispatcher,
+			EObject firstInstruction, IProgressMonitor monitor) {
+
+		AbstractGemocDebugger res = null;
+
+		if (_executionEngine instanceof IConcurrentExecutionEngine) {
+
+			res = new GemocModelDebugger(dispatcher, _executionEngine);
+			
+			List<IMutableFieldExtractor> extractors = new ArrayList<IMutableFieldExtractor>();
+			extractors.add(new AnnotationMutableFieldExtractor());
+			
+			res.setMutableFieldExtractors(extractors);
+		}
+
+		// If in the launch configuration it is asked to pause at the start,
+		// we add this dummy break
+		try {
+			if (configuration.getAttribute(RunConfiguration.LAUNCH_BREAK_START, false)) {
+				res.addPredicateBreak(new BiPredicate<IExecutionEngine, Step<?>>() {
+					@Override
+					public boolean test(IExecutionEngine t, Step<?> u) {
+						return true;
+					}
+				});
+			}
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}
+
+		_executionEngine.getExecutionContext().getExecutionPlatform().addEngineAddon(res);
+		return res;
+	}
 
 	@Override
 	protected String getDebugTargetName(ILaunchConfiguration configuration, EObject firstInstruction) {
@@ -244,7 +292,7 @@ public class Launcher extends AbstractGemocLauncher {
 	@Override
 	public String getModelIdentifier() {
 		if (_executionEngine instanceof ConcurrentExecutionEngine)
-			return Activator.PLUGIN_ID + ".debugModel";
+			return Activator.PLUGIN_ID+".debugModel";
 		else
 			return MODEL_ID;
 	}
@@ -270,9 +318,9 @@ public class Launcher extends AbstractGemocLauncher {
 					if (group != null) {
 						ILaunchConfiguration savedLaunchConfig = configuration.doSave();
 						// open configuration for user validation and inputs
-						DebugUITools.openLaunchConfigurationDialogOnGroup(
-								PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
-								new StructuredSelection(savedLaunchConfig), group.getIdentifier(), null);
+						DebugUITools.openLaunchConfigurationDialogOnGroup(PlatformUI.getWorkbench()
+								.getActiveWorkbenchWindow().getShell(), new StructuredSelection(savedLaunchConfig),
+								group.getIdentifier(), null);
 						// DebugUITools.openLaunchConfigurationDialog(PlatformUI.getWorkbench()
 						// .getActiveWorkbenchWindow().getShell(),
 						// savedLaunchConfig, group.getIdentifier(), null);
