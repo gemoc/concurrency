@@ -39,7 +39,7 @@ public class CreateDSEWizardContextAction {
 	// directly in the model
 	protected IProject gemocLanguageIProject = null;
 	
-	protected Language gemocMelangeLanguage = null;
+	protected String gemocLanguage = null;
 	
 	private String eclPath = null;
 
@@ -47,9 +47,9 @@ public class CreateDSEWizardContextAction {
 		gemocLanguageIProject = updatedGemocLanguageProject;
 	}
 	
-	public CreateDSEWizardContextAction(IProject updatedGemocLanguageProject, Language melangeLanguage) {
+	public CreateDSEWizardContextAction(IProject updatedGemocLanguageProject, String aLanguage) {
 		gemocLanguageIProject = updatedGemocLanguageProject;
-		gemocMelangeLanguage = melangeLanguage;
+		gemocLanguage = aLanguage;
 	}
 	
 
@@ -79,7 +79,7 @@ public class CreateDSEWizardContextAction {
 				IWorkbench workbench = PlatformUI.getWorkbench();
 				CreateNewDSEProject createNewDSEProjectWizard = (CreateNewDSEProject)wizard;
 				// fine initialization
-				Language mLanguage = getMelangeLanguage();
+				String mLanguage = getLanguage();
 				if(mLanguage != null){
 					initWizardFromMelangeLanguage(createNewDSEProjectWizard, mLanguage);				
 				}
@@ -115,11 +115,10 @@ public class CreateDSEWizardContextAction {
 		}
 	}
 
-	protected void initWizardFromMelangeLanguage(CreateNewDSEProject createNewDSEProjectWizard, Language language){
+	protected void initWizardFromMelangeLanguage(CreateNewDSEProject createNewDSEProjectWizard, String language){
 		createNewDSEProjectWizard._askProjectNamePage.setInitialProjectName(MelangeXDSMLProjectHelper.baseProjectName(gemocLanguageIProject)+".dse");
-		createNewDSEProjectWizard._askDSEInfoPage.initialTemplateECLFileFieldValue = language.getName();
-		MelangeXDSMLProjectHelper.getFirstEcorePath(language);
-		createNewDSEProjectWizard._askDSEInfoPage.initialEcoreFileFieldValue =  "platform:/resource"+MelangeXDSMLProjectHelper.getFirstEcorePath(language);
+		createNewDSEProjectWizard._askDSEInfoPage.initialTemplateECLFileFieldValue = language;
+//		createNewDSEProjectWizard._askDSEInfoPage.initialEcoreFileFieldValue =  "platform:/resource"+MelangeXDSMLProjectHelper.getFirstEcorePath(language);
 		// FIXME currently we do not know how to store the DefaultRootContainer in a melangeXDSML project 
 		//createNewDSEProjectWizard._askDSEInfoPage.initialRootContainerFieldValue = languageDefinition.getDomainModelProject().getDefaultRootEObjectQualifiedName();
 		
@@ -173,10 +172,10 @@ public class CreateDSEWizardContextAction {
 	
 
 	
-	protected Language getMelangeLanguage(){
+	protected String getLanguage(){
 
-		if(this.gemocMelangeLanguage != null){
-			return this.gemocMelangeLanguage;
+		if(this.gemocLanguage != null){
+			return this.gemocLanguage;
 		}
 		else return null;
 	}

@@ -173,7 +173,7 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 								&& super.shouldBreak(mseOccurrence.getMse().getCaller()) && Boolean
 									.valueOf((String) getBreakpointAttributes(mseOccurrence.getMse().getCaller(),
 											GemocBreakpoint.BREAK_ON_LOGICAL_STEP)));
-				hasMSEBreak = hasMSEBreak || shouldBreakPredicates(engine, mseOccurrence);
+				hasMSEBreak = hasMSEBreak || shouldBreakPredicates(engine, logicalStep);
 				if (hasMSEBreak) {
 					break;
 				}
@@ -187,9 +187,10 @@ public class GemocModelDebugger extends AbstractGemocDebugger implements IEngine
 	private boolean shouldBreakMSEOccurence(MSEOccurrence mseOccurrence) {
 		final boolean res;
 
-		if (shouldBreakPredicates(engine, mseOccurrence))
-			res = true;
-		else if ((super.shouldBreak(mseOccurrence.getMse()) && Boolean.valueOf((String) getBreakpointAttributes(
+//		if (shouldBreakPredicates(engine, mseOccurrence))
+//			res = true;
+//		else 
+		if ((super.shouldBreak(mseOccurrence.getMse()) && Boolean.valueOf((String) getBreakpointAttributes(
 				mseOccurrence.getMse(), GemocBreakpoint.BREAK_ON_MSE_OCCURRENCE)))
 				|| (mseOccurrence.getMse().getCaller() != null && super.shouldBreak(mseOccurrence.getMse().getCaller()) && Boolean
 						.valueOf((String) getBreakpointAttributes(mseOccurrence.getMse().getCaller(),

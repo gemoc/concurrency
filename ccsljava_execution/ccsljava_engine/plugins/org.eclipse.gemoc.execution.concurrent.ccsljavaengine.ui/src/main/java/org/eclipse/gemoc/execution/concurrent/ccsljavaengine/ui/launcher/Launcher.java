@@ -53,6 +53,7 @@ import org.eclipse.gemoc.executionframework.extensions.sirius.services.AbstractG
 import org.eclipse.gemoc.executionframework.extensions.sirius.services.AbstractGemocDebuggerServices;
 import org.eclipse.gemoc.executionframework.ui.views.engine.EnginesStatusView;
 import org.eclipse.gemoc.trace.commons.model.trace.MSEOccurrence;
+import org.eclipse.gemoc.trace.commons.model.trace.Step;
 import org.eclipse.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 import org.eclipse.gemoc.xdsmlframework.api.core.ExecutionMode;
 import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine;
@@ -251,9 +252,9 @@ public class Launcher extends AbstractGemocLauncher {
 		// we add this dummy break
 		try {
 			if (configuration.getAttribute(RunConfiguration.LAUNCH_BREAK_START, false)) {
-				res.addPredicateBreak(new BiPredicate<IExecutionEngine, MSEOccurrence>() {
+				res.addPredicateBreakpoint(new BiPredicate<IExecutionEngine, Step<?>>() {
 					@Override
-					public boolean test(IExecutionEngine t, MSEOccurrence u) {
+					public boolean test(IExecutionEngine t, Step<?> u) {
 						return true;
 					}
 				});
@@ -329,6 +330,11 @@ public class Launcher extends AbstractGemocLauncher {
 		}
 		return launchConfigs;
 
+	}
+
+	@Override
+	public IExecutionEngine getExecutionEngine() {
+		return _executionEngine;
 	}
 
 }

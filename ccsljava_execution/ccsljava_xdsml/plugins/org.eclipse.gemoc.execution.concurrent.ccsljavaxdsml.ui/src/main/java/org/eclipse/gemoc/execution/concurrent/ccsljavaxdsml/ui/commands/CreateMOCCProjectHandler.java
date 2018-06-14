@@ -15,15 +15,15 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandler;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.wizards.CreateMOCCWizardContextAction;
-import org.eclipse.gemoc.xdsmlframework.ide.ui.commands.AbstractMelangeSelectHandler;
+import org.eclipse.gemoc.xdsmlframework.ide.ui.commands.AbstractDslSelectHandler;
 
 import fr.inria.diverse.melange.metamodel.melange.Language;
 
-public class CreateMOCCProjectHandler extends AbstractMelangeSelectHandler implements IHandler {
+public class CreateMOCCProjectHandler extends AbstractDslSelectHandler implements IHandler {
 
 	@Override
 	public Object executeForSelectedLanguage(ExecutionEvent event, IProject updatedGemocLanguageProject,
-			Language language) throws ExecutionException {
+			String language) throws ExecutionException {
 
 		CreateMOCCWizardContextAction action = new CreateMOCCWizardContextAction(
 				updatedGemocLanguageProject,
