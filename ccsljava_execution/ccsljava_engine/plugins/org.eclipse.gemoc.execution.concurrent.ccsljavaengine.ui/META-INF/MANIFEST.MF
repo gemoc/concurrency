@@ -52,8 +52,6 @@ Bundle-ActivationPolicy: lazy
 Export-Package: org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui,
  org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.actions,
  org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.commands,
- org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.debug,
- org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.debug.sirius.action,
  org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.deciders,
  org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.deciders.actions,
  org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.launcher,
