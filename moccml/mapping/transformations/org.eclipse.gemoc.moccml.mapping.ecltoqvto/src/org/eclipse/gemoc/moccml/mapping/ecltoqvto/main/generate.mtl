@@ -238,9 +238,7 @@ main() {
 	{
 		init{
 
-		[let navSet : String = expr.oclAsType(ECLExpression).parameters->at(1).prettyPrintButLast()]
-		var sources : Sequence([expr.oclAsType(ECLExpression).parameters->at(1).getTypeOfSet()/]) := [navSet.first(navSet.size()-1)/]->asSequence();
-		[/let]
+	
 		[let allLetExpr : Sequence(LetExpCS) = expr.ancestors(ConstraintCS)->first().oclAsType(EObject).eAllContents(LetExpCS)->select(l  | true)]
 [comment]			look if let is just a query to make the code cleaner --WARNING for now if an Int we both translate it into a CCSL int and a QVTo var[/comment]
 			[for (aVar : LetVariableCS | allLetExpr.ownedVariables)]
@@ -248,6 +246,9 @@ main() {
 		var [aVar.name/] : [aVar.ownedType/] := [aVar.ownedInitExpression/];
 				[/if]
 			[/for]
+		[/let]
+		[let navSet : String = expr.oclAsType(ECLExpression).parameters->at(1).prettyPrintButLast()]
+		var sources : Sequence([expr.oclAsType(ECLExpression).parameters->at(1).getTypeOfSet()/]) := [navSet.first(navSet.size()-1)/]->asSequence();
 		[/let]
 		var lastExpr : TimeModel::CCSLModel::ClockExpressionAndRelation::Expression :=null;
 		var i : Integer := 3;
@@ -307,7 +308,7 @@ main() {
 						[else]
 							[if (itsVar.ownedInitExpression.toString().endsWith('()'))]
 [comment]here we suppose that if it ends with () it is a functional call and then it could be that the element has no name attribute... TO FIX correctly ![/comment]
-								bindable := [itsVar.ownedInitExpression/] -> map Real2Integer(getNameOrUID(self.oclAsType(EObject))+[itsVar.ownedInitExpression.prettyPrintButLast().substring(1, itsVar.ownedInitExpression.prettyPrintButLast().size()-1)/]+"_[itsVar.ownedInitExpression.prettyPrintOnlyLast()/]")->asSequence()->first();
+								bindable := [itsVar.ownedInitExpression/] -> map Real2Integer(getNameOrUID(self.oclAsType(EObject))+[itsVar.ownedInitExpression.prettyPrintButLast().substring(1, itsVar.ownedInitExpression.prettyPrintButLast().size()-1)/].toString()+"_[itsVar.ownedInitExpression.prettyPrintOnlyLast()/]")->asSequence()->first();
 							[else]
 								bindable := [itsVar.ownedInitExpression/] -> map Real2Integer(getNameOrUID(self.oclAsType(EObject))+getNameOrUID([itsVar.ownedInitExpression.prettyPrintButLast()/]oclAsType(EObject))+"_[itsVar.ownedInitExpression.prettyPrintOnlyLast()/]")->asSequence()->first();
 							[/if]
@@ -414,7 +415,11 @@ main() {
 		[comment]end if it is a def of event[/comment]
 		[/if]
 		[if (constraint.ownedType <> null and constraint.ownedType.oclIsKindOf(PrimitiveTypeRefCS))]
-		mapping inMM[itsContext.getinMMindex()/]::[itsContext.pivot.oclAsType(NamedElement).name/]::[constraint.pivot.oclAsType(NamedElement).name/]2Integer() :TimeModel::BasicType::IntegerElement {
+		mapping inMM[itsContext.getinMMindex()/]::[itsContext.pivot.oclAsType(NamedElement).name/]::[constraint.pivot.oclAsType(NamedElement).name/]2Integer() :TimeModel::BasicType::IntegerElement
+		[if constraint.oclIsKindOf(ECLDefCS) ]
+			when { [constraint.oclAsType(ECLDefCS).condition/] }
+		[/if]
+		 {
 			name:= getNameOrUID(self.oclAsType(EObject)) + '_[constraint.pivot.oclAsType(NamedElement).name/]';
 			type:= Kernel_Integer;
 			value := [constraint.ownedSpecification/];
@@ -527,7 +532,7 @@ main() {
 								[else]
 									[if (itsVar.ownedInitExpression.toString().endsWith('()'))]
 [comment]here we suppose that if it ends with () it is a functional call and then it could be that the element has no name attribute... TO FIX correctly ![/comment]
-							bindable := [itsVar.ownedInitExpression/] -> map Real2Integer(getNameOrUID(self.oclAsType(EObject))+[itsVar.ownedInitExpression.prettyPrintButLast().substring(0, itsVar.ownedInitExpression.prettyPrintButLast().size()-1)/]+"_[itsVar.ownedInitExpression.prettyPrintOnlyLast()/]")->asSequence()->first();
+							bindable := [itsVar.ownedInitExpression/] -> map Real2Integer(getNameOrUID(self.oclAsType(EObject))+[itsVar.ownedInitExpression.prettyPrintButLast().substring(0, itsVar.ownedInitExpression.prettyPrintButLast().size()-1)/].toString()+"_[itsVar.ownedInitExpression.prettyPrintOnlyLast()/]")->asSequence()->first();
 									[else]
 							bindable := [itsVar.ownedInitExpression/] -> map Real2Integer(getNameOrUID(self.oclAsType(EObject))+getNameOrUID([itsVar.ownedInitExpression.prettyPrintButLast()/]oclAsType(EObject))+"_[itsVar.ownedInitExpression.prettyPrintOnlyLast()/]")->asSequence()->first();
 									[/if]							

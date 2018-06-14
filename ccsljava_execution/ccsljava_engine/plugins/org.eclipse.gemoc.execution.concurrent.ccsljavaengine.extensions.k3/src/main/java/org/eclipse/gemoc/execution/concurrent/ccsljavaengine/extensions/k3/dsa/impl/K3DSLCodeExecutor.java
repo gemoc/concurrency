@@ -23,17 +23,17 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.dsa.api.IK3DSAExecutorClassLoader;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.CodeExecutionException;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
-import org.eclipse.gemoc.executionframework.engine.commons.MelangeHelper;
+import org.eclipse.gemoc.executionframework.engine.commons.K3DslHelper;
 import org.eclipse.gemoc.trace.commons.model.trace.MSEOccurrence;
 
 //TODO: extends Kermeta3AspectsCodeExecutor?
-public class MelangeCodeExecutor extends AbstractAspectsCodeExecutor implements ICodeExecutor {
+public class K3DSLCodeExecutor extends AbstractAspectsCodeExecutor implements ICodeExecutor {
 
 	// protected ClassLoader classLoader;
 	protected IK3DSAExecutorClassLoader k3DSAExecutorClassLoader;
 	protected String languageName;
 
-	public MelangeCodeExecutor(IK3DSAExecutorClassLoader k3DSAExecutorClassLoader, String languageName) {
+	public K3DSLCodeExecutor(IK3DSAExecutorClassLoader k3DSAExecutorClassLoader, String languageName) {
 		// this.classLoader = classLoader;
 		this.k3DSAExecutorClassLoader = k3DSAExecutorClassLoader;
 		this.languageName = languageName;
@@ -144,7 +144,7 @@ public class MelangeCodeExecutor extends AbstractAspectsCodeExecutor implements 
 	@Override
 	protected Set<Class<?>> getStaticHelperClasses(Object target) {
 		Set<Class<?>> classes = new HashSet<Class<?>>();
-		classes.addAll((Collection<? extends Class<?>>) MelangeHelper.getAspectsOn(languageName, target.getClass()));
+		classes.addAll((Collection<? extends Class<?>>) K3DslHelper.getAspectsOn(languageName, target.getClass()));
 		//TODO: report for aspects not found on target 
 		return classes;
 	}

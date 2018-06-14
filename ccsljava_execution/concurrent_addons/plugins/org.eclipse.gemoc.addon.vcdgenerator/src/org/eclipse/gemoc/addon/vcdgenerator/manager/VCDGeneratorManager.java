@@ -470,7 +470,7 @@ public class VCDGeneratorManager extends DefaultEngineAddon{
 						VCDGeneratorClockBehavior vb = (VCDGeneratorClockBehavior)b;
 						ConcreteEntity ce = ((GemocClockEntity)vb.getClock())._ce;
 						ModelElementReference mer = ((GemocClockEntity)vb.getClock())._mer;
-						if (ce.getName() == c.getName()){ //TODO: Fix this ugly comparison
+						if (ce.getName().compareTo(c.getName()) == 0){ //TODO: Fix this ugly comparison
 							alreadyDone.add(b);
 							EventOccurrence eocc = TraceFactory.eINSTANCE.createEventOccurrence();
 							eocc.setFState(FiredStateKind.TICK);
