@@ -77,13 +77,6 @@
             sourceLocatorId="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.sourceLocator">
       </launchConfigurationType>
    </extension>
-   <extension
-          point="org.eclipse.debug.ui.debugModelPresentations">
-       <debugModelPresentation
-             class="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.GemocDebugModelPresentation"
-             id="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.debugModel">
-       </debugModelPresentation>
-    </extension>
     <!--ibute
              name="org.eclipse.gemoc.gemoc_modeling_workbench.ui.breakpoint.breakOnLogicalStep">
        </attribute>
