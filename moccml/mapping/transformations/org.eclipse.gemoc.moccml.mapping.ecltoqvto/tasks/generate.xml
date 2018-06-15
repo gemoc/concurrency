@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="generate" name="org.eclipse.gemoc.moccml.mapping.ecltoqvto">
-    <property name="ECLIPSE_HOME" value="../../../../../../../../../../../../install/gemoc/gemoc@eclipse/Oxygen/build40"/>
-    <property name="ECLIPSE_WORKSPACE" value="../../../../../../../workspace_language_ericJenn"/>
+    <property name="ECLIPSE_HOME" value="../../../../../../../../../../../../install/gemoc/Oxygen/build78"/>
+    <property name="ECLIPSE_WORKSPACE" value="../../../../../../../workspace_gemocDev"/>
 
     <!-- The classpath with only the dependencies used by the project -->
     <path id="org.eclipse.gemoc.moccml.mapping.ecltoqvto.libraryclasspath">
         <pathelement location="${ECLIPSE_WORKSPACE}/org.eclipse.gemoc.moccml.mapping.ecltoqvto/bin"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.fx.ide.css.jfx8_3.0.0.201705220750.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.core.runtime_3.13.0.v20170207-1030.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/javax.inject_1.0.0.v20091030.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.osgi_3.12.50.v20170928-1321.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.osgi_3.12.100.v20180210-1608.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.equinox.weaving.hook_1.2.0.v20160929-1449.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.fx.osgi_3.0.0.201705220748.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.osgi.compatibility.state_1.1.0.v20170516-1513.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.equinox.common_3.9.0.v20170207-1454.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.core.jobs_3.9.2.v20171030-1027.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.core.jobs_3.9.3.v20180115-1757.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.equinox.registry_3.7.0.v20170222-1344.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.equinox.preferences_3.7.0.v20170126-2132.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.core.contenttype_3.6.0.v20170207-1037.jar"/>
@@ -22,7 +23,7 @@
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.xtext.essentialocl_1.3.0.v20170522-1753.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.xtext.base_1.3.0.v20170522-1753.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.pivot_1.3.0.v20170522-1753.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.jdt.annotation_2.1.100.v20170511-1408.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.jdt.annotation_2.1.150.v20180322-1206.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.ecore.xmi_2.13.0.v20170609-0707.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.ecore_2.13.0.v20170609-0707.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.common_2.13.0.v20170609-0707.jar"/>
@@ -47,10 +48,8 @@
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.engine_3.7.2.201708211328.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.codegen.ecore_2.13.0.v20170609-0928.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.codegen_2.12.0.v20170609-0928.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.gemoc.moccml.mapping_1.0.0.201802231713.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/fr.inria.aoste.timesquare.ccslkernel.model_1.0.0.201802221722.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/fr.inria.aoste.timesquare.ccslkernel.model_1.0.0.201806130817.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.core.resources_3.12.0.v20170417-1558.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.gemoc.moccml.mapping.xtext_1.0.0.201802231713.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.apache.log4j_1.2.15.v201012070815.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.apache.commons.logging_1.1.1.v201101211721.jar"/>
     </path>

@@ -303,7 +303,7 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 				_languageCombo = new Combo(parent, SWT.NONE);
 				_languageCombo.setLayoutData(createStandardLayout());
 
-				List<String> languagesNames = MelangeHelper.getAllLanguages();
+				List<String> languagesNames = MelangeHelper.getAllMelangeLanguages();
 				String[] empty = {};
 				_languageCombo.setItems(languagesNames.toArray(empty));
 				_languageCombo.addSelectionListener(new SelectionAdapter() {

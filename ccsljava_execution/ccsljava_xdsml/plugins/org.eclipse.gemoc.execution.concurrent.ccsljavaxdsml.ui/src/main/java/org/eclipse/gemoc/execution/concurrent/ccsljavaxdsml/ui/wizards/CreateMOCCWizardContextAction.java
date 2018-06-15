@@ -36,14 +36,14 @@ public class CreateMOCCWizardContextAction {
 	
 	// one of these must be set, depending on it it will work on the file or directly in the model 
 	protected IProject gemocLanguageIProject = null;
-	protected Language gemocMelangeLanguage = null;
+	protected String gemocLanguage = null;
 	
 	public CreateMOCCWizardContextAction(IProject updatedGemocLanguageProject) {
 		gemocLanguageIProject = updatedGemocLanguageProject;
 	}
-	public CreateMOCCWizardContextAction(IProject updatedGemocLanguageProject, Language melangeLanguage) {
+	public CreateMOCCWizardContextAction(IProject updatedGemocLanguageProject, String melangeLanguage) {
 		gemocLanguageIProject = updatedGemocLanguageProject;
-		gemocMelangeLanguage = melangeLanguage;
+		gemocLanguage = melangeLanguage;
 	}
 
 	public void execute() {
@@ -72,9 +72,9 @@ public class CreateMOCCWizardContextAction {
 				IWorkbench workbench = PlatformUI.getWorkbench();
 				CreateNewMoCProject createNewMoCCProjectWizard = (CreateNewMoCProject)wizard;
 				// fine initialization
-				Language mLanguage = getMelangeLanguage();
+				String mLanguage = getLanguage();
 				if(mLanguage != null){
-					initWizardFromMelangeLanguage(createNewMoCCProjectWizard, mLanguage);
+					initWizardFromLanguage(createNewMoCCProjectWizard, mLanguage);
 				}
 				wizard.init(workbench, null);
 				WizardDialog wd = new WizardDialog(workbench.getActiveWorkbenchWindow().getShell(), wizard);
@@ -106,9 +106,9 @@ public class CreateMOCCWizardContextAction {
 		}
 	}
 	
-	protected void initWizardFromMelangeLanguage(CreateNewMoCProject createNewMOCProjectWizard, Language language){
+	protected void initWizardFromLanguage(CreateNewMoCProject createNewMOCProjectWizard, String language){
 		createNewMOCProjectWizard._askProjectNamePage.setInitialProjectName(MelangeXDSMLProjectHelper.baseProjectName(gemocLanguageIProject)+".mocc");
-		createNewMOCProjectWizard._askMoCInfoPage.initialTemplateMoCFileFieldValue = language.getName().replaceAll(" ", "_");
+		createNewMOCProjectWizard._askMoCInfoPage.initialTemplateMoCFileFieldValue = language.replaceAll(" ", "_");
 	}
 	
 	protected void selectExistingMOCCProject(){
@@ -126,10 +126,10 @@ public class CreateMOCCWizardContextAction {
 	}
 	
 	
-	protected Language getMelangeLanguage(){
+	protected String getLanguage(){
 
-		if(this.gemocMelangeLanguage != null){
-			return this.gemocMelangeLanguage;
+		if(this.gemocLanguage != null){
+			return this.gemocLanguage;
 		}
 		else return null;
 	}
