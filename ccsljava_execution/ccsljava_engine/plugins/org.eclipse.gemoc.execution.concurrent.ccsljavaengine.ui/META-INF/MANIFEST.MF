@@ -43,8 +43,6 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.gemoc.executionframework.extensions.sirius,
  org.eclipse.gemoc.xdsmlframework.ui.utils,
  org.eclipse.jface,
- org.eclipse.gemoc.executionframework.debugger,
- org.eclipse.gemoc.executionframework.debugger.ui,
  org.eclipse.gemoc.commons.eclipse.messagingsystem.api;bundle-version="2.3.0",
  org.eclipse.gemoc.commons.eclipse.messagingsystem.ui;bundle-version="2.3.0",
  fr.inria.diverse.melange.resource;bundle-version="0.2.1"
