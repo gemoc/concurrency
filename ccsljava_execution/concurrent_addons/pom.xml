@@ -56,7 +56,7 @@
 				<repository>
 		            <id>gemoc-studio_commons on CI</id>
 		            <layout>p2</layout>
-		        <url>https://ci.eclipse.org/gemoc/job/gemoc-studio/job/master/lastSuccessfulBuild/artifact/gemoc-studio/gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.updatesite/target/repository/</url>
+		        <url>http://download.eclipse.org/gemoc/updates/nightly/</url>
 		        </repository>
 		        
 		        <repository>
