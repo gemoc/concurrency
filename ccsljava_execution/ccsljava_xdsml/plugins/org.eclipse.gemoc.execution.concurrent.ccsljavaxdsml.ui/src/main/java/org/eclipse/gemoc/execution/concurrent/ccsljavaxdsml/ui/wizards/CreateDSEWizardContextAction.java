@@ -25,7 +25,6 @@ import org.eclipse.ui.IWorkbenchWizard;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.wizards.IWizardDescriptor;
 
-import fr.inria.diverse.melange.metamodel.melange.Language;
 
 public class CreateDSEWizardContextAction {
 

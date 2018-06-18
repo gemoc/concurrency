@@ -38,7 +38,7 @@ import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.decid
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.deciders.DeciderSpecificationExtensionPoint;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtension;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtensionPoint;
-import org.eclipse.gemoc.executionframework.engine.commons.MelangeHelper;
+import org.eclipse.gemoc.executionframework.engine.commons.DslHelper;
 import org.eclipse.gemoc.executionframework.engine.ui.commons.RunConfiguration;
 import org.eclipse.gemoc.xdsmlframework.ui.utils.dialogs.SelectAIRDIFileDialog;
 import org.eclipse.jface.dialogs.Dialog;
@@ -299,11 +299,11 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 	 */
 	public Composite createLanguageLayout(Composite parent, Font font) {
 		// Language
-				createTextLabelLayout(parent, "Melange languages");
+				createTextLabelLayout(parent, "DSL languages");
 				_languageCombo = new Combo(parent, SWT.NONE);
 				_languageCombo.setLayoutData(createStandardLayout());
 
-				List<String> languagesNames = MelangeHelper.getAllMelangeLanguages();
+				List<String> languagesNames = DslHelper.getAllLanguages();
 				String[] empty = {};
 				_languageCombo.setItems(languagesNames.toArray(empty));
 				_languageCombo.addSelectionListener(new SelectionAdapter() {

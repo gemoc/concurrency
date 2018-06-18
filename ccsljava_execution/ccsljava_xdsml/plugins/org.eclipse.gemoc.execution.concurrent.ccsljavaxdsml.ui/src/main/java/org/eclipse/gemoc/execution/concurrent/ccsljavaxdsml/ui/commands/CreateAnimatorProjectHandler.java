@@ -36,7 +36,7 @@ public class CreateAnimatorProjectHandler extends AbstractDslSelectHandler imple
 	
 	@Override
 	public String getSelectionMessage() {
-		return "Select Melange language that will be used to initialize the new Animator project";
+		return "Select the DSL that will be used to initialize the new Animator project";
 	}
 
 	

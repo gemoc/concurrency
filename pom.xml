@@ -46,11 +46,11 @@
             <layout>p2</layout>
             <url>http://www.kermeta.org/k3/update/</url>
         </repository>
-        <repository>
+      <!--  <repository>
             <id>melange</id>
             <layout>p2</layout>
             <url>http://melange.inria.fr/updatesite/nightly/update_2018-06-04</url>
-        </repository>
+        </repository>-->
         <repository>
             <id>Sirius</id>
             <layout>p2</layout>

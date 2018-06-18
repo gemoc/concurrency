@@ -41,8 +41,8 @@ import org.eclipse.gemoc.xdsmlframework.ide.ui.builder.pde.PluginXMLHelper;
 import org.jdom2.Element;
 import org.osgi.framework.BundleException;
 
-import fr.inria.diverse.melange.metamodel.melange.Language;
-import fr.inria.diverse.melange.metamodel.melange.ModelTypingSpace;
+//import fr.inria.diverse.melange.metamodel.melange.Language;
+//import fr.inria.diverse.melange.metamodel.melange.ModelTypingSpace;
 
 public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 
@@ -132,45 +132,45 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 			IFile file = (IFile) resource;
 			IProject project = file.getProject();
 			// try {
-			if (file.exists()) {
-				//Load .melange file
-				URI uri = URI.createPlatformResourceURI(file.getFullPath().toString(), true);
-				ResourceSet rs = new ResourceSetImpl();
-				Resource res = rs.getResource(uri, true);
-				ModelTypingSpace root = (ModelTypingSpace)res.getContents().get(0);
-				String packageName = root.getName();
+//			if (file.exists()) {
+//				//Load .melange file
+//				URI uri = URI.createPlatformResourceURI(file.getFullPath().toString(), true);
+//				ResourceSet rs = new ResourceSetImpl();
+//				Resource res = rs.getResource(uri, true);
+//				ModelTypingSpace root = (ModelTypingSpace)res.getContents().get(0);
+//				String packageName = root.getName();
+//				
+//				ManifestChanger manifestChanger = new ManifestChanger(project);
+//				
+//				//Browse declared Languages
+//				for (fr.inria.diverse.melange.metamodel.melange.Element element : root.getElements()) {
+//					if(element instanceof Language){
+//						Language language = (Language) element;
+//						String languageName = packageName+"."+language.getName();
+//						// update entry in plugin.xml
+//						try {
+//							setPluginLanguageNameAndFilePath(project, file, packageName+"."+language.getName());
+//							updateCodeExecutorClass(project, languageName, manifestChanger);
+//							updateModelLoaderClass(project, languageName, null);
+//							updateSolverClass(project, languageName, null);
+//							String eclUri = "";
+//							List<String> ecls = language.getEcl();
+//							if(!ecls.isEmpty()) eclUri = ecls.get(0);
+//							updateQVTO(project, languageName, eclUri, null);
+//						} catch (BundleException | IOException
+//								| CoreException e) {
+//							e.printStackTrace();
+//						}
+//					}
+//				}
 				
-				ManifestChanger manifestChanger = new ManifestChanger(project);
-				
-				//Browse declared Languages
-				for (fr.inria.diverse.melange.metamodel.melange.Element element : root.getElements()) {
-					if(element instanceof Language){
-						Language language = (Language) element;
-						String languageName = packageName+"."+language.getName();
-						// update entry in plugin.xml
-						try {
-							setPluginLanguageNameAndFilePath(project, file, packageName+"."+language.getName());
-							updateCodeExecutorClass(project, languageName, manifestChanger);
-							updateModelLoaderClass(project, languageName, null);
-							updateSolverClass(project, languageName, null);
-							String eclUri = "";
-							List<String> ecls = language.getEcl();
-							if(!ecls.isEmpty()) eclUri = ecls.get(0);
-							updateQVTO(project, languageName, eclUri, null);
-						} catch (BundleException | IOException
-								| CoreException e) {
-							e.printStackTrace();
-						}
-					}
-				}
-				
-				try {
-					manifestChanger.addPluginDependency(org.eclipse.gemoc.executionframework.extensions.sirius.Activator.PLUGIN_ID);
-					manifestChanger.commit();
-				} catch (BundleException | IOException | CoreException e) {
-					e.printStackTrace();
-				}
-			}
+//				try {
+//					manifestChanger.addPluginDependency(org.eclipse.gemoc.executionframework.extensions.sirius.Activator.PLUGIN_ID);
+//					manifestChanger.commit();
+//				} catch (BundleException | IOException | CoreException e) {
+//					e.printStackTrace();
+//				}
+//			}
 		}
 	}
 

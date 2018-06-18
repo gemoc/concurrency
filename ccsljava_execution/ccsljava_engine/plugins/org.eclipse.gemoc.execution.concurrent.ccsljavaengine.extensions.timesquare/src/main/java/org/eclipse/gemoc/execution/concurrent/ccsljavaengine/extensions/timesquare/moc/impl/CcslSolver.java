@@ -429,7 +429,7 @@ public class CcslSolver implements org.eclipse.gemoc.execution.concurrent.ccslja
 			performer.run(
 						new ResourceSetImpl(),
 						"platform:/plugin" + transformationPath, 
-						context.getRunConfiguration().getExecutedModelAsMelangeURI().toString(), 
+						context.getRunConfiguration().getExecutedModelURI().toString(), 
 						"platform:/resource" + workspace.getMoCPath().toString(),
 						"platform:/resource" + getFeedbackPathFromMSEModelPath(workspace.getMSEModelPath()).toString());	
 			// TODO must now generate the MSEModel based on this feedbackmodel, that'll wrap the ModelSpecificEvent from Timesquare to MSE for our internal trace
