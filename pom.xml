@@ -49,7 +49,7 @@
         <repository>
             <id>melange</id>
             <layout>p2</layout>
-            <url>http://melange-lang.org/updatesite/</url>
+            <url>http://melange.inria.fr/updatesite/nightly/update_2018-06-04</url>
         </repository>
         <repository>
             <id>Sirius</id>
