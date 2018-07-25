@@ -103,7 +103,20 @@ public class ToggleNatureAction implements IObjectActionDelegate {
 	{
 		try 
 		{
-			NatureToggling result = IProjectUtils.toggleNature(project, GemocLanguageDesignerNature.NATURE_ID);
+//			NatureToggling result = IProjectUtils.toggleNature(project, GemocLanguageDesignerNature.NATURE_ID);
+			NatureToggling result =null;
+			if (!project.hasNature(GemocLanguageDesignerNature.NATURE_ID)) 
+			{
+				IProjectUtils.addNature(project, GemocLanguageDesignerNature.NATURE_ID);
+				result = NatureToggling.Added;
+			}
+			else 
+			{
+//				removeNature(project, natureId);
+				result = NatureToggling.Removed;
+			}
+			
+			
 			switch (result) {
 				case Added:
 					JavaProject.create(project);
@@ -112,6 +125,7 @@ public class ToggleNatureAction implements IObjectActionDelegate {
 					updateManifestFile(project);
 					break;
 				case Removed:
+					removeNature(project, GemocLanguageDesignerNature.NATURE_ID, null);
 					break;	
 				default:
 					break;
@@ -141,6 +155,28 @@ public class ToggleNatureAction implements IObjectActionDelegate {
 			}
 		}
 	}
+	public static void removeNature(IProject project,String natureID, IProgressMonitor monitor) throws CoreException {
+			if (monitor != null && monitor.isCanceled()) {
+				throw new OperationCanceledException();
+			}
+			if (project.hasNature(natureID)) {
+				IProjectDescription description = project.getDescription();
+				String[] natures = description.getNatureIds();
+				String[] newNatures = new String[natures.length - 1];
+				int i = 0;
+				for (String n : natures) {
+					if (n.compareTo(natureID) != 0) {
+						newNatures[i++] = n;
+					}
+				}
+				description.setNatureIds(newNatures);
+				project.setDescription(description, null);
+			} else {
+				if (monitor != null) {
+					monitor.worked(1);
+				}
+			}
+		}
 
 	private void addPluginNature(IProject project) throws CoreException {
 		if(!project.hasNature("org.eclipse.pde.PluginNature")) 
@@ -217,8 +253,18 @@ public class ToggleNatureAction implements IObjectActionDelegate {
 			IPath srcPath= javaProject.getPath().append(folder);
 			IClasspathEntry srcEntry= JavaCore.newSourceEntry(srcPath, null);
 
-			newEntries[entries.length] = JavaCore.newSourceEntry(srcEntry.getPath());
-			javaProject.setRawClasspath(newEntries, null);
+			
+			boolean entryfound = false;
+			for (IClasspathEntry cpe : entries) {
+				if (cpe.equals(srcEntry)){
+					entryfound = true;
+				}
+			}
+			
+			if (! entryfound) {
+				newEntries[entries.length] = JavaCore.newSourceEntry(srcEntry.getPath());
+				javaProject.setRawClasspath(newEntries, null);
+			}
 		} catch (JavaModelException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

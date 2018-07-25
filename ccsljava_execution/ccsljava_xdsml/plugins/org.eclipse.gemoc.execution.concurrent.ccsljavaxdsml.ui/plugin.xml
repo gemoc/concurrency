@@ -261,7 +261,7 @@
     </wizard>
   </extension>
   <extension point="org.eclipse.gemoc.commons.eclipse.pde.templates">
-    <template class="org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.templates.ConcurrentTemplate" contributingId="fr.inria.diverse.melange.ui.templates.template1" id="fr.inria.diverse.melange.ui.templates.template_simple_concurrent_language" name="Simple GEMOC concurrent project"/>
+    <template class="org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.templates.ConcurrentTemplate" contributingId="org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.templates.template1" id="org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.templates.template_simple_concurrent_language" name="Simple GEMOC concurrent project"/>
   </extension>
   <extension point="org.eclipse.core.expressions.definitions">
     <definition id="org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.definitions.IsSelectionInGemocConcurrentLanguageProject">

@@ -31,9 +31,9 @@ public class CreateNewGemocModelingProject extends Wizard implements INewWizard 
 	
 	public CreateNewGemocModelingProject() {
 		super();
-		this.setWindowTitle("Create Domain Model");
+		this.setWindowTitle("Gemoc Concurrent Modeling Project Wizard");
 		this.mainPage = new WizardNewProjectCreationPage("NewGemocModelingProject");
-		this.mainPage.setTitle("Project");
+		this.mainPage.setTitle("Gemoc Concurrent Project");
 		this.mainPage.setDescription("Create a new Gemoc Modeling Project");
 		addPage(this.mainPage);
 	}

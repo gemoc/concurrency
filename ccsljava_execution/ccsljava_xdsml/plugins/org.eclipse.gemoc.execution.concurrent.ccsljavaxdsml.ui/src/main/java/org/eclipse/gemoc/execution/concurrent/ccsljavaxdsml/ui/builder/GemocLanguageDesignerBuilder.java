@@ -11,7 +11,6 @@
 package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.builder;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
@@ -34,6 +33,8 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.gemoc.commons.eclipse.core.resources.FileFinderVisitor;
 import org.eclipse.gemoc.commons.eclipse.core.resources.IFileUtils;
 import org.eclipse.gemoc.commons.eclipse.pde.manifest.ManifestChanger;
+import org.eclipse.gemoc.dsl.Dsl;
+import org.eclipse.gemoc.dsl.Entry;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtensionPoint;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
 import org.eclipse.gemoc.xdsmlframework.api.extensions.languages.LanguageDefinitionExtensionPoint;
@@ -128,49 +129,53 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 	 */
 	private void updateProjectPluginConfiguration(IResource resource) {
 		if (resource instanceof IFile 
-			&& resource.getFileExtension().equals("melange")) {
+			&& resource.getFileExtension().equals("dsl")) {
 			IFile file = (IFile) resource;
 			IProject project = file.getProject();
 			// try {
-//			if (file.exists()) {
-//				//Load .melange file
-//				URI uri = URI.createPlatformResourceURI(file.getFullPath().toString(), true);
-//				ResourceSet rs = new ResourceSetImpl();
-//				Resource res = rs.getResource(uri, true);
-//				ModelTypingSpace root = (ModelTypingSpace)res.getContents().get(0);
-//				String packageName = root.getName();
-//				
-//				ManifestChanger manifestChanger = new ManifestChanger(project);
-//				
-//				//Browse declared Languages
-//				for (fr.inria.diverse.melange.metamodel.melange.Element element : root.getElements()) {
-//					if(element instanceof Language){
-//						Language language = (Language) element;
-//						String languageName = packageName+"."+language.getName();
-//						// update entry in plugin.xml
-//						try {
-//							setPluginLanguageNameAndFilePath(project, file, packageName+"."+language.getName());
-//							updateCodeExecutorClass(project, languageName, manifestChanger);
-//							updateModelLoaderClass(project, languageName, null);
-//							updateSolverClass(project, languageName, null);
-//							String eclUri = "";
-//							List<String> ecls = language.getEcl();
-//							if(!ecls.isEmpty()) eclUri = ecls.get(0);
-//							updateQVTO(project, languageName, eclUri, null);
-//						} catch (BundleException | IOException
-//								| CoreException e) {
-//							e.printStackTrace();
-//						}
-//					}
-//				}
+			if (file.exists()) {
+				//Load .dsl file
+				URI uri = URI.createPlatformResourceURI(file.getFullPath().toString(), true);
+				ResourceSet rs = new ResourceSetImpl();
+				Resource res = rs.getResource(uri, true);
 				
-//				try {
-//					manifestChanger.addPluginDependency(org.eclipse.gemoc.executionframework.extensions.sirius.Activator.PLUGIN_ID);
-//					manifestChanger.commit();
-//				} catch (BundleException | IOException | CoreException e) {
-//					e.printStackTrace();
-//				}
-//			}
+				Dsl root = (Dsl)res.getContents().get(0);
+				String packageName = root.getName();
+				
+				ManifestChanger manifestChanger = new ManifestChanger(project);
+				
+				//Browse declared Languages
+				String languageName = "null";
+				String eclFileName = "null";
+				
+				for (Entry anEntry: root.getEntries()) {
+					if(anEntry.getKey().compareTo("name")==0){
+						languageName = anEntry.getValue();
+						// update entry in plugin.xml
+						try {
+							setPluginLanguageNameAndFilePath(project, file, languageName);
+							updateCodeExecutorClass(project, languageName, manifestChanger);
+							updateModelLoaderClass(project, languageName, null);
+							updateSolverClass(project, languageName, null);
+						} catch (BundleException | IOException
+								| CoreException e) {
+							e.printStackTrace();
+						}
+					}
+					
+					if (anEntry.getKey().compareTo("ecl") == 0) {
+						eclFileName = anEntry.getValue();
+						updateQVTO(project, languageName, eclFileName, null);
+					}
+				}
+					
+				try {
+					manifestChanger.addPluginDependency(org.eclipse.gemoc.executionframework.extensions.sirius.Activator.PLUGIN_ID);
+					manifestChanger.commit();
+				} catch (BundleException | IOException | CoreException e) {
+					e.printStackTrace();
+				}
+			}
 		}
 	}
 
@@ -207,7 +212,7 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 			
 			
 		sbContent.append("// add Melange or K3 DSA specific executors\n");
-		sbContent.append("\t\taddExecutor(new org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.dsa.impl.MelangeCodeExecutor(this,\n");
+		sbContent.append("\t\taddExecutor(new org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.dsa.impl.K3DSLCodeExecutor(this,\n");
 		sbContent.append("\t\t\t\""+fullLanguageName+"\"));\n");
 		
 		sbImplementContent.append("\n\t\timplements org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.dsa.api.IK3DSAExecutorClassLoader ");
