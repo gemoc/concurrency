@@ -470,6 +470,13 @@ main() {
 		[/if]	
 	{
 		init{
+			[let allLetExpr : Sequence(LetExpCS) = expr.ancestors(ConstraintCS)->first().oclAsType(EObject).eAllContents(LetExpCS)->select(l | true)]
+			[for (aVar : LetVariableCS | allLetExpr.ownedVariables)]
+				[if (not aVar.ownedType.oclIsKindOf(EventType))]	
+					var [aVar.name/] : [aVar.ownedType/] := [aVar.ownedInitExpression/];
+				[/if]
+			[/for]
+			[/let]
 			[let navSet : String = expr.oclAsType(ECLRelation).parameters->at(1).prettyPrintButLast()]
 			var sources : Sequence([expr.oclAsType(ECLRelation).parameters->at(1).getTypeOfSet()/]) := [navSet.first(navSet.size()-1)/]->asSequence();
 			[/let]
