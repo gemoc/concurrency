@@ -15,9 +15,11 @@ import org.eclipse.gemoc.xdsmlframework.api.core.IRunConfiguration;
 
 public interface IConcurrentRunConfiguration extends IRunConfiguration{
 
-	
+	public static final String LAUNCH_INITIALIZATION_METHOD = "GEMOC_LAUNCH_INITIALIZATION_METHOD";
+	public static final String LAUNCH_INITIALIZATION_ARGUMENTS = "GEMOC_LAUNCH_INITIALIZATION_ARGUMENTS";
 
 	String getDeciderName();
 	String getExecutionModelPath();
-	
+	String getModelInitializationMethod();
+	String getModelInitializationArguments();
 }

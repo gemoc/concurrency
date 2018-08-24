@@ -72,8 +72,8 @@ import org.eclipse.gemoc.xdsmlframework.api.extensions.engine_addon.EngineAddonS
 @SuppressWarnings("restriction")
 public class EventSchedulingModelExecutionTracingAddon implements IEngineAddon {
 
-	private IExecutionContext _executionContext;
-	private IExecutionEngine _executionEngine;
+	private IExecutionContext<?,?,?> _executionContext;
+	private IExecutionEngine<?> _executionEngine;
 	private ExecutionTraceModel _executionTraceModel;
 	private Choice _lastChoice;
 	private Branch _currentBranch;
@@ -173,7 +173,7 @@ public class EventSchedulingModelExecutionTracingAddon implements IEngineAddon {
 	private PrintWriter outputRestoreTmpWriter = null;
 	
 	@Override
-	public void engineAboutToStop(IExecutionEngine engine) {
+	public void engineAboutToStop(IExecutionEngine<?> engine) {
 		tmpRestoreFilePath = System.getProperty("tmpRestoreFileProperty");
 		outputRestoreTmp = tmpRestoreFilePath != null && tmpRestoreFilePath.length() > 0 ? new File(tmpRestoreFilePath) : null;
 		outputRestoreTmpStream = outputRestoreTmp != null ? getFileOutputStream(outputRestoreTmp) : null;
@@ -249,7 +249,7 @@ public class EventSchedulingModelExecutionTracingAddon implements IEngineAddon {
 				ArrayList<Object> parameters = new ArrayList<Object>();
 				parameters.add(asc.getValue());
 				if (restoreAspects) {
-					ICodeExecutor codeExecutor = ((IConcurrentExecutionContext)_executionContext).getConcurrentExecutionPlatform().getCodeExecutor();
+					ICodeExecutor codeExecutor = ((IConcurrentExecutionContext)_executionContext).getExecutionPlatform().getCodeExecutor();
 					try {
 						System.out.println("Begin setting " + target.toString() + "." + methodName + " = "
 								+ asc.getValue());
@@ -398,7 +398,7 @@ public class EventSchedulingModelExecutionTracingAddon implements IEngineAddon {
 		return _lastChoice;
 	}
 
-	private void setUp(IExecutionEngine engine) {
+	private void setUp(IExecutionEngine<?> engine) {
 		if (_executionContext == null) {
 			
 			if(!(engine.getExecutionContext() instanceof IConcurrentExecutionContext)){
@@ -434,7 +434,7 @@ public class EventSchedulingModelExecutionTracingAddon implements IEngineAddon {
 
 	// private static class GemocTraceResource extends ResourceImpl
 
-	private void setModelExecutionContext(IExecutionContext executionContext) {
+	private void setModelExecutionContext(IExecutionContext<?,?,?> executionContext) {
 		_executionContext = executionContext;
 		ResourceSet rs = _executionContext.getResourceModel().getResourceSet();
 		URI traceModelURI = URI.createPlatformResourceURI(_executionContext.getWorkspace().getExecutionPath()
@@ -532,14 +532,14 @@ public class EventSchedulingModelExecutionTracingAddon implements IEngineAddon {
 	}
 
 	@Override
-	public void aboutToSelectStep(IExecutionEngine engine, Collection<Step<?>> logicalSteps) {
+	public void aboutToSelectStep(IExecutionEngine<?> engine, Collection<Step<?>> logicalSteps) {
 		setUp(engine);
 		updateTraceModelBeforeDeciding(logicalSteps);
 	}
 
 	@Override
 	public void aboutToExecuteStep(
-			IExecutionEngine executionEngine,
+			IExecutionEngine<?> executionEngine,
 			Step<?> logicalStepToApply) {	
 		if(_limitedMode){
 			// in limited mode the engine is not concurrent so it will not call the aboutToSelectLogicalStep method
@@ -557,7 +557,7 @@ public class EventSchedulingModelExecutionTracingAddon implements IEngineAddon {
 	}
 	
 	@Override
-	public void stepExecuted(IExecutionEngine engine, Step<?> logicalStepExecuted) {
+	public void stepExecuted(IExecutionEngine<?> engine, Step<?> logicalStepExecuted) {
 		setUp(engine);		
 		updateTraceModelAfterExecution(logicalStepExecuted);	
 		RecordingCommand command = new RecordingCommand(getEditingDomain(), "Save trace model") {
@@ -578,7 +578,7 @@ public class EventSchedulingModelExecutionTracingAddon implements IEngineAddon {
 	}
 	
 	@Override
-	public void engineAboutToDispose(IExecutionEngine engine){
+	public void engineAboutToDispose(IExecutionEngine<?> engine){
 	}
 
 	
@@ -649,7 +649,7 @@ public class EventSchedulingModelExecutionTracingAddon implements IEngineAddon {
 //	}
 
 	@Override
-	public void engineStopped(IExecutionEngine engine) {
+	public void engineStopped(IExecutionEngine<?> engine) {
 		modifyTrace(new Runnable() {
 
 			@Override
@@ -681,7 +681,7 @@ public class EventSchedulingModelExecutionTracingAddon implements IEngineAddon {
 	}
 
 	@Override
-	public void engineAboutToStart(IExecutionEngine engine) {
+	public void engineAboutToStart(IExecutionEngine<?> engine) {
 		setUp(engine);
 		tmpAddFilePath = System.getProperty("tmpAddFileProperty");
 		outputAddTmp = tmpAddFilePath != null && tmpAddFilePath.length() > 0 ? new File(tmpAddFilePath) : null;

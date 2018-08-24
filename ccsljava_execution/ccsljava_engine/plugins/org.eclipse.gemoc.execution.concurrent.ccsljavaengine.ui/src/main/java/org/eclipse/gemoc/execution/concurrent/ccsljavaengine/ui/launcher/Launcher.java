@@ -33,12 +33,15 @@ import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystem;
 import org.eclipse.gemoc.commons.eclipse.ui.ViewHelper;
 import org.eclipse.gemoc.dsl.debug.ide.adapter.IDSLCurrentInstructionListener;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.commons.ConcurrentModelExecutionContext;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.commons.ConcurrentRunConfiguration;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.dse.ConcurrentExecutionEngine;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.Activator;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.step.LogicalStepsView;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.stimulimanager.StimuliManagerView;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionContext;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
-import org.eclipse.gemoc.executionframework.engine.ui.commons.RunConfiguration;
+import org.eclipse.gemoc.executionframework.engine.core.RunConfiguration;
 import org.eclipse.gemoc.executionframework.engine.ui.launcher.AbstractGemocLauncher;
 import org.eclipse.gemoc.executionframework.extensions.sirius.services.AbstractGemocAnimatorServices;
 import org.eclipse.gemoc.executionframework.extensions.sirius.services.AbstractGemocDebuggerServices;
@@ -91,12 +94,12 @@ public class Launcher extends AbstractGemocLauncher {
 				return;
 			}
 
-			ConcurrentModelExecutionContext concurrentexecutionContext = new ConcurrentModelExecutionContext(
+			IConcurrentExecutionContext concurrentexecutionContext = new ConcurrentModelExecutionContext(
 					runConfiguration, executionMode);
 			concurrentexecutionContext.initializeResourceModel();
 			ISolver _solver = null;
 			try {
-				_solver = concurrentexecutionContext.getConcurrentLanguageDefinitionExtension().instanciateSolver();
+				_solver = concurrentexecutionContext.getLanguageDefinitionExtension().instanciateSolver();
 				_solver.prepareBeforeModelLoading(concurrentexecutionContext);
 				_solver.initialize(concurrentexecutionContext);
 			} catch (CoreException e) {
@@ -152,7 +155,7 @@ public class Launcher extends AbstractGemocLauncher {
 
 	private boolean isEngineAlreadyRunning(URI launchedModelURI) throws CoreException {
 		// make sure there is no other running engine on this model
-		Collection<IExecutionEngine> engines = org.eclipse.gemoc.executionframework.engine.Activator
+		Collection<IExecutionEngine<?>> engines = org.eclipse.gemoc.executionframework.engine.Activator
 				.getDefault().gemocRunningEngineRegistry.getRunningEngines().values();
 		for (IExecutionEngine engine : engines) {
 			IExecutionEngine observable = (IExecutionEngine) engine;

@@ -19,3 +19,4 @@ Export-Package: org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core,
  org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.moc
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: Inria
+Automatic-Module-Name: org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api

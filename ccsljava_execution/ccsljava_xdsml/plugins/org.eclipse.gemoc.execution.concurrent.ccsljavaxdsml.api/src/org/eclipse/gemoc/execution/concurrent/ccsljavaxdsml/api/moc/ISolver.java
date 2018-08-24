@@ -90,16 +90,16 @@ public interface ISolver extends IDisposable {
 	/**
 	 * Actions that could be done to prepare the workspace before any model is loaded
 	 * Ie. in the context the model is not loaded yet
-	 * @param context
+	 * @param concurrentexecutionContext
 	 */
-	public void prepareBeforeModelLoading(IConcurrentExecutionContext context);
+	public void prepareBeforeModelLoading(IConcurrentExecutionContext concurrentexecutionContext);
 	
 	/**
 	 * Initialize the solver 
 	 * The Executioncontext is supposed to be complete : uie. the model is loaded
-	 * @param context
+	 * @param concurrentexecutionContext
 	 */
-	public void initialize(IConcurrentExecutionContext context);
+	public void initialize(IConcurrentExecutionContext concurrentexecutionContext);
 	
 	/**
 	 * Compute the occurrence relations according to the logical step and the specification

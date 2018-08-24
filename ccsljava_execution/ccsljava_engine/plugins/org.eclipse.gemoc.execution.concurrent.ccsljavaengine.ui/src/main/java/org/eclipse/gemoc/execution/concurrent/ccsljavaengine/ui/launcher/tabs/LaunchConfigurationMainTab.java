@@ -30,8 +30,8 @@ import org.eclipse.gemoc.commons.eclipse.ui.dialogs.SelectAnyIFileDialog;
 import org.eclipse.gemoc.dsl.debug.ide.launch.AbstractDSLLaunchConfigurationDelegate;
 import org.eclipse.gemoc.dsl.debug.ide.sirius.ui.launch.AbstractDSLLaunchConfigurationDelegateSiriusUI;
 import org.eclipse.gemoc.dsl.debug.ide.ui.launch.AbstractDSLLaunchConfigurationDelegateUI;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.commons.ConcurrentRunConfiguration;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.Activator;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.ConcurrentRunConfiguration;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.launcher.LauncherMessages;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.deciders.DeciderSpecificationExtension;
@@ -39,7 +39,7 @@ import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.decid
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtension;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtensionPoint;
 import org.eclipse.gemoc.executionframework.engine.commons.DslHelper;
-import org.eclipse.gemoc.executionframework.engine.ui.commons.RunConfiguration;
+import org.eclipse.gemoc.executionframework.engine.core.RunConfiguration;
 import org.eclipse.gemoc.xdsmlframework.ui.utils.dialogs.SelectAIRDIFileDialog;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.osgi.util.NLS;
@@ -70,7 +70,7 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 	protected Text _delayText;
 	protected Combo _languageCombo;
 	protected Combo _deciderCombo;
-	protected Button _animationFirstBreak;
+//	protected Button _animationFirstBreak; not needed since debug mode uses the logical step decider.
 
 
 	protected Text modelofexecutionglml_LocationText;
@@ -121,7 +121,7 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 			_delayText.setText(Integer.toString(runConfiguration.getAnimationDelay()));
 			_languageCombo.setText(runConfiguration.getLanguageName());
 			_deciderCombo.setText(runConfiguration.getDeciderName());
-			_animationFirstBreak.setSelection(runConfiguration.getBreakStart());
+//			_animationFirstBreak.setSelection(runConfiguration.getBreakStart());
 
 			_modelInitializationArgumentsText.setText(runConfiguration.getModelInitializationArguments());
 
@@ -139,11 +139,11 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 		configuration.setAttribute(RunConfiguration.LAUNCH_DELAY, Integer.parseInt(_delayText.getText()));
 		configuration.setAttribute(RunConfiguration.LAUNCH_SELECTED_LANGUAGE, this._languageCombo.getText());
 		configuration.setAttribute(ConcurrentRunConfiguration.LAUNCH_SELECTED_DECIDER, this._deciderCombo.getText());
-		configuration.setAttribute(RunConfiguration.LAUNCH_INITIALIZATION_METHOD,
+		configuration.setAttribute(ConcurrentRunConfiguration.LAUNCH_INITIALIZATION_METHOD,
 				_modelInitializationMethodText.getText());
-		configuration.setAttribute(RunConfiguration.LAUNCH_INITIALIZATION_ARGUMENTS,
+		configuration.setAttribute(ConcurrentRunConfiguration.LAUNCH_INITIALIZATION_ARGUMENTS,
 				_modelInitializationArgumentsText.getText());
-		configuration.setAttribute(RunConfiguration.LAUNCH_BREAK_START, _animationFirstBreak.getSelection());
+//		configuration.setAttribute(RunConfiguration.LAUNCH_BREAK_START, _animationFirstBreak.getSelection());
 	}
 
 	@Override
@@ -271,17 +271,17 @@ public class LaunchConfigurationMainTab extends LaunchConfigurationTab {
 		_deciderCombo.addModifyListener(fBasicModifyListener);
 
 		new Label(parent, SWT.NONE).setText("");
-		_animationFirstBreak = new Button(parent, SWT.CHECK);
-		_animationFirstBreak.setText("Break at start");
-		_animationFirstBreak.addSelectionListener(new SelectionAdapter() {
-
-			@Override
-			public void widgetSelected(SelectionEvent event) {
-				updateLaunchConfigurationDialog();
-			}
-		}
-
-		);
+//		_animationFirstBreak = new Button(parent, SWT.CHECK);
+//		_animationFirstBreak.setText("Break at start");
+//		_animationFirstBreak.addSelectionListener(new SelectionAdapter() {
+//
+//			@Override
+//			public void widgetSelected(SelectionEvent event) {
+//				updateLaunchConfigurationDialog();
+//			}
+//		}
+//
+//		);
 
 		return parent;
 	}

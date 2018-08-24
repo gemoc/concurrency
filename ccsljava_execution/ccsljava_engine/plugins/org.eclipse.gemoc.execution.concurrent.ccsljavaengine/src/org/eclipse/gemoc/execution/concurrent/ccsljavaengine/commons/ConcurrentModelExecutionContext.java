@@ -22,15 +22,13 @@ import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.ILogicalSte
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtension;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtensionPoint;
 import org.eclipse.gemoc.executionframework.engine.commons.EngineContextException;
-import org.eclipse.gemoc.executionframework.engine.commons.ModelExecutionContext;
+import org.eclipse.gemoc.executionframework.engine.commons.AbstractModelExecutionContext;
 import org.eclipse.gemoc.moccml.mapping.feedback.feedback.ActionModel;
 import org.eclipse.gemoc.trace.commons.model.trace.MSEModel;
 import org.eclipse.gemoc.xdsmlframework.api.core.ExecutionMode;
-import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionPlatform;
-import org.eclipse.gemoc.xdsmlframework.api.extensions.languages.LanguageDefinitionExtension;
 
-public class ConcurrentModelExecutionContext extends ModelExecutionContext implements IConcurrentExecutionContext
-{
+
+public class ConcurrentModelExecutionContext extends AbstractModelExecutionContext<IConcurrentRunConfiguration,IConcurrentExecutionPlatform,ConcurrentLanguageDefinitionExtension> implements IConcurrentExecutionContext{
 
 	public String alternativeExecutionModelPath = null;
 	public ConcurrentModelExecutionContext(IConcurrentRunConfiguration runConfiguration, ExecutionMode executionMode)
@@ -51,17 +49,13 @@ public class ConcurrentModelExecutionContext extends ModelExecutionContext imple
 	}
 
 	
-	
-	protected IExecutionPlatform createExecutionPlatform() throws CoreException{
-		if(_languageDefinition instanceof  ConcurrentLanguageDefinitionExtension ){
+	@Override
+	protected IConcurrentExecutionPlatform createExecutionPlatform() throws CoreException{
 			return new DefaultConcurrentExecutionPlatform((ConcurrentLanguageDefinitionExtension)_languageDefinition, _runConfiguration);
-		} else {
-			return super.createExecutionPlatform();
-		}
 	}
 	
 	@Override
-	protected LanguageDefinitionExtension getLanguageDefinition(String languageName) throws EngineContextException
+	protected ConcurrentLanguageDefinitionExtension getLanguageDefinition(String languageName) throws EngineContextException
 	{
 		ConcurrentLanguageDefinitionExtension languageDefinition = ConcurrentLanguageDefinitionExtensionPoint
 				.findDefinition(_runConfiguration.getLanguageName());
@@ -111,35 +105,35 @@ public class ConcurrentModelExecutionContext extends ModelExecutionContext imple
 
 	
 	protected ActionModel _feedbackModel;
-
-	@Override
-	public ActionModel getFeedbackModel()
-	{
-		if(_feedbackModel == null){
-			setUpFeedbackModel();
-		}
-		return _feedbackModel;
-	}
-	
-
+//
+//	@Override
+//	public ActionModel getFeedbackModel()
+//	{
+//		if(_feedbackModel == null){
+//			setUpFeedbackModel();
+//		}
+//		return _feedbackModel;
+//	}
+//	
+//
 	protected ILogicalStepDecider _logicalStepDecider;
-
-	@Override
-	public ILogicalStepDecider getLogicalStepDecider() {
-		return _logicalStepDecider;
-	}
-
-	@Override
-	public IConcurrentExecutionPlatform getConcurrentExecutionPlatform() {
-		if(getExecutionPlatform() instanceof IConcurrentExecutionPlatform) return (IConcurrentExecutionPlatform) getExecutionPlatform();
-		else return null;
-	}
-
-	@Override
-	public ConcurrentLanguageDefinitionExtension getConcurrentLanguageDefinitionExtension() {
-		if(getLanguageDefinitionExtension() instanceof ConcurrentLanguageDefinitionExtension) return (ConcurrentLanguageDefinitionExtension) getLanguageDefinitionExtension();
-		return null;
-	}
+//
+//	@Override
+//	public ILogicalStepDecider getLogicalStepDecider() {
+//		return _logicalStepDecider;
+//	}
+//
+//	@Override
+//	public IConcurrentExecutionPlatform getConcurrentExecutionPlatform() {
+//		if(getExecutionPlatform() instanceof IConcurrentExecutionPlatform) return (IConcurrentExecutionPlatform) getExecutionPlatform();
+//		else return null;
+//	}
+//
+//	@Override
+//	public ConcurrentLanguageDefinitionExtension getConcurrentLanguageDefinitionExtension() {
+//		if(getLanguageDefinitionExtension() instanceof ConcurrentLanguageDefinitionExtension) return (ConcurrentLanguageDefinitionExtension) getLanguageDefinitionExtension();
+//		return null;
+//	}
 
 
 	protected MSEModel _mseModel;
@@ -151,6 +145,21 @@ public class ConcurrentModelExecutionContext extends ModelExecutionContext imple
 		}
 		return _mseModel;
 	}
+
+
+	@Override
+	public ILogicalStepDecider getLogicalStepDecider() {
+		return _logicalStepDecider;
+	}
+
+
+	@Override
+	public ActionModel getFeedbackModel() {
+		return _feedbackModel;
+	}
+
+
+
 
 	
 

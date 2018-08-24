@@ -9,12 +9,13 @@
  *     INRIA - initial API and implementation
  *     I3S Laboratory - API update and bug fix
  *******************************************************************************/
-package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.launcher;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.commons;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentRunConfiguration;
-import org.eclipse.gemoc.executionframework.engine.ui.commons.RunConfiguration;
+import org.eclipse.gemoc.executionframework.engine.core.RunConfiguration;
+//import org.eclipse.gemoc.executionframework.engine.ui.commons.RunConfiguration;
 
 public class ConcurrentRunConfiguration extends RunConfiguration implements IConcurrentRunConfiguration{
 
@@ -23,6 +24,9 @@ public class ConcurrentRunConfiguration extends RunConfiguration implements ICon
 	public static final String DECIDER_SOLVER = "Solver decider";
 	public static final String DECIDER_ASKUSER_STEP_BY_STEP = "Step by step user decider";
 	public static final String EXTRA_TIMEMODEL_PATH = "TIMEMODEL_PATH";
+	
+	private String _modelInitializationMethod = "";
+	private String _modelInitializationArguments = "";
 	
 	public ConcurrentRunConfiguration(ILaunchConfiguration launchConfiguration)
 			throws CoreException {
@@ -35,6 +39,8 @@ public class ConcurrentRunConfiguration extends RunConfiguration implements ICon
 		
 		_deciderName = getAttribute(LAUNCH_SELECTED_DECIDER, "");
 		_executionModelPath = getAttribute(EXTRA_TIMEMODEL_PATH, "");
+		_modelInitializationMethod = getAttribute(LAUNCH_INITIALIZATION_METHOD, "");
+		_modelInitializationArguments = getAttribute(LAUNCH_INITIALIZATION_ARGUMENTS, "");
 	}
 	
 	protected String _deciderName;
@@ -48,6 +54,16 @@ public class ConcurrentRunConfiguration extends RunConfiguration implements ICon
 	@Override
 	public String getExecutionModelPath() {
 		return _executionModelPath;
+	}
+
+	@Override
+	public String getModelInitializationMethod() {
+		return _modelInitializationMethod;
+	}
+
+	@Override
+	public String getModelInitializationArguments() {
+		return _modelInitializationArguments;
 	}
 
 }

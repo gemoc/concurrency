@@ -38,10 +38,10 @@ import org.eclipse.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
  */
 public class EventSchedulingTimelineProvider extends AbstractTimelineProvider implements IEngineAddon, IDisposable {
 
-	private IExecutionEngine _engine;
+	private IExecutionEngine<?> _engine;
 	private EventSchedulingModelExecutionTracingAddon _tracingAddon;
 
-	public EventSchedulingTimelineProvider(IExecutionEngine engine) {
+	public EventSchedulingTimelineProvider(IExecutionEngine<?> engine) {
 		_engine = engine;
 		_engine.getExecutionContext().getExecutionPlatform().addEngineAddon(this);
 	}
@@ -148,7 +148,7 @@ public class EventSchedulingTimelineProvider extends AbstractTimelineProvider im
 	@Override
 	public String getTextAt(int branchIndex, int choiceIndex, int logicalStepIndex) {
 		StringBuilder builder = new StringBuilder();
-		Step ls = (Step) getAt(branchIndex, choiceIndex, logicalStepIndex);
+		Step<?> ls = (Step<?>) getAt(branchIndex, choiceIndex, logicalStepIndex);
 		builder.append(StepHelper.getStepName(ls));
 		builder.append(System.getProperty("line.separator"));
 		for (MSEOccurrence mseOccurrence : StepHelper.collectAllMSEOccurrences(ls)) {
@@ -214,7 +214,7 @@ public class EventSchedulingTimelineProvider extends AbstractTimelineProvider im
 	private int _numberOfChoices = 0;
 	private int _numberOfSteps = 0;
 
-	private void update(IExecutionEngine engine) {
+	private void update(IExecutionEngine<?> engine) {
 		if (engine == _engine && getExecutionTrace() != null && _tracingAddon != null
 				&& _tracingAddon.getCurrentBranch() != null) {
 			Branch branch = _tracingAddon.getCurrentBranch();
@@ -272,16 +272,16 @@ public class EventSchedulingTimelineProvider extends AbstractTimelineProvider im
 	}
 
 	@Override
-	public void engineAboutToStart(IExecutionEngine engine) {
+	public void engineAboutToStart(IExecutionEngine<?> engine) {
 
 	}
 
 	@Override
-	public void engineStarted(IExecutionEngine executionEngine) {
+	public void engineStarted(IExecutionEngine<?> executionEngine) {
 	}
 
 	@Override
-	public void aboutToExecuteStep(IExecutionEngine executionEngine, Step logicalStepToApply) {
+	public void aboutToExecuteStep(IExecutionEngine<?> executionEngine, Step<?> logicalStepToApply) {
 		update(executionEngine);
 	}
 
@@ -302,30 +302,30 @@ public class EventSchedulingTimelineProvider extends AbstractTimelineProvider im
 	}
 
 	@Override
-	public void aboutToSelectStep(IExecutionEngine engine, Collection<Step<?>> logicalSteps) {
+	public void aboutToSelectStep(IExecutionEngine<?> engine, Collection<Step<?>> logicalSteps) {
 		update(engine);
 	}
 
 	@Override
-	public void stepSelected(IExecutionEngine engine, Step selectedLogicalStep) {
+	public void stepSelected(IExecutionEngine<?> engine, Step<?> selectedLogicalStep) {
 		update(engine);
 	}
 
 
 	@Override
-	public void stepExecuted(IExecutionEngine engine, Step step) {
+	public void stepExecuted(IExecutionEngine<?> engine, Step<?> step) {
 		// update(engine);
 	}
 
 	@Override
-	public void engineStatusChanged(IExecutionEngine engine, RunStatus newStatus) {
+	public void engineStatusChanged(IExecutionEngine<?> engine, RunStatus newStatus) {
 	}
 
 	protected void setSelectedStep(Step ls) {
 	}
 
 	@Override
-	public void proposedStepsChanged(IExecutionEngine engine, Collection<Step<?>> logicalSteps) {
+	public void proposedStepsChanged(IExecutionEngine<?> engine, Collection<Step<?>> logicalSteps) {
 		update(engine);
 	}
 

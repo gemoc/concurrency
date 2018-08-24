@@ -18,7 +18,7 @@ import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
 import org.eclipse.gemoc.trace.commons.model.trace.Step;
 import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine;
 
-public interface IConcurrentExecutionEngine extends IExecutionEngine{
+public interface IConcurrentExecutionEngine extends IExecutionEngine<IConcurrentExecutionContext>{
 
 	IConcurrentExecutionContext getConcurrentExecutionContext();
 	

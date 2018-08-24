@@ -14,11 +14,14 @@ package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtension;
 import org.eclipse.gemoc.moccml.mapping.feedback.feedback.ActionModel;
 import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionContext;
+//import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionPlatform;
+//import org.eclipse.gemoc.xdsmlframework.api.core.IRunConfiguration;
+//import org.eclipse.gemoc.xdsmlframework.api.extensions.languages.LanguageDefinitionExtension;
 
-public interface IConcurrentExecutionContext extends IExecutionContext
+public interface IConcurrentExecutionContext extends IExecutionContext<IConcurrentRunConfiguration, IConcurrentExecutionPlatform, ConcurrentLanguageDefinitionExtension>
 {
-	ConcurrentLanguageDefinitionExtension getConcurrentLanguageDefinitionExtension();
-	IConcurrentExecutionPlatform getConcurrentExecutionPlatform();
+//	ConcurrentLanguageDefinitionExtension getConcurrentLanguageDefinitionExtension();
+//	IConcurrentExecutionPlatform getConcurrentExecutionPlatform();
 	ILogicalStepDecider getLogicalStepDecider();
 
 	ActionModel getFeedbackModel();

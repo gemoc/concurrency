@@ -155,7 +155,7 @@ public class LogicalStepsView extends EngineSelectionDependentViewPart implement
 			@Override
 			public String getText(Object element) {
 				if (element instanceof Step) {
-					Step ls = (Step) element;
+					Step<?> ls = (Step<?>) element;
 					return StepHelper.getStepName(ls);
 				} else if (element instanceof MSEOccurrence) {
 					MSEOccurrence event = (MSEOccurrence) element;
@@ -170,7 +170,7 @@ public class LogicalStepsView extends EngineSelectionDependentViewPart implement
 			@Override
 			public Image getImage(Object element) {
 				if (element instanceof Step) {
-					Step ls = (Step) element;
+					Step<?> ls = (Step<?>) element;
 					if (_currentEngine != null && ls == _currentEngine.getSelectedLogicalStep()) {
 						return SharedIcons.getSharedImage(SharedIcons.LOGICALSTEP_RUNNING_ICON);
 					} else {
@@ -291,7 +291,7 @@ public class LogicalStepsView extends EngineSelectionDependentViewPart implement
 	private IConcurrentExecutionEngine _currentEngine;
 
 	@Override
-	public void engineSelectionChanged(IExecutionEngine engine) {
+	public void engineSelectionChanged(IExecutionEngine<?> engine) {
 		if (engine != null && engine instanceof IConcurrentExecutionEngine
 				&& engine.getExecutionContext().getExecutionMode().equals(ExecutionMode.Animation)) {
 			_currentEngine = (IConcurrentExecutionEngine) engine;
@@ -306,7 +306,7 @@ public class LogicalStepsView extends EngineSelectionDependentViewPart implement
 			// display engine full name in tooltip
 			GemocRunningEnginesRegistry registry = org.eclipse.gemoc.executionframework.engine.Activator
 					.getDefault().gemocRunningEngineRegistry;
-			for (Entry<String, IExecutionEngine> e : registry.getRunningEngines().entrySet()) {
+			for (Entry<String, IExecutionEngine<?>> e : registry.getRunningEngines().entrySet()) {
 				if (e.getValue() == engine) {
 					setTitleToolTip(e.getKey()); // the key is the full name for
 													// this engine
@@ -329,7 +329,7 @@ public class LogicalStepsView extends EngineSelectionDependentViewPart implement
 		_eventsToPresent.clear();
 	}
 
-	private Step _lastSelectedLogicalStep;
+	private Step<?> _lastSelectedLogicalStep;
 
 	private void runInDisplayThread(Runnable r) {
 		try {
@@ -339,7 +339,7 @@ public class LogicalStepsView extends EngineSelectionDependentViewPart implement
 		}
 	}
 
-	public Step getSelectedLogicalStep() {
+	public Step<?> getSelectedLogicalStep() {
 		Runnable r = new Runnable() {
 			@Override
 			public void run() {
@@ -348,9 +348,9 @@ public class LogicalStepsView extends EngineSelectionDependentViewPart implement
 					TreePath path = selection.getPaths()[0];
 					_lastSelectedLogicalStep = null;
 					if (path.getLastSegment() instanceof Step) {
-						_lastSelectedLogicalStep = (Step) path.getLastSegment();
+						_lastSelectedLogicalStep = (Step<?>) path.getLastSegment();
 					} else if (path.getLastSegment() instanceof MSEOccurrence) {
-						_lastSelectedLogicalStep = (Step) path.getFirstSegment();
+						_lastSelectedLogicalStep = (Step<?>) path.getFirstSegment();
 					}
 				}
 			}

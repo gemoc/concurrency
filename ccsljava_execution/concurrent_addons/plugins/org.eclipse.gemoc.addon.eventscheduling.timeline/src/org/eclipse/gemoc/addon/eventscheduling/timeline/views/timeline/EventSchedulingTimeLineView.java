@@ -59,9 +59,9 @@ public class EventSchedulingTimeLineView extends AbstractTimelineView implements
 	private IContentProvider _contentProvider;
 	private ILabelProvider _labelProvider;
 
-	private IExecutionEngine _currentEngine;
+	private IExecutionEngine<?> _currentEngine;
 
-	private WeakHashMap<IExecutionEngine, Integer> _positions = new WeakHashMap<IExecutionEngine, Integer>();
+	private WeakHashMap<IExecutionEngine<?>, Integer> _positions = new WeakHashMap<IExecutionEngine<?>, Integer>();
 
 	public EventSchedulingTimeLineView() {
 		_contentProvider = new AdapterFactoryContentProvider(adapterFactory);
@@ -122,7 +122,7 @@ public class EventSchedulingTimeLineView extends AbstractTimelineView implements
 	private ITimelineProvider _timelineProvider;
 	private MouseListener _mouseListener = null;
 
-	public void configure(IExecutionEngine engine) {
+	public void configure(IExecutionEngine<?> engine) {
 		if(engine == null) {
 			// TODO clear the view or leave it content set to the last engine ?
 		}
@@ -144,7 +144,7 @@ public class EventSchedulingTimeLineView extends AbstractTimelineView implements
 		}
 	}
 
-	private int getStartIndex(IExecutionEngine engine) {
+	private int getStartIndex(IExecutionEngine<?> engine) {
 		int start = 0;
 		if (_positions.containsKey(engine)) {
 			start = _positions.get(engine);
@@ -173,11 +173,11 @@ public class EventSchedulingTimeLineView extends AbstractTimelineView implements
 	}
 
 	@Override
-	public void engineSelectionChanged(IExecutionEngine engine) {
+	public void engineSelectionChanged(IExecutionEngine<?> engine) {
 		update(engine);
 	}
 
-	private boolean canDisplayTimeline(IExecutionEngine engine) {
+	private boolean canDisplayTimeline(IExecutionEngine<?> engine) {
 		if (engine.getExecutionContext().getExecutionMode().equals(ExecutionMode.Run)
 				&& engine.getRunningStatus().equals(RunStatus.Stopped)) {
 			return true;
@@ -208,7 +208,7 @@ public class EventSchedulingTimeLineView extends AbstractTimelineView implements
 				Object o2 = ((PossibleStepEditPart) selected).getModel().getPossibleStep();
 				if (o1 instanceof Choice && o2 instanceof Step) {
 					Choice choice = (Choice) o1;
-					Step logicalStep = (Step) o2;
+					Step<?> logicalStep = (Step<?>) o2;
 					if (_currentEngine.getRunningStatus().equals(RunStatus.WaitingLogicalStepSelection)) {
 						// If this choice has never been executed, we execute
 						// the chosen logical step
@@ -234,7 +234,7 @@ public class EventSchedulingTimeLineView extends AbstractTimelineView implements
 		}
 	}
 
-	private void performExecutionStep(Step logicalStep) {
+	private void performExecutionStep(Step<?> logicalStep) {
 		if (_currentEngine instanceof IConcurrentExecutionEngine) {
 			IConcurrentExecutionEngine engine_cast = (IConcurrentExecutionEngine) _currentEngine;
 		if (engine_cast.getLogicalStepDecider() instanceof AbstractUserDecider) {
@@ -269,7 +269,7 @@ public class EventSchedulingTimeLineView extends AbstractTimelineView implements
 		return new TimelineEditPartFactory(false);
 	}
 
-	public void update(IExecutionEngine engine) {
+	public void update(IExecutionEngine<?> engine) {
 		if (engine != null) {
 			if (canDisplayTimeline(engine)) {
 				configure(engine);

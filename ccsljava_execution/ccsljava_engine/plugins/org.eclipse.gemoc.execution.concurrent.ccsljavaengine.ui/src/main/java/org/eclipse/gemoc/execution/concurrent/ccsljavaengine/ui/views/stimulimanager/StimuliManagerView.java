@@ -634,7 +634,7 @@ public class StimuliManagerView extends EngineSelectionDependentViewPart impleme
 	/**
 	 * Listen the engine change of state.
 	 */
-	private void update(IExecutionEngine engine) 
+	private void update(IExecutionEngine<?> engine) 
 	{
 		if (engine == _currentSelectedEngine)
 		{
@@ -662,7 +662,7 @@ public class StimuliManagerView extends EngineSelectionDependentViewPart impleme
 	 * Listen the engine selection in the enginesStatusView
 	 */
 	@Override
-	public void engineSelectionChanged(IExecutionEngine engine) {
+	public void engineSelectionChanged(IExecutionEngine<?> engine) {
 		if (engine != null
 			&& engine instanceof IConcurrentExecutionEngine) 
 		{
@@ -746,7 +746,7 @@ public class StimuliManagerView extends EngineSelectionDependentViewPart impleme
 		_viewer.getTable().setFocus();
 	}
 
-	public IExecutionEngine getEngine() 
+	public IExecutionEngine<?> getEngine() 
 	{
 		return _currentSelectedEngine;
 	}
@@ -891,50 +891,50 @@ public class StimuliManagerView extends EngineSelectionDependentViewPart impleme
 	}
 
 	@Override
-	public void engineAboutToStart(IExecutionEngine engine) {
+	public void engineAboutToStart(IExecutionEngine<?> engine) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void engineStarted(IExecutionEngine executionEngine) {
+	public void engineStarted(IExecutionEngine<?> executionEngine) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void engineAboutToStop(IExecutionEngine engine) {
+	public void engineAboutToStop(IExecutionEngine<?> engine) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void engineStopped(IExecutionEngine engine) {
+	public void engineStopped(IExecutionEngine<?> engine) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void aboutToSelectStep(IExecutionEngine engine, Collection<Step<?>> logicalSteps) 
+	public void aboutToSelectStep(IExecutionEngine<?> engine, Collection<Step<?>> logicalSteps) 
 	{
 		update(engine);
 	}
 
 	@Override
-	public void stepSelected(IExecutionEngine engine, Step selectedLogicalStep) {
+	public void stepSelected(IExecutionEngine<?> engine, Step<?> selectedLogicalStep) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void engineStatusChanged(IExecutionEngine engine, RunStatus newStatus) {
+	public void engineStatusChanged(IExecutionEngine<?> engine, RunStatus newStatus) {
 		// TODO Auto-generated method stub
 		
 	}
 
 
 	@Override
-	public void engineAboutToDispose(IExecutionEngine engine) {
+	public void engineAboutToDispose(IExecutionEngine<?> engine) {
 	}
 
 	@Override
@@ -943,7 +943,7 @@ public class StimuliManagerView extends EngineSelectionDependentViewPart impleme
 	}
 
 	@Override
-	public void proposedStepsChanged(IExecutionEngine engine,
+	public void proposedStepsChanged(IExecutionEngine<?> engine,
 			Collection<Step<?>> steps) {
 		update(engine);
 	}
@@ -951,14 +951,14 @@ public class StimuliManagerView extends EngineSelectionDependentViewPart impleme
 	
 
 	@Override
-	public void aboutToExecuteStep(IExecutionEngine engine,
-			Step stepToExecute) {
+	public void aboutToExecuteStep(IExecutionEngine<?> engine,
+			Step<?> stepToExecute) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void stepExecuted(IExecutionEngine engine, Step stepExecuted) {
+	public void stepExecuted(IExecutionEngine<?> engine, Step<?> stepExecuted) {
 		// TODO Auto-generated method stub
 		
 	}

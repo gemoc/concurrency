@@ -52,7 +52,7 @@ public class SynchroneExecution extends OperationExecution {
 		Object res = null;
 
 		try {
-			res = getExecutionContext().getConcurrentExecutionPlatform().getCodeExecutor().execute(getSmallStep().getMseoccurrence());
+			res = getExecutionContext().getExecutionPlatform().getCodeExecutor().execute(getSmallStep().getMseoccurrence());
 		} catch (CodeExecutionException e) {
 			Activator.getDefault().error("Exception received " + e.getMessage(), e);
 		}

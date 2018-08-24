@@ -41,6 +41,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.impl.InternalTransactionalEditingDomain;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.commons.ConcurrentModelExecutionContext;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.Activator;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionContext;
@@ -145,7 +146,7 @@ public class CcslSolver implements org.eclipse.gemoc.execution.concurrent.ccslja
 		}
 	}
 
-	private Step createLogicalStep(fr.inria.aoste.trace.LogicalStep res) 
+	private Step<?> createLogicalStep(fr.inria.aoste.trace.LogicalStep res) 
 	{
 		GenericParallelStep parStep = GenerictraceFactory.eINSTANCE.createGenericParallelStep();
 		for (Event e : LogicalStepHelper.getTickedEvents(res))
@@ -173,7 +174,7 @@ public class CcslSolver implements org.eclipse.gemoc.execution.concurrent.ccslja
 				+ this.solverInputURI + "]";
 	}
 
-	private void createSolver(IExecutionContext context) 
+	private void createSolver(IExecutionContext<?,?,?> context) 
 	{
 		//in the advanced tab of the launch config we can force a timemodel... risky but useful
 		if(_alternativeExecutionModelPath == null || _alternativeExecutionModelPath.length() == 0){
@@ -271,7 +272,7 @@ public class CcslSolver implements org.eclipse.gemoc.execution.concurrent.ccslja
 			_lastLogicalSteps.clear();
 			for (fr.inria.aoste.trace.LogicalStep lsFromTimesquare : intermediateResult)
 			{
-				Step lsFromTrace = createLogicalStep(lsFromTimesquare);
+				Step<?> lsFromTrace = createLogicalStep(lsFromTimesquare);
 				_lastLogicalSteps.add(lsFromTrace);
 			}
 			return new ArrayList<Step<?>>(_lastLogicalSteps);
@@ -286,9 +287,9 @@ public class CcslSolver implements org.eclipse.gemoc.execution.concurrent.ccslja
 	}
 
 	@Override
-	public Step proposeLogicalStep() {
+	public Step<?> proposeLogicalStep() {
 		int index = solverWrapper.proposeLogicalStepByIndex();
-		Step result = null;
+		Step<?> result = null;
 		if (_lastLogicalSteps.size() > index)
 		{
 			result = _lastLogicalSteps.get(index);			
@@ -297,7 +298,7 @@ public class CcslSolver implements org.eclipse.gemoc.execution.concurrent.ccslja
 	}
 
 	@Override
-	public void applyLogicalStep(Step logicalStep) {
+	public void applyLogicalStep(Step<?> logicalStep) {
 		try {
 			int index = _lastLogicalSteps.indexOf(logicalStep);
 			solverWrapper.applyLogicalStepByIndex(index);
@@ -318,7 +319,6 @@ public class CcslSolver implements org.eclipse.gemoc.execution.concurrent.ccslja
 	        objOut.writeObject(solverWrapper.getSolver().getCurrentState());
 			return out.toByteArray();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
@@ -333,10 +333,8 @@ public class CcslSolver implements org.eclipse.gemoc.execution.concurrent.ccslja
 	        Object o = objOut.readObject();
 	        solverWrapper.getSolver().setCurrentState((CCSLConstraintState) o);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -346,7 +344,6 @@ public class CcslSolver implements org.eclipse.gemoc.execution.concurrent.ccslja
 		try {
 			solverWrapper.revertForceClockEffect();
 		} catch (SimulationException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -355,8 +352,8 @@ public class CcslSolver implements org.eclipse.gemoc.execution.concurrent.ccslja
 	@Override
 	public void initialize(IConcurrentExecutionContext context) 
 	{
-		if (context instanceof org.eclipse.gemoc.execution.concurrent.ccsljavaengine.commons.ConcurrentModelExecutionContext){
-			_alternativeExecutionModelPath = ((org.eclipse.gemoc.execution.concurrent.ccsljavaengine.commons.ConcurrentModelExecutionContext)context).alternativeExecutionModelPath;
+		if (context instanceof ConcurrentModelExecutionContext){
+			_alternativeExecutionModelPath = ((ConcurrentModelExecutionContext)context).alternativeExecutionModelPath;
 		}
 		createSolver(context);
 	}
@@ -384,7 +381,7 @@ public class CcslSolver implements org.eclipse.gemoc.execution.concurrent.ccslja
 		{
 			mustGenerate = true;
 		}
-		String transformationPath = context.getConcurrentLanguageDefinitionExtension().getQVTOPath();
+		String transformationPath = context.getLanguageDefinitionExtension().getQVTOPath();
 		if(transformationPath != null && transformationPath.length()!=0){
 			final int bundleNameEnd=transformationPath.indexOf('/', 1);
 		    final String bundleName=transformationPath.substring(1,bundleNameEnd);

@@ -15,20 +15,25 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 import java.util.function.Consumer;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.commons.ConcurrentModelExecutionContext;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionContext;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionPlatform;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentRunConfiguration;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IFutureAction;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.ILogicalStepDecider;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.CodeExecutionException;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.dse.IMSEStateController;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtension;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
 import org.eclipse.gemoc.executionframework.engine.Activator;
 import org.eclipse.gemoc.executionframework.engine.core.AbstractExecutionEngine;
@@ -87,8 +92,7 @@ import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel;
  * @param <T>
  * 
  */
-public class ConcurrentExecutionEngine extends AbstractExecutionEngine
-		implements IDisposable, IConcurrentExecutionEngine {
+public class ConcurrentExecutionEngine extends AbstractExecutionEngine<IConcurrentExecutionContext, IConcurrentRunConfiguration>implements IConcurrentExecutionEngine{
 
 	private IMSEStateController _mseStateController;
 	
@@ -123,7 +127,7 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine
 	}
 
 	public void updatePossibleLogicalSteps() {
-		for (IMSEStateController c : getConcurrentExecutionContext().getConcurrentExecutionPlatform()
+		for (IMSEStateController c : getConcurrentExecutionContext().getExecutionPlatform()
 				.getMSEStateControllers()) {
 			c.applyMSEFutureStates(getSolver());
 		}
@@ -384,7 +388,7 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine
 
 	@Override
 	public ICodeExecutor getCodeExecutor() {
-		return getConcurrentExecutionContext().getConcurrentExecutionPlatform().getCodeExecutor();
+		return getConcurrentExecutionContext().getExecutionPlatform().getCodeExecutor();
 	}
 
 	@Override
@@ -393,7 +397,7 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine
 	}
 
 	@Override
-	public final void performInitialize(IExecutionContext executionContext) {
+	public final void performInitialize(IConcurrentExecutionContext executionContext) {
 
 		if (!(executionContext instanceof IConcurrentExecutionContext))
 			throw new IllegalArgumentException(
@@ -414,13 +418,13 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine
 		this.changeLogicalStepDecider(concurrentExecutionContext.getLogicalStepDecider());
 
 		_mseStateController = new DefaultMSEStateController();
-		concurrentExecutionContext.getConcurrentExecutionPlatform().getMSEStateControllers().add(_mseStateController);
+		concurrentExecutionContext.getExecutionPlatform().getMSEStateControllers().add(_mseStateController);
 
 		executeInitializeModelMethod(executionContext);
 		Activator.getDefault().debug("*** Engine initialization done. ***");
 	}
 
-	protected void executeInitializeModelMethod(IExecutionContext executionContext) {
+	protected void executeInitializeModelMethod(IConcurrentExecutionContext executionContext) {
 
 		String modelInitializationMethodQName = executionContext.getRunConfiguration().getModelInitializationMethod();
 		if (!modelInitializationMethodQName.isEmpty()) {
@@ -432,7 +436,7 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine
 			
 
 			final ArrayList<Object> modelInitializationParameters = new ArrayList<>();
-			ICodeExecutor codeExecutor = getConcurrentExecutionContext().getConcurrentExecutionPlatform().getCodeExecutor(); 
+			ICodeExecutor codeExecutor = getConcurrentExecutionContext().getExecutionPlatform().getCodeExecutor(); 
 			ArrayList<Object> parameters = new ArrayList<Object>();
 			// try with String[] args			
 			parameters.add(new String[1]);
@@ -511,7 +515,11 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine
 	@Override
 	protected void beforeStart() {
 		// TODO Auto-generated method stub
-
+		
 	}
+
+
+
+
 
 }
