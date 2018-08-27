@@ -40,7 +40,9 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.MouseListener;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.IViewSite;
+import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 
@@ -66,6 +68,11 @@ public class EventSchedulingTimeLineView extends AbstractTimelineView implements
 	public EventSchedulingTimeLineView() {
 		_contentProvider = new AdapterFactoryContentProvider(adapterFactory);
 		_labelProvider = new AdapterFactoryLabelProvider(adapterFactory);
+		//be sure the view is initialized
+		IWorkbenchPage wbpage = getActivePage();
+		IViewPart viewPart = wbpage.findView("org.eclipse.gemoc.addon.eventscheduling.timeline.views.timeline.EventSchedulingTimeLineView");
+		wbpage.activate(viewPart);
+		wbpage.bringToTop(viewPart);
 	}
 
 	@Override
@@ -122,6 +129,8 @@ public class EventSchedulingTimeLineView extends AbstractTimelineView implements
 	private ITimelineProvider _timelineProvider;
 	private MouseListener _mouseListener = null;
 
+	private TimelineEditPartFactory _factory;
+
 	public void configure(IExecutionEngine<?> engine) {
 		if(engine == null) {
 			// TODO clear the view or leave it content set to the last engine ?
@@ -142,6 +151,13 @@ public class EventSchedulingTimeLineView extends AbstractTimelineView implements
 
 			}
 		}
+	}
+	
+	private IWorkbenchPage getActivePage() {
+		return PlatformUI
+				.getWorkbench()
+				.getActiveWorkbenchWindow()
+				.getActivePage();
 	}
 
 	private int getStartIndex(IExecutionEngine<?> engine) {
@@ -266,7 +282,8 @@ public class EventSchedulingTimeLineView extends AbstractTimelineView implements
 
 	@Override
 	protected TimelineEditPartFactory getTimelineEditPartFactory() {
-		return new TimelineEditPartFactory(false);
+		_factory = new TimelineEditPartFactory(false);
+		return _factory;
 	}
 
 	public void update(IExecutionEngine<?> engine) {
