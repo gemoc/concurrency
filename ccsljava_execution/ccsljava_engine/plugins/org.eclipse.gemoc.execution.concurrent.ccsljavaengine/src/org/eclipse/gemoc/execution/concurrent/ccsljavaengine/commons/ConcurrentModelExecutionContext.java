@@ -46,6 +46,7 @@ public class ConcurrentModelExecutionContext extends AbstractModelExecutionConte
 					"Cannot initialize the execution context, see inner exception.", e);
 			throw exception;
 		}
+		
 	}
 
 	
@@ -69,7 +70,7 @@ public class ConcurrentModelExecutionContext extends AbstractModelExecutionConte
 		return languageDefinition;
 	}
 
-	private void setUpMSEModel()
+	public void setUpMSEModel()
 	{
 		URI msemodelPlatformURI = URI.createPlatformResourceURI(getWorkspace().getMSEModelPath().removeFileExtension().addFileExtension("msemodel").toString(),
 				true);
@@ -82,7 +83,7 @@ public class ConcurrentModelExecutionContext extends AbstractModelExecutionConte
 			// file will be created later
 		}
 	}
-	private void setUpFeedbackModel()
+	public void setUpFeedbackModel()
 	{
 		URI feedbackPlatformURI = URI.createPlatformResourceURI(getWorkspace().getMSEModelPath().removeFileExtension().addFileExtension("feedback").toString(),
 				true);

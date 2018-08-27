@@ -205,7 +205,7 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine<IConcurre
 	@Override
 	public IConcurrentExecutionContext getConcurrentExecutionContext() {
 
-		IExecutionContext context = getExecutionContext();
+		IExecutionContext<?,?,?> context = getExecutionContext();
 		if (context instanceof IConcurrentExecutionContext) {
 			return (IConcurrentExecutionContext) context;
 		} else
@@ -421,6 +421,10 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine<IConcurre
 		concurrentExecutionContext.getExecutionPlatform().getMSEStateControllers().add(_mseStateController);
 
 		executeInitializeModelMethod(executionContext);
+		
+		((ConcurrentModelExecutionContext)executionContext).setUpMSEModel();
+		((ConcurrentModelExecutionContext)executionContext).setUpFeedbackModel();
+		
 		Activator.getDefault().debug("*** Engine initialization done. ***");
 	}
 
