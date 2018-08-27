@@ -25,8 +25,8 @@ public class ConcurrentRunConfiguration extends RunConfiguration implements ICon
 	public static final String DECIDER_ASKUSER_STEP_BY_STEP = "Step by step user decider";
 	public static final String EXTRA_TIMEMODEL_PATH = "TIMEMODEL_PATH";
 	
-	private String _modelInitializationMethod = "";
-	private String _modelInitializationArguments = "";
+	private String _modelInitializationMethod;
+	private String _modelInitializationArguments;
 	
 	public ConcurrentRunConfiguration(ILaunchConfiguration launchConfiguration)
 			throws CoreException {
