@@ -290,13 +290,13 @@ public class EventSchedulingTimelineProvider extends AbstractTimelineProvider im
 //	}
 
 	@Override
-	public void engineAboutToStop(IExecutionEngine engine) {
+	public void engineAboutToStop(IExecutionEngine<?> engine) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void engineStopped(IExecutionEngine engine) {
+	public void engineStopped(IExecutionEngine<?> engine) {
 		// TODO Auto-generated method stub
 
 	}
@@ -321,7 +321,7 @@ public class EventSchedulingTimelineProvider extends AbstractTimelineProvider im
 	public void engineStatusChanged(IExecutionEngine<?> engine, RunStatus newStatus) {
 	}
 
-	protected void setSelectedStep(Step ls) {
+	protected void setSelectedStep(Step<?> ls) {
 	}
 
 	@Override
@@ -330,7 +330,7 @@ public class EventSchedulingTimelineProvider extends AbstractTimelineProvider im
 	}
 
 	@Override
-	public void engineAboutToDispose(IExecutionEngine engine) {
+	public void engineAboutToDispose(IExecutionEngine<?> engine) {
 	}
 
 	@Override

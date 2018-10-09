@@ -155,12 +155,12 @@ public class GemocInstantRelationModelGenerator extends InstantRelationModelGene
 		if (ref instanceof ModelElementReference)
 			eo1 = ((ModelElementReference) ref).getElementRef().get(0);//.eContainer();
 		getModelRoot(eo1);
-		disp();
+//		disp();
 	}
 
 	public void extract(EObject eo1) {
 		LookForExtensions.getDefault().getICCSLModel(eo1, this);
-		disp();
+//		disp();
 	}
 
 	public ArrayList<IDescription> getDescription() {
@@ -395,13 +395,14 @@ public class GemocInstantRelationModelGenerator extends InstantRelationModelGene
 			if (ab.addChecking()) {
 				lab.add(ab);
 				ab.setIrml(irml);
-			} else {
-				try {
-					System.err.println("Ignore : " + ab.getClass().getSimpleName() + " :" + ab.getDescription() + " ");
-				} catch (Throwable e) {
-					System.err.println("Ignore : " + ab.getClass().getSimpleName());
-				}
-			}
+			} 
+//			else {
+//				try {
+//					System.err.println("Ignore : " + ab.getClass().getSimpleName() + " :" + ab.getDescription() + " ");
+//				} catch (Throwable e) {
+//					System.err.println("Ignore : " + ab.getClass().getSimpleName());
+//				}
+//			}
 		}
 		return ab;
 	}
@@ -413,13 +414,14 @@ public class GemocInstantRelationModelGenerator extends InstantRelationModelGene
 					ab.setActivationCreator(activationCreator);
 				lab.add(ab);
 				ab.setIrml(irml);
-			} else {
-				try {
-					System.err.println("Ignore : " + ab.getClass().getSimpleName() + " :" + ab.getDescription() + " ");
-				} catch (Throwable e) {
-					System.err.println("Ignore : " + ab.getClass().getSimpleName());
-				}
-			}
+			} 
+//			else {
+//				try {
+//					System.err.println("Ignore : " + ab.getClass().getSimpleName() + " :" + ab.getDescription() + " ");
+//				} catch (Throwable e) {
+//					System.err.println("Ignore : " + ab.getClass().getSimpleName());
+//				}
+//			}
 		}
 		return ab;
 	}

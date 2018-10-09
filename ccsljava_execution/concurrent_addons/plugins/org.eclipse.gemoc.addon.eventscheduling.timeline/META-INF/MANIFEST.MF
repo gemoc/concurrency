@@ -28,4 +28,5 @@ Export-Package: org.eclipse.gemoc.addon.eventscheduling.timeline,
  org.eclipse.gemoc.addon.eventscheduling.timeline.ui.commands,
  org.eclipse.gemoc.addon.eventscheduling.timeline.views.timeline
 Bundle-Vendor: Inria
+Automatic-Module-Name: org.eclipse.gemoc.addon.eventscheduling.timeline
 

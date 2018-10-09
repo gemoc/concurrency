@@ -69,7 +69,7 @@ public class ShowCallerHandler extends AbstractHandler {
 				Object element = step.getPossibleStep();
 				if (element instanceof Step) {
 					final Set<EObject> callers = new LinkedHashSet<EObject>();
-					for (MSEOccurrence mseOccurrence : StepHelper.collectAllMSEOccurrences((Step)element)){
+					for (MSEOccurrence mseOccurrence : StepHelper.collectAllMSEOccurrences((Step<?>)element)){
 						if (mseOccurrence.getMse().getCaller() != null) {
 							callers.add(mseOccurrence.getMse().getCaller());
 						}

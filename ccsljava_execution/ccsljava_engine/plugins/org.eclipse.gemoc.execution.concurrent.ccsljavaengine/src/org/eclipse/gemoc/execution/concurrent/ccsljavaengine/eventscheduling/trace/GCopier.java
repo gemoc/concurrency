@@ -67,12 +67,12 @@ class GCopier extends Copier {
 				// [FT] todo add more specific cases.
 				if (value instanceof LinkedListMultimap) 
 				{
-					LinkedListMultimap tempValue = LinkedListMultimap.create((LinkedListMultimap)value);
+					LinkedListMultimap<?,?> tempValue = LinkedListMultimap.create((LinkedListMultimap)value);
 					newValue = tempValue;
 				}
 				else if (value instanceof ArrayList<?>) 
 				{
-					ArrayList tempValue = new ArrayList((ArrayList)value);
+					ArrayList<?> tempValue = new ArrayList((ArrayList)value);
 					newValue = tempValue;
 				}
 				copyEObject.eSet(getTarget(eAttribute), newValue);

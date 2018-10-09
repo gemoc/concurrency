@@ -11,7 +11,9 @@
 package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.builder;
 
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.regex.Pattern;
 
 import org.eclipse.core.resources.IFile;
@@ -39,14 +41,27 @@ import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.langu
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
 import org.eclipse.gemoc.xdsmlframework.api.extensions.languages.LanguageDefinitionExtensionPoint;
 import org.eclipse.gemoc.xdsmlframework.ide.ui.builder.pde.PluginXMLHelper;
+import org.eclipse.jdt.core.IJavaElement;
+import org.eclipse.jdt.core.IType;
+import org.eclipse.jdt.core.JavaModelException;
+import org.eclipse.jdt.core.search.IJavaSearchConstants;
+import org.eclipse.jdt.core.search.SearchEngine;
+import org.eclipse.jdt.core.search.TypeNameMatch;
+import org.eclipse.jdt.core.search.TypeNameMatchRequestor;
+import org.eclipse.jdt.internal.core.SourceField;
 import org.jdom2.Element;
 import org.osgi.framework.BundleException;
+
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.Multimap;
 
 //import fr.inria.diverse.melange.metamodel.melange.Language;
 //import fr.inria.diverse.melange.metamodel.melange.ModelTypingSpace;
 
 public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 
+	private Set<String> setAspectsWithRTDs = null;
+	Multimap<String, String> mapAspectProperties = null;
 	
 	public GemocLanguageDesignerBuilder() {
 		return;
@@ -167,10 +182,22 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 						eclFileName = anEntry.getValue();
 						updateQVTO(project, languageName, eclFileName, null);
 					}
+					
+					if (anEntry.getKey().compareTo("k3") == 0) {
+							try {
+								createLanguageSpecificDSAHelper(anEntry.getValue(), project, languageName, manifestChanger);
+								createLanguageSpecificModelStateHelper(anEntry.getValue(), project, languageName, manifestChanger);
+							} catch (ClassNotFoundException |CoreException  | BundleException | IOException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+					}
+					
 				}
 					
 				try {
 					manifestChanger.addPluginDependency(org.eclipse.gemoc.executionframework.extensions.sirius.Activator.PLUGIN_ID);
+					manifestChanger.addPluginDependency("org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.rtd.modelstate");
 					manifestChanger.commit();
 				} catch (BundleException | IOException | CoreException e) {
 					e.printStackTrace();
@@ -179,6 +206,187 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 		}
 	}
 
+	private void createLanguageSpecificModelStateHelper(String value, IProject project, String fullLanguageName,
+			ManifestChanger manifestChanger) {
+		// create the java class
+				int lastDot = fullLanguageName.lastIndexOf(".");
+				if(lastDot == -1)lastDot = 0;
+				String languageName = fullLanguageName.substring(lastDot+1);
+				String languageToUpperFirst = getLanguageNameWithFirstUpper(languageName);
+				String packageName = getPackageName(languageName);
+				String folderName = getFolderName(languageName);
+				
+				String fileContent = BuilderTemplates.MODEL_STATE_CLASS_TEMPLATE;
+				fileContent = fileContent.replaceAll(
+						Pattern.quote("${package.name}"), packageName);
+				fileContent = fileContent.replaceAll(
+						Pattern.quote("${language.name.toupperfirst}"),
+						languageToUpperFirst);
+				
+				StringBuilder sbContent = new StringBuilder();
+				StringBuilder sbExtraImport = new StringBuilder();
+				
+				sbContent.append("\tpublic K3ModelState getK3ModelState(EObject model) {\n" + 
+						"\t\tK3ModelState res = theFactory.createK3ModelState();\n" + 
+						"\n" + 
+						"\t\tTreeIterator<EObject> allContentIt = model.eAllContents();\n" + 
+						"\t\twhile (allContentIt.hasNext()) {\n" + 
+						"\t\t\tEObject elem = allContentIt.next();\n" + 
+						"\n");
+
+				sbContent.append("\t\t\tClass<?> clazz =null;\n");
+				for(String aspect : setAspectsWithRTDs) {
+					sbContent.append(
+						"\t\t\tclazz = K3DslHelper.getTarget("+aspect+".class);\n" + 
+						"\t\t\tif (clazz.isInstance(elem)) {\n"+
+						"\t\t\t\tElementState elemState = theFactory.createElementState();\n" + 
+						"\t\t\t\telemState.setModelElement(elem);\n"+
+						"\t\t\t\tres.getOwnedElementstates().add(elemState);\n");
+					for(String property : mapAspectProperties.get(aspect)) {
+						sbContent.append("\t\t\t\tAttributeNameToValue n2v = new AttributeNameToValue(\""+property+"\", "+languageToUpperFirst+"RTDAccessor.get"+property+"(elem));\n"+
+						"\t\t\t\telemState.getSavedRTDs().add(n2v);\n");
+					}
+					sbContent.append("\t\t\t}\n"); 
+				}
+				sbContent.append("\t\t}\n\t\treturn res;\n\t\t}");
+								
+				
+				fileContent = fileContent.replaceAll(Pattern.quote("${saveAndRestoreMethod}"), sbContent.toString());
+				fileContent = fileContent.replaceAll(Pattern.quote("${extraImports}"), sbExtraImport.toString());
+				
+				IFile file = project
+						.getFile(Activator.EXTENSION_GENERATED_CLASS_FOLDER_NAME
+								+ folderName + "/" + languageToUpperFirst
+								+ Activator.MODEL_STATE_CLASS_NAMEPART + ".java");
+				writeFile(file, fileContent);
+				
+		
+	}
+
+	@SuppressWarnings("restriction")
+	protected void createLanguageSpecificDSAHelper(String allAspects, IProject project, String fullLanguageName,ManifestChanger manifestChanger) throws CoreException, BundleException, IOException, ClassNotFoundException {		
+		// create the java class
+		int lastDot = fullLanguageName.lastIndexOf(".");
+		if(lastDot == -1)lastDot = 0;
+		String languageName = fullLanguageName.substring(lastDot+1);
+		String languageToUpperFirst = getLanguageNameWithFirstUpper(languageName);
+		String packageName = getPackageName(languageName);
+		String folderName = getFolderName(languageName);
+		
+		String fileContent = BuilderTemplates.RTD_ACCESSOR_CLASS_TEMPLATE;
+		fileContent = fileContent.replaceAll(
+				Pattern.quote("${package.name}"), packageName);
+		fileContent = fileContent.replaceAll(
+				Pattern.quote("${language.name.toupperfirst}"),
+				languageToUpperFirst);
+		
+		
+		StringBuilder sbContent = new StringBuilder();
+		StringBuilder sbExtraImport = new StringBuilder();
+		setAspectsWithRTDs = new HashSet<String>();
+		mapAspectProperties = ArrayListMultimap.create();
+		
+		for (String a : allAspects.trim().split(",")){
+			String originalAspectClassName = a;
+			int dot= a.lastIndexOf('.');
+			a = a+ a.substring(dot + 1)+"Properties";
+			char[][] qualifications;
+			String simpleName;
+			if (dot != -1) {
+				qualifications= new char[][] { a.substring(0, dot).toCharArray() };
+				simpleName= a.substring(dot + 1);
+			} else {
+				qualifications= null;
+				simpleName= a;
+			}
+			char[][] typeNames= new char[][] { simpleName.toCharArray() };
+
+			IType aspectClass = findAnyTypeInWorkspace(qualifications, typeNames);
+			IJavaElement[] allChildren = aspectClass.getChildren();
+			for(int i = 0; i < allChildren.length; i++) {
+				IJavaElement javaElem = allChildren[i];
+				if (javaElem instanceof SourceField) {
+					setAspectsWithRTDs.add(originalAspectClassName);
+					SourceField f = (SourceField)javaElem;
+					mapAspectProperties.put(originalAspectClassName, f.getElementName());
+//				if(f.isAccessible()) {
+					
+					String fieldTypeName = f.getTypeSignature().substring(1,f.getTypeSignature().length()-1);
+					int dotType= fieldTypeName.lastIndexOf('.');
+					char[][] qualificationsType;
+					String simpleNameType;
+					if (dotType != -1) {
+						qualificationsType= new char[][] { fieldTypeName.substring(0, dotType).toCharArray() };
+						simpleNameType= fieldTypeName.substring(dotType + 1);
+					} else {
+						qualificationsType= null;
+						simpleNameType= fieldTypeName;
+					}
+					char[][] typeNamesType= new char[][] { simpleNameType.toCharArray() };
+					IType fieldType = findAnyTypeInWorkspace(qualificationsType, typeNamesType);
+					sbExtraImport.append("import "+fieldType.getFullyQualifiedName()+";\n");
+					
+					sbContent.append("  public static "+fieldTypeName +" get"+f.getElementName()+"(EObject eObject) {\n" + 
+					"		return ("+fieldTypeName +")  getAspectProperty(eObject, \""+fullLanguageName+"\", \""+originalAspectClassName+"\", \""+f.getElementName()+"\");\n" + 
+					"	}\n");
+
+					sbContent.append("	public static boolean set"+f.getElementName()+"(EObject eObject, "+fieldTypeName +" newValue) {\n" + 
+							"		return setAspectProperty(eObject, \""+fullLanguageName+"\", \""+originalAspectClassName+"\", \""+f.getElementName()+"\", newValue);\n" + 
+							"	}\n");
+				}
+			}
+		}
+
+		fileContent = fileContent.replaceAll(
+				Pattern.quote("${allGettersAndSetters}"), sbContent.toString());
+	
+		fileContent = fileContent.replaceAll(Pattern.quote("${extraImports}"), sbExtraImport.toString());
+		
+		IFile file = project
+				.getFile(Activator.EXTENSION_GENERATED_CLASS_FOLDER_NAME
+						+ folderName + "/" + languageToUpperFirst
+						+ Activator.RTD_ACCESSOR_CLASS_NAMEPART + ".java");
+		writeFile(file, fileContent);
+		
+		IFile AspectsFile = project
+				.getFile(Activator.EXTENSION_GENERATED_CLASS_FOLDER_NAME
+						+ folderName + "/" + languageToUpperFirst
+						+ Activator.RTD_ASPECTS_CLASS_NAMEPART + ".list");
+	
+		StringBuilder sbAspects = new StringBuilder();
+		setAspectsWithRTDs.stream().forEachOrdered(s -> sbAspects.append(s+"\n"));
+		writeFile(AspectsFile ,sbAspects.toString());
+		
+		// add the rtd accessor package to exported packages
+		manifestChanger.addExportPackage(packageName);
+	}
+
+	
+	
+	private static IType findAnyTypeInWorkspace(char[][] qualifications,
+			char[][] typeNames) throws JavaModelException {
+		class ResultException extends RuntimeException {
+			private static final long serialVersionUID= 1L;
+			private final IType fType;
+			public ResultException(IType type) {
+				fType= type;
+			}
+		}
+		TypeNameMatchRequestor requestor= new TypeNameMatchRequestor() {
+			@Override
+			public void acceptTypeNameMatch(TypeNameMatch match) {
+				throw new ResultException(match.getType());
+			}
+		};
+		try {
+			new SearchEngine().searchAllTypeNames(qualifications, typeNames, SearchEngine.createWorkspaceScope(), requestor, IJavaSearchConstants.WAIT_UNTIL_READY_TO_SEARCH, null);
+		} catch (ResultException e) {
+			return e.fType;
+		}
+		return null;
+}
+	
+	
 	/**
 	 * create or replace existing CodeExecutorClass by an implementation that is
 	 * able to execute method from the concrete DSA

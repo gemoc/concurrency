@@ -28,6 +28,9 @@ public class Activator extends AbstractUIPlugin {
 
 	public static final String MODEL_LOADER_CLASS_NAMEPART = "ModelLoader";
 	public static final String CODEEXECUTOR_CLASS_NAMEPART = "CodeExecutor";
+	public static final String RTD_ACCESSOR_CLASS_NAMEPART = "RTDAccessor";
+	public static final String RTD_ASPECTS_CLASS_NAMEPART = "RTDAspects";
+	public static final String MODEL_STATE_CLASS_NAMEPART = "ModelStateHelper";
 	public static final String SOLVER_CLASS_NAMEPART = "Solver";
 	public static final String EXTENSION_GENERATED_CLASS_FOLDER_NAME = "xdsml-java-gen/";
 
