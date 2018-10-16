@@ -90,6 +90,7 @@ public class BuilderTemplates {
 "import org.eclipse.emf.ecore.EObject;\n"+
 "import java.lang.reflect.InvocationTargetException;\n" + 
 "import java.util.List;\n"+
+"import java.lang.reflect.Method;\n" +
 "import org.eclipse.gemoc.executionframework.engine.commons.K3DslHelper;\n" + 
 "${extraImports}\n"+
 "\n"+
@@ -169,6 +170,7 @@ public class BuilderTemplates {
 " * If you need to modify it, copy it first */\n" +
 "package ${package.name};\n"+
 "import java.io.Serializable;\n" + 
+"import java.lang.reflect.Method;\n" +
 "import java.lang.reflect.InvocationTargetException;\n" + 
 "import org.eclipse.emf.common.util.TreeIterator;\n" + 
 "import org.eclipse.emf.ecore.EObject;\n" + 
@@ -218,7 +220,7 @@ public class BuilderTemplates {
 "				AttributeNameToValue n2v = (AttributeNameToValue)o;\n" + 
 "				try {\n" + 
 "					if (n2v.value != null) {\n" + 
-"						Method m = TfsmRTDAccessor.class.getMethod(\"set\"+n2v.name, EObject.class, n2v.value.getClass());\n" + 
+"						Method m = ${language.name.toupperfirst}RTDAccessor.class.getMethod(\"set\"+n2v.name, EObject.class, n2v.value.getClass());\n" + 
 "						m.invoke(null, elemState.getModelElement(), n2v.value);\n" + 
 "					}\n" + 
 "				} catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {\n" + 
@@ -226,7 +228,7 @@ public class BuilderTemplates {
 "					for(Class<?> c : n2v.value.getClass().getInterfaces()) {\n" + 
 "						\n" + 
 "						try {\n" + 
-"							m = TfsmRTDAccessor.class.getMethod(\"set\"+n2v.name, EObject.class, n2v.value.getClass().getInterfaces()[0]);\n" + 
+"							m = ${language.name.toupperfirst}RTDAccessor.class.getMethod(\"set\"+n2v.name, EObject.class, n2v.value.getClass().getInterfaces()[0]);\n" + 
 "							m.invoke(null, elemState.getModelElement(), n2v.value);\n" + 
 "						} catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e1) {\n" + 
 "						}\n" + 
