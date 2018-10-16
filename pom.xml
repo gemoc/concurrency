@@ -10,7 +10,7 @@
 	</modules>
 
     <properties>
-		<tycho-version>1.0.0</tycho-version>
+		<tycho-version>${tycho-version}</tycho-version>
     	<xtend.version>2.10.0</xtend.version>
 		<project.build.sourceEncoding>UTF8</project.build.sourceEncoding>
 		<tycho.scmUrl>scm:git:https://github.com/gemoc/concurrency.git</tycho.scmUrl>

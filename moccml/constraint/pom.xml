@@ -42,7 +42,7 @@
     </modules>
 
     <properties>
-        <tycho-version>1.0.0</tycho-version>
+        <tycho-version>${tycho-version}</tycho-version>
         <project.build.sourceEncoding>UTF8</project.build.sourceEncoding>
     </properties>
 
