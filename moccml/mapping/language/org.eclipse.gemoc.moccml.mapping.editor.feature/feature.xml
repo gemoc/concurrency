@@ -37,11 +37,11 @@ and timing aspect of your language ! (Ie. moccml.mapings)
 
    <url>
       <update label="ECL update site" url="https://ci.inria.fr/gemoc/job/MoCCML-mapping/lastSuccessfulBuild/artifact/moccml/mapping/deployment/org.eclipse.gemoc.moccml.mapping.updatesite/target/repository/"/>
-      <discovery label="Oxygen" url="http://download.eclipse.org/releases/oxygen"/>
+      <discovery label="Photon" url="http://download.eclipse.org/releases/photon"/>
       <discovery label="The Eclipse Project Updates" url="http://download.eclipse.org/eclipse/updates/4.6"/>
       <discovery label="Acceleo" url="http://download.eclipse.org/modeling/m2t/acceleo/updates/releases/3.2"/>
       <discovery label="Xtext All In One - Releases" url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
-      <discovery label="TimeSquare" url="http://timesquare.inria.fr/update_site/oxygen"/>
+      <discovery label="TimeSquare" url="http://timesquare.inria.fr/update_site/photon"/>
    </url>
 
    <requires>

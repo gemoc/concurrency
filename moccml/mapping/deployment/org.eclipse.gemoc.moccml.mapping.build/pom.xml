@@ -47,7 +47,7 @@
 	<repositories>
 <!--  		<repository>
 			<id>timesquare</id>
-			<url>http://timesquare.inria.fr/update_site/oxygen</url>
+			<url>http://timesquare.inria.fr/update_site/photon</url>
 			<layout>p2</layout>
 			<releases>
 				<enabled>true</enabled>
@@ -58,8 +58,8 @@
 		</repository>
 		
 		<repository>
-			<id>Oxygen release</id>
-			<url>http://download.eclipse.org/releases/oxygen/</url>
+			<id>Photon release</id>
+			<url>http://download.eclipse.org/releases/photon/</url>
 			<layout>p2</layout>
 			<releases>
 				<enabled>true</enabled>
