@@ -41,7 +41,7 @@ and timing aspect of your language ! (Ie. moccml.mapings)
       <discovery label="The Eclipse Project Updates" url="http://download.eclipse.org/eclipse/updates/4.6"/>
       <discovery label="Acceleo" url="http://download.eclipse.org/modeling/m2t/acceleo/updates/releases/3.2"/>
       <discovery label="Xtext All In One - Releases" url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
-      <discovery label="TimeSquare" url="http://timesquare.inria.fr/update_site/photon"/>
+      <discovery label="TimeSquare" url="http://www.i3s.unice.fr/~deantoni/photon/"/><!--url="http://timesquare.inria.fr/update_site/photon"/>-->
    </url>
 
    <requires>
