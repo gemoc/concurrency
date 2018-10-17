@@ -45,29 +45,7 @@
         </properties>
         
 	<repositories>
-<!--  		<repository>
-			<id>timesquare</id>
-			<url>http://timesquare.inria.fr/update_site/photon</url>
-			<layout>p2</layout>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		
-		<repository>
-			<id>Photon release</id>
-			<url>http://download.eclipse.org/releases/photon/</url>
-			<layout>p2</layout>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>-->
+
                 <repository>
                         <id>Eclipse - Acceleo Snapshots</id>
                         <url>https://repo.eclipse.org/content/repositories/acceleo-snapshots</url>
@@ -76,51 +54,7 @@
                         <id>Eclipse - Acceleo Release</id>
                         <url>https://repo.eclipse.org/content/repositories/acceleo-releases</url>
                 </repository>
-<!--		<repository>
-			<id>luna-updates</id>
-			<url>http://download.eclipse.org/eclipse/updates/4.4</url>
-			<layout>p2</layout>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>-->
-<!-- 
-		<repository>
-			<id>Xtext All-in-One</id>
-			<url>http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/</url>
-			<layout>p2</layout>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>-->
-		<!--<repository>
-			<id>acceleo</id>
-			<url>http://download.eclipse.org/modeling/m2t/acceleo/updates/releases/3.2</url>
-			<layout>p2</layout>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>-->
-<!--		<repository>
-			<id>Sirius4Luna</id>
-			<url>http://download.eclipse.org/sirius/updates/milestones/1.0.0M6/luna</url>
-			<layout>p2</layout>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>-->
+
 	</repositories>
 
         <pluginRepositories>
