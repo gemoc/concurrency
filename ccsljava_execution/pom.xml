@@ -17,6 +17,7 @@
         <!-- plugins -->
         <module>ccsljava_engine/plugins/org.eclipse.gemoc.execution.concurrent.ccsljavaengine</module>
         <module>ccsljava_engine/plugins/org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.k3</module>
+        <module>org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.rtd.modelstate</module>
         <module>ccsljava_engine/plugins/org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare</module>
         <module>ccsljava_engine/plugins/org.eclipse.gemoc.execution.concurrent.ccsljavaengine.mse.model</module>
         <module>ccsljava_engine/plugins/org.eclipse.gemoc.execution.concurrent.ccsljavaengine.stimuli_scenario.model</module>
