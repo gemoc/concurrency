@@ -11,9 +11,12 @@
 package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.builder;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ArrayBlockingQueue;
 import java.util.regex.Pattern;
 
 import org.eclipse.core.resources.IFile;
@@ -310,7 +313,7 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 			IJavaElement[] allChildren = aspectClass.getChildren();
 			for(int i = 0; i < allChildren.length; i++) {
 				IJavaElement javaElem = allChildren[i];
-				if (javaElem instanceof SourceField && Modifier.isPublic(((IMember) javaElem).getFlags())) {
+				if (javaElem instanceof SourceField ) {
 					setAspectsWithRTDs.add(originalAspectClassName);
 					SourceField f = (SourceField)javaElem;
 					mapAspectProperties.put(originalAspectClassName, f.getElementName());
@@ -327,18 +330,26 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 						qualificationsType= null;
 						simpleNameType= fieldTypeName;
 					}
+					//remove template param
+					if(simpleNameType.contains("<")) {
+						simpleNameType = simpleNameType.replaceAll("<(.*)>", "");
+					}
+					
 					char[][] typeNamesType= new char[][] { simpleNameType.toCharArray() };
 					IType fieldType = findAnyTypeInWorkspace(qualificationsType, typeNamesType);
 					if(fieldType != null) {
-						sbExtraImport.append("import "+fieldType.getFullyQualifiedName()+";\n");
-						
-						sbContent.append("  public static "+fieldTypeName +" get"+f.getElementName()+"(EObject eObject) {\n" + 
-						"		return ("+fieldTypeName +")  getAspectProperty(eObject, \""+fullLanguageName+"\", \""+originalAspectClassName+"\", \""+f.getElementName()+"\");\n" + 
+						if(fieldType.getElementName().compareTo("Object") != 0) {
+							sbExtraImport.append("import "+fieldType.getFullyQualifiedName()+";\n");
+						}
+						sbContent.append("  public static "+simpleNameType +" get"+f.getElementName()+"(EObject eObject) {\n" + 
+						"		return ("+simpleNameType +")  getAspectProperty(eObject, \""+fullLanguageName+"\", \""+originalAspectClassName+"\", \""+f.getElementName()+"\");\n" + 
 						"	}\n");
 	
-						sbContent.append("	public static boolean set"+f.getElementName()+"(EObject eObject, "+fieldTypeName +" newValue) {\n" + 
+						sbContent.append("	public static boolean set"+f.getElementName()+"(EObject eObject, "+simpleNameType +" newValue) {\n" + 
 								"		return setAspectProperty(eObject, \""+fullLanguageName+"\", \""+originalAspectClassName+"\", \""+f.getElementName()+"\", newValue);\n" + 
 								"	}\n");
+					}else {
+						System.out.println(typeNamesType);
 					}
 				}
 			}
