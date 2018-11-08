@@ -30,3 +30,4 @@ Export-Package: org.eclipse.gemoc.moccml.mapping.xtext.ui,
  org.eclipse.gemoc.moccml.mapping.xtext.ui.outline,
  org.eclipse.gemoc.moccml.mapping.xtext.ui.quickfix
 Bundle-Activator: org.eclipse.gemoc.moccml.mapping.xtext.ui.internal.EclActivator
+Automatic-Module-Name: org.eclipse.gemoc.moccml.mapping.xtext.ui
