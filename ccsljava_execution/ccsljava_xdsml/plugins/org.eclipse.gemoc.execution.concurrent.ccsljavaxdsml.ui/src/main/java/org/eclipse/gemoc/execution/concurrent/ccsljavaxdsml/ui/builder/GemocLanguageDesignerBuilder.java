@@ -42,13 +42,16 @@ import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
 import org.eclipse.gemoc.xdsmlframework.api.extensions.languages.LanguageDefinitionExtensionPoint;
 import org.eclipse.gemoc.xdsmlframework.ide.ui.builder.pde.PluginXMLHelper;
 import org.eclipse.jdt.core.IJavaElement;
+import org.eclipse.jdt.core.IMember;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.JavaModelException;
+import org.eclipse.jdt.core.dom.Modifier;
 import org.eclipse.jdt.core.search.IJavaSearchConstants;
 import org.eclipse.jdt.core.search.SearchEngine;
 import org.eclipse.jdt.core.search.TypeNameMatch;
 import org.eclipse.jdt.core.search.TypeNameMatchRequestor;
 import org.eclipse.jdt.internal.core.SourceField;
+import org.eclipse.jdt.internal.corext.util.JdtFlags;
 import org.jdom2.Element;
 import org.osgi.framework.BundleException;
 
@@ -242,9 +245,11 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 						"\t\t\t\tElementState elemState = theFactory.createElementState();\n" + 
 						"\t\t\t\telemState.setModelElement(elem);\n"+
 						"\t\t\t\tres.getOwnedElementstates().add(elemState);\n");
+					int i = 0;
 					for(String property : mapAspectProperties.get(aspect)) {
-						sbContent.append("\t\t\t\tAttributeNameToValue n2v = new AttributeNameToValue(\""+property+"\", "+languageToUpperFirst+"RTDAccessor.get"+property+"(elem));\n"+
-						"\t\t\t\telemState.getSavedRTDs().add(n2v);\n");
+						sbContent.append("\t\t\t\tAttributeNameToValue n2v"+i+" = new AttributeNameToValue(\""+property+"\", "+languageToUpperFirst+"RTDAccessor.get"+property+"(elem));\n"+
+						"\t\t\t\telemState.getSavedRTDs().add(n2v"+i+");\n");
+						i++;
 					}
 					sbContent.append("\t\t\t}\n"); 
 				}
@@ -305,7 +310,7 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 			IJavaElement[] allChildren = aspectClass.getChildren();
 			for(int i = 0; i < allChildren.length; i++) {
 				IJavaElement javaElem = allChildren[i];
-				if (javaElem instanceof SourceField) {
+				if (javaElem instanceof SourceField && Modifier.isPublic(((IMember) javaElem).getFlags())) {
 					setAspectsWithRTDs.add(originalAspectClassName);
 					SourceField f = (SourceField)javaElem;
 					mapAspectProperties.put(originalAspectClassName, f.getElementName());
@@ -324,15 +329,17 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 					}
 					char[][] typeNamesType= new char[][] { simpleNameType.toCharArray() };
 					IType fieldType = findAnyTypeInWorkspace(qualificationsType, typeNamesType);
-					sbExtraImport.append("import "+fieldType.getFullyQualifiedName()+";\n");
-					
-					sbContent.append("  public static "+fieldTypeName +" get"+f.getElementName()+"(EObject eObject) {\n" + 
-					"		return ("+fieldTypeName +")  getAspectProperty(eObject, \""+fullLanguageName+"\", \""+originalAspectClassName+"\", \""+f.getElementName()+"\");\n" + 
-					"	}\n");
-
-					sbContent.append("	public static boolean set"+f.getElementName()+"(EObject eObject, "+fieldTypeName +" newValue) {\n" + 
-							"		return setAspectProperty(eObject, \""+fullLanguageName+"\", \""+originalAspectClassName+"\", \""+f.getElementName()+"\", newValue);\n" + 
-							"	}\n");
+					if(fieldType != null) {
+						sbExtraImport.append("import "+fieldType.getFullyQualifiedName()+";\n");
+						
+						sbContent.append("  public static "+fieldTypeName +" get"+f.getElementName()+"(EObject eObject) {\n" + 
+						"		return ("+fieldTypeName +")  getAspectProperty(eObject, \""+fullLanguageName+"\", \""+originalAspectClassName+"\", \""+f.getElementName()+"\");\n" + 
+						"	}\n");
+	
+						sbContent.append("	public static boolean set"+f.getElementName()+"(EObject eObject, "+fieldTypeName +" newValue) {\n" + 
+								"		return setAspectProperty(eObject, \""+fullLanguageName+"\", \""+originalAspectClassName+"\", \""+f.getElementName()+"\", newValue);\n" + 
+								"	}\n");
+					}
 				}
 			}
 		}
