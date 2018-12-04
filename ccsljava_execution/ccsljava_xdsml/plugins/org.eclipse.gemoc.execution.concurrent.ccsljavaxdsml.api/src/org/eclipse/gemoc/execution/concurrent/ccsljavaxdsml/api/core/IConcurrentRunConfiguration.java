@@ -22,4 +22,5 @@ public interface IConcurrentRunConfiguration extends IRunConfiguration{
 	String getExecutionModelPath();
 	String getModelInitializationMethod();
 	String getModelInitializationArguments();
+	boolean getIsExhaustiveSimulation();
 }
