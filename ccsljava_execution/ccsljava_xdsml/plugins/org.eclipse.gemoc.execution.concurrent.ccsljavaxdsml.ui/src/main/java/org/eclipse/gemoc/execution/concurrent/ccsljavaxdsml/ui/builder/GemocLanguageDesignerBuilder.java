@@ -338,7 +338,8 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 					char[][] typeNamesType= new char[][] { simpleNameType.toCharArray() };
 					IType fieldType = findAnyTypeInWorkspace(qualificationsType, typeNamesType);
 					if(fieldType != null) {
-						if(fieldType.getElementName().compareTo("Object") != 0) {
+						String fieldName = fieldType.getElementName();
+						if(!fieldName.equals("Object") && !fieldName.equals("String")) {
 							sbExtraImport.append("import "+fieldType.getFullyQualifiedName()+";\n");
 						}
 						sbContent.append("  public static "+simpleNameType +" get"+f.getElementName()+"(EObject eObject) {\n" + 
