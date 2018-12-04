@@ -24,6 +24,7 @@ public class ConcurrentRunConfiguration extends RunConfiguration implements ICon
 	public static final String DECIDER_SOLVER = "Solver decider";
 	public static final String DECIDER_ASKUSER_STEP_BY_STEP = "Step by step user decider";
 	public static final String EXTRA_TIMEMODEL_PATH = "TIMEMODEL_PATH";
+	public static final String EXHAUSTIVE_MODE = "Do Exhaustive Simulation";
 	
 	private String _modelInitializationMethod;
 	private String _modelInitializationArguments;
@@ -39,12 +40,14 @@ public class ConcurrentRunConfiguration extends RunConfiguration implements ICon
 		
 		_deciderName = getAttribute(LAUNCH_SELECTED_DECIDER, "");
 		_executionModelPath = getAttribute(EXTRA_TIMEMODEL_PATH, "");
+		_isExhaustive = getAttribute(EXHAUSTIVE_MODE, false);
 		_modelInitializationMethod = getAttribute(LAUNCH_INITIALIZATION_METHOD, "");
 		_modelInitializationArguments = getAttribute(LAUNCH_INITIALIZATION_ARGUMENTS, "");
 	}
 	
 	protected String _deciderName;
 	protected String _executionModelPath;
+	protected boolean _isExhaustive;
 	
 	@Override
 	public String getDeciderName() {
@@ -54,6 +57,11 @@ public class ConcurrentRunConfiguration extends RunConfiguration implements ICon
 	@Override
 	public String getExecutionModelPath() {
 		return _executionModelPath;
+	}
+	
+	@Override
+	public boolean getIsExhaustiveSimulation() {
+		return _isExhaustive;
 	}
 
 	@Override

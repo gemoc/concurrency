@@ -9,23 +9,36 @@
  *     INRIA - initial API and implementation
  *     I3S Laboratory - API update and bug fix
  *******************************************************************************/
-package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.dse;
+package org.eclipse.gemoc.execution.concurrent.ccsljavaengine.dsa.executors.explorer;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 import java.util.function.Consumer;
 
+import org.eclipse.core.internal.resources.Workspace;
+import org.eclipse.core.internal.utils.FileUtil;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.commons.ConcurrentModelExecutionContext;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.dse.ASynchroneExecution;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.dse.ConcurrentExecutionEngine;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.dse.OperationExecution;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.dse.SynchroneExecution;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.dsa.helper.IK3ModelStateHelper;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionContext;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentRunConfiguration;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IFutureAction;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.ILogicalStepDecider;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.CodeExecutionException;
@@ -33,21 +46,22 @@ import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.IC
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.dse.IMSEStateController;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
 import org.eclipse.gemoc.executionframework.engine.Activator;
-import org.eclipse.gemoc.executionframework.engine.core.AbstractExecutionEngine;
 import org.eclipse.gemoc.executionframework.engine.core.CommandExecution;
 import org.eclipse.gemoc.executionframework.engine.core.EngineStoppedException;
 import org.eclipse.gemoc.moccml.mapping.feedback.feedback.ActionModel;
 import org.eclipse.gemoc.moccml.mapping.feedback.feedback.When;
+import org.eclipse.gemoc.trace.commons.model.generictrace.GenericParallelStep;
+import org.eclipse.gemoc.trace.commons.model.generictrace.GenericStep;
 import org.eclipse.gemoc.trace.commons.model.trace.MSE;
 import org.eclipse.gemoc.trace.commons.model.trace.ParallelStep;
 import org.eclipse.gemoc.trace.commons.model.trace.SmallStep;
 import org.eclipse.gemoc.trace.commons.model.trace.Step;
-import org.eclipse.gemoc.xdsmlframework.api.core.EngineStatus;
 import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionContext;
 import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine;
 import org.eclipse.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 
 import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel;
+import grph.Grph;
 
 /**
  * Basic abstract implementation of the ExecutionEngine, independent from the technologies used for the solver, the
@@ -88,25 +102,12 @@ import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel;
  * @param <T>
  * 
  */
-public class ConcurrentExecutionEngine extends AbstractExecutionEngine<IConcurrentExecutionContext, IConcurrentRunConfiguration>implements IConcurrentExecutionEngine{
-
-	protected IMSEStateController _mseStateController;
+public class ExhaustiveConcurrentExecutionEngine extends ConcurrentExecutionEngine{	
 	
-	
-	public ConcurrentExecutionEngine(IConcurrentExecutionContext concurrentexecutionContext, ISolver s) throws CoreException 
+	public ExhaustiveConcurrentExecutionEngine(IConcurrentExecutionContext concurrentexecutionContext, ISolver s) throws CoreException 
 	{
-		super();
-		_solver = s;
-		initialize(concurrentexecutionContext);
+		super(concurrentexecutionContext,s);
 	}
-
-	private void switchDeciderIfNecessary() {
-		if (getLogicalStepDecider() != null && getLogicalStepDecider() != _logicalStepDecider) {
-			_logicalStepDecider = getLogicalStepDecider();
-		}
-	}
-
-	protected ILogicalStepDecider _logicalStepDecider;
 
 	@Override
 	public ILogicalStepDecider getLogicalStepDecider() {
@@ -118,167 +119,123 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine<IConcurre
 		_logicalStepDecider = newDecider;
 	}
 
-	public void computePossibleLogicalSteps() {
-		_possibleLogicalSteps = getSolver().computeAndGetPossibleLogicalSteps();
-	}
-
-	public void updatePossibleLogicalSteps() {
-		for (IMSEStateController c : getConcurrentExecutionContext().getExecutionPlatform()
-				.getMSEStateControllers()) {
-			c.applyMSEFutureStates(getSolver());
-		}
-		synchronized (this) {
-			_possibleLogicalSteps = getSolver().updatePossibleLogicalSteps();
-		}
-	}
-
-	@Override
-	public void recomputePossibleLogicalSteps() {
-		getSolver().revertForceClockEffect();
-		updatePossibleLogicalSteps();
-		notifyProposedLogicalStepsChanged();
-	}
-
-	protected List<Step<?>> _possibleLogicalSteps = new ArrayList<>();
-
-	@Override
-	public List<Step<?>> getPossibleLogicalSteps() {
-		synchronized (this) {
-			return new ArrayList<Step<?>>(_possibleLogicalSteps);
-		}
-	}
-
-	@Override
-	protected final void performStop() {
-		setSelectedLogicalStep(null);
-		if (getLogicalStepDecider() != null) {
-			// unlock decider if this is a user decider
-			getLogicalStepDecider().preempt();
-		}
-
-	}
-
-	public void notifyLogicalStepSelected() {
-		for (IEngineAddon addon : getExecutionContext().getExecutionPlatform().getEngineAddons()) {
-			try {
-				addon.stepSelected(this, getSelectedLogicalStep());
-			} catch (Exception e) {
-				Activator.getDefault().error("Exception in Addon " + addon + ", " + e.getMessage(), e);
-			}
-		}
-	}
-
-	public void notifyAboutToSelectLogicalStep() {
-		for (IEngineAddon addon : getExecutionContext().getExecutionPlatform().getEngineAddons()) {
-			try {
-				addon.aboutToSelectStep(this, getPossibleLogicalSteps());
-			} catch (Exception e) {
-				Activator.getDefault().error("Exception in Addon " + addon + ", " + e.getMessage(), e);
-			}
-		}
-	}
-
-	protected Step<?> _selectedLogicalStep;
-
-	@Override
-	public Step<?> getSelectedLogicalStep() {
-		synchronized (this) {
-			return _selectedLogicalStep;
-		}
-	}
-
-	@Override
-	public void setSelectedLogicalStep(Step<?> ls) {
-		synchronized (this) {
-			_selectedLogicalStep = ls;
-		}
-	}
-
+	
+	
+	public StateSpace stateSpace = new StateSpace();
+	protected ArrayList<ControlAndRTDState> statesToExplore = new ArrayList<ControlAndRTDState>();
+	
 	/**
-	 * 
-	 * @return the IConcurrenExecutionContext or null if no such context is available
+	 * actually performs all the execution steps...
 	 */
-	@Override
-	public IConcurrentExecutionContext getConcurrentExecutionContext() {
-
-		IExecutionContext<?,?,?> context = getExecutionContext();
-		if (context instanceof IConcurrentExecutionContext) {
-			return (IConcurrentExecutionContext) context;
-		} else
-			return null;
-	}
-
-	protected ISolver _solver;
-
-	@Override
-	public ISolver getSolver() {
-		return _solver;
-	}
-
-	public void notifyProposedLogicalStepsChanged() {
-		for (IEngineAddon addon : getExecutionContext().getExecutionPlatform().getEngineAddons()) {
-			try {
-				addon.proposedStepsChanged(this, getPossibleLogicalSteps());
-			} catch (Exception e) {
-				Activator.getDefault().error("Exception in Addon " + addon + ", " + e.getMessage(), e);
-			}
-		}
-	}
-
-	@Override
-	public String toString() {
-		return this.getClass().getName() + "@[Executor=" + getCodeExecutor() + " ; Solver=" + getSolver()
-				+ " ; ModelResource=" + _executionContext.getResourceModel() + "]";
-	}
-
 	public void performExecutionStep() throws InterruptedException {
-		switchDeciderIfNecessary();
-		computePossibleLogicalSteps();
-		updatePossibleLogicalSteps();
-		// 2- select one solution from available logical step /
-		// select interactive vs batch
-		if (_possibleLogicalSteps.size() == 0) {
-			Activator.getDefault().debug("No more LogicalStep to run");
-			stop();
-		} else {
-			// Activator.getDefault().debug("\t\t ---------------- LogicalStep "
-			// + count);
-			Step<?> selectedLogicalStep = selectAndExecuteLogicalStep();
-			// 3 - run the selected logical step
-			// inform the solver that we will run this step
-			if (selectedLogicalStep != null) {
-				getSolver().applyLogicalStep(selectedLogicalStep);
-
-// only for testing purpose
-//				List<fr.inria.aoste.timesquare.instantrelation.CCSLRelationModel.OccurrenceRelation> res = getSolver().getLastOccurrenceRelations();
-//				System.out.println("/********************DEBUG OCCURRENCE RELATIONS****************\n*  "
-//						+res
-//						+"\n**********************************************************/");
+		String fullLanguageName = this._executionContext.getLanguageDefinitionExtension().getName();
+		int lastDot = fullLanguageName.lastIndexOf(".");
+		if(lastDot == -1)lastDot = 0;
+		String languageName = fullLanguageName.substring(lastDot+1);
+		String languageToUpperFirst = languageName.substring(0, 1).toUpperCase() + languageName.substring(1);
+		
+		IK3ModelStateHelper modelStateHelper = null;
+		try {
+			modelStateHelper = (IK3ModelStateHelper) this._executionContext.getDslBundle().loadClass(languageToUpperFirst.toLowerCase()+".xdsml.api.impl."+languageToUpperFirst+"ModelStateHelper").newInstance();
+		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		EObject model = this._executionContext.getResourceModel().getContents().get(0);		
+		System.out.println(model);
+		ControlAndRTDState initialState = new ControlAndRTDState(modelStateHelper.getK3ModelState(model), this._solver.getState());
+		stateSpace.initialState = initialState;
+		stateSpace.addVertex(initialState);
+		statesToExplore.add(initialState);
+		
 				
+		while(! statesToExplore.isEmpty()) {
+			System.out.println("################################################### still "+statesToExplore.size()+" steps to explore");
+			ControlAndRTDState currentState = statesToExplore.remove(0);
+			modelStateHelper.restoreModelState(currentState.modelState);
+			this._solver.setState(currentState.moCCState);
+			//set the possibleLogicalSteps for this state
+			computePossibleLogicalSteps();
+			// 2- compute all states accessible from the currenState when using the possibleLogicalStates
+			int originalPossibleLogicalStepSize = _possibleLogicalSteps.size();
+			for(int i = 0; i<_possibleLogicalSteps.size(); i++) {
+				if (_possibleLogicalSteps.size() != originalPossibleLogicalStepSize) {
+					System.err.println("something went wrong during mocc state save/restore");
+				}
+				Step<?> aStep = _possibleLogicalSteps.get(i);
+				setSelectedLogicalStep(aStep);
+				executeSelectedLogicalStep();
+				this._solver.applyLogicalStep(aStep);	
 				engineStatus.incrementNbLogicalStepRun();
-			} else {
-				// no logical step was selected, this is most probably due to a
-				// preempt on the LogicalStepDecider and a change of Decider,
-				// notify Addons that we'll rerun this ExecutionStep
-				// recomputePossibleLogicalSteps();
+				ControlAndRTDState newState = new ControlAndRTDState(modelStateHelper.getK3ModelState(model), this._solver.getState());
+				
+				ControlAndRTDState theExistingState = null;
+				for(ControlAndRTDState s : stateSpace.getVertices()) {
+					if (newState.equals(s)) {
+						theExistingState = s;
+						break;
+					}
+				}
+				if (theExistingState == null) {
+					stateSpace.addVertex(newState);
+					StringBuffer buf = new StringBuffer(prettyPrint((GenericParallelStep) aStep));
+					stateSpace.addDirectedSimpleEdge(currentState, buf, newState);
+					statesToExplore.add(newState);
+				}else {
+					assert(theExistingState != null);
+					System.out.println("there is a loop");
+					StringBuffer buf = new StringBuffer(prettyPrint((GenericParallelStep) aStep));
+					stateSpace.addDirectedSimpleEdge(currentState, buf, theExistingState);
+				}
+				modelStateHelper.restoreModelState(currentState.modelState);
+				this._solver.setState(currentState.moCCState);
+				computePossibleLogicalSteps();
 			}
 		}
+		stop();
+		PrintStream ps = null;
+		String modelPath = this._executionContext.getResourceModel().getURI().toPlatformString(true);
+		IProject modelProject = ResourcesPlugin.getWorkspace().getRoot().getProject(modelPath.substring(1, modelPath.substring(1).indexOf('/')+1));
+		IFile dotFile = modelProject.getFile(modelPath.replace("/"+modelProject.getName()+"/", "")+"_statespace.dot");
+		
+		try {
+			ps = new PrintStream(dotFile.getLocationURI().toString().substring(5));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		Grph internalGrph = stateSpace.getGrph();
+		System.out.println("################################################res: "+internalGrph.getVertices().size()+ " states and "+internalGrph.getEdges().size()+" transitions");
+		ps.print(internalGrph.toDot());
+		ps.close();
 	}
 
-	private Step<?> selectAndExecuteLogicalStep() throws InterruptedException {
-		setEngineStatus(EngineStatus.RunStatus.WaitingLogicalStepSelection);
-		notifyAboutToSelectLogicalStep();
-		Step<?> selectedLogicalStep = getLogicalStepDecider().decide(this, getPossibleLogicalSteps());
-		if (selectedLogicalStep != null) {
-			setSelectedLogicalStep(selectedLogicalStep);
-			setEngineStatus(EngineStatus.RunStatus.Running);
-			notifyLogicalStepSelected();
-			// run all the event occurrences of this logical
-			// step
-			executeSelectedLogicalStep();
-		}
-		return selectedLogicalStep;
+	
+	private void restoreComputedPossibleLogicalSteps() {
+		getSolver().computeAndGetPossibleLogicalSteps();
 	}
+
+	private String prettyPrint(GenericParallelStep aStep) {
+		StringBuilder sbStep = new StringBuilder();
+		for(GenericStep s : aStep.getSubSteps()) {
+			sbStep.append(((SmallStep)s).getMseoccurrence().getMse().getName()+ " ");
+		}
+		return sbStep.toString();
+	}
+		
+
+//	private Step<?> selectAndExecuteLogicalStep() throws InterruptedException {
+//		setEngineStatus(EngineStatus.RunStatus.WaitingLogicalStepSelection);
+//		notifyAboutToSelectLogicalStep();
+//		Step<?> selectedLogicalStep = getLogicalStepDecider().decide(this, getPossibleLogicalSteps());
+//		if (selectedLogicalStep != null) {
+//			setSelectedLogicalStep(selectedLogicalStep);
+//			setEngineStatus(EngineStatus.RunStatus.Running);
+//			notifyLogicalStepSelected();
+//			// run all the event occurrences of this logical
+//			// step
+//			executeSelectedLogicalStep();
+//		}
+//		return selectedLogicalStep;
+//	}
 
 	/**
 	 * run all the event occurrences of this logical step
@@ -352,8 +309,102 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine<IConcurre
 		}
 	}
 
-	protected ArrayList<IFutureAction> _futureActions = new ArrayList<>();
-	protected Object _futureActionsLock = new Object();
+	
+
+	public void updatePossibleLogicalSteps() {
+		for (IMSEStateController c : getConcurrentExecutionContext().getExecutionPlatform()
+				.getMSEStateControllers()) {
+			c.applyMSEFutureStates(getSolver());
+		}
+		synchronized (this) {
+			_possibleLogicalSteps = getSolver().updatePossibleLogicalSteps();
+		}
+	}
+
+	@Override
+	public void recomputePossibleLogicalSteps() {
+		getSolver().revertForceClockEffect();
+		updatePossibleLogicalSteps();
+		notifyProposedLogicalStepsChanged();
+	}
+	@Override
+	public List<Step<?>> getPossibleLogicalSteps() {
+		synchronized (this) {
+			return new ArrayList<Step<?>>(_possibleLogicalSteps);
+		}
+	}
+
+
+	public void notifyLogicalStepSelected() {
+		for (IEngineAddon addon : getExecutionContext().getExecutionPlatform().getEngineAddons()) {
+			try {
+				addon.stepSelected(this, getSelectedLogicalStep());
+			} catch (Exception e) {
+				Activator.getDefault().error("Exception in Addon " + addon + ", " + e.getMessage(), e);
+			}
+		}
+	}
+
+	public void notifyAboutToSelectLogicalStep() {
+		for (IEngineAddon addon : getExecutionContext().getExecutionPlatform().getEngineAddons()) {
+			try {
+				addon.aboutToSelectStep(this, getPossibleLogicalSteps());
+			} catch (Exception e) {
+				Activator.getDefault().error("Exception in Addon " + addon + ", " + e.getMessage(), e);
+			}
+		}
+	}
+
+
+	@Override
+	public Step<?> getSelectedLogicalStep() {
+		synchronized (this) {
+			return _selectedLogicalStep;
+		}
+	}
+
+	@Override
+	public void setSelectedLogicalStep(Step<?> ls) {
+		synchronized (this) {
+			_selectedLogicalStep = ls;
+		}
+	}
+
+	/**
+	 * 
+	 * @return the IConcurrenExecutionContext or null if no such context is available
+	 */
+	@Override
+	public IConcurrentExecutionContext getConcurrentExecutionContext() {
+
+		IExecutionContext<?,?,?> context = getExecutionContext();
+		if (context instanceof IConcurrentExecutionContext) {
+			return (IConcurrentExecutionContext) context;
+		} else
+			return null;
+	}
+
+
+	@Override
+	public ISolver getSolver() {
+		return _solver;
+	}
+
+	public void notifyProposedLogicalStepsChanged() {
+		for (IEngineAddon addon : getExecutionContext().getExecutionPlatform().getEngineAddons()) {
+			try {
+				addon.proposedStepsChanged(this, getPossibleLogicalSteps());
+			} catch (Exception e) {
+				Activator.getDefault().error("Exception in Addon " + addon + ", " + e.getMessage(), e);
+			}
+		}
+	}
+
+	@Override
+	public String toString() {
+		return this.getClass().getName() + "@[Executor=" + getCodeExecutor() + " ; Solver=" + getSolver()
+				+ " ; ModelResource=" + _executionContext.getResourceModel() + "]";
+	}
 
 	@Override
 	public void addFutureAction(IFutureAction action) {
@@ -387,42 +438,9 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine<IConcurre
 		return getConcurrentExecutionContext().getExecutionPlatform().getCodeExecutor();
 	}
 
-	@Override
-	protected final void finishDispose() {
-		_solver.dispose();
-	}
+	
 
-	@Override
-	public final void performInitialize(IConcurrentExecutionContext executionContext) {
 
-		if (!(executionContext instanceof IConcurrentExecutionContext))
-			throw new IllegalArgumentException(
-					"executionContext must be an IConcurrentExecutionContext when used in ConcurrentExecutionEngine");
-
-		IConcurrentExecutionContext concurrentExecutionContext = getConcurrentExecutionContext();
-		_solver.setExecutableModelResource(concurrentExecutionContext.getResourceModel());
-//		already done in the launch place ?!
-//		ISolver solver;
-//		// TODO very ugly
-//		try {
-//			solver = concurrentExecutionContext.getConcurrentLanguageDefinitionExtension().instanciateSolver();
-//		} catch (CoreException e) {
-//			throw new RuntimeException(e.getMessage());
-//		}
-//		solver.initialize(concurrentExecutionContext);
-//		this.setSolver(solver);
-		this.changeLogicalStepDecider(concurrentExecutionContext.getLogicalStepDecider());
-
-		_mseStateController = new DefaultMSEStateController();
-		concurrentExecutionContext.getExecutionPlatform().getMSEStateControllers().add(_mseStateController);
-
-		executeInitializeModelMethod(executionContext);
-		
-		((ConcurrentModelExecutionContext)executionContext).setUpMSEModel();
-		((ConcurrentModelExecutionContext)executionContext).setUpFeedbackModel();
-		
-		Activator.getDefault().debug("*** Engine initialization done. ***");
-	}
 
 	protected void executeInitializeModelMethod(IConcurrentExecutionContext executionContext) {
 

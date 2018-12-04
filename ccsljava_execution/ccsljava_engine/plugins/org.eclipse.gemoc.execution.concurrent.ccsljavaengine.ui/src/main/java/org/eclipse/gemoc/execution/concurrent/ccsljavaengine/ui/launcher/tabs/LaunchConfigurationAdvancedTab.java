@@ -25,10 +25,12 @@ import org.eclipse.gemoc.executionframework.engine.core.RunConfiguration;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.ControlListener;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -41,6 +43,7 @@ public class LaunchConfigurationAdvancedTab extends LaunchConfigurationTab {
 
 	protected Composite _parent;
 	protected Text _timemodelLocationText;
+	protected Button _isExhaustive;
 	public int GRID_DEFAULT_WIDTH = 200;
 
 	@Override
@@ -56,6 +59,22 @@ public class LaunchConfigurationAdvancedTab extends LaunchConfigurationTab {
 		Group executionModelArea = createGroup(area, "execution model (.timemodel):");
 		createModelLayout(executionModelArea , null);
 	
+		_isExhaustive =createCheckButton(area, "Do Exhaustive Simulation");
+		
+		_isExhaustive.addSelectionListener(new SelectionListener() {
+			
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				setDirty(true);
+				notifyAll();
+			}
+			
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) {
+				setDirty(true);
+				notifyAll();
+			}
+		});
 
 	}
 
@@ -71,6 +90,7 @@ public class LaunchConfigurationAdvancedTab extends LaunchConfigurationTab {
 		try {
 			ConcurrentRunConfiguration runConfiguration = new ConcurrentRunConfiguration(configuration);
 			_timemodelLocationText.setText(runConfiguration.getExecutionModelPath());
+			_isExhaustive.setSelection(runConfiguration.getIsExhaustiveSimulation());
 		} catch (CoreException e) {
 			Activator.error(e.getMessage(), e);
 		}
@@ -79,6 +99,7 @@ public class LaunchConfigurationAdvancedTab extends LaunchConfigurationTab {
 	@Override
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
 		configuration.setAttribute(ConcurrentRunConfiguration.EXTRA_TIMEMODEL_PATH, _timemodelLocationText.getText());
+		configuration.setAttribute(ConcurrentRunConfiguration.EXHAUSTIVE_MODE, _isExhaustive.getSelection());
 	}
 
 	@Override
