@@ -66,7 +66,8 @@ public class LaunchConfigurationAdvancedTab extends LaunchConfigurationTab {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				setDirty(true);
-				notifyAll();
+				updateLaunchConfigurationDialog();
+				getLaunchConfigurationDialog().updateButtons();
 			}
 			
 			@Override
