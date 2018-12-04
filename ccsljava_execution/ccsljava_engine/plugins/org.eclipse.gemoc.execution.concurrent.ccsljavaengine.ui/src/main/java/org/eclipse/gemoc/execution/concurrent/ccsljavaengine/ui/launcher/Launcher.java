@@ -34,6 +34,7 @@ import org.eclipse.gemoc.commons.eclipse.ui.ViewHelper;
 import org.eclipse.gemoc.dsl.debug.ide.adapter.IDSLCurrentInstructionListener;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.commons.ConcurrentModelExecutionContext;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.commons.ConcurrentRunConfiguration;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.dsa.executors.explorer.ExhaustiveConcurrentExecutionEngine;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.dse.ConcurrentExecutionEngine;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.Activator;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.views.step.LogicalStepsView;
@@ -107,8 +108,11 @@ public class Launcher extends AbstractGemocLauncher<IConcurrentExecutionContext>
 						"Cannot instanciate solver from language definition", e));
 			}
 
-			_executionEngine = new ConcurrentExecutionEngine(concurrentexecutionContext, _solver);
-
+			if (runConfiguration.getIsExhaustiveSimulation()) {
+				_executionEngine = new ExhaustiveConcurrentExecutionEngine(concurrentexecutionContext, _solver);
+			}else {
+				_executionEngine = new ConcurrentExecutionEngine(concurrentexecutionContext, _solver);
+			}
 			openViewsRecommandedByAddons(runConfiguration);
 
 			// And we start it within a dedicated job

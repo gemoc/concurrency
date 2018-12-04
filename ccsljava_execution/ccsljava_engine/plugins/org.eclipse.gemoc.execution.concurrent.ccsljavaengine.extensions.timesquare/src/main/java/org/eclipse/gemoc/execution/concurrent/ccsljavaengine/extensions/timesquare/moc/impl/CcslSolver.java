@@ -337,6 +337,7 @@ public class CcslSolver implements org.eclipse.gemoc.execution.concurrent.ccslja
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
+		solverWrapper.getSolver().clearStepData();
 	}
 	
 	@Override
@@ -563,13 +564,13 @@ public class CcslSolver implements org.eclipse.gemoc.execution.concurrent.ccslja
 		try {
 			if (((RelationModelListener) relationModelGenerator.irml).lrelation.size() == 0){
 				relationModelGenerator.addClockConstraint(step);
-				System.out.println("initialization of the occurrence relation model: done");
+//				System.out.println("initialization of the occurrence relation model: done");
 			}
 				relationModelGenerator.resolve(step);
 				lastOccurrenceRelations.addAll(relationModelGenerator.getLastOccurrenceRelations());
 		} catch (Throwable e) {
 
-			System.err.println("****************\nErreur Relation Model\n*****************\n");
+//			System.err.println("****************\nErreur Relation Model\n*****************\n");
 			throw e;
 		}
 		
