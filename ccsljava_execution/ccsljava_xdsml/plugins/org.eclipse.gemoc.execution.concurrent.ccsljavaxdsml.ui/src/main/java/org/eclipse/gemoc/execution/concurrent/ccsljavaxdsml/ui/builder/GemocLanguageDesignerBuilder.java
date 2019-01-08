@@ -12,8 +12,13 @@ package org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.builder;
 
 import java.io.IOException;
 import java.lang.reflect.Array;
+import java.lang.reflect.Type;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -29,8 +34,10 @@ import org.eclipse.core.resources.IResourceVisitor;
 import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -45,6 +52,7 @@ import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.ui.Activator;
 import org.eclipse.gemoc.xdsmlframework.api.extensions.languages.LanguageDefinitionExtensionPoint;
 import org.eclipse.gemoc.xdsmlframework.ide.ui.builder.pde.PluginXMLHelper;
 import org.eclipse.jdt.core.IJavaElement;
+import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IMember;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.JavaModelException;
@@ -54,7 +62,9 @@ import org.eclipse.jdt.core.search.SearchEngine;
 import org.eclipse.jdt.core.search.TypeNameMatch;
 import org.eclipse.jdt.core.search.TypeNameMatchRequestor;
 import org.eclipse.jdt.internal.core.SourceField;
+import org.eclipse.jdt.internal.core.SourceFieldElementInfo;
 import org.eclipse.jdt.internal.corext.util.JdtFlags;
+import org.eclipse.jdt.launching.JavaRuntime;
 import org.jdom2.Element;
 import org.osgi.framework.BundleException;
 
@@ -309,51 +319,61 @@ public class GemocLanguageDesignerBuilder extends IncrementalProjectBuilder {
 			}
 			char[][] typeNames= new char[][] { simpleName.toCharArray() };
 
-			IType aspectClass = findAnyTypeInWorkspace(qualifications, typeNames);
-			IJavaElement[] allChildren = aspectClass.getChildren();
+			IType aspectIType = findAnyTypeInWorkspace(qualifications, typeNames);			
+			if (aspectIType == null) {
+				System.err.println("type \""+simpleName+"\" not found");
+				continue;
+			}
+			
+			IJavaProject aspectProject = aspectIType.getJavaProject();
+			String[] classPathEntries = JavaRuntime.computeDefaultRuntimeClassPath(aspectProject);
+
+			List<URL> urlList = new ArrayList<URL>();
+			for (int i = 0; i < classPathEntries.length; i++) {
+			 String entry = classPathEntries[i];
+			 IPath path = new Path(entry);
+			 URL url = path.toFile().toURI().toURL();
+			 urlList.add(url);
+			}
+
+			ClassLoader parentClassLoader = aspectProject.getClass().getClassLoader();
+			URL[] urls = (URL[]) urlList.toArray(new URL[urlList.size()]);
+			URLClassLoader classLoader = new URLClassLoader(urls, parentClassLoader);
+			Class<?> aspectClass = classLoader.loadClass(aspectIType.getFullyQualifiedName());
+			
+			IJavaElement[] allChildren = aspectIType.getChildren();
 			for(int i = 0; i < allChildren.length; i++) {
 				IJavaElement javaElem = allChildren[i];
 				if (javaElem instanceof SourceField ) {
 					setAspectsWithRTDs.add(originalAspectClassName);
 					SourceField f = (SourceField)javaElem;
 					mapAspectProperties.put(originalAspectClassName, f.getElementName());
-//				if(f.isAccessible()) {
-					
-					String fieldTypeName = f.getTypeSignature().substring(1,f.getTypeSignature().length()-1);
-					int dotType= fieldTypeName.lastIndexOf('.');
-					char[][] qualificationsType;
-					String simpleNameType;
-					if (dotType != -1) {
-						qualificationsType= new char[][] { fieldTypeName.substring(0, dotType).toCharArray() };
-						simpleNameType= fieldTypeName.substring(dotType + 1);
-					} else {
-						qualificationsType= null;
-						simpleNameType= fieldTypeName;
+
+					try {
+						String fieldName = f.getElementName();
+						Type fieldType = aspectClass.getField(fieldName).getType();
+						String fieldTypeName = fieldType.getTypeName();
+						
+//						if(fieldType != null) {
+//							if(!fieldName.equals("Object") && !fieldName.equals("String")) {
+//								sbExtraImport.append("import "+fieldTypeName+";\n");
+//							}
+							sbContent.append("  public static "+fieldTypeName +" get"+f.getElementName()+"(EObject eObject) {\n" + 
+							"		return ("+fieldTypeName +")  getAspectProperty(eObject, \""+fullLanguageName+"\", \""+originalAspectClassName+"\", \""+f.getElementName()+"\");\n" + 
+							"	}\n");
+		
+							sbContent.append("	public static boolean set"+f.getElementName()+"(EObject eObject, "+fieldTypeName +" newValue) {\n" + 
+									"		return setAspectProperty(eObject, \""+fullLanguageName+"\", \""+originalAspectClassName+"\", \""+f.getElementName()+"\", newValue);\n" + 
+									"	}\n");
+						
+					} catch (NoSuchFieldException | SecurityException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
 					}
-					//remove template param
-					if(simpleNameType.contains("<")) {
-						simpleNameType = simpleNameType.replaceAll("<(.*)>", "");
-					}
-					
-					char[][] typeNamesType= new char[][] { simpleNameType.toCharArray() };
-					IType fieldType = findAnyTypeInWorkspace(qualificationsType, typeNamesType);
-					if(fieldType != null) {
-						String fieldName = fieldType.getElementName();
-						if(!fieldName.equals("Object") && !fieldName.equals("String")) {
-							sbExtraImport.append("import "+fieldType.getFullyQualifiedName()+";\n");
-						}
-						sbContent.append("  public static "+simpleNameType +" get"+f.getElementName()+"(EObject eObject) {\n" + 
-						"		return ("+simpleNameType +")  getAspectProperty(eObject, \""+fullLanguageName+"\", \""+originalAspectClassName+"\", \""+f.getElementName()+"\");\n" + 
-						"	}\n");
-	
-						sbContent.append("	public static boolean set"+f.getElementName()+"(EObject eObject, "+simpleNameType +" newValue) {\n" + 
-								"		return setAspectProperty(eObject, \""+fullLanguageName+"\", \""+originalAspectClassName+"\", \""+f.getElementName()+"\", newValue);\n" + 
-								"	}\n");
-					}else {
-						System.out.println(typeNamesType);
-					}
+
 				}
 			}
+			classLoader.close();
 		}
 
 		fileContent = fileContent.replaceAll(
