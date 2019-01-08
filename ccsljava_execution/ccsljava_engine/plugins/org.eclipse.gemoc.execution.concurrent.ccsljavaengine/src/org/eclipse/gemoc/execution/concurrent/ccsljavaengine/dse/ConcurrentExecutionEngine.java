@@ -15,7 +15,6 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 import java.util.function.Consumer;
 
 import org.eclipse.core.runtime.CoreException;
@@ -26,14 +25,12 @@ import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.commons.ConcurrentM
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionContext;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionPlatform;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentRunConfiguration;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IFutureAction;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.ILogicalStepDecider;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.CodeExecutionException;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.dse.IMSEStateController;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.languages.ConcurrentLanguageDefinitionExtension;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
 import org.eclipse.gemoc.executionframework.engine.Activator;
 import org.eclipse.gemoc.executionframework.engine.core.AbstractExecutionEngine;
@@ -46,7 +43,6 @@ import org.eclipse.gemoc.trace.commons.model.trace.ParallelStep;
 import org.eclipse.gemoc.trace.commons.model.trace.SmallStep;
 import org.eclipse.gemoc.trace.commons.model.trace.Step;
 import org.eclipse.gemoc.xdsmlframework.api.core.EngineStatus;
-import org.eclipse.gemoc.xdsmlframework.api.core.IDisposable;
 import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionContext;
 import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine;
 import org.eclipse.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
@@ -94,7 +90,7 @@ import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel;
  */
 public class ConcurrentExecutionEngine extends AbstractExecutionEngine<IConcurrentExecutionContext, IConcurrentRunConfiguration>implements IConcurrentExecutionEngine{
 
-	private IMSEStateController _mseStateController;
+	protected IMSEStateController _mseStateController;
 	
 	
 	public ConcurrentExecutionEngine(IConcurrentExecutionContext concurrentexecutionContext, ISolver s) throws CoreException 
@@ -212,7 +208,7 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine<IConcurre
 			return null;
 	}
 
-	private ISolver _solver;
+	protected ISolver _solver;
 
 	@Override
 	public ISolver getSolver() {
@@ -356,8 +352,8 @@ public class ConcurrentExecutionEngine extends AbstractExecutionEngine<IConcurre
 		}
 	}
 
-	private ArrayList<IFutureAction> _futureActions = new ArrayList<>();
-	private Object _futureActionsLock = new Object();
+	protected ArrayList<IFutureAction> _futureActions = new ArrayList<>();
+	protected Object _futureActionsLock = new Object();
 
 	@Override
 	public void addFutureAction(IFutureAction action) {
