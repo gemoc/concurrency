@@ -21,27 +21,18 @@ import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.compare.Comparison;
-import org.eclipse.emf.compare.Diff;
-import org.eclipse.emf.compare.DifferenceState;
-import org.eclipse.emf.compare.EMFCompare;
-import org.eclipse.emf.compare.internal.spec.AttributeChangeSpec;
-import org.eclipse.emf.compare.scope.DefaultComparisonScope;
-import org.eclipse.emf.compare.scope.IComparisonScope;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EContentAdapter;
-import org.eclipse.emf.ecore.util.EcoreUtil.Copier;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.dsa.helper.IK3ModelStateHelper;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.rtd.modelstate.k3ModelState.K3ModelState;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionContext;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.CodeExecutionException;
-import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
 import org.eclipse.gemoc.executionframework.engine.Activator;
 import org.eclipse.gemoc.executionframework.engine.core.CommandExecution;
@@ -81,7 +72,7 @@ public class EventSchedulingModelExecutionTracingAddon implements IEngineAddon {
 	byte[] _lastRestoredSolverState;
 	private EContentAdapter adapter;
 	private boolean shouldSave = true;
-	private boolean stateChanged = false;
+//	private boolean stateChanged = false;
 	private boolean _backToPastHappened = false;
 	private boolean _cannotSaveTrace = false;
 	
@@ -171,6 +162,7 @@ public class EventSchedulingModelExecutionTracingAddon implements IEngineAddon {
 	private File outputRestoreTmp = null;
 	private FileOutputStream outputRestoreTmpStream = null;
 	private PrintWriter outputRestoreTmpWriter = null;
+	private IK3ModelStateHelper modelStateHelper = null;
 	
 	@Override
 	public void engineAboutToStop(IExecutionEngine<?> engine) {
@@ -224,70 +216,14 @@ public class EventSchedulingModelExecutionTracingAddon implements IEngineAddon {
 	 * @param restoreAspects
 	 */
 	private void restoreModelState(ModelState state, boolean restoreAspects) {
-//		if(_limitedMode){
-//			Activator.getDefault().error("incorrect call, restoreModelState of this addon doesn't work with Engine that aren't concurrent");
-//		}
-		EObject left = state.getModel();
-		EObject right = _executionContext.getResourceModel().getContents().get(0);
-
-		IComparisonScope scope = new DefaultComparisonScope(left, right, null);
-		EMFCompare build = EMFCompare.builder().build();
-		Comparison comparison = build.compare(scope);
-		List<Diff> differences = comparison.getDifferences();
-
-		Merger merger = new Merger();
-
-		BasicMonitor monitor = new BasicMonitor();
-		for (Diff diff : differences) {
-
-			if (diff instanceof AttributeChangeSpec) {
-				// if attribute, modify value on the aspect side that will
-				// modify the model in return.
-				AttributeChangeSpec asc = (AttributeChangeSpec) diff;
-				EObject target = diff.getMatch().getRight();
-				String methodName = asc.getAttribute().getName();
-				ArrayList<Object> parameters = new ArrayList<Object>();
-				parameters.add(asc.getValue());
-				if (restoreAspects) {
-					ICodeExecutor codeExecutor = ((IConcurrentExecutionContext)_executionContext).getExecutionPlatform().getCodeExecutor();
-					try {
-						System.out.println("Begin setting " + target.toString() + "." + methodName + " = "
-								+ asc.getValue());
-						codeExecutor.execute(target, methodName, parameters);
-						System.out.println("End setting " + target.toString() + "." + methodName + " = "
-								+ asc.getValue());
-					} catch (CodeExecutionException e) {
-						// TODO Auto-generated catch block
-						// e.printStackTrace();
-						System.out.println("Coudln't set value with aspects, using normal setter.");
-						try {
-							target.eSet(asc.getAttribute(), asc.getValue());
-						} catch (IllegalArgumentException e2) {
-							System.out.println("Didn't work either...");
-						}
-					}
-				} else {
-					try {
-						target.eSet(asc.getAttribute(), asc.getValue());
-					} catch (IllegalArgumentException e2) {
-						System.out.println("WARNING - Couldn't set value.");
-					}
-				}
-			} else {
-				// if reference, use the merger.
-				merger.copyLeftToRight(diff, monitor);
-				diff.setState(DifferenceState.UNRESOLVED);
-			}
-		}
+		modelStateHelper.restoreModelState((K3ModelState) state.getModel());
 	}
 
 	private void restoreSolverState(Choice choice) {
-
 		if (_executionEngine instanceof IConcurrentExecutionEngine) {
 			IConcurrentExecutionEngine engine_cast = (IConcurrentExecutionEngine) _executionEngine;
 			ISolver solver = engine_cast.getSolver();
-			Activator.getDefault().debug(
-					"restoring solver state: " + choice.getContextState().getSolverState().getSerializableModel());
+			Activator.getDefault().debug("restoring solver state: " + choice.getContextState().getSolverState().getSerializableModel());
 			solver.setState(choice.getContextState().getSolverState().getSerializableModel());
 		}
 	}
@@ -305,28 +241,38 @@ public class EventSchedulingModelExecutionTracingAddon implements IEngineAddon {
 
 			ExecutionTraceModel traceModel = (ExecutionTraceModel) traceResource.getContents().get(0);
 
-			if (stateChanged || currentState == null) {
+//			if (stateChanged || currentState == null) {
 				Activator.getDefault().debug(String.format("[trace-%10s] new model state %3d detected", 
 						getCurrentEngineShortName(),
 						traceModel.getReachedStates().size()));
-
-				ModelState modelState = null;
-				// copy the model
-				Copier copier = new GCopier();
-				EObject result = copier.copy(_executionContext.getResourceModel().getContents().get(0));
-				copier.copyReferences();
-
+		//new way to save RTDs		
+				String fullLanguageName = this._executionContext.getLanguageDefinitionExtension().getName();
+				int lastDot = fullLanguageName.lastIndexOf(".");
+				if(lastDot == -1)lastDot = 0;
+				String languageName = fullLanguageName.substring(lastDot+1);
+				String languageToUpperFirst = languageName.substring(0, 1).toUpperCase() + languageName.substring(1);
+				if(modelStateHelper == null) {
+					try {
+						modelStateHelper = (IK3ModelStateHelper) this._executionContext.getDslBundle().loadClass(languageToUpperFirst.toLowerCase()+".xdsml.api.impl."+languageToUpperFirst+"ModelStateHelper").newInstance();
+					} catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
+						e.printStackTrace();
+					}
+				}
+				EObject model = this._executionContext.getResourceModel().getContents().get(0);	
+				K3ModelState result = modelStateHelper.getK3ModelState(model);
+				
 				// No one needs to observe the clone
 				result.eAdapters().clear();
+				ModelState modelState = null;
 				modelState = Gemoc_execution_traceFactory.eINSTANCE.createModelState();
 				traceModel.getReachedStates().add(modelState);
 				modelState.setModel(result);
 				currentState = modelState;
 				traceResource.getContents().add(result);
-				stateChanged = false;
+//				stateChanged = false;
 
 			}
-		}
+//		}
 	}
 
 	/**
@@ -421,7 +367,7 @@ public class EventSchedulingModelExecutionTracingAddon implements IEngineAddon {
 				@Override
 				public void notifyChanged(Notification notification) {
 					super.notifyChanged(notification);
-					stateChanged = true;
+//					stateChanged = true;
 
 				}
 
