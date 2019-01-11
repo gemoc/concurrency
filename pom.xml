@@ -28,8 +28,9 @@
         <repository>
             <id>timesquare</id>
             <layout>p2</layout>
-               <url>http://www.i3s.unice.fr/~deantoni/photon/</url>
-<!--           <url>http://timesquare.inria.fr/update_site/photon</url> -->
+<!--           <url>            http://www.i3s.unice.fr/~deantoni/photon/ -->
+	       <url>http://files.inria.fr/timesquare/update_site/photon/</url>
+<!--           <url>http://timesquare.inria.fr/update_site/photon</url> 
         </repository>
 <!--         <repository>
             <id>moccml mapping</id>
