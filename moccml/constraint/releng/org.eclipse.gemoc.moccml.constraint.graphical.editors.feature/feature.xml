@@ -8,7 +8,7 @@
    
     Contributors:
         I3S Laboratory - initial API and implementation
- *     ENSTA Bretagne - API update, feature enhancement and bug fix
+        ENSTA Bretagne - API update, feature enhancement and bug fix
  -->
 <feature
       id="org.eclipse.gemoc.moccml.constraint.graphical.editors.feature"
