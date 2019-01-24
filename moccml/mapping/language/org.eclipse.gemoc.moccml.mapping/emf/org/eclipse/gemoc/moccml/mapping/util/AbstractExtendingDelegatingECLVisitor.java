@@ -1,28 +1,14 @@
-/**
- * <copyright>
- *
- * Copyright (c) 2010,2017 E.D.Willink and others.
+/*******************************************************************************
+ * Copyright (c) 2012, 2019 I3S laboratory and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     E.D.Willink - initial API and implementation
- *
- * </copyright>
- *
- * This code is auto-generated
- * from: /org.eclipse.ocl.examples.xtext.completeocl/model/CompleteOCLCST.ecore
- * by: org.eclipse.ocl.examples.build.acceleo.GenerateVisitor
- * defined by: org.eclipse.ocl.examples.build.acceleo.generateVisitors.mtl
- * invoked by: org.eclipse.ocl.examples.build.utilities.*
- * from: org.eclipse.ocl.examples.build.*.mwe2
- *
- * Do not edit it.
- *
- * $Id$
- */
+ *     I3S Laboratory - initial API and implementation
+ *     ENSTA Bretagne - API update, feature enhancement and bug fix
+ *******************************************************************************/
 package	org.eclipse.gemoc.moccml.mapping.util;
 
 import org.eclipse.gemoc.moccml.mapping.moccml_mapping.ECLBlockDefCS;

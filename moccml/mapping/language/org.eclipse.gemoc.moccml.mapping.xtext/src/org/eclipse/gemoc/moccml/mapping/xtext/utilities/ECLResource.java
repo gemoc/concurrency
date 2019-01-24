@@ -1,19 +1,14 @@
-/**
- * <copyright>
- *
- * Copyright (c) 2011, 2017 E.D.Willink and others.
+/*******************************************************************************
+ * Copyright (c) 2012, 2019 I3S laboratory and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     E.D.Willink - initial API and implementation
- *
- * </copyright>
- *
- * $Id: ECLResource.java,v 1.1 2011/02/08 17:53:05 ewillink Exp $
- */
+ *     I3S Laboratory - initial API and implementation
+ *     ENSTA Bretagne - API update, feature enhancement and bug fix
+ *******************************************************************************/
 package org.eclipse.gemoc.moccml.mapping.xtext.utilities;
 
 import java.util.Map;
