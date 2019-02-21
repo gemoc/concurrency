@@ -49,6 +49,9 @@ public class ControlAndRTDState implements Serializable {
 	}
 	
 	private boolean areEquals(ElementState modelElementState, ElementState newStateElemState) {
+        if (!modelElementState.getModelElement().equals(newStateElemState.getModelElement())) {
+            return false;
+        }
 		for(Object newStateRTD :  newStateElemState.getSavedRTDs()) {
 			boolean RTDfound = false;
 			for(Object modelRTD :  modelElementState.getSavedRTDs()) {
